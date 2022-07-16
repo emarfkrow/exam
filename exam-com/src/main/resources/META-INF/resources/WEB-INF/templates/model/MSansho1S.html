@@ -14,6 +14,8 @@
   <div layout:fragment="article">
     <h2 th:text="#{MSansho1S.h2}">h2</h2>
     <form name="MSansho1SearchForm" action="MSansho1Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{MSansho1S.legend}">legend</legend>
         <div id="sansho1Id">

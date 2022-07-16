@@ -14,6 +14,8 @@
   <div layout:fragment="article">
     <h2 th:text="#{TShisonS.h2}">h2</h2>
     <form name="TShisonSearchForm" action="TShisonSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{TShisonS.legend}">legend</legend>
         <div id="sosenId">

@@ -14,6 +14,8 @@
   <div layout:fragment="article">
     <h2 th:text="#{TTenpuFileS.h2}">h2</h2>
     <form name="TTenpuFileSearchForm" action="TTenpuFileSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{TTenpuFileS.legend}">legend</legend>
         <div id="sosenId">
