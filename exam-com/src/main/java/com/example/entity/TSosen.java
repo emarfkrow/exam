@@ -230,7 +230,7 @@ public class TSosen implements IEntity {
         }
         String sql = "SELECT CASE WHEN MAX(e.`SOSEN_ID`) IS NULL THEN 0 ELSE MAX(e.`SOSEN_ID`) * 1 END + 1 AS `SOSEN_ID` FROM t_sosen e";
         Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("SOSEN_ID");
         this.setSosenId(o);
     }
@@ -354,6 +354,6 @@ public class TSosen implements IEntity {
         String sql = "SELECT * FROM t_oya WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
-        return Queries.select(sql, map, TOya.class);
+        return Queries.select(sql, map, TOya.class, null, null);
     }
 }

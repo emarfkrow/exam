@@ -294,7 +294,7 @@ public class MShozoku implements IEntity {
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("busho_id", this.bushoId);
         map.put("shokui_id", this.shokuiId);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("USER_ID");
         this.setUserId(o);
     }

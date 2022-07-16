@@ -44,7 +44,7 @@ public class B0002Job extends BaseJob {
 
         String sql = this.loadSqlFile("TEntitySearch");
         Map<String, Object> params = new HashMap<String, Object>();
-        MapList list = Queries.select(sql, params);
+        MapList list = Queries.select(sql, params, null, null);
 
         LOG.debug(list.toString());
     }

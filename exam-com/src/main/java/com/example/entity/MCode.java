@@ -339,6 +339,6 @@ public class MCode implements IEntity {
         String sql = "SELECT * FROM m_code_value WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code_nm", param1);
-        return Queries.select(sql, map, MCodeValue.class);
+        return Queries.select(sql, map, MCodeValue.class, null, null);
     }
 }

@@ -222,7 +222,7 @@ public class MSansho1 implements IEntity {
         }
         String sql = "SELECT CASE WHEN MAX(e.`SANSHO1_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO1_ID`) * 1 END + 1 AS `SANSHO1_ID` FROM m_sansho1 e";
         Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("SANSHO1_ID");
         this.setSansho1Id(o);
     }

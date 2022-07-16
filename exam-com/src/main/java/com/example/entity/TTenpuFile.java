@@ -319,7 +319,7 @@ public class TTenpuFile implements IEntity {
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("TENPU_FILE_SN");
         this.setTenpuFileSn(o);
     }

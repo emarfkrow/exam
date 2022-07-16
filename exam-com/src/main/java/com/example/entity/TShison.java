@@ -324,7 +324,7 @@ public class TShison implements IEntity {
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
         map.put("ko_sn", this.koSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("SHISON_SN");
         this.setShisonSn(o);
     }

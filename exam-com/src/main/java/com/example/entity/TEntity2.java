@@ -583,7 +583,7 @@ public class TEntity2 implements IEntity {
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("ENTITY_SN");
         this.setEntitySn(o);
     }

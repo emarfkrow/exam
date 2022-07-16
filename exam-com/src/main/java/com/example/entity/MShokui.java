@@ -282,7 +282,7 @@ public class MShokui implements IEntity {
         }
         String sql = "SELECT CASE WHEN MAX(e.`SHOKUI_ID`) IS NULL THEN 0 ELSE MAX(e.`SHOKUI_ID`) * 1 END + 1 AS `SHOKUI_ID` FROM m_shokui e";
         Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("SHOKUI_ID");
         this.setShokuiId(o);
     }

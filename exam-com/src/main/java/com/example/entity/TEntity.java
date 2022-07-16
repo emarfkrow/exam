@@ -441,7 +441,7 @@ public class TEntity implements IEntity {
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("ENTITY_SN");
         this.setEntitySn(o);
     }
@@ -674,7 +674,7 @@ public class TEntity implements IEntity {
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
         map.put("entity_sn", param3);
-        return Queries.select(sql, map, TKo.class);
+        return Queries.select(sql, map, TKo.class, null, null);
     }
 
     /** 添付ファイルのリスト */
@@ -723,6 +723,6 @@ public class TEntity implements IEntity {
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
         map.put("entity_sn", param3);
-        return Queries.select(sql, map, TTenpuFile.class);
+        return Queries.select(sql, map, TTenpuFile.class, null, null);
     }
 }

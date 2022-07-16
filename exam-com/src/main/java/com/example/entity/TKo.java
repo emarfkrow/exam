@@ -310,7 +310,7 @@ public class TKo implements IEntity {
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
         Object o = mapList.get(0).get("KO_SN");
         this.setKoSn(o);
     }
@@ -455,6 +455,6 @@ public class TKo implements IEntity {
         map.put("oya_sn", param2);
         map.put("entity_sn", param3);
         map.put("ko_sn", param4);
-        return Queries.select(sql, map, TShison.class);
+        return Queries.select(sql, map, TShison.class, null, null);
     }
 }

@@ -74,7 +74,7 @@ public class LoginAction extends BaseAction {
         String mShozokuSearchSql = this.loadSqlFile("MShozokuSearch");
         Map<String, Object> mShozokuSearchParam = new HashMap<String, Object>();
         mShozokuSearchParam.put("userId", mUser.getUserId());
-        List<MShozoku> mShozokus = Queries.select(mShozokuSearchSql, mShozokuSearchParam, MShozoku.class);
+        List<MShozoku> mShozokus = Queries.select(mShozokuSearchSql, mShozokuSearchParam, MShozoku.class, null, null);
 
         // 所属情報に紐づく認可情報のうち最大の権限を取得
         if (mShozokus != null) {
@@ -84,7 +84,7 @@ public class LoginAction extends BaseAction {
                 Map<String, Object> mNinkaSearchParam = new HashMap<String, Object>();
                 mNinkaSearchParam.put("bushoId", mShozoku.getBushoId());
                 mNinkaSearchParam.put("shokuiId", mShozoku.getShokuiId());
-                List<MNinka> mNinkas = Queries.select(mNinkaSearchSql, mNinkaSearchParam, MNinka.class);
+                List<MNinka> mNinkas = Queries.select(mNinkaSearchSql, mNinkaSearchParam, MNinka.class, null, null);
 
                 if (mNinkas != null) {
                     for (MNinka mNinka : mNinkas) {
