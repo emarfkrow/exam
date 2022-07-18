@@ -21,7 +21,7 @@ public class MSansho1SRegistAction extends BaseAction {
 
     /** 参照１マスタ一覧登録処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
@@ -45,13 +45,13 @@ public class MSansho1SRegistAction extends BaseAction {
 
             if (isNew) {
 
-                if (e.insert(now, id) != 1) {
+                if (e.insert(now, execId) != 1) {
                     throw new OptLockError("error.cant.insert");
                 }
 
             } else {
 
-                if (e.update(now, id) != 1) {
+                if (e.update(now, execId) != 1) {
                     throw new OptLockError("error.cant.update");
                 }
             }

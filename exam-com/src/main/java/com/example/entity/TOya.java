@@ -15,6 +15,23 @@ import jp.co.golorp.emarf.sql.Queries;
  */
 public class TOya implements IEntity {
 
+    /** SlickGridのDataView用ID */
+    private java.math.BigInteger id;
+
+    /**
+     * @return id
+     */
+    public final java.math.BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * @param i セットする id
+     */
+    public final void setId(final java.math.BigInteger i) {
+        this.id = i;
+    }
+
     /** 祖先ID */
     private Integer sosenId;
 
@@ -197,10 +214,10 @@ public class TOya implements IEntity {
     /**
      * 親追加
      * @param now システム日時
-     * @param id 登録者
+     * @param execId 登録者
      * @return 追加件数
      */
-    public int insert(final LocalDateTime now, final String id) {
+    public int insert(final LocalDateTime now, final String execId) {
 
         // 親連番の採番処理
         numbering();
@@ -210,13 +227,13 @@ public class TOya implements IEntity {
             for (TEntity tEntity : this.tEntitys) {
                 tEntity.setSosenId(this.getSosenId());
                 tEntity.setOyaSn(this.getOyaSn());
-                tEntity.insert(now, id);
+                tEntity.insert(now, execId);
             }
         }
 
         // 親の登録
         String sql = "INSERT INTO t_oya(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
@@ -266,28 +283,28 @@ public class TOya implements IEntity {
     /**
      * 親更新
      * @param now システム日時
-     * @param id 更新者
+     * @param execId 更新者
      * @return 更新件数
      */
-    public int update(final LocalDateTime now, final String id) {
+    public int update(final LocalDateTime now, final String execId) {
 
         // エンティティの登録
         if (this.tEntitys != null) {
-            Queries.regist("DELETE FROM t_entity WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, id));
+            Queries.regist("DELETE FROM t_entity WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, execId));
             for (TEntity tEntity : this.tEntitys) {
                 tEntity.setSosenId(this.sosenId);
                 tEntity.setOyaSn(this.oyaSn);
                 try {
-                    tEntity.insert(now, id);
+                    tEntity.insert(now, execId);
                 } catch (Exception e) {
-                    tEntity.update(now, id);
+                    tEntity.update(now, execId);
                 }
             }
         }
 
         // 親の登録
         String sql = "UPDATE t_oya\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
@@ -330,19 +347,19 @@ public class TOya implements IEntity {
 
     /**
      * @param now システム日時
-     * @param id 実行ID
+     * @param execId 実行ID
      * @return マップ化したエンティティ
      */
-    private Map<String, Object> toMap(final LocalDateTime now, final String id) {
+    private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
         map.put("oya_mei", this.oyaMei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
-        map.put("insert_by", id);
+        map.put("insert_by", execId);
         map.put("update_dt", now);
-        map.put("update_by", id);
+        map.put("update_by", execId);
         return map;
     }
 

@@ -15,6 +15,23 @@ import jp.co.golorp.emarf.sql.Queries;
  */
 public class MCode implements IEntity {
 
+    /** SlickGridのDataView用ID */
+    private java.math.BigInteger id;
+
+    /**
+     * @return id
+     */
+    public final java.math.BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * @param i セットする id
+     */
+    public final void setId(final java.math.BigInteger i) {
+        this.id = i;
+    }
+
     /** コード名称 */
     private String codeNm;
 
@@ -176,22 +193,22 @@ public class MCode implements IEntity {
     /**
      * コードマスタ追加
      * @param now システム日時
-     * @param id 登録者
+     * @param execId 登録者
      * @return 追加件数
      */
-    public int insert(final LocalDateTime now, final String id) {
+    public int insert(final LocalDateTime now, final String execId) {
 
         // コード値マスタの登録
         if (this.mCodeValues != null) {
             for (MCodeValue mCodeValue : this.mCodeValues) {
                 mCodeValue.setCodeNm(this.getCodeNm());
-                mCodeValue.insert(now, id);
+                mCodeValue.insert(now, execId);
             }
         }
 
         // コードマスタの登録
         String sql = "INSERT INTO m_code(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
@@ -223,27 +240,27 @@ public class MCode implements IEntity {
     /**
      * コードマスタ更新
      * @param now システム日時
-     * @param id 更新者
+     * @param execId 更新者
      * @return 更新件数
      */
-    public int update(final LocalDateTime now, final String id) {
+    public int update(final LocalDateTime now, final String execId) {
 
         // コード値マスタの登録
         if (this.mCodeValues != null) {
-            Queries.regist("DELETE FROM m_code_value WHERE `CODE_NM` = :code_nm AND `CODE_VALUE` = :code_value", toMap(now, id));
+            Queries.regist("DELETE FROM m_code_value WHERE `CODE_NM` = :code_nm AND `CODE_VALUE` = :code_value", toMap(now, execId));
             for (MCodeValue mCodeValue : this.mCodeValues) {
                 mCodeValue.setCodeNm(this.codeNm);
                 try {
-                    mCodeValue.insert(now, id);
+                    mCodeValue.insert(now, execId);
                 } catch (Exception e) {
-                    mCodeValue.update(now, id);
+                    mCodeValue.update(now, execId);
                 }
             }
         }
 
         // コードマスタの登録
         String sql = "UPDATE m_code\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
@@ -284,18 +301,18 @@ public class MCode implements IEntity {
 
     /**
      * @param now システム日時
-     * @param id 実行ID
+     * @param execId 実行ID
      * @return マップ化したエンティティ
      */
-    private Map<String, Object> toMap(final LocalDateTime now, final String id) {
+    private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code_nm", this.codeNm);
         map.put("code_mei", this.codeMei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
-        map.put("insert_by", id);
+        map.put("insert_by", execId);
         map.put("update_dt", now);
-        map.put("update_by", id);
+        map.put("update_by", execId);
         return map;
     }
 

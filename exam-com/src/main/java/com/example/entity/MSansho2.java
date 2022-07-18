@@ -15,6 +15,23 @@ import jp.co.golorp.emarf.sql.Queries;
  */
 public class MSansho2 implements IEntity {
 
+    /** SlickGridのDataView用ID */
+    private java.math.BigInteger id;
+
+    /**
+     * @return id
+     */
+    public final java.math.BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * @param i セットする id
+     */
+    public final void setId(final java.math.BigInteger i) {
+        this.id = i;
+    }
+
     /** 参照２ID */
     private String sansho2Id;
 
@@ -176,17 +193,17 @@ public class MSansho2 implements IEntity {
     /**
      * 参照２マスタ追加
      * @param now システム日時
-     * @param id 登録者
+     * @param execId 登録者
      * @return 追加件数
      */
-    public int insert(final LocalDateTime now, final String id) {
+    public int insert(final LocalDateTime now, final String execId) {
 
         // 参照２IDの採番処理
         numbering();
 
         // 参照２マスタの登録
         String sql = "INSERT INTO m_sansho2(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
@@ -230,14 +247,14 @@ public class MSansho2 implements IEntity {
     /**
      * 参照２マスタ更新
      * @param now システム日時
-     * @param id 更新者
+     * @param execId 更新者
      * @return 更新件数
      */
-    public int update(final LocalDateTime now, final String id) {
+    public int update(final LocalDateTime now, final String execId) {
 
         // 参照２マスタの登録
         String sql = "UPDATE m_sansho2\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
@@ -271,18 +288,18 @@ public class MSansho2 implements IEntity {
 
     /**
      * @param now システム日時
-     * @param id 実行ID
+     * @param execId 実行ID
      * @return マップ化したエンティティ
      */
-    private Map<String, Object> toMap(final LocalDateTime now, final String id) {
+    private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sansho2_id", this.sansho2Id);
         map.put("sansho2_mei", this.sansho2Mei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
-        map.put("insert_by", id);
+        map.put("insert_by", execId);
         map.put("update_dt", now);
-        map.put("update_by", id);
+        map.put("update_by", execId);
         return map;
     }
 }

@@ -15,6 +15,23 @@ import jp.co.golorp.emarf.sql.Queries;
  */
 public class TEntity implements IEntity {
 
+    /** SlickGridのDataView用ID */
+    private java.math.BigInteger id;
+
+    /**
+     * @return id
+     */
+    public final java.math.BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * @param i セットする id
+     */
+    public final void setId(final java.math.BigInteger i) {
+        this.id = i;
+    }
+
     /** 祖先ID */
     private Integer sosenId;
 
@@ -326,10 +343,10 @@ public class TEntity implements IEntity {
     /**
      * エンティティ追加
      * @param now システム日時
-     * @param id 登録者
+     * @param execId 登録者
      * @return 追加件数
      */
-    public int insert(final LocalDateTime now, final String id) {
+    public int insert(final LocalDateTime now, final String execId) {
 
         // エンティティ連番の採番処理
         numbering();
@@ -340,7 +357,7 @@ public class TEntity implements IEntity {
                 tKo.setSosenId(this.getSosenId());
                 tKo.setOyaSn(this.getOyaSn());
                 tKo.setEntitySn(this.getEntitySn());
-                tKo.insert(now, id);
+                tKo.insert(now, execId);
             }
         }
 
@@ -350,7 +367,7 @@ public class TEntity implements IEntity {
                 tTenpuFile.setSosenId(this.getSosenId());
                 tTenpuFile.setOyaSn(this.getOyaSn());
                 tTenpuFile.setEntitySn(this.getEntitySn());
-                tTenpuFile.insert(now, id);
+                tTenpuFile.insert(now, execId);
             }
         }
 
@@ -359,7 +376,7 @@ public class TEntity implements IEntity {
             this.tEntity2.setSosenId(this.getSosenId());
             this.tEntity2.setOyaSn(this.getOyaSn());
             this.tEntity2.setEntitySn(this.getEntitySn());
-            this.tEntity2.insert(now, id);
+            this.tEntity2.insert(now, execId);
         }
 
         // エンティティ履歴の登録
@@ -379,11 +396,11 @@ public class TEntity implements IEntity {
         tEntityHis.setUpdateDt(this.updateDt);
         tEntityHis.setUpdateBy(this.updateBy);
         tEntityHis.setDeleteF(this.deleteF);
-        tEntityHis.insert(now, id);
+        tEntityHis.insert(now, execId);
 
         // エンティティの登録
         String sql = "INSERT INTO t_entity(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
@@ -449,37 +466,37 @@ public class TEntity implements IEntity {
     /**
      * エンティティ更新
      * @param now システム日時
-     * @param id 更新者
+     * @param execId 更新者
      * @return 更新件数
      */
-    public int update(final LocalDateTime now, final String id) {
+    public int update(final LocalDateTime now, final String execId) {
 
         // 子の登録
         if (this.tKos != null) {
-            Queries.regist("DELETE FROM t_ko WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `KO_SN` = :ko_sn", toMap(now, id));
+            Queries.regist("DELETE FROM t_ko WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `KO_SN` = :ko_sn", toMap(now, execId));
             for (TKo tKo : this.tKos) {
                 tKo.setSosenId(this.sosenId);
                 tKo.setOyaSn(this.oyaSn);
                 tKo.setEntitySn(this.entitySn);
                 try {
-                    tKo.insert(now, id);
+                    tKo.insert(now, execId);
                 } catch (Exception e) {
-                    tKo.update(now, id);
+                    tKo.update(now, execId);
                 }
             }
         }
 
         // 添付ファイルの登録
         if (this.tTenpuFiles != null) {
-            Queries.regist("DELETE FROM t_tenpu_file WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `TENPU_FILE_SN` = :tenpu_file_sn", toMap(now, id));
+            Queries.regist("DELETE FROM t_tenpu_file WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `TENPU_FILE_SN` = :tenpu_file_sn", toMap(now, execId));
             for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
                 tTenpuFile.setSosenId(this.sosenId);
                 tTenpuFile.setOyaSn(this.oyaSn);
                 tTenpuFile.setEntitySn(this.entitySn);
                 try {
-                    tTenpuFile.insert(now, id);
+                    tTenpuFile.insert(now, execId);
                 } catch (Exception e) {
-                    tTenpuFile.update(now, id);
+                    tTenpuFile.update(now, execId);
                 }
             }
         }
@@ -490,9 +507,9 @@ public class TEntity implements IEntity {
             tEntity2.setOyaSn(this.getOyaSn());
             tEntity2.setEntitySn(this.getEntitySn());
             try {
-                tEntity2.insert(now, id);
+                tEntity2.insert(now, execId);
             } catch (Exception e) {
-                tEntity2.update(now, id);
+                tEntity2.update(now, execId);
             }
         }
 
@@ -513,11 +530,11 @@ public class TEntity implements IEntity {
         tEntityHis.setUpdateDt(this.updateDt);
         tEntityHis.setUpdateBy(this.updateBy);
         tEntityHis.setDeleteF(this.deleteF);
-        tEntityHis.insert(now, id);
+        tEntityHis.insert(now, execId);
 
         // エンティティの登録
         String sql = "UPDATE t_entity\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
@@ -580,10 +597,10 @@ public class TEntity implements IEntity {
 
     /**
      * @param now システム日時
-     * @param id 実行ID
+     * @param execId 実行ID
      * @return マップ化したエンティティ
      */
-    private Map<String, Object> toMap(final LocalDateTime now, final String id) {
+    private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
@@ -597,9 +614,9 @@ public class TEntity implements IEntity {
         map.put("betsu_sansho1_mei", this.betsuSansho1Mei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
-        map.put("insert_by", id);
+        map.put("insert_by", execId);
         map.put("update_dt", now);
-        map.put("update_by", id);
+        map.put("update_by", execId);
         return map;
     }
 

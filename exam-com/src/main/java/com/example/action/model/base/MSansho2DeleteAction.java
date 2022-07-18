@@ -20,7 +20,7 @@ public class MSansho2DeleteAction extends BaseAction {
 
     /** 参照２マスタ削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
         Object sansho2Id = postJson.get("sansho2Id");

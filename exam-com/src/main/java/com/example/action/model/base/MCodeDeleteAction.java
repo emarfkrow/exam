@@ -20,7 +20,7 @@ public class MCodeDeleteAction extends BaseAction {
 
     /** コードマスタ削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
         Object codeNm = postJson.get("codeNm");

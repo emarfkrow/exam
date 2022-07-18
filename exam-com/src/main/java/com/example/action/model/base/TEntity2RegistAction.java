@@ -20,7 +20,7 @@ public class TEntity2RegistAction extends BaseAction {
 
     /** エンティティ２登録処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
@@ -40,7 +40,7 @@ public class TEntity2RegistAction extends BaseAction {
 
         if (isNew) {
 
-            if (e.insert(now, id) != 1) {
+            if (e.insert(now, execId) != 1) {
                 throw new OptLockError("error.cant.insert");
             }
 
@@ -48,9 +48,9 @@ public class TEntity2RegistAction extends BaseAction {
 
         } else {
 
-            if (e.update(now, id) == 1) {
+            if (e.update(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.update"));
-            } else if (e.insert(now, id) == 1) {
+            } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
                 throw new OptLockError("error.cant.update");

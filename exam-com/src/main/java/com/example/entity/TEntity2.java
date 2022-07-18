@@ -15,6 +15,23 @@ import jp.co.golorp.emarf.sql.Queries;
  */
 public class TEntity2 implements IEntity {
 
+    /** SlickGridのDataView用ID */
+    private java.math.BigInteger id;
+
+    /**
+     * @return id
+     */
+    public final java.math.BigInteger getId() {
+        return id;
+    }
+
+    /**
+     * @param i セットする id
+     */
+    public final void setId(final java.math.BigInteger i) {
+        this.id = i;
+    }
+
     /** 祖先ID */
     private Integer sosenId;
 
@@ -497,17 +514,17 @@ public class TEntity2 implements IEntity {
     /**
      * エンティティ２追加
      * @param now システム日時
-     * @param id 登録者
+     * @param execId 登録者
      * @return 追加件数
      */
-    public int insert(final LocalDateTime now, final String id) {
+    public int insert(final LocalDateTime now, final String execId) {
 
         // エンティティ連番の採番処理
         numbering();
 
         // エンティティ２の登録
         String sql = "INSERT INTO t_entity2(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
@@ -591,14 +608,14 @@ public class TEntity2 implements IEntity {
     /**
      * エンティティ２更新
      * @param now システム日時
-     * @param id 更新者
+     * @param execId 更新者
      * @return 更新件数
      */
-    public int update(final LocalDateTime now, final String id) {
+    public int update(final LocalDateTime now, final String execId) {
 
         // エンティティ２の登録
         String sql = "UPDATE t_entity2\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
-        return Queries.regist(sql, toMap(now, id));
+        return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
@@ -651,10 +668,10 @@ public class TEntity2 implements IEntity {
 
     /**
      * @param now システム日時
-     * @param id 実行ID
+     * @param execId 実行ID
      * @return マップ化したエンティティ
      */
-    private Map<String, Object> toMap(final LocalDateTime now, final String id) {
+    private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
@@ -677,9 +694,9 @@ public class TEntity2 implements IEntity {
         map.put("kingaku_am", this.kingakuAm);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
-        map.put("insert_by", id);
+        map.put("insert_by", execId);
         map.put("update_dt", now);
-        map.put("update_by", id);
+        map.put("update_by", execId);
         return map;
     }
 }

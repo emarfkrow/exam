@@ -21,7 +21,7 @@ public class TEntityHisSDeleteAction extends BaseAction {
 
     /** エンティティ履歴一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
