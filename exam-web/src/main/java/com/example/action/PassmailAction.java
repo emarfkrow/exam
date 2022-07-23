@@ -13,6 +13,7 @@ import jp.co.golorp.emarf.mail.MailInfo;
 import jp.co.golorp.emarf.mail.Mailer;
 import jp.co.golorp.emarf.properties.App;
 import jp.co.golorp.emarf.servlet.http.ServletUtil;
+import jp.co.golorp.emarf.time.DateTimeUtil;
 import jp.co.golorp.emarf.util.Messages;
 
 /**
@@ -49,7 +50,7 @@ public class PassmailAction extends BaseAction {
             throw new AppError("error.passmail");
         }
 
-        String ymdhmsS = jp.co.golorp.emarf.time.LocalDateTime.ymdhmsS();
+        String ymdhmsS = DateTimeUtil.ymdhmsS();
         String hash = StringUtil.hash(userId + ymdhmsS);
 
         this.getSession().setAttribute(hash, userId);
