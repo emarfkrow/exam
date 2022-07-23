@@ -374,6 +374,24 @@ public class TEntity2RegistForm implements IForm {
         this.kingakuAm = p;
     }
 
+    /** 8桁日 */
+    @jakarta.validation.constraints.Size(max = 8)
+    private String fig8Bi;
+
+    /**
+     * @return 8桁日
+     */
+    public String getFig8Bi() {
+        return fig8Bi;
+    }
+
+    /**
+     * @param p 8桁日
+     */
+    public void setFig8Bi(final String p) {
+        this.fig8Bi = p;
+    }
+
     /** 削除フラグ */
     @jakarta.validation.constraints.Size(max = 1)
     private String deleteF;
