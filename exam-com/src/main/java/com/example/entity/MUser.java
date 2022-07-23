@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MUser implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigDecimal id;
+    private java.math.BigInteger id;
 
     /**
      * @return id
      */
-    public final java.math.BigDecimal getId() {
+    public final java.math.BigInteger getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigDecimal i) {
+    public final void setId(final java.math.BigInteger i) {
         this.id = i;
     }
 
@@ -119,6 +119,42 @@ public class MUser implements IEntity {
             this.password = String.valueOf(o.toString());
         } else {
             this.password = null;
+        }
+    }
+
+    /** 開始日 */
+    private String kaishiYmd;
+
+    /** @return 開始日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_YMD")
+    public String getKaishiYmd() {
+        return this.kaishiYmd;
+    }
+
+    /** @param o 開始日 */
+    public void setKaishiYmd(final Object o) {
+        if (o != null) {
+            this.kaishiYmd = String.valueOf(o.toString());
+        } else {
+            this.kaishiYmd = null;
+        }
+    }
+
+    /** 終了日 */
+    private String shuryoYmd;
+
+    /** @return 終了日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_YMD")
+    public String getShuryoYmd() {
+        return this.shuryoYmd;
+    }
+
+    /** @param o 終了日 */
+    public void setShuryoYmd(final Object o) {
+        if (o != null) {
+            this.shuryoYmd = String.valueOf(o.toString());
+        } else {
+            this.shuryoYmd = null;
         }
     }
 
@@ -268,6 +304,8 @@ public class MUser implements IEntity {
         nameList.add("`USER_MEI` -- :user_mei");
         nameList.add("`EMAIL` -- :email");
         nameList.add("`PASSWORD` -- :password");
+        nameList.add("`KAISHI_YMD` -- :kaishi_ymd");
+        nameList.add("`SHURYO_YMD` -- :shuryo_ymd");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -284,6 +322,8 @@ public class MUser implements IEntity {
         valueList.add(":user_mei");
         valueList.add(":email");
         valueList.add(":password");
+        valueList.add(":kaishi_ymd");
+        valueList.add(":shuryo_ymd");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -325,6 +365,8 @@ public class MUser implements IEntity {
         setList.add("`USER_MEI` = :user_mei");
         setList.add("`EMAIL` = :email");
         setList.add("`PASSWORD` = :password");
+        setList.add("`KAISHI_YMD` = :kaishi_ymd");
+        setList.add("`SHURYO_YMD` = :shuryo_ymd");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -361,6 +403,8 @@ public class MUser implements IEntity {
         map.put("user_mei", this.userMei);
         map.put("email", this.email);
         map.put("password", this.password);
+        map.put("kaishi_ymd", this.kaishiYmd);
+        map.put("shuryo_ymd", this.shuryoYmd);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

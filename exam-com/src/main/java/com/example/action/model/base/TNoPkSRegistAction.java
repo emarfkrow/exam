@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.MSansho2;
+import com.example.entity.TNoPk;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -13,20 +13,20 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 参照２マスタ一覧削除
+ * 主キーなし一覧登録
  *
  * @author emarfkrow
  */
-public class MSansho2SDeleteAction extends BaseAction {
+public class TNoPkSRegistAction extends BaseAction {
 
-    /** 参照２マスタ一覧削除処理 */
+    /** 主キーなし一覧登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("MSansho2Grid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("TNoPkGrid");
 
         if (gridData.size() == 0) {
             map.put("ERROR", Messages.get("error.nopost"));
@@ -35,18 +35,26 @@ public class MSansho2SDeleteAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO2_CD"))) {
-                throw new OptLockError("error.cant.delete");
-            }
+            TNoPk e = FormValidator.toBean(TNoPk.class.getName(), gridRow);
 
-            MSansho2 e = FormValidator.toBean(MSansho2.class.getName(), gridRow);
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
+            // 主キーが不足していたらINSERT
+            boolean isNew = false;
+
+            if (isNew) {
+
+                if (e.insert(now, execId) != 1) {
+                    throw new OptLockError("error.cant.insert");
+                }
+
+            } else {
+
+                if (e.update(now, execId) != 1) {
+                    throw new OptLockError("error.cant.update");
+                }
             }
         }
 
-        map.put("INFO", Messages.get("info.delete"));
+        map.put("INFO", Messages.get("info.regist"));
         return map;
     }
 

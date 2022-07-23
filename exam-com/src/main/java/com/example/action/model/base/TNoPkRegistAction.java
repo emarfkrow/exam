@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.MSansho2;
+import com.example.entity.TNoPk;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -12,25 +12,22 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 参照２マスタ登録
+ * 主キーなし登録
  *
  * @author emarfkrow
  */
-public class MSansho2RegistAction extends BaseAction {
+public class TNoPkRegistAction extends BaseAction {
 
-    /** 参照２マスタ登録処理 */
+    /** 主キーなし登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        MSansho2 e = FormValidator.toBean(MSansho2.class.getName(), postJson);
+        TNoPk e = FormValidator.toBean(TNoPk.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho2Cd())) {
-            isNew = true;
-        }
 
         if (isNew) {
 

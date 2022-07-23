@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TEntity2 implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigDecimal id;
+    private java.math.BigInteger id;
 
     /**
      * @return id
      */
-    public final java.math.BigDecimal getId() {
+    public final java.math.BigInteger getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigDecimal i) {
+    public final void setId(final java.math.BigInteger i) {
         this.id = i;
     }
 
@@ -383,6 +383,24 @@ public class TEntity2 implements IEntity {
         }
     }
 
+    /** 8桁日 */
+    private String fig8Bi;
+
+    /** @return 8桁日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("FIG_8_BI")
+    public String getFig8Bi() {
+        return this.fig8Bi;
+    }
+
+    /** @param o 8桁日 */
+    public void setFig8Bi(final Object o) {
+        if (o != null) {
+            this.fig8Bi = String.valueOf(o.toString());
+        } else {
+            this.fig8Bi = null;
+        }
+    }
+
     /** 登録日時 */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -549,6 +567,7 @@ public class TEntity2 implements IEntity {
         nameList.add("`SURYO_QT` -- :suryo_qt");
         nameList.add("`TANKA_AM` -- :tanka_am");
         nameList.add("`KINGAKU_AM` -- :kingaku_am");
+        nameList.add("`FIG_8_BI` -- :fig_8_bi");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -579,6 +598,7 @@ public class TEntity2 implements IEntity {
         valueList.add(":suryo_qt");
         valueList.add(":tanka_am");
         valueList.add(":kingaku_am");
+        valueList.add(":fig_8_bi");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -640,6 +660,7 @@ public class TEntity2 implements IEntity {
         setList.add("`SURYO_QT` = :suryo_qt");
         setList.add("`TANKA_AM` = :tanka_am");
         setList.add("`KINGAKU_AM` = :kingaku_am");
+        setList.add("`FIG_8_BI` = :fig_8_bi");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -692,6 +713,7 @@ public class TEntity2 implements IEntity {
         map.put("suryo_qt", this.suryoQt);
         map.put("tanka_am", this.tankaAm);
         map.put("kingaku_am", this.kingakuAm);
+        map.put("fig_8_bi", this.fig8Bi);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

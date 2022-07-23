@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MBusho implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigDecimal id;
+    private java.math.BigInteger id;
 
     /**
      * @return id
      */
-    public final java.math.BigDecimal getId() {
+    public final java.math.BigInteger getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigDecimal i) {
+    public final void setId(final java.math.BigInteger i) {
         this.id = i;
     }
 

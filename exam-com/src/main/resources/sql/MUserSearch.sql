@@ -9,6 +9,12 @@ WHERE
     AND a.`USER_MEI` LIKE CONCAT ('%', :user_mei, '%') 
     AND a.`EMAIL` = :email 
     AND a.`PASSWORD` = :password 
+    AND TRIM (a.`KAISHI_YMD`) = TRIM (:kaishi_ymd) 
+    AND a.`KAISHI_YMD` >= :kaishi_ymd_1 
+    AND a.`KAISHI_YMD` <= :kaishi_ymd_2 
+    AND TRIM (a.`SHURYO_YMD`) = TRIM (:shuryo_ymd) 
+    AND a.`SHURYO_YMD` >= :shuryo_ymd_1 
+    AND a.`SHURYO_YMD` <= :shuryo_ymd_2 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 

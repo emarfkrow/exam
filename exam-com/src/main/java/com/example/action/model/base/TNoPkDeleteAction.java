@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.MSansho2;
+import com.example.entity.TNoPk;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -12,26 +12,19 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 参照２マスタ削除
+ * 主キーなし削除
  *
  * @author emarfkrow
  */
-public class MSansho2DeleteAction extends BaseAction {
+public class TNoPkDeleteAction extends BaseAction {
 
-    /** 参照２マスタ削除処理 */
+    /** 主キーなし削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sansho2Cd = postJson.get("sansho2Cd");
-        if (sansho2Cd == null) {
-            sansho2Cd = postJson.get("MSansho2.sansho2Cd");
-        }
-        if (sansho2Cd == null) {
-            throw new OptLockError("error.cant.delete");
-        }
 
-        MSansho2 e = FormValidator.toBean(MSansho2.class.getName(), postJson);
+        TNoPk e = FormValidator.toBean(TNoPk.class.getName(), postJson);
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

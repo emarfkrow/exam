@@ -145,22 +145,22 @@ public class TEntityHisRegistForm implements IForm {
         this.sansho1Mei = p;
     }
 
-    /** 参照２ID */
-    @jakarta.validation.constraints.Size(max = 10)
-    private String sansho2Id;
+    /** 参照２CD */
+    @jakarta.validation.constraints.Size(max = 6)
+    private String sansho2Cd;
 
     /**
-     * @return 参照２ID
+     * @return 参照２CD
      */
-    public String getSansho2Id() {
-        return sansho2Id;
+    public String getSansho2Cd() {
+        return sansho2Cd;
     }
 
     /**
-     * @param p 参照２ID
+     * @param p 参照２CD
      */
-    public void setSansho2Id(final String p) {
-        this.sansho2Id = p;
+    public void setSansho2Cd(final String p) {
+        this.sansho2Cd = p;
     }
 
     /** 参照２名 */

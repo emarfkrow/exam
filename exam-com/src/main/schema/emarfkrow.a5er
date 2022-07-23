@@ -27,8 +27,10 @@ Domain=KB=@VARCHAR(2)
 DomainInfo="KB","@VARCHAR(2)","半角2文字",""
 Domain=TX=@VARCHAR(200)
 DomainInfo="TX","@VARCHAR(200)","全角200文字以内",""
+Domain=BI=@CHAR(8)
+DomainInfo="BI","@CHAR(8)","8桁日付",""
 Domain=YMD=@CHAR(10)
-DomainInfo="YMD","@CHAR(10)","日付",""
+DomainInfo="YMD","@CHAR(10)","スラッシュ日付",""
 Domain=YM=@CHAR(7)
 DomainInfo="YM","@CHAR(7)","年月",""
 Domain=Y=@CHAR(4)
@@ -173,10 +175,11 @@ Field="時間","JIKAN_TM","*TM","NOT NULL",,"","",$FFFFFFFF,""
 Field="数量","SURYO_QT","*QT","NOT NULL",,"","",$FFFFFFFF,""
 Field="単価","TANKA_AM","*AM","NOT NULL",,"","",$FFFFFFFF,""
 Field="金額","KINGAKU_AM","*AM","NOT NULL",,"","",$FFFFFFFF,""
+Field="8桁日","FIG_8_BI","*BI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220414132945
+ModifiedDateTime=20220723105417
 Position="MAIN",1400,600
 ZOrder=-16
 
@@ -268,7 +271,7 @@ Comment=
 TableOption=
 Page=MAIN
 Left=1400
-Top=1600
+Top=1700
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="親連番","OYA_SN","*SN","NOT NULL",1,"","",$FFFFFFFF,""
 Field="エンティティ連番","ENTITY_SN","*SN","NOT NULL",2,"","",$FFFFFFFF,""
@@ -276,15 +279,15 @@ Field="履歴連番","HISTORY_SN","*SN","NOT NULL",3,"","",$FFFFFFFF,""
 Field="エンティティ名","ENTITY_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="参照１ID","SANSHO1_ID","*ID",,,"","",$FFFFFFFF,""
 Field="参照１名","SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
-Field="参照２ID","SANSHO2_ID","*ID",,,"","",$FFFFFFFF,""
+Field="参照２CD","SANSHO2_CD","*CD",,,"","",$FFFFFFFF,""
 Field="参照２名","SANSHO2_MEI","*MEI",,,"","",$FFFFFFFF,""
 Field="別参照１ID","BETSU_SANSHO1_ID","*ID",,,"","",$FFFFFFFF,""
 Field="別参照１名","BETSU_SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220411091302
-Position="MAIN",1400,1600
+ModifiedDateTime=20220723113351
+Position="MAIN",1400,1700
 ZOrder=-31
 
 [Entity]
@@ -425,14 +428,14 @@ Field="エンティティ連番","ENTITY_SN","*SN","NOT NULL",2,"","",$FFFFFFFF,
 Field="エンティティ名","ENTITY_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="参照１ID","SANSHO1_ID","*ID",,,"","",$FFFFFFFF,""
 Field="参照１名","SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
-Field="参照２ID","SANSHO2_ID","*ID",,,"","",$FFFFFFFF,""
+Field="参照２CD","SANSHO2_CD","*CD",,,"","",$FFFFFFFF,""
 Field="参照２名","SANSHO2_MEI","*MEI",,,"","",$FFFFFFFF,""
 Field="別参照１ID","BETSU_SANSHO1_ID","*ID",,,"","",$FFFFFFFF,""
 Field="別参照１名","BETSU_SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220407172039
+ModifiedDateTime=20220723113345
 Position="MAIN",600,600
 ZOrder=-40
 
@@ -501,12 +504,12 @@ TableOption=
 Page=MAIN
 Left=200
 Top=250
-Field="参照２ID","SANSHO2_ID","*CD","NOT NULL",0,"","",$FFFFFFFF,""
+Field="参照２CD","SANSHO2_CD","*CD","NOT NULL",0,"","",$FFFFFFFF,""
 Field="参照２名","SANSHO2_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20220428102834
+ModifiedDateTime=20220723113334
 Position="MAIN",200,250
 ZOrder=0
 
@@ -515,8 +518,8 @@ Entity1=M_SANSHO2
 Entity2=T_ENTITY
 RelationType1=1
 RelationType2=3
-Fields1=SANSHO2_ID
-Fields2=SANSHO2_ID
+Fields1=SANSHO2_CD
+Fields2=SANSHO2_CD
 Cardinarity1=
 Cardinarity2=
 Position="MAIN",3,2153,6502,6729,R,R,""
@@ -748,7 +751,7 @@ Comment=
 TableOption=
 Page=MAIN
 Left=1400
-Top=1300
+Top=1400
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="親連番","OYA_SN","*SN","NOT NULL",1,"","",$FFFFFFFF,""
 Field="エンティティ連番","ENTITY_SN","*SN","NOT NULL",2,"","",$FFFFFFFF,""
@@ -759,7 +762,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20220429132114
-Position="MAIN",1400,1300
+Position="MAIN",1400,1400
 ZOrder=13
 
 [Relation]
@@ -794,9 +797,13 @@ Top=1000
 Field="列Ａ","COLUMN_A","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｂ","COLUMN_B","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｃ","COLUMN_C","*MEI",,,"","",$FFFFFFFF,""
+Field="列Ｄ","COLUMN_D","*MEI",,,"","",$FFFFFFFF,""
+Field="列Ｅ","COLUMN_E","*MEI",,,"","",$FFFFFFFF,""
+Index==1,COLUMN_A 
+Index==1,COLUMN_B ,COLUMN_C 
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20220708194315
+ModifiedDateTime=20220723105722
 Position="MAIN",2200,1000
 ZOrder=15

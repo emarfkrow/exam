@@ -10,7 +10,7 @@ let TEntityHisGridColumns = [
     Column.text('ENTITY_MEI', Messages['TEntityHisGrid.entityMei'], 300, '', null),
     Column.text('SANSHO1_ID', Messages['TEntityHisGrid.sansho1Id'], 100, '', null),
     Column.text('SANSHO1_MEI', Messages['TEntityHisGrid.sansho1Mei'], 300, '', null),
-    Column.text('SANSHO2_ID', Messages['TEntityHisGrid.sansho2Id'], 100, '', null),
+    Column.text('SANSHO2_CD', Messages['TEntityHisGrid.sansho2Cd'], 60, '', null),
     Column.text('SANSHO2_MEI', Messages['TEntityHisGrid.sansho2Mei'], 300, '', null),
     Column.text('BETSU_SANSHO1_ID', Messages['TEntityHisGrid.betsuSansho1Id'], 100, '', null),
     Column.text('BETSU_SANSHO1_MEI', Messages['TEntityHisGrid.betsuSansho1Mei'], 300, '', null),

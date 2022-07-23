@@ -1,11 +1,14 @@
 SELECT
       a.*
 FROM
-    m_sansho2 a 
+    t_no_pk a 
 WHERE
     1 = 1 
-    AND TRIM (a.`SANSHO2_CD`) = TRIM (:sansho_2_cd) 
-    AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho_2_mei, '%') 
+    AND a.`COLUMN_A` = :column_a 
+    AND a.`COLUMN_B` = :column_b 
+    AND a.`COLUMN_C` = :column_c 
+    AND a.`COLUMN_D` = :column_d 
+    AND a.`COLUMN_E` = :column_e 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 
@@ -16,4 +19,13 @@ WHERE
     AND a.`UPDATE_BY` = :update_by 
     AND CASE WHEN a.`DELETE_F` IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
 ORDER BY
-    a.`SANSHO2_CD`
+    1
+    , 2
+    , 3
+    , 4
+    , 5
+    , 6
+    , 7
+    , 8
+    , 9
+    , 10

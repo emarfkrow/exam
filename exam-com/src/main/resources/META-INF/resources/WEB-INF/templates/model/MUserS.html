@@ -33,6 +33,12 @@
         <div id="password">
           <label for="MUser.password" th:text="#{MUser.password}">パスワード</label><input type="text" id="MUser.password" name="MUser.password" maxlength="200" />
         </div>
+        <div id="kaishiYmd">
+          <label for="MUser.kaishiYmd_1" th:text="#{MUser.kaishiYmd}">開始日</label><input type="date" id="MUser.kaishiYmd_1" name="MUser.kaishiYmd_1" maxlength="10" />～<input type="date" id="MUser.kaishiYmd_2" name="MUser.kaishiYmd_2" maxlength="10" />
+        </div>
+        <div id="shuryoYmd">
+          <label for="MUser.shuryoYmd_1" th:text="#{MUser.shuryoYmd}">終了日</label><input type="date" id="MUser.shuryoYmd_1" name="MUser.shuryoYmd_1" maxlength="10" />～<input type="date" id="MUser.shuryoYmd_2" name="MUser.shuryoYmd_2" maxlength="10" />
+        </div>
         <div id="deleteF">
           <fieldset id="MUser.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
             <legend th:text="#{MUser.deleteF}">削除フラグ</legend>

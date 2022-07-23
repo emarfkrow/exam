@@ -39,7 +39,7 @@ public class MSansho2SRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho2Id())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho2Cd())) {
                 isNew = true;
             }
 

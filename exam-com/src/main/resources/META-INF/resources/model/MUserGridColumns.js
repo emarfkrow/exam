@@ -8,6 +8,8 @@ let MUserGridColumns = [
     Column.text('USER_MEI', Messages['MUserGrid.userMei'], 300, '', null),
     Column.text('EMAIL', Messages['MUserGrid.email'], 300, '', null),
     Column.text('PASSWORD', Messages['MUserGrid.password'], 300, '', null),
+    Column.date('KAISHI_YMD', Messages['MUserGrid.kaishiYmd'], 100, '', null),
+    Column.date('SHURYO_YMD', Messages['MUserGrid.shuryoYmd'], 100, '', null),
     Column.cell('INSERT_DT', Messages['MUserGrid.insertDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
     Column.cell('INSERT_BY', Messages['MUserGrid.insertBy'], 100, 'metaInfo', null),
     Column.cell('UPDATE_DT', Messages['MUserGrid.updateDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),

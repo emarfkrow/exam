@@ -112,6 +112,42 @@ public class MUserRegistForm implements IForm {
         this.password = p;
     }
 
+    /** 開始日 */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    private String kaishiYmd;
+
+    /**
+     * @return 開始日
+     */
+    public String getKaishiYmd() {
+        return kaishiYmd;
+    }
+
+    /**
+     * @param p 開始日
+     */
+    public void setKaishiYmd(final String p) {
+        this.kaishiYmd = p;
+    }
+
+    /** 終了日 */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    private String shuryoYmd;
+
+    /**
+     * @return 終了日
+     */
+    public String getShuryoYmd() {
+        return shuryoYmd;
+    }
+
+    /**
+     * @param p 終了日
+     */
+    public void setShuryoYmd(final String p) {
+        this.shuryoYmd = p;
+    }
+
     /** 削除フラグ */
     @jakarta.validation.constraints.Size(max = 1)
     private String deleteF;

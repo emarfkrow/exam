@@ -9,7 +9,7 @@ let TEntityGridColumns = [
     Column.text('ENTITY_MEI', Messages['TEntityGrid.entityMei'], 300, '', null),
     Column.text('SANSHO1_ID', Messages['TEntityGrid.sansho1Id'], 100, '', null),
     Column.text('SANSHO1_MEI', Messages['TEntityGrid.sansho1Mei'], 300, '', null),
-    Column.text('SANSHO2_ID', Messages['TEntityGrid.sansho2Id'], 100, '', null),
+    Column.text('SANSHO2_CD', Messages['TEntityGrid.sansho2Cd'], 60, '', null),
     Column.text('SANSHO2_MEI', Messages['TEntityGrid.sansho2Mei'], 300, '', null),
     Column.text('BETSU_SANSHO1_ID', Messages['TEntityGrid.betsuSansho1Id'], 100, '', null),
     Column.text('BETSU_SANSHO1_MEI', Messages['TEntityGrid.betsuSansho1Mei'], 300, '', null),

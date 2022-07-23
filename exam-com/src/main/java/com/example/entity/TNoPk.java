@@ -10,10 +10,10 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 参照２マスタ
+ * 主キーなし
  * @author emarfkrow
  */
-public class MSansho2 implements IEntity {
+public class TNoPk implements IEntity {
 
     /** SlickGridのDataView用ID */
     private java.math.BigInteger id;
@@ -32,39 +32,93 @@ public class MSansho2 implements IEntity {
         this.id = i;
     }
 
-    /** 参照２CD */
-    private String sansho2Cd;
+    /** 列Ａ */
+    private String columnA;
 
-    /** @return 参照２CD */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_CD")
-    public String getSansho2Cd() {
-        return this.sansho2Cd;
+    /** @return 列Ａ */
+    @com.fasterxml.jackson.annotation.JsonProperty("COLUMN_A")
+    public String getColumnA() {
+        return this.columnA;
     }
 
-    /** @param o 参照２CD */
-    public void setSansho2Cd(final Object o) {
+    /** @param o 列Ａ */
+    public void setColumnA(final Object o) {
         if (o != null) {
-            this.sansho2Cd = String.valueOf(o.toString());
+            this.columnA = String.valueOf(o.toString());
         } else {
-            this.sansho2Cd = null;
+            this.columnA = null;
         }
     }
 
-    /** 参照２名 */
-    private String sansho2Mei;
+    /** 列Ｂ */
+    private String columnB;
 
-    /** @return 参照２名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_MEI")
-    public String getSansho2Mei() {
-        return this.sansho2Mei;
+    /** @return 列Ｂ */
+    @com.fasterxml.jackson.annotation.JsonProperty("COLUMN_B")
+    public String getColumnB() {
+        return this.columnB;
     }
 
-    /** @param o 参照２名 */
-    public void setSansho2Mei(final Object o) {
+    /** @param o 列Ｂ */
+    public void setColumnB(final Object o) {
         if (o != null) {
-            this.sansho2Mei = String.valueOf(o.toString());
+            this.columnB = String.valueOf(o.toString());
         } else {
-            this.sansho2Mei = null;
+            this.columnB = null;
+        }
+    }
+
+    /** 列Ｃ */
+    private String columnC;
+
+    /** @return 列Ｃ */
+    @com.fasterxml.jackson.annotation.JsonProperty("COLUMN_C")
+    public String getColumnC() {
+        return this.columnC;
+    }
+
+    /** @param o 列Ｃ */
+    public void setColumnC(final Object o) {
+        if (o != null) {
+            this.columnC = String.valueOf(o.toString());
+        } else {
+            this.columnC = null;
+        }
+    }
+
+    /** 列Ｄ */
+    private String columnD;
+
+    /** @return 列Ｄ */
+    @com.fasterxml.jackson.annotation.JsonProperty("COLUMN_D")
+    public String getColumnD() {
+        return this.columnD;
+    }
+
+    /** @param o 列Ｄ */
+    public void setColumnD(final Object o) {
+        if (o != null) {
+            this.columnD = String.valueOf(o.toString());
+        } else {
+            this.columnD = null;
+        }
+    }
+
+    /** 列Ｅ */
+    private String columnE;
+
+    /** @return 列Ｅ */
+    @com.fasterxml.jackson.annotation.JsonProperty("COLUMN_E")
+    public String getColumnE() {
+        return this.columnE;
+    }
+
+    /** @param o 列Ｅ */
+    public void setColumnE(final Object o) {
+        if (o != null) {
+            this.columnE = String.valueOf(o.toString());
+        } else {
+            this.columnE = null;
         }
     }
 
@@ -177,40 +231,47 @@ public class MSansho2 implements IEntity {
     }
 
     /**
-     * 参照２マスタ照会
-     * @param param1 参照２CD
-     * @return 参照２マスタ
+     * 主キーなし照会
+     * @return 主キーなし
      */
-    public static MSansho2 get(final Object param1) {
+    public static TNoPk get() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM (`SANSHO2_CD`) = TRIM (:sansho_2_cd)");
-        String sql = "SELECT * FROM m_sansho2 WHERE " + String.join(" AND ", whereList);
+        whereList.add("`COLUMN_A` = :column_a");
+        whereList.add("`COLUMN_B` = :column_b");
+        whereList.add("`COLUMN_C` = :column_c");
+        whereList.add("`COLUMN_D` = :column_d");
+        whereList.add("`COLUMN_E` = :column_e");
+        whereList.add("`INSERT_DT` = :insert_dt");
+        whereList.add("`INSERT_BY` = :insert_by");
+        whereList.add("`UPDATE_DT` = :update_dt");
+        whereList.add("`UPDATE_BY` = :update_by");
+        whereList.add("TRIM (`DELETE_F`) = TRIM (:delete_f)");
+        String sql = "SELECT * FROM t_no_pk WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_2_cd", param1);
-        return Queries.get(sql, map, MSansho2.class);
+        return Queries.get(sql, map, TNoPk.class);
     }
 
     /**
-     * 参照２マスタ追加
+     * 主キーなし追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 参照２CDの採番処理
-        numbering();
-
-        // 参照２マスタの登録
-        String sql = "INSERT INTO m_sansho2(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        // 主キーなしの登録
+        String sql = "INSERT INTO t_no_pk(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHO2_CD` -- :sansho_2_cd");
-        nameList.add("`SANSHO2_MEI` -- :sansho_2_mei");
+        nameList.add("`COLUMN_A` -- :column_a");
+        nameList.add("`COLUMN_B` -- :column_b");
+        nameList.add("`COLUMN_C` -- :column_c");
+        nameList.add("`COLUMN_D` -- :column_d");
+        nameList.add("`COLUMN_E` -- :column_e");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -222,8 +283,11 @@ public class MSansho2 implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sansho_2_cd");
-        valueList.add(":sansho_2_mei");
+        valueList.add(":column_a");
+        valueList.add(":column_b");
+        valueList.add(":column_c");
+        valueList.add(":column_d");
+        valueList.add(":column_e");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -232,36 +296,27 @@ public class MSansho2 implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 参照２CDの採番処理 */
-    private void numbering() {
-        if (this.sansho2Cd != null) {
-            return;
-        }
-        String sql = "SELECT LPAD (CASE WHEN MAX(e.`SANSHO2_CD`) IS NULL THEN 0 ELSE MAX(e.`SANSHO2_CD`) * 1 END + 1, 6, '0') AS `SANSHO2_CD` FROM m_sansho2 e WHERE e.`SANSHO2_CD` < '999999'";
-        Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SANSHO2_CD");
-        this.setSansho2Cd(o);
-    }
-
     /**
-     * 参照２マスタ更新
+     * 主キーなし更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 参照２マスタの登録
-        String sql = "UPDATE m_sansho2\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        // 主キーなしの登録
+        String sql = "UPDATE t_no_pk\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHO2_CD` = :sansho_2_cd");
-        setList.add("`SANSHO2_MEI` = :sansho_2_mei");
+        setList.add("`COLUMN_A` = :column_a");
+        setList.add("`COLUMN_B` = :column_b");
+        setList.add("`COLUMN_C` = :column_c");
+        setList.add("`COLUMN_D` = :column_d");
+        setList.add("`COLUMN_E` = :column_e");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -269,20 +324,19 @@ public class MSansho2 implements IEntity {
     }
 
     /**
-     * 参照２マスタ削除
+     * 主キーなし削除
      * @return 削除件数
      */
     public int delete() {
 
-        // 参照２マスタの削除
-        String sql = "DELETE FROM m_sansho2 WHERE " + getWhere();
+        // 主キーなしの削除
+        String sql = "DELETE FROM t_no_pk WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM (`SANSHO2_CD`) = TRIM (:sansho_2_cd)");
         return String.join(" AND ", whereList);
     }
 
@@ -293,8 +347,11 @@ public class MSansho2 implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_2_cd", this.sansho2Cd);
-        map.put("sansho_2_mei", this.sansho2Mei);
+        map.put("column_a", this.columnA);
+        map.put("column_b", this.columnB);
+        map.put("column_c", this.columnC);
+        map.put("column_d", this.columnD);
+        map.put("column_e", this.columnE);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

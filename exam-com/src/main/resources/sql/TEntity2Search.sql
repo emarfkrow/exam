@@ -43,6 +43,7 @@ WHERE
     AND a.`KINGAKU_AM` = :kingaku_am 
     AND a.`KINGAKU_AM` >= :kingaku_am_1 
     AND a.`KINGAKU_AM` <= :kingaku_am_2 
+    AND TRIM (a.`FIG_8_BI`) = TRIM (:fig_8_bi) 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 

@@ -1,8 +1,30 @@
 -- Project Name : emarf
--- Date/Time    : 2022/04/29 13:42:44
+-- Date/Time    : 2022/07/23 11:34:18
 -- Author       : toshiyuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
+
+-- 主キーなし
+drop table if exists T_NO_PK cascade;
+
+create table T_NO_PK (
+  COLUMN_A VARCHAR(30) comment '列Ａ'
+  , COLUMN_B VARCHAR(30) comment '列Ｂ'
+  , COLUMN_C VARCHAR(30) comment '列Ｃ'
+  , COLUMN_D VARCHAR(30) comment '列Ｄ'
+  , COLUMN_E VARCHAR(30) comment '列Ｅ'
+  , INSERT_DT DATETIME(3) not null comment '登録日時'
+  , INSERT_BY VARCHAR(10) not null comment '登録者'
+  , UPDATE_DT DATETIME(3) not null comment '更新日時'
+  , UPDATE_BY VARCHAR(10) not null comment '更新者'
+  , DELETE_F CHAR(1) comment '削除フラグ'
+) comment '主キーなし' ;
+
+create unique index T_NO_PK_IX1
+  on T_NO_PK(COLUMN_A);
+
+create unique index T_NO_PK_IX2
+  on T_NO_PK(COLUMN_B,COLUMN_C);
 
 -- 添付ファイル
 drop table if exists T_TENPU_FILE cascade;
@@ -77,14 +99,14 @@ create table M_BUSHO (
 drop table if exists M_SANSHO2 cascade;
 
 create table M_SANSHO2 (
-  SANSHO2_ID CHAR(6) not null comment '参照２ID'
+  SANSHO2_CD CHAR(6) not null comment '参照２CD'
   , SANSHO2_MEI VARCHAR(30) not null comment '参照２名'
   , INSERT_DT DATETIME(3) not null comment '登録日時'
   , INSERT_BY VARCHAR(10) not null comment '登録者'
   , UPDATE_DT DATETIME(3) not null comment '更新日時'
   , UPDATE_BY VARCHAR(10) not null comment '更新者'
   , DELETE_F CHAR(1) comment '削除フラグ'
-  , constraint M_SANSHO2_PKC primary key (SANSHO2_ID)
+  , constraint M_SANSHO2_PKC primary key (SANSHO2_CD)
 ) comment '参照２マスタ' ;
 
 -- 認可マスタ
@@ -114,6 +136,8 @@ create table M_USER (
   , USER_MEI VARCHAR(30) not null comment 'ユーザ名'
   , EMAIL VARCHAR(200) not null comment 'メールアドレス'
   , PASSWORD VARCHAR(200) not null comment 'パスワード'
+  , KAISHI_YMD CHAR(10) comment '開始日'
+  , SHURYO_YMD CHAR(10) comment '終了日'
   , INSERT_DT DATETIME(3) not null comment '登録日時'
   , INSERT_BY VARCHAR(10) not null comment '登録者'
   , UPDATE_DT DATETIME(3) not null comment '更新日時'
@@ -145,6 +169,7 @@ create table T_ENTITY2 (
   , SURYO_QT DECIMAL(9,2) not null comment '数量'
   , TANKA_AM DECIMAL(11,3) not null comment '単価'
   , KINGAKU_AM DECIMAL(11,3) not null comment '金額'
+  , FIG_8_BI CHAR(8) not null comment '8桁日'
   , INSERT_DT DATETIME(3) not null comment '登録日時'
   , INSERT_BY VARCHAR(10) not null comment '登録者'
   , UPDATE_DT DATETIME(3) not null comment '更新日時'
@@ -195,7 +220,7 @@ create table T_ENTITY_HIS (
   , ENTITY_MEI VARCHAR(30) not null comment 'エンティティ名'
   , SANSHO1_ID INT comment '参照１ID'
   , SANSHO1_MEI VARCHAR(30) comment '参照１名'
-  , SANSHO2_ID INT comment '参照２ID'
+  , SANSHO2_CD CHAR(6) comment '参照２CD'
   , SANSHO2_MEI VARCHAR(30) comment '参照２名'
   , BETSU_SANSHO1_ID INT comment '別参照１ID'
   , BETSU_SANSHO1_MEI VARCHAR(30) comment '別参照１名'
@@ -266,7 +291,7 @@ create table T_ENTITY (
   , ENTITY_MEI VARCHAR(30) not null comment 'エンティティ名'
   , SANSHO1_ID INT comment '参照１ID'
   , SANSHO1_MEI VARCHAR(30) comment '参照１名'
-  , SANSHO2_ID INT comment '参照２ID'
+  , SANSHO2_CD CHAR(6) comment '参照２CD'
   , SANSHO2_MEI VARCHAR(30) comment '参照２名'
   , BETSU_SANSHO1_ID INT comment '別参照１ID'
   , BETSU_SANSHO1_MEI VARCHAR(30) comment '別参照１名'

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{TNoPkS.title}">主キーなし</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/TNoPkGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{TNoPkS.h2}">h2</h2>
+    <form name="TNoPkSearchForm" action="TNoPkSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{TNoPkS.legend}">legend</legend>
+        <div id="columnA">
+          <label for="TNoPk.columnA" th:text="#{TNoPk.columnA}">列Ａ</label><input type="text" id="TNoPk.columnA" name="TNoPk.columnA" maxlength="30" />
+        </div>
+        <div id="columnB">
+          <label for="TNoPk.columnB" th:text="#{TNoPk.columnB}">列Ｂ</label><input type="text" id="TNoPk.columnB" name="TNoPk.columnB" maxlength="30" />
+        </div>
+        <div id="columnC">
+          <label for="TNoPk.columnC" th:text="#{TNoPk.columnC}">列Ｃ</label><input type="text" id="TNoPk.columnC" name="TNoPk.columnC" maxlength="30" />
+        </div>
+        <div id="columnD">
+          <label for="TNoPk.columnD" th:text="#{TNoPk.columnD}">列Ｄ</label><input type="text" id="TNoPk.columnD" name="TNoPk.columnD" maxlength="30" />
+        </div>
+        <div id="columnE">
+          <label for="TNoPk.columnE" th:text="#{TNoPk.columnE}">列Ｅ</label><input type="text" id="TNoPk.columnE" name="TNoPk.columnE" maxlength="30" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="TNoPk.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+            <legend th:text="#{TNoPk.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" th:text="#{common.reset}">reset</button>
+        <a th:href="@{/model/TNoPk.html}" id="TNoPk" target="dialog" th:text="#{TNoPk.add}" tabindex="-1">主キーなし</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTNoPk" class="search" data-gridId="TNoPkGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="TNoPkSRegistForm" action="TNoPkSRegist.ajax" class="regist">
+      <h3 th:text="#{TNoPk.h3}">h3</h3>
+      <div id="TNoPkGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/TNoPk.html}"></div>
+      <div id="TNoPkPager"></div>
+      <div class="buttons">
+        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchTNoPk&quot;]').click();">reset</button>
+        <a th:href="@{TNoPkSearch.xlsx(baseMei=#{TNoPkS.h2})}" id="TNoPkSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button id="DeleteTNoPkS" class="delete selectRows" data-action="TNoPkSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTNoPkS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TEntityHis implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigDecimal id;
+    private java.math.BigInteger id;
 
     /**
      * @return id
      */
-    public final java.math.BigDecimal getId() {
+    public final java.math.BigInteger getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigDecimal i) {
+    public final void setId(final java.math.BigInteger i) {
         this.id = i;
     }
 
@@ -158,21 +158,21 @@ public class TEntityHis implements IEntity {
         }
     }
 
-    /** 参照２ID */
-    private Integer sansho2Id;
+    /** 参照２CD */
+    private String sansho2Cd;
 
-    /** @return 参照２ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_ID")
-    public Integer getSansho2Id() {
-        return this.sansho2Id;
+    /** @return 参照２CD */
+    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_CD")
+    public String getSansho2Cd() {
+        return this.sansho2Cd;
     }
 
-    /** @param o 参照２ID */
-    public void setSansho2Id(final Object o) {
+    /** @param o 参照２CD */
+    public void setSansho2Cd(final Object o) {
         if (o != null) {
-            this.sansho2Id = Integer.valueOf(o.toString());
+            this.sansho2Cd = String.valueOf(o.toString());
         } else {
-            this.sansho2Id = null;
+            this.sansho2Cd = null;
         }
     }
 
@@ -387,7 +387,7 @@ public class TEntityHis implements IEntity {
         nameList.add("`ENTITY_MEI` -- :entity_mei");
         nameList.add("`SANSHO1_ID` -- :sansho_1_id");
         nameList.add("`SANSHO1_MEI` -- :sansho_1_mei");
-        nameList.add("`SANSHO2_ID` -- :sansho_2_id");
+        nameList.add("`SANSHO2_CD` -- :sansho_2_cd");
         nameList.add("`SANSHO2_MEI` -- :sansho_2_mei");
         nameList.add("`BETSU_SANSHO1_ID` -- :betsu_sansho_1_id");
         nameList.add("`BETSU_SANSHO1_MEI` -- :betsu_sansho_1_mei");
@@ -409,7 +409,7 @@ public class TEntityHis implements IEntity {
         valueList.add(":entity_mei");
         valueList.add(":sansho_1_id");
         valueList.add(":sansho_1_mei");
-        valueList.add(":sansho_2_id");
+        valueList.add(":sansho_2_cd");
         valueList.add(":sansho_2_mei");
         valueList.add(":betsu_sansho_1_id");
         valueList.add(":betsu_sansho_1_mei");
@@ -464,7 +464,7 @@ public class TEntityHis implements IEntity {
         setList.add("`ENTITY_MEI` = :entity_mei");
         setList.add("`SANSHO1_ID` = :sansho_1_id");
         setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`SANSHO2_ID` = :sansho_2_id");
+        setList.add("`SANSHO2_CD` = :sansho_2_cd");
         setList.add("`SANSHO2_MEI` = :sansho_2_mei");
         setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
         setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
@@ -509,7 +509,7 @@ public class TEntityHis implements IEntity {
         map.put("entity_mei", this.entityMei);
         map.put("sansho_1_id", this.sansho1Id);
         map.put("sansho_1_mei", this.sansho1Mei);
-        map.put("sansho_2_id", this.sansho2Id);
+        map.put("sansho_2_cd", this.sansho2Cd);
         map.put("sansho_2_mei", this.sansho2Mei);
         map.put("betsu_sansho_1_id", this.betsuSansho1Id);
         map.put("betsu_sansho_1_mei", this.betsuSansho1Mei);

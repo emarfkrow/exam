@@ -11,7 +11,7 @@ WHERE
     AND a.`ENTITY_MEI` LIKE CONCAT ('%', :entity_mei, '%') 
     AND a.`SANSHO1_ID` = :sansho_1_id 
     AND a.`SANSHO1_MEI` LIKE CONCAT ('%', :sansho_1_mei, '%') 
-    AND a.`SANSHO2_ID` = :sansho_2_id 
+    AND TRIM (a.`SANSHO2_CD`) = TRIM (:sansho_2_cd) 
     AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho_2_mei, '%') 
     AND a.`BETSU_SANSHO1_ID` = :betsu_sansho_1_id 
     AND a.`BETSU_SANSHO1_MEI` LIKE CONCAT ('%', :betsu_sansho_1_mei, '%') 
