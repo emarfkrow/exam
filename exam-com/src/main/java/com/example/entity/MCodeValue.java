@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MCodeValue implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o コード名称 */
     public void setCodeNm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.codeNm = String.valueOf(o.toString());
         } else {
             this.codeNm = null;
@@ -61,7 +61,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o コード値 */
     public void setCodeValue(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.codeValue = String.valueOf(o.toString());
         } else {
             this.codeValue = null;
@@ -79,7 +79,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o コード値名 */
     public void setCodeValueMei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.codeValueMei = String.valueOf(o.toString());
         } else {
             this.codeValueMei = null;
@@ -97,7 +97,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 表示順 */
     public void setHyojiJun(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.hyojiJun = Integer.valueOf(o.toString());
         } else {
             this.hyojiJun = null;
@@ -115,7 +115,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 取得条件 */
     public void setCriteria(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.criteria = String.valueOf(o.toString());
         } else {
             this.criteria = null;
@@ -160,7 +160,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -205,7 +205,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -223,7 +223,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;

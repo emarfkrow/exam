@@ -7,8 +7,8 @@ WHERE
     AND a.`SOSEN_ID` = :sosen_id 
     AND a.`OYA_SN` = :oya_sn 
     AND a.`ENTITY_SN` = :entity_sn 
-    AND a.`NULL_ENTITY2_MEI` LIKE CONCAT ('%', :null_entity2_mei, '%') 
-    AND a.`ENTITY2_MEI` LIKE CONCAT ('%', :entity2_mei, '%') 
+    AND a.`NULL_ENTITY2_MEI` LIKE CONCAT ('%', :null_entity_2_mei, '%') 
+    AND a.`ENTITY2_MEI` LIKE CONCAT ('%', :entity_2_mei, '%') 
     AND CASE WHEN a.`CHECK_F` IS NULL THEN '0' ELSE TO_CHAR (a.`CHECK_F`) END IN (:check_f) 
     AND a.`RADIO_KB` IN (:radio_kb) 
     AND a.`PULLDOWN_KB` IN (:pulldown_kb) 

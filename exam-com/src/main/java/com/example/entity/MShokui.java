@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MShokui implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class MShokui implements IEntity {
 
     /** @param o 職位ID */
     public void setShokuiId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shokuiId = Integer.valueOf(o.toString());
         } else {
             this.shokuiId = null;
@@ -61,7 +61,7 @@ public class MShokui implements IEntity {
 
     /** @param o 職位名 */
     public void setShokuiMei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shokuiMei = String.valueOf(o.toString());
         } else {
             this.shokuiMei = null;
@@ -79,7 +79,7 @@ public class MShokui implements IEntity {
 
     /** @param o 職位順 */
     public void setOrderId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.orderId = Integer.valueOf(o.toString());
         } else {
             this.orderId = null;
@@ -97,7 +97,7 @@ public class MShokui implements IEntity {
 
     /** @param o 開始日 */
     public void setKaishiYmd(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.kaishiYmd = String.valueOf(o.toString());
         } else {
             this.kaishiYmd = null;
@@ -115,7 +115,7 @@ public class MShokui implements IEntity {
 
     /** @param o 終了日 */
     public void setShuryoYmd(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shuryoYmd = String.valueOf(o.toString());
         } else {
             this.shuryoYmd = null;
@@ -160,7 +160,7 @@ public class MShokui implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -205,7 +205,7 @@ public class MShokui implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -223,7 +223,7 @@ public class MShokui implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;
@@ -299,7 +299,7 @@ public class MShokui implements IEntity {
         }
         String sql = "SELECT CASE WHEN MAX(e.`SHOKUI_ID`) IS NULL THEN 0 ELSE MAX(e.`SHOKUI_ID`) * 1 END + 1 AS `SHOKUI_ID` FROM m_shokui e";
         Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SHOKUI_ID");
         this.setShokuiId(o);
     }

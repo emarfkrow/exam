@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MSansho1 implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class MSansho1 implements IEntity {
 
     /** @param o 参照１ID */
     public void setSansho1Id(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho1Id = Integer.valueOf(o.toString());
         } else {
             this.sansho1Id = null;
@@ -61,7 +61,7 @@ public class MSansho1 implements IEntity {
 
     /** @param o 参照１名 */
     public void setSansho1Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho1Mei = String.valueOf(o.toString());
         } else {
             this.sansho1Mei = null;
@@ -106,7 +106,7 @@ public class MSansho1 implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -151,7 +151,7 @@ public class MSansho1 implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -169,7 +169,7 @@ public class MSansho1 implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;
@@ -183,10 +183,10 @@ public class MSansho1 implements IEntity {
      */
     public static MSansho1 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho1_id");
+        whereList.add("`SANSHO1_ID` = :sansho_1_id");
         String sql = "SELECT * FROM m_sansho1 WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho1_id", param1);
+        map.put("sansho_1_id", param1);
         return Queries.get(sql, map, MSansho1.class);
     }
 
@@ -209,8 +209,8 @@ public class MSansho1 implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHO1_ID` -- :sansho1_id");
-        nameList.add("`SANSHO1_MEI` -- :sansho1_mei");
+        nameList.add("`SANSHO1_ID` -- :sansho_1_id");
+        nameList.add("`SANSHO1_MEI` -- :sansho_1_mei");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -222,8 +222,8 @@ public class MSansho1 implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sansho1_id");
-        valueList.add(":sansho1_mei");
+        valueList.add(":sansho_1_id");
+        valueList.add(":sansho_1_mei");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -239,7 +239,7 @@ public class MSansho1 implements IEntity {
         }
         String sql = "SELECT CASE WHEN MAX(e.`SANSHO1_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO1_ID`) * 1 END + 1 AS `SANSHO1_ID` FROM m_sansho1 e";
         Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SANSHO1_ID");
         this.setSansho1Id(o);
     }
@@ -260,8 +260,8 @@ public class MSansho1 implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHO1_ID` = :sansho1_id");
-        setList.add("`SANSHO1_MEI` = :sansho1_mei");
+        setList.add("`SANSHO1_ID` = :sansho_1_id");
+        setList.add("`SANSHO1_MEI` = :sansho_1_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -282,7 +282,7 @@ public class MSansho1 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho1_id");
+        whereList.add("`SANSHO1_ID` = :sansho_1_id");
         return String.join(" AND ", whereList);
     }
 
@@ -293,8 +293,8 @@ public class MSansho1 implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho1_id", this.sansho1Id);
-        map.put("sansho1_mei", this.sansho1Mei);
+        map.put("sansho_1_id", this.sansho1Id);
+        map.put("sansho_1_mei", this.sansho1Mei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

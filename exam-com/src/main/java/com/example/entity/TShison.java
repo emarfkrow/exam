@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TShison implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class TShison implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -61,7 +61,7 @@ public class TShison implements IEntity {
 
     /** @param o 親連番 */
     public void setOyaSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.oyaSn = Integer.valueOf(o.toString());
         } else {
             this.oyaSn = null;
@@ -79,7 +79,7 @@ public class TShison implements IEntity {
 
     /** @param o エンティティ連番 */
     public void setEntitySn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.entitySn = Integer.valueOf(o.toString());
         } else {
             this.entitySn = null;
@@ -97,7 +97,7 @@ public class TShison implements IEntity {
 
     /** @param o 子連番 */
     public void setKoSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.koSn = Integer.valueOf(o.toString());
         } else {
             this.koSn = null;
@@ -115,7 +115,7 @@ public class TShison implements IEntity {
 
     /** @param o 子孫連番 */
     public void setShisonSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shisonSn = Integer.valueOf(o.toString());
         } else {
             this.shisonSn = null;
@@ -133,7 +133,7 @@ public class TShison implements IEntity {
 
     /** @param o 子孫名 */
     public void setShisonMei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shisonMei = String.valueOf(o.toString());
         } else {
             this.shisonMei = null;
@@ -178,7 +178,7 @@ public class TShison implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -223,7 +223,7 @@ public class TShison implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -241,7 +241,7 @@ public class TShison implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;
@@ -341,7 +341,7 @@ public class TShison implements IEntity {
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
         map.put("ko_sn", this.koSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SHISON_SN");
         this.setShisonSn(o);
     }

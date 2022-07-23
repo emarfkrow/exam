@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TEntity implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class TEntity implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -61,7 +61,7 @@ public class TEntity implements IEntity {
 
     /** @param o 親連番 */
     public void setOyaSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.oyaSn = Integer.valueOf(o.toString());
         } else {
             this.oyaSn = null;
@@ -79,7 +79,7 @@ public class TEntity implements IEntity {
 
     /** @param o エンティティ連番 */
     public void setEntitySn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.entitySn = Integer.valueOf(o.toString());
         } else {
             this.entitySn = null;
@@ -97,7 +97,7 @@ public class TEntity implements IEntity {
 
     /** @param o エンティティ名 */
     public void setEntityMei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.entityMei = String.valueOf(o.toString());
         } else {
             this.entityMei = null;
@@ -115,7 +115,7 @@ public class TEntity implements IEntity {
 
     /** @param o 参照１ID */
     public void setSansho1Id(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho1Id = Integer.valueOf(o.toString());
         } else {
             this.sansho1Id = null;
@@ -133,7 +133,7 @@ public class TEntity implements IEntity {
 
     /** @param o 参照１名 */
     public void setSansho1Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho1Mei = String.valueOf(o.toString());
         } else {
             this.sansho1Mei = null;
@@ -151,7 +151,7 @@ public class TEntity implements IEntity {
 
     /** @param o 参照２ID */
     public void setSansho2Id(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho2Id = Integer.valueOf(o.toString());
         } else {
             this.sansho2Id = null;
@@ -169,7 +169,7 @@ public class TEntity implements IEntity {
 
     /** @param o 参照２名 */
     public void setSansho2Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sansho2Mei = String.valueOf(o.toString());
         } else {
             this.sansho2Mei = null;
@@ -187,7 +187,7 @@ public class TEntity implements IEntity {
 
     /** @param o 別参照１ID */
     public void setBetsuSansho1Id(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.betsuSansho1Id = Integer.valueOf(o.toString());
         } else {
             this.betsuSansho1Id = null;
@@ -205,7 +205,7 @@ public class TEntity implements IEntity {
 
     /** @param o 別参照１名 */
     public void setBetsuSansho1Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.betsuSansho1Mei = String.valueOf(o.toString());
         } else {
             this.betsuSansho1Mei = null;
@@ -250,7 +250,7 @@ public class TEntity implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -295,7 +295,7 @@ public class TEntity implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -313,7 +313,7 @@ public class TEntity implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;
@@ -410,12 +410,12 @@ public class TEntity implements IEntity {
         nameList.add("`OYA_SN` -- :oya_sn");
         nameList.add("`ENTITY_SN` -- :entity_sn");
         nameList.add("`ENTITY_MEI` -- :entity_mei");
-        nameList.add("`SANSHO1_ID` -- :sansho1_id");
-        nameList.add("`SANSHO1_MEI` -- :sansho1_mei");
-        nameList.add("`SANSHO2_ID` -- :sansho2_id");
-        nameList.add("`SANSHO2_MEI` -- :sansho2_mei");
-        nameList.add("`BETSU_SANSHO1_ID` -- :betsu_sansho1_id");
-        nameList.add("`BETSU_SANSHO1_MEI` -- :betsu_sansho1_mei");
+        nameList.add("`SANSHO1_ID` -- :sansho_1_id");
+        nameList.add("`SANSHO1_MEI` -- :sansho_1_mei");
+        nameList.add("`SANSHO2_ID` -- :sansho_2_id");
+        nameList.add("`SANSHO2_MEI` -- :sansho_2_mei");
+        nameList.add("`BETSU_SANSHO1_ID` -- :betsu_sansho_1_id");
+        nameList.add("`BETSU_SANSHO1_MEI` -- :betsu_sansho_1_mei");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -431,12 +431,12 @@ public class TEntity implements IEntity {
         valueList.add(":oya_sn");
         valueList.add(":entity_sn");
         valueList.add(":entity_mei");
-        valueList.add(":sansho1_id");
-        valueList.add(":sansho1_mei");
-        valueList.add(":sansho2_id");
-        valueList.add(":sansho2_mei");
-        valueList.add(":betsu_sansho1_id");
-        valueList.add(":betsu_sansho1_mei");
+        valueList.add(":sansho_1_id");
+        valueList.add(":sansho_1_mei");
+        valueList.add(":sansho_2_id");
+        valueList.add(":sansho_2_mei");
+        valueList.add(":betsu_sansho_1_id");
+        valueList.add(":betsu_sansho_1_mei");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -458,7 +458,7 @@ public class TEntity implements IEntity {
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("ENTITY_SN");
         this.setEntitySn(o);
     }
@@ -544,12 +544,12 @@ public class TEntity implements IEntity {
         setList.add("`OYA_SN` = :oya_sn");
         setList.add("`ENTITY_SN` = :entity_sn");
         setList.add("`ENTITY_MEI` = :entity_mei");
-        setList.add("`SANSHO1_ID` = :sansho1_id");
-        setList.add("`SANSHO1_MEI` = :sansho1_mei");
-        setList.add("`SANSHO2_ID` = :sansho2_id");
-        setList.add("`SANSHO2_MEI` = :sansho2_mei");
-        setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho1_id");
-        setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho1_mei");
+        setList.add("`SANSHO1_ID` = :sansho_1_id");
+        setList.add("`SANSHO1_MEI` = :sansho_1_mei");
+        setList.add("`SANSHO2_ID` = :sansho_2_id");
+        setList.add("`SANSHO2_MEI` = :sansho_2_mei");
+        setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
+        setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -606,12 +606,12 @@ public class TEntity implements IEntity {
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
         map.put("entity_mei", this.entityMei);
-        map.put("sansho1_id", this.sansho1Id);
-        map.put("sansho1_mei", this.sansho1Mei);
-        map.put("sansho2_id", this.sansho2Id);
-        map.put("sansho2_mei", this.sansho2Mei);
-        map.put("betsu_sansho1_id", this.betsuSansho1Id);
-        map.put("betsu_sansho1_mei", this.betsuSansho1Mei);
+        map.put("sansho_1_id", this.sansho1Id);
+        map.put("sansho_1_mei", this.sansho1Mei);
+        map.put("sansho_2_id", this.sansho2Id);
+        map.put("sansho_2_mei", this.sansho2Mei);
+        map.put("betsu_sansho_1_id", this.betsuSansho1Id);
+        map.put("betsu_sansho_1_mei", this.betsuSansho1Mei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

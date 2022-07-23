@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MNinka implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class MNinka implements IEntity {
 
     /** @param o 部署ID */
     public void setBushoId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.bushoId = Integer.valueOf(o.toString());
         } else {
             this.bushoId = null;
@@ -61,7 +61,7 @@ public class MNinka implements IEntity {
 
     /** @param o 職位ID */
     public void setShokuiId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shokuiId = Integer.valueOf(o.toString());
         } else {
             this.shokuiId = null;
@@ -79,7 +79,7 @@ public class MNinka implements IEntity {
 
     /** @param o 画面名 */
     public void setGamenNm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.gamenNm = String.valueOf(o.toString());
         } else {
             this.gamenNm = null;
@@ -97,7 +97,7 @@ public class MNinka implements IEntity {
 
     /** @param o 権限区分 */
     public void setKengenKb(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.kengenKb = String.valueOf(o.toString());
         } else {
             this.kengenKb = null;
@@ -115,7 +115,7 @@ public class MNinka implements IEntity {
 
     /** @param o 開始日 */
     public void setKaishiYmd(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.kaishiYmd = String.valueOf(o.toString());
         } else {
             this.kaishiYmd = null;
@@ -133,7 +133,7 @@ public class MNinka implements IEntity {
 
     /** @param o 終了日 */
     public void setShuryoYmd(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.shuryoYmd = String.valueOf(o.toString());
         } else {
             this.shuryoYmd = null;
@@ -178,7 +178,7 @@ public class MNinka implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -223,7 +223,7 @@ public class MNinka implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -241,7 +241,7 @@ public class MNinka implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;

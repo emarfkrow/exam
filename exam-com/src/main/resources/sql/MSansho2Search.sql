@@ -4,8 +4,8 @@ FROM
     m_sansho2 a 
 WHERE
     1 = 1 
-    AND TRIM (a.`SANSHO2_ID`) = TRIM (:sansho2_id) 
-    AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho2_mei, '%') 
+    AND TRIM (a.`SANSHO2_ID`) = TRIM (:sansho_2_id) 
+    AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho_2_mei, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 

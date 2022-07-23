@@ -16,19 +16,19 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TEntity2 implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private java.math.BigDecimal id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final java.math.BigDecimal getId() {
         return id;
     }
 
     /**
      * @param i セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
+    public final void setId(final java.math.BigDecimal i) {
         this.id = i;
     }
 
@@ -43,7 +43,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -61,7 +61,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 親連番 */
     public void setOyaSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.oyaSn = Integer.valueOf(o.toString());
         } else {
             this.oyaSn = null;
@@ -79,7 +79,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o エンティティ連番 */
     public void setEntitySn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.entitySn = Integer.valueOf(o.toString());
         } else {
             this.entitySn = null;
@@ -97,7 +97,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 任意エンティティ２名 */
     public void setNullEntity2Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.nullEntity2Mei = String.valueOf(o.toString());
         } else {
             this.nullEntity2Mei = null;
@@ -115,7 +115,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o エンティティ２名 */
     public void setEntity2Mei(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.entity2Mei = String.valueOf(o.toString());
         } else {
             this.entity2Mei = null;
@@ -133,7 +133,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o チェックフラグ */
     public void setCheckF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.checkF = String.valueOf(o.toString());
         } else {
             this.checkF = null;
@@ -151,7 +151,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o ラジオ区分 */
     public void setRadioKb(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.radioKb = String.valueOf(o.toString());
         } else {
             this.radioKb = null;
@@ -169,7 +169,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o プルダウン区分 */
     public void setPulldownKb(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.pulldownKb = String.valueOf(o.toString());
         } else {
             this.pulldownKb = null;
@@ -187,7 +187,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o メモ */
     public void setMemoTx(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.memoTx = String.valueOf(o.toString());
         } else {
             this.memoTx = null;
@@ -205,7 +205,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 日付 */
     public void setHidukeYmd(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.hidukeYmd = String.valueOf(o.toString());
         } else {
             this.hidukeYmd = null;
@@ -223,7 +223,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 年月 */
     public void setNengetsuYm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.nengetsuYm = String.valueOf(o.toString());
         } else {
             this.nengetsuYm = null;
@@ -241,7 +241,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 年 */
     public void setSampleY(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sampleY = String.valueOf(o.toString());
         } else {
             this.sampleY = null;
@@ -259,7 +259,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 月 */
     public void setSampleM(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.sampleM = String.valueOf(o.toString());
         } else {
             this.sampleM = null;
@@ -304,7 +304,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 時刻 */
     public void setJikokuHm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.jikokuHm = String.valueOf(o.toString());
         } else {
             this.jikokuHm = null;
@@ -322,7 +322,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 時間 */
     public void setJikanTm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.jikanTm = String.valueOf(o.toString());
         } else {
             this.jikanTm = null;
@@ -421,7 +421,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.insertBy = String.valueOf(o.toString());
         } else {
             this.insertBy = null;
@@ -466,7 +466,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.updateBy = String.valueOf(o.toString());
         } else {
             this.updateBy = null;
@@ -484,7 +484,7 @@ public class TEntity2 implements IEntity {
 
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (o != null) {
             this.deleteF = String.valueOf(o.toString());
         } else {
             this.deleteF = null;
@@ -533,8 +533,8 @@ public class TEntity2 implements IEntity {
         nameList.add("`SOSEN_ID` -- :sosen_id");
         nameList.add("`OYA_SN` -- :oya_sn");
         nameList.add("`ENTITY_SN` -- :entity_sn");
-        nameList.add("`NULL_ENTITY2_MEI` -- :null_entity2_mei");
-        nameList.add("`ENTITY2_MEI` -- :entity2_mei");
+        nameList.add("`NULL_ENTITY2_MEI` -- :null_entity_2_mei");
+        nameList.add("`ENTITY2_MEI` -- :entity_2_mei");
         nameList.add("`CHECK_F` -- :check_f");
         nameList.add("`RADIO_KB` -- :radio_kb");
         nameList.add("`PULLDOWN_KB` -- :pulldown_kb");
@@ -563,8 +563,8 @@ public class TEntity2 implements IEntity {
         valueList.add(":sosen_id");
         valueList.add(":oya_sn");
         valueList.add(":entity_sn");
-        valueList.add(":null_entity2_mei");
-        valueList.add(":entity2_mei");
+        valueList.add(":null_entity_2_mei");
+        valueList.add(":entity_2_mei");
         valueList.add(":check_f");
         valueList.add(":radio_kb");
         valueList.add(":pulldown_kb");
@@ -600,7 +600,7 @@ public class TEntity2 implements IEntity {
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, 1, 1);
+        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("ENTITY_SN");
         this.setEntitySn(o);
     }
@@ -624,8 +624,8 @@ public class TEntity2 implements IEntity {
         setList.add("`SOSEN_ID` = :sosen_id");
         setList.add("`OYA_SN` = :oya_sn");
         setList.add("`ENTITY_SN` = :entity_sn");
-        setList.add("`NULL_ENTITY2_MEI` = :null_entity2_mei");
-        setList.add("`ENTITY2_MEI` = :entity2_mei");
+        setList.add("`NULL_ENTITY2_MEI` = :null_entity_2_mei");
+        setList.add("`ENTITY2_MEI` = :entity_2_mei");
         setList.add("`CHECK_F` = :check_f");
         setList.add("`RADIO_KB` = :radio_kb");
         setList.add("`PULLDOWN_KB` = :pulldown_kb");
@@ -676,8 +676,8 @@ public class TEntity2 implements IEntity {
         map.put("sosen_id", this.sosenId);
         map.put("oya_sn", this.oyaSn);
         map.put("entity_sn", this.entitySn);
-        map.put("null_entity2_mei", this.nullEntity2Mei);
-        map.put("entity2_mei", this.entity2Mei);
+        map.put("null_entity_2_mei", this.nullEntity2Mei);
+        map.put("entity_2_mei", this.entity2Mei);
         map.put("check_f", this.checkF);
         map.put("radio_kb", this.radioKb);
         map.put("pulldown_kb", this.pulldownKb);

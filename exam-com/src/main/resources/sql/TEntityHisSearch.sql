@@ -9,12 +9,12 @@ WHERE
     AND a.`ENTITY_SN` = :entity_sn 
     AND a.`HISTORY_SN` = :history_sn 
     AND a.`ENTITY_MEI` LIKE CONCAT ('%', :entity_mei, '%') 
-    AND a.`SANSHO1_ID` = :sansho1_id 
-    AND a.`SANSHO1_MEI` LIKE CONCAT ('%', :sansho1_mei, '%') 
-    AND a.`SANSHO2_ID` = :sansho2_id 
-    AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho2_mei, '%') 
-    AND a.`BETSU_SANSHO1_ID` = :betsu_sansho1_id 
-    AND a.`BETSU_SANSHO1_MEI` LIKE CONCAT ('%', :betsu_sansho1_mei, '%') 
+    AND a.`SANSHO1_ID` = :sansho_1_id 
+    AND a.`SANSHO1_MEI` LIKE CONCAT ('%', :sansho_1_mei, '%') 
+    AND a.`SANSHO2_ID` = :sansho_2_id 
+    AND a.`SANSHO2_MEI` LIKE CONCAT ('%', :sansho_2_mei, '%') 
+    AND a.`BETSU_SANSHO1_ID` = :betsu_sansho_1_id 
+    AND a.`BETSU_SANSHO1_MEI` LIKE CONCAT ('%', :betsu_sansho_1_mei, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 
