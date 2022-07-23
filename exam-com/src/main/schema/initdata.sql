@@ -1,7 +1,3 @@
-insert into m_user (user_id, user_sei, user_mei, email, password, insert_dt, insert_by, update_dt, update_by, delete_f) values (1,'姓','名','hoge@example.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', SYSDATE(), 'initdata', SYSDATE(), 'initdata',null);
-
-
-
 TRUNCATE TABLE m_code;
 INSERT INTO m_code(code_nm, code_mei, insert_dt, insert_by, update_dt, update_by) VALUES ('check_f', 'チェックフラグ', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 INSERT INTO m_code(code_nm, code_mei, insert_dt, insert_by, update_dt, update_by) VALUES ('radio_kb', 'ラジオ区分', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
@@ -31,6 +27,8 @@ INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteri
 INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '1', '閲覧', 2, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '2', '更新', 3, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 
+insert into m_user (user_id, user_sei, user_mei, email, password, insert_dt, insert_by, update_dt, update_by, delete_f) values (1,'姓','名','hoge@example.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', SYSDATE(), 'initdata', SYSDATE(), 'initdata',null);
+
 insert into emarf.m_busho(`BUSHO_ID`,`BUSHO_MEI`,`KAISHI_YMD`,`SHURYO_YMD`,`OYA_BUSHO_ID`,`INSERT_DT`,`INSERT_BY`,`UPDATE_DT`,`UPDATE_BY`,`DELETE_F`) values 
     (1,'創研情報株式会社',null,null,null,'2022/04/20 13:33:21.503','1','2022/04/20 13:33:28.226','1',null)
   , (2,'東京本社',null,null,1,'2022/04/20 13:33:50.448','1','2022/04/20 13:33:53.434','1',null)
@@ -52,4 +50,5 @@ insert into emarf.m_shokui(`SHOKUI_ID`,`SHOKUI_MEI`,`ORDER_ID`,`KAISHI_YMD`,`SHU
   , (11,'係長',11,null,null,'2022/04/20 13:48:00.912','1','2022/04/20 13:48:00.912','1',null)
   , (12,'主任',12,null,null,'2022/04/20 13:48:00.912','1','2022/04/20 13:48:00.912','1',null)
   , (13,'一般',13,null,null,'2022/04/20 13:48:00.912','1','2022/04/20 13:48:00.912','1',null);
+
 
