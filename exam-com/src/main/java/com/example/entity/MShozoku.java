@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MShozoku implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** 部署ID */
@@ -43,7 +47,7 @@ public class MShozoku implements IEntity {
 
     /** @param o 部署ID */
     public void setBushoId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.bushoId = Integer.valueOf(o.toString());
         } else {
             this.bushoId = null;
@@ -61,7 +65,7 @@ public class MShozoku implements IEntity {
 
     /** @param o 職位ID */
     public void setShokuiId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.shokuiId = Integer.valueOf(o.toString());
         } else {
             this.shokuiId = null;
@@ -79,7 +83,7 @@ public class MShozoku implements IEntity {
 
     /** @param o ユーザID */
     public void setUserId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.userId = Integer.valueOf(o.toString());
         } else {
             this.userId = null;
@@ -98,7 +102,7 @@ public class MShozoku implements IEntity {
     /** @param o 開始日 */
     public void setKaishiYmd(final Object o) {
         if (o != null) {
-            this.kaishiYmd = String.valueOf(o.toString());
+            this.kaishiYmd = o.toString();
         } else {
             this.kaishiYmd = null;
         }
@@ -116,7 +120,7 @@ public class MShozoku implements IEntity {
     /** @param o 終了日 */
     public void setShuryoYmd(final Object o) {
         if (o != null) {
-            this.shuryoYmd = String.valueOf(o.toString());
+            this.shuryoYmd = o.toString();
         } else {
             this.shuryoYmd = null;
         }
@@ -161,7 +165,7 @@ public class MShozoku implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -206,7 +210,7 @@ public class MShozoku implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -224,7 +228,7 @@ public class MShozoku implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

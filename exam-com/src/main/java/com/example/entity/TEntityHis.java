@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TEntityHis implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** 祖先ID */
@@ -43,7 +47,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -61,7 +65,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o 親連番 */
     public void setOyaSn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.oyaSn = Integer.valueOf(o.toString());
         } else {
             this.oyaSn = null;
@@ -79,7 +83,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o エンティティ連番 */
     public void setEntitySn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.entitySn = Integer.valueOf(o.toString());
         } else {
             this.entitySn = null;
@@ -97,7 +101,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o 履歴連番 */
     public void setHistorySn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.historySn = Integer.valueOf(o.toString());
         } else {
             this.historySn = null;
@@ -116,7 +120,7 @@ public class TEntityHis implements IEntity {
     /** @param o エンティティ名 */
     public void setEntityMei(final Object o) {
         if (o != null) {
-            this.entityMei = String.valueOf(o.toString());
+            this.entityMei = o.toString();
         } else {
             this.entityMei = null;
         }
@@ -133,7 +137,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o 参照１ID */
     public void setSansho1Id(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.sansho1Id = Integer.valueOf(o.toString());
         } else {
             this.sansho1Id = null;
@@ -152,7 +156,7 @@ public class TEntityHis implements IEntity {
     /** @param o 参照１名 */
     public void setSansho1Mei(final Object o) {
         if (o != null) {
-            this.sansho1Mei = String.valueOf(o.toString());
+            this.sansho1Mei = o.toString();
         } else {
             this.sansho1Mei = null;
         }
@@ -170,7 +174,7 @@ public class TEntityHis implements IEntity {
     /** @param o 参照２CD */
     public void setSansho2Cd(final Object o) {
         if (o != null) {
-            this.sansho2Cd = String.valueOf(o.toString());
+            this.sansho2Cd = o.toString();
         } else {
             this.sansho2Cd = null;
         }
@@ -188,7 +192,7 @@ public class TEntityHis implements IEntity {
     /** @param o 参照２名 */
     public void setSansho2Mei(final Object o) {
         if (o != null) {
-            this.sansho2Mei = String.valueOf(o.toString());
+            this.sansho2Mei = o.toString();
         } else {
             this.sansho2Mei = null;
         }
@@ -205,7 +209,7 @@ public class TEntityHis implements IEntity {
 
     /** @param o 別参照１ID */
     public void setBetsuSansho1Id(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.betsuSansho1Id = Integer.valueOf(o.toString());
         } else {
             this.betsuSansho1Id = null;
@@ -224,7 +228,7 @@ public class TEntityHis implements IEntity {
     /** @param o 別参照１名 */
     public void setBetsuSansho1Mei(final Object o) {
         if (o != null) {
-            this.betsuSansho1Mei = String.valueOf(o.toString());
+            this.betsuSansho1Mei = o.toString();
         } else {
             this.betsuSansho1Mei = null;
         }
@@ -269,7 +273,7 @@ public class TEntityHis implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -314,7 +318,7 @@ public class TEntityHis implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -332,7 +336,7 @@ public class TEntityHis implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

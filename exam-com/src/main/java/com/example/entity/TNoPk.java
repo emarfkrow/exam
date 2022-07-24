@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TNoPk implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** 列Ａ */
@@ -44,7 +48,7 @@ public class TNoPk implements IEntity {
     /** @param o 列Ａ */
     public void setColumnA(final Object o) {
         if (o != null) {
-            this.columnA = String.valueOf(o.toString());
+            this.columnA = o.toString();
         } else {
             this.columnA = null;
         }
@@ -62,7 +66,7 @@ public class TNoPk implements IEntity {
     /** @param o 列Ｂ */
     public void setColumnB(final Object o) {
         if (o != null) {
-            this.columnB = String.valueOf(o.toString());
+            this.columnB = o.toString();
         } else {
             this.columnB = null;
         }
@@ -80,7 +84,7 @@ public class TNoPk implements IEntity {
     /** @param o 列Ｃ */
     public void setColumnC(final Object o) {
         if (o != null) {
-            this.columnC = String.valueOf(o.toString());
+            this.columnC = o.toString();
         } else {
             this.columnC = null;
         }
@@ -98,7 +102,7 @@ public class TNoPk implements IEntity {
     /** @param o 列Ｄ */
     public void setColumnD(final Object o) {
         if (o != null) {
-            this.columnD = String.valueOf(o.toString());
+            this.columnD = o.toString();
         } else {
             this.columnD = null;
         }
@@ -116,7 +120,7 @@ public class TNoPk implements IEntity {
     /** @param o 列Ｅ */
     public void setColumnE(final Object o) {
         if (o != null) {
-            this.columnE = String.valueOf(o.toString());
+            this.columnE = o.toString();
         } else {
             this.columnE = null;
         }
@@ -161,7 +165,7 @@ public class TNoPk implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -206,7 +210,7 @@ public class TNoPk implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -224,7 +228,7 @@ public class TNoPk implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

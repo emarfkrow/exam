@@ -9,6 +9,9 @@
 
 </script>
 <script th:src="@{/model/MShozokuGridColumns.js}"></script>
+<script th:src="@{/model/MBushoGridColumns.js}"></script>
+<script th:src="@{/model/MShokuiGridColumns.js}"></script>
+<script th:src="@{/model/MUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -19,13 +22,13 @@
       <fieldset>
         <legend th:text="#{MShozokuS.legend}">legend</legend>
         <div id="bushoId">
-          <label for="MShozoku.bushoId" th:text="#{MShozoku.bushoId}">部署ID</label><input type="text" id="MShozoku.bushoId" name="MShozoku.bushoId" maxlength="10" />
+          <label for="MShozoku.bushoId" th:text="#{MShozoku.bushoId}">部署ID</label><input type="text" id="MShozoku.bushoId" name="MShozoku.bushoId" maxlength="10" /><a id="MShozoku.bushoId" th:href="@{/model/MBushoS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
         <div id="shokuiId">
-          <label for="MShozoku.shokuiId" th:text="#{MShozoku.shokuiId}">職位ID</label><input type="text" id="MShozoku.shokuiId" name="MShozoku.shokuiId" maxlength="10" />
+          <label for="MShozoku.shokuiId" th:text="#{MShozoku.shokuiId}">職位ID</label><input type="text" id="MShozoku.shokuiId" name="MShozoku.shokuiId" maxlength="10" /><a id="MShozoku.shokuiId" th:href="@{/model/MShokuiS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
         <div id="userId">
-          <label for="MShozoku.userId" th:text="#{MShozoku.userId}">ユーザID</label><input type="text" id="MShozoku.userId" name="MShozoku.userId" maxlength="10" />
+          <label for="MShozoku.userId" th:text="#{MShozoku.userId}">ユーザID</label><input type="text" id="MShozoku.userId" name="MShozoku.userId" maxlength="10" /><a id="MShozoku.userId" th:href="@{/model/MUserS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
         <div id="kaishiYmd">
           <label for="MShozoku.kaishiYmd_1" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="date" id="MShozoku.kaishiYmd_1" name="MShozoku.kaishiYmd_1" maxlength="10" />～<input type="date" id="MShozoku.kaishiYmd_2" name="MShozoku.kaishiYmd_2" maxlength="10" />
@@ -41,6 +44,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" th:text="#{common.reset}">reset</button>
+        <a th:href="@{/model/MShozoku.html}" id="MShozoku" target="dialog" th:text="#{MShozoku.add}" tabindex="-1">所属マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMShozoku" class="search" data-gridId="MShozokuGrid" th:text="#{common.search}">submit</button>

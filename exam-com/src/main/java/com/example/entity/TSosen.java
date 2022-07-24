@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TSosen implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** 祖先ID */
@@ -43,7 +47,7 @@ public class TSosen implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -62,7 +66,7 @@ public class TSosen implements IEntity {
     /** @param o 祖先名 */
     public void setSosenMei(final Object o) {
         if (o != null) {
-            this.sosenMei = String.valueOf(o.toString());
+            this.sosenMei = o.toString();
         } else {
             this.sosenMei = null;
         }
@@ -107,7 +111,7 @@ public class TSosen implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -152,7 +156,7 @@ public class TSosen implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -170,7 +174,7 @@ public class TSosen implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

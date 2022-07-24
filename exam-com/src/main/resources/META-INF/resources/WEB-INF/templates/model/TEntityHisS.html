@@ -9,6 +9,14 @@
 
 </script>
 <script th:src="@{/model/TEntityHisGridColumns.js}"></script>
+<script th:src="@{/model/TSosenGridColumns.js}"></script>
+<script th:src="@{/model/TOyaGridColumns.js}"></script>
+<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TKoGridColumns.js}"></script>
+<script th:src="@{/model/TShisonGridColumns.js}"></script>
+<script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MSansho1GridColumns.js}"></script>
+<script th:src="@{/model/MSansho2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -19,7 +27,7 @@
       <fieldset>
         <legend th:text="#{TEntityHisS.legend}">legend</legend>
         <div id="sosenId">
-          <label for="TEntityHis.sosenId" th:text="#{TEntityHis.sosenId}">祖先ID</label><input type="text" id="TEntityHis.sosenId" name="TEntityHis.sosenId" maxlength="10" />
+          <label for="TEntityHis.sosenId" th:text="#{TEntityHis.sosenId}">祖先ID</label><input type="text" id="TEntityHis.sosenId" name="TEntityHis.sosenId" maxlength="10" /><a id="TEntityHis.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
         </div>
         <div id="oyaSn">
           <label for="TEntityHis.oyaSn" th:text="#{TEntityHis.oyaSn}">親連番</label><input type="text" id="TEntityHis.oyaSn" name="TEntityHis.oyaSn" maxlength="10" />
@@ -34,19 +42,19 @@
           <label for="TEntityHis.entityMei" th:text="#{TEntityHis.entityMei}">エンティティ名</label><input type="text" id="TEntityHis.entityMei" name="TEntityHis.entityMei" maxlength="30" />
         </div>
         <div id="sansho1Id">
-          <label for="TEntityHis.sansho1Id" th:text="#{TEntityHis.sansho1Id}">参照１ID</label><input type="text" id="TEntityHis.sansho1Id" name="TEntityHis.sansho1Id" maxlength="10" />
+          <label for="TEntityHis.sansho1Id" th:text="#{TEntityHis.sansho1Id}">参照１ID</label><input type="text" id="TEntityHis.sansho1Id" name="TEntityHis.sansho1Id" maxlength="10" /><a id="TEntityHis.sansho1Id" th:href="@{/model/MSansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
         </div>
         <div id="sansho1Mei">
           <label for="TEntityHis.sansho1Mei" th:text="#{TEntityHis.sansho1Mei}">参照１名</label><input type="text" id="TEntityHis.sansho1Mei" name="TEntityHis.sansho1Mei" maxlength="30" />
         </div>
         <div id="sansho2Cd">
-          <label for="TEntityHis.sansho2Cd" th:text="#{TEntityHis.sansho2Cd}">参照２CD</label><input type="text" id="TEntityHis.sansho2Cd" name="TEntityHis.sansho2Cd" maxlength="6" />
+          <label for="TEntityHis.sansho2Cd" th:text="#{TEntityHis.sansho2Cd}">参照２CD</label><input type="text" id="TEntityHis.sansho2Cd" name="TEntityHis.sansho2Cd" maxlength="6" /><a id="TEntityHis.sansho2Cd" th:href="@{/model/MSansho2S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
         </div>
         <div id="sansho2Mei">
           <label for="TEntityHis.sansho2Mei" th:text="#{TEntityHis.sansho2Mei}">参照２名</label><input type="text" id="TEntityHis.sansho2Mei" name="TEntityHis.sansho2Mei" maxlength="30" />
         </div>
         <div id="betsuSansho1Id">
-          <label for="TEntityHis.betsuSansho1Id" th:text="#{TEntityHis.betsuSansho1Id}">別参照１ID</label><input type="text" id="TEntityHis.betsuSansho1Id" name="TEntityHis.betsuSansho1Id" maxlength="10" />
+          <label for="TEntityHis.betsuSansho1Id" th:text="#{TEntityHis.betsuSansho1Id}">別参照１ID</label><input type="text" id="TEntityHis.betsuSansho1Id" name="TEntityHis.betsuSansho1Id" maxlength="10" /><a id="TEntityHis.betsuSansho1Id" th:href="@{/model/MSansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
         </div>
         <div id="betsuSansho1Mei">
           <label for="TEntityHis.betsuSansho1Mei" th:text="#{TEntityHis.betsuSansho1Mei}">別参照１名</label><input type="text" id="TEntityHis.betsuSansho1Mei" name="TEntityHis.betsuSansho1Mei" maxlength="30" />

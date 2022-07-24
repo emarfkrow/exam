@@ -9,6 +9,8 @@
 
 </script>
 <script th:src="@{/model/MNinkaGridColumns.js}"></script>
+<script th:src="@{/model/MBushoGridColumns.js}"></script>
+<script th:src="@{/model/MShokuiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -19,10 +21,10 @@
       <fieldset>
         <legend th:text="#{MNinkaS.legend}">legend</legend>
         <div id="bushoId">
-          <label for="MNinka.bushoId" th:text="#{MNinka.bushoId}">部署ID</label><input type="text" id="MNinka.bushoId" name="MNinka.bushoId" maxlength="10" />
+          <label for="MNinka.bushoId" th:text="#{MNinka.bushoId}">部署ID</label><input type="text" id="MNinka.bushoId" name="MNinka.bushoId" maxlength="10" /><a id="MNinka.bushoId" th:href="@{/model/MBushoS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
         </div>
         <div id="shokuiId">
-          <label for="MNinka.shokuiId" th:text="#{MNinka.shokuiId}">職位ID</label><input type="text" id="MNinka.shokuiId" name="MNinka.shokuiId" maxlength="10" />
+          <label for="MNinka.shokuiId" th:text="#{MNinka.shokuiId}">職位ID</label><input type="text" id="MNinka.shokuiId" name="MNinka.shokuiId" maxlength="10" /><a id="MNinka.shokuiId" th:href="@{/model/MShokuiS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
         </div>
         <div id="gamenNm">
           <label for="MNinka.gamenNm" th:text="#{MNinka.gamenNm}">画面名</label><input type="text" id="MNinka.gamenNm" name="MNinka.gamenNm" maxlength="20" />
@@ -46,6 +48,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" th:text="#{common.reset}">reset</button>
+        <a th:href="@{/model/MNinka.html}" id="MNinka" target="dialog" th:text="#{MNinka.add}" tabindex="-1">認可マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMNinka" class="search" data-gridId="MNinkaGrid" th:text="#{common.search}">submit</button>

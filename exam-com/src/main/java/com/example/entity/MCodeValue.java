@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MCodeValue implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** コード名称 */
@@ -44,7 +48,7 @@ public class MCodeValue implements IEntity {
     /** @param o コード名称 */
     public void setCodeNm(final Object o) {
         if (o != null) {
-            this.codeNm = String.valueOf(o.toString());
+            this.codeNm = o.toString();
         } else {
             this.codeNm = null;
         }
@@ -62,7 +66,7 @@ public class MCodeValue implements IEntity {
     /** @param o コード値 */
     public void setCodeValue(final Object o) {
         if (o != null) {
-            this.codeValue = String.valueOf(o.toString());
+            this.codeValue = o.toString();
         } else {
             this.codeValue = null;
         }
@@ -80,7 +84,7 @@ public class MCodeValue implements IEntity {
     /** @param o コード値名 */
     public void setCodeValueMei(final Object o) {
         if (o != null) {
-            this.codeValueMei = String.valueOf(o.toString());
+            this.codeValueMei = o.toString();
         } else {
             this.codeValueMei = null;
         }
@@ -97,7 +101,7 @@ public class MCodeValue implements IEntity {
 
     /** @param o 表示順 */
     public void setHyojiJun(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.hyojiJun = Integer.valueOf(o.toString());
         } else {
             this.hyojiJun = null;
@@ -116,7 +120,7 @@ public class MCodeValue implements IEntity {
     /** @param o 取得条件 */
     public void setCriteria(final Object o) {
         if (o != null) {
-            this.criteria = String.valueOf(o.toString());
+            this.criteria = o.toString();
         } else {
             this.criteria = null;
         }
@@ -161,7 +165,7 @@ public class MCodeValue implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -206,7 +210,7 @@ public class MCodeValue implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -224,7 +228,7 @@ public class MCodeValue implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

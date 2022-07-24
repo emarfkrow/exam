@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MCode implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** コード名称 */
@@ -44,7 +48,7 @@ public class MCode implements IEntity {
     /** @param o コード名称 */
     public void setCodeNm(final Object o) {
         if (o != null) {
-            this.codeNm = String.valueOf(o.toString());
+            this.codeNm = o.toString();
         } else {
             this.codeNm = null;
         }
@@ -62,7 +66,7 @@ public class MCode implements IEntity {
     /** @param o コード名 */
     public void setCodeMei(final Object o) {
         if (o != null) {
-            this.codeMei = String.valueOf(o.toString());
+            this.codeMei = o.toString();
         } else {
             this.codeMei = null;
         }
@@ -107,7 +111,7 @@ public class MCode implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -152,7 +156,7 @@ public class MCode implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -170,7 +174,7 @@ public class MCode implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }

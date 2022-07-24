@@ -16,20 +16,24 @@ import jp.co.golorp.emarf.sql.Queries;
 public class TTenpuFile implements IEntity {
 
     /** SlickGridのDataView用ID */
-    private java.math.BigInteger id;
+    private Integer id;
 
     /**
      * @return id
      */
-    public final java.math.BigInteger getId() {
+    public final Integer getId() {
         return id;
     }
 
     /**
-     * @param i セットする id
+     * @param o セットする id
      */
-    public final void setId(final java.math.BigInteger i) {
-        this.id = i;
+    public final void setId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.id = Integer.valueOf(o.toString());
+        } else {
+            this.id = null;
+        }
     }
 
     /** 祖先ID */
@@ -43,7 +47,7 @@ public class TTenpuFile implements IEntity {
 
     /** @param o 祖先ID */
     public void setSosenId(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.sosenId = Integer.valueOf(o.toString());
         } else {
             this.sosenId = null;
@@ -61,7 +65,7 @@ public class TTenpuFile implements IEntity {
 
     /** @param o 親連番 */
     public void setOyaSn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.oyaSn = Integer.valueOf(o.toString());
         } else {
             this.oyaSn = null;
@@ -79,7 +83,7 @@ public class TTenpuFile implements IEntity {
 
     /** @param o エンティティ連番 */
     public void setEntitySn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.entitySn = Integer.valueOf(o.toString());
         } else {
             this.entitySn = null;
@@ -97,7 +101,7 @@ public class TTenpuFile implements IEntity {
 
     /** @param o 添付ファイル連番 */
     public void setTenpuFileSn(final Object o) {
-        if (o != null) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.tenpuFileSn = Integer.valueOf(o.toString());
         } else {
             this.tenpuFileSn = null;
@@ -116,7 +120,7 @@ public class TTenpuFile implements IEntity {
     /** @param o 添付ファイル名 */
     public void setTenpuFileMei(final Object o) {
         if (o != null) {
-            this.tenpuFileMei = String.valueOf(o.toString());
+            this.tenpuFileMei = o.toString();
         } else {
             this.tenpuFileMei = null;
         }
@@ -134,7 +138,7 @@ public class TTenpuFile implements IEntity {
     /** @param o 添付ファイル */
     public void setTenpuFile(final Object o) {
         if (o != null) {
-            this.tenpuFile = String.valueOf(o.toString());
+            this.tenpuFile = o.toString();
         } else {
             this.tenpuFile = null;
         }
@@ -179,7 +183,7 @@ public class TTenpuFile implements IEntity {
     /** @param o 登録者 */
     public void setInsertBy(final Object o) {
         if (o != null) {
-            this.insertBy = String.valueOf(o.toString());
+            this.insertBy = o.toString();
         } else {
             this.insertBy = null;
         }
@@ -224,7 +228,7 @@ public class TTenpuFile implements IEntity {
     /** @param o 更新者 */
     public void setUpdateBy(final Object o) {
         if (o != null) {
-            this.updateBy = String.valueOf(o.toString());
+            this.updateBy = o.toString();
         } else {
             this.updateBy = null;
         }
@@ -242,7 +246,7 @@ public class TTenpuFile implements IEntity {
     /** @param o 削除フラグ */
     public void setDeleteF(final Object o) {
         if (o != null) {
-            this.deleteF = String.valueOf(o.toString());
+            this.deleteF = o.toString();
         } else {
             this.deleteF = null;
         }
