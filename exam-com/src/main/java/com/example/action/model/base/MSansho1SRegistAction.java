@@ -35,6 +35,10 @@ public class MSansho1SRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MSansho1 e = FormValidator.toBean(MSansho1.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

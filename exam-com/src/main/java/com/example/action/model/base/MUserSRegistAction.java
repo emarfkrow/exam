@@ -35,6 +35,10 @@ public class MUserSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MUser e = FormValidator.toBean(MUser.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

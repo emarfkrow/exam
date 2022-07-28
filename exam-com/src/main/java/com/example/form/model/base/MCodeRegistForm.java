@@ -96,7 +96,7 @@ public class MCodeRegistForm implements IForm {
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
-        LOG.trace("not overridden in subclasses.");
+        LOG.trace("validate() not overridden in subclasses.");
     }
 
 }

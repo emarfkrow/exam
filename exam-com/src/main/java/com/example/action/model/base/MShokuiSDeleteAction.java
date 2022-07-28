@@ -35,6 +35,10 @@ public class MShokuiSDeleteAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             // 主キーが不足していたらエラー
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SHOKUI_ID"))) {
                 throw new OptLockError("error.cant.delete");

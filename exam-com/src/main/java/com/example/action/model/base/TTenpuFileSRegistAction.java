@@ -35,6 +35,10 @@ public class TTenpuFileSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TTenpuFile e = FormValidator.toBean(TTenpuFile.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

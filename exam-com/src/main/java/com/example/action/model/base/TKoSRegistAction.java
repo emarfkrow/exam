@@ -35,6 +35,10 @@ public class TKoSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TKo e = FormValidator.toBean(TKo.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

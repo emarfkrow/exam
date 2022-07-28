@@ -35,6 +35,10 @@ public class TShisonSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TShison e = FormValidator.toBean(TShison.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

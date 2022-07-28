@@ -35,6 +35,10 @@ public class MShozokuSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MShozoku e = FormValidator.toBean(MShozoku.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

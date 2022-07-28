@@ -35,6 +35,10 @@ public class MCodeValueSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MCodeValue e = FormValidator.toBean(MCodeValue.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

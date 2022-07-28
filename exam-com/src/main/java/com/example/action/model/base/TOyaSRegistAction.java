@@ -35,6 +35,10 @@ public class TOyaSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TOya e = FormValidator.toBean(TOya.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

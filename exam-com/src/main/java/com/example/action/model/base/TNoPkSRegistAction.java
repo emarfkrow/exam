@@ -35,6 +35,10 @@ public class TNoPkSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TNoPk e = FormValidator.toBean(TNoPk.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

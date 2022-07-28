@@ -35,6 +35,10 @@ public class TSosenSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TSosen e = FormValidator.toBean(TSosen.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

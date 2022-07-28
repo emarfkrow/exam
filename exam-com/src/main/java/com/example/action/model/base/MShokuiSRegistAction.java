@@ -35,6 +35,10 @@ public class MShokuiSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MShokui e = FormValidator.toBean(MShokui.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

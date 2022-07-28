@@ -22,7 +22,7 @@ let TEntity2GridColumns = [
     Column.dec2('SURYO_QT', Messages['TEntity2Grid.suryoQt'], 90, '', null),
     Column.dec3('TANKA_AM', Messages['TEntity2Grid.tankaAm'], 110, '', null),
     Column.dec3('KINGAKU_AM', Messages['TEntity2Grid.kingakuAm'], 110, '', null),
-    Column.text('FIG_8_BI', Messages['TEntity2Grid.fig8Bi'], 80, '', null),
+    Column.date8('FIG_8_BI', Messages['TEntity2Grid.fig8Bi'], 80, '', null),
     Column.cell('INSERT_DT', Messages['TEntity2Grid.insertDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
     Column.cell('INSERT_BY', Messages['TEntity2Grid.insertBy'], 100, 'metaInfo', null),
     Column.cell('UPDATE_DT', Messages['TEntity2Grid.updateDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),

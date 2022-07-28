@@ -35,6 +35,10 @@ public class TEntitySRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             TEntity e = FormValidator.toBean(TEntity.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

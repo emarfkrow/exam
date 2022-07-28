@@ -35,6 +35,10 @@ public class MSansho2SDeleteAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             // 主キーが不足していたらエラー
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO2_CD"))) {
                 throw new OptLockError("error.cant.delete");

@@ -41,7 +41,7 @@ public class TEntity2SRegistForm implements IForm {
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
-        LOG.debug("not overridden in subclasses.");
+        LOG.debug("validate() not overridden in subclasses.");
     }
 
 }

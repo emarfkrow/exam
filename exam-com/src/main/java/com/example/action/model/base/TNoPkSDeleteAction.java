@@ -35,6 +35,10 @@ public class TNoPkSDeleteAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             // 主キーが不足していたらエラー
 
             TNoPk e = FormValidator.toBean(TNoPk.class.getName(), gridRow);

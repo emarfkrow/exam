@@ -35,6 +35,10 @@ public class MCodeSDeleteAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             // 主キーが不足していたらエラー
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("CODE_NM"))) {
                 throw new OptLockError("error.cant.delete");

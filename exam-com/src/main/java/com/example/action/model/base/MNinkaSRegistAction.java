@@ -35,6 +35,10 @@ public class MNinkaSRegistAction extends BaseAction {
 
         for (Map<String, Object> gridRow : gridData) {
 
+            if (gridRow.isEmpty()) {
+                continue;
+            }
+
             MNinka e = FormValidator.toBean(MNinka.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT

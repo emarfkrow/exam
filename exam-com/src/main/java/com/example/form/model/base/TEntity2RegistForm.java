@@ -375,7 +375,7 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 8桁日 */
-    @jakarta.validation.constraints.Size(max = 8)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{8})?")
     private String fig8Bi;
 
     /**
@@ -413,7 +413,7 @@ public class TEntity2RegistForm implements IForm {
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
-        LOG.trace("not overridden in subclasses.");
+        LOG.trace("validate() not overridden in subclasses.");
     }
 
 }
