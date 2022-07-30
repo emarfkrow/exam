@@ -19,6 +19,7 @@ public class MSansho2RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MSansho2RegistForm.class);
 
     /** 参照２CD */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 6)
     private String sansho2Cd;
 

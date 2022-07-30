@@ -214,9 +214,6 @@ public class MSansho2 implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 参照２CDの採番処理
-        numbering();
-
         // 参照２マスタの登録
         String sql = "INSERT INTO m_sansho2(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -246,18 +243,6 @@ public class MSansho2 implements IEntity {
         valueList.add(":update_by");
         valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
-    }
-
-    /** 参照２CDの採番処理 */
-    private void numbering() {
-        if (this.sansho2Cd != null) {
-            return;
-        }
-        String sql = "SELECT LPAD (CASE WHEN MAX(e.`SANSHO2_CD`) IS NULL THEN 0 ELSE MAX(e.`SANSHO2_CD`) * 1 END + 1, 6, '0') AS `SANSHO2_CD` FROM m_sansho2 e WHERE e.`SANSHO2_CD` < '999999'";
-        Map<String, Object> map = new HashMap<String, Object>();
-        jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SANSHO2_CD");
-        this.setSansho2Cd(o);
     }
 
     /**
