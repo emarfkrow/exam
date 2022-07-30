@@ -208,7 +208,20 @@ public class TOya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SOSEN_ID` = :sosen_id");
         whereList.add("`OYA_SN` = :oya_sn");
-        String sql = "SELECT * FROM t_oya WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_SN` \n";
+        sql += "    , a.`OYA_MEI` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_oya a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
@@ -264,7 +277,7 @@ public class TOya implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -319,7 +332,7 @@ public class TOya implements IEntity {
         setList.add("`OYA_MEI` = :oya_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

@@ -1,5 +1,14 @@
 SELECT
-      a.*
+      a.`COLUMN_A`
+    , a.`COLUMN_B`
+    , a.`COLUMN_C`
+    , a.`COLUMN_D`
+    , a.`COLUMN_E`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     t_no_pk a 
 WHERE

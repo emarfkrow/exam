@@ -1,5 +1,15 @@
 SELECT
-      a.*
+      a.`SOSEN_ID`
+    , a.`OYA_SN`
+    , a.`ENTITY_SN`
+    , a.`TENPU_FILE_SN`
+    , a.`TENPU_FILE_MEI`
+    , a.`TENPU_FILE`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     t_tenpu_file a 
 WHERE

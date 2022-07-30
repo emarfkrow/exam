@@ -1,5 +1,29 @@
 SELECT
-      a.*
+      a.`SOSEN_ID`
+    , a.`OYA_SN`
+    , a.`ENTITY_SN`
+    , a.`NULL_ENTITY2_MEI`
+    , a.`ENTITY2_MEI`
+    , TRIM(TRAILING ' ' FROM a.`CHECK_F`) AS CHECK_F
+    , a.`RADIO_KB`
+    , a.`PULLDOWN_KB`
+    , a.`MEMO_TX`
+    , TRIM(TRAILING ' ' FROM a.`HIDUKE_YMD`) AS HIDUKE_YMD
+    , TRIM(TRAILING ' ' FROM a.`NENGETSU_YM`) AS NENGETSU_YM
+    , TRIM(TRAILING ' ' FROM a.`SAMPLE_Y`) AS SAMPLE_Y
+    , TRIM(TRAILING ' ' FROM a.`SAMPLE_M`) AS SAMPLE_M
+    , a.`NICHIJI_DT`
+    , a.`JIKOKU_HM`
+    , a.`JIKAN_TM`
+    , a.`SURYO_QT`
+    , a.`TANKA_AM`
+    , a.`KINGAKU_AM`
+    , TRIM(TRAILING ' ' FROM a.`FIG_8_BI`) AS FIG_8_BI
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     t_entity2 a 
 WHERE

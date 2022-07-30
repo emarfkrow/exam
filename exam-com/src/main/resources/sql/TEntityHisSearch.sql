@@ -1,5 +1,20 @@
 SELECT
-      a.*
+      a.`SOSEN_ID`
+    , a.`OYA_SN`
+    , a.`ENTITY_SN`
+    , a.`HISTORY_SN`
+    , a.`ENTITY_MEI`
+    , a.`SANSHO1_ID`
+    , a.`SANSHO1_MEI`
+    , TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD
+    , a.`SANSHO2_MEI`
+    , a.`BETSU_SANSHO1_ID`
+    , a.`BETSU_SANSHO1_MEI`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     t_entity_his a 
 WHERE

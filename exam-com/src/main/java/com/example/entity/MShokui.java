@@ -242,7 +242,22 @@ public class MShokui implements IEntity {
     public static MShokui get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SHOKUI_ID` = :shokui_id");
-        String sql = "SELECT * FROM m_shokui WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SHOKUI_ID` \n";
+        sql += "    , a.`SHOKUI_MEI` \n";
+        sql += "    , a.`ORDER_ID` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    m_shokui a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("shokui_id", param1);
         return Queries.get(sql, map, MShokui.class);
@@ -292,7 +307,7 @@ public class MShokui implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -331,7 +346,7 @@ public class MShokui implements IEntity {
         setList.add("`SHURYO_YMD` = :shuryo_ymd");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

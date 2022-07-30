@@ -525,7 +525,37 @@ public class TEntity2 implements IEntity {
         whereList.add("`SOSEN_ID` = :sosen_id");
         whereList.add("`OYA_SN` = :oya_sn");
         whereList.add("`ENTITY_SN` = :entity_sn");
-        String sql = "SELECT * FROM t_entity2 WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_SN` \n";
+        sql += "    , a.`ENTITY_SN` \n";
+        sql += "    , a.`NULL_ENTITY2_MEI` \n";
+        sql += "    , a.`ENTITY2_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`CHECK_F`) AS CHECK_F \n";
+        sql += "    , a.`RADIO_KB` \n";
+        sql += "    , a.`PULLDOWN_KB` \n";
+        sql += "    , a.`MEMO_TX` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`HIDUKE_YMD`) AS HIDUKE_YMD \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NENGETSU_YM`) AS NENGETSU_YM \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`SAMPLE_Y`) AS SAMPLE_Y \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`SAMPLE_M`) AS SAMPLE_M \n";
+        sql += "    , a.`NICHIJI_DT` \n";
+        sql += "    , a.`JIKOKU_HM` \n";
+        sql += "    , a.`JIKAN_TM` \n";
+        sql += "    , a.`SURYO_QT` \n";
+        sql += "    , a.`TANKA_AM` \n";
+        sql += "    , a.`KINGAKU_AM` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`FIG_8_BI`) AS FIG_8_BI \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_entity2 a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
@@ -588,7 +618,7 @@ public class TEntity2 implements IEntity {
         valueList.add(":entity_sn");
         valueList.add(":null_entity_2_mei");
         valueList.add(":entity_2_mei");
-        valueList.add(":check_f");
+        valueList.add("NVL (:check_f, ' ')");
         valueList.add(":radio_kb");
         valueList.add(":pulldown_kb");
         valueList.add(":memo_tx");
@@ -602,12 +632,12 @@ public class TEntity2 implements IEntity {
         valueList.add(":suryo_qt");
         valueList.add(":tanka_am");
         valueList.add(":kingaku_am");
-        valueList.add(":fig_8_bi");
+        valueList.add("NVL (:fig_8_bi, ' ')");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -650,7 +680,7 @@ public class TEntity2 implements IEntity {
         setList.add("`ENTITY_SN` = :entity_sn");
         setList.add("`NULL_ENTITY2_MEI` = :null_entity_2_mei");
         setList.add("`ENTITY2_MEI` = :entity_2_mei");
-        setList.add("`CHECK_F` = :check_f");
+        setList.add("`CHECK_F` = NVL (:check_f, ' ')");
         setList.add("`RADIO_KB` = :radio_kb");
         setList.add("`PULLDOWN_KB` = :pulldown_kb");
         setList.add("`MEMO_TX` = :memo_tx");
@@ -664,10 +694,10 @@ public class TEntity2 implements IEntity {
         setList.add("`SURYO_QT` = :suryo_qt");
         setList.add("`TANKA_AM` = :tanka_am");
         setList.add("`KINGAKU_AM` = :kingaku_am");
-        setList.add("`FIG_8_BI` = :fig_8_bi");
+        setList.add("`FIG_8_BI` = NVL (:fig_8_bi, ' ')");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

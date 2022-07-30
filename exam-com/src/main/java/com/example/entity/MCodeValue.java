@@ -244,7 +244,22 @@ public class MCodeValue implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`CODE_NM` = :code_nm");
         whereList.add("`CODE_VALUE` = :code_value");
-        String sql = "SELECT * FROM m_code_value WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`CODE_NM` \n";
+        sql += "    , a.`CODE_VALUE` \n";
+        sql += "    , a.`CODE_VALUE_MEI` \n";
+        sql += "    , a.`HYOJI_JUN` \n";
+        sql += "    , a.`CRITERIA` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    m_code_value a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code_nm", param1);
         map.put("code_value", param2);
@@ -292,7 +307,7 @@ public class MCodeValue implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -319,7 +334,7 @@ public class MCodeValue implements IEntity {
         setList.add("`CRITERIA` = :criteria");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

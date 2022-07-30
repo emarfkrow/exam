@@ -268,7 +268,23 @@ public class TShison implements IEntity {
         whereList.add("`ENTITY_SN` = :entity_sn");
         whereList.add("`KO_SN` = :ko_sn");
         whereList.add("`SHISON_SN` = :shison_sn");
-        String sql = "SELECT * FROM t_shison WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_SN` \n";
+        sql += "    , a.`ENTITY_SN` \n";
+        sql += "    , a.`KO_SN` \n";
+        sql += "    , a.`SHISON_SN` \n";
+        sql += "    , a.`SHISON_MEI` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_shison a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
@@ -324,7 +340,7 @@ public class TShison implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -374,7 +390,7 @@ public class TShison implements IEntity {
         setList.add("`SHISON_MEI` = :shison_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

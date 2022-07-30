@@ -356,7 +356,28 @@ public class TEntityHis implements IEntity {
         whereList.add("`OYA_SN` = :oya_sn");
         whereList.add("`ENTITY_SN` = :entity_sn");
         whereList.add("`HISTORY_SN` = :history_sn");
-        String sql = "SELECT * FROM t_entity_his WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_SN` \n";
+        sql += "    , a.`ENTITY_SN` \n";
+        sql += "    , a.`HISTORY_SN` \n";
+        sql += "    , a.`ENTITY_MEI` \n";
+        sql += "    , a.`SANSHO1_ID` \n";
+        sql += "    , a.`SANSHO1_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD \n";
+        sql += "    , a.`SANSHO2_MEI` \n";
+        sql += "    , a.`BETSU_SANSHO1_ID` \n";
+        sql += "    , a.`BETSU_SANSHO1_MEI` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_entity_his a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
@@ -413,7 +434,7 @@ public class TEntityHis implements IEntity {
         valueList.add(":entity_mei");
         valueList.add(":sansho_1_id");
         valueList.add(":sansho_1_mei");
-        valueList.add(":sansho_2_cd");
+        valueList.add("NVL (:sansho_2_cd, ' ')");
         valueList.add(":sansho_2_mei");
         valueList.add(":betsu_sansho_1_id");
         valueList.add(":betsu_sansho_1_mei");
@@ -421,7 +442,7 @@ public class TEntityHis implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -468,13 +489,13 @@ public class TEntityHis implements IEntity {
         setList.add("`ENTITY_MEI` = :entity_mei");
         setList.add("`SANSHO1_ID` = :sansho_1_id");
         setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`SANSHO2_CD` = :sansho_2_cd");
+        setList.add("`SANSHO2_CD` = NVL (:sansho_2_cd, ' ')");
         setList.add("`SANSHO2_MEI` = :sansho_2_mei");
         setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
         setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

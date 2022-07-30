@@ -31,10 +31,10 @@
           <label for="MShozoku.userId" th:text="#{MShozoku.userId}">ユーザID</label><input type="text" id="MShozoku.userId" name="MShozoku.userId" maxlength="10" /><a id="MShozoku.userId" th:href="@{/model/MUserS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
         <div id="kaishiYmd">
-          <label for="MShozoku.kaishiYmd_1" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="date" id="MShozoku.kaishiYmd_1" name="MShozoku.kaishiYmd_1" maxlength="10" />～<input type="date" id="MShozoku.kaishiYmd_2" name="MShozoku.kaishiYmd_2" maxlength="10" />
+          <label for="MShozoku.kaishiYmd_1" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="text" id="MShozoku.kaishiYmd_1" name="MShozoku.kaishiYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.kaishiYmd_2" name="MShozoku.kaishiYmd_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoYmd">
-          <label for="MShozoku.shuryoYmd_1" th:text="#{MShozoku.shuryoYmd}">終了日</label><input type="date" id="MShozoku.shuryoYmd_1" name="MShozoku.shuryoYmd_1" maxlength="10" />～<input type="date" id="MShozoku.shuryoYmd_2" name="MShozoku.shuryoYmd_2" maxlength="10" />
+          <label for="MShozoku.shuryoYmd_1" th:text="#{MShozoku.shuryoYmd}">終了日</label><input type="text" id="MShozoku.shuryoYmd_1" name="MShozoku.shuryoYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.shuryoYmd_2" name="MShozoku.shuryoYmd_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="deleteF">
           <fieldset id="MShozoku.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">

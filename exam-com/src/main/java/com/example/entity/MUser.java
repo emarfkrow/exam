@@ -278,7 +278,24 @@ public class MUser implements IEntity {
     public static MUser get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`USER_ID` = :user_id");
-        String sql = "SELECT * FROM m_user WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`USER_ID` \n";
+        sql += "    , a.`USER_SEI` \n";
+        sql += "    , a.`USER_MEI` \n";
+        sql += "    , a.`EMAIL` \n";
+        sql += "    , a.`PASSWORD` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    m_user a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("user_id", param1);
         return Queries.get(sql, map, MUser.class);
@@ -332,7 +349,7 @@ public class MUser implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -373,7 +390,7 @@ public class MUser implements IEntity {
         setList.add("`SHURYO_YMD` = :shuryo_ymd");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

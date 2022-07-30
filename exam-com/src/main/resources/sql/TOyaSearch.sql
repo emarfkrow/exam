@@ -1,5 +1,12 @@
 SELECT
-      a.*
+      a.`SOSEN_ID`
+    , a.`OYA_SN`
+    , a.`OYA_MEI`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     t_oya a 
 WHERE

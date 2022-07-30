@@ -266,7 +266,23 @@ public class TTenpuFile implements IEntity {
         whereList.add("`OYA_SN` = :oya_sn");
         whereList.add("`ENTITY_SN` = :entity_sn");
         whereList.add("`TENPU_FILE_SN` = :tenpu_file_sn");
-        String sql = "SELECT * FROM t_tenpu_file WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_SN` \n";
+        sql += "    , a.`ENTITY_SN` \n";
+        sql += "    , a.`TENPU_FILE_SN` \n";
+        sql += "    , a.`TENPU_FILE_MEI` \n";
+        sql += "    , a.`TENPU_FILE` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_tenpu_file a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
@@ -321,7 +337,7 @@ public class TTenpuFile implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -369,7 +385,7 @@ public class TTenpuFile implements IEntity {
         setList.add("`TENPU_FILE` = :tenpu_file");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

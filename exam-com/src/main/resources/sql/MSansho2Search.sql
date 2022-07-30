@@ -1,5 +1,11 @@
 SELECT
-      a.*
+      TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD
+    , a.`SANSHO2_MEI`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     m_sansho2 a 
 WHERE

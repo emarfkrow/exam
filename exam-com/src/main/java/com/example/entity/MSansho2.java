@@ -188,7 +188,19 @@ public class MSansho2 implements IEntity {
     public static MSansho2 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("TRIM (`SANSHO2_CD`) = TRIM (:sansho_2_cd)");
-        String sql = "SELECT * FROM m_sansho2 WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD \n";
+        sql += "    , a.`SANSHO2_MEI` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    m_sansho2 a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sansho_2_cd", param1);
         return Queries.get(sql, map, MSansho2.class);
@@ -232,7 +244,7 @@ public class MSansho2 implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -268,7 +280,7 @@ public class MSansho2 implements IEntity {
         setList.add("`SANSHO2_MEI` = :sansho_2_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

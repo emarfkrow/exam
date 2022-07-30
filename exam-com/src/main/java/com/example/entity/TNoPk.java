@@ -250,7 +250,22 @@ public class TNoPk implements IEntity {
         whereList.add("`UPDATE_DT` = :update_dt");
         whereList.add("`UPDATE_BY` = :update_by");
         whereList.add("TRIM (`DELETE_F`) = TRIM (:delete_f)");
-        String sql = "SELECT * FROM t_no_pk WHERE " + String.join(" AND ", whereList);
+        String sql = "";
+        sql += "SELECT \n";
+        sql += "      a.`COLUMN_A` \n";
+        sql += "    , a.`COLUMN_B` \n";
+        sql += "    , a.`COLUMN_C` \n";
+        sql += "    , a.`COLUMN_D` \n";
+        sql += "    , a.`COLUMN_E` \n";
+        sql += "    , a.`INSERT_DT` \n";
+        sql += "    , a.`INSERT_BY` \n";
+        sql += "    , a.`UPDATE_DT` \n";
+        sql += "    , a.`UPDATE_BY` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "FROM \n";
+        sql += "    t_no_pk a \n";
+        sql += "WHERE \n";
+        sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         return Queries.get(sql, map, TNoPk.class);
     }
@@ -296,7 +311,7 @@ public class TNoPk implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add(":delete_f");
+        valueList.add("NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -323,7 +338,7 @@ public class TNoPk implements IEntity {
         setList.add("`COLUMN_E` = :column_e");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
         return String.join("\r\n    , ", setList);
     }
 

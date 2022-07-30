@@ -23,13 +23,13 @@
           <label for="MBusho.bushoMei" th:text="#{MBusho.bushoMei}">部署名</label><input type="text" id="MBusho.bushoMei" name="MBusho.bushoMei" maxlength="30" />
         </div>
         <div id="kaishiYmd">
-          <label for="MBusho.kaishiYmd" th:text="#{MBusho.kaishiYmd}">開始日</label><input type="date" id="MBusho.kaishiYmd" name="MBusho.kaishiYmd" maxlength="10" />
+          <label for="MBusho.kaishiYmd" th:text="#{MBusho.kaishiYmd}">開始日</label><input type="text" id="MBusho.kaishiYmd" name="MBusho.kaishiYmd" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoYmd">
-          <label for="MBusho.shuryoYmd" th:text="#{MBusho.shuryoYmd}">終了日</label><input type="date" id="MBusho.shuryoYmd" name="MBusho.shuryoYmd" maxlength="10" />
+          <label for="MBusho.shuryoYmd" th:text="#{MBusho.shuryoYmd}">終了日</label><input type="text" id="MBusho.shuryoYmd" name="MBusho.shuryoYmd" maxlength="10" class=" datepicker" />
         </div>
         <div id="oyaBushoId">
-          <label for="MBusho.oyaBushoId" th:text="#{MBusho.oyaBushoId}">親部署ID</label><input type="text" id="MBusho.oyaBushoId" name="MBusho.oyaBushoId" maxlength="10" />
+          <label for="MBusho.oyaBushoId" th:text="#{MBusho.oyaBushoId}">親部署ID</label><input type="text" id="MBusho.oyaBushoId" name="MBusho.oyaBushoId" maxlength="10" /><a id="MBusho.oyaBushoId" th:href="@{/model/MBushoS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MBusho." class="refer"></span>
         </div>
         <div id="insertDt">
           <label for="MBusho.insertDt" th:text="#{MBusho.insertDt}">登録日時</label><span id="MBusho.insertDt"></span><input type="hidden" id="MBusho.insertDt" name="MBusho.insertDt" />

@@ -29,10 +29,10 @@
           <label for="MShozoku.userId" th:text="#{MShozoku.userId}">ユーザID</label><span id="MShozoku.userId"></span><input type="hidden" id="MShozoku.userId" name="MShozoku.userId" class="primaryKey" /><a id="MShozoku.userId" th:href="@{/model/MUserS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
         <div id="kaishiYmd">
-          <label for="MShozoku.kaishiYmd" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="date" id="MShozoku.kaishiYmd" name="MShozoku.kaishiYmd" maxlength="10" />
+          <label for="MShozoku.kaishiYmd" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="text" id="MShozoku.kaishiYmd" name="MShozoku.kaishiYmd" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoYmd">
-          <label for="MShozoku.shuryoYmd" th:text="#{MShozoku.shuryoYmd}">終了日</label><input type="date" id="MShozoku.shuryoYmd" name="MShozoku.shuryoYmd" maxlength="10" />
+          <label for="MShozoku.shuryoYmd" th:text="#{MShozoku.shuryoYmd}">終了日</label><input type="text" id="MShozoku.shuryoYmd" name="MShozoku.shuryoYmd" maxlength="10" class=" datepicker" />
         </div>
         <div id="insertDt">
           <label for="MShozoku.insertDt" th:text="#{MShozoku.insertDt}">登録日時</label><span id="MShozoku.insertDt"></span><input type="hidden" id="MShozoku.insertDt" name="MShozoku.insertDt" />

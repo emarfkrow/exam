@@ -319,7 +319,7 @@ public class TEntity2RegistForm implements IForm {
 
     /** 数量 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "[0-9]{0,7}\\.?[0-9]{0,2}?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,7}\\.?[0-9]{0,2}?)?")
     private String suryoQt;
 
     /**
@@ -338,7 +338,7 @@ public class TEntity2RegistForm implements IForm {
 
     /** 単価 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "[0-9]{0,8}\\.?[0-9]{0,3}?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String tankaAm;
 
     /**
@@ -357,7 +357,7 @@ public class TEntity2RegistForm implements IForm {
 
     /** 金額 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "[0-9]{0,8}\\.?[0-9]{0,3}?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String kingakuAm;
 
     /**

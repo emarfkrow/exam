@@ -1,5 +1,16 @@
 SELECT
-      a.*
+      a.`USER_ID`
+    , a.`USER_SEI`
+    , a.`USER_MEI`
+    , a.`EMAIL`
+    , a.`PASSWORD`
+    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD
+    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     m_user a 
 WHERE

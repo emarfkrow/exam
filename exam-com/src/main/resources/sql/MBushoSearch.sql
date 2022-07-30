@@ -1,5 +1,14 @@
 SELECT
-      a.*
+      a.`BUSHO_ID`
+    , a.`BUSHO_MEI`
+    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD
+    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD
+    , a.`OYA_BUSHO_ID`
+    , a.`INSERT_DT`
+    , a.`INSERT_BY`
+    , a.`UPDATE_DT`
+    , a.`UPDATE_BY`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
 FROM
     m_busho a 
 WHERE
