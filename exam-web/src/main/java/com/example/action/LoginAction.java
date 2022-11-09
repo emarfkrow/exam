@@ -14,6 +14,7 @@ import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.AppError;
 import jp.co.golorp.emarf.lang.StringUtil;
 import jp.co.golorp.emarf.properties.App;
+import jp.co.golorp.emarf.servlet.LoginFilter;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
@@ -55,10 +56,10 @@ public class LoginAction extends BaseAction {
         ObjectMapper mapper = new ObjectMapper();
 
         Map<String, Object> ret = new HashMap<String, Object>();
-        ret.put("AUTHN_KEY", mUser.getUserId());
-        ret.put("AUTHN_NAME", mUser.getUserSei() + " " + mUser.getUserMei());
-        ret.put("AUTHN_INFO", mapper.convertValue(mUser, Map.class));
-        ret.put("AUTHZ_INFO", mapper.convertValue(authzInfo, Map.class));
+        ret.put(LoginFilter.AUTHN_KEY, mUser.getUserId());
+        ret.put(LoginFilter.AUTHN_MEI, mUser.getUserSei() + " " + mUser.getUserMei());
+        ret.put(LoginFilter.AUTHN_INFO, mapper.convertValue(mUser, Map.class));
+        ret.put(LoginFilter.AUTHZ_INFO, mapper.convertValue(authzInfo, Map.class));
         return ret;
     }
 
