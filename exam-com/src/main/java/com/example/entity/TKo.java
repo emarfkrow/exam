@@ -361,7 +361,6 @@ public class TKo implements IEntity {
 
         // 子孫の登録
         if (this.tShisons != null) {
-            Queries.regist("DELETE FROM t_shison WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `KO_SN` = :ko_sn AND `SHISON_SN` = :shison_sn", toMap(now, execId));
             for (TShison tShison : this.tShisons) {
                 if (tShison == null) {
                     continue;
@@ -374,6 +373,15 @@ public class TKo implements IEntity {
                     tShison.insert(now, execId);
                 } catch (Exception e) {
                     tShison.update(now, execId);
+                }
+            }
+            this.tShisons = null;
+            this.referTShisons();
+            if (this.tShisons != null) {
+                for (TShison tShison : this.tShisons) {
+                    if (!tShison.getUpdateDt().equals(now)) {
+                        tShison.delete();
+                    }
                 }
             }
         }

@@ -316,7 +316,6 @@ public class TOya implements IEntity {
 
         // エンティティの登録
         if (this.tEntitys != null) {
-            Queries.regist("DELETE FROM t_entity WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, execId));
             for (TEntity tEntity : this.tEntitys) {
                 if (tEntity == null) {
                     continue;
@@ -329,11 +328,19 @@ public class TOya implements IEntity {
                     tEntity.update(now, execId);
                 }
             }
+            this.tEntitys = null;
+            this.referTEntitys();
+            if (this.tEntitys != null) {
+                for (TEntity tEntity : this.tEntitys) {
+                    if (!tEntity.getUpdateDt().equals(now)) {
+                        tEntity.delete();
+                    }
+                }
+            }
         }
 
         // エンティティ２の登録
         if (this.tEntity2s != null) {
-            Queries.regist("DELETE FROM t_entity2 WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, execId));
             for (TEntity2 tEntity2 : this.tEntity2s) {
                 if (tEntity2 == null) {
                     continue;
@@ -344,6 +351,15 @@ public class TOya implements IEntity {
                     tEntity2.insert(now, execId);
                 } catch (Exception e) {
                     tEntity2.update(now, execId);
+                }
+            }
+            this.tEntity2s = null;
+            this.referTEntity2s();
+            if (this.tEntity2s != null) {
+                for (TEntity2 tEntity2 : this.tEntity2s) {
+                    if (!tEntity2.getUpdateDt().equals(now)) {
+                        tEntity2.delete();
+                    }
                 }
             }
         }

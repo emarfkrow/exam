@@ -497,7 +497,6 @@ public class TEntity implements IEntity {
 
         // 子の登録
         if (this.tKos != null) {
-            Queries.regist("DELETE FROM t_ko WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `KO_SN` = :ko_sn", toMap(now, execId));
             for (TKo tKo : this.tKos) {
                 if (tKo == null) {
                     continue;
@@ -511,11 +510,19 @@ public class TEntity implements IEntity {
                     tKo.update(now, execId);
                 }
             }
+            this.tKos = null;
+            this.referTKos();
+            if (this.tKos != null) {
+                for (TKo tKo : this.tKos) {
+                    if (!tKo.getUpdateDt().equals(now)) {
+                        tKo.delete();
+                    }
+                }
+            }
         }
 
         // 添付ファイルの登録
         if (this.tTenpuFiles != null) {
-            Queries.regist("DELETE FROM t_tenpu_file WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `TENPU_FILE_SN` = :tenpu_file_sn", toMap(now, execId));
             for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
                 if (tTenpuFile == null) {
                     continue;
@@ -527,6 +534,15 @@ public class TEntity implements IEntity {
                     tTenpuFile.insert(now, execId);
                 } catch (Exception e) {
                     tTenpuFile.update(now, execId);
+                }
+            }
+            this.tTenpuFiles = null;
+            this.referTTenpuFiles();
+            if (this.tTenpuFiles != null) {
+                for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
+                    if (!tTenpuFile.getUpdateDt().equals(now)) {
+                        tTenpuFile.delete();
+                    }
                 }
             }
         }

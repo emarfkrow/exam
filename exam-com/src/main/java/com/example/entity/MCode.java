@@ -263,7 +263,6 @@ public class MCode implements IEntity {
 
         // コード値マスタの登録
         if (this.mCodeValues != null) {
-            Queries.regist("DELETE FROM m_code_value WHERE `CODE_NM` = :code_nm AND `CODE_VALUE` = :code_value", toMap(now, execId));
             for (MCodeValue mCodeValue : this.mCodeValues) {
                 if (mCodeValue == null) {
                     continue;
@@ -273,6 +272,15 @@ public class MCode implements IEntity {
                     mCodeValue.insert(now, execId);
                 } catch (Exception e) {
                     mCodeValue.update(now, execId);
+                }
+            }
+            this.mCodeValues = null;
+            this.referMCodeValues();
+            if (this.mCodeValues != null) {
+                for (MCodeValue mCodeValue : this.mCodeValues) {
+                    if (!mCodeValue.getUpdateDt().equals(now)) {
+                        mCodeValue.delete();
+                    }
                 }
             }
         }

@@ -278,7 +278,6 @@ public class TSosen implements IEntity {
 
         // 親の登録
         if (this.tOyas != null) {
-            Queries.regist("DELETE FROM t_oya WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn", toMap(now, execId));
             for (TOya tOya : this.tOyas) {
                 if (tOya == null) {
                     continue;
@@ -288,6 +287,15 @@ public class TSosen implements IEntity {
                     tOya.insert(now, execId);
                 } catch (Exception e) {
                     tOya.update(now, execId);
+                }
+            }
+            this.tOyas = null;
+            this.referTOyas();
+            if (this.tOyas != null) {
+                for (TOya tOya : this.tOyas) {
+                    if (!tOya.getUpdateDt().equals(now)) {
+                        tOya.delete();
+                    }
                 }
             }
         }
