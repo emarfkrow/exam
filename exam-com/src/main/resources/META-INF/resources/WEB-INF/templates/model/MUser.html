@@ -17,7 +17,7 @@
       <fieldset>
         <legend th:text="#{MUser.legend}">legend</legend>
         <div id="userId">
-          <label for="MUser.userId" th:text="#{MUser.userId}">ユーザID</label><span id="MUser.userId"></span><input type="hidden" id="MUser.userId" name="MUser.userId" class="primaryKey" />
+          <label for="MUser.userId" th:text="#{MUser.userId}">ユーザID</label><span id="MUser.userId" class="primaryKey"></span><input type="hidden" id="MUser.userId" name="MUser.userId" class="primaryKey" />
         </div>
         <div id="userSei">
           <label for="MUser.userSei" th:text="#{MUser.userSei}">ユーザ姓</label><input type="text" id="MUser.userSei" name="MUser.userSei" maxlength="30" />
@@ -56,8 +56,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MUserGet.xlsx(baseMei=#{MUser.h2})}" id="MUserGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMUser" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MUserGet.xlsx(baseMei=#{MUser.h2})}" id="MUserGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMUser" class="delete" data-action="MUserDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

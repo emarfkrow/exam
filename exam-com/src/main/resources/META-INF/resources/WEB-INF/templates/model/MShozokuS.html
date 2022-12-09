@@ -43,8 +43,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MShozoku.html}" id="MShozoku" target="dialog" th:text="#{MShozoku.add}" tabindex="-1">所属マスタ</a>
+        <button type="reset" id="ResetMShozoku" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MShozoku.html}" id="MShozoku" class="anew" target="dialog" th:text="#{MShozoku.add}" tabindex="-1">所属マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMShozoku" class="search" data-gridId="MShozokuGrid" th:text="#{common.search}">submit</button>
@@ -55,8 +55,8 @@
       <div id="MShozokuGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/MShozoku.html}"></div>
       <div id="MShozokuPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMShozoku&quot;]').click();">reset</button>
-        <a th:href="@{MShozokuSearch.xlsx(baseMei=#{MShozokuS.h2})}" id="MShozokuSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMShozokuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMShozoku&quot;]').click();">reset</button>
+        <a th:href="@{MShozokuSearch.xlsx(baseMei=#{MShozokuS.h2})}" id="MShozokuSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShozokuS" class="delete selectRows" data-action="MShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

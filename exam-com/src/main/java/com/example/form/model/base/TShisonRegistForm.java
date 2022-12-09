@@ -19,7 +19,7 @@ public class TShisonRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TShisonRegistForm.class);
 
     /** 祖先ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
     /**
@@ -37,7 +37,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** 親連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaSn;
 
     /**
@@ -55,7 +55,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** エンティティ連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entitySn;
 
     /**
@@ -73,7 +73,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** 子連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String koSn;
 
     /**
@@ -91,7 +91,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** 子孫連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shisonSn;
 
     /**

@@ -3,14 +3,14 @@
  */
 
 let TKoGridColumns = [
-    Column.refer('SOSEN_ID', Messages['TKoGrid.sosenId'], 100, 'primaryKey', 'SOSEN_MEI'),
-    Column.cell('OYA_SN', Messages['TKoGrid.oyaSn'], 100, 'primaryKey', null),
-    Column.cell('ENTITY_SN', Messages['TKoGrid.entitySn'], 100, 'primaryKey', null),
-    Column.cell('KO_SN', Messages['TKoGrid.koSn'], 100, 'primaryKey', null),
+    Column.refer('SOSEN_ID', Messages['TKoGrid.sosenId'], 150, 'primaryKey numbering', 'null'),
+    Column.comma('OYA_SN', Messages['TKoGrid.oyaSn'], 150, 'primaryKey numbering', null),
+    Column.comma('ENTITY_SN', Messages['TKoGrid.entitySn'], 150, 'primaryKey numbering', null),
+    Column.comma('KO_SN', Messages['TKoGrid.koSn'], 150, 'primaryKey numbering', null),
     Column.text('KO_MEI', Messages['TKoGrid.koMei'], 300, '', null),
-    Column.cell('INSERT_DT', Messages['TKoGrid.insertDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
-    Column.cell('INSERT_BY', Messages['TKoGrid.insertBy'], 100, 'metaInfo', null),
-    Column.cell('UPDATE_DT', Messages['TKoGrid.updateDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
-    Column.cell('UPDATE_BY', Messages['TKoGrid.updateBy'], 100, 'metaInfo', null),
-    Column.check('DELETE_F', Messages['TKoGrid.deleteF'], 10, ''),
+    Column.cell('INSERT_DT', Messages['TKoGrid.insertDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.cell('INSERT_BY', Messages['TKoGrid.insertBy'], 150, 'metaInfo', null),
+    Column.cell('UPDATE_DT', Messages['TKoGrid.updateDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.cell('UPDATE_BY', Messages['TKoGrid.updateBy'], 150, 'metaInfo', null),
+    Column.check('DELETE_F', Messages['TKoGrid.deleteF'], 30, ''),
 ];

@@ -17,7 +17,7 @@
       <fieldset>
         <legend th:text="#{MShokui.legend}">legend</legend>
         <div id="shokuiId">
-          <label for="MShokui.shokuiId" th:text="#{MShokui.shokuiId}">職位ID</label><span id="MShokui.shokuiId"></span><input type="hidden" id="MShokui.shokuiId" name="MShokui.shokuiId" class="primaryKey" />
+          <label for="MShokui.shokuiId" th:text="#{MShokui.shokuiId}">職位ID</label><span id="MShokui.shokuiId" class="primaryKey"></span><input type="hidden" id="MShokui.shokuiId" name="MShokui.shokuiId" class="primaryKey" />
         </div>
         <div id="shokuiMei">
           <label for="MShokui.shokuiMei" th:text="#{MShokui.shokuiMei}">職位名</label><input type="text" id="MShokui.shokuiMei" name="MShokui.shokuiMei" maxlength="30" />
@@ -50,8 +50,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MShokuiGet.xlsx(baseMei=#{MShokui.h2})}" id="MShokuiGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMShokui" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MShokuiGet.xlsx(baseMei=#{MShokui.h2})}" id="MShokuiGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShokui" class="delete" data-action="MShokuiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -16,6 +16,7 @@
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -24,16 +25,16 @@
       <fieldset>
         <legend th:text="#{TTenpuFile.legend}">legend</legend>
         <div id="sosenId">
-          <label for="TTenpuFile.sosenId" th:text="#{TTenpuFile.sosenId}">祖先ID</label><span id="TTenpuFile.sosenId"></span><input type="hidden" id="TTenpuFile.sosenId" name="TTenpuFile.sosenId" class="primaryKey" /><a id="TTenpuFile.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TTenpuFile." class="refer"></span>
+          <label for="TTenpuFile.sosenId" th:text="#{TTenpuFile.sosenId}">祖先ID</label><span id="TTenpuFile.sosenId" class="primaryKey"></span><input type="hidden" id="TTenpuFile.sosenId" name="TTenpuFile.sosenId" class="primaryKey" /><a id="TTenpuFile.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TTenpuFile." class="refer"></span>
         </div>
         <div id="oyaSn">
-          <label for="TTenpuFile.oyaSn" th:text="#{TTenpuFile.oyaSn}">親連番</label><span id="TTenpuFile.oyaSn"></span><input type="hidden" id="TTenpuFile.oyaSn" name="TTenpuFile.oyaSn" class="primaryKey" />
+          <label for="TTenpuFile.oyaSn" th:text="#{TTenpuFile.oyaSn}">親連番</label><span id="TTenpuFile.oyaSn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.oyaSn" name="TTenpuFile.oyaSn" class="primaryKey" />
         </div>
         <div id="entitySn">
-          <label for="TTenpuFile.entitySn" th:text="#{TTenpuFile.entitySn}">エンティティ連番</label><span id="TTenpuFile.entitySn"></span><input type="hidden" id="TTenpuFile.entitySn" name="TTenpuFile.entitySn" class="primaryKey" />
+          <label for="TTenpuFile.entitySn" th:text="#{TTenpuFile.entitySn}">エンティティ連番</label><span id="TTenpuFile.entitySn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.entitySn" name="TTenpuFile.entitySn" class="primaryKey" />
         </div>
         <div id="tenpuFileSn">
-          <label for="TTenpuFile.tenpuFileSn" th:text="#{TTenpuFile.tenpuFileSn}">添付ファイル連番</label><span id="TTenpuFile.tenpuFileSn"></span><input type="hidden" id="TTenpuFile.tenpuFileSn" name="TTenpuFile.tenpuFileSn" class="primaryKey" />
+          <label for="TTenpuFile.tenpuFileSn" th:text="#{TTenpuFile.tenpuFileSn}">添付ファイル連番</label><span id="TTenpuFile.tenpuFileSn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.tenpuFileSn" name="TTenpuFile.tenpuFileSn" class="primaryKey" />
         </div>
         <div id="tenpuFileMei">
           <label for="TTenpuFile.tenpuFileMei" th:text="#{TTenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="TTenpuFile.tenpuFileMei" name="TTenpuFile.tenpuFileMei" maxlength="30" />
@@ -60,8 +61,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TTenpuFileGet.xlsx(baseMei=#{TTenpuFile.h2})}" id="TTenpuFileGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTTenpuFile" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{TTenpuFileGet.xlsx(baseMei=#{TTenpuFile.h2})}" id="TTenpuFileGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTTenpuFile" class="delete" data-action="TTenpuFileDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

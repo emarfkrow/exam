@@ -47,8 +47,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MNinka.html}" id="MNinka" target="dialog" th:text="#{MNinka.add}" tabindex="-1">認可マスタ</a>
+        <button type="reset" id="ResetMNinka" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MNinka.html}" id="MNinka" class="anew" target="dialog" th:text="#{MNinka.add}" tabindex="-1">認可マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMNinka" class="search" data-gridId="MNinkaGrid" th:text="#{common.search}">submit</button>
@@ -59,8 +59,8 @@
       <div id="MNinkaGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/MNinka.html}"></div>
       <div id="MNinkaPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMNinka&quot;]').click();">reset</button>
-        <a th:href="@{MNinkaSearch.xlsx(baseMei=#{MNinkaS.h2})}" id="MNinkaSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMNinkaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMNinka&quot;]').click();">reset</button>
+        <a th:href="@{MNinkaSearch.xlsx(baseMei=#{MNinkaS.h2})}" id="MNinkaSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMNinkaS" class="delete selectRows" data-action="MNinkaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

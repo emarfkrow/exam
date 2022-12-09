@@ -19,7 +19,7 @@ public class MUserRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MUserRegistForm.class);
 
     /** ユーザID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String userId;
 
     /**

@@ -50,8 +50,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TNoPkGet.xlsx(baseMei=#{TNoPk.h2})}" id="TNoPkGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTNoPk" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{TNoPkGet.xlsx(baseMei=#{TNoPk.h2})}" id="TNoPkGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTNoPk" class="delete" data-action="TNoPkDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

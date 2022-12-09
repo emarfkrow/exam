@@ -13,6 +13,7 @@
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
@@ -62,7 +63,7 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
+        <button type="reset" id="ResetTEntity" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
         <button id="SearchTEntity" class="search" data-gridId="TEntityGrid" th:text="#{common.search}">submit</button>
@@ -73,8 +74,8 @@
       <div id="TEntityGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/TEntity.html}"></div>
       <div id="TEntityPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchTEntity&quot;]').click();">reset</button>
-        <a th:href="@{TEntitySearch.xlsx(baseMei=#{TEntityS.h2})}" id="TEntitySearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTEntityS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntity&quot;]').click();">reset</button>
+        <a th:href="@{TEntitySearch.xlsx(baseMei=#{TEntityS.h2})}" id="TEntitySearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntityS" class="delete selectRows" data-action="TEntitySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

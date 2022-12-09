@@ -16,6 +16,7 @@
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -38,8 +39,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/TSosen.html}" id="TSosen" target="dialog" th:text="#{TSosen.add}" tabindex="-1">祖先</a>
+        <button type="reset" id="ResetTSosen" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/TSosen.html}" id="TSosen" class="anew" target="dialog" th:text="#{TSosen.add}" tabindex="-1">祖先</a>
       </div>
       <div class="submits">
         <button id="SearchTSosen" class="search" data-gridId="TSosenGrid" th:text="#{common.search}">submit</button>
@@ -50,8 +51,8 @@
       <div id="TSosenGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/TSosen.html}"></div>
       <div id="TSosenPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchTSosen&quot;]').click();">reset</button>
-        <a th:href="@{TSosenSearch.xlsx(baseMei=#{TSosenS.h2})}" id="TSosenSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTSosenS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTSosen&quot;]').click();">reset</button>
+        <a th:href="@{TSosenSearch.xlsx(baseMei=#{TSosenS.h2})}" id="TSosenSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTSosenS" class="delete selectRows" data-action="TSosenSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

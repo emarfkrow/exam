@@ -46,8 +46,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MUser.html}" id="MUser" target="dialog" th:text="#{MUser.add}" tabindex="-1">ユーザマスタ</a>
+        <button type="reset" id="ResetMUser" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MUser.html}" id="MUser" class="anew" target="dialog" th:text="#{MUser.add}" tabindex="-1">ユーザマスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMUser" class="search" data-gridId="MUserGrid" th:text="#{common.search}">submit</button>
@@ -58,8 +58,8 @@
       <div id="MUserGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MUser.html}"></div>
       <div id="MUserPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMUser&quot;]').click();">reset</button>
-        <a th:href="@{MUserSearch.xlsx(baseMei=#{MUserS.h2})}" id="MUserSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMUserS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMUser&quot;]').click();">reset</button>
+        <a th:href="@{MUserSearch.xlsx(baseMei=#{MUserS.h2})}" id="MUserSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMUserS" class="delete selectRows" data-action="MUserSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

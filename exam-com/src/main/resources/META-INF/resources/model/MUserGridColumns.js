@@ -3,16 +3,16 @@
  */
 
 let MUserGridColumns = [
-    Column.cell('USER_ID', Messages['MUserGrid.userId'], 100, 'primaryKey', null),
+    Column.comma('USER_ID', Messages['MUserGrid.userId'], 150, 'primaryKey numbering', null),
     Column.text('USER_SEI', Messages['MUserGrid.userSei'], 300, '', null),
     Column.text('USER_MEI', Messages['MUserGrid.userMei'], 300, '', null),
     Column.text('EMAIL', Messages['MUserGrid.email'], 300, '', null),
     Column.text('PASSWORD', Messages['MUserGrid.password'], 300, '', null),
-    Column.date('KAISHI_YMD', Messages['MUserGrid.kaishiYmd'], 100, '', null),
-    Column.date('SHURYO_YMD', Messages['MUserGrid.shuryoYmd'], 100, '', null),
-    Column.cell('INSERT_DT', Messages['MUserGrid.insertDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
-    Column.cell('INSERT_BY', Messages['MUserGrid.insertBy'], 100, 'metaInfo', null),
-    Column.cell('UPDATE_DT', Messages['MUserGrid.updateDt'], 230, 'metaInfo', Slick.Formatters.Extends.DateTime),
-    Column.cell('UPDATE_BY', Messages['MUserGrid.updateBy'], 100, 'metaInfo', null),
-    Column.check('DELETE_F', Messages['MUserGrid.deleteF'], 10, ''),
+    Column.date('KAISHI_YMD', Messages['MUserGrid.kaishiYmd'], 150, '', null),
+    Column.date('SHURYO_YMD', Messages['MUserGrid.shuryoYmd'], 150, '', null),
+    Column.cell('INSERT_DT', Messages['MUserGrid.insertDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.cell('INSERT_BY', Messages['MUserGrid.insertBy'], 150, 'metaInfo', null),
+    Column.cell('UPDATE_DT', Messages['MUserGrid.updateDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.cell('UPDATE_BY', Messages['MUserGrid.updateBy'], 150, 'metaInfo', null),
+    Column.check('DELETE_F', Messages['MUserGrid.deleteF'], 30, ''),
 ];

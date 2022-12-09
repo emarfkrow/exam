@@ -307,7 +307,7 @@ public class MCodeValue implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -334,7 +334,7 @@ public class MCodeValue implements IEntity {
         setList.add("`CRITERIA` = :criteria");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 

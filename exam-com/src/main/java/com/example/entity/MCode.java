@@ -249,7 +249,7 @@ public class MCode implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -265,6 +265,9 @@ public class MCode implements IEntity {
         if (this.mCodeValues != null) {
             Queries.regist("DELETE FROM m_code_value WHERE `CODE_NM` = :code_nm AND `CODE_VALUE` = :code_value", toMap(now, execId));
             for (MCodeValue mCodeValue : this.mCodeValues) {
+                if (mCodeValue == null) {
+                    continue;
+                }
                 mCodeValue.setCodeNm(this.codeNm);
                 try {
                     mCodeValue.insert(now, execId);
@@ -286,7 +289,7 @@ public class MCode implements IEntity {
         setList.add("`CODE_MEI` = :code_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 
@@ -368,7 +371,7 @@ public class MCode implements IEntity {
      */
     public static List<MCodeValue> referMCodeValues(final String param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("code_nm = :code_nm");
+        whereList.add("CODE_NM = :code_nm");
         String sql = "SELECT * FROM m_code_value WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("code_nm", param1);

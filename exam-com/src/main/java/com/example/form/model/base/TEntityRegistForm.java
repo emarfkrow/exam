@@ -20,7 +20,7 @@ public class TEntityRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TEntityRegistForm.class);
 
     /** 祖先ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
     /**
@@ -38,7 +38,7 @@ public class TEntityRegistForm implements IForm {
     }
 
     /** 親連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaSn;
 
     /**
@@ -56,7 +56,7 @@ public class TEntityRegistForm implements IForm {
     }
 
     /** エンティティ連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entitySn;
 
     /**
@@ -93,7 +93,7 @@ public class TEntityRegistForm implements IForm {
     }
 
     /** 参照１ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sansho1Id;
 
     /**
@@ -165,7 +165,7 @@ public class TEntityRegistForm implements IForm {
     }
 
     /** 別参照１ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String betsuSansho1Id;
 
     /**

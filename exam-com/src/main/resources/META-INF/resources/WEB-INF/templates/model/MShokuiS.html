@@ -40,8 +40,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MShokui.html}" id="MShokui" target="dialog" th:text="#{MShokui.add}" tabindex="-1">職位マスタ</a>
+        <button type="reset" id="ResetMShokui" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MShokui.html}" id="MShokui" class="anew" target="dialog" th:text="#{MShokui.add}" tabindex="-1">職位マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMShokui" class="search" data-gridId="MShokuiGrid" th:text="#{common.search}">submit</button>
@@ -52,8 +52,8 @@
       <div id="MShokuiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MShokui.html}"></div>
       <div id="MShokuiPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMShokui&quot;]').click();">reset</button>
-        <a th:href="@{MShokuiSearch.xlsx(baseMei=#{MShokuiS.h2})}" id="MShokuiSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMShokuiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMShokui&quot;]').click();">reset</button>
+        <a th:href="@{MShokuiSearch.xlsx(baseMei=#{MShokuiS.h2})}" id="MShokuiSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShokuiS" class="delete selectRows" data-action="MShokuiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

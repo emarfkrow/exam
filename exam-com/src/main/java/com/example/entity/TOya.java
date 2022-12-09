@@ -248,6 +248,15 @@ public class TOya implements IEntity {
             }
         }
 
+        // エンティティ２の登録
+        if (this.tEntity2s != null) {
+            for (TEntity2 tEntity2 : this.tEntity2s) {
+                tEntity2.setSosenId(this.getSosenId());
+                tEntity2.setOyaSn(this.getOyaSn());
+                tEntity2.insert(now, execId);
+            }
+        }
+
         // 親の登録
         String sql = "INSERT INTO t_oya(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -277,7 +286,7 @@ public class TOya implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -309,12 +318,32 @@ public class TOya implements IEntity {
         if (this.tEntitys != null) {
             Queries.regist("DELETE FROM t_entity WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, execId));
             for (TEntity tEntity : this.tEntitys) {
+                if (tEntity == null) {
+                    continue;
+                }
                 tEntity.setSosenId(this.sosenId);
                 tEntity.setOyaSn(this.oyaSn);
                 try {
                     tEntity.insert(now, execId);
                 } catch (Exception e) {
                     tEntity.update(now, execId);
+                }
+            }
+        }
+
+        // エンティティ２の登録
+        if (this.tEntity2s != null) {
+            Queries.regist("DELETE FROM t_entity2 WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn", toMap(now, execId));
+            for (TEntity2 tEntity2 : this.tEntity2s) {
+                if (tEntity2 == null) {
+                    continue;
+                }
+                tEntity2.setSosenId(this.sosenId);
+                tEntity2.setOyaSn(this.oyaSn);
+                try {
+                    tEntity2.insert(now, execId);
+                } catch (Exception e) {
+                    tEntity2.update(now, execId);
                 }
             }
         }
@@ -332,7 +361,7 @@ public class TOya implements IEntity {
         setList.add("`OYA_MEI` = :oya_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 
@@ -346,6 +375,13 @@ public class TOya implements IEntity {
         if (this.tEntitys != null) {
             for (TEntity tEntity : this.tEntitys) {
                 tEntity.delete();
+            }
+        }
+
+        // エンティティ２の削除
+        if (this.tEntity2s != null) {
+            for (TEntity2 tEntity2 : this.tEntity2s) {
+                tEntity2.delete();
             }
         }
 
@@ -417,12 +453,58 @@ public class TOya implements IEntity {
      */
     public static List<TEntity> referTEntitys(final Integer param1, final Integer param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("sosen_id = :sosen_id");
-        whereList.add("oya_sn = :oya_sn");
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
         String sql = "SELECT * FROM t_entity WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
         map.put("oya_sn", param2);
         return Queries.select(sql, map, TEntity.class, null, null);
+    }
+
+    /** エンティティ２のリスト */
+    private List<TEntity2> tEntity2s;
+
+    /** @return エンティティ２のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("TEntity2s")
+    public List<TEntity2> getTEntity2s() {
+        return this.tEntity2s;
+    }
+
+    /** @param list エンティティ２のリスト */
+    public void setTEntity2s(final List<TEntity2> list) {
+        this.tEntity2s = list;
+    }
+
+    /** @param tEntity2 */
+    public void addTEntity2s(final TEntity2 tEntity2) {
+        if (this.tEntity2s == null) {
+            this.tEntity2s = new ArrayList<TEntity2>();
+        }
+        this.tEntity2s.add(tEntity2);
+    }
+
+    /** @return エンティティ２のリスト */
+    public List<TEntity2> referTEntity2s() {
+        if (this.tEntity2s == null) {
+            this.tEntity2s = TOya.referTEntity2s(this.sosenId, this.oyaSn);
+        }
+        return this.tEntity2s;
+    }
+
+    /**
+     * @param param1 sosenId
+     * @param param2 oyaSn
+     * @return List<TEntity2>
+     */
+    public static List<TEntity2> referTEntity2s(final Integer param1, final Integer param2) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
+        String sql = "SELECT * FROM t_entity2 WHERE " + String.join(" AND ", whereList);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("sosen_id", param1);
+        map.put("oya_sn", param2);
+        return Queries.select(sql, map, TEntity2.class, null, null);
     }
 }

@@ -17,6 +17,7 @@
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -25,16 +26,16 @@
       <fieldset>
         <legend th:text="#{TEntityHis.legend}">legend</legend>
         <div id="sosenId">
-          <label for="TEntityHis.sosenId" th:text="#{TEntityHis.sosenId}">祖先ID</label><span id="TEntityHis.sosenId"></span><input type="hidden" id="TEntityHis.sosenId" name="TEntityHis.sosenId" class="primaryKey" /><a id="TEntityHis.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
+          <label for="TEntityHis.sosenId" th:text="#{TEntityHis.sosenId}">祖先ID</label><span id="TEntityHis.sosenId" class="primaryKey"></span><input type="hidden" id="TEntityHis.sosenId" name="TEntityHis.sosenId" class="primaryKey" /><a id="TEntityHis.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntityHis." class="refer"></span>
         </div>
         <div id="oyaSn">
-          <label for="TEntityHis.oyaSn" th:text="#{TEntityHis.oyaSn}">親連番</label><span id="TEntityHis.oyaSn"></span><input type="hidden" id="TEntityHis.oyaSn" name="TEntityHis.oyaSn" class="primaryKey" />
+          <label for="TEntityHis.oyaSn" th:text="#{TEntityHis.oyaSn}">親連番</label><span id="TEntityHis.oyaSn" class="primaryKey"></span><input type="hidden" id="TEntityHis.oyaSn" name="TEntityHis.oyaSn" class="primaryKey" />
         </div>
         <div id="entitySn">
-          <label for="TEntityHis.entitySn" th:text="#{TEntityHis.entitySn}">エンティティ連番</label><span id="TEntityHis.entitySn"></span><input type="hidden" id="TEntityHis.entitySn" name="TEntityHis.entitySn" class="primaryKey" />
+          <label for="TEntityHis.entitySn" th:text="#{TEntityHis.entitySn}">エンティティ連番</label><span id="TEntityHis.entitySn" class="primaryKey"></span><input type="hidden" id="TEntityHis.entitySn" name="TEntityHis.entitySn" class="primaryKey" />
         </div>
         <div id="historySn">
-          <label for="TEntityHis.historySn" th:text="#{TEntityHis.historySn}">履歴連番</label><span id="TEntityHis.historySn"></span><input type="hidden" id="TEntityHis.historySn" name="TEntityHis.historySn" class="primaryKey" />
+          <label for="TEntityHis.historySn" th:text="#{TEntityHis.historySn}">履歴連番</label><span id="TEntityHis.historySn" class="primaryKey"></span><input type="hidden" id="TEntityHis.historySn" name="TEntityHis.historySn" class="primaryKey" />
         </div>
         <div id="entityMei">
           <label for="TEntityHis.entityMei" th:text="#{TEntityHis.entityMei}">エンティティ名</label><input type="text" id="TEntityHis.entityMei" name="TEntityHis.entityMei" maxlength="30" />
@@ -76,8 +77,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TEntityHisGet.xlsx(baseMei=#{TEntityHis.h2})}" id="TEntityHisGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTEntityHis" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{TEntityHisGet.xlsx(baseMei=#{TEntityHis.h2})}" id="TEntityHisGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntityHis" class="delete" data-action="TEntityHisDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -457,7 +457,7 @@ public class TEntity implements IEntity {
         valueList.add(":entity_mei");
         valueList.add(":sansho_1_id");
         valueList.add(":sansho_1_mei");
-        valueList.add("NVL (:sansho_2_cd, ' ')");
+        valueList.add(":sansho_2_cd");
         valueList.add(":sansho_2_mei");
         valueList.add(":betsu_sansho_1_id");
         valueList.add(":betsu_sansho_1_mei");
@@ -465,7 +465,7 @@ public class TEntity implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -499,6 +499,9 @@ public class TEntity implements IEntity {
         if (this.tKos != null) {
             Queries.regist("DELETE FROM t_ko WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `KO_SN` = :ko_sn", toMap(now, execId));
             for (TKo tKo : this.tKos) {
+                if (tKo == null) {
+                    continue;
+                }
                 tKo.setSosenId(this.sosenId);
                 tKo.setOyaSn(this.oyaSn);
                 tKo.setEntitySn(this.entitySn);
@@ -514,6 +517,9 @@ public class TEntity implements IEntity {
         if (this.tTenpuFiles != null) {
             Queries.regist("DELETE FROM t_tenpu_file WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn AND `ENTITY_SN` = :entity_sn AND `TENPU_FILE_SN` = :tenpu_file_sn", toMap(now, execId));
             for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
+                if (tTenpuFile == null) {
+                    continue;
+                }
                 tTenpuFile.setSosenId(this.sosenId);
                 tTenpuFile.setOyaSn(this.oyaSn);
                 tTenpuFile.setEntitySn(this.entitySn);
@@ -570,13 +576,13 @@ public class TEntity implements IEntity {
         setList.add("`ENTITY_MEI` = :entity_mei");
         setList.add("`SANSHO1_ID` = :sansho_1_id");
         setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`SANSHO2_CD` = NVL (:sansho_2_cd, ' ')");
+        setList.add("`SANSHO2_CD` = :sansho_2_cd");
         setList.add("`SANSHO2_MEI` = :sansho_2_mei");
         setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
         setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 
@@ -707,9 +713,9 @@ public class TEntity implements IEntity {
      */
     public static List<TKo> referTKos(final Integer param1, final Integer param2, final Integer param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("sosen_id = :sosen_id");
-        whereList.add("oya_sn = :oya_sn");
-        whereList.add("entity_sn = :entity_sn");
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
+        whereList.add("ENTITY_SN = :entity_sn");
         String sql = "SELECT * FROM t_ko WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
@@ -756,9 +762,9 @@ public class TEntity implements IEntity {
      */
     public static List<TTenpuFile> referTTenpuFiles(final Integer param1, final Integer param2, final Integer param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("sosen_id = :sosen_id");
-        whereList.add("oya_sn = :oya_sn");
-        whereList.add("entity_sn = :entity_sn");
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
+        whereList.add("ENTITY_SN = :entity_sn");
         String sql = "SELECT * FROM t_tenpu_file WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);

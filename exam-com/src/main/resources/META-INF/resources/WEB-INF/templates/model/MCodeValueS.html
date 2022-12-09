@@ -41,8 +41,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MCodeValue.html}" id="MCodeValue" target="dialog" th:text="#{MCodeValue.add}" tabindex="-1">コード値マスタ</a>
+        <button type="reset" id="ResetMCodeValue" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MCodeValue.html}" id="MCodeValue" class="anew" target="dialog" th:text="#{MCodeValue.add}" tabindex="-1">コード値マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMCodeValue" class="search" data-gridId="MCodeValueGrid" th:text="#{common.search}">submit</button>
@@ -53,8 +53,8 @@
       <div id="MCodeValueGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/MCodeValue.html}"></div>
       <div id="MCodeValuePager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMCodeValue&quot;]').click();">reset</button>
-        <a th:href="@{MCodeValueSearch.xlsx(baseMei=#{MCodeValueS.h2})}" id="MCodeValueSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMCodeValueS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMCodeValue&quot;]').click();">reset</button>
+        <a th:href="@{MCodeValueSearch.xlsx(baseMei=#{MCodeValueS.h2})}" id="MCodeValueSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMCodeValueS" class="delete selectRows" data-action="MCodeValueSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
