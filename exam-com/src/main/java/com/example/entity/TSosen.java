@@ -289,15 +289,6 @@ public class TSosen implements IEntity {
                     tOya.update(now, execId);
                 }
             }
-            this.tOyas = null;
-            this.referTOyas();
-            if (this.tOyas != null) {
-                for (TOya tOya : this.tOyas) {
-                    if (!tOya.getUpdateDt().equals(now)) {
-                        tOya.delete();
-                    }
-                }
-            }
         }
 
         // 祖先の登録

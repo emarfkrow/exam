@@ -375,15 +375,6 @@ public class TKo implements IEntity {
                     tShison.update(now, execId);
                 }
             }
-            this.tShisons = null;
-            this.referTShisons();
-            if (this.tShisons != null) {
-                for (TShison tShison : this.tShisons) {
-                    if (!tShison.getUpdateDt().equals(now)) {
-                        tShison.delete();
-                    }
-                }
-            }
         }
 
         // 子の登録

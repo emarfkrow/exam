@@ -274,15 +274,6 @@ public class MCode implements IEntity {
                     mCodeValue.update(now, execId);
                 }
             }
-            this.mCodeValues = null;
-            this.referMCodeValues();
-            if (this.mCodeValues != null) {
-                for (MCodeValue mCodeValue : this.mCodeValues) {
-                    if (!mCodeValue.getUpdateDt().equals(now)) {
-                        mCodeValue.delete();
-                    }
-                }
-            }
         }
 
         // コードマスタの登録

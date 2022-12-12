@@ -710,15 +710,6 @@ public class TEntity2 implements IEntity {
                     tKo.update(now, execId);
                 }
             }
-            this.tKos = null;
-            this.referTKos();
-            if (this.tKos != null) {
-                for (TKo tKo : this.tKos) {
-                    if (!tKo.getUpdateDt().equals(now)) {
-                        tKo.delete();
-                    }
-                }
-            }
         }
 
         // 添付ファイルの登録
@@ -734,15 +725,6 @@ public class TEntity2 implements IEntity {
                     tTenpuFile.insert(now, execId);
                 } catch (Exception e) {
                     tTenpuFile.update(now, execId);
-                }
-            }
-            this.tTenpuFiles = null;
-            this.referTTenpuFiles();
-            if (this.tTenpuFiles != null) {
-                for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
-                    if (!tTenpuFile.getUpdateDt().equals(now)) {
-                        tTenpuFile.delete();
-                    }
                 }
             }
         }

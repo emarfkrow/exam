@@ -328,15 +328,6 @@ public class TOya implements IEntity {
                     tEntity.update(now, execId);
                 }
             }
-            this.tEntitys = null;
-            this.referTEntitys();
-            if (this.tEntitys != null) {
-                for (TEntity tEntity : this.tEntitys) {
-                    if (!tEntity.getUpdateDt().equals(now)) {
-                        tEntity.delete();
-                    }
-                }
-            }
         }
 
         // エンティティ２の登録
@@ -351,15 +342,6 @@ public class TOya implements IEntity {
                     tEntity2.insert(now, execId);
                 } catch (Exception e) {
                     tEntity2.update(now, execId);
-                }
-            }
-            this.tEntity2s = null;
-            this.referTEntity2s();
-            if (this.tEntity2s != null) {
-                for (TEntity2 tEntity2 : this.tEntity2s) {
-                    if (!tEntity2.getUpdateDt().equals(now)) {
-                        tEntity2.delete();
-                    }
                 }
             }
         }
