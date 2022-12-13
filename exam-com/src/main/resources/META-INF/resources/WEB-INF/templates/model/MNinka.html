@@ -19,10 +19,10 @@
       <fieldset>
         <legend th:text="#{MNinka.legend}">legend</legend>
         <div id="bushoId">
-          <label for="MNinka.bushoId" th:text="#{MNinka.bushoId}">部署ID</label><span id="MNinka.bushoId"></span><input type="hidden" id="MNinka.bushoId" name="MNinka.bushoId" class="primaryKey" /><a id="MNinka.bushoId" th:href="@{/model/MBushoS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
+          <label for="MNinka.bushoId" th:text="#{MNinka.bushoId}">部署ID</label><span id="MNinka.bushoId" class="primaryKey"></span><input type="hidden" id="MNinka.bushoId" name="MNinka.bushoId" class="primaryKey" /><a id="MNinka.bushoId" th:href="@{/model/MBushoS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
         </div>
         <div id="shokuiId">
-          <label for="MNinka.shokuiId" th:text="#{MNinka.shokuiId}">職位ID</label><span id="MNinka.shokuiId"></span><input type="hidden" id="MNinka.shokuiId" name="MNinka.shokuiId" class="primaryKey" /><a id="MNinka.shokuiId" th:href="@{/model/MShokuiS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
+          <label for="MNinka.shokuiId" th:text="#{MNinka.shokuiId}">職位ID</label><span id="MNinka.shokuiId" class="primaryKey"></span><input type="hidden" id="MNinka.shokuiId" name="MNinka.shokuiId" class="primaryKey" /><a id="MNinka.shokuiId" th:href="@{/model/MShokuiS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MNinka." class="refer"></span>
         </div>
         <div id="gamenNm">
           <label for="MNinka.gamenNm" th:text="#{MNinka.gamenNm}">画面名</label><input type="text" id="MNinka.gamenNm" name="MNinka.gamenNm" maxlength="20" class=" primaryKey" />
@@ -57,8 +57,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MNinkaGet.xlsx(baseMei=#{MNinka.h2})}" id="MNinkaGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMNinka" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MNinkaGet.xlsx(baseMei=#{MNinka.h2})}" id="MNinkaGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMNinka" class="delete" data-action="MNinkaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

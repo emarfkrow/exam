@@ -20,7 +20,7 @@ public class TOyaRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TOyaRegistForm.class);
 
     /** 祖先ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
     /**
@@ -38,7 +38,7 @@ public class TOyaRegistForm implements IForm {
     }
 
     /** 親連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaSn;
 
     /**
@@ -108,6 +108,24 @@ public class TOyaRegistForm implements IForm {
      */
     public void setTEntityGrid(final List<TEntityRegistForm> p) {
         this.tEntityGrid = p;
+    }
+
+    /** エンティティ２ */
+    @jakarta.validation.Valid
+    private List<TEntity2RegistForm> tEntity2Grid;
+
+    /**
+     * @return エンティティ２
+     */
+    public List<TEntity2RegistForm> getTEntity2Grid() {
+        return tEntity2Grid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTEntity2Grid(final List<TEntity2RegistForm> p) {
+        this.tEntity2Grid = p;
     }
 
     /** 関連チェック */

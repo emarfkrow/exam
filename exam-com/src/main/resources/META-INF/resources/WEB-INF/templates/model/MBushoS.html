@@ -40,8 +40,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
-        <a th:href="@{/model/MBusho.html}" id="MBusho" target="dialog" th:text="#{MBusho.add}" tabindex="-1">部署マスタ</a>
+        <button type="reset" id="ResetMBusho" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MBusho.html}" id="MBusho" class="anew" target="dialog" th:text="#{MBusho.add}" tabindex="-1">部署マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMBusho" class="search" data-gridId="MBushoGrid" th:text="#{common.search}">submit</button>
@@ -52,8 +52,8 @@
       <div id="MBushoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MBusho.html}"></div>
       <div id="MBushoPager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchMBusho&quot;]').click();">reset</button>
-        <a th:href="@{MBushoSearch.xlsx(baseMei=#{MBushoS.h2})}" id="MBushoSearch.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMBushoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMBusho&quot;]').click();">reset</button>
+        <a th:href="@{MBushoSearch.xlsx(baseMei=#{MBushoS.h2})}" id="MBushoSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMBushoS" class="delete selectRows" data-action="MBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

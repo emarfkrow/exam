@@ -19,7 +19,7 @@ public class MSansho1RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MSansho1RegistForm.class);
 
     /** 参照１ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sansho1Id;
 
     /**

@@ -25,7 +25,8 @@ INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteri
 INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('delete_f', '1', '削除', 2, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '0', 'なし', 1, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '1', '閲覧', 2, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
-INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '2', '更新', 3, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
+INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '2', '出力', 3, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
+INSERT INTO m_code_value(code_nm, code_value, code_value_mei, hyoji_jun, criteria, insert_dt, insert_by, update_dt, update_by) VALUES ('kengen_kb', '3', '更新', 4, '', SYSDATE(), 'initdata', SYSDATE(), 'initdata');
 
 insert into m_user (user_id, user_sei, user_mei, email, password, insert_dt, insert_by, update_dt, update_by, delete_f) values (1,'姓','名','hoge@example.com','4dff4ea340f0a823f15d3f4f01ab62eae0e5da579ccb851f8db9dfe84c58b2b37b89903a740e1ee172da793a6e79d560e5f7f9bd058a12a280433ed6fa46510a', SYSDATE(), 'initdata', SYSDATE(), 'initdata',null);
 

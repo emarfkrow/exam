@@ -17,7 +17,7 @@
       <fieldset>
         <legend th:text="#{MBusho.legend}">legend</legend>
         <div id="bushoId">
-          <label for="MBusho.bushoId" th:text="#{MBusho.bushoId}">部署ID</label><span id="MBusho.bushoId"></span><input type="hidden" id="MBusho.bushoId" name="MBusho.bushoId" class="primaryKey" />
+          <label for="MBusho.bushoId" th:text="#{MBusho.bushoId}">部署ID</label><span id="MBusho.bushoId" class="primaryKey"></span><input type="hidden" id="MBusho.bushoId" name="MBusho.bushoId" class="primaryKey" />
         </div>
         <div id="bushoMei">
           <label for="MBusho.bushoMei" th:text="#{MBusho.bushoMei}">部署名</label><input type="text" id="MBusho.bushoMei" name="MBusho.bushoMei" maxlength="30" />
@@ -50,8 +50,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MBushoGet.xlsx(baseMei=#{MBusho.h2})}" id="MBushoGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetMBusho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MBushoGet.xlsx(baseMei=#{MBusho.h2})}" id="MBushoGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMBusho" class="delete" data-action="MBushoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

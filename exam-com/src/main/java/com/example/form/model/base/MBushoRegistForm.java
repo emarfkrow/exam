@@ -19,7 +19,7 @@ public class MBushoRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MBushoRegistForm.class);
 
     /** 部署ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String bushoId;
 
     /**
@@ -92,7 +92,7 @@ public class MBushoRegistForm implements IForm {
     }
 
     /** 親部署ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaBushoId;
 
     /**

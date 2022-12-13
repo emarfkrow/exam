@@ -1,5 +1,6 @@
 package com.example.form.model.base;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ public class TEntity2RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TEntity2RegistForm.class);
 
     /** 祖先ID */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
     /**
@@ -37,7 +38,7 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 親連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaSn;
 
     /**
@@ -55,7 +56,7 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** エンティティ連番 */
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entitySn;
 
     /**
@@ -185,7 +186,6 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 日付 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
     private String hidukeYmd;
 
@@ -204,7 +204,6 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 年月 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2})?")
     private String nengetsuYm;
 
@@ -223,7 +222,6 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 年 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4})?")
     private String sampleY;
 
@@ -242,7 +240,6 @@ public class TEntity2RegistForm implements IForm {
     }
 
     /** 月 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
     private String sampleM;
 
@@ -408,6 +405,60 @@ public class TEntity2RegistForm implements IForm {
      */
     public void setDeleteF(final String p) {
         this.deleteF = p;
+    }
+
+    /** エンティティ */
+    @jakarta.validation.Valid
+    private TEntityRegistForm tEntityRegistForm;
+
+    /**
+     * @return TEntityRegistForm
+     */
+    public TEntityRegistForm getTEntityRegistForm() {
+        return tEntityRegistForm;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTEntityRegistForm(final TEntityRegistForm p) {
+        this.tEntityRegistForm = p;
+    }
+
+    /** 子 */
+    @jakarta.validation.Valid
+    private List<TKoRegistForm> tKoGrid;
+
+    /**
+     * @return 子
+     */
+    public List<TKoRegistForm> getTKoGrid() {
+        return tKoGrid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTKoGrid(final List<TKoRegistForm> p) {
+        this.tKoGrid = p;
+    }
+
+    /** 添付ファイル */
+    @jakarta.validation.Valid
+    private List<TTenpuFileRegistForm> tTenpuFileGrid;
+
+    /**
+     * @return 添付ファイル
+     */
+    public List<TTenpuFileRegistForm> getTTenpuFileGrid() {
+        return tTenpuFileGrid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTTenpuFileGrid(final List<TTenpuFileRegistForm> p) {
+        this.tTenpuFileGrid = p;
     }
 
     /** 関連チェック */

@@ -9,11 +9,11 @@
 
 </script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TKoGridColumns.js}"></script>
+<script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
 <script th:src="@{/model/TEntityGridColumns.js}"></script>
-<script th:src="@{/model/TKoGridColumns.js}"></script>
-<script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
@@ -99,7 +99,7 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" th:text="#{common.reset}">reset</button>
+        <button type="reset" id="ResetTEntity2" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
         <button id="SearchTEntity2" class="search" data-gridId="TEntity2Grid" th:text="#{common.search}">submit</button>
@@ -110,8 +110,8 @@
       <div id="TEntity2Grid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/TEntity2.html}"></div>
       <div id="TEntity2Pager"></div>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="$('[id=&quot;SearchTEntity2&quot;]').click();">reset</button>
-        <a th:href="@{TEntity2Search.xlsx(baseMei=#{TEntity2S.h2})}" id="TEntity2Search.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTEntity2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntity2&quot;]').click();">reset</button>
+        <a th:href="@{TEntity2Search.xlsx(baseMei=#{TEntity2S.h2})}" id="TEntity2Search.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntity2S" class="delete selectRows" data-action="TEntity2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

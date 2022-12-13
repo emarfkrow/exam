@@ -252,7 +252,7 @@ public class TSosen implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -278,8 +278,10 @@ public class TSosen implements IEntity {
 
         // 親の登録
         if (this.tOyas != null) {
-            Queries.regist("DELETE FROM t_oya WHERE `SOSEN_ID` = :sosen_id AND `OYA_SN` = :oya_sn", toMap(now, execId));
             for (TOya tOya : this.tOyas) {
+                if (tOya == null) {
+                    continue;
+                }
                 tOya.setSosenId(this.sosenId);
                 try {
                     tOya.insert(now, execId);
@@ -301,7 +303,7 @@ public class TSosen implements IEntity {
         setList.add("`SOSEN_MEI` = :sosen_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 
@@ -383,7 +385,7 @@ public class TSosen implements IEntity {
      */
     public static List<TOya> referTOyas(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("sosen_id = :sosen_id");
+        whereList.add("SOSEN_ID = :sosen_id");
         String sql = "SELECT * FROM t_oya WHERE " + String.join(" AND ", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);

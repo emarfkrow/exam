@@ -574,6 +574,34 @@ public class TEntity2 implements IEntity {
         // エンティティ連番の採番処理
         numbering();
 
+        // 子の登録
+        if (this.tKos != null) {
+            for (TKo tKo : this.tKos) {
+                tKo.setSosenId(this.getSosenId());
+                tKo.setOyaSn(this.getOyaSn());
+                tKo.setEntitySn(this.getEntitySn());
+                tKo.insert(now, execId);
+            }
+        }
+
+        // 添付ファイルの登録
+        if (this.tTenpuFiles != null) {
+            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
+                tTenpuFile.setSosenId(this.getSosenId());
+                tTenpuFile.setOyaSn(this.getOyaSn());
+                tTenpuFile.setEntitySn(this.getEntitySn());
+                tTenpuFile.insert(now, execId);
+            }
+        }
+
+        // エンティティの登録
+        if (this.tEntity != null) {
+            this.tEntity.setSosenId(this.getSosenId());
+            this.tEntity.setOyaSn(this.getOyaSn());
+            this.tEntity.setEntitySn(this.getEntitySn());
+            this.tEntity.insert(now, execId);
+        }
+
         // エンティティ２の登録
         String sql = "INSERT INTO t_entity2(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -618,7 +646,7 @@ public class TEntity2 implements IEntity {
         valueList.add(":entity_sn");
         valueList.add(":null_entity_2_mei");
         valueList.add(":entity_2_mei");
-        valueList.add("NVL (:check_f, ' ')");
+        valueList.add(":check_f");
         valueList.add(":radio_kb");
         valueList.add(":pulldown_kb");
         valueList.add(":memo_tx");
@@ -632,12 +660,12 @@ public class TEntity2 implements IEntity {
         valueList.add(":suryo_qt");
         valueList.add(":tanka_am");
         valueList.add(":kingaku_am");
-        valueList.add("NVL (:fig_8_bi, ' ')");
+        valueList.add(":fig_8_bi");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -667,6 +695,52 @@ public class TEntity2 implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
+        // 子の登録
+        if (this.tKos != null) {
+            for (TKo tKo : this.tKos) {
+                if (tKo == null) {
+                    continue;
+                }
+                tKo.setSosenId(this.sosenId);
+                tKo.setOyaSn(this.oyaSn);
+                tKo.setEntitySn(this.entitySn);
+                try {
+                    tKo.insert(now, execId);
+                } catch (Exception e) {
+                    tKo.update(now, execId);
+                }
+            }
+        }
+
+        // 添付ファイルの登録
+        if (this.tTenpuFiles != null) {
+            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
+                if (tTenpuFile == null) {
+                    continue;
+                }
+                tTenpuFile.setSosenId(this.sosenId);
+                tTenpuFile.setOyaSn(this.oyaSn);
+                tTenpuFile.setEntitySn(this.entitySn);
+                try {
+                    tTenpuFile.insert(now, execId);
+                } catch (Exception e) {
+                    tTenpuFile.update(now, execId);
+                }
+            }
+        }
+
+        // エンティティの登録
+        if (this.tEntity != null) {
+            tEntity.setSosenId(this.getSosenId());
+            tEntity.setOyaSn(this.getOyaSn());
+            tEntity.setEntitySn(this.getEntitySn());
+            try {
+                tEntity.insert(now, execId);
+            } catch (Exception e) {
+                tEntity.update(now, execId);
+            }
+        }
+
         // エンティティ２の登録
         String sql = "UPDATE t_entity2\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -680,7 +754,7 @@ public class TEntity2 implements IEntity {
         setList.add("`ENTITY_SN` = :entity_sn");
         setList.add("`NULL_ENTITY2_MEI` = :null_entity_2_mei");
         setList.add("`ENTITY2_MEI` = :entity_2_mei");
-        setList.add("`CHECK_F` = NVL (:check_f, ' ')");
+        setList.add("`CHECK_F` = :check_f");
         setList.add("`RADIO_KB` = :radio_kb");
         setList.add("`PULLDOWN_KB` = :pulldown_kb");
         setList.add("`MEMO_TX` = :memo_tx");
@@ -694,10 +768,10 @@ public class TEntity2 implements IEntity {
         setList.add("`SURYO_QT` = :suryo_qt");
         setList.add("`TANKA_AM` = :tanka_am");
         setList.add("`KINGAKU_AM` = :kingaku_am");
-        setList.add("`FIG_8_BI` = NVL (:fig_8_bi, ' ')");
+        setList.add("`FIG_8_BI` = :fig_8_bi");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 
@@ -706,6 +780,25 @@ public class TEntity2 implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        // 子の削除
+        if (this.tKos != null) {
+            for (TKo tKo : this.tKos) {
+                tKo.delete();
+            }
+        }
+
+        // 添付ファイルの削除
+        if (this.tTenpuFiles != null) {
+            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
+                tTenpuFile.delete();
+            }
+        }
+
+        // エンティティの削除
+        if (this.tEntity != null) {
+            this.tEntity.delete();
+        }
 
         // エンティティ２の削除
         String sql = "DELETE FROM t_entity2 WHERE " + getWhere();
@@ -754,5 +847,128 @@ public class TEntity2 implements IEntity {
         map.put("update_dt", now);
         map.put("update_by", execId);
         return map;
+    }
+
+    /** エンティティ */
+    private TEntity tEntity;
+
+    /** @return エンティティ */
+    @com.fasterxml.jackson.annotation.JsonProperty("TEntity")
+    public TEntity getTEntity() {
+        return this.tEntity;
+    }
+
+    /** @param p エンティティ */
+    public void setTEntity(final TEntity p) {
+        this.tEntity = p;
+    }
+
+    /** @return エンティティ */
+    public TEntity referTEntity() {
+        if (this.tEntity == null) {
+            try {
+                this.tEntity = TEntity.get(this.sosenId, this.oyaSn, this.entitySn);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
+        }
+        return this.tEntity;
+    }
+
+    /** 子のリスト */
+    private List<TKo> tKos;
+
+    /** @return 子のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("TKos")
+    public List<TKo> getTKos() {
+        return this.tKos;
+    }
+
+    /** @param list 子のリスト */
+    public void setTKos(final List<TKo> list) {
+        this.tKos = list;
+    }
+
+    /** @param tKo */
+    public void addTKos(final TKo tKo) {
+        if (this.tKos == null) {
+            this.tKos = new ArrayList<TKo>();
+        }
+        this.tKos.add(tKo);
+    }
+
+    /** @return 子のリスト */
+    public List<TKo> referTKos() {
+        if (this.tKos == null) {
+            this.tKos = TEntity2.referTKos(this.sosenId, this.oyaSn, this.entitySn);
+        }
+        return this.tKos;
+    }
+
+    /**
+     * @param param1 sosenId
+     * @param param2 oyaSn
+     * @param param3 entitySn
+     * @return List<TKo>
+     */
+    public static List<TKo> referTKos(final Integer param1, final Integer param2, final Integer param3) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
+        whereList.add("ENTITY_SN = :entity_sn");
+        String sql = "SELECT * FROM t_ko WHERE " + String.join(" AND ", whereList);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("sosen_id", param1);
+        map.put("oya_sn", param2);
+        map.put("entity_sn", param3);
+        return Queries.select(sql, map, TKo.class, null, null);
+    }
+
+    /** 添付ファイルのリスト */
+    private List<TTenpuFile> tTenpuFiles;
+
+    /** @return 添付ファイルのリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("TTenpuFiles")
+    public List<TTenpuFile> getTTenpuFiles() {
+        return this.tTenpuFiles;
+    }
+
+    /** @param list 添付ファイルのリスト */
+    public void setTTenpuFiles(final List<TTenpuFile> list) {
+        this.tTenpuFiles = list;
+    }
+
+    /** @param tTenpuFile */
+    public void addTTenpuFiles(final TTenpuFile tTenpuFile) {
+        if (this.tTenpuFiles == null) {
+            this.tTenpuFiles = new ArrayList<TTenpuFile>();
+        }
+        this.tTenpuFiles.add(tTenpuFile);
+    }
+
+    /** @return 添付ファイルのリスト */
+    public List<TTenpuFile> referTTenpuFiles() {
+        if (this.tTenpuFiles == null) {
+            this.tTenpuFiles = TEntity2.referTTenpuFiles(this.sosenId, this.oyaSn, this.entitySn);
+        }
+        return this.tTenpuFiles;
+    }
+
+    /**
+     * @param param1 sosenId
+     * @param param2 oyaSn
+     * @param param3 entitySn
+     * @return List<TTenpuFile>
+     */
+    public static List<TTenpuFile> referTTenpuFiles(final Integer param1, final Integer param2, final Integer param3) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("SOSEN_ID = :sosen_id");
+        whereList.add("OYA_SN = :oya_sn");
+        whereList.add("ENTITY_SN = :entity_sn");
+        String sql = "SELECT * FROM t_tenpu_file WHERE " + String.join(" AND ", whereList);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("sosen_id", param1);
+        map.put("oya_sn", param2);
+        map.put("entity_sn", param3);
+        return Queries.select(sql, map, TTenpuFile.class, null, null);
     }
 }

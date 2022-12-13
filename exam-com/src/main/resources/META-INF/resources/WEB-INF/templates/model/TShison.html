@@ -16,6 +16,7 @@
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -24,19 +25,19 @@
       <fieldset>
         <legend th:text="#{TShison.legend}">legend</legend>
         <div id="sosenId">
-          <label for="TShison.sosenId" th:text="#{TShison.sosenId}">祖先ID</label><span id="TShison.sosenId"></span><input type="hidden" id="TShison.sosenId" name="TShison.sosenId" class="primaryKey" /><a id="TShison.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TShison." class="refer"></span>
+          <label for="TShison.sosenId" th:text="#{TShison.sosenId}">祖先ID</label><span id="TShison.sosenId" class="primaryKey"></span><input type="hidden" id="TShison.sosenId" name="TShison.sosenId" class="primaryKey" /><a id="TShison.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TShison." class="refer"></span>
         </div>
         <div id="oyaSn">
-          <label for="TShison.oyaSn" th:text="#{TShison.oyaSn}">親連番</label><span id="TShison.oyaSn"></span><input type="hidden" id="TShison.oyaSn" name="TShison.oyaSn" class="primaryKey" />
+          <label for="TShison.oyaSn" th:text="#{TShison.oyaSn}">親連番</label><span id="TShison.oyaSn" class="primaryKey"></span><input type="hidden" id="TShison.oyaSn" name="TShison.oyaSn" class="primaryKey" />
         </div>
         <div id="entitySn">
-          <label for="TShison.entitySn" th:text="#{TShison.entitySn}">エンティティ連番</label><span id="TShison.entitySn"></span><input type="hidden" id="TShison.entitySn" name="TShison.entitySn" class="primaryKey" />
+          <label for="TShison.entitySn" th:text="#{TShison.entitySn}">エンティティ連番</label><span id="TShison.entitySn" class="primaryKey"></span><input type="hidden" id="TShison.entitySn" name="TShison.entitySn" class="primaryKey" />
         </div>
         <div id="koSn">
-          <label for="TShison.koSn" th:text="#{TShison.koSn}">子連番</label><span id="TShison.koSn"></span><input type="hidden" id="TShison.koSn" name="TShison.koSn" class="primaryKey" />
+          <label for="TShison.koSn" th:text="#{TShison.koSn}">子連番</label><span id="TShison.koSn" class="primaryKey"></span><input type="hidden" id="TShison.koSn" name="TShison.koSn" class="primaryKey" />
         </div>
         <div id="shisonSn">
-          <label for="TShison.shisonSn" th:text="#{TShison.shisonSn}">子孫連番</label><span id="TShison.shisonSn"></span><input type="hidden" id="TShison.shisonSn" name="TShison.shisonSn" class="primaryKey" />
+          <label for="TShison.shisonSn" th:text="#{TShison.shisonSn}">子孫連番</label><span id="TShison.shisonSn" class="primaryKey"></span><input type="hidden" id="TShison.shisonSn" name="TShison.shisonSn" class="primaryKey" />
         </div>
         <div id="shisonMei">
           <label for="TShison.shisonMei" th:text="#{TShison.shisonMei}">子孫名</label><input type="text" id="TShison.shisonMei" name="TShison.shisonMei" maxlength="30" />
@@ -60,8 +61,8 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" th:text="#{common.reset}" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TShisonGet.xlsx(baseMei=#{TShison.h2})}" id="TShisonGet.xlsx" th:text="#{common.xlsx}" tabindex="-1">xlsx</a>
+        <button type="button" id="ResetTShison" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{TShisonGet.xlsx(baseMei=#{TShison.h2})}" id="TShisonGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTShison" class="delete" data-action="TShisonDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -434,7 +434,7 @@ public class TEntityHis implements IEntity {
         valueList.add(":entity_mei");
         valueList.add(":sansho_1_id");
         valueList.add(":sansho_1_mei");
-        valueList.add("NVL (:sansho_2_cd, ' ')");
+        valueList.add(":sansho_2_cd");
         valueList.add(":sansho_2_mei");
         valueList.add(":betsu_sansho_1_id");
         valueList.add(":betsu_sansho_1_mei");
@@ -442,7 +442,7 @@ public class TEntityHis implements IEntity {
         valueList.add(":insert_by");
         valueList.add(":update_dt");
         valueList.add(":update_by");
-        valueList.add("NVL (:delete_f, ' ')");
+        valueList.add(":delete_f");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -489,13 +489,13 @@ public class TEntityHis implements IEntity {
         setList.add("`ENTITY_MEI` = :entity_mei");
         setList.add("`SANSHO1_ID` = :sansho_1_id");
         setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`SANSHO2_CD` = NVL (:sansho_2_cd, ' ')");
+        setList.add("`SANSHO2_CD` = :sansho_2_cd");
         setList.add("`SANSHO2_MEI` = :sansho_2_mei");
         setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
         setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
-        setList.add("`DELETE_F` = NVL (:delete_f, ' ')");
+        setList.add("`DELETE_F` = :delete_f");
         return String.join("\r\n    , ", setList);
     }
 

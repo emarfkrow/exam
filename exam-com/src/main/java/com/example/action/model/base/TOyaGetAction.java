@@ -39,6 +39,7 @@ public class TOyaGetAction extends BaseAction {
 
         TOya tOya = TOya.get(sosenId, oyaSn);
         tOya.referTEntitys();
+        tOya.referTEntity2s();
         map.put("TOya", tOya);
         return map;
     }
