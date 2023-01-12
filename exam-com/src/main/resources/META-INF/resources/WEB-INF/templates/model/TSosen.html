@@ -53,7 +53,7 @@
       <div id="TOyaGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/TOya.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetTSosen" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TSosenGet.xlsx(baseMei=#{TSosen.h2})}" id="TSosenGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TSosenGet.xlsx(baseMei=#{TSosen.h2})}" id="TSosenGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTSosen" class="delete" data-action="TSosenDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -53,7 +53,7 @@
       <div id="MShokuiPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMShokuiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMShokui&quot;]').click();">reset</button>
-        <a th:href="@{MShokuiSearch.xlsx(baseMei=#{MShokuiS.h2})}" id="MShokuiSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MShokuiSearch.xlsx(baseMei=#{MShokuiS.h2})}" id="MShokuiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShokuiS" class="delete selectRows" data-action="MShokuiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -59,7 +59,7 @@
       <div id="MUserPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMUserS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMUser&quot;]').click();">reset</button>
-        <a th:href="@{MUserSearch.xlsx(baseMei=#{MUserS.h2})}" id="MUserSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MUserSearch.xlsx(baseMei=#{MUserS.h2})}" id="MUserSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMUserS" class="delete selectRows" data-action="MUserSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

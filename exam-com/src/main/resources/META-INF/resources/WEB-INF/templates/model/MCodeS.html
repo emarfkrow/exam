@@ -45,7 +45,7 @@
       <div id="MCodePager"></div>
       <div class="buttons">
         <button type="button" id="ResetMCodeS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMCode&quot;]').click();">reset</button>
-        <a th:href="@{MCodeSearch.xlsx(baseMei=#{MCodeS.h2})}" id="MCodeSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MCodeSearch.xlsx(baseMei=#{MCodeS.h2})}" id="MCodeSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMCodeS" class="delete selectRows" data-action="MCodeSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

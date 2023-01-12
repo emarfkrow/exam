@@ -111,7 +111,7 @@
       <div id="TEntity2Pager"></div>
       <div class="buttons">
         <button type="button" id="ResetTEntity2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntity2&quot;]').click();">reset</button>
-        <a th:href="@{TEntity2Search.xlsx(baseMei=#{TEntity2S.h2})}" id="TEntity2Search.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TEntity2Search.xlsx(baseMei=#{TEntity2S.h2})}" id="TEntity2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntity2S" class="delete selectRows" data-action="TEntity2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

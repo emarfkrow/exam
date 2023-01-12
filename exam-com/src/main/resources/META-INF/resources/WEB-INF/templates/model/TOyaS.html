@@ -55,7 +55,7 @@
       <div id="TOyaPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTOyaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTOya&quot;]').click();">reset</button>
-        <a th:href="@{TOyaSearch.xlsx(baseMei=#{TOyaS.h2})}" id="TOyaSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TOyaSearch.xlsx(baseMei=#{TOyaS.h2})}" id="TOyaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTOyaS" class="delete selectRows" data-action="TOyaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
