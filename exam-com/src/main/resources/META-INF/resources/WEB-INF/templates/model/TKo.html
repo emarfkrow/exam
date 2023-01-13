@@ -62,7 +62,7 @@
       <div id="TShisonGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="4" th:data-href="@{/model/TShison.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetTKo" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TKoGet.xlsx(baseMei=#{TKo.h2})}" id="TKoGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TKoGet.xlsx(baseMei=#{TKo.h2})}" id="TKoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTKo" class="delete" data-action="TKoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

@@ -44,7 +44,7 @@
       <div id="MSansho2Pager"></div>
       <div class="buttons">
         <button type="button" id="ResetMSansho2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMSansho2&quot;]').click();">reset</button>
-        <a th:href="@{MSansho2Search.xlsx(baseMei=#{MSansho2S.h2})}" id="MSansho2Search.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MSansho2Search.xlsx(baseMei=#{MSansho2S.h2})}" id="MSansho2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMSansho2S" class="delete selectRows" data-action="MSansho2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

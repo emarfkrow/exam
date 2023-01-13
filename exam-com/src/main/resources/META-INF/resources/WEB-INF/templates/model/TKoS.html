@@ -60,7 +60,7 @@
       <div id="TKoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTKoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTKo&quot;]').click();">reset</button>
-        <a th:href="@{TKoSearch.xlsx(baseMei=#{TKoS.h2})}" id="TKoSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TKoSearch.xlsx(baseMei=#{TKoS.h2})}" id="TKoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTKoS" class="delete selectRows" data-action="TKoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

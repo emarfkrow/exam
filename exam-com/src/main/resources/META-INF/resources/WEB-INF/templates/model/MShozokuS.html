@@ -56,7 +56,7 @@
       <div id="MShozokuPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMShozokuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMShozoku&quot;]').click();">reset</button>
-        <a th:href="@{MShozokuSearch.xlsx(baseMei=#{MShozokuS.h2})}" id="MShozokuSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MShozokuSearch.xlsx(baseMei=#{MShozokuS.h2})}" id="MShozokuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShozokuS" class="delete selectRows" data-action="MShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

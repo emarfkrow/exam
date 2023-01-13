@@ -79,7 +79,7 @@
       <div id="TEntityHisPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTEntityHisS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntityHis&quot;]').click();">reset</button>
-        <a th:href="@{TEntityHisSearch.xlsx(baseMei=#{TEntityHisS.h2})}" id="TEntityHisSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TEntityHisSearch.xlsx(baseMei=#{TEntityHisS.h2})}" id="TEntityHisSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntityHisS" class="delete selectRows" data-action="TEntityHisSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

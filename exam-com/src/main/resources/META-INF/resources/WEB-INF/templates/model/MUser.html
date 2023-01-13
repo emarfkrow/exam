@@ -57,7 +57,7 @@
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMUser" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MUserGet.xlsx(baseMei=#{MUser.h2})}" id="MUserGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MUserGet.xlsx(baseMei=#{MUser.h2})}" id="MUserGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMUser" class="delete" data-action="MUserDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

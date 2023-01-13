@@ -52,7 +52,7 @@
       <div id="TSosenPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTSosenS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTSosen&quot;]').click();">reset</button>
-        <a th:href="@{TSosenSearch.xlsx(baseMei=#{TSosenS.h2})}" id="TSosenSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TSosenSearch.xlsx(baseMei=#{TSosenS.h2})}" id="TSosenSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTSosenS" class="delete selectRows" data-action="TSosenSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

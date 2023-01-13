@@ -147,7 +147,7 @@
       <div id="TTenpuFileGrid" data-selectionMode="link" data-frozenColumn="3" th:data-href="@{/model/TTenpuFile.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetTEntity" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TEntityGet.xlsx(baseMei=#{TEntity.h2})}" id="TEntityGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TEntityGet.xlsx(baseMei=#{TEntity.h2})}" id="TEntityGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTEntity" class="delete" data-action="TEntityDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

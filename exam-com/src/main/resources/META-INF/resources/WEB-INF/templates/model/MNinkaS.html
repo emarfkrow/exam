@@ -60,7 +60,7 @@
       <div id="MNinkaPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMNinkaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMNinka&quot;]').click();">reset</button>
-        <a th:href="@{MNinkaSearch.xlsx(baseMei=#{MNinkaS.h2})}" id="MNinkaSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MNinkaSearch.xlsx(baseMei=#{MNinkaS.h2})}" id="MNinkaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMNinkaS" class="delete selectRows" data-action="MNinkaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

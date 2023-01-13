@@ -46,6 +46,10 @@ public class MSansho2SRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho2Cd())) {
                 isNew = true;
             }
+            // 楽観ロック値がなくてもINSERT
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateDt())) {
+                isNew = true;
+            }
 
             if (isNew) {
 

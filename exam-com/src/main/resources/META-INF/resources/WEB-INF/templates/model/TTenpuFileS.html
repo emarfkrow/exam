@@ -60,7 +60,7 @@
       <div id="TTenpuFilePager"></div>
       <div class="buttons">
         <button type="button" id="ResetTTenpuFileS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTTenpuFile&quot;]').click();">reset</button>
-        <a th:href="@{TTenpuFileSearch.xlsx(baseMei=#{TTenpuFileS.h2})}" id="TTenpuFileSearch.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TTenpuFileSearch.xlsx(baseMei=#{TTenpuFileS.h2})}" id="TTenpuFileSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTTenpuFileS" class="delete selectRows" data-action="TTenpuFileSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
