@@ -54,7 +54,7 @@
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMShozoku" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MShozokuGet.xlsx(baseMei=#{MShozoku.h2})}" id="MShozokuGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MShozokuGet.xlsx(baseMei=#{MShozoku.h2})}" id="MShozokuGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShozoku" class="delete" data-action="MShozokuDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

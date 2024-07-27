@@ -51,7 +51,7 @@
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMShokui" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MShokuiGet.xlsx(baseMei=#{MShokui.h2})}" id="MShokuiGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MShokuiGet.xlsx(baseMei=#{MShokui.h2})}" id="MShokuiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMShokui" class="delete" data-action="MShokuiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

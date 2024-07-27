@@ -59,7 +59,7 @@
       <div id="TEntity2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity2.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetTOya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{TOyaGet.xlsx(baseMei=#{TOya.h2})}" id="TOyaGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{TOyaGet.xlsx(baseMei=#{TOya.h2})}" id="TOyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTOya" class="delete" data-action="TOyaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

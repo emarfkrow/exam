@@ -42,7 +42,7 @@
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMSansho1" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MSansho1Get.xlsx(baseMei=#{MSansho1.h2})}" id="MSansho1Get.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MSansho1Get.xlsx(baseMei=#{MSansho1.h2})}" id="MSansho1Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMSansho1" class="delete" data-action="MSansho1Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

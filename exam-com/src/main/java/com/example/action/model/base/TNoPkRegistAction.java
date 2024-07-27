@@ -28,6 +28,10 @@ public class TNoPkRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
+        // 楽観ロック値がなくてもINSERT
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateDt())) {
+            isNew = true;
+        }
 
         if (isNew) {
 

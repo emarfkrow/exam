@@ -46,7 +46,7 @@
       <div id="MCodeValueGrid" data-selectionMode="link" data-frozenColumn="1" th:data-href="@{/model/MCodeValue.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetMCode" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{MCodeGet.xlsx(baseMei=#{MCode.h2})}" id="MCodeGet.xlsx" th:text="#{common.xlsx}" target="_blank" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{MCodeGet.xlsx(baseMei=#{MCode.h2})}" id="MCodeGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMCode" class="delete" data-action="MCodeDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
