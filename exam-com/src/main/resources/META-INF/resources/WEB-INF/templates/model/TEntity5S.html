@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{TEntity5S.title}">エンティティ５</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/TEntity5GridColumns.js}"></script>
+<script th:src="@{/model/TKoGridColumns.js}"></script>
+<script th:src="@{/model/TShisonGridColumns.js}"></script>
+<script th:src="@{/model/TSosenGridColumns.js}"></script>
+<script th:src="@{/model/TOyaGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
+<script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MSansho1GridColumns.js}"></script>
+<script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{TEntity5S.h2}">h2</h2>
+    <form name="TEntity5SearchForm" action="TEntity5Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{TEntity5S.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="TEntity5.sosenId" th:text="#{TEntity5.sosenId}">祖先ID</label><input type="text" id="TEntity5.sosenId" name="TEntity5.sosenId" maxlength="10" /><a id="TEntity5.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntity5." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="TEntity5.oyaBn" th:text="#{TEntity5.oyaBn}">親枝番</label><input type="text" id="TEntity5.oyaBn" name="TEntity5.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="TEntity5.entityBn" th:text="#{TEntity5.entityBn}">エンティティ枝番</label><input type="text" id="TEntity5.entityBn" name="TEntity5.entityBn" maxlength="10" />
+        </div>
+        <div id="entity5Mei">
+          <label for="TEntity5.entity5Mei" th:text="#{TEntity5.entity5Mei}">エンティティ５名</label><input type="text" id="TEntity5.entity5Mei" name="TEntity5.entity5Mei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="TEntity5.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{TEntity5.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTEntity5" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTEntity5" class="search" data-gridId="TEntity5Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="TEntity5SRegistForm" action="TEntity5SRegist.ajax" class="regist">
+      <h3 th:text="#{TEntity5.h3}">h3</h3>
+      <div id="TEntity5Grid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/TEntity5.html}"></div>
+      <div id="TEntity5Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTEntity5S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntity5&quot;]').click();">reset</button>
+        <a th:href="@{TEntity5Search.xlsx(baseMei=#{TEntity5S.h2})}" id="TEntity5Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTEntity5S" class="delete selectRows" data-action="TEntity5SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTEntity5S" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

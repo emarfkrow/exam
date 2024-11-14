@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MKbn.title}">区分マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MKbnGridColumns.js}"></script>
+<script th:src="@{/model/MKbnValueGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MKbn.h2}">h2</h2>
+    <form name="MKbnRegistForm" action="MKbnRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MKbn.legend}">legend</legend>
+        <div id="kbnNm">
+          <label for="MKbn.kbnNm" th:text="#{MKbn.kbnNm}">区分名称</label><input type="text" id="MKbn.kbnNm" name="MKbn.kbnNm" maxlength="30" class=" primaryKey" />
+        </div>
+        <div id="kbnMei">
+          <label for="MKbn.kbnMei" th:text="#{MKbn.kbnMei}">区分名</label><input type="text" id="MKbn.kbnMei" name="MKbn.kbnMei" maxlength="120" />
+        </div>
+        <div id="insertDt">
+          <label for="MKbn.insertDt" th:text="#{MKbn.insertDt}">登録日時</label><span id="MKbn.insertDt"></span><input type="hidden" id="MKbn.insertDt" name="MKbn.insertDt" />
+        </div>
+        <div id="insertBy">
+          <label for="MKbn.insertBy" th:text="#{MKbn.insertBy}">登録者</label><span id="MKbn.insertBy"></span><input type="hidden" id="MKbn.insertBy" name="MKbn.insertBy" />
+        </div>
+        <div id="updateDt">
+          <label for="MKbn.updateDt" th:text="#{MKbn.updateDt}">更新日時</label><span id="MKbn.updateDt"></span><input type="hidden" id="MKbn.updateDt" name="MKbn.updateDt" />
+        </div>
+        <div id="updateBy">
+          <label for="MKbn.updateBy" th:text="#{MKbn.updateBy}">更新者</label><span id="MKbn.updateBy"></span><input type="hidden" id="MKbn.updateBy" name="MKbn.updateBy" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MKbn.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{MKbn.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <h3 th:text="#{MKbnValue.h3}">h3</h3>
+      <a th:href="@{/model/MKbnValue.html}" id="MKbnValue" target="dialog" th:text="#{MKbnValue.add}" class="addChild" tabindex="-1">区分値マスタ</a>
+      <div id="MKbnValueGrid" data-selectionMode="link" data-frozenColumn="1" th:data-href="@{/model/MKbnValue.html}"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMKbn" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MKbnGet.xlsx(baseMei=#{MKbn.h2})}" id="MKbnGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMKbn" class="delete" data-action="MKbnDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMKbn" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

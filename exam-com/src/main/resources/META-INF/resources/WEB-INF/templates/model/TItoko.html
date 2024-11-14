@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{TItoko.title}">従妹</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/TItokoGridColumns.js}"></script>
+<script th:src="@{/model/TSosenGridColumns.js}"></script>
+<script th:src="@{/model/TOyaGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
+<script th:src="@{/model/TKoGridColumns.js}"></script>
+<script th:src="@{/model/TShisonGridColumns.js}"></script>
+<script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MSansho1GridColumns.js}"></script>
+<script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{TItoko.h2}">h2</h2>
+    <form name="TItokoRegistForm" action="TItokoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{TItoko.legend}">legend</legend>
+        <div id="itokoId">
+          <label for="TItoko.itokoId" th:text="#{TItoko.itokoId}">従妹ID</label><span id="TItoko.itokoId" class="primaryKey"></span><input type="hidden" id="TItoko.itokoId" name="TItoko.itokoId" class="primaryKey" />
+        </div>
+        <div id="itokoMei">
+          <label for="TItoko.itokoMei" th:text="#{TItoko.itokoMei}">従妹名</label><input type="text" id="TItoko.itokoMei" name="TItoko.itokoMei" maxlength="120" />
+        </div>
+        <div id="sosenId">
+          <label for="TItoko.sosenId" th:text="#{TItoko.sosenId}">祖先ID</label><input type="text" id="TItoko.sosenId" name="TItoko.sosenId" maxlength="10" /><a id="TItoko.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TItoko." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="TItoko.oyaBn" th:text="#{TItoko.oyaBn}">親枝番</label><input type="text" id="TItoko.oyaBn" name="TItoko.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="TItoko.entityBn" th:text="#{TItoko.entityBn}">エンティティ枝番</label><input type="text" id="TItoko.entityBn" name="TItoko.entityBn" maxlength="10" />
+        </div>
+        <div id="insertDt">
+          <label for="TItoko.insertDt" th:text="#{TItoko.insertDt}">登録日時</label><span id="TItoko.insertDt"></span><input type="hidden" id="TItoko.insertDt" name="TItoko.insertDt" />
+        </div>
+        <div id="insertBy">
+          <label for="TItoko.insertBy" th:text="#{TItoko.insertBy}">登録者</label><span id="TItoko.insertBy"></span><input type="hidden" id="TItoko.insertBy" name="TItoko.insertBy" />
+        </div>
+        <div id="updateDt">
+          <label for="TItoko.updateDt" th:text="#{TItoko.updateDt}">更新日時</label><span id="TItoko.updateDt"></span><input type="hidden" id="TItoko.updateDt" name="TItoko.updateDt" />
+        </div>
+        <div id="updateBy">
+          <label for="TItoko.updateBy" th:text="#{TItoko.updateBy}">更新者</label><span id="TItoko.updateBy"></span><input type="hidden" id="TItoko.updateBy" name="TItoko.updateBy" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="TItoko.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{TItoko.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTItoko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{TItokoGet.xlsx(baseMei=#{TItoko.h2})}" id="TItokoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTItoko" class="delete" data-action="TItokoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTItoko" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

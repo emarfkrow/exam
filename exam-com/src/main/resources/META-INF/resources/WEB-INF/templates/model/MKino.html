@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MKino.title}">機能マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MKinoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MKino.h2}">h2</h2>
+    <form name="MKinoRegistForm" action="MKinoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MKino.legend}">legend</legend>
+        <div id="kinoNm">
+          <label for="MKino.kinoNm" th:text="#{MKino.kinoNm}">機能名称</label><input type="text" id="MKino.kinoNm" name="MKino.kinoNm" maxlength="30" class=" primaryKey" />
+        </div>
+        <div id="kinoMei">
+          <label for="MKino.kinoMei" th:text="#{MKino.kinoMei}">機能名</label><input type="text" id="MKino.kinoMei" name="MKino.kinoMei" maxlength="120" />
+        </div>
+        <div id="kaishiBi">
+          <label for="MKino.kaishiBi" th:text="#{MKino.kaishiBi}">開始日</label><input type="text" id="MKino.kaishiBi" name="MKino.kaishiBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="shuryoBi">
+          <label for="MKino.shuryoBi" th:text="#{MKino.shuryoBi}">終了日</label><input type="text" id="MKino.shuryoBi" name="MKino.shuryoBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="insertDt">
+          <label for="MKino.insertDt" th:text="#{MKino.insertDt}">登録日時</label><span id="MKino.insertDt"></span><input type="hidden" id="MKino.insertDt" name="MKino.insertDt" />
+        </div>
+        <div id="insertBy">
+          <label for="MKino.insertBy" th:text="#{MKino.insertBy}">登録者</label><span id="MKino.insertBy"></span><input type="hidden" id="MKino.insertBy" name="MKino.insertBy" />
+        </div>
+        <div id="updateDt">
+          <label for="MKino.updateDt" th:text="#{MKino.updateDt}">更新日時</label><span id="MKino.updateDt"></span><input type="hidden" id="MKino.updateDt" name="MKino.updateDt" />
+        </div>
+        <div id="updateBy">
+          <label for="MKino.updateBy" th:text="#{MKino.updateBy}">更新者</label><span id="MKino.updateBy"></span><input type="hidden" id="MKino.updateBy" name="MKino.updateBy" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MKino.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{MKino.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMKino" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MKinoGet.xlsx(baseMei=#{MKino.h2})}" id="MKinoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMKino" class="delete" data-action="MKinoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMKino" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
