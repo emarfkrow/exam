@@ -9,14 +9,17 @@
 
 </script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -29,14 +32,14 @@
         <div id="sosenId">
           <label for="TOya.sosenId" th:text="#{TOya.sosenId}">祖先ID</label><input type="text" id="TOya.sosenId" name="TOya.sosenId" maxlength="10" /><a id="TOya.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TOya." class="refer"></span>
         </div>
-        <div id="oyaSn">
-          <label for="TOya.oyaSn" th:text="#{TOya.oyaSn}">親連番</label><input type="text" id="TOya.oyaSn" name="TOya.oyaSn" maxlength="10" />
+        <div id="oyaBn">
+          <label for="TOya.oyaBn" th:text="#{TOya.oyaBn}">親枝番</label><input type="text" id="TOya.oyaBn" name="TOya.oyaBn" maxlength="10" />
         </div>
         <div id="oyaMei">
-          <label for="TOya.oyaMei" th:text="#{TOya.oyaMei}">親名</label><input type="text" id="TOya.oyaMei" name="TOya.oyaMei" maxlength="30" />
+          <label for="TOya.oyaMei" th:text="#{TOya.oyaMei}">親名</label><input type="text" id="TOya.oyaMei" name="TOya.oyaMei" maxlength="120" />
         </div>
         <div id="deleteF">
-          <fieldset id="TOya.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TOya.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TOya.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

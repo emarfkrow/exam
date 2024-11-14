@@ -72,21 +72,21 @@ public class MNinka implements IEntity {
         }
     }
 
-    /** 画面名 */
-    private String gamenNm;
+    /** 機能名称 */
+    private String kinoNm;
 
-    /** @return 画面名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("GAMEN_NM")
-    public String getGamenNm() {
-        return this.gamenNm;
+    /** @return 機能名称 */
+    @com.fasterxml.jackson.annotation.JsonProperty("KINO_NM")
+    public String getKinoNm() {
+        return this.kinoNm;
     }
 
-    /** @param o 画面名 */
-    public void setGamenNm(final Object o) {
+    /** @param o 機能名称 */
+    public void setKinoNm(final Object o) {
         if (o != null) {
-            this.gamenNm = o.toString();
+            this.kinoNm = o.toString();
         } else {
-            this.gamenNm = null;
+            this.kinoNm = null;
         }
     }
 
@@ -109,38 +109,56 @@ public class MNinka implements IEntity {
     }
 
     /** 開始日 */
-    private String kaishiYmd;
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime kaishiBi;
 
     /** @return 開始日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_YMD")
-    public String getKaishiYmd() {
-        return this.kaishiYmd;
+    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_BI")
+    public java.time.LocalDateTime getKaishiBi() {
+        return this.kaishiBi;
     }
 
     /** @param o 開始日 */
-    public void setKaishiYmd(final Object o) {
-        if (o != null) {
-            this.kaishiYmd = o.toString();
+    public void setKaishiBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.kaishiBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.kaishiBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.kaishiBi = java.time.LocalDateTime.parse(o.toString());
         } else {
-            this.kaishiYmd = null;
+            this.kaishiBi = null;
         }
     }
 
     /** 終了日 */
-    private String shuryoYmd;
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime shuryoBi;
 
     /** @return 終了日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_YMD")
-    public String getShuryoYmd() {
-        return this.shuryoYmd;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_BI")
+    public java.time.LocalDateTime getShuryoBi() {
+        return this.shuryoBi;
     }
 
     /** @param o 終了日 */
-    public void setShuryoYmd(final Object o) {
-        if (o != null) {
-            this.shuryoYmd = o.toString();
+    public void setShuryoBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.shuryoBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.shuryoBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.shuryoBi = java.time.LocalDateTime.parse(o.toString());
         } else {
-            this.shuryoYmd = null;
+            this.shuryoBi = null;
         }
     }
 
@@ -256,22 +274,22 @@ public class MNinka implements IEntity {
      * 認可マスタ照会
      * @param param1 部署ID
      * @param param2 職位ID
-     * @param param3 画面名
+     * @param param3 機能名称
      * @return 認可マスタ
      */
     public static MNinka get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`BUSHO_ID` = :busho_id");
         whereList.add("`SHOKUI_ID` = :shokui_id");
-        whereList.add("`GAMEN_NM` = :gamen_nm");
+        whereList.add("`KINO_NM` = :kino_nm");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`BUSHO_ID` \n";
         sql += "    , a.`SHOKUI_ID` \n";
-        sql += "    , a.`GAMEN_NM` \n";
+        sql += "    , a.`KINO_NM` \n";
         sql += "    , a.`KENGEN_KB` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD \n";
+        sql += "    , a.`KAISHI_BI` \n";
+        sql += "    , a.`SHURYO_BI` \n";
         sql += "    , a.`INSERT_DT` \n";
         sql += "    , a.`INSERT_BY` \n";
         sql += "    , a.`UPDATE_DT` \n";
@@ -284,7 +302,7 @@ public class MNinka implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("busho_id", param1);
         map.put("shokui_id", param2);
-        map.put("gamen_nm", param3);
+        map.put("kino_nm", param3);
         return Queries.get(sql, map, MNinka.class);
     }
 
@@ -306,10 +324,10 @@ public class MNinka implements IEntity {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`BUSHO_ID` -- :busho_id");
         nameList.add("`SHOKUI_ID` -- :shokui_id");
-        nameList.add("`GAMEN_NM` -- :gamen_nm");
+        nameList.add("`KINO_NM` -- :kino_nm");
         nameList.add("`KENGEN_KB` -- :kengen_kb");
-        nameList.add("`KAISHI_YMD` -- :kaishi_ymd");
-        nameList.add("`SHURYO_YMD` -- :shuryo_ymd");
+        nameList.add("`KAISHI_BI` -- :kaishi_bi");
+        nameList.add("`SHURYO_BI` -- :shuryo_bi");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -323,10 +341,10 @@ public class MNinka implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":busho_id");
         valueList.add(":shokui_id");
-        valueList.add(":gamen_nm");
+        valueList.add(":kino_nm");
         valueList.add(":kengen_kb");
-        valueList.add(":kaishi_ymd");
-        valueList.add(":shuryo_ymd");
+        valueList.add(":kaishi_bi");
+        valueList.add(":shuryo_bi");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -353,10 +371,10 @@ public class MNinka implements IEntity {
         List<String> setList = new ArrayList<String>();
         setList.add("`BUSHO_ID` = :busho_id");
         setList.add("`SHOKUI_ID` = :shokui_id");
-        setList.add("`GAMEN_NM` = :gamen_nm");
+        setList.add("`KINO_NM` = :kino_nm");
         setList.add("`KENGEN_KB` = :kengen_kb");
-        setList.add("`KAISHI_YMD` = :kaishi_ymd");
-        setList.add("`SHURYO_YMD` = :shuryo_ymd");
+        setList.add("`KAISHI_BI` = :kaishi_bi");
+        setList.add("`SHURYO_BI` = :shuryo_bi");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -379,7 +397,7 @@ public class MNinka implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`BUSHO_ID` = :busho_id");
         whereList.add("`SHOKUI_ID` = :shokui_id");
-        whereList.add("`GAMEN_NM` = :gamen_nm");
+        whereList.add("`KINO_NM` = :kino_nm");
         return String.join(" AND ", whereList);
     }
 
@@ -392,10 +410,10 @@ public class MNinka implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("busho_id", this.bushoId);
         map.put("shokui_id", this.shokuiId);
-        map.put("gamen_nm", this.gamenNm);
+        map.put("kino_nm", this.kinoNm);
         map.put("kengen_kb", this.kengenKb);
-        map.put("kaishi_ymd", this.kaishiYmd);
-        map.put("shuryo_ymd", this.shuryoYmd);
+        map.put("kaishi_bi", this.kaishiBi);
+        map.put("shuryo_bi", this.shuryoBi);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

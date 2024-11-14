@@ -11,12 +11,15 @@
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -27,20 +30,20 @@
         <div id="sosenId">
           <label for="TTenpuFile.sosenId" th:text="#{TTenpuFile.sosenId}">祖先ID</label><span id="TTenpuFile.sosenId" class="primaryKey"></span><input type="hidden" id="TTenpuFile.sosenId" name="TTenpuFile.sosenId" class="primaryKey" /><a id="TTenpuFile.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TTenpuFile." class="refer"></span>
         </div>
-        <div id="oyaSn">
-          <label for="TTenpuFile.oyaSn" th:text="#{TTenpuFile.oyaSn}">親連番</label><span id="TTenpuFile.oyaSn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.oyaSn" name="TTenpuFile.oyaSn" class="primaryKey" />
+        <div id="oyaBn">
+          <label for="TTenpuFile.oyaBn" th:text="#{TTenpuFile.oyaBn}">親枝番</label><span id="TTenpuFile.oyaBn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.oyaBn" name="TTenpuFile.oyaBn" class="primaryKey" />
         </div>
-        <div id="entitySn">
-          <label for="TTenpuFile.entitySn" th:text="#{TTenpuFile.entitySn}">エンティティ連番</label><span id="TTenpuFile.entitySn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.entitySn" name="TTenpuFile.entitySn" class="primaryKey" />
+        <div id="entityBn">
+          <label for="TTenpuFile.entityBn" th:text="#{TTenpuFile.entityBn}">エンティティ枝番</label><span id="TTenpuFile.entityBn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.entityBn" name="TTenpuFile.entityBn" class="primaryKey" />
         </div>
-        <div id="tenpuFileSn">
-          <label for="TTenpuFile.tenpuFileSn" th:text="#{TTenpuFile.tenpuFileSn}">添付ファイル連番</label><span id="TTenpuFile.tenpuFileSn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.tenpuFileSn" name="TTenpuFile.tenpuFileSn" class="primaryKey" />
+        <div id="tenpuFileBn">
+          <label for="TTenpuFile.tenpuFileBn" th:text="#{TTenpuFile.tenpuFileBn}">添付ファイル枝番</label><span id="TTenpuFile.tenpuFileBn" class="primaryKey"></span><input type="hidden" id="TTenpuFile.tenpuFileBn" name="TTenpuFile.tenpuFileBn" class="primaryKey" />
         </div>
         <div id="tenpuFileMei">
-          <label for="TTenpuFile.tenpuFileMei" th:text="#{TTenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="TTenpuFile.tenpuFileMei" name="TTenpuFile.tenpuFileMei" maxlength="30" />
+          <label for="TTenpuFile.tenpuFileMei" th:text="#{TTenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="TTenpuFile.tenpuFileMei" name="TTenpuFile.tenpuFileMei" maxlength="120" />
         </div>
-        <div id="tenpuFile">
-          <label for="TTenpuFile.tenpuFile" th:text="#{TTenpuFile.tenpuFile}">添付ファイル</label><input type="file" id="TTenpuFile.tenpuFile" name="TTenpuFile.tenpuFile" maxlength="200" /><a id="TTenpuFile.tenpuFile" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="TTenpuFile.tenpuFile" name="TTenpuFile.tenpuFile" disabled />
+        <div id="tenpuFilePath">
+          <label for="TTenpuFile.tenpuFilePath" th:text="#{TTenpuFile.tenpuFilePath}">添付ファイルパス</label><input type="file" id="TTenpuFile.tenpuFilePath" name="TTenpuFile.tenpuFilePath" maxlength="256" /><a id="TTenpuFile.tenpuFilePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="TTenpuFile.tenpuFilePath" name="TTenpuFile.tenpuFilePath" disabled />
         </div>
         <div id="insertDt">
           <label for="TTenpuFile.insertDt" th:text="#{TTenpuFile.insertDt}">登録日時</label><span id="TTenpuFile.insertDt"></span><input type="hidden" id="TTenpuFile.insertDt" name="TTenpuFile.insertDt" />
@@ -55,7 +58,7 @@
           <label for="TTenpuFile.updateBy" th:text="#{TTenpuFile.updateBy}">更新者</label><span id="TTenpuFile.updateBy"></span><input type="hidden" id="TTenpuFile.updateBy" name="TTenpuFile.updateBy" />
         </div>
         <div id="deleteF">
-          <fieldset id="TTenpuFile.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TTenpuFile.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TTenpuFile.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

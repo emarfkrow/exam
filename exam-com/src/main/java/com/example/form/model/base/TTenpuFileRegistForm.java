@@ -36,63 +36,63 @@ public class TTenpuFileRegistForm implements IForm {
         this.sosenId = p;
     }
 
-    /** 親連番 */
+    /** 親枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String oyaSn;
+    private String oyaBn;
 
     /**
-     * @return 親連番
+     * @return 親枝番
      */
-    public String getOyaSn() {
-        return oyaSn;
+    public String getOyaBn() {
+        return oyaBn;
     }
 
     /**
-     * @param p 親連番
+     * @param p 親枝番
      */
-    public void setOyaSn(final String p) {
-        this.oyaSn = p;
+    public void setOyaBn(final String p) {
+        this.oyaBn = p;
     }
 
-    /** エンティティ連番 */
+    /** エンティティ枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String entitySn;
+    private String entityBn;
 
     /**
-     * @return エンティティ連番
+     * @return エンティティ枝番
      */
-    public String getEntitySn() {
-        return entitySn;
+    public String getEntityBn() {
+        return entityBn;
     }
 
     /**
-     * @param p エンティティ連番
+     * @param p エンティティ枝番
      */
-    public void setEntitySn(final String p) {
-        this.entitySn = p;
+    public void setEntityBn(final String p) {
+        this.entityBn = p;
     }
 
-    /** 添付ファイル連番 */
+    /** 添付ファイル枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenpuFileSn;
+    private String tenpuFileBn;
 
     /**
-     * @return 添付ファイル連番
+     * @return 添付ファイル枝番
      */
-    public String getTenpuFileSn() {
-        return tenpuFileSn;
+    public String getTenpuFileBn() {
+        return tenpuFileBn;
     }
 
     /**
-     * @param p 添付ファイル連番
+     * @param p 添付ファイル枝番
      */
-    public void setTenpuFileSn(final String p) {
-        this.tenpuFileSn = p;
+    public void setTenpuFileBn(final String p) {
+        this.tenpuFileBn = p;
     }
 
     /** 添付ファイル名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 120)
     private String tenpuFileMei;
 
     /**
@@ -109,23 +109,23 @@ public class TTenpuFileRegistForm implements IForm {
         this.tenpuFileMei = p;
     }
 
-    /** 添付ファイル */
+    /** 添付ファイルパス */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 200)
-    private String tenpuFile;
+    @jakarta.validation.constraints.Size(max = 256)
+    private String tenpuFilePath;
 
     /**
-     * @return 添付ファイル
+     * @return 添付ファイルパス
      */
-    public String getTenpuFile() {
-        return tenpuFile;
+    public String getTenpuFilePath() {
+        return tenpuFilePath;
     }
 
     /**
-     * @param p 添付ファイル
+     * @param p 添付ファイルパス
      */
-    public void setTenpuFile(final String p) {
-        this.tenpuFile = p;
+    public void setTenpuFilePath(final String p) {
+        this.tenpuFilePath = p;
     }
 
     /** 削除フラグ */

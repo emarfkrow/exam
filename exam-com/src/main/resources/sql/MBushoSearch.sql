@@ -1,9 +1,9 @@
 SELECT
       a.`BUSHO_ID`
     , a.`BUSHO_MEI`
-    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD
-    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD
     , a.`OYA_BUSHO_ID`
+    , a.`KAISHI_BI`
+    , a.`SHURYO_BI`
     , a.`INSERT_DT`
     , a.`INSERT_BY`
     , a.`UPDATE_DT`
@@ -15,13 +15,13 @@ WHERE
     1 = 1 
     AND a.`BUSHO_ID` = :busho_id 
     AND TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`) LIKE CONCAT ('%', :busho_mei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) LIKE CONCAT ('%', :kaishi_ymd, '%') 
-    AND a.`KAISHI_YMD` >= :kaishi_ymd_1 
-    AND a.`KAISHI_YMD` <= :kaishi_ymd_2 
-    AND TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) LIKE CONCAT ('%', :shuryo_ymd, '%') 
-    AND a.`SHURYO_YMD` >= :shuryo_ymd_1 
-    AND a.`SHURYO_YMD` <= :shuryo_ymd_2 
     AND a.`OYA_BUSHO_ID` = :oya_busho_id 
+    AND a.`KAISHI_BI` = :kaishi_bi 
+    AND a.`KAISHI_BI` >= :kaishi_bi_1 
+    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`SHURYO_BI` = :shuryo_bi 
+    AND a.`SHURYO_BI` >= :shuryo_bi_1 
+    AND a.`SHURYO_BI` <= :shuryo_bi_2 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 

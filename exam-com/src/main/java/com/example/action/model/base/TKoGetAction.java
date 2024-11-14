@@ -29,29 +29,29 @@ public class TKoGetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TKo.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TKo.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             return map;
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TKo.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TKo.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             return map;
         }
-        Object koSn = postJson.get("koSn");
-        if (koSn == null) {
-            koSn = postJson.get("TKo.koSn");
+        Object koBn = postJson.get("koBn");
+        if (koBn == null) {
+            koBn = postJson.get("TKo.koBn");
         }
-        if (koSn == null) {
+        if (koBn == null) {
             return map;
         }
 
-        TKo tKo = TKo.get(sosenId, oyaSn, entitySn, koSn);
+        TKo tKo = TKo.get(sosenId, oyaBn, entityBn, koBn);
         tKo.referTShisons();
         map.put("TKo", tKo);
         return map;

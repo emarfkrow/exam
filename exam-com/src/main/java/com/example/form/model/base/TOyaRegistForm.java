@@ -37,27 +37,27 @@ public class TOyaRegistForm implements IForm {
         this.sosenId = p;
     }
 
-    /** 親連番 */
+    /** 親枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String oyaSn;
+    private String oyaBn;
 
     /**
-     * @return 親連番
+     * @return 親枝番
      */
-    public String getOyaSn() {
-        return oyaSn;
+    public String getOyaBn() {
+        return oyaBn;
     }
 
     /**
-     * @param p 親連番
+     * @param p 親枝番
      */
-    public void setOyaSn(final String p) {
-        this.oyaSn = p;
+    public void setOyaBn(final String p) {
+        this.oyaBn = p;
     }
 
     /** 親名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 120)
     private String oyaMei;
 
     /**
@@ -92,22 +92,22 @@ public class TOyaRegistForm implements IForm {
         this.deleteF = p;
     }
 
-    /** エンティティ */
+    /** エンティティ１ */
     @jakarta.validation.Valid
-    private List<TEntityRegistForm> tEntityGrid;
+    private List<TEntity1RegistForm> tEntity1Grid;
 
     /**
-     * @return エンティティ
+     * @return エンティティ１
      */
-    public List<TEntityRegistForm> getTEntityGrid() {
-        return tEntityGrid;
+    public List<TEntity1RegistForm> getTEntity1Grid() {
+        return tEntity1Grid;
     }
 
     /**
      * @param p
      */
-    public void setTEntityGrid(final List<TEntityRegistForm> p) {
-        this.tEntityGrid = p;
+    public void setTEntity1Grid(final List<TEntity1RegistForm> p) {
+        this.tEntity1Grid = p;
     }
 
     /** エンティティ２ */
@@ -126,6 +126,42 @@ public class TOyaRegistForm implements IForm {
      */
     public void setTEntity2Grid(final List<TEntity2RegistForm> p) {
         this.tEntity2Grid = p;
+    }
+
+    /** エンティティ３ */
+    @jakarta.validation.Valid
+    private List<TEntity3RegistForm> tEntity3Grid;
+
+    /**
+     * @return エンティティ３
+     */
+    public List<TEntity3RegistForm> getTEntity3Grid() {
+        return tEntity3Grid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTEntity3Grid(final List<TEntity3RegistForm> p) {
+        this.tEntity3Grid = p;
+    }
+
+    /** エンティティ４ */
+    @jakarta.validation.Valid
+    private List<TEntity4RegistForm> tEntity4Grid;
+
+    /**
+     * @return エンティティ４
+     */
+    public List<TEntity4RegistForm> getTEntity4Grid() {
+        return tEntity4Grid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTEntity4Grid(final List<TEntity4RegistForm> p) {
+        this.tEntity4Grid = p;
     }
 
     /** 関連チェック */

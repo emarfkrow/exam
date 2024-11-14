@@ -30,11 +30,11 @@ public class TOyaDeleteAction extends BaseAction {
         if (sosenId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TOya.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TOya.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

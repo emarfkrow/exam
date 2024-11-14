@@ -23,25 +23,11 @@ public class TEntityDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sosenId = postJson.get("sosenId");
-        if (sosenId == null) {
-            sosenId = postJson.get("TEntity.sosenId");
+        Object entityId = postJson.get("entityId");
+        if (entityId == null) {
+            entityId = postJson.get("TEntity.entityId");
         }
-        if (sosenId == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TEntity.oyaSn");
-        }
-        if (oyaSn == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TEntity.entitySn");
-        }
-        if (entitySn == null) {
+        if (entityId == null) {
             throw new OptLockError("error.cant.delete");
         }
 

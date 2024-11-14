@@ -20,16 +20,16 @@
           <label for="MShokui.shokuiId" th:text="#{MShokui.shokuiId}">職位ID</label><span id="MShokui.shokuiId" class="primaryKey"></span><input type="hidden" id="MShokui.shokuiId" name="MShokui.shokuiId" class="primaryKey" />
         </div>
         <div id="shokuiMei">
-          <label for="MShokui.shokuiMei" th:text="#{MShokui.shokuiMei}">職位名</label><input type="text" id="MShokui.shokuiMei" name="MShokui.shokuiMei" maxlength="30" />
+          <label for="MShokui.shokuiMei" th:text="#{MShokui.shokuiMei}">職位名</label><input type="text" id="MShokui.shokuiMei" name="MShokui.shokuiMei" maxlength="120" />
         </div>
-        <div id="orderId">
-          <label for="MShokui.orderId" th:text="#{MShokui.orderId}">職位順</label><input type="text" id="MShokui.orderId" name="MShokui.orderId" maxlength="10" />
+        <div id="shokuiOn">
+          <label for="MShokui.shokuiOn" th:text="#{MShokui.shokuiOn}">職位順</label><input type="text" id="MShokui.shokuiOn" name="MShokui.shokuiOn" maxlength="10" />
         </div>
-        <div id="kaishiYmd">
-          <label for="MShokui.kaishiYmd" th:text="#{MShokui.kaishiYmd}">開始日</label><input type="text" id="MShokui.kaishiYmd" name="MShokui.kaishiYmd" maxlength="10" class=" datepicker" />
+        <div id="kaishiBi">
+          <label for="MShokui.kaishiBi" th:text="#{MShokui.kaishiBi}">開始日</label><input type="text" id="MShokui.kaishiBi" name="MShokui.kaishiBi" maxlength="10" class=" datepicker" />
         </div>
-        <div id="shuryoYmd">
-          <label for="MShokui.shuryoYmd" th:text="#{MShokui.shuryoYmd}">終了日</label><input type="text" id="MShokui.shuryoYmd" name="MShokui.shuryoYmd" maxlength="10" class=" datepicker" />
+        <div id="shuryoBi">
+          <label for="MShokui.shuryoBi" th:text="#{MShokui.shuryoBi}">終了日</label><input type="text" id="MShokui.shuryoBi" name="MShokui.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
         <div id="insertDt">
           <label for="MShokui.insertDt" th:text="#{MShokui.insertDt}">登録日時</label><span id="MShokui.insertDt"></span><input type="hidden" id="MShokui.insertDt" name="MShokui.insertDt" />
@@ -44,7 +44,7 @@
           <label for="MShokui.updateBy" th:text="#{MShokui.updateBy}">更新者</label><span id="MShokui.updateBy"></span><input type="hidden" id="MShokui.updateBy" name="MShokui.updateBy" />
         </div>
         <div id="deleteF">
-          <fieldset id="MShokui.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="MShokui.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{MShokui.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

@@ -1,10 +1,10 @@
 SELECT
       a.`SOSEN_ID`
-    , a.`OYA_SN`
-    , a.`ENTITY_SN`
-    , a.`TENPU_FILE_SN`
+    , a.`OYA_BN`
+    , a.`ENTITY_BN`
+    , a.`TENPU_FILE_BN`
     , a.`TENPU_FILE_MEI`
-    , a.`TENPU_FILE`
+    , a.`TENPU_FILE_PATH`
     , a.`INSERT_DT`
     , a.`INSERT_BY`
     , a.`UPDATE_DT`
@@ -15,11 +15,11 @@ FROM
 WHERE
     1 = 1 
     AND a.`SOSEN_ID` = :sosen_id 
-    AND a.`OYA_SN` = :oya_sn 
-    AND a.`ENTITY_SN` = :entity_sn 
-    AND a.`TENPU_FILE_SN` = :tenpu_file_sn 
+    AND a.`OYA_BN` = :oya_bn 
+    AND a.`ENTITY_BN` = :entity_bn 
+    AND a.`TENPU_FILE_BN` = :tenpu_file_bn 
     AND TRIM(TRAILING ' ' FROM a.`TENPU_FILE_MEI`) LIKE CONCAT ('%', :tenpu_file_mei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`TENPU_FILE`) LIKE CONCAT ('%', :tenpu_file, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`TENPU_FILE_PATH`) LIKE CONCAT ('%', :tenpu_file_path, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 
@@ -30,4 +30,4 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`UPDATE_BY`) LIKE CONCAT ('%', :update_by, '%') 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
 ORDER BY
-    a.`SOSEN_ID`, a.`OYA_SN`, a.`ENTITY_SN`, a.`TENPU_FILE_SN`
+    a.`SOSEN_ID`, a.`OYA_BN`, a.`ENTITY_BN`, a.`TENPU_FILE_BN`

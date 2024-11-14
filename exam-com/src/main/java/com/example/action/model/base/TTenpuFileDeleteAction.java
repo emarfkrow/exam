@@ -30,25 +30,25 @@ public class TTenpuFileDeleteAction extends BaseAction {
         if (sosenId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TTenpuFile.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TTenpuFile.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TTenpuFile.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TTenpuFile.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object tenpuFileSn = postJson.get("tenpuFileSn");
-        if (tenpuFileSn == null) {
-            tenpuFileSn = postJson.get("TTenpuFile.tenpuFileSn");
+        Object tenpuFileBn = postJson.get("tenpuFileBn");
+        if (tenpuFileBn == null) {
+            tenpuFileBn = postJson.get("TTenpuFile.tenpuFileBn");
         }
-        if (tenpuFileSn == null) {
+        if (tenpuFileBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

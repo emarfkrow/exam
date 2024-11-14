@@ -10,13 +10,16 @@
 </script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -28,7 +31,7 @@
           <label for="TSosen.sosenId" th:text="#{TSosen.sosenId}">祖先ID</label><span id="TSosen.sosenId" class="primaryKey"></span><input type="hidden" id="TSosen.sosenId" name="TSosen.sosenId" class="primaryKey" />
         </div>
         <div id="sosenMei">
-          <label for="TSosen.sosenMei" th:text="#{TSosen.sosenMei}">祖先名</label><input type="text" id="TSosen.sosenMei" name="TSosen.sosenMei" maxlength="30" />
+          <label for="TSosen.sosenMei" th:text="#{TSosen.sosenMei}">祖先名</label><input type="text" id="TSosen.sosenMei" name="TSosen.sosenMei" maxlength="120" />
         </div>
         <div id="insertDt">
           <label for="TSosen.insertDt" th:text="#{TSosen.insertDt}">登録日時</label><span id="TSosen.insertDt"></span><input type="hidden" id="TSosen.insertDt" name="TSosen.insertDt" />
@@ -43,7 +46,7 @@
           <label for="TSosen.updateBy" th:text="#{TSosen.updateBy}">更新者</label><span id="TSosen.updateBy"></span><input type="hidden" id="TSosen.updateBy" name="TSosen.updateBy" />
         </div>
         <div id="deleteF">
-          <fieldset id="TSosen.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TSosen.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TSosen.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

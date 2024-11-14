@@ -11,12 +11,15 @@
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -29,20 +32,20 @@
         <div id="sosenId">
           <label for="TTenpuFile.sosenId" th:text="#{TTenpuFile.sosenId}">祖先ID</label><input type="text" id="TTenpuFile.sosenId" name="TTenpuFile.sosenId" maxlength="10" /><a id="TTenpuFile.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TTenpuFile." class="refer"></span>
         </div>
-        <div id="oyaSn">
-          <label for="TTenpuFile.oyaSn" th:text="#{TTenpuFile.oyaSn}">親連番</label><input type="text" id="TTenpuFile.oyaSn" name="TTenpuFile.oyaSn" maxlength="10" />
+        <div id="oyaBn">
+          <label for="TTenpuFile.oyaBn" th:text="#{TTenpuFile.oyaBn}">親枝番</label><input type="text" id="TTenpuFile.oyaBn" name="TTenpuFile.oyaBn" maxlength="10" />
         </div>
-        <div id="entitySn">
-          <label for="TTenpuFile.entitySn" th:text="#{TTenpuFile.entitySn}">エンティティ連番</label><input type="text" id="TTenpuFile.entitySn" name="TTenpuFile.entitySn" maxlength="10" />
+        <div id="entityBn">
+          <label for="TTenpuFile.entityBn" th:text="#{TTenpuFile.entityBn}">エンティティ枝番</label><input type="text" id="TTenpuFile.entityBn" name="TTenpuFile.entityBn" maxlength="10" />
         </div>
-        <div id="tenpuFileSn">
-          <label for="TTenpuFile.tenpuFileSn" th:text="#{TTenpuFile.tenpuFileSn}">添付ファイル連番</label><input type="text" id="TTenpuFile.tenpuFileSn" name="TTenpuFile.tenpuFileSn" maxlength="10" />
+        <div id="tenpuFileBn">
+          <label for="TTenpuFile.tenpuFileBn" th:text="#{TTenpuFile.tenpuFileBn}">添付ファイル枝番</label><input type="text" id="TTenpuFile.tenpuFileBn" name="TTenpuFile.tenpuFileBn" maxlength="10" />
         </div>
         <div id="tenpuFileMei">
-          <label for="TTenpuFile.tenpuFileMei" th:text="#{TTenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="TTenpuFile.tenpuFileMei" name="TTenpuFile.tenpuFileMei" maxlength="30" />
+          <label for="TTenpuFile.tenpuFileMei" th:text="#{TTenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="TTenpuFile.tenpuFileMei" name="TTenpuFile.tenpuFileMei" maxlength="120" />
         </div>
         <div id="deleteF">
-          <fieldset id="TTenpuFile.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TTenpuFile.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TTenpuFile.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

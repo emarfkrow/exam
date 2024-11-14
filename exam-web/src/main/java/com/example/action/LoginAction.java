@@ -90,12 +90,12 @@ public class LoginAction extends BaseAction {
                 if (mNinkas != null) {
                     for (MNinka mNinka : mNinkas) {
 
-                        if (!authzInfo.containsKey(mNinka.getGamenNm())) {
-                            authzInfo.put(mNinka.getGamenNm(), mNinka.getKengenKb());
+                        if (!authzInfo.containsKey(mNinka.getKinoNm())) {
+                            authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
                         } else {
-                            String orgKengenKb = authzInfo.get(mNinka.getGamenNm());
+                            String orgKengenKb = authzInfo.get(mNinka.getKinoNm());
                             if (Integer.valueOf(orgKengenKb) < Integer.valueOf(mNinka.getKengenKb())) {
-                                authzInfo.put(mNinka.getGamenNm(), mNinka.getKengenKb());
+                                authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
                             }
                         }
                     }

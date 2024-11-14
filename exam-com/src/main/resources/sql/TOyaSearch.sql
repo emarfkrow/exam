@@ -1,6 +1,6 @@
 SELECT
       a.`SOSEN_ID`
-    , a.`OYA_SN`
+    , a.`OYA_BN`
     , a.`OYA_MEI`
     , a.`INSERT_DT`
     , a.`INSERT_BY`
@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`SOSEN_ID` = :sosen_id 
-    AND a.`OYA_SN` = :oya_sn 
+    AND a.`OYA_BN` = :oya_bn 
     AND TRIM(TRAILING ' ' FROM a.`OYA_MEI`) LIKE CONCAT ('%', :oya_mei, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
@@ -24,4 +24,4 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`UPDATE_BY`) LIKE CONCAT ('%', :update_by, '%') 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
 ORDER BY
-    a.`SOSEN_ID`, a.`OYA_SN`
+    a.`SOSEN_ID`, a.`OYA_BN`

@@ -30,14 +30,14 @@
         <div id="userId">
           <label for="MShozoku.userId" th:text="#{MShozoku.userId}">ユーザID</label><input type="text" id="MShozoku.userId" name="MShozoku.userId" maxlength="10" /><a id="MShozoku.userId" th:href="@{/model/MUserS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MShozoku." class="refer"></span>
         </div>
-        <div id="kaishiYmd">
-          <label for="MShozoku.kaishiYmd_1" th:text="#{MShozoku.kaishiYmd}">開始日</label><input type="text" id="MShozoku.kaishiYmd_1" name="MShozoku.kaishiYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.kaishiYmd_2" name="MShozoku.kaishiYmd_2" maxlength="10" class=" datepicker" />
+        <div id="kaishiBi">
+          <label for="MShozoku.kaishiBi_1" th:text="#{MShozoku.kaishiBi}">開始日</label><input type="text" id="MShozoku.kaishiBi_1" name="MShozoku.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.kaishiBi_2" name="MShozoku.kaishiBi_2" maxlength="10" class=" datepicker" />
         </div>
-        <div id="shuryoYmd">
-          <label for="MShozoku.shuryoYmd_1" th:text="#{MShozoku.shuryoYmd}">終了日</label><input type="text" id="MShozoku.shuryoYmd_1" name="MShozoku.shuryoYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.shuryoYmd_2" name="MShozoku.shuryoYmd_2" maxlength="10" class=" datepicker" />
+        <div id="shuryoBi">
+          <label for="MShozoku.shuryoBi_1" th:text="#{MShozoku.shuryoBi}">終了日</label><input type="text" id="MShozoku.shuryoBi_1" name="MShozoku.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MShozoku.shuryoBi_2" name="MShozoku.shuryoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="deleteF">
-          <fieldset id="MShozoku.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="MShozoku.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{MShozoku.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

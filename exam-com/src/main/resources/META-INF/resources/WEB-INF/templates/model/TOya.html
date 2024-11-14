@@ -9,14 +9,17 @@
 
 </script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -27,11 +30,11 @@
         <div id="sosenId">
           <label for="TOya.sosenId" th:text="#{TOya.sosenId}">祖先ID</label><span id="TOya.sosenId" class="primaryKey"></span><input type="hidden" id="TOya.sosenId" name="TOya.sosenId" class="primaryKey" /><a id="TOya.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TOya." class="refer"></span>
         </div>
-        <div id="oyaSn">
-          <label for="TOya.oyaSn" th:text="#{TOya.oyaSn}">親連番</label><span id="TOya.oyaSn" class="primaryKey"></span><input type="hidden" id="TOya.oyaSn" name="TOya.oyaSn" class="primaryKey" />
+        <div id="oyaBn">
+          <label for="TOya.oyaBn" th:text="#{TOya.oyaBn}">親枝番</label><span id="TOya.oyaBn" class="primaryKey"></span><input type="hidden" id="TOya.oyaBn" name="TOya.oyaBn" class="primaryKey" />
         </div>
         <div id="oyaMei">
-          <label for="TOya.oyaMei" th:text="#{TOya.oyaMei}">親名</label><input type="text" id="TOya.oyaMei" name="TOya.oyaMei" maxlength="30" />
+          <label for="TOya.oyaMei" th:text="#{TOya.oyaMei}">親名</label><input type="text" id="TOya.oyaMei" name="TOya.oyaMei" maxlength="120" />
         </div>
         <div id="insertDt">
           <label for="TOya.insertDt" th:text="#{TOya.insertDt}">登録日時</label><span id="TOya.insertDt"></span><input type="hidden" id="TOya.insertDt" name="TOya.insertDt" />
@@ -46,17 +49,23 @@
           <label for="TOya.updateBy" th:text="#{TOya.updateBy}">更新者</label><span id="TOya.updateBy"></span><input type="hidden" id="TOya.updateBy" name="TOya.updateBy" />
         </div>
         <div id="deleteF">
-          <fieldset id="TOya.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TOya.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TOya.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
       </fieldset>
-      <h3 th:text="#{TEntity.h3}">h3</h3>
-      <a th:href="@{/model/TEntity.html}" id="TEntity" target="dialog" th:text="#{TEntity.add}" class="addChild" tabindex="-1">エンティティ</a>
-      <div id="TEntityGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity.html}"></div>
+      <h3 th:text="#{TEntity1.h3}">h3</h3>
+      <a th:href="@{/model/TEntity1.html}" id="TEntity1" target="dialog" th:text="#{TEntity1.add}" class="addChild" tabindex="-1">エンティティ１</a>
+      <div id="TEntity1Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity1.html}"></div>
       <h3 th:text="#{TEntity2.h3}">h3</h3>
       <a th:href="@{/model/TEntity2.html}" id="TEntity2" target="dialog" th:text="#{TEntity2.add}" class="addChild" tabindex="-1">エンティティ２</a>
       <div id="TEntity2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity2.html}"></div>
+      <h3 th:text="#{TEntity3.h3}">h3</h3>
+      <a th:href="@{/model/TEntity3.html}" id="TEntity3" target="dialog" th:text="#{TEntity3.add}" class="addChild" tabindex="-1">エンティティ３</a>
+      <div id="TEntity3Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity3.html}"></div>
+      <h3 th:text="#{TEntity4.h3}">h3</h3>
+      <a th:href="@{/model/TEntity4.html}" id="TEntity4" target="dialog" th:text="#{TEntity4.add}" class="addChild" tabindex="-1">エンティティ４</a>
+      <div id="TEntity4Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/TEntity4.html}"></div>
       <div class="buttons">
         <button type="button" id="ResetTOya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{TOyaGet.xlsx(baseMei=#{TOya.h2})}" id="TOyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

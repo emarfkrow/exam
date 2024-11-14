@@ -29,17 +29,19 @@ public class TOyaGetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TOya.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TOya.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             return map;
         }
 
-        TOya tOya = TOya.get(sosenId, oyaSn);
-        tOya.referTEntitys();
+        TOya tOya = TOya.get(sosenId, oyaBn);
+        tOya.referTEntity1s();
         tOya.referTEntity2s();
+        tOya.referTEntity3s();
+        tOya.referTEntity4s();
         map.put("TOya", tOya);
         return map;
     }

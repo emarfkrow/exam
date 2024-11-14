@@ -31,7 +31,7 @@ public class TOyaRegistAction extends BaseAction {
         if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSosenId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaSn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaBn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

@@ -36,81 +36,81 @@ public class TShisonRegistForm implements IForm {
         this.sosenId = p;
     }
 
-    /** 親連番 */
+    /** 親枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String oyaSn;
+    private String oyaBn;
 
     /**
-     * @return 親連番
+     * @return 親枝番
      */
-    public String getOyaSn() {
-        return oyaSn;
+    public String getOyaBn() {
+        return oyaBn;
     }
 
     /**
-     * @param p 親連番
+     * @param p 親枝番
      */
-    public void setOyaSn(final String p) {
-        this.oyaSn = p;
+    public void setOyaBn(final String p) {
+        this.oyaBn = p;
     }
 
-    /** エンティティ連番 */
+    /** エンティティ枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String entitySn;
+    private String entityBn;
 
     /**
-     * @return エンティティ連番
+     * @return エンティティ枝番
      */
-    public String getEntitySn() {
-        return entitySn;
+    public String getEntityBn() {
+        return entityBn;
     }
 
     /**
-     * @param p エンティティ連番
+     * @param p エンティティ枝番
      */
-    public void setEntitySn(final String p) {
-        this.entitySn = p;
+    public void setEntityBn(final String p) {
+        this.entityBn = p;
     }
 
-    /** 子連番 */
+    /** 子枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String koSn;
+    private String koBn;
 
     /**
-     * @return 子連番
+     * @return 子枝番
      */
-    public String getKoSn() {
-        return koSn;
+    public String getKoBn() {
+        return koBn;
     }
 
     /**
-     * @param p 子連番
+     * @param p 子枝番
      */
-    public void setKoSn(final String p) {
-        this.koSn = p;
+    public void setKoBn(final String p) {
+        this.koBn = p;
     }
 
-    /** 子孫連番 */
+    /** 子孫枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String shisonSn;
+    private String shisonBn;
 
     /**
-     * @return 子孫連番
+     * @return 子孫枝番
      */
-    public String getShisonSn() {
-        return shisonSn;
+    public String getShisonBn() {
+        return shisonBn;
     }
 
     /**
-     * @param p 子孫連番
+     * @param p 子孫枝番
      */
-    public void setShisonSn(final String p) {
-        this.shisonSn = p;
+    public void setShisonBn(final String p) {
+        this.shisonBn = p;
     }
 
     /** 子孫名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 120)
     private String shisonMei;
 
     /**

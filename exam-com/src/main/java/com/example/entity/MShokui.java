@@ -73,56 +73,74 @@ public class MShokui implements IEntity {
     }
 
     /** 職位順 */
-    private Integer orderId;
+    private Integer shokuiOn;
 
     /** @return 職位順 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ORDER_ID")
-    public Integer getOrderId() {
-        return this.orderId;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHOKUI_ON")
+    public Integer getShokuiOn() {
+        return this.shokuiOn;
     }
 
     /** @param o 職位順 */
-    public void setOrderId(final Object o) {
+    public void setShokuiOn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.orderId = Integer.valueOf(o.toString());
+            this.shokuiOn = Integer.valueOf(o.toString());
         } else {
-            this.orderId = null;
+            this.shokuiOn = null;
         }
     }
 
     /** 開始日 */
-    private String kaishiYmd;
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime kaishiBi;
 
     /** @return 開始日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_YMD")
-    public String getKaishiYmd() {
-        return this.kaishiYmd;
+    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_BI")
+    public java.time.LocalDateTime getKaishiBi() {
+        return this.kaishiBi;
     }
 
     /** @param o 開始日 */
-    public void setKaishiYmd(final Object o) {
-        if (o != null) {
-            this.kaishiYmd = o.toString();
+    public void setKaishiBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.kaishiBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.kaishiBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.kaishiBi = java.time.LocalDateTime.parse(o.toString());
         } else {
-            this.kaishiYmd = null;
+            this.kaishiBi = null;
         }
     }
 
     /** 終了日 */
-    private String shuryoYmd;
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime shuryoBi;
 
     /** @return 終了日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_YMD")
-    public String getShuryoYmd() {
-        return this.shuryoYmd;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_BI")
+    public java.time.LocalDateTime getShuryoBi() {
+        return this.shuryoBi;
     }
 
     /** @param o 終了日 */
-    public void setShuryoYmd(final Object o) {
-        if (o != null) {
-            this.shuryoYmd = o.toString();
+    public void setShuryoBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.shuryoBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.shuryoBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.shuryoBi = java.time.LocalDateTime.parse(o.toString());
         } else {
-            this.shuryoYmd = null;
+            this.shuryoBi = null;
         }
     }
 
@@ -246,9 +264,9 @@ public class MShokui implements IEntity {
         sql += "SELECT \n";
         sql += "      a.`SHOKUI_ID` \n";
         sql += "    , a.`SHOKUI_MEI` \n";
-        sql += "    , a.`ORDER_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD \n";
+        sql += "    , a.`SHOKUI_ON` \n";
+        sql += "    , a.`KAISHI_BI` \n";
+        sql += "    , a.`SHURYO_BI` \n";
         sql += "    , a.`INSERT_DT` \n";
         sql += "    , a.`INSERT_BY` \n";
         sql += "    , a.`UPDATE_DT` \n";
@@ -284,9 +302,9 @@ public class MShokui implements IEntity {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`SHOKUI_ID` -- :shokui_id");
         nameList.add("`SHOKUI_MEI` -- :shokui_mei");
-        nameList.add("`ORDER_ID` -- :order_id");
-        nameList.add("`KAISHI_YMD` -- :kaishi_ymd");
-        nameList.add("`SHURYO_YMD` -- :shuryo_ymd");
+        nameList.add("`SHOKUI_ON` -- :shokui_on");
+        nameList.add("`KAISHI_BI` -- :kaishi_bi");
+        nameList.add("`SHURYO_BI` -- :shuryo_bi");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -300,9 +318,9 @@ public class MShokui implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":shokui_id");
         valueList.add(":shokui_mei");
-        valueList.add(":order_id");
-        valueList.add(":kaishi_ymd");
-        valueList.add(":shuryo_ymd");
+        valueList.add(":shokui_on");
+        valueList.add(":kaishi_bi");
+        valueList.add(":shuryo_bi");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -341,9 +359,9 @@ public class MShokui implements IEntity {
         List<String> setList = new ArrayList<String>();
         setList.add("`SHOKUI_ID` = :shokui_id");
         setList.add("`SHOKUI_MEI` = :shokui_mei");
-        setList.add("`ORDER_ID` = :order_id");
-        setList.add("`KAISHI_YMD` = :kaishi_ymd");
-        setList.add("`SHURYO_YMD` = :shuryo_ymd");
+        setList.add("`SHOKUI_ON` = :shokui_on");
+        setList.add("`KAISHI_BI` = :kaishi_bi");
+        setList.add("`SHURYO_BI` = :shuryo_bi");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -377,9 +395,9 @@ public class MShokui implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("shokui_id", this.shokuiId);
         map.put("shokui_mei", this.shokuiMei);
-        map.put("order_id", this.orderId);
-        map.put("kaishi_ymd", this.kaishiYmd);
-        map.put("shuryo_ymd", this.shuryoYmd);
+        map.put("shokui_on", this.shokuiOn);
+        map.put("kaishi_bi", this.kaishiBi);
+        map.put("shuryo_bi", this.shuryoBi);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

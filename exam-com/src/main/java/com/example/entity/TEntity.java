@@ -36,57 +36,39 @@ public class TEntity implements IEntity {
         }
     }
 
-    /** 祖先ID */
-    private Integer sosenId;
+    /** エンティティID */
+    private Integer entityId;
 
-    /** @return 祖先ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_ID")
-    public Integer getSosenId() {
-        return this.sosenId;
+    /** @return エンティティID */
+    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_ID")
+    public Integer getEntityId() {
+        return this.entityId;
     }
 
-    /** @param o 祖先ID */
-    public void setSosenId(final Object o) {
+    /** @param o エンティティID */
+    public void setEntityId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sosenId = Integer.valueOf(o.toString());
+            this.entityId = Integer.valueOf(o.toString());
         } else {
-            this.sosenId = null;
+            this.entityId = null;
         }
     }
 
-    /** 親連番 */
-    private Integer oyaSn;
+    /** エンティティ名称 */
+    private String entityNm;
 
-    /** @return 親連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_SN")
-    public Integer getOyaSn() {
-        return this.oyaSn;
+    /** @return エンティティ名称 */
+    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_NM")
+    public String getEntityNm() {
+        return this.entityNm;
     }
 
-    /** @param o 親連番 */
-    public void setOyaSn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.oyaSn = Integer.valueOf(o.toString());
+    /** @param o エンティティ名称 */
+    public void setEntityNm(final Object o) {
+        if (o != null) {
+            this.entityNm = o.toString();
         } else {
-            this.oyaSn = null;
-        }
-    }
-
-    /** エンティティ連番 */
-    private Integer entitySn;
-
-    /** @return エンティティ連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_SN")
-    public Integer getEntitySn() {
-        return this.entitySn;
-    }
-
-    /** @param o エンティティ連番 */
-    public void setEntitySn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.entitySn = Integer.valueOf(o.toString());
-        } else {
-            this.entitySn = null;
+            this.entityNm = null;
         }
     }
 
@@ -108,111 +90,723 @@ public class TEntity implements IEntity {
         }
     }
 
-    /** 参照１ID */
-    private Integer sansho1Id;
+    /** チェックフラグ */
+    private String checkF = "0";
 
-    /** @return 参照１ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO1_ID")
-    public Integer getSansho1Id() {
-        return this.sansho1Id;
+    /** @return チェックフラグ */
+    @com.fasterxml.jackson.annotation.JsonProperty("CHECK_F")
+    public String getCheckF() {
+        return this.checkF;
     }
 
-    /** @param o 参照１ID */
-    public void setSansho1Id(final Object o) {
+    /** @param o チェックフラグ */
+    public void setCheckF(final Object o) {
+        if (o != null) {
+            this.checkF = o.toString();
+        } else {
+            this.checkF = null;
+        }
+    }
+
+    /** ラジオ区分 */
+    private String radioKb;
+
+    /** @return ラジオ区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("RADIO_KB")
+    public String getRadioKb() {
+        return this.radioKb;
+    }
+
+    /** @param o ラジオ区分 */
+    public void setRadioKb(final Object o) {
+        if (o != null) {
+            this.radioKb = o.toString();
+        } else {
+            this.radioKb = null;
+        }
+    }
+
+    /** プルダウン区分 */
+    private String pulldownKb;
+
+    /** @return プルダウン区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("PULLDOWN_KB")
+    public String getPulldownKb() {
+        return this.pulldownKb;
+    }
+
+    /** @param o プルダウン区分 */
+    public void setPulldownKb(final Object o) {
+        if (o != null) {
+            this.pulldownKb = o.toString();
+        } else {
+            this.pulldownKb = null;
+        }
+    }
+
+    /** メモ */
+    private String memoTx;
+
+    /** @return メモ */
+    @com.fasterxml.jackson.annotation.JsonProperty("MEMO_TX")
+    public String getMemoTx() {
+        return this.memoTx;
+    }
+
+    /** @param o メモ */
+    public void setMemoTx(final Object o) {
+        if (o != null) {
+            this.memoTx = o.toString();
+        } else {
+            this.memoTx = null;
+        }
+    }
+
+    /** 年 */
+    private String nenY;
+
+    /** @return 年 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NEN_Y")
+    public String getNenY() {
+        return this.nenY;
+    }
+
+    /** @param o 年 */
+    public void setNenY(final Object o) {
+        if (o != null) {
+            this.nenY = o.toString();
+        } else {
+            this.nenY = null;
+        }
+    }
+
+    /** 月 */
+    private String tsukiM;
+
+    /** @return 月 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TSUKI_M")
+    public String getTsukiM() {
+        return this.tsukiM;
+    }
+
+    /** @param o 月 */
+    public void setTsukiM(final Object o) {
+        if (o != null) {
+            this.tsukiM = o.toString();
+        } else {
+            this.tsukiM = null;
+        }
+    }
+
+    /** 日 */
+    private String hiD;
+
+    /** @return 日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("HI_D")
+    public String getHiD() {
+        return this.hiD;
+    }
+
+    /** @param o 日 */
+    public void setHiD(final Object o) {
+        if (o != null) {
+            this.hiD = o.toString();
+        } else {
+            this.hiD = null;
+        }
+    }
+
+    /** 年月 */
+    private String nengetsuYm;
+
+    /** @return 年月 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NENGETSU_YM")
+    public String getNengetsuYm() {
+        return this.nengetsuYm;
+    }
+
+    /** @param o 年月 */
+    public void setNengetsuYm(final Object o) {
+        if (o != null) {
+            this.nengetsuYm = o.toString();
+        } else {
+            this.nengetsuYm = null;
+        }
+    }
+
+    /** 年月日 */
+    private String nengappiYmd;
+
+    /** @return 年月日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NENGAPPI_YMD")
+    public String getNengappiYmd() {
+        return this.nengappiYmd;
+    }
+
+    /** @param o 年月日 */
+    public void setNengappiYmd(final Object o) {
+        if (o != null) {
+            this.nengappiYmd = o.toString();
+        } else {
+            this.nengappiYmd = null;
+        }
+    }
+
+    /** タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime timestampTs;
+
+    /** @return タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonProperty("TIMESTAMP_TS")
+    public java.time.LocalDateTime getTimestampTs() {
+        return this.timestampTs;
+    }
+
+    /** @param o タイムスタンプ */
+    public void setTimestampTs(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.timestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.timestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.timestampTs = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.timestampTs = null;
+        }
+    }
+
+    /** 日時 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime nichijiDt;
+
+    /** @return 日時 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NICHIJI_DT")
+    public java.time.LocalDateTime getNichijiDt() {
+        return this.nichijiDt;
+    }
+
+    /** @param o 日時 */
+    public void setNichijiDt(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.nichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.nichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nichijiDt = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.nichijiDt = null;
+        }
+    }
+
+    /** 日付 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime hidukeBi;
+
+    /** @return 日付 */
+    @com.fasterxml.jackson.annotation.JsonProperty("HIDUKE_BI")
+    public java.time.LocalDateTime getHidukeBi() {
+        return this.hidukeBi;
+    }
+
+    /** @param o 日付 */
+    public void setHidukeBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.hidukeBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.hidukeBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.hidukeBi = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.hidukeBi = null;
+        }
+    }
+
+    /** 時刻 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime jikokuHm;
+
+    /** @return 時刻 */
+    @com.fasterxml.jackson.annotation.JsonProperty("JIKOKU_HM")
+    public java.time.LocalDateTime getJikokuHm() {
+        return this.jikokuHm;
+    }
+
+    /** @param o 時刻 */
+    public void setJikokuHm(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.jikokuHm = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.jikokuHm = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.jikokuHm = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.jikokuHm = null;
+        }
+    }
+
+    /** 時間 */
+    private String jikanTm;
+
+    /** @return 時間 */
+    @com.fasterxml.jackson.annotation.JsonProperty("JIKAN_TM")
+    public String getJikanTm() {
+        return this.jikanTm;
+    }
+
+    /** @param o 時間 */
+    public void setJikanTm(final Object o) {
+        if (o != null) {
+            this.jikanTm = o.toString();
+        } else {
+            this.jikanTm = null;
+        }
+    }
+
+    /** 数量 */
+    private java.math.BigDecimal suryoQt;
+
+    /** @return 数量 */
+    @com.fasterxml.jackson.annotation.JsonProperty("SURYO_QT")
+    public java.math.BigDecimal getSuryoQt() {
+        return this.suryoQt;
+    }
+
+    /** @param o 数量 */
+    public void setSuryoQt(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sansho1Id = Integer.valueOf(o.toString());
+            this.suryoQt = new java.math.BigDecimal(o.toString());
         } else {
-            this.sansho1Id = null;
+            this.suryoQt = null;
         }
     }
 
-    /** 参照１名 */
-    private String sansho1Mei;
+    /** 単価 */
+    private java.math.BigDecimal tankaKg;
 
-    /** @return 参照１名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO1_MEI")
-    public String getSansho1Mei() {
-        return this.sansho1Mei;
+    /** @return 単価 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TANKA_KG")
+    public java.math.BigDecimal getTankaKg() {
+        return this.tankaKg;
     }
 
-    /** @param o 参照１名 */
-    public void setSansho1Mei(final Object o) {
-        if (o != null) {
-            this.sansho1Mei = o.toString();
-        } else {
-            this.sansho1Mei = null;
-        }
-    }
-
-    /** 参照２CD */
-    private String sansho2Cd;
-
-    /** @return 参照２CD */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_CD")
-    public String getSansho2Cd() {
-        return this.sansho2Cd;
-    }
-
-    /** @param o 参照２CD */
-    public void setSansho2Cd(final Object o) {
-        if (o != null) {
-            this.sansho2Cd = o.toString();
-        } else {
-            this.sansho2Cd = null;
-        }
-    }
-
-    /** 参照２名 */
-    private String sansho2Mei;
-
-    /** @return 参照２名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_MEI")
-    public String getSansho2Mei() {
-        return this.sansho2Mei;
-    }
-
-    /** @param o 参照２名 */
-    public void setSansho2Mei(final Object o) {
-        if (o != null) {
-            this.sansho2Mei = o.toString();
-        } else {
-            this.sansho2Mei = null;
-        }
-    }
-
-    /** 別参照１ID */
-    private Integer betsuSansho1Id;
-
-    /** @return 別参照１ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_SANSHO1_ID")
-    public Integer getBetsuSansho1Id() {
-        return this.betsuSansho1Id;
-    }
-
-    /** @param o 別参照１ID */
-    public void setBetsuSansho1Id(final Object o) {
+    /** @param o 単価 */
+    public void setTankaKg(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.betsuSansho1Id = Integer.valueOf(o.toString());
+            this.tankaKg = new java.math.BigDecimal(o.toString());
         } else {
-            this.betsuSansho1Id = null;
+            this.tankaKg = null;
         }
     }
 
-    /** 別参照１名 */
-    private String betsuSansho1Mei;
+    /** 税抜金額 */
+    private java.math.BigDecimal zeinukiKg;
 
-    /** @return 別参照１名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_SANSHO1_MEI")
-    public String getBetsuSansho1Mei() {
-        return this.betsuSansho1Mei;
+    /** @return 税抜金額 */
+    @com.fasterxml.jackson.annotation.JsonProperty("ZEINUKI_KG")
+    public java.math.BigDecimal getZeinukiKg() {
+        return this.zeinukiKg;
     }
 
-    /** @param o 別参照１名 */
-    public void setBetsuSansho1Mei(final Object o) {
-        if (o != null) {
-            this.betsuSansho1Mei = o.toString();
+    /** @param o 税抜金額 */
+    public void setZeinukiKg(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.zeinukiKg = new java.math.BigDecimal(o.toString());
         } else {
-            this.betsuSansho1Mei = null;
+            this.zeinukiKg = null;
+        }
+    }
+
+    /** 任意エンティティ名称 */
+    private String nullEntityNm;
+
+    /** @return 任意エンティティ名称 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_ENTITY_NM")
+    public String getNullEntityNm() {
+        return this.nullEntityNm;
+    }
+
+    /** @param o 任意エンティティ名称 */
+    public void setNullEntityNm(final Object o) {
+        if (o != null) {
+            this.nullEntityNm = o.toString();
+        } else {
+            this.nullEntityNm = null;
+        }
+    }
+
+    /** 任意エンティティ名 */
+    private String nullEntityMei;
+
+    /** @return 任意エンティティ名 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_ENTITY_MEI")
+    public String getNullEntityMei() {
+        return this.nullEntityMei;
+    }
+
+    /** @param o 任意エンティティ名 */
+    public void setNullEntityMei(final Object o) {
+        if (o != null) {
+            this.nullEntityMei = o.toString();
+        } else {
+            this.nullEntityMei = null;
+        }
+    }
+
+    /** 任意チェックフラグ */
+    private String nullCheckF = "0";
+
+    /** @return 任意チェックフラグ */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_CHECK_F")
+    public String getNullCheckF() {
+        return this.nullCheckF;
+    }
+
+    /** @param o 任意チェックフラグ */
+    public void setNullCheckF(final Object o) {
+        if (o != null) {
+            this.nullCheckF = o.toString();
+        } else {
+            this.nullCheckF = null;
+        }
+    }
+
+    /** 任意ラジオ区分 */
+    private String nullRadioKb;
+
+    /** @return 任意ラジオ区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_RADIO_KB")
+    public String getNullRadioKb() {
+        return this.nullRadioKb;
+    }
+
+    /** @param o 任意ラジオ区分 */
+    public void setNullRadioKb(final Object o) {
+        if (o != null) {
+            this.nullRadioKb = o.toString();
+        } else {
+            this.nullRadioKb = null;
+        }
+    }
+
+    /** 任意プルダウン区分 */
+    private String nullPulldownKb;
+
+    /** @return 任意プルダウン区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_PULLDOWN_KB")
+    public String getNullPulldownKb() {
+        return this.nullPulldownKb;
+    }
+
+    /** @param o 任意プルダウン区分 */
+    public void setNullPulldownKb(final Object o) {
+        if (o != null) {
+            this.nullPulldownKb = o.toString();
+        } else {
+            this.nullPulldownKb = null;
+        }
+    }
+
+    /** 任意メモ */
+    private String nullMemoTx;
+
+    /** @return 任意メモ */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_MEMO_TX")
+    public String getNullMemoTx() {
+        return this.nullMemoTx;
+    }
+
+    /** @param o 任意メモ */
+    public void setNullMemoTx(final Object o) {
+        if (o != null) {
+            this.nullMemoTx = o.toString();
+        } else {
+            this.nullMemoTx = null;
+        }
+    }
+
+    /** 任意年 */
+    private String nullNenY;
+
+    /** @return 任意年 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_NEN_Y")
+    public String getNullNenY() {
+        return this.nullNenY;
+    }
+
+    /** @param o 任意年 */
+    public void setNullNenY(final Object o) {
+        if (o != null) {
+            this.nullNenY = o.toString();
+        } else {
+            this.nullNenY = null;
+        }
+    }
+
+    /** 任意月 */
+    private String nullTsukiM;
+
+    /** @return 任意月 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_TSUKI_M")
+    public String getNullTsukiM() {
+        return this.nullTsukiM;
+    }
+
+    /** @param o 任意月 */
+    public void setNullTsukiM(final Object o) {
+        if (o != null) {
+            this.nullTsukiM = o.toString();
+        } else {
+            this.nullTsukiM = null;
+        }
+    }
+
+    /** 任意日 */
+    private String nullHiD;
+
+    /** @return 任意日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_HI_D")
+    public String getNullHiD() {
+        return this.nullHiD;
+    }
+
+    /** @param o 任意日 */
+    public void setNullHiD(final Object o) {
+        if (o != null) {
+            this.nullHiD = o.toString();
+        } else {
+            this.nullHiD = null;
+        }
+    }
+
+    /** 任意年月 */
+    private String nullNengetsuYm;
+
+    /** @return 任意年月 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_NENGETSU_YM")
+    public String getNullNengetsuYm() {
+        return this.nullNengetsuYm;
+    }
+
+    /** @param o 任意年月 */
+    public void setNullNengetsuYm(final Object o) {
+        if (o != null) {
+            this.nullNengetsuYm = o.toString();
+        } else {
+            this.nullNengetsuYm = null;
+        }
+    }
+
+    /** 任意年月日 */
+    private String nullNengappiYmd;
+
+    /** @return 任意年月日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_NENGAPPI_YMD")
+    public String getNullNengappiYmd() {
+        return this.nullNengappiYmd;
+    }
+
+    /** @param o 任意年月日 */
+    public void setNullNengappiYmd(final Object o) {
+        if (o != null) {
+            this.nullNengappiYmd = o.toString();
+        } else {
+            this.nullNengappiYmd = null;
+        }
+    }
+
+    /** 任意タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime nullTimestampTs;
+
+    /** @return 任意タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_TIMESTAMP_TS")
+    public java.time.LocalDateTime getNullTimestampTs() {
+        return this.nullTimestampTs;
+    }
+
+    /** @param o 任意タイムスタンプ */
+    public void setNullTimestampTs(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.nullTimestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.nullTimestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullTimestampTs = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.nullTimestampTs = null;
+        }
+    }
+
+    /** 任意日時 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime nullNichijiDt;
+
+    /** @return 任意日時 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_NICHIJI_DT")
+    public java.time.LocalDateTime getNullNichijiDt() {
+        return this.nullNichijiDt;
+    }
+
+    /** @param o 任意日時 */
+    public void setNullNichijiDt(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.nullNichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.nullNichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullNichijiDt = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.nullNichijiDt = null;
+        }
+    }
+
+    /** 任意日付 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime nullHidukeBi;
+
+    /** @return 任意日付 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_HIDUKE_BI")
+    public java.time.LocalDateTime getNullHidukeBi() {
+        return this.nullHidukeBi;
+    }
+
+    /** @param o 任意日付 */
+    public void setNullHidukeBi(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.nullHidukeBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.nullHidukeBi = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullHidukeBi = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.nullHidukeBi = null;
+        }
+    }
+
+    /** 任意時刻 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime nullJikokuHm;
+
+    /** @return 任意時刻 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_JIKOKU_HM")
+    public java.time.LocalDateTime getNullJikokuHm() {
+        return this.nullJikokuHm;
+    }
+
+    /** @param o 任意時刻 */
+    public void setNullJikokuHm(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.nullJikokuHm = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.nullJikokuHm = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullJikokuHm = java.time.LocalDateTime.parse(o.toString());
+        } else {
+            this.nullJikokuHm = null;
+        }
+    }
+
+    /** 任意時間 */
+    private String nullJikanTm;
+
+    /** @return 任意時間 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_JIKAN_TM")
+    public String getNullJikanTm() {
+        return this.nullJikanTm;
+    }
+
+    /** @param o 任意時間 */
+    public void setNullJikanTm(final Object o) {
+        if (o != null) {
+            this.nullJikanTm = o.toString();
+        } else {
+            this.nullJikanTm = null;
+        }
+    }
+
+    /** 任意数量 */
+    private java.math.BigDecimal nullSuryoQt;
+
+    /** @return 任意数量 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_SURYO_QT")
+    public java.math.BigDecimal getNullSuryoQt() {
+        return this.nullSuryoQt;
+    }
+
+    /** @param o 任意数量 */
+    public void setNullSuryoQt(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullSuryoQt = new java.math.BigDecimal(o.toString());
+        } else {
+            this.nullSuryoQt = null;
+        }
+    }
+
+    /** 任意単価 */
+    private java.math.BigDecimal nullTankaKg;
+
+    /** @return 任意単価 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_TANKA_KG")
+    public java.math.BigDecimal getNullTankaKg() {
+        return this.nullTankaKg;
+    }
+
+    /** @param o 任意単価 */
+    public void setNullTankaKg(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullTankaKg = new java.math.BigDecimal(o.toString());
+        } else {
+            this.nullTankaKg = null;
+        }
+    }
+
+    /** 任意税抜金額 */
+    private java.math.BigDecimal nullZeinukiKg;
+
+    /** @return 任意税抜金額 */
+    @com.fasterxml.jackson.annotation.JsonProperty("NULL_ZEINUKI_KG")
+    public java.math.BigDecimal getNullZeinukiKg() {
+        return this.nullZeinukiKg;
+    }
+
+    /** @param o 任意税抜金額 */
+    public void setNullZeinukiKg(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullZeinukiKg = new java.math.BigDecimal(o.toString());
+        } else {
+            this.nullZeinukiKg = null;
         }
     }
 
@@ -326,28 +920,53 @@ public class TEntity implements IEntity {
 
     /**
      * エンティティ照会
-     * @param param1 祖先ID
-     * @param param2 親連番
-     * @param param3 エンティティ連番
+     * @param param1 エンティティID
      * @return エンティティ
      */
-    public static TEntity get(final Object param1, final Object param2, final Object param3) {
+    public static TEntity get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
+        whereList.add("`ENTITY_ID` = :entity_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_SN` \n";
-        sql += "    , a.`ENTITY_SN` \n";
+        sql += "      a.`ENTITY_ID` \n";
+        sql += "    , a.`ENTITY_NM` \n";
         sql += "    , a.`ENTITY_MEI` \n";
-        sql += "    , a.`SANSHO1_ID` \n";
-        sql += "    , a.`SANSHO1_MEI` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD \n";
-        sql += "    , a.`SANSHO2_MEI` \n";
-        sql += "    , a.`BETSU_SANSHO1_ID` \n";
-        sql += "    , a.`BETSU_SANSHO1_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`CHECK_F`) AS CHECK_F \n";
+        sql += "    , a.`RADIO_KB` \n";
+        sql += "    , a.`PULLDOWN_KB` \n";
+        sql += "    , a.`MEMO_TX` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NEN_Y`) AS NEN_Y \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`TSUKI_M`) AS TSUKI_M \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`HI_D`) AS HI_D \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NENGETSU_YM`) AS NENGETSU_YM \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NENGAPPI_YMD`) AS NENGAPPI_YMD \n";
+        sql += "    , a.`TIMESTAMP_TS` \n";
+        sql += "    , a.`NICHIJI_DT` \n";
+        sql += "    , a.`HIDUKE_BI` \n";
+        sql += "    , a.`JIKOKU_HM` \n";
+        sql += "    , a.`JIKAN_TM` \n";
+        sql += "    , a.`SURYO_QT` \n";
+        sql += "    , a.`TANKA_KG` \n";
+        sql += "    , a.`ZEINUKI_KG` \n";
+        sql += "    , a.`NULL_ENTITY_NM` \n";
+        sql += "    , a.`NULL_ENTITY_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_CHECK_F`) AS NULL_CHECK_F \n";
+        sql += "    , a.`NULL_RADIO_KB` \n";
+        sql += "    , a.`NULL_PULLDOWN_KB` \n";
+        sql += "    , a.`NULL_MEMO_TX` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_NEN_Y`) AS NULL_NEN_Y \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_TSUKI_M`) AS NULL_TSUKI_M \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_HI_D`) AS NULL_HI_D \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_NENGETSU_YM`) AS NULL_NENGETSU_YM \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_NENGAPPI_YMD`) AS NULL_NENGAPPI_YMD \n";
+        sql += "    , a.`NULL_TIMESTAMP_TS` \n";
+        sql += "    , a.`NULL_NICHIJI_DT` \n";
+        sql += "    , a.`NULL_HIDUKE_BI` \n";
+        sql += "    , a.`NULL_JIKOKU_HM` \n";
+        sql += "    , a.`NULL_JIKAN_TM` \n";
+        sql += "    , a.`NULL_SURYO_QT` \n";
+        sql += "    , a.`NULL_TANKA_KG` \n";
+        sql += "    , a.`NULL_ZEINUKI_KG` \n";
         sql += "    , a.`INSERT_DT` \n";
         sql += "    , a.`INSERT_BY` \n";
         sql += "    , a.`UPDATE_DT` \n";
@@ -358,9 +977,7 @@ public class TEntity implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_sn", param2);
-        map.put("entity_sn", param3);
+        map.put("entity_id", param1);
         return Queries.get(sql, map, TEntity.class);
     }
 
@@ -372,55 +989,8 @@ public class TEntity implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // エンティティ連番の採番処理
+        // エンティティIDの採番処理
         numbering();
-
-        // 子の登録
-        if (this.tKos != null) {
-            for (TKo tKo : this.tKos) {
-                tKo.setSosenId(this.getSosenId());
-                tKo.setOyaSn(this.getOyaSn());
-                tKo.setEntitySn(this.getEntitySn());
-                tKo.insert(now, execId);
-            }
-        }
-
-        // 添付ファイルの登録
-        if (this.tTenpuFiles != null) {
-            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
-                tTenpuFile.setSosenId(this.getSosenId());
-                tTenpuFile.setOyaSn(this.getOyaSn());
-                tTenpuFile.setEntitySn(this.getEntitySn());
-                tTenpuFile.insert(now, execId);
-            }
-        }
-
-        // エンティティ２の登録
-        if (this.tEntity2 != null) {
-            this.tEntity2.setSosenId(this.getSosenId());
-            this.tEntity2.setOyaSn(this.getOyaSn());
-            this.tEntity2.setEntitySn(this.getEntitySn());
-            this.tEntity2.insert(now, execId);
-        }
-
-        // エンティティ履歴の登録
-        TEntityHis tEntityHis = new TEntityHis();
-        tEntityHis.setSosenId(this.sosenId);
-        tEntityHis.setOyaSn(this.oyaSn);
-        tEntityHis.setEntitySn(this.entitySn);
-        tEntityHis.setEntityMei(this.entityMei);
-        tEntityHis.setSansho1Id(this.sansho1Id);
-        tEntityHis.setSansho1Mei(this.sansho1Mei);
-        tEntityHis.setSansho2Cd(this.sansho2Cd);
-        tEntityHis.setSansho2Mei(this.sansho2Mei);
-        tEntityHis.setBetsuSansho1Id(this.betsuSansho1Id);
-        tEntityHis.setBetsuSansho1Mei(this.betsuSansho1Mei);
-        tEntityHis.setInsertDt(this.insertDt);
-        tEntityHis.setInsertBy(this.insertBy);
-        tEntityHis.setUpdateDt(this.updateDt);
-        tEntityHis.setUpdateBy(this.updateBy);
-        tEntityHis.setDeleteF(this.deleteF);
-        tEntityHis.insert(now, execId);
 
         // エンティティの登録
         String sql = "INSERT INTO t_entity(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
@@ -430,16 +1000,45 @@ public class TEntity implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_SN` -- :oya_sn");
-        nameList.add("`ENTITY_SN` -- :entity_sn");
+        nameList.add("`ENTITY_ID` -- :entity_id");
+        nameList.add("`ENTITY_NM` -- :entity_nm");
         nameList.add("`ENTITY_MEI` -- :entity_mei");
-        nameList.add("`SANSHO1_ID` -- :sansho_1_id");
-        nameList.add("`SANSHO1_MEI` -- :sansho_1_mei");
-        nameList.add("`SANSHO2_CD` -- :sansho_2_cd");
-        nameList.add("`SANSHO2_MEI` -- :sansho_2_mei");
-        nameList.add("`BETSU_SANSHO1_ID` -- :betsu_sansho_1_id");
-        nameList.add("`BETSU_SANSHO1_MEI` -- :betsu_sansho_1_mei");
+        nameList.add("`CHECK_F` -- :check_f");
+        nameList.add("`RADIO_KB` -- :radio_kb");
+        nameList.add("`PULLDOWN_KB` -- :pulldown_kb");
+        nameList.add("`MEMO_TX` -- :memo_tx");
+        nameList.add("`NEN_Y` -- :nen_y");
+        nameList.add("`TSUKI_M` -- :tsuki_m");
+        nameList.add("`HI_D` -- :hi_d");
+        nameList.add("`NENGETSU_YM` -- :nengetsu_ym");
+        nameList.add("`NENGAPPI_YMD` -- :nengappi_ymd");
+        nameList.add("`TIMESTAMP_TS` -- :timestamp_ts");
+        nameList.add("`NICHIJI_DT` -- :nichiji_dt");
+        nameList.add("`HIDUKE_BI` -- :hiduke_bi");
+        nameList.add("`JIKOKU_HM` -- :jikoku_hm");
+        nameList.add("`JIKAN_TM` -- :jikan_tm");
+        nameList.add("`SURYO_QT` -- :suryo_qt");
+        nameList.add("`TANKA_KG` -- :tanka_kg");
+        nameList.add("`ZEINUKI_KG` -- :zeinuki_kg");
+        nameList.add("`NULL_ENTITY_NM` -- :null_entity_nm");
+        nameList.add("`NULL_ENTITY_MEI` -- :null_entity_mei");
+        nameList.add("`NULL_CHECK_F` -- :null_check_f");
+        nameList.add("`NULL_RADIO_KB` -- :null_radio_kb");
+        nameList.add("`NULL_PULLDOWN_KB` -- :null_pulldown_kb");
+        nameList.add("`NULL_MEMO_TX` -- :null_memo_tx");
+        nameList.add("`NULL_NEN_Y` -- :null_nen_y");
+        nameList.add("`NULL_TSUKI_M` -- :null_tsuki_m");
+        nameList.add("`NULL_HI_D` -- :null_hi_d");
+        nameList.add("`NULL_NENGETSU_YM` -- :null_nengetsu_ym");
+        nameList.add("`NULL_NENGAPPI_YMD` -- :null_nengappi_ymd");
+        nameList.add("`NULL_TIMESTAMP_TS` -- :null_timestamp_ts");
+        nameList.add("`NULL_NICHIJI_DT` -- :null_nichiji_dt");
+        nameList.add("`NULL_HIDUKE_BI` -- :null_hiduke_bi");
+        nameList.add("`NULL_JIKOKU_HM` -- :null_jikoku_hm");
+        nameList.add("`NULL_JIKAN_TM` -- :null_jikan_tm");
+        nameList.add("`NULL_SURYO_QT` -- :null_suryo_qt");
+        nameList.add("`NULL_TANKA_KG` -- :null_tanka_kg");
+        nameList.add("`NULL_ZEINUKI_KG` -- :null_zeinuki_kg");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -451,16 +1050,45 @@ public class TEntity implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sosen_id");
-        valueList.add(":oya_sn");
-        valueList.add(":entity_sn");
+        valueList.add(":entity_id");
+        valueList.add(":entity_nm");
         valueList.add(":entity_mei");
-        valueList.add(":sansho_1_id");
-        valueList.add(":sansho_1_mei");
-        valueList.add(":sansho_2_cd");
-        valueList.add(":sansho_2_mei");
-        valueList.add(":betsu_sansho_1_id");
-        valueList.add(":betsu_sansho_1_mei");
+        valueList.add(":check_f");
+        valueList.add(":radio_kb");
+        valueList.add(":pulldown_kb");
+        valueList.add(":memo_tx");
+        valueList.add(":nen_y");
+        valueList.add(":tsuki_m");
+        valueList.add(":hi_d");
+        valueList.add(":nengetsu_ym");
+        valueList.add(":nengappi_ymd");
+        valueList.add(":timestamp_ts");
+        valueList.add(":nichiji_dt");
+        valueList.add(":hiduke_bi");
+        valueList.add(":jikoku_hm");
+        valueList.add(":jikan_tm");
+        valueList.add(":suryo_qt");
+        valueList.add(":tanka_kg");
+        valueList.add(":zeinuki_kg");
+        valueList.add(":null_entity_nm");
+        valueList.add(":null_entity_mei");
+        valueList.add(":null_check_f");
+        valueList.add(":null_radio_kb");
+        valueList.add(":null_pulldown_kb");
+        valueList.add(":null_memo_tx");
+        valueList.add(":null_nen_y");
+        valueList.add(":null_tsuki_m");
+        valueList.add(":null_hi_d");
+        valueList.add(":null_nengetsu_ym");
+        valueList.add(":null_nengappi_ymd");
+        valueList.add(":null_timestamp_ts");
+        valueList.add(":null_nichiji_dt");
+        valueList.add(":null_hiduke_bi");
+        valueList.add(":null_jikoku_hm");
+        valueList.add(":null_jikan_tm");
+        valueList.add(":null_suryo_qt");
+        valueList.add(":null_tanka_kg");
+        valueList.add(":null_zeinuki_kg");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -469,22 +1097,16 @@ public class TEntity implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** エンティティ連番の採番処理 */
+    /** エンティティIDの採番処理 */
     private void numbering() {
-        if (this.entitySn != null) {
+        if (this.entityId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`ENTITY_SN`) IS NULL THEN 0 ELSE MAX(e.`ENTITY_SN`) * 1 END + 1 AS `ENTITY_SN` FROM t_entity e";
+        String sql = "SELECT CASE WHEN MAX(e.`ENTITY_ID`) IS NULL THEN 0 ELSE MAX(e.`ENTITY_ID`) * 1 END + 1 AS `ENTITY_ID` FROM t_entity e";
         Map<String, Object> map = new HashMap<String, Object>();
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_SN` = :oya_sn");
-        sql += " WHERE " + String.join(" AND ", whereList);
-        map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("ENTITY_SN");
-        this.setEntitySn(o);
+        Object o = mapList.get(0).get("ENTITY_ID");
+        this.setEntityId(o);
     }
 
     /**
@@ -495,71 +1117,6 @@ public class TEntity implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 子の登録
-        if (this.tKos != null) {
-            for (TKo tKo : this.tKos) {
-                if (tKo == null) {
-                    continue;
-                }
-                tKo.setSosenId(this.sosenId);
-                tKo.setOyaSn(this.oyaSn);
-                tKo.setEntitySn(this.entitySn);
-                try {
-                    tKo.insert(now, execId);
-                } catch (Exception e) {
-                    tKo.update(now, execId);
-                }
-            }
-        }
-
-        // 添付ファイルの登録
-        if (this.tTenpuFiles != null) {
-            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
-                if (tTenpuFile == null) {
-                    continue;
-                }
-                tTenpuFile.setSosenId(this.sosenId);
-                tTenpuFile.setOyaSn(this.oyaSn);
-                tTenpuFile.setEntitySn(this.entitySn);
-                try {
-                    tTenpuFile.insert(now, execId);
-                } catch (Exception e) {
-                    tTenpuFile.update(now, execId);
-                }
-            }
-        }
-
-        // エンティティ２の登録
-        if (this.tEntity2 != null) {
-            tEntity2.setSosenId(this.getSosenId());
-            tEntity2.setOyaSn(this.getOyaSn());
-            tEntity2.setEntitySn(this.getEntitySn());
-            try {
-                tEntity2.insert(now, execId);
-            } catch (Exception e) {
-                tEntity2.update(now, execId);
-            }
-        }
-
-        // エンティティ履歴の登録
-        TEntityHis tEntityHis = new TEntityHis();
-        tEntityHis.setSosenId(this.sosenId);
-        tEntityHis.setOyaSn(this.oyaSn);
-        tEntityHis.setEntitySn(this.entitySn);
-        tEntityHis.setEntityMei(this.entityMei);
-        tEntityHis.setSansho1Id(this.sansho1Id);
-        tEntityHis.setSansho1Mei(this.sansho1Mei);
-        tEntityHis.setSansho2Cd(this.sansho2Cd);
-        tEntityHis.setSansho2Mei(this.sansho2Mei);
-        tEntityHis.setBetsuSansho1Id(this.betsuSansho1Id);
-        tEntityHis.setBetsuSansho1Mei(this.betsuSansho1Mei);
-        tEntityHis.setInsertDt(this.insertDt);
-        tEntityHis.setInsertBy(this.insertBy);
-        tEntityHis.setUpdateDt(this.updateDt);
-        tEntityHis.setUpdateBy(this.updateBy);
-        tEntityHis.setDeleteF(this.deleteF);
-        tEntityHis.insert(now, execId);
-
         // エンティティの登録
         String sql = "UPDATE t_entity\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -568,16 +1125,45 @@ public class TEntity implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_SN` = :oya_sn");
-        setList.add("`ENTITY_SN` = :entity_sn");
+        setList.add("`ENTITY_ID` = :entity_id");
+        setList.add("`ENTITY_NM` = :entity_nm");
         setList.add("`ENTITY_MEI` = :entity_mei");
-        setList.add("`SANSHO1_ID` = :sansho_1_id");
-        setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`SANSHO2_CD` = :sansho_2_cd");
-        setList.add("`SANSHO2_MEI` = :sansho_2_mei");
-        setList.add("`BETSU_SANSHO1_ID` = :betsu_sansho_1_id");
-        setList.add("`BETSU_SANSHO1_MEI` = :betsu_sansho_1_mei");
+        setList.add("`CHECK_F` = :check_f");
+        setList.add("`RADIO_KB` = :radio_kb");
+        setList.add("`PULLDOWN_KB` = :pulldown_kb");
+        setList.add("`MEMO_TX` = :memo_tx");
+        setList.add("`NEN_Y` = :nen_y");
+        setList.add("`TSUKI_M` = :tsuki_m");
+        setList.add("`HI_D` = :hi_d");
+        setList.add("`NENGETSU_YM` = :nengetsu_ym");
+        setList.add("`NENGAPPI_YMD` = :nengappi_ymd");
+        setList.add("`TIMESTAMP_TS` = :timestamp_ts");
+        setList.add("`NICHIJI_DT` = :nichiji_dt");
+        setList.add("`HIDUKE_BI` = :hiduke_bi");
+        setList.add("`JIKOKU_HM` = :jikoku_hm");
+        setList.add("`JIKAN_TM` = :jikan_tm");
+        setList.add("`SURYO_QT` = :suryo_qt");
+        setList.add("`TANKA_KG` = :tanka_kg");
+        setList.add("`ZEINUKI_KG` = :zeinuki_kg");
+        setList.add("`NULL_ENTITY_NM` = :null_entity_nm");
+        setList.add("`NULL_ENTITY_MEI` = :null_entity_mei");
+        setList.add("`NULL_CHECK_F` = :null_check_f");
+        setList.add("`NULL_RADIO_KB` = :null_radio_kb");
+        setList.add("`NULL_PULLDOWN_KB` = :null_pulldown_kb");
+        setList.add("`NULL_MEMO_TX` = :null_memo_tx");
+        setList.add("`NULL_NEN_Y` = :null_nen_y");
+        setList.add("`NULL_TSUKI_M` = :null_tsuki_m");
+        setList.add("`NULL_HI_D` = :null_hi_d");
+        setList.add("`NULL_NENGETSU_YM` = :null_nengetsu_ym");
+        setList.add("`NULL_NENGAPPI_YMD` = :null_nengappi_ymd");
+        setList.add("`NULL_TIMESTAMP_TS` = :null_timestamp_ts");
+        setList.add("`NULL_NICHIJI_DT` = :null_nichiji_dt");
+        setList.add("`NULL_HIDUKE_BI` = :null_hiduke_bi");
+        setList.add("`NULL_JIKOKU_HM` = :null_jikoku_hm");
+        setList.add("`NULL_JIKAN_TM` = :null_jikan_tm");
+        setList.add("`NULL_SURYO_QT` = :null_suryo_qt");
+        setList.add("`NULL_TANKA_KG` = :null_tanka_kg");
+        setList.add("`NULL_ZEINUKI_KG` = :null_zeinuki_kg");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -590,25 +1176,6 @@ public class TEntity implements IEntity {
      */
     public int delete() {
 
-        // 子の削除
-        if (this.tKos != null) {
-            for (TKo tKo : this.tKos) {
-                tKo.delete();
-            }
-        }
-
-        // 添付ファイルの削除
-        if (this.tTenpuFiles != null) {
-            for (TTenpuFile tTenpuFile : this.tTenpuFiles) {
-                tTenpuFile.delete();
-            }
-        }
-
-        // エンティティ２の削除
-        if (this.tEntity2 != null) {
-            this.tEntity2.delete();
-        }
-
         // エンティティの削除
         String sql = "DELETE FROM t_entity WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
@@ -617,9 +1184,7 @@ public class TEntity implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
+        whereList.add("`ENTITY_ID` = :entity_id");
         return String.join(" AND ", whereList);
     }
 
@@ -630,144 +1195,50 @@ public class TEntity implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
-        map.put("entity_sn", this.entitySn);
+        map.put("entity_id", this.entityId);
+        map.put("entity_nm", this.entityNm);
         map.put("entity_mei", this.entityMei);
-        map.put("sansho_1_id", this.sansho1Id);
-        map.put("sansho_1_mei", this.sansho1Mei);
-        map.put("sansho_2_cd", this.sansho2Cd);
-        map.put("sansho_2_mei", this.sansho2Mei);
-        map.put("betsu_sansho_1_id", this.betsuSansho1Id);
-        map.put("betsu_sansho_1_mei", this.betsuSansho1Mei);
+        map.put("check_f", this.checkF);
+        map.put("radio_kb", this.radioKb);
+        map.put("pulldown_kb", this.pulldownKb);
+        map.put("memo_tx", this.memoTx);
+        map.put("nen_y", this.nenY);
+        map.put("tsuki_m", this.tsukiM);
+        map.put("hi_d", this.hiD);
+        map.put("nengetsu_ym", this.nengetsuYm);
+        map.put("nengappi_ymd", this.nengappiYmd);
+        map.put("timestamp_ts", this.timestampTs);
+        map.put("nichiji_dt", this.nichijiDt);
+        map.put("hiduke_bi", this.hidukeBi);
+        map.put("jikoku_hm", this.jikokuHm);
+        map.put("jikan_tm", this.jikanTm);
+        map.put("suryo_qt", this.suryoQt);
+        map.put("tanka_kg", this.tankaKg);
+        map.put("zeinuki_kg", this.zeinukiKg);
+        map.put("null_entity_nm", this.nullEntityNm);
+        map.put("null_entity_mei", this.nullEntityMei);
+        map.put("null_check_f", this.nullCheckF);
+        map.put("null_radio_kb", this.nullRadioKb);
+        map.put("null_pulldown_kb", this.nullPulldownKb);
+        map.put("null_memo_tx", this.nullMemoTx);
+        map.put("null_nen_y", this.nullNenY);
+        map.put("null_tsuki_m", this.nullTsukiM);
+        map.put("null_hi_d", this.nullHiD);
+        map.put("null_nengetsu_ym", this.nullNengetsuYm);
+        map.put("null_nengappi_ymd", this.nullNengappiYmd);
+        map.put("null_timestamp_ts", this.nullTimestampTs);
+        map.put("null_nichiji_dt", this.nullNichijiDt);
+        map.put("null_hiduke_bi", this.nullHidukeBi);
+        map.put("null_jikoku_hm", this.nullJikokuHm);
+        map.put("null_jikan_tm", this.nullJikanTm);
+        map.put("null_suryo_qt", this.nullSuryoQt);
+        map.put("null_tanka_kg", this.nullTankaKg);
+        map.put("null_zeinuki_kg", this.nullZeinukiKg);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);
         map.put("update_dt", now);
         map.put("update_by", execId);
         return map;
-    }
-
-    /** エンティティ２ */
-    private TEntity2 tEntity2;
-
-    /** @return エンティティ２ */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEntity2")
-    public TEntity2 getTEntity2() {
-        return this.tEntity2;
-    }
-
-    /** @param p エンティティ２ */
-    public void setTEntity2(final TEntity2 p) {
-        this.tEntity2 = p;
-    }
-
-    /** @return エンティティ２ */
-    public TEntity2 referTEntity2() {
-        if (this.tEntity2 == null) {
-            try {
-                this.tEntity2 = TEntity2.get(this.sosenId, this.oyaSn, this.entitySn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tEntity2;
-    }
-
-    /** 子のリスト */
-    private List<TKo> tKos;
-
-    /** @return 子のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("TKos")
-    public List<TKo> getTKos() {
-        return this.tKos;
-    }
-
-    /** @param list 子のリスト */
-    public void setTKos(final List<TKo> list) {
-        this.tKos = list;
-    }
-
-    /** @param tKo */
-    public void addTKos(final TKo tKo) {
-        if (this.tKos == null) {
-            this.tKos = new ArrayList<TKo>();
-        }
-        this.tKos.add(tKo);
-    }
-
-    /** @return 子のリスト */
-    public List<TKo> referTKos() {
-        if (this.tKos == null) {
-            this.tKos = TEntity.referTKos(this.sosenId, this.oyaSn, this.entitySn);
-        }
-        return this.tKos;
-    }
-
-    /**
-     * @param param1 sosenId
-     * @param param2 oyaSn
-     * @param param3 entitySn
-     * @return List<TKo>
-     */
-    public static List<TKo> referTKos(final Integer param1, final Integer param2, final Integer param3) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_SN = :oya_sn");
-        whereList.add("ENTITY_SN = :entity_sn");
-        String sql = "SELECT * FROM t_ko WHERE " + String.join(" AND ", whereList);
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_sn", param2);
-        map.put("entity_sn", param3);
-        return Queries.select(sql, map, TKo.class, null, null);
-    }
-
-    /** 添付ファイルのリスト */
-    private List<TTenpuFile> tTenpuFiles;
-
-    /** @return 添付ファイルのリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("TTenpuFiles")
-    public List<TTenpuFile> getTTenpuFiles() {
-        return this.tTenpuFiles;
-    }
-
-    /** @param list 添付ファイルのリスト */
-    public void setTTenpuFiles(final List<TTenpuFile> list) {
-        this.tTenpuFiles = list;
-    }
-
-    /** @param tTenpuFile */
-    public void addTTenpuFiles(final TTenpuFile tTenpuFile) {
-        if (this.tTenpuFiles == null) {
-            this.tTenpuFiles = new ArrayList<TTenpuFile>();
-        }
-        this.tTenpuFiles.add(tTenpuFile);
-    }
-
-    /** @return 添付ファイルのリスト */
-    public List<TTenpuFile> referTTenpuFiles() {
-        if (this.tTenpuFiles == null) {
-            this.tTenpuFiles = TEntity.referTTenpuFiles(this.sosenId, this.oyaSn, this.entitySn);
-        }
-        return this.tTenpuFiles;
-    }
-
-    /**
-     * @param param1 sosenId
-     * @param param2 oyaSn
-     * @param param3 entitySn
-     * @return List<TTenpuFile>
-     */
-    public static List<TTenpuFile> referTTenpuFiles(final Integer param1, final Integer param2, final Integer param3) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_SN = :oya_sn");
-        whereList.add("ENTITY_SN = :entity_sn");
-        String sql = "SELECT * FROM t_tenpu_file WHERE " + String.join(" AND ", whereList);
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_sn", param2);
-        map.put("entity_sn", param3);
-        return Queries.select(sql, map, TTenpuFile.class, null, null);
     }
 }

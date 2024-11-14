@@ -43,13 +43,7 @@ public class TEntitySRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSosenId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaSn())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getEntitySn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getEntityId())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

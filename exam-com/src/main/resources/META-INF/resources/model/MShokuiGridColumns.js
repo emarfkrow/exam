@@ -5,12 +5,12 @@
 let MShokuiGridColumns = [
     Column.comma('SHOKUI_ID', Messages['MShokuiGrid.shokuiId'], 150, 'primaryKey numbering', null),
     Column.text('SHOKUI_MEI', Messages['MShokuiGrid.shokuiMei'], 300, '', null),
-    Column.comma('ORDER_ID', Messages['MShokuiGrid.orderId'], 150, '', null),
-    Column.date('KAISHI_YMD', Messages['MShokuiGrid.kaishiYmd'], 150, '', null),
-    Column.date('SHURYO_YMD', Messages['MShokuiGrid.shuryoYmd'], 150, '', null),
-    Column.cell('INSERT_DT', Messages['MShokuiGrid.insertDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.comma('SHOKUI_ON', Messages['MShokuiGrid.shokuiOn'], 150, '', null),
+    Column.date('KAISHI_BI', Messages['MShokuiGrid.kaishiBi'], 150, '', Slick.Formatters.Extends.DateTime),
+    Column.date('SHURYO_BI', Messages['MShokuiGrid.shuryoBi'], 150, '', Slick.Formatters.Extends.DateTime),
+    Column.cell('INSERT_DT', Messages['MShokuiGrid.insertDt'], 285, 'metaInfo', Slick.Formatters.Extends.DateTime),
     Column.cell('INSERT_BY', Messages['MShokuiGrid.insertBy'], 150, 'metaInfo', null),
-    Column.cell('UPDATE_DT', Messages['MShokuiGrid.updateDt'], 300, 'metaInfo', Slick.Formatters.Extends.DateTime),
+    Column.cell('UPDATE_DT', Messages['MShokuiGrid.updateDt'], 285, 'metaInfo', Slick.Formatters.Extends.DateTime),
     Column.cell('UPDATE_BY', Messages['MShokuiGrid.updateBy'], 150, 'metaInfo', null),
     Column.check('DELETE_F', Messages['MShokuiGrid.deleteF'], 30, ''),
 ];

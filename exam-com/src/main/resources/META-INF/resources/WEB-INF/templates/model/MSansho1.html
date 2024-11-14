@@ -20,7 +20,7 @@
           <label for="MSansho1.sansho1Id" th:text="#{MSansho1.sansho1Id}">参照１ID</label><span id="MSansho1.sansho1Id" class="primaryKey"></span><input type="hidden" id="MSansho1.sansho1Id" name="MSansho1.sansho1Id" class="primaryKey" />
         </div>
         <div id="sansho1Mei">
-          <label for="MSansho1.sansho1Mei" th:text="#{MSansho1.sansho1Mei}">参照１名</label><input type="text" id="MSansho1.sansho1Mei" name="MSansho1.sansho1Mei" maxlength="30" />
+          <label for="MSansho1.sansho1Mei" th:text="#{MSansho1.sansho1Mei}">参照１名</label><input type="text" id="MSansho1.sansho1Mei" name="MSansho1.sansho1Mei" maxlength="120" />
         </div>
         <div id="insertDt">
           <label for="MSansho1.insertDt" th:text="#{MSansho1.insertDt}">登録日時</label><span id="MSansho1.insertDt"></span><input type="hidden" id="MSansho1.insertDt" name="MSansho1.insertDt" />
@@ -35,7 +35,7 @@
           <label for="MSansho1.updateBy" th:text="#{MSansho1.updateBy}">更新者</label><span id="MSansho1.updateBy"></span><input type="hidden" id="MSansho1.updateBy" name="MSansho1.updateBy" />
         </div>
         <div id="deleteF">
-          <fieldset id="MSansho1.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="MSansho1.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{MSansho1.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

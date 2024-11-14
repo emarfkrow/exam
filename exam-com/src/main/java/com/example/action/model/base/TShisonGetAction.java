@@ -29,36 +29,36 @@ public class TShisonGetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TShison.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TShison.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             return map;
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TShison.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TShison.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             return map;
         }
-        Object koSn = postJson.get("koSn");
-        if (koSn == null) {
-            koSn = postJson.get("TShison.koSn");
+        Object koBn = postJson.get("koBn");
+        if (koBn == null) {
+            koBn = postJson.get("TShison.koBn");
         }
-        if (koSn == null) {
+        if (koBn == null) {
             return map;
         }
-        Object shisonSn = postJson.get("shisonSn");
-        if (shisonSn == null) {
-            shisonSn = postJson.get("TShison.shisonSn");
+        Object shisonBn = postJson.get("shisonBn");
+        if (shisonBn == null) {
+            shisonBn = postJson.get("TShison.shisonBn");
         }
-        if (shisonSn == null) {
+        if (shisonBn == null) {
             return map;
         }
 
-        TShison tShison = TShison.get(sosenId, oyaSn, entitySn, koSn, shisonSn);
+        TShison tShison = TShison.get(sosenId, oyaBn, entityBn, koBn, shisonBn);
         map.put("TShison", tShison);
         return map;
     }

@@ -30,18 +30,18 @@ public class TEntity2DeleteAction extends BaseAction {
         if (sosenId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TEntity2.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TEntity2.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TEntity2.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TEntity2.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

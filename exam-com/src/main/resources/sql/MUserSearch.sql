@@ -4,8 +4,8 @@ SELECT
     , a.`USER_MEI`
     , a.`EMAIL`
     , a.`PASSWORD`
-    , TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) AS KAISHI_YMD
-    , TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) AS SHURYO_YMD
+    , a.`KAISHI_BI`
+    , a.`SHURYO_BI`
     , a.`INSERT_DT`
     , a.`INSERT_BY`
     , a.`UPDATE_DT`
@@ -20,12 +20,12 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`USER_MEI`) LIKE CONCAT ('%', :user_mei, '%') 
     AND TRIM(TRAILING ' ' FROM a.`EMAIL`) LIKE CONCAT ('%', :email, '%') 
     AND TRIM(TRAILING ' ' FROM a.`PASSWORD`) LIKE CONCAT ('%', :password, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`KAISHI_YMD`) LIKE CONCAT ('%', :kaishi_ymd, '%') 
-    AND a.`KAISHI_YMD` >= :kaishi_ymd_1 
-    AND a.`KAISHI_YMD` <= :kaishi_ymd_2 
-    AND TRIM(TRAILING ' ' FROM a.`SHURYO_YMD`) LIKE CONCAT ('%', :shuryo_ymd, '%') 
-    AND a.`SHURYO_YMD` >= :shuryo_ymd_1 
-    AND a.`SHURYO_YMD` <= :shuryo_ymd_2 
+    AND a.`KAISHI_BI` = :kaishi_bi 
+    AND a.`KAISHI_BI` >= :kaishi_bi_1 
+    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`SHURYO_BI` = :shuryo_bi 
+    AND a.`SHURYO_BI` >= :shuryo_bi_1 
+    AND a.`SHURYO_BI` <= :shuryo_bi_2 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
     AND a.`INSERT_DT` <= :insert_dt_2 

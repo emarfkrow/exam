@@ -11,12 +11,15 @@
 <script th:src="@{/model/TShisonGridColumns.js}"></script>
 <script th:src="@{/model/TSosenGridColumns.js}"></script>
 <script th:src="@{/model/TOyaGridColumns.js}"></script>
-<script th:src="@{/model/TEntityGridColumns.js}"></script>
+<script th:src="@{/model/TEntity1GridColumns.js}"></script>
 <script th:src="@{/model/TKoGridColumns.js}"></script>
 <script th:src="@{/model/TTenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/MSansho1GridColumns.js}"></script>
 <script th:src="@{/model/MSansho2GridColumns.js}"></script>
+<script th:src="@{/model/MSansho3GridColumns.js}"></script>
 <script th:src="@{/model/TEntity2GridColumns.js}"></script>
+<script th:src="@{/model/TEntity3GridColumns.js}"></script>
+<script th:src="@{/model/TEntity4GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -29,23 +32,23 @@
         <div id="sosenId">
           <label for="TShison.sosenId" th:text="#{TShison.sosenId}">祖先ID</label><input type="text" id="TShison.sosenId" name="TShison.sosenId" maxlength="10" /><a id="TShison.sosenId" th:href="@{/model/TSosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TShison." class="refer"></span>
         </div>
-        <div id="oyaSn">
-          <label for="TShison.oyaSn" th:text="#{TShison.oyaSn}">親連番</label><input type="text" id="TShison.oyaSn" name="TShison.oyaSn" maxlength="10" />
+        <div id="oyaBn">
+          <label for="TShison.oyaBn" th:text="#{TShison.oyaBn}">親枝番</label><input type="text" id="TShison.oyaBn" name="TShison.oyaBn" maxlength="10" />
         </div>
-        <div id="entitySn">
-          <label for="TShison.entitySn" th:text="#{TShison.entitySn}">エンティティ連番</label><input type="text" id="TShison.entitySn" name="TShison.entitySn" maxlength="10" />
+        <div id="entityBn">
+          <label for="TShison.entityBn" th:text="#{TShison.entityBn}">エンティティ枝番</label><input type="text" id="TShison.entityBn" name="TShison.entityBn" maxlength="10" />
         </div>
-        <div id="koSn">
-          <label for="TShison.koSn" th:text="#{TShison.koSn}">子連番</label><input type="text" id="TShison.koSn" name="TShison.koSn" maxlength="10" />
+        <div id="koBn">
+          <label for="TShison.koBn" th:text="#{TShison.koBn}">子枝番</label><input type="text" id="TShison.koBn" name="TShison.koBn" maxlength="10" />
         </div>
-        <div id="shisonSn">
-          <label for="TShison.shisonSn" th:text="#{TShison.shisonSn}">子孫連番</label><input type="text" id="TShison.shisonSn" name="TShison.shisonSn" maxlength="10" />
+        <div id="shisonBn">
+          <label for="TShison.shisonBn" th:text="#{TShison.shisonBn}">子孫枝番</label><input type="text" id="TShison.shisonBn" name="TShison.shisonBn" maxlength="10" />
         </div>
         <div id="shisonMei">
-          <label for="TShison.shisonMei" th:text="#{TShison.shisonMei}">子孫名</label><input type="text" id="TShison.shisonMei" name="TShison.shisonMei" maxlength="30" />
+          <label for="TShison.shisonMei" th:text="#{TShison.shisonMei}">子孫名</label><input type="text" id="TShison.shisonMei" name="TShison.shisonMei" maxlength="120" />
         </div>
         <div id="deleteF">
-          <fieldset id="TShison.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="TShison.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{TShison.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

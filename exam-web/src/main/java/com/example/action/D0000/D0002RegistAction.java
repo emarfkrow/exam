@@ -4,8 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.TEntity;
-import com.example.entity.TEntity2;
+import com.example.entity.TEntity1;
 import com.example.entity.TOya;
 import com.example.entity.TSosen;
 
@@ -27,13 +26,13 @@ public class D0002RegistAction extends BaseAction {
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
 
-        TEntity2 tEntity2 = FormValidator.toBean(TEntity2.class.getName(), postJson);
+        TEntity1 tEntity1 = FormValidator.toBean(TEntity1.class.getName(), postJson);
 
-        TEntity tEntity = FormValidator.toBean(TEntity.class.getName(), postJson);
-        tEntity.setTEntity2(tEntity2);
+        //        TEntity2 tEntity2 = FormValidator.toBean(TEntity2.class.getName(), postJson);
+        //        tEntity.setTEntity2(tEntity2);
 
         TOya tOya = FormValidator.toBean(TOya.class.getName(), postJson);
-        tOya.addTEntitys(tEntity);
+        tOya.addTEntity1s(tEntity1);
 
         TSosen tSosen = FormValidator.toBean(TSosen.class.getName(), postJson);
         tSosen.addTOyas(tOya);

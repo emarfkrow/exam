@@ -46,7 +46,7 @@ public class MNinkaSDeleteAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SHOKUI_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("GAMEN_NM"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KINO_NM"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

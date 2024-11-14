@@ -29,23 +29,26 @@ public class TEntity2GetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TEntity2.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TEntity2.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             return map;
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TEntity2.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TEntity2.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             return map;
         }
 
-        TEntity2 tEntity2 = TEntity2.get(sosenId, oyaSn, entitySn);
-        tEntity2.referTEntity();
+        TEntity2 tEntity2 = TEntity2.get(sosenId, oyaBn, entityBn);
+        tEntity2.referTEntity1();
+        tEntity2.referTEntity3();
+        tEntity2.referTEntity4();
+        tEntity2.referTEntity5();
         tEntity2.referTKos();
         tEntity2.referTTenpuFiles();
         map.put("TEntity2", tEntity2);

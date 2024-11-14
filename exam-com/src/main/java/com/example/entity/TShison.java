@@ -54,75 +54,75 @@ public class TShison implements IEntity {
         }
     }
 
-    /** 親連番 */
-    private Integer oyaSn;
+    /** 親枝番 */
+    private Integer oyaBn;
 
-    /** @return 親連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_SN")
-    public Integer getOyaSn() {
-        return this.oyaSn;
+    /** @return 親枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BN")
+    public Integer getOyaBn() {
+        return this.oyaBn;
     }
 
-    /** @param o 親連番 */
-    public void setOyaSn(final Object o) {
+    /** @param o 親枝番 */
+    public void setOyaBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.oyaSn = Integer.valueOf(o.toString());
+            this.oyaBn = Integer.valueOf(o.toString());
         } else {
-            this.oyaSn = null;
+            this.oyaBn = null;
         }
     }
 
-    /** エンティティ連番 */
-    private Integer entitySn;
+    /** エンティティ枝番 */
+    private Integer entityBn;
 
-    /** @return エンティティ連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_SN")
-    public Integer getEntitySn() {
-        return this.entitySn;
+    /** @return エンティティ枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_BN")
+    public Integer getEntityBn() {
+        return this.entityBn;
     }
 
-    /** @param o エンティティ連番 */
-    public void setEntitySn(final Object o) {
+    /** @param o エンティティ枝番 */
+    public void setEntityBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.entitySn = Integer.valueOf(o.toString());
+            this.entityBn = Integer.valueOf(o.toString());
         } else {
-            this.entitySn = null;
+            this.entityBn = null;
         }
     }
 
-    /** 子連番 */
-    private Integer koSn;
+    /** 子枝番 */
+    private Integer koBn;
 
-    /** @return 子連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KO_SN")
-    public Integer getKoSn() {
-        return this.koSn;
+    /** @return 子枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("KO_BN")
+    public Integer getKoBn() {
+        return this.koBn;
     }
 
-    /** @param o 子連番 */
-    public void setKoSn(final Object o) {
+    /** @param o 子枝番 */
+    public void setKoBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.koSn = Integer.valueOf(o.toString());
+            this.koBn = Integer.valueOf(o.toString());
         } else {
-            this.koSn = null;
+            this.koBn = null;
         }
     }
 
-    /** 子孫連番 */
-    private Integer shisonSn;
+    /** 子孫枝番 */
+    private Integer shisonBn;
 
-    /** @return 子孫連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHISON_SN")
-    public Integer getShisonSn() {
-        return this.shisonSn;
+    /** @return 子孫枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("SHISON_BN")
+    public Integer getShisonBn() {
+        return this.shisonBn;
     }
 
-    /** @param o 子孫連番 */
-    public void setShisonSn(final Object o) {
+    /** @param o 子孫枝番 */
+    public void setShisonBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.shisonSn = Integer.valueOf(o.toString());
+            this.shisonBn = Integer.valueOf(o.toString());
         } else {
-            this.shisonSn = null;
+            this.shisonBn = null;
         }
     }
 
@@ -255,26 +255,26 @@ public class TShison implements IEntity {
     /**
      * 子孫照会
      * @param param1 祖先ID
-     * @param param2 親連番
-     * @param param3 エンティティ連番
-     * @param param4 子連番
-     * @param param5 子孫連番
+     * @param param2 親枝番
+     * @param param3 エンティティ枝番
+     * @param param4 子枝番
+     * @param param5 子孫枝番
      * @return 子孫
      */
     public static TShison get(final Object param1, final Object param2, final Object param3, final Object param4, final Object param5) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
-        whereList.add("`KO_SN` = :ko_sn");
-        whereList.add("`SHISON_SN` = :shison_sn");
+        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`KO_BN` = :ko_bn");
+        whereList.add("`SHISON_BN` = :shison_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_SN` \n";
-        sql += "    , a.`ENTITY_SN` \n";
-        sql += "    , a.`KO_SN` \n";
-        sql += "    , a.`SHISON_SN` \n";
+        sql += "    , a.`OYA_BN` \n";
+        sql += "    , a.`ENTITY_BN` \n";
+        sql += "    , a.`KO_BN` \n";
+        sql += "    , a.`SHISON_BN` \n";
         sql += "    , a.`SHISON_MEI` \n";
         sql += "    , a.`INSERT_DT` \n";
         sql += "    , a.`INSERT_BY` \n";
@@ -287,10 +287,10 @@ public class TShison implements IEntity {
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
-        map.put("oya_sn", param2);
-        map.put("entity_sn", param3);
-        map.put("ko_sn", param4);
-        map.put("shison_sn", param5);
+        map.put("oya_bn", param2);
+        map.put("entity_bn", param3);
+        map.put("ko_bn", param4);
+        map.put("shison_bn", param5);
         return Queries.get(sql, map, TShison.class);
     }
 
@@ -302,7 +302,7 @@ public class TShison implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 子孫連番の採番処理
+        // 子孫枝番の採番処理
         numbering();
 
         // 子孫の登録
@@ -314,10 +314,10 @@ public class TShison implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_SN` -- :oya_sn");
-        nameList.add("`ENTITY_SN` -- :entity_sn");
-        nameList.add("`KO_SN` -- :ko_sn");
-        nameList.add("`SHISON_SN` -- :shison_sn");
+        nameList.add("`OYA_BN` -- :oya_bn");
+        nameList.add("`ENTITY_BN` -- :entity_bn");
+        nameList.add("`KO_BN` -- :ko_bn");
+        nameList.add("`SHISON_BN` -- :shison_bn");
         nameList.add("`SHISON_MEI` -- :shison_mei");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
@@ -331,10 +331,10 @@ public class TShison implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sosen_id");
-        valueList.add(":oya_sn");
-        valueList.add(":entity_sn");
-        valueList.add(":ko_sn");
-        valueList.add(":shison_sn");
+        valueList.add(":oya_bn");
+        valueList.add(":entity_bn");
+        valueList.add(":ko_bn");
+        valueList.add(":shison_bn");
         valueList.add(":shison_mei");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
@@ -344,26 +344,26 @@ public class TShison implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 子孫連番の採番処理 */
+    /** 子孫枝番の採番処理 */
     private void numbering() {
-        if (this.shisonSn != null) {
+        if (this.shisonBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SHISON_SN`) IS NULL THEN 0 ELSE MAX(e.`SHISON_SN`) * 1 END + 1 AS `SHISON_SN` FROM t_shison e";
+        String sql = "SELECT CASE WHEN MAX(e.`SHISON_BN`) IS NULL THEN 0 ELSE MAX(e.`SHISON_BN`) * 1 END + 1 AS `SHISON_BN` FROM t_shison e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
         whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_SN` = :oya_sn");
-        whereList.add("e.`ENTITY_SN` = :entity_sn");
-        whereList.add("e.`KO_SN` = :ko_sn");
+        whereList.add("e.`OYA_BN` = :oya_bn");
+        whereList.add("e.`ENTITY_BN` = :entity_bn");
+        whereList.add("e.`KO_BN` = :ko_bn");
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
-        map.put("entity_sn", this.entitySn);
-        map.put("ko_sn", this.koSn);
+        map.put("oya_bn", this.oyaBn);
+        map.put("entity_bn", this.entityBn);
+        map.put("ko_bn", this.koBn);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SHISON_SN");
-        this.setShisonSn(o);
+        Object o = mapList.get(0).get("SHISON_BN");
+        this.setShisonBn(o);
     }
 
     /**
@@ -383,10 +383,10 @@ public class TShison implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_SN` = :oya_sn");
-        setList.add("`ENTITY_SN` = :entity_sn");
-        setList.add("`KO_SN` = :ko_sn");
-        setList.add("`SHISON_SN` = :shison_sn");
+        setList.add("`OYA_BN` = :oya_bn");
+        setList.add("`ENTITY_BN` = :entity_bn");
+        setList.add("`KO_BN` = :ko_bn");
+        setList.add("`SHISON_BN` = :shison_bn");
         setList.add("`SHISON_MEI` = :shison_mei");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
@@ -409,10 +409,10 @@ public class TShison implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
-        whereList.add("`KO_SN` = :ko_sn");
-        whereList.add("`SHISON_SN` = :shison_sn");
+        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`KO_BN` = :ko_bn");
+        whereList.add("`SHISON_BN` = :shison_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -424,10 +424,10 @@ public class TShison implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
-        map.put("entity_sn", this.entitySn);
-        map.put("ko_sn", this.koSn);
-        map.put("shison_sn", this.shisonSn);
+        map.put("oya_bn", this.oyaBn);
+        map.put("entity_bn", this.entityBn);
+        map.put("ko_bn", this.koBn);
+        map.put("shison_bn", this.shisonBn);
         map.put("shison_mei", this.shisonMei);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);

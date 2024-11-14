@@ -30,25 +30,25 @@ public class TKoDeleteAction extends BaseAction {
         if (sosenId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TKo.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TKo.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TKo.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TKo.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object koSn = postJson.get("koSn");
-        if (koSn == null) {
-            koSn = postJson.get("TKo.koSn");
+        Object koBn = postJson.get("koBn");
+        if (koBn == null) {
+            koBn = postJson.get("TKo.koBn");
         }
-        if (koSn == null) {
+        if (koBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

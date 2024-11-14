@@ -29,29 +29,29 @@ public class TTenpuFileGetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TTenpuFile.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TTenpuFile.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             return map;
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TTenpuFile.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TTenpuFile.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             return map;
         }
-        Object tenpuFileSn = postJson.get("tenpuFileSn");
-        if (tenpuFileSn == null) {
-            tenpuFileSn = postJson.get("TTenpuFile.tenpuFileSn");
+        Object tenpuFileBn = postJson.get("tenpuFileBn");
+        if (tenpuFileBn == null) {
+            tenpuFileBn = postJson.get("TTenpuFile.tenpuFileBn");
         }
-        if (tenpuFileSn == null) {
+        if (tenpuFileBn == null) {
             return map;
         }
 
-        TTenpuFile tTenpuFile = TTenpuFile.get(sosenId, oyaSn, entitySn, tenpuFileSn);
+        TTenpuFile tTenpuFile = TTenpuFile.get(sosenId, oyaBn, entityBn, tenpuFileBn);
         map.put("TTenpuFile", tTenpuFile);
         return map;
     }

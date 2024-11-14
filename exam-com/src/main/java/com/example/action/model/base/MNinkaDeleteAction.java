@@ -37,11 +37,11 @@ public class MNinkaDeleteAction extends BaseAction {
         if (shokuiId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object gamenNm = postJson.get("gamenNm");
-        if (gamenNm == null) {
-            gamenNm = postJson.get("MNinka.gamenNm");
+        Object kinoNm = postJson.get("kinoNm");
+        if (kinoNm == null) {
+            kinoNm = postJson.get("MNinka.kinoNm");
         }
-        if (gamenNm == null) {
+        if (kinoNm == null) {
             throw new OptLockError("error.cant.delete");
         }
 

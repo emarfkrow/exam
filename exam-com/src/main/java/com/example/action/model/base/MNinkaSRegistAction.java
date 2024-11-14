@@ -49,7 +49,7 @@ public class MNinkaSRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShokuiId())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getGamenNm())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getKinoNm())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

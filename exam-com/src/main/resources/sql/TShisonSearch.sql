@@ -1,9 +1,9 @@
 SELECT
       a.`SOSEN_ID`
-    , a.`OYA_SN`
-    , a.`ENTITY_SN`
-    , a.`KO_SN`
-    , a.`SHISON_SN`
+    , a.`OYA_BN`
+    , a.`ENTITY_BN`
+    , a.`KO_BN`
+    , a.`SHISON_BN`
     , a.`SHISON_MEI`
     , a.`INSERT_DT`
     , a.`INSERT_BY`
@@ -15,10 +15,10 @@ FROM
 WHERE
     1 = 1 
     AND a.`SOSEN_ID` = :sosen_id 
-    AND a.`OYA_SN` = :oya_sn 
-    AND a.`ENTITY_SN` = :entity_sn 
-    AND a.`KO_SN` = :ko_sn 
-    AND a.`SHISON_SN` = :shison_sn 
+    AND a.`OYA_BN` = :oya_bn 
+    AND a.`ENTITY_BN` = :entity_bn 
+    AND a.`KO_BN` = :ko_bn 
+    AND a.`SHISON_BN` = :shison_bn 
     AND TRIM(TRAILING ' ' FROM a.`SHISON_MEI`) LIKE CONCAT ('%', :shison_mei, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
@@ -30,4 +30,4 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`UPDATE_BY`) LIKE CONCAT ('%', :update_by, '%') 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
 ORDER BY
-    a.`SOSEN_ID`, a.`OYA_SN`, a.`ENTITY_SN`, a.`KO_SN`, a.`SHISON_SN`
+    a.`SOSEN_ID`, a.`OYA_BN`, a.`ENTITY_BN`, a.`KO_BN`, a.`SHISON_BN`

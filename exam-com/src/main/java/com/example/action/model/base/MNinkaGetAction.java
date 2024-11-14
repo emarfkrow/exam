@@ -36,15 +36,15 @@ public class MNinkaGetAction extends BaseAction {
         if (shokuiId == null) {
             return map;
         }
-        Object gamenNm = postJson.get("gamenNm");
-        if (gamenNm == null) {
-            gamenNm = postJson.get("MNinka.gamenNm");
+        Object kinoNm = postJson.get("kinoNm");
+        if (kinoNm == null) {
+            kinoNm = postJson.get("MNinka.kinoNm");
         }
-        if (gamenNm == null) {
+        if (kinoNm == null) {
             return map;
         }
 
-        MNinka mNinka = MNinka.get(bushoId, shokuiId, gamenNm);
+        MNinka mNinka = MNinka.get(bushoId, shokuiId, kinoNm);
         map.put("MNinka", mNinka);
         return map;
     }

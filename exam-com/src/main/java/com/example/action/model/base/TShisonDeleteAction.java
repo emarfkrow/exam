@@ -30,32 +30,32 @@ public class TShisonDeleteAction extends BaseAction {
         if (sosenId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object oyaSn = postJson.get("oyaSn");
-        if (oyaSn == null) {
-            oyaSn = postJson.get("TShison.oyaSn");
+        Object oyaBn = postJson.get("oyaBn");
+        if (oyaBn == null) {
+            oyaBn = postJson.get("TShison.oyaBn");
         }
-        if (oyaSn == null) {
+        if (oyaBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object entitySn = postJson.get("entitySn");
-        if (entitySn == null) {
-            entitySn = postJson.get("TShison.entitySn");
+        Object entityBn = postJson.get("entityBn");
+        if (entityBn == null) {
+            entityBn = postJson.get("TShison.entityBn");
         }
-        if (entitySn == null) {
+        if (entityBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object koSn = postJson.get("koSn");
-        if (koSn == null) {
-            koSn = postJson.get("TShison.koSn");
+        Object koBn = postJson.get("koBn");
+        if (koBn == null) {
+            koBn = postJson.get("TShison.koBn");
         }
-        if (koSn == null) {
+        if (koBn == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object shisonSn = postJson.get("shisonSn");
-        if (shisonSn == null) {
-            shisonSn = postJson.get("TShison.shisonSn");
+        Object shisonBn = postJson.get("shisonBn");
+        if (shisonBn == null) {
+            shisonBn = postJson.get("TShison.shisonBn");
         }
-        if (shisonSn == null) {
+        if (shisonBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

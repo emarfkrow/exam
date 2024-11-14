@@ -46,13 +46,13 @@ public class TTenpuFileSRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSosenId())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaSn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaBn())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getEntitySn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getEntityBn())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenpuFileSn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenpuFileBn())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

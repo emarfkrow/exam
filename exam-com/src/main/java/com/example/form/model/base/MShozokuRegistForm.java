@@ -74,38 +74,38 @@ public class MShozokuRegistForm implements IForm {
 
     /** 開始日 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String kaishiYmd;
+    private String kaishiBi;
 
     /**
      * @return 開始日
      */
-    public String getKaishiYmd() {
-        return kaishiYmd;
+    public String getKaishiBi() {
+        return kaishiBi;
     }
 
     /**
      * @param p 開始日
      */
-    public void setKaishiYmd(final String p) {
-        this.kaishiYmd = p;
+    public void setKaishiBi(final String p) {
+        this.kaishiBi = p;
     }
 
     /** 終了日 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String shuryoYmd;
+    private String shuryoBi;
 
     /**
      * @return 終了日
      */
-    public String getShuryoYmd() {
-        return shuryoYmd;
+    public String getShuryoBi() {
+        return shuryoBi;
     }
 
     /**
      * @param p 終了日
      */
-    public void setShuryoYmd(final String p) {
-        this.shuryoYmd = p;
+    public void setShuryoBi(final String p) {
+        this.shuryoBi = p;
     }
 
     /** 削除フラグ */

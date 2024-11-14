@@ -54,57 +54,57 @@ public class TTenpuFile implements IEntity {
         }
     }
 
-    /** 親連番 */
-    private Integer oyaSn;
+    /** 親枝番 */
+    private Integer oyaBn;
 
-    /** @return 親連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_SN")
-    public Integer getOyaSn() {
-        return this.oyaSn;
+    /** @return 親枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BN")
+    public Integer getOyaBn() {
+        return this.oyaBn;
     }
 
-    /** @param o 親連番 */
-    public void setOyaSn(final Object o) {
+    /** @param o 親枝番 */
+    public void setOyaBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.oyaSn = Integer.valueOf(o.toString());
+            this.oyaBn = Integer.valueOf(o.toString());
         } else {
-            this.oyaSn = null;
+            this.oyaBn = null;
         }
     }
 
-    /** エンティティ連番 */
-    private Integer entitySn;
+    /** エンティティ枝番 */
+    private Integer entityBn;
 
-    /** @return エンティティ連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_SN")
-    public Integer getEntitySn() {
-        return this.entitySn;
+    /** @return エンティティ枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_BN")
+    public Integer getEntityBn() {
+        return this.entityBn;
     }
 
-    /** @param o エンティティ連番 */
-    public void setEntitySn(final Object o) {
+    /** @param o エンティティ枝番 */
+    public void setEntityBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.entitySn = Integer.valueOf(o.toString());
+            this.entityBn = Integer.valueOf(o.toString());
         } else {
-            this.entitySn = null;
+            this.entityBn = null;
         }
     }
 
-    /** 添付ファイル連番 */
-    private Integer tenpuFileSn;
+    /** 添付ファイル枝番 */
+    private Integer tenpuFileBn;
 
-    /** @return 添付ファイル連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE_SN")
-    public Integer getTenpuFileSn() {
-        return this.tenpuFileSn;
+    /** @return 添付ファイル枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE_BN")
+    public Integer getTenpuFileBn() {
+        return this.tenpuFileBn;
     }
 
-    /** @param o 添付ファイル連番 */
-    public void setTenpuFileSn(final Object o) {
+    /** @param o 添付ファイル枝番 */
+    public void setTenpuFileBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.tenpuFileSn = Integer.valueOf(o.toString());
+            this.tenpuFileBn = Integer.valueOf(o.toString());
         } else {
-            this.tenpuFileSn = null;
+            this.tenpuFileBn = null;
         }
     }
 
@@ -126,21 +126,21 @@ public class TTenpuFile implements IEntity {
         }
     }
 
-    /** 添付ファイル */
-    private String tenpuFile;
+    /** 添付ファイルパス */
+    private String tenpuFilePath;
 
-    /** @return 添付ファイル */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE")
-    public String getTenpuFile() {
-        return this.tenpuFile;
+    /** @return 添付ファイルパス */
+    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE_PATH")
+    public String getTenpuFilePath() {
+        return this.tenpuFilePath;
     }
 
-    /** @param o 添付ファイル */
-    public void setTenpuFile(final Object o) {
+    /** @param o 添付ファイルパス */
+    public void setTenpuFilePath(final Object o) {
         if (o != null) {
-            this.tenpuFile = o.toString();
+            this.tenpuFilePath = o.toString();
         } else {
-            this.tenpuFile = null;
+            this.tenpuFilePath = null;
         }
     }
 
@@ -255,25 +255,25 @@ public class TTenpuFile implements IEntity {
     /**
      * 添付ファイル照会
      * @param param1 祖先ID
-     * @param param2 親連番
-     * @param param3 エンティティ連番
-     * @param param4 添付ファイル連番
+     * @param param2 親枝番
+     * @param param3 エンティティ枝番
+     * @param param4 添付ファイル枝番
      * @return 添付ファイル
      */
     public static TTenpuFile get(final Object param1, final Object param2, final Object param3, final Object param4) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
-        whereList.add("`TENPU_FILE_SN` = :tenpu_file_sn");
+        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`TENPU_FILE_BN` = :tenpu_file_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_SN` \n";
-        sql += "    , a.`ENTITY_SN` \n";
-        sql += "    , a.`TENPU_FILE_SN` \n";
+        sql += "    , a.`OYA_BN` \n";
+        sql += "    , a.`ENTITY_BN` \n";
+        sql += "    , a.`TENPU_FILE_BN` \n";
         sql += "    , a.`TENPU_FILE_MEI` \n";
-        sql += "    , a.`TENPU_FILE` \n";
+        sql += "    , a.`TENPU_FILE_PATH` \n";
         sql += "    , a.`INSERT_DT` \n";
         sql += "    , a.`INSERT_BY` \n";
         sql += "    , a.`UPDATE_DT` \n";
@@ -285,9 +285,9 @@ public class TTenpuFile implements IEntity {
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", param1);
-        map.put("oya_sn", param2);
-        map.put("entity_sn", param3);
-        map.put("tenpu_file_sn", param4);
+        map.put("oya_bn", param2);
+        map.put("entity_bn", param3);
+        map.put("tenpu_file_bn", param4);
         return Queries.get(sql, map, TTenpuFile.class);
     }
 
@@ -299,7 +299,7 @@ public class TTenpuFile implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 添付ファイル連番の採番処理
+        // 添付ファイル枝番の採番処理
         numbering();
 
         // 添付ファイルの登録
@@ -311,11 +311,11 @@ public class TTenpuFile implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_SN` -- :oya_sn");
-        nameList.add("`ENTITY_SN` -- :entity_sn");
-        nameList.add("`TENPU_FILE_SN` -- :tenpu_file_sn");
+        nameList.add("`OYA_BN` -- :oya_bn");
+        nameList.add("`ENTITY_BN` -- :entity_bn");
+        nameList.add("`TENPU_FILE_BN` -- :tenpu_file_bn");
         nameList.add("`TENPU_FILE_MEI` -- :tenpu_file_mei");
-        nameList.add("`TENPU_FILE` -- :tenpu_file");
+        nameList.add("`TENPU_FILE_PATH` -- :tenpu_file_path");
         nameList.add("`INSERT_DT` -- :insert_dt");
         nameList.add("`INSERT_BY` -- :insert_by");
         nameList.add("`UPDATE_DT` -- :update_dt");
@@ -328,11 +328,11 @@ public class TTenpuFile implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sosen_id");
-        valueList.add(":oya_sn");
-        valueList.add(":entity_sn");
-        valueList.add(":tenpu_file_sn");
+        valueList.add(":oya_bn");
+        valueList.add(":entity_bn");
+        valueList.add(":tenpu_file_bn");
         valueList.add(":tenpu_file_mei");
-        valueList.add(":tenpu_file");
+        valueList.add(":tenpu_file_path");
         valueList.add(":insert_dt");
         valueList.add(":insert_by");
         valueList.add(":update_dt");
@@ -341,24 +341,24 @@ public class TTenpuFile implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 添付ファイル連番の採番処理 */
+    /** 添付ファイル枝番の採番処理 */
     private void numbering() {
-        if (this.tenpuFileSn != null) {
+        if (this.tenpuFileBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`TENPU_FILE_SN`) IS NULL THEN 0 ELSE MAX(e.`TENPU_FILE_SN`) * 1 END + 1 AS `TENPU_FILE_SN` FROM t_tenpu_file e";
+        String sql = "SELECT CASE WHEN MAX(e.`TENPU_FILE_BN`) IS NULL THEN 0 ELSE MAX(e.`TENPU_FILE_BN`) * 1 END + 1 AS `TENPU_FILE_BN` FROM t_tenpu_file e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
         whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_SN` = :oya_sn");
-        whereList.add("e.`ENTITY_SN` = :entity_sn");
+        whereList.add("e.`OYA_BN` = :oya_bn");
+        whereList.add("e.`ENTITY_BN` = :entity_bn");
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
-        map.put("entity_sn", this.entitySn);
+        map.put("oya_bn", this.oyaBn);
+        map.put("entity_bn", this.entityBn);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("TENPU_FILE_SN");
-        this.setTenpuFileSn(o);
+        Object o = mapList.get(0).get("TENPU_FILE_BN");
+        this.setTenpuFileBn(o);
     }
 
     /**
@@ -378,11 +378,11 @@ public class TTenpuFile implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_SN` = :oya_sn");
-        setList.add("`ENTITY_SN` = :entity_sn");
-        setList.add("`TENPU_FILE_SN` = :tenpu_file_sn");
+        setList.add("`OYA_BN` = :oya_bn");
+        setList.add("`ENTITY_BN` = :entity_bn");
+        setList.add("`TENPU_FILE_BN` = :tenpu_file_bn");
         setList.add("`TENPU_FILE_MEI` = :tenpu_file_mei");
-        setList.add("`TENPU_FILE` = :tenpu_file");
+        setList.add("`TENPU_FILE_PATH` = :tenpu_file_path");
         setList.add("`UPDATE_DT` = :update_dt");
         setList.add("`UPDATE_BY` = :update_by");
         setList.add("`DELETE_F` = :delete_f");
@@ -395,9 +395,9 @@ public class TTenpuFile implements IEntity {
      */
     public int delete() {
 
-        TTenpuFile tTenpuFile = TTenpuFile.get(this.sosenId, this.oyaSn, this.entitySn, this.tenpuFileSn);
+        TTenpuFile tTenpuFile = TTenpuFile.get(this.sosenId, this.oyaBn, this.entityBn, this.tenpuFileBn);
         try {
-            java.nio.file.Files.delete(java.nio.file.Paths.get(tTenpuFile.tenpuFile));
+            java.nio.file.Files.delete(java.nio.file.Paths.get(tTenpuFile.tenpuFilePath));
         } catch (Exception e) {
             throw new jp.co.golorp.emarf.exception.SysError(e);
         }
@@ -411,9 +411,9 @@ public class TTenpuFile implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_SN` = :oya_sn");
-        whereList.add("`ENTITY_SN` = :entity_sn");
-        whereList.add("`TENPU_FILE_SN` = :tenpu_file_sn");
+        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`TENPU_FILE_BN` = :tenpu_file_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -425,11 +425,11 @@ public class TTenpuFile implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
-        map.put("oya_sn", this.oyaSn);
-        map.put("entity_sn", this.entitySn);
-        map.put("tenpu_file_sn", this.tenpuFileSn);
+        map.put("oya_bn", this.oyaBn);
+        map.put("entity_bn", this.entityBn);
+        map.put("tenpu_file_bn", this.tenpuFileBn);
         map.put("tenpu_file_mei", this.tenpuFileMei);
-        map.put("tenpu_file", this.tenpuFile);
+        map.put("tenpu_file_path", this.tenpuFilePath);
         map.put("delete_f", this.deleteF);
         map.put("insert_dt", now);
         map.put("insert_by", execId);

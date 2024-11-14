@@ -38,7 +38,7 @@ public class MBushoRegistForm implements IForm {
 
     /** 部署名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 120)
     private String bushoMei;
 
     /**
@@ -53,42 +53,6 @@ public class MBushoRegistForm implements IForm {
      */
     public void setBushoMei(final String p) {
         this.bushoMei = p;
-    }
-
-    /** 開始日 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String kaishiYmd;
-
-    /**
-     * @return 開始日
-     */
-    public String getKaishiYmd() {
-        return kaishiYmd;
-    }
-
-    /**
-     * @param p 開始日
-     */
-    public void setKaishiYmd(final String p) {
-        this.kaishiYmd = p;
-    }
-
-    /** 終了日 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String shuryoYmd;
-
-    /**
-     * @return 終了日
-     */
-    public String getShuryoYmd() {
-        return shuryoYmd;
-    }
-
-    /**
-     * @param p 終了日
-     */
-    public void setShuryoYmd(final String p) {
-        this.shuryoYmd = p;
     }
 
     /** 親部署ID */
@@ -107,6 +71,42 @@ public class MBushoRegistForm implements IForm {
      */
     public void setOyaBushoId(final String p) {
         this.oyaBushoId = p;
+    }
+
+    /** 開始日 */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    private String kaishiBi;
+
+    /**
+     * @return 開始日
+     */
+    public String getKaishiBi() {
+        return kaishiBi;
+    }
+
+    /**
+     * @param p 開始日
+     */
+    public void setKaishiBi(final String p) {
+        this.kaishiBi = p;
+    }
+
+    /** 終了日 */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    private String shuryoBi;
+
+    /**
+     * @return 終了日
+     */
+    public String getShuryoBi() {
+        return shuryoBi;
+    }
+
+    /**
+     * @param p 終了日
+     */
+    public void setShuryoBi(final String p) {
+        this.shuryoBi = p;
     }
 
     /** 削除フラグ */

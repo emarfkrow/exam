@@ -22,25 +22,25 @@
           <label for="MUser.userId" th:text="#{MUser.userId}">ユーザID</label><input type="text" id="MUser.userId" name="MUser.userId" maxlength="10" />
         </div>
         <div id="userSei">
-          <label for="MUser.userSei" th:text="#{MUser.userSei}">ユーザ姓</label><input type="text" id="MUser.userSei" name="MUser.userSei" maxlength="30" />
+          <label for="MUser.userSei" th:text="#{MUser.userSei}">ユーザ姓</label><input type="text" id="MUser.userSei" name="MUser.userSei" maxlength="120" />
         </div>
         <div id="userMei">
-          <label for="MUser.userMei" th:text="#{MUser.userMei}">ユーザ名</label><input type="text" id="MUser.userMei" name="MUser.userMei" maxlength="30" />
+          <label for="MUser.userMei" th:text="#{MUser.userMei}">ユーザ名</label><input type="text" id="MUser.userMei" name="MUser.userMei" maxlength="120" />
         </div>
         <div id="email">
-          <label for="MUser.email" th:text="#{MUser.email}">メールアドレス</label><input type="text" id="MUser.email" name="MUser.email" maxlength="200" />
+          <label for="MUser.email" th:text="#{MUser.email}">メールアドレス</label><input type="text" id="MUser.email" name="MUser.email" maxlength="800" />
         </div>
         <div id="password">
-          <label for="MUser.password" th:text="#{MUser.password}">パスワード</label><input type="text" id="MUser.password" name="MUser.password" maxlength="200" />
+          <label for="MUser.password" th:text="#{MUser.password}">パスワード</label><input type="text" id="MUser.password" name="MUser.password" maxlength="800" />
         </div>
-        <div id="kaishiYmd">
-          <label for="MUser.kaishiYmd_1" th:text="#{MUser.kaishiYmd}">開始日</label><input type="text" id="MUser.kaishiYmd_1" name="MUser.kaishiYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MUser.kaishiYmd_2" name="MUser.kaishiYmd_2" maxlength="10" class=" datepicker" />
+        <div id="kaishiBi">
+          <label for="MUser.kaishiBi_1" th:text="#{MUser.kaishiBi}">開始日</label><input type="text" id="MUser.kaishiBi_1" name="MUser.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MUser.kaishiBi_2" name="MUser.kaishiBi_2" maxlength="10" class=" datepicker" />
         </div>
-        <div id="shuryoYmd">
-          <label for="MUser.shuryoYmd_1" th:text="#{MUser.shuryoYmd}">終了日</label><input type="text" id="MUser.shuryoYmd_1" name="MUser.shuryoYmd_1" maxlength="10" class=" datepicker" />～<input type="text" id="MUser.shuryoYmd_2" name="MUser.shuryoYmd_2" maxlength="10" class=" datepicker" />
+        <div id="shuryoBi">
+          <label for="MUser.shuryoBi_1" th:text="#{MUser.shuryoBi}">終了日</label><input type="text" id="MUser.shuryoBi_1" name="MUser.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MUser.shuryoBi_2" name="MUser.shuryoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="deleteF">
-          <fieldset id="MUser.deleteFList" data-options="MCodeValueSearch.json" data-optionParams="code_nm:DELETE_F" data-optionValue="CODE_VALUE" data-optionLabel="CODE_VALUE_MEI">
+          <fieldset id="MUser.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
             <legend th:text="#{MUser.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>

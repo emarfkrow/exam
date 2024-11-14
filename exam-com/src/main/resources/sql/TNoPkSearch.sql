@@ -17,6 +17,8 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_B`) LIKE CONCAT ('%', :column_b, '%') 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_C`) LIKE CONCAT ('%', :column_c, '%') 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_D`) LIKE CONCAT ('%', :column_d, '%') 
+    AND a.`COLUMN_D` >= :column_d_1 
+    AND a.`COLUMN_D` <= :column_d_2 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_E`) LIKE CONCAT ('%', :column_e, '%') 
     AND a.`INSERT_DT` = :insert_dt 
     AND a.`INSERT_DT` >= :insert_dt_1 
