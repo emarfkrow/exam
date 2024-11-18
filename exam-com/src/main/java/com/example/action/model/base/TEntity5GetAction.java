@@ -45,9 +45,6 @@ public class TEntity5GetAction extends BaseAction {
         }
 
         TEntity5 tEntity5 = TEntity5.get(sosenId, oyaBn, entityBn);
-        tEntity5.referTEntity1();
-        tEntity5.referTEntity3();
-        tEntity5.referTEntity4();
         tEntity5.referTKos();
         tEntity5.referTTenpuFiles();
         map.put("TEntity5", tEntity5);

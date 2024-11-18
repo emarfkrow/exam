@@ -281,30 +281,6 @@ public class TEntity5 implements IEntity {
             }
         }
 
-        // エンティティ１の登録
-        if (this.tEntity1 != null) {
-            this.tEntity1.setSosenId(this.getSosenId());
-            this.tEntity1.setOyaBn(this.getOyaBn());
-            this.tEntity1.setEntityBn(this.getEntityBn());
-            this.tEntity1.insert(now, execId);
-        }
-
-        // エンティティ３の登録
-        if (this.tEntity3 != null) {
-            this.tEntity3.setSosenId(this.getSosenId());
-            this.tEntity3.setOyaBn(this.getOyaBn());
-            this.tEntity3.setEntityBn(this.getEntityBn());
-            this.tEntity3.insert(now, execId);
-        }
-
-        // エンティティ４の登録
-        if (this.tEntity4 != null) {
-            this.tEntity4.setSosenId(this.getSosenId());
-            this.tEntity4.setOyaBn(this.getOyaBn());
-            this.tEntity4.setEntityBn(this.getEntityBn());
-            this.tEntity4.insert(now, execId);
-        }
-
         // エンティティ５の登録
         String sql = "INSERT INTO t_entity5(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -400,42 +376,6 @@ public class TEntity5 implements IEntity {
             }
         }
 
-        // エンティティ１の登録
-        if (this.tEntity1 != null) {
-            tEntity1.setSosenId(this.getSosenId());
-            tEntity1.setOyaBn(this.getOyaBn());
-            tEntity1.setEntityBn(this.getEntityBn());
-            try {
-                tEntity1.insert(now, execId);
-            } catch (Exception e) {
-                tEntity1.update(now, execId);
-            }
-        }
-
-        // エンティティ３の登録
-        if (this.tEntity3 != null) {
-            tEntity3.setSosenId(this.getSosenId());
-            tEntity3.setOyaBn(this.getOyaBn());
-            tEntity3.setEntityBn(this.getEntityBn());
-            try {
-                tEntity3.insert(now, execId);
-            } catch (Exception e) {
-                tEntity3.update(now, execId);
-            }
-        }
-
-        // エンティティ４の登録
-        if (this.tEntity4 != null) {
-            tEntity4.setSosenId(this.getSosenId());
-            tEntity4.setOyaBn(this.getOyaBn());
-            tEntity4.setEntityBn(this.getEntityBn());
-            try {
-                tEntity4.insert(now, execId);
-            } catch (Exception e) {
-                tEntity4.update(now, execId);
-            }
-        }
-
         // エンティティ５の登録
         String sql = "UPDATE t_entity5\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -474,21 +414,6 @@ public class TEntity5 implements IEntity {
             }
         }
 
-        // エンティティ１の削除
-        if (this.tEntity1 != null) {
-            this.tEntity1.delete();
-        }
-
-        // エンティティ３の削除
-        if (this.tEntity3 != null) {
-            this.tEntity3.delete();
-        }
-
-        // エンティティ４の削除
-        if (this.tEntity4 != null) {
-            this.tEntity4.delete();
-        }
-
         // エンティティ５の削除
         String sql = "DELETE FROM t_entity5 WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
@@ -520,81 +445,6 @@ public class TEntity5 implements IEntity {
         map.put("update_dt", now);
         map.put("update_by", execId);
         return map;
-    }
-
-    /** エンティティ１ */
-    private TEntity1 tEntity1;
-
-    /** @return エンティティ１ */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEntity1")
-    public TEntity1 getTEntity1() {
-        return this.tEntity1;
-    }
-
-    /** @param p エンティティ１ */
-    public void setTEntity1(final TEntity1 p) {
-        this.tEntity1 = p;
-    }
-
-    /** @return エンティティ１ */
-    public TEntity1 referTEntity1() {
-        if (this.tEntity1 == null) {
-            try {
-                this.tEntity1 = TEntity1.get(this.sosenId, this.oyaBn, this.entityBn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tEntity1;
-    }
-
-    /** エンティティ３ */
-    private TEntity3 tEntity3;
-
-    /** @return エンティティ３ */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEntity3")
-    public TEntity3 getTEntity3() {
-        return this.tEntity3;
-    }
-
-    /** @param p エンティティ３ */
-    public void setTEntity3(final TEntity3 p) {
-        this.tEntity3 = p;
-    }
-
-    /** @return エンティティ３ */
-    public TEntity3 referTEntity3() {
-        if (this.tEntity3 == null) {
-            try {
-                this.tEntity3 = TEntity3.get(this.sosenId, this.oyaBn, this.entityBn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tEntity3;
-    }
-
-    /** エンティティ４ */
-    private TEntity4 tEntity4;
-
-    /** @return エンティティ４ */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEntity4")
-    public TEntity4 getTEntity4() {
-        return this.tEntity4;
-    }
-
-    /** @param p エンティティ４ */
-    public void setTEntity4(final TEntity4 p) {
-        this.tEntity4 = p;
-    }
-
-    /** @return エンティティ４ */
-    public TEntity4 referTEntity4() {
-        if (this.tEntity4 == null) {
-            try {
-                this.tEntity4 = TEntity4.get(this.sosenId, this.oyaBn, this.entityBn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tEntity4;
     }
 
     /** 子のリスト */

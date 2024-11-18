@@ -45,9 +45,6 @@ public class TEntity4GetAction extends BaseAction {
         }
 
         TEntity4 tEntity4 = TEntity4.get(sosenId, oyaBn, entityBn);
-        tEntity4.referTEntity1();
-        tEntity4.referTEntity3();
-        tEntity4.referTEntity5();
         map.put("TEntity4", tEntity4);
         return map;
     }

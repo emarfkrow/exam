@@ -57,66 +57,6 @@
           </fieldset>
         </div>
       </fieldset>
-      <fieldset>
-        <legend th:text="#{TEntity1.legend}">legend</legend>
-        <div id="entity1Mei">
-          <label for="TEntity1.entity1Mei" th:text="#{TEntity1.entity1Mei}">エンティティ名</label><input type="text" id="TEntity1.entity1Mei" name="TEntity1.entity1Mei" maxlength="120" />
-        </div>
-        <div id="sansho1Id">
-          <label for="TEntity1.sansho1Id" th:text="#{TEntity1.sansho1Id}">参照１ID</label><input type="text" id="TEntity1.sansho1Id" name="TEntity1.sansho1Id" maxlength="10" /><a id="TEntity1.sansho1Id" th:href="@{/model/MSansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntity1." class="refer"></span>
-        </div>
-        <div id="sansho1Mei">
-          <label for="TEntity1.sansho1Mei" th:text="#{TEntity1.sansho1Mei}">参照１名</label><input type="text" id="TEntity1.sansho1Mei" name="TEntity1.sansho1Mei" maxlength="120" />
-        </div>
-        <div id="sansho2Cd">
-          <label for="TEntity1.sansho2Cd" th:text="#{TEntity1.sansho2Cd}">参照２CD</label><input type="text" id="TEntity1.sansho2Cd" name="TEntity1.sansho2Cd" maxlength="6" /><a id="TEntity1.sansho2Cd" th:href="@{/model/MSansho2S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntity1." class="refer"></span>
-        </div>
-        <div id="sansho2Mei">
-          <label for="TEntity1.sansho2Mei" th:text="#{TEntity1.sansho2Mei}">参照２名</label><input type="text" id="TEntity1.sansho2Mei" name="TEntity1.sansho2Mei" maxlength="120" />
-        </div>
-        <div id="sansho3No">
-          <label for="TEntity1.sansho3No" th:text="#{TEntity1.sansho3No}">参照３NO</label><input type="text" id="TEntity1.sansho3No" name="TEntity1.sansho3No" maxlength="10" /><a id="TEntity1.sansho3No" th:href="@{/model/MSansho3S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntity1." class="refer"></span>
-        </div>
-        <div id="sansho3Mei">
-          <label for="TEntity1.sansho3Mei" th:text="#{TEntity1.sansho3Mei}">参照３名</label><input type="text" id="TEntity1.sansho3Mei" name="TEntity1.sansho3Mei" maxlength="120" />
-        </div>
-        <div id="betsuSansho1Id">
-          <label for="TEntity1.betsuSansho1Id" th:text="#{TEntity1.betsuSansho1Id}">別参照１ID</label><input type="text" id="TEntity1.betsuSansho1Id" name="TEntity1.betsuSansho1Id" maxlength="10" /><a id="TEntity1.betsuSansho1Id" th:href="@{/model/MSansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="TEntity1." class="refer"></span>
-        </div>
-        <div id="betsuSansho1Mei">
-          <label for="TEntity1.betsuSansho1Mei" th:text="#{TEntity1.betsuSansho1Mei}">別参照１名</label><input type="text" id="TEntity1.betsuSansho1Mei" name="TEntity1.betsuSansho1Mei" maxlength="120" />
-        </div>
-        <input type="hidden" name="TEntity1.updateDt" />
-        <div id="deleteF">
-          <fieldset id="TEntity1.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
-            <legend th:text="#{TEntity1.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend th:text="#{TEntity3.legend}">legend</legend>
-        <div id="entity3Mei">
-          <label for="TEntity3.entity3Mei" th:text="#{TEntity3.entity3Mei}">エンティティ３名</label><input type="text" id="TEntity3.entity3Mei" name="TEntity3.entity3Mei" maxlength="120" />
-        </div>
-        <input type="hidden" name="TEntity3.updateDt" />
-        <div id="deleteF">
-          <fieldset id="TEntity3.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
-            <legend th:text="#{TEntity3.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-      </fieldset>
-      <fieldset>
-        <legend th:text="#{TEntity5.legend}">legend</legend>
-        <div id="entity5Mei">
-          <label for="TEntity5.entity5Mei" th:text="#{TEntity5.entity5Mei}">エンティティ５名</label><input type="text" id="TEntity5.entity5Mei" name="TEntity5.entity5Mei" maxlength="120" />
-        </div>
-        <input type="hidden" name="TEntity5.updateDt" />
-        <div id="deleteF">
-          <fieldset id="TEntity5.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
-            <legend th:text="#{TEntity5.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-      </fieldset>
       <div class="buttons">
         <button type="button" id="ResetTEntity4" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{TEntity4Get.xlsx(baseMei=#{TEntity4.h2})}" id="TEntity4Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
