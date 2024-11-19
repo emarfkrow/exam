@@ -87,12 +87,9 @@
       <div id="TEntity1HisGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/TEntity1His.html}"></div>
       <div id="TEntity1HisPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTEntity1HisS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTEntity1His&quot;]').click();">reset</button>
         <a th:href="@{TEntity1HisSearch.xlsx(baseMei=#{TEntity1HisS.h2})}" id="TEntity1HisSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTEntity1HisS" class="delete selectRows" data-action="TEntity1HisSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
-        <button id="RegistTEntity1HisS" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>
