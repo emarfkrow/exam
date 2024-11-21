@@ -19,6 +19,7 @@ public class TEntity1HisRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TEntity1HisRegistForm.class);
 
     /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
@@ -37,6 +38,7 @@ public class TEntity1HisRegistForm implements IForm {
     }
 
     /** 親枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaBn;
 
@@ -55,6 +57,7 @@ public class TEntity1HisRegistForm implements IForm {
     }
 
     /** エンティティ枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityBn;
 

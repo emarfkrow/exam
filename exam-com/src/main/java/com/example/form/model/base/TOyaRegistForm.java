@@ -20,6 +20,7 @@ public class TOyaRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TOyaRegistForm.class);
 
     /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 

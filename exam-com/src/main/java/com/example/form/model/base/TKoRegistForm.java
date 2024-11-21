@@ -20,6 +20,7 @@ public class TKoRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TKoRegistForm.class);
 
     /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
@@ -38,6 +39,7 @@ public class TKoRegistForm implements IForm {
     }
 
     /** 親枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaBn;
 
@@ -56,6 +58,7 @@ public class TKoRegistForm implements IForm {
     }
 
     /** エンティティ枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityBn;
 

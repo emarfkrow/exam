@@ -19,6 +19,7 @@ public class MShozokuRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MShozokuRegistForm.class);
 
     /** 部署ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String bushoId;
 
@@ -37,6 +38,7 @@ public class MShozokuRegistForm implements IForm {
     }
 
     /** 職位ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shokuiId;
 

@@ -19,6 +19,7 @@ public class TShisonRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(TShisonRegistForm.class);
 
     /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
@@ -37,6 +38,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** 親枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaBn;
 
@@ -55,6 +57,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** エンティティ枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityBn;
 
@@ -73,6 +76,7 @@ public class TShisonRegistForm implements IForm {
     }
 
     /** 子枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String koBn;
 
