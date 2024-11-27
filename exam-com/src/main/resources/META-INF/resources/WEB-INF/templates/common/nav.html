@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
 <body>
-  <div class="nav" layout:fragment="nav" th:if="${#session != null && #session.getAttribute('AUTHN_KEY') != null}">
+  <div class="nav" layout:fragment="nav" th:if="${#ctx.session != null && #ctx.session.get('AUTHN_KEY') != null}">
     <dl>
       <dt id="m" th:text="#{nav.dt.m}">m</dt>
       <dd>
