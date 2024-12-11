@@ -4,11 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>exam-web</artifactId>
+  <artifactId>examweb</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>exam-web Maven Webapp</name>
+  <name>examweb Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -27,7 +27,7 @@
     </dependency>
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>exam-com</artifactId>
+      <artifactId>examcom</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
@@ -46,7 +46,7 @@
   </dependencies>
 
   <build>
-    <finalName>exam-web</finalName>
+    <finalName>examweb</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

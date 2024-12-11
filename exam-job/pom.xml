@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example</groupId>
-  <artifactId>exam-job</artifactId>
+  <artifactId>examjob</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>exam-job</name>
+  <name>examjob</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -42,7 +42,7 @@
     </dependency>
     <dependency>
       <groupId>com.example</groupId>
-      <artifactId>exam-com</artifactId>
+      <artifactId>examcom</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
