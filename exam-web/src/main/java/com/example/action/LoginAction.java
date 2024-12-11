@@ -8,6 +8,7 @@ import java.util.Map;
 import com.example.entity.MNinka;
 import com.example.entity.MShozoku;
 import com.example.entity.MUser;
+import com.example.form.LoginForm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jp.co.golorp.emarf.action.BaseAction;
@@ -36,9 +37,10 @@ public class LoginAction extends BaseAction {
         String userId = postJson.get("userId").toString();
         String passwd = postJson.get("passwd").toString();
 
+        LoginForm loginForm = this.getLoginForm(userId);
+
         // 該当データなし
-        MUser mUser = MUser.get(userId);
-        if (mUser == null) {
+        if (loginForm == null) {
             throw new AppError("error.login");
         }
 
@@ -46,64 +48,83 @@ public class LoginAction extends BaseAction {
         if (!StringUtil.isNullOrBlank(HASH)) {
             passwd = StringUtil.hash(passwd);
         }
-        if (!passwd.equals(mUser.getPassword())) {
+        if (!passwd.equals(loginForm.getPasswd())) {
             throw new AppError("error.login");
         }
 
         // 権限情報取得
-        Map<String, String> authzInfo = getAuthzInfos(mUser);
-
-        ObjectMapper mapper = new ObjectMapper();
 
         Map<String, Object> ret = new HashMap<String, Object>();
-        ret.put(LoginFilter.AUTHN_KEY, mUser.getUserId());
-        ret.put(LoginFilter.AUTHN_MEI, mUser.getUserSei() + " " + mUser.getUserMei());
-        ret.put(LoginFilter.AUTHN_INFO, mapper.convertValue(mUser, Map.class));
-        ret.put(LoginFilter.AUTHZ_INFO, mapper.convertValue(authzInfo, Map.class));
+        ret.put(LoginFilter.AUTHN_KEY, userId);
+        ret.put(LoginFilter.AUTHN_MEI, loginForm.getAuthnMei());
+        ret.put(LoginFilter.AUTHN_INFO, loginForm.getAuthnInfo());
+        ret.put(LoginFilter.AUTHZ_INFO, loginForm.getAuthzInfo());
+
         return ret;
     }
 
     /**
-     * @param mUser ユーザエンティティ
-     * @return 認可情報のマップ（画面ID：認可レベル）
+     * @param userId
+     * @return LoginForm
      */
-    private Map<String, String> getAuthzInfos(final MUser mUser) {
+    private LoginForm getLoginForm(final String userId) {
 
-        Map<String, String> authzInfo = new HashMap<String, String>();
+        LoginForm loginForm = null;
 
-        // ユーザの所属情報を取得
-        String mShozokuSearchSql = this.loadSqlFile("MShozokuSearch");
-        Map<String, Object> mShozokuSearchParam = new HashMap<String, Object>();
-        mShozokuSearchParam.put("userId", mUser.getUserId());
-        List<MShozoku> mShozokus = Queries.select(mShozokuSearchSql, mShozokuSearchParam, MShozoku.class, null, null);
+        MUser mUser = MUser.get(userId);
 
-        // 所属情報に紐づく認可情報のうち最大の権限を取得
-        if (mShozokus != null) {
-            for (MShozoku mShozoku : mShozokus) {
+        if (mUser != null) {
 
-                String mNinkaSearchSql = this.loadSqlFile("MNinkaSearch");
-                Map<String, Object> mNinkaSearchParam = new HashMap<String, Object>();
-                mNinkaSearchParam.put("bushoId", mShozoku.getBushoId());
-                mNinkaSearchParam.put("shokuiId", mShozoku.getShokuiId());
-                List<MNinka> mNinkas = Queries.select(mNinkaSearchSql, mNinkaSearchParam, MNinka.class, null, null);
+            loginForm = new LoginForm();
 
-                if (mNinkas != null) {
-                    for (MNinka mNinka : mNinkas) {
+            loginForm.setPasswd(mUser.getPassword());
 
-                        if (!authzInfo.containsKey(mNinka.getKinoNm())) {
-                            authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
-                        } else {
-                            String orgKengenKb = authzInfo.get(mNinka.getKinoNm());
-                            if (Integer.valueOf(orgKengenKb) < Integer.valueOf(mNinka.getKengenKb())) {
+            loginForm.setAuthnMei(mUser.getUserSei() + " " + mUser.getUserMei());
+
+            ObjectMapper mapper = new ObjectMapper();
+            @SuppressWarnings("unchecked")
+            Map<String, String> authnInfo = mapper.convertValue(mUser, Map.class);
+            loginForm.setAuthnInfo(authnInfo);
+
+            Map<String, String> authzInfo = new HashMap<String, String>();
+
+            // ユーザの所属情報を取得
+            String mShozokuSearchSql = this.loadSqlFile("MShozokuSearch");
+            Map<String, Object> mShozokuSearchParam = new HashMap<String, Object>();
+            mShozokuSearchParam.put("userId", userId);
+            List<MShozoku> mShozokus = Queries.select(mShozokuSearchSql, mShozokuSearchParam, MShozoku.class, null,
+                    null);
+
+            // 所属情報に紐づく認可情報のうち最大の権限を取得
+            if (mShozokus != null) {
+                for (MShozoku mShozoku : mShozokus) {
+
+                    String mNinkaSearchSql = this.loadSqlFile("MNinkaSearch");
+                    Map<String, Object> mNinkaSearchParam = new HashMap<String, Object>();
+                    mNinkaSearchParam.put("bushoId", mShozoku.getBushoId());
+                    mNinkaSearchParam.put("shokuiId", mShozoku.getShokuiId());
+                    List<MNinka> mNinkas = Queries.select(mNinkaSearchSql, mNinkaSearchParam, MNinka.class, null, null);
+
+                    if (mNinkas != null) {
+                        for (MNinka mNinka : mNinkas) {
+
+                            if (!authzInfo.containsKey(mNinka.getKinoNm())) {
                                 authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
+                            } else {
+                                String orgKengenKb = authzInfo.get(mNinka.getKinoNm());
+                                if (Integer.valueOf(orgKengenKb) < Integer.valueOf(mNinka.getKengenKb())) {
+                                    authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
+                                }
                             }
                         }
                     }
                 }
             }
+
+            loginForm.setAuthzInfo(authzInfo);
         }
 
-        return authzInfo;
+        return loginForm;
     }
 
 }
