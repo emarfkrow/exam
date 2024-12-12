@@ -1,6 +1,5 @@
 package com.example.action;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,106 +7,86 @@ import java.util.Map;
 import com.example.entity.MNinka;
 import com.example.entity.MShozoku;
 import com.example.entity.MUser;
-import com.example.form.LoginForm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jp.co.golorp.emarf.action.BaseAction;
-import jp.co.golorp.emarf.exception.AppError;
-import jp.co.golorp.emarf.lang.StringUtil;
-import jp.co.golorp.emarf.properties.App;
-import jp.co.golorp.emarf.servlet.LoginFilter;
+import jp.co.golorp.emarf.action.LoginActionBase;
+import jp.co.golorp.emarf.form.LoginForm;
 import jp.co.golorp.emarf.sql.Queries;
+import jp.co.golorp.emarf.time.DateTimeUtil;
 
 /**
- * ログイン
+ * ログイン処理実装
  * @author toshiyuki
  *
  */
-public class LoginAction extends BaseAction {
-
-    /** パスワードのハッシュアルゴリズム */
-    private static final String HASH = App.get("loginfilter.hash");
+public class LoginAction extends LoginActionBase {
 
     /**
-     * ログイン処理
-     */
-    @Override
-    public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
-
-        String userId = postJson.get("userId").toString();
-        String passwd = postJson.get("passwd").toString();
-
-        LoginForm loginForm = this.getLoginForm(userId);
-
-        // 該当データなし
-        if (loginForm == null) {
-            throw new AppError("error.login");
-        }
-
-        // パスワード不一致
-        if (!StringUtil.isNullOrBlank(HASH)) {
-            passwd = StringUtil.hash(passwd);
-        }
-        if (!passwd.equals(loginForm.getPasswd())) {
-            throw new AppError("error.login");
-        }
-
-        // 権限情報取得
-
-        Map<String, Object> ret = new HashMap<String, Object>();
-        ret.put(LoginFilter.AUTHN_KEY, userId);
-        ret.put(LoginFilter.AUTHN_MEI, loginForm.getAuthnMei());
-        ret.put(LoginFilter.AUTHN_INFO, loginForm.getAuthnInfo());
-        ret.put(LoginFilter.AUTHZ_INFO, loginForm.getAuthzInfo());
-
-        return ret;
-    }
-
-    /**
+     * ログイン情報の取得
      * @param userId
      * @return LoginForm
      */
-    private LoginForm getLoginForm(final String userId) {
+    protected LoginForm getLoginForm(final String userId) {
 
         LoginForm loginForm = null;
 
-        MUser mUser = MUser.get(userId);
+        //現在有効なユーザマスタ取得
+        String mUserSql = this.loadSqlFile("MUserSearch");
+        Map<String, Object> mUserParam = new HashMap<String, Object>();
+        mUserParam.put("userId", userId);
+        mUserParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
+        mUserParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
+        MUser mUser = Queries.get(mUserSql, mUserParam, MUser.class);
 
         if (mUser != null) {
 
             loginForm = new LoginForm();
 
+            //パスワード
             loginForm.setPasswd(mUser.getPassword());
 
+            //ログイン名
             loginForm.setAuthnMei(mUser.getUserSei() + " " + mUser.getUserMei());
 
             ObjectMapper mapper = new ObjectMapper();
+
+            //認証情報
             @SuppressWarnings("unchecked")
             Map<String, String> authnInfo = mapper.convertValue(mUser, Map.class);
             loginForm.setAuthnInfo(authnInfo);
 
+            /*
+             * 認可情報
+             */
+
             Map<String, String> authzInfo = new HashMap<String, String>();
 
-            // ユーザの所属情報を取得
-            String mShozokuSearchSql = this.loadSqlFile("MShozokuSearch");
-            Map<String, Object> mShozokuSearchParam = new HashMap<String, Object>();
-            mShozokuSearchParam.put("userId", userId);
-            List<MShozoku> mShozokus = Queries.select(mShozokuSearchSql, mShozokuSearchParam, MShozoku.class, null,
-                    null);
+            //現在有効な全ての所属情報を取得
+            String mShozokuSql = this.loadSqlFile("MShozokuSearch");
+            Map<String, Object> mShozokuParam = new HashMap<String, Object>();
+            mShozokuParam.put("userId", userId);
+            mShozokuParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
+            mShozokuParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
+            List<MShozoku> mShozokus = Queries.select(mShozokuSql, mShozokuParam, MShozoku.class, null, null);
 
-            // 所属情報に紐づく認可情報のうち最大の権限を取得
+            //所属情報でループ
             if (mShozokus != null) {
                 for (MShozoku mShozoku : mShozokus) {
 
-                    String mNinkaSearchSql = this.loadSqlFile("MNinkaSearch");
-                    Map<String, Object> mNinkaSearchParam = new HashMap<String, Object>();
-                    mNinkaSearchParam.put("bushoId", mShozoku.getBushoId());
-                    mNinkaSearchParam.put("shokuiId", mShozoku.getShokuiId());
-                    List<MNinka> mNinkas = Queries.select(mNinkaSearchSql, mNinkaSearchParam, MNinka.class, null, null);
+                    //全ての認可情報を取得
+                    String mNinkaSql = this.loadSqlFile("MNinkaSearch");
+                    Map<String, Object> mNinkaParam = new HashMap<String, Object>();
+                    mNinkaParam.put("bushoId", mShozoku.getBushoId());
+                    mNinkaParam.put("shokuiId", mShozoku.getShokuiId());
+                    mNinkaParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
+                    mNinkaParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
+                    List<MNinka> mNinkas = Queries.select(mNinkaSql, mNinkaParam, MNinka.class, null, null);
 
+                    //認可情報でループ
                     if (mNinkas != null) {
                         for (MNinka mNinka : mNinkas) {
 
+                            //機能ごとに、最大の権限を取得
                             if (!authzInfo.containsKey(mNinka.getKinoNm())) {
                                 authzInfo.put(mNinka.getKinoNm(), mNinka.getKengenKb());
                             } else {
