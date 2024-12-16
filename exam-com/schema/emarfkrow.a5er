@@ -182,7 +182,7 @@ ZOrder=-16
 
 [Relation]
 Entity1=M_KBN
-Entity2=M_KBN_VALUE
+Entity2=M_KBN_DET
 RelationType1=2
 RelationType2=4
 Fields1=KBN_NM
@@ -203,7 +203,7 @@ TermPos2=R
 ZOrder=-18
 
 [Entity]
-PName=M_KBN_VALUE
+PName=M_KBN_DET
 LName=区分値マスタ
 Comment=
 TableInnerOption=
@@ -219,7 +219,7 @@ Field="取得条件","CRITERIA","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241109220010
+ModifiedDateTime=20241216110620
 Position="MAIN",100,250
 ZOrder=-19
 
