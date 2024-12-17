@@ -76,11 +76,11 @@ ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
 BackupRestoreTempTable=0
-CommonField="登録日時","INSERT_DT","*DT","NOT NULL",,"","",$FFFFFFFF
-CommonField="登録者","INSERT_BY","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF
-CommonField="更新日時","UPDATE_DT","*DT","NOT NULL",,"","",$FFFFFFFF
-CommonField="更新者","UPDATE_BY","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF
-CommonField="削除フラグ","DELETE_F","*F",,,"","",$FFFFFFFF
+CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"SYSDATE","",$FFFFFFFF
+CommonField="作成者","INSERT_ID","*ID","NOT NULL",,"","",$FFFFFFFF
+CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"SYSDATE","",$FFFFFFFF
+CommonField="更新者","UPDATE_ID","*ID","NOT NULL",,"","",$FFFFFFFF
+CommonField="削除フラグ","DELETE_F","*F","NOT NULL",,"0","",$FFFFFFFF
 DefaultPkName=%0:s_PKC
 DefaultPkIndexName=%0:s_PKI
 DefaultIndexName=%0:s_IX%1:d
@@ -817,8 +817,8 @@ Field="列Ｂ","COLUMN_B","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｃ","COLUMN_C","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｄ","COLUMN_D","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｅ","COLUMN_E","*MEI",,,"","",$FFFFFFFF,""
-Index==1,COLUMN_A 
-Index==1,COLUMN_B ,COLUMN_C 
+Index==1,COLUMN_A
+Index==1,COLUMN_B,COLUMN_C
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
