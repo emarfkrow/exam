@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1ShisonS.title}">子孫</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1ShisonS.h2}">h2</h2>
+    <form name="Tb1ShisonSearchForm" action="Tb1ShisonSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1ShisonS.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1Shison.sosenId" th:text="#{Tb1Shison.sosenId}">祖先ID</label><input type="text" id="Tb1Shison.sosenId" name="Tb1Shison.sosenId" maxlength="10" /><a id="Tb1Shison.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Shison." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Shison.oyaBn" th:text="#{Tb1Shison.oyaBn}">親枝番</label><input type="text" id="Tb1Shison.oyaBn" name="Tb1Shison.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1Shison.entityBn" th:text="#{Tb1Shison.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Shison.entityBn" name="Tb1Shison.entityBn" maxlength="10" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1Shison.koBn" th:text="#{Tb1Shison.koBn}">子枝番</label><input type="text" id="Tb1Shison.koBn" name="Tb1Shison.koBn" maxlength="10" />
+        </div>
+        <div id="shisonBn">
+          <label for="Tb1Shison.shisonBn" th:text="#{Tb1Shison.shisonBn}">子孫枝番</label><input type="text" id="Tb1Shison.shisonBn" name="Tb1Shison.shisonBn" maxlength="10" />
+        </div>
+        <div id="shisonMei">
+          <label for="Tb1Shison.shisonMei" th:text="#{Tb1Shison.shisonMei}">子孫名</label><input type="text" id="Tb1Shison.shisonMei" name="Tb1Shison.shisonMei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Shison.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{Tb1Shison.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1Shison" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1Shison" class="search" data-gridId="Tb1ShisonGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="Tb1ShisonSRegistForm" action="Tb1ShisonSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1Shison.h3}">h3</h3>
+      <div id="Tb1ShisonGrid" data-selectionMode="checkbox" data-frozenColumn="4" th:data-href="@{/model/Tb1Shison.html}"></div>
+      <div id="Tb1ShisonPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1ShisonS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Shison&quot;]').click();">reset</button>
+        <a th:href="@{Tb1ShisonSearch.xlsx(baseMei=#{Tb1ShisonS.h2})}" id="Tb1ShisonSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1ShisonS" class="delete selectRows" data-action="Tb1ShisonSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1ShisonS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

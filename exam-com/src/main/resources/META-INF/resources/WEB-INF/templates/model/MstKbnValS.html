@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MstKbnValS.title}">区分値マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MstKbnValGridColumns.js}"></script>
+<script th:src="@{/model/MstKbnGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MstKbnValS.h2}">h2</h2>
+    <form name="MstKbnValSearchForm" action="MstKbnValSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{MstKbnValS.legend}">legend</legend>
+        <div id="kbnNm">
+          <label for="MstKbnVal.kbnNm" th:text="#{MstKbnVal.kbnNm}">区分名称</label><input type="text" id="MstKbnVal.kbnNm" name="MstKbnVal.kbnNm" maxlength="30" /><a id="MstKbnVal.kbnNm" th:href="@{/model/MstKbnS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MstKbnVal." class="refer"></span>
+        </div>
+        <div id="kbnVal">
+          <label for="MstKbnVal.kbnVal" th:text="#{MstKbnVal.kbnVal}">区分値</label><input type="text" id="MstKbnVal.kbnVal" name="MstKbnVal.kbnVal" maxlength="2" />
+        </div>
+        <div id="kbnValMei">
+          <label for="MstKbnVal.kbnValMei" th:text="#{MstKbnVal.kbnValMei}">区分値名</label><input type="text" id="MstKbnVal.kbnValMei" name="MstKbnVal.kbnValMei" maxlength="120" />
+        </div>
+        <div id="hyojiOn">
+          <label for="MstKbnVal.hyojiOn" th:text="#{MstKbnVal.hyojiOn}">表示順</label><input type="text" id="MstKbnVal.hyojiOn" name="MstKbnVal.hyojiOn" maxlength="10" />
+        </div>
+        <div id="criteria">
+          <label for="MstKbnVal.criteria" th:text="#{MstKbnVal.criteria}">取得条件</label><input type="text" id="MstKbnVal.criteria" name="MstKbnVal.criteria" maxlength="800" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MstKbnVal.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{MstKbnVal.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMstKbnVal" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MstKbnVal.html}" id="MstKbnVal" class="anew" target="dialog" th:text="#{MstKbnVal.add}" tabindex="-1">区分値マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMstKbnVal" class="search" data-gridId="MstKbnValGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="MstKbnValSRegistForm" action="MstKbnValSRegist.ajax" class="regist">
+      <h3 th:text="#{MstKbnVal.h3}">h3</h3>
+      <div id="MstKbnValGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/MstKbnVal.html}"></div>
+      <div id="MstKbnValPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMstKbnValS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMstKbnVal&quot;]').click();">reset</button>
+        <a th:href="@{MstKbnValSearch.xlsx(baseMei=#{MstKbnValS.h2})}" id="MstKbnValSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMstKbnValS" class="delete selectRows" data-action="MstKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMstKbnValS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

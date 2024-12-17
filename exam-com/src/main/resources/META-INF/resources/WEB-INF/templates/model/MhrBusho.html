@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MhrBusho.title}">部署マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MhrBushoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MhrBusho.h2}">h2</h2>
+    <form name="MhrBushoRegistForm" action="MhrBushoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MhrBusho.legend}">legend</legend>
+        <div id="bushoId">
+          <label for="MhrBusho.bushoId" th:text="#{MhrBusho.bushoId}">部署ID</label><span id="MhrBusho.bushoId" class="primaryKey"></span><input type="hidden" id="MhrBusho.bushoId" name="MhrBusho.bushoId" class="primaryKey" />
+        </div>
+        <div id="bushoMei">
+          <label for="MhrBusho.bushoMei" th:text="#{MhrBusho.bushoMei}">部署名</label><input type="text" id="MhrBusho.bushoMei" name="MhrBusho.bushoMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="oyaBushoId">
+          <label for="MhrBusho.oyaBushoId" th:text="#{MhrBusho.oyaBushoId}">親部署ID</label><input type="text" id="MhrBusho.oyaBushoId" name="MhrBusho.oyaBushoId" maxlength="10" /><a id="MhrBusho.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrBusho." class="refer"></span>
+        </div>
+        <div id="kaishiBi">
+          <label for="MhrBusho.kaishiBi" th:text="#{MhrBusho.kaishiBi}">開始日</label><input type="text" id="MhrBusho.kaishiBi" name="MhrBusho.kaishiBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="shuryoBi">
+          <label for="MhrBusho.shuryoBi" th:text="#{MhrBusho.shuryoBi}">終了日</label><input type="text" id="MhrBusho.shuryoBi" name="MhrBusho.shuryoBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="insertDt">
+          <label for="MhrBusho.insertDt" th:text="#{MhrBusho.insertDt}">登録日時</label><span id="MhrBusho.insertDt"></span><input type="hidden" id="MhrBusho.insertDt" name="MhrBusho.insertDt" />
+        </div>
+        <div id="insertBy">
+          <label for="MhrBusho.insertBy" th:text="#{MhrBusho.insertBy}">登録者</label><span id="MhrBusho.insertBy"></span><input type="hidden" id="MhrBusho.insertBy" name="MhrBusho.insertBy" />
+        </div>
+        <div id="updateDt">
+          <label for="MhrBusho.updateDt" th:text="#{MhrBusho.updateDt}">更新日時</label><span id="MhrBusho.updateDt"></span><input type="hidden" id="MhrBusho.updateDt" name="MhrBusho.updateDt" />
+        </div>
+        <div id="updateBy">
+          <label for="MhrBusho.updateBy" th:text="#{MhrBusho.updateBy}">更新者</label><span id="MhrBusho.updateBy"></span><input type="hidden" id="MhrBusho.updateBy" name="MhrBusho.updateBy" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MhrBusho.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{MhrBusho.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMhrBusho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MhrBushoGet.xlsx(baseMei=#{MhrBusho.h2})}" id="MhrBushoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMhrBusho" class="delete" data-action="MhrBushoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMhrBusho" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

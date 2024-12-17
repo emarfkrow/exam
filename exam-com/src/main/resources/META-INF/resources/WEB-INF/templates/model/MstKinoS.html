@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MstKinoS.title}">機能マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MstKinoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MstKinoS.h2}">h2</h2>
+    <form name="MstKinoSearchForm" action="MstKinoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{MstKinoS.legend}">legend</legend>
+        <div id="kinoNm">
+          <label for="MstKino.kinoNm" th:text="#{MstKino.kinoNm}">機能名称</label><input type="text" id="MstKino.kinoNm" name="MstKino.kinoNm" maxlength="30" />
+        </div>
+        <div id="kinoMei">
+          <label for="MstKino.kinoMei" th:text="#{MstKino.kinoMei}">機能名</label><input type="text" id="MstKino.kinoMei" name="MstKino.kinoMei" maxlength="120" />
+        </div>
+        <div id="kaishiBi">
+          <label for="MstKino.kaishiBi_1" th:text="#{MstKino.kaishiBi}">開始日</label><input type="text" id="MstKino.kaishiBi_1" name="MstKino.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MstKino.kaishiBi_2" name="MstKino.kaishiBi_2" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="shuryoBi">
+          <label for="MstKino.shuryoBi_1" th:text="#{MstKino.shuryoBi}">終了日</label><input type="text" id="MstKino.shuryoBi_1" name="MstKino.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MstKino.shuryoBi_2" name="MstKino.shuryoBi_2" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MstKino.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{MstKino.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMstKino" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MstKino.html}" id="MstKino" class="anew" target="dialog" th:text="#{MstKino.add}" tabindex="-1">機能マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMstKino" class="search" data-gridId="MstKinoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="MstKinoSRegistForm" action="MstKinoSRegist.ajax" class="regist">
+      <h3 th:text="#{MstKino.h3}">h3</h3>
+      <div id="MstKinoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MstKino.html}"></div>
+      <div id="MstKinoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMstKinoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMstKino&quot;]').click();">reset</button>
+        <a th:href="@{MstKinoSearch.xlsx(baseMei=#{MstKinoS.h2})}" id="MstKinoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMstKinoS" class="delete selectRows" data-action="MstKinoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMstKinoS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2NoPkS.title}">主キーなし</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2NoPkGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2NoPkS.h2}">h2</h2>
+    <form name="Tb2NoPkSearchForm" action="Tb2NoPkSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb2NoPkS.legend}">legend</legend>
+        <div id="columnA">
+          <label for="Tb2NoPk.columnA" th:text="#{Tb2NoPk.columnA}">列Ａ</label><input type="text" id="Tb2NoPk.columnA" name="Tb2NoPk.columnA" maxlength="120" />
+        </div>
+        <div id="columnB">
+          <label for="Tb2NoPk.columnB" th:text="#{Tb2NoPk.columnB}">列Ｂ</label><input type="text" id="Tb2NoPk.columnB" name="Tb2NoPk.columnB" maxlength="120" />
+        </div>
+        <div id="columnC">
+          <label for="Tb2NoPk.columnC" th:text="#{Tb2NoPk.columnC}">列Ｃ</label><input type="text" id="Tb2NoPk.columnC" name="Tb2NoPk.columnC" maxlength="120" />
+        </div>
+        <div id="columnD">
+          <label for="Tb2NoPk.columnD_1" th:text="#{Tb2NoPk.columnD}">列Ｄ</label><input type="text" id="Tb2NoPk.columnD_1" name="Tb2NoPk.columnD_1" maxlength="120" />～<input type="text" id="Tb2NoPk.columnD_2" name="Tb2NoPk.columnD_2" maxlength="120" />
+        </div>
+        <div id="columnE">
+          <label for="Tb2NoPk.columnE" th:text="#{Tb2NoPk.columnE}">列Ｅ</label><input type="text" id="Tb2NoPk.columnE" name="Tb2NoPk.columnE" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2NoPk.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{Tb2NoPk.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb2NoPk" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb2NoPk.html}" id="Tb2NoPk" class="anew" target="dialog" th:text="#{Tb2NoPk.add}" tabindex="-1">主キーなし</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb2NoPk" class="search" data-gridId="Tb2NoPkGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="Tb2NoPkSRegistForm" action="Tb2NoPkSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb2NoPk.h3}">h3</h3>
+      <div id="Tb2NoPkGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Tb2NoPk.html}"></div>
+      <div id="Tb2NoPkPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb2NoPkS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2NoPk&quot;]').click();">reset</button>
+        <a th:href="@{Tb2NoPkSearch.xlsx(baseMei=#{Tb2NoPkS.h2})}" id="Tb2NoPkSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb2NoPkS" class="delete selectRows" data-action="Tb2NoPkSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2NoPkS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Entity1S.title}">エンティティ１</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Entity1S.h2}">h2</h2>
+    <form name="Tb1Entity1SearchForm" action="Tb1Entity1Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1Entity1S.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1Entity1.sosenId" th:text="#{Tb1Entity1.sosenId}">祖先ID</label><input type="text" id="Tb1Entity1.sosenId" name="Tb1Entity1.sosenId" maxlength="10" /><a id="Tb1Entity1.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Entity1.oyaBn" th:text="#{Tb1Entity1.oyaBn}">親枝番</label><input type="text" id="Tb1Entity1.oyaBn" name="Tb1Entity1.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1Entity1.entityBn" th:text="#{Tb1Entity1.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Entity1.entityBn" name="Tb1Entity1.entityBn" maxlength="10" />
+        </div>
+        <div id="entity1Mei">
+          <label for="Tb1Entity1.entity1Mei" th:text="#{Tb1Entity1.entity1Mei}">エンティティ名</label><input type="text" id="Tb1Entity1.entity1Mei" name="Tb1Entity1.entity1Mei" maxlength="120" />
+        </div>
+        <div id="sansho1Id">
+          <label for="Tb1Entity1.sansho1Id" th:text="#{Tb1Entity1.sansho1Id}">参照１ID</label><input type="text" id="Tb1Entity1.sansho1Id" name="Tb1Entity1.sansho1Id" maxlength="10" /><a id="Tb1Entity1.sansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1." class="refer"></span>
+        </div>
+        <div id="sansho1Mei">
+          <label for="Tb1Entity1.sansho1Mei" th:text="#{Tb1Entity1.sansho1Mei}">参照１名</label><input type="text" id="Tb1Entity1.sansho1Mei" name="Tb1Entity1.sansho1Mei" maxlength="120" />
+        </div>
+        <div id="sansho2Cd">
+          <label for="Tb1Entity1.sansho2Cd" th:text="#{Tb1Entity1.sansho2Cd}">参照２CD</label><input type="text" id="Tb1Entity1.sansho2Cd" name="Tb1Entity1.sansho2Cd" maxlength="6" /><a id="Tb1Entity1.sansho2Cd" th:href="@{/model/Mb1Sansho2S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1." class="refer"></span>
+        </div>
+        <div id="sansho2Mei">
+          <label for="Tb1Entity1.sansho2Mei" th:text="#{Tb1Entity1.sansho2Mei}">参照２名</label><input type="text" id="Tb1Entity1.sansho2Mei" name="Tb1Entity1.sansho2Mei" maxlength="120" />
+        </div>
+        <div id="sansho3No">
+          <label for="Tb1Entity1.sansho3No" th:text="#{Tb1Entity1.sansho3No}">参照３NO</label><input type="text" id="Tb1Entity1.sansho3No" name="Tb1Entity1.sansho3No" maxlength="10" /><a id="Tb1Entity1.sansho3No" th:href="@{/model/Mb1Sansho3S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1." class="refer"></span>
+        </div>
+        <div id="sansho3Mei">
+          <label for="Tb1Entity1.sansho3Mei" th:text="#{Tb1Entity1.sansho3Mei}">参照３名</label><input type="text" id="Tb1Entity1.sansho3Mei" name="Tb1Entity1.sansho3Mei" maxlength="120" />
+        </div>
+        <div id="betsuSansho1Id">
+          <label for="Tb1Entity1.betsuSansho1Id" th:text="#{Tb1Entity1.betsuSansho1Id}">別参照１ID</label><input type="text" id="Tb1Entity1.betsuSansho1Id" name="Tb1Entity1.betsuSansho1Id" maxlength="10" /><a id="Tb1Entity1.betsuSansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1." class="refer"></span>
+        </div>
+        <div id="betsuSansho1Mei">
+          <label for="Tb1Entity1.betsuSansho1Mei" th:text="#{Tb1Entity1.betsuSansho1Mei}">別参照１名</label><input type="text" id="Tb1Entity1.betsuSansho1Mei" name="Tb1Entity1.betsuSansho1Mei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Entity1.deleteFList" data-options="MKbnValueSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_KB" data-optionLabel="KBN_KB_MEI">
+            <legend th:text="#{Tb1Entity1.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1Entity1" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1Entity1" class="search" data-gridId="Tb1Entity1Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="Tb1Entity1SRegistForm" action="Tb1Entity1SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1Entity1.h3}">h3</h3>
+      <div id="Tb1Entity1Grid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity1.html}"></div>
+      <div id="Tb1Entity1Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Entity1S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Entity1&quot;]').click();">reset</button>
+        <a th:href="@{Tb1Entity1Search.xlsx(baseMei=#{Tb1Entity1S.h2})}" id="Tb1Entity1Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1Entity1S" class="delete selectRows" data-action="Tb1Entity1SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1Entity1S" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

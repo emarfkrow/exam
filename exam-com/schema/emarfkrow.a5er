@@ -75,8 +75,7 @@ FooterRight=
 ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
-GenerateDropTableStatement=1
-DropTableIfExists=1
+BackupRestoreTempTable=0
 CommonField="登録日時","INSERT_DT","*DT","NOT NULL",,"","",$FFFFFFFF
 CommonField="登録者","INSERT_BY","@VARCHAR(10)","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新日時","UPDATE_DT","*DT","NOT NULL",,"","",$FFFFFFFF
@@ -94,7 +93,7 @@ ShowCommonAttributes=0
 BugFixEntityWidth=0
 
 [Entity]
-PName=M_NINKA
+PName=MHR_NINKA
 LName=認可マスタ
 Comment=
 TableInnerOption=
@@ -111,12 +110,12 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241109204339
+ModifiedDateTime=20241217184957
 Position="MAIN",750,1800
 ZOrder=-10
 
 [Entity]
-PName=M_USER
+PName=MHR_USER
 LName=ユーザマスタ
 Comment=
 TableInnerOption=
@@ -134,13 +133,13 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241102184212
+ModifiedDateTime=20241217184754
 Position="MAIN",100,1550
 ZOrder=-12
 
 [Relation]
-Entity1=M_SANSHO1
-Entity2=T_ENTITY1
+Entity1=MB1_SANSHO1
+Entity2=TB1_ENTITY1
 RelationType1=1
 RelationType2=3
 Fields1=SANSHO1_ID
@@ -161,7 +160,7 @@ TermPos2=R
 ZOrder=-14
 
 [Entity]
-PName=T_ENTITY2
+PName=TB1_ENTITY2
 LName=エンティティ２
 Comment=
 TableInnerOption=
@@ -176,13 +175,13 @@ Field="エンティティ２名","ENTITY2_MEI","*MEI","NOT NULL",,"","",$FFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110133502
+ModifiedDateTime=20241217185200
 Position="MAIN",2050,700
 ZOrder=-16
 
 [Relation]
-Entity1=M_KBN
-Entity2=M_KBN_DET
+Entity1=MST_KBN
+Entity2=MST_KBN_VAL
 RelationType1=2
 RelationType2=4
 Fields1=KBN_NM
@@ -203,7 +202,7 @@ TermPos2=R
 ZOrder=-18
 
 [Entity]
-PName=M_KBN_DET
+PName=MST_KBN_VAL
 LName=区分値マスタ
 Comment=
 TableInnerOption=
@@ -212,19 +211,19 @@ Page=MAIN
 Left=100
 Top=250
 Field="区分名称","KBN_NM","*NM","NOT NULL",0,"","",$FFFFFFFF,""
-Field="区分値","KBN_KB","*KB","NOT NULL",1,"","",$FFFFFFFF,""
-Field="区分値名","KBN_KB_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
+Field="区分値","KBN_VAL","*KB","NOT NULL",1,"","",$FFFFFFFF,""
+Field="区分値名","KBN_VAL_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="表示順","HYOJI_ON","*ON","NOT NULL",,"","",$FFFFFFFF,""
 Field="取得条件","CRITERIA","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241216110620
+ModifiedDateTime=20241217184823
 Position="MAIN",100,250
 ZOrder=-19
 
 [Entity]
-PName=M_KBN
+PName=MST_KBN
 LName=区分マスタ
 Comment=
 TableInnerOption=
@@ -237,13 +236,13 @@ Field="区分名","KBN_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241102183904
+ModifiedDateTime=20241217184814
 Position="MAIN",100,100
 ZOrder=-20
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ENTITY1_HIS
+Entity1=TB1_ENTITY1
+Entity2=TB1_ENTITY1_HIS
 RelationType1=2
 RelationType2=4
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -264,7 +263,7 @@ TermPos2=R
 ZOrder=-29
 
 [Entity]
-PName=T_ENTITY1_HIS
+PName=TB1_ENTITY1_HIS
 LName=エンティティ１履歴
 Comment=
 TableInnerOption=
@@ -288,12 +287,12 @@ Field="別参照１名","BETSU_SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110134129
+ModifiedDateTime=20241217185254
 Position="MAIN",2500,2050
 ZOrder=-31
 
 [Entity]
-PName=M_SANSHO1
+PName=MB1_SANSHO1
 LName=参照１マスタ
 Comment=
 TableInnerOption=
@@ -306,13 +305,13 @@ Field="参照１名","SANSHO1_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20220319111209
+ModifiedDateTime=20241217185113
 Position="MAIN",100,500
 ZOrder=-32
 
 [Relation]
-Entity1=T_KO
-Entity2=T_SHISON
+Entity1=TB1_KO
+Entity2=TB1_SHISON
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN,KO_BN
@@ -333,7 +332,7 @@ TermPos2=R
 ZOrder=-35
 
 [Entity]
-PName=T_SHISON
+PName=TB1_SHISON
 LName=子孫
 Comment=
 TableInnerOption=
@@ -350,13 +349,13 @@ Field="子孫名","SHISON_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241102183718
+ModifiedDateTime=20241217185240
 Position="MAIN",1300,2350
 ZOrder=-36
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_KO
+Entity1=TB1_ENTITY1
+Entity2=TB1_KO
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -377,7 +376,7 @@ TermPos2=R
 ZOrder=-37
 
 [Entity]
-PName=T_KO
+PName=TB1_KO
 LName=子
 Comment=
 TableInnerOption=
@@ -393,13 +392,13 @@ Field="子名","KO_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241102183703
+ModifiedDateTime=20241217185234
 Position="MAIN",1300,2050
 ZOrder=-38
 
 [Relation]
-Entity1=T_OYA
-Entity2=T_ENTITY1
+Entity1=TB1_OYA
+Entity2=TB1_ENTITY1
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN
@@ -420,7 +419,7 @@ TermPos2=R
 ZOrder=-39
 
 [Entity]
-PName=T_ENTITY1
+PName=TB1_ENTITY1
 LName=エンティティ１
 Comment=
 TableInnerOption=
@@ -443,13 +442,13 @@ Field="別参照１名","BETSU_SANSHO1_MEI","*MEI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110133900
+ModifiedDateTime=20241217185148
 Position="MAIN",1300,600
 ZOrder=-40
 
 [Relation]
-Entity1=T_SOSEN
-Entity2=T_OYA
+Entity1=TB1_SOSEN
+Entity2=TB1_OYA
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID
@@ -470,7 +469,7 @@ TermPos2=R
 ZOrder=-41
 
 [Entity]
-PName=T_OYA
+PName=TB1_OYA
 LName=親
 Comment=
 TableInnerOption=
@@ -484,12 +483,12 @@ Field="親名","OYA_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241102183649
+ModifiedDateTime=20241217185143
 Position="MAIN",1300,300
 ZOrder=-42
 
 [Entity]
-PName=T_SOSEN
+PName=TB1_SOSEN
 LName=祖先
 Comment=
 TableInnerOption=
@@ -502,12 +501,12 @@ Field="祖先名","SOSEN_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20220319111159
+ModifiedDateTime=20241217185136
 Position="MAIN",1300,100
 ZOrder=-43
 
 [Entity]
-PName=M_SANSHO2
+PName=MB1_SANSHO2
 LName=参照２マスタ
 Comment=
 TableInnerOption=
@@ -520,13 +519,13 @@ Field="参照２名","SANSHO2_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20220723113334
+ModifiedDateTime=20241217185119
 Position="MAIN",200,650
 ZOrder=0
 
 [Relation]
-Entity1=M_SANSHO2
-Entity2=T_ENTITY1
+Entity1=MB1_SANSHO2
+Entity2=TB1_ENTITY1
 RelationType1=1
 RelationType2=3
 Fields1=SANSHO2_CD
@@ -546,8 +545,8 @@ TermPos2=R
 ZOrder=1
 
 [Relation]
-Entity1=M_SANSHO1
-Entity2=T_ENTITY1
+Entity1=MB1_SANSHO1
+Entity2=TB1_ENTITY1
 RelationType1=1
 RelationType2=3
 Fields1=SANSHO1_ID
@@ -567,8 +566,8 @@ TermPos2=R
 ZOrder=3
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ENTITY2
+Entity1=TB1_ENTITY1
+Entity2=TB1_ENTITY2
 RelationType1=2
 RelationType2=1
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -589,7 +588,7 @@ TermPos2=R
 ZOrder=4
 
 [Entity]
-PName=M_BUSHO
+PName=MHR_BUSHO
 LName=部署マスタ
 Comment=
 TableInnerOption=
@@ -605,12 +604,12 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241102184331
+ModifiedDateTime=20241217184726
 Position="MAIN",100,1050
 ZOrder=5
 
 [Entity]
-PName=M_SHOKUI
+PName=MHR_SHOKUI
 LName=職位マスタ
 Comment=
 TableInnerOption=
@@ -626,12 +625,12 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241109220027
+ModifiedDateTime=20241217184746
 Position="MAIN",100,1300
 ZOrder=6
 
 [Entity]
-PName=M_SHOZOKU
+PName=MHR_SHOZOKU
 LName=所属マスタ
 Comment=
 TableInnerOption=
@@ -647,13 +646,13 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241212114829
+ModifiedDateTime=20241217184805
 Position="MAIN",750,1050
 ZOrder=7
 
 [Relation]
-Entity1=M_BUSHO
-Entity2=M_SHOZOKU
+Entity1=MHR_BUSHO
+Entity2=MHR_SHOZOKU
 RelationType1=2
 RelationType2=3
 Fields1=BUSHO_ID
@@ -674,8 +673,8 @@ TermPos2=R
 ZOrder=8
 
 [Relation]
-Entity1=M_SHOKUI
-Entity2=M_SHOZOKU
+Entity1=MHR_SHOKUI
+Entity2=MHR_SHOZOKU
 RelationType1=2
 RelationType2=3
 Fields1=SHOKUI_ID
@@ -696,8 +695,8 @@ TermPos2=R
 ZOrder=9
 
 [Relation]
-Entity1=M_USER
-Entity2=M_SHOZOKU
+Entity1=MHR_USER
+Entity2=MHR_SHOZOKU
 RelationType1=2
 RelationType2=3
 Fields1=USER_ID
@@ -718,8 +717,8 @@ TermPos2=R
 ZOrder=10
 
 [Relation]
-Entity1=M_BUSHO
-Entity2=M_NINKA
+Entity1=MHR_BUSHO
+Entity2=MHR_NINKA
 RelationType1=1
 RelationType2=3
 Fields1=BUSHO_ID
@@ -740,8 +739,8 @@ TermPos2=R
 ZOrder=11
 
 [Relation]
-Entity1=M_SHOKUI
-Entity2=M_NINKA
+Entity1=MHR_SHOKUI
+Entity2=MHR_NINKA
 RelationType1=1
 RelationType2=3
 Fields1=SHOKUI_ID
@@ -762,7 +761,7 @@ TermPos2=R
 ZOrder=12
 
 [Entity]
-PName=T_TENPU_FILE
+PName=TB1_TENPU_FILE
 LName=添付ファイル
 Comment=
 TableInnerOption=
@@ -779,13 +778,13 @@ Field="添付ファイルパス","TENPU_FILE_PATH","*PATH","NOT NULL",,"","",$FF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241109154107
+ModifiedDateTime=20241217185247
 Position="MAIN",1850,2050
 ZOrder=13
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_TENPU_FILE
+Entity1=TB1_ENTITY1
+Entity2=TB1_TENPU_FILE
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -805,7 +804,7 @@ TermPos2=R
 ZOrder=14
 
 [Entity]
-PName=T_NO_PK
+PName=TB2_NO_PK
 LName=主キーなし
 Comment=
 TableInnerOption=
@@ -823,12 +822,12 @@ Index==1,COLUMN_B ,COLUMN_C
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241102190142
+ModifiedDateTime=20241217185315
 Position="MAIN",2100,100
 ZOrder=15
 
 [Entity]
-PName=M_SANSHO3
+PName=MB1_SANSHO3
 LName=参照３マスタ
 Comment=
 TableInnerOption=
@@ -841,13 +840,13 @@ Field="参照３名","SANSHO3_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241102190538
+ModifiedDateTime=20241217185125
 Position="MAIN",200,800
 ZOrder=16
 
 [Relation]
-Entity1=M_SANSHO3
-Entity2=T_ENTITY1
+Entity1=MB1_SANSHO3
+Entity2=TB1_ENTITY1
 RelationType1=1
 RelationType2=3
 Fields1=SANSHO3_NO
@@ -867,7 +866,7 @@ TermPos2=R
 ZOrder=17
 
 [Entity]
-PName=T_ENTITY3
+PName=TB1_ENTITY3
 LName=エンティティ３
 Comment=
 TableInnerOption=
@@ -882,13 +881,13 @@ Field="エンティティ３名","ENTITY3_MEI","*MEI","NOT NULL",,"","",$FFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110133409
+ModifiedDateTime=20241217185206
 Position="MAIN",2050,900
 ZOrder=18
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ENTITY3
+Entity1=TB1_ENTITY1
+Entity2=TB1_ENTITY3
 RelationType1=2
 RelationType2=1
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -909,7 +908,7 @@ TermPos2=R
 ZOrder=20
 
 [Entity]
-PName=T_ITOKO
+PName=TB1_ITOKO
 LName=従妹
 Comment=
 TableInnerOption=
@@ -925,13 +924,13 @@ Field="エンティティ枝番","ENTITY_BN","*BN",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241105203941
+ModifiedDateTime=20241217185225
 Position="MAIN",2800,750
 ZOrder=21
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ITOKO
+Entity1=TB1_ENTITY1
+Entity2=TB1_ITOKO
 RelationType1=1
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -951,7 +950,7 @@ TermPos2=R
 ZOrder=22
 
 [Entity]
-PName=M_KINO
+PName=MST_KINO
 LName=機能マスタ
 Comment=
 TableInnerOption=
@@ -966,13 +965,13 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241110112846
+ModifiedDateTime=20241217185007
 Position="MAIN",100,1900
 ZOrder=23
 
 [Relation]
-Entity1=M_KINO
-Entity2=M_NINKA
+Entity1=MST_KINO
+Entity2=MHR_NINKA
 RelationType1=2
 RelationType2=3
 Fields1=KINO_NM
@@ -992,7 +991,7 @@ TermPos2=R
 ZOrder=24
 
 [Entity]
-PName=T_ENTITY
+PName=TB2_ENTITY
 LName=エンティティ
 Comment=
 TableInnerOption=
@@ -1042,12 +1041,12 @@ Field="任意税抜金額","NULL_ZEINUKI_KG","*KG",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110134643
+ModifiedDateTime=20241217185304
 Position="MAIN",3400,700
 ZOrder=25
 
 [Entity]
-PName=T_ENTITY4
+PName=TB1_ENTITY4
 LName=エンティティ４
 Comment=
 TableInnerOption=
@@ -1062,13 +1061,13 @@ Field="エンティティ４名","ENTITY4_MEI","*MEI","NOT NULL",,"","",$FFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110133649
+ModifiedDateTime=20241217185212
 Position="MAIN",2050,1100
 ZOrder=26
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ENTITY4
+Entity1=TB1_ENTITY1
+Entity2=TB1_ENTITY4
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN
@@ -1088,7 +1087,7 @@ TermPos2=R
 ZOrder=27
 
 [Entity]
-PName=T_ENTITY5
+PName=TB1_ENTITY5
 LName=エンティティ５
 Comment=
 TableInnerOption=
@@ -1103,13 +1102,13 @@ Field="エンティティ５名","ENTITY5_MEI","*MEI","NOT NULL",,"","",$FFFFFFF
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241110133743
+ModifiedDateTime=20241217185218
 Position="MAIN",2050,1300
 ZOrder=28
 
 [Relation]
-Entity1=T_ENTITY1
-Entity2=T_ENTITY5
+Entity1=TB1_ENTITY1
+Entity2=TB1_ENTITY5
 RelationType1=2
 RelationType2=3
 Fields1=SOSEN_ID,OYA_BN,ENTITY_BN

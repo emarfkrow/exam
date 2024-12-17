@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.MNinka;
-import com.example.entity.MShozoku;
-import com.example.entity.MUser;
+import com.example.entity.MhrNinka;
+import com.example.entity.MhrShozoku;
+import com.example.entity.MhrUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jp.co.golorp.emarf.action.LoginActionBase;
@@ -31,12 +31,12 @@ public class LoginAction extends LoginActionBase {
         LoginForm loginForm = null;
 
         //現在有効なユーザマスタ取得
-        String mUserSql = this.loadSqlFile("MUserSearch");
+        String mUserSql = this.loadSqlFile("MhrUserSearch");
         Map<String, Object> mUserParam = new HashMap<String, Object>();
         mUserParam.put("userId", userId);
         mUserParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
         mUserParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
-        MUser mUser = Queries.get(mUserSql, mUserParam, MUser.class);
+        MhrUser mUser = Queries.get(mUserSql, mUserParam, MhrUser.class);
 
         if (mUser != null) {
 
@@ -62,29 +62,29 @@ public class LoginAction extends LoginActionBase {
             Map<String, String> authzInfo = new HashMap<String, String>();
 
             //現在有効な全ての所属情報を取得
-            String mShozokuSql = this.loadSqlFile("MShozokuSearch");
+            String mShozokuSql = this.loadSqlFile("MhrShozokuSearch");
             Map<String, Object> mShozokuParam = new HashMap<String, Object>();
             mShozokuParam.put("userId", userId);
             mShozokuParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
             mShozokuParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
-            List<MShozoku> mShozokus = Queries.select(mShozokuSql, mShozokuParam, MShozoku.class, null, null);
+            List<MhrShozoku> mShozokus = Queries.select(mShozokuSql, mShozokuParam, MhrShozoku.class, null, null);
 
             //所属情報でループ
             if (mShozokus != null) {
-                for (MShozoku mShozoku : mShozokus) {
+                for (MhrShozoku mShozoku : mShozokus) {
 
                     //全ての認可情報を取得
-                    String mNinkaSql = this.loadSqlFile("MNinkaSearch");
+                    String mNinkaSql = this.loadSqlFile("MhrNinkaSearch");
                     Map<String, Object> mNinkaParam = new HashMap<String, Object>();
                     mNinkaParam.put("bushoId", mShozoku.getBushoId());
                     mNinkaParam.put("shokuiId", mShozoku.getShokuiId());
                     mNinkaParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
                     mNinkaParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
-                    List<MNinka> mNinkas = Queries.select(mNinkaSql, mNinkaParam, MNinka.class, null, null);
+                    List<MhrNinka> mNinkas = Queries.select(mNinkaSql, mNinkaParam, MhrNinka.class, null, null);
 
                     //認可情報でループ
                     if (mNinkas != null) {
-                        for (MNinka mNinka : mNinkas) {
+                        for (MhrNinka mNinka : mNinkas) {
 
                             //機能ごとに、最大の権限を取得
                             if (!authzInfo.containsKey(mNinka.getKinoNm())) {

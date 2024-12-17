@@ -3,39 +3,44 @@
 <body>
   <div class="nav" layout:fragment="nav" th:if="${#ctx.session != null && #ctx.session.get('AUTHN_KEY') != null}">
     <dl>
-      <dt id="m" th:text="#{nav.dt.m}">m</dt>
+      <dt id="mb1" th:text="#{nav.dt.mb1}">mb1</dt>
       <dd>
         <ul>
-          <li><a id="MBusho" th:href="@{/model/MBushoS.html}" th:text="#{nav.MBushoS}">部署マスタ</a></li>
-          <li><a id="MKbn" th:href="@{/model/MKbnS.html}" th:text="#{nav.MKbnS}">区分マスタ</a></li>
-          <li><a id="MKbnValue" th:href="@{/model/MKbnValueS.html}" th:text="#{nav.MKbnValueS}">区分値マスタ</a></li>
-          <li><a id="MKino" th:href="@{/model/MKinoS.html}" th:text="#{nav.MKinoS}">機能マスタ</a></li>
-          <li><a id="MNinka" th:href="@{/model/MNinkaS.html}" th:text="#{nav.MNinkaS}">認可マスタ</a></li>
-          <li><a id="MSansho1" th:href="@{/model/MSansho1S.html}" th:text="#{nav.MSansho1S}">参照１マスタ</a></li>
-          <li><a id="MSansho2" th:href="@{/model/MSansho2S.html}" th:text="#{nav.MSansho2S}">参照２マスタ</a></li>
-          <li><a id="MSansho3" th:href="@{/model/MSansho3S.html}" th:text="#{nav.MSansho3S}">参照３マスタ</a></li>
-          <li><a id="MShokui" th:href="@{/model/MShokuiS.html}" th:text="#{nav.MShokuiS}">職位マスタ</a></li>
-          <li><a id="MShozoku" th:href="@{/model/MShozokuS.html}" th:text="#{nav.MShozokuS}">所属マスタ</a></li>
-          <li><a id="MUser" th:href="@{/model/MUserS.html}" th:text="#{nav.MUserS}">ユーザマスタ</a></li>
+          <li><a id="Mb1Sansho1" th:href="@{/model/Mb1Sansho1S.html}" th:text="#{nav.Mb1Sansho1S}">参照１マスタ</a></li>
+          <li><a id="Mb1Sansho2" th:href="@{/model/Mb1Sansho2S.html}" th:text="#{nav.Mb1Sansho2S}">参照２マスタ</a></li>
+          <li><a id="Mb1Sansho3" th:href="@{/model/Mb1Sansho3S.html}" th:text="#{nav.Mb1Sansho3S}">参照３マスタ</a></li>
         </ul>
       </dd>
-      <dt id="t" th:text="#{nav.dt.t}">t</dt>
+      <dt id="mhr" th:text="#{nav.dt.mhr}">mhr</dt>
       <dd>
         <ul>
-          <li><a id="TEntity" th:href="@{/model/TEntityS.html}" th:text="#{nav.TEntityS}">エンティティ</a></li>
-          <li><a id="TEntity1" th:href="@{/model/TEntity1S.html}" th:text="#{nav.TEntity1S}">エンティティ１</a></li>
-          <li><a id="TEntity1His" th:href="@{/model/TEntity1HisS.html}" th:text="#{nav.TEntity1HisS}">エンティティ１履歴</a></li>
-          <li><a id="TEntity2" th:href="@{/model/TEntity2S.html}" th:text="#{nav.TEntity2S}">エンティティ２</a></li>
-          <li><a id="TEntity3" th:href="@{/model/TEntity3S.html}" th:text="#{nav.TEntity3S}">エンティティ３</a></li>
-          <li><a id="TEntity4" th:href="@{/model/TEntity4S.html}" th:text="#{nav.TEntity4S}">エンティティ４</a></li>
-          <li><a id="TEntity5" th:href="@{/model/TEntity5S.html}" th:text="#{nav.TEntity5S}">エンティティ５</a></li>
-          <li><a id="TItoko" th:href="@{/model/TItokoS.html}" th:text="#{nav.TItokoS}">従妹</a></li>
-          <li><a id="TKo" th:href="@{/model/TKoS.html}" th:text="#{nav.TKoS}">子</a></li>
-          <li><a id="TNoPk" th:href="@{/model/TNoPkS.html}" th:text="#{nav.TNoPkS}">主キーなし</a></li>
-          <li><a id="TOya" th:href="@{/model/TOyaS.html}" th:text="#{nav.TOyaS}">親</a></li>
-          <li><a id="TShison" th:href="@{/model/TShisonS.html}" th:text="#{nav.TShisonS}">子孫</a></li>
-          <li><a id="TSosen" th:href="@{/model/TSosenS.html}" th:text="#{nav.TSosenS}">祖先</a></li>
-          <li><a id="TTenpuFile" th:href="@{/model/TTenpuFileS.html}" th:text="#{nav.TTenpuFileS}">添付ファイル</a></li>
+          <li><a id="MhrBusho" th:href="@{/model/MhrBushoS.html}" th:text="#{nav.MhrBushoS}">部署マスタ</a></li>
+          <li><a id="MhrNinka" th:href="@{/model/MhrNinkaS.html}" th:text="#{nav.MhrNinkaS}">認可マスタ</a></li>
+          <li><a id="MhrShokui" th:href="@{/model/MhrShokuiS.html}" th:text="#{nav.MhrShokuiS}">職位マスタ</a></li>
+          <li><a id="MhrShozoku" th:href="@{/model/MhrShozokuS.html}" th:text="#{nav.MhrShozokuS}">所属マスタ</a></li>
+          <li><a id="MhrUser" th:href="@{/model/MhrUserS.html}" th:text="#{nav.MhrUserS}">ユーザマスタ</a></li>
+        </ul>
+      </dd>
+      <dt id="mst" th:text="#{nav.dt.mst}">mst</dt>
+      <dd>
+        <ul>
+          <li><a id="MstKbn" th:href="@{/model/MstKbnS.html}" th:text="#{nav.MstKbnS}">区分マスタ</a></li>
+          <li><a id="MstKino" th:href="@{/model/MstKinoS.html}" th:text="#{nav.MstKinoS}">機能マスタ</a></li>
+        </ul>
+      </dd>
+      <dt id="tb1" th:text="#{nav.dt.tb1}">tb1</dt>
+      <dd>
+        <ul>
+          <li><a id="Tb1Entity1His" th:href="@{/model/Tb1Entity1HisS.html}" th:text="#{nav.Tb1Entity1HisS}">エンティティ１履歴</a></li>
+          <li><a id="Tb1Itoko" th:href="@{/model/Tb1ItokoS.html}" th:text="#{nav.Tb1ItokoS}">従妹</a></li>
+          <li><a id="Tb1Sosen" th:href="@{/model/Tb1SosenS.html}" th:text="#{nav.Tb1SosenS}">祖先</a></li>
+        </ul>
+      </dd>
+      <dt id="tb2" th:text="#{nav.dt.tb2}">tb2</dt>
+      <dd>
+        <ul>
+          <li><a id="Tb2Entity" th:href="@{/model/Tb2EntityS.html}" th:text="#{nav.Tb2EntityS}">エンティティ</a></li>
+          <li><a id="Tb2NoPk" th:href="@{/model/Tb2NoPkS.html}" th:text="#{nav.Tb2NoPkS}">主キーなし</a></li>
         </ul>
       </dd>
     </dl>

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.MUser;
+import com.example.entity.MhrUser;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.AppError;
@@ -48,7 +48,7 @@ public class PassresetAction extends BaseAction {
         }
 
         // 該当データなし
-        MUser mUser = MUser.get(userId);
+        MhrUser mUser = MhrUser.get(userId);
         if (mUser == null) {
             throw new AppError("error.passreset.user");
         }
