@@ -227,8 +227,8 @@ public class Tb2Entity implements IEntity {
 
     /** @param o 年月 */
     public void setNengetsuYm(final Object o) {
-        if (o != null) {
-            this.nengetsuYm = o.toString();
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nengetsuYm = String.valueOf(o.toString().replace("-", ""));
         } else {
             this.nengetsuYm = null;
         }
@@ -273,7 +273,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.timestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.timestampTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.timestampTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.timestampTs = null;
         }
@@ -300,7 +300,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.nichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.nichijiDt = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.nichijiDt = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.nichijiDt = null;
         }
@@ -339,7 +339,7 @@ public class Tb2Entity implements IEntity {
     /** @param o 時刻 */
     public void setJikokuHm(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.jikokuHm = java.time.LocalTime.parse(o.toString().substring(10));
+            this.jikokuHm = java.time.LocalTime.parse(o.toString());
         } else {
             this.jikokuHm = null;
         }
@@ -590,8 +590,8 @@ public class Tb2Entity implements IEntity {
 
     /** @param o 任意年月 */
     public void setNullNengetsuYm(final Object o) {
-        if (o != null) {
-            this.nullNengetsuYm = o.toString();
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.nullNengetsuYm = String.valueOf(o.toString().replace("-", ""));
         } else {
             this.nullNengetsuYm = null;
         }
@@ -636,7 +636,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.nullTimestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.nullTimestampTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.nullTimestampTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.nullTimestampTs = null;
         }
@@ -663,7 +663,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.nullNichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.nullNichijiDt = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.nullNichijiDt = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.nullNichijiDt = null;
         }
@@ -702,7 +702,7 @@ public class Tb2Entity implements IEntity {
     /** @param o 任意時刻 */
     public void setNullJikokuHm(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.nullJikokuHm = java.time.LocalTime.parse(o.toString().substring(10));
+            this.nullJikokuHm = java.time.LocalTime.parse(o.toString());
         } else {
             this.nullJikokuHm = null;
         }
@@ -801,7 +801,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.insertTs = null;
         }
@@ -846,7 +846,7 @@ public class Tb2Entity implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.updateTs = null;
         }

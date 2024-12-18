@@ -165,7 +165,7 @@ public class Tb1Shison implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.insertTs = null;
         }
@@ -210,7 +210,7 @@ public class Tb1Shison implements IEntity {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
         } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T"));
+            this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.updateTs = null;
         }
