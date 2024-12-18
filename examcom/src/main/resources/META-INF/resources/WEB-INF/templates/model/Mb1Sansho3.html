@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb1Sansho3.title}">参照３マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb1Sansho3.h2}">h2</h2>
+    <form name="Mb1Sansho3RegistForm" action="Mb1Sansho3Regist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Mb1Sansho3.legend}">legend</legend>
+        <div id="sansho3No">
+          <label for="Mb1Sansho3.sansho3No" th:text="#{Mb1Sansho3.sansho3No}">参照３NO</label><input type="text" id="Mb1Sansho3.sansho3No" name="Mb1Sansho3.sansho3No" maxlength="10" class=" primaryKey notblank" />
+        </div>
+        <div id="sansho3Mei">
+          <label for="Mb1Sansho3.sansho3Mei" th:text="#{Mb1Sansho3.sansho3Mei}">参照３名</label><input type="text" id="Mb1Sansho3.sansho3Mei" name="Mb1Sansho3.sansho3Mei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label for="Mb1Sansho3.insertTs" th:text="#{Mb1Sansho3.insertTs}">作成タイムスタンプ</label><span id="Mb1Sansho3.insertTs"></span><input type="hidden" id="Mb1Sansho3.insertTs" name="Mb1Sansho3.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Mb1Sansho3.insertId" th:text="#{Mb1Sansho3.insertId}">作成者</label><span id="Mb1Sansho3.insertId"></span><input type="hidden" id="Mb1Sansho3.insertId" name="Mb1Sansho3.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Mb1Sansho3.updateTs" th:text="#{Mb1Sansho3.updateTs}">更新タイムスタンプ</label><span id="Mb1Sansho3.updateTs"></span><input type="hidden" id="Mb1Sansho3.updateTs" name="Mb1Sansho3.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Mb1Sansho3.updateId" th:text="#{Mb1Sansho3.updateId}">更新者</label><span id="Mb1Sansho3.updateId"></span><input type="hidden" id="Mb1Sansho3.updateId" name="Mb1Sansho3.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Mb1Sansho3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb1Sansho3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMb1Sansho3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Mb1Sansho3Get.xlsx(baseMei=#{Mb1Sansho3.h2})}" id="Mb1Sansho3Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMb1Sansho3" class="delete" data-action="Mb1Sansho3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMb1Sansho3" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

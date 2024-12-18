@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MhrNinka.title}">認可マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MhrNinkaGridColumns.js}"></script>
+<script th:src="@{/model/MhrBushoGridColumns.js}"></script>
+<script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
+<script th:src="@{/model/MsyKinoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MhrNinka.h2}">h2</h2>
+    <form name="MhrNinkaRegistForm" action="MhrNinkaRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MhrNinka.legend}">legend</legend>
+        <div id="bushoId">
+          <label for="MhrNinka.bushoId" th:text="#{MhrNinka.bushoId}">部署ID</label><span id="MhrNinka.bushoId" class="primaryKey"></span><input type="hidden" id="MhrNinka.bushoId" name="MhrNinka.bushoId" class="primaryKey" /><a id="MhrNinka.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrNinka." class="refer"></span>
+        </div>
+        <div id="shokuiId">
+          <label for="MhrNinka.shokuiId" th:text="#{MhrNinka.shokuiId}">職位ID</label><span id="MhrNinka.shokuiId" class="primaryKey"></span><input type="hidden" id="MhrNinka.shokuiId" name="MhrNinka.shokuiId" class="primaryKey" /><a id="MhrNinka.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrNinka." class="refer"></span>
+        </div>
+        <div id="kinoNm">
+          <label for="MhrNinka.kinoNm" th:text="#{MhrNinka.kinoNm}">機能名称</label><input type="text" id="MhrNinka.kinoNm" name="MhrNinka.kinoNm" maxlength="30" class=" primaryKey notblank" /><a id="MhrNinka.kinoNm" th:href="@{/model/MsyKinoS.html}" target="dialog" class="refer primaryKey" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrNinka." class="refer primaryKey"></span>
+        </div>
+        <div id="kengenKb">
+          <fieldset id="MhrNinka.kengenKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:KENGEN_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrNinka.kengenKb}">権限区分</legend>
+          </fieldset>
+        </div>
+        <div id="kaishiBi">
+          <label for="MhrNinka.kaishiBi" th:text="#{MhrNinka.kaishiBi}">開始日</label><input type="text" id="MhrNinka.kaishiBi" name="MhrNinka.kaishiBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="shuryoBi">
+          <label for="MhrNinka.shuryoBi" th:text="#{MhrNinka.shuryoBi}">終了日</label><input type="text" id="MhrNinka.shuryoBi" name="MhrNinka.shuryoBi" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="insertTs">
+          <label for="MhrNinka.insertTs" th:text="#{MhrNinka.insertTs}">作成タイムスタンプ</label><span id="MhrNinka.insertTs"></span><input type="hidden" id="MhrNinka.insertTs" name="MhrNinka.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="MhrNinka.insertId" th:text="#{MhrNinka.insertId}">作成者</label><span id="MhrNinka.insertId"></span><input type="hidden" id="MhrNinka.insertId" name="MhrNinka.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="MhrNinka.updateTs" th:text="#{MhrNinka.updateTs}">更新タイムスタンプ</label><span id="MhrNinka.updateTs"></span><input type="hidden" id="MhrNinka.updateTs" name="MhrNinka.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="MhrNinka.updateId" th:text="#{MhrNinka.updateId}">更新者</label><span id="MhrNinka.updateId"></span><input type="hidden" id="MhrNinka.updateId" name="MhrNinka.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MhrNinka.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrNinka.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMhrNinka" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MhrNinkaGet.xlsx(baseMei=#{MhrNinka.h2})}" id="MhrNinkaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMhrNinka" class="delete" data-action="MhrNinkaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMhrNinka" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

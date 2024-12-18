@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MsyKbnVal.title}">区分値マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MsyKbnValGridColumns.js}"></script>
+<script th:src="@{/model/MsyKbnGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MsyKbnVal.h2}">h2</h2>
+    <form name="MsyKbnValRegistForm" action="MsyKbnValRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MsyKbnVal.legend}">legend</legend>
+        <div id="kbnNm">
+          <label for="MsyKbnVal.kbnNm" th:text="#{MsyKbnVal.kbnNm}">区分名称</label><input type="text" id="MsyKbnVal.kbnNm" name="MsyKbnVal.kbnNm" maxlength="30" class=" primaryKey notblank" /><a id="MsyKbnVal.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer primaryKey" th:text="#{common.refer}" tabindex="-1">...</a><span id="MsyKbnVal." class="refer primaryKey"></span>
+        </div>
+        <div id="kbnVal">
+          <label for="MsyKbnVal.kbnVal" th:text="#{MsyKbnVal.kbnVal}">区分値</label><input type="text" id="MsyKbnVal.kbnVal" name="MsyKbnVal.kbnVal" maxlength="2" class=" primaryKey notblank" />
+        </div>
+        <div id="kbnValMei">
+          <label for="MsyKbnVal.kbnValMei" th:text="#{MsyKbnVal.kbnValMei}">区分値名</label><input type="text" id="MsyKbnVal.kbnValMei" name="MsyKbnVal.kbnValMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="hyojiOn">
+          <label for="MsyKbnVal.hyojiOn" th:text="#{MsyKbnVal.hyojiOn}">表示順</label><input type="text" id="MsyKbnVal.hyojiOn" name="MsyKbnVal.hyojiOn" maxlength="10" class=" notblank" />
+        </div>
+        <div id="criteria">
+          <label for="MsyKbnVal.criteria" th:text="#{MsyKbnVal.criteria}">取得条件</label><input type="text" id="MsyKbnVal.criteria" name="MsyKbnVal.criteria" maxlength="800" />
+        </div>
+        <div id="insertTs">
+          <label for="MsyKbnVal.insertTs" th:text="#{MsyKbnVal.insertTs}">作成タイムスタンプ</label><span id="MsyKbnVal.insertTs"></span><input type="hidden" id="MsyKbnVal.insertTs" name="MsyKbnVal.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="MsyKbnVal.insertId" th:text="#{MsyKbnVal.insertId}">作成者</label><span id="MsyKbnVal.insertId"></span><input type="hidden" id="MsyKbnVal.insertId" name="MsyKbnVal.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="MsyKbnVal.updateTs" th:text="#{MsyKbnVal.updateTs}">更新タイムスタンプ</label><span id="MsyKbnVal.updateTs"></span><input type="hidden" id="MsyKbnVal.updateTs" name="MsyKbnVal.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="MsyKbnVal.updateId" th:text="#{MsyKbnVal.updateId}">更新者</label><span id="MsyKbnVal.updateId"></span><input type="hidden" id="MsyKbnVal.updateId" name="MsyKbnVal.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MsyKbnVal.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbnVal.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMsyKbnVal" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MsyKbnValGet.xlsx(baseMei=#{MsyKbnVal.h2})}" id="MsyKbnValGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMsyKbnVal" class="delete" data-action="MsyKbnValDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMsyKbnVal" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

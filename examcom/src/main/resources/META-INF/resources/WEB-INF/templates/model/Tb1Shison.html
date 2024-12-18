@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Shison.title}">子孫</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Shison.h2}">h2</h2>
+    <form name="Tb1ShisonRegistForm" action="Tb1ShisonRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1Shison.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1Shison.sosenId" th:text="#{Tb1Shison.sosenId}">祖先ID</label><span id="Tb1Shison.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Shison.sosenId" name="Tb1Shison.sosenId" class="primaryKey" /><a id="Tb1Shison.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Shison." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Shison.oyaBn" th:text="#{Tb1Shison.oyaBn}">親枝番</label><span id="Tb1Shison.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Shison.oyaBn" name="Tb1Shison.oyaBn" class="primaryKey" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1Shison.entityBn" th:text="#{Tb1Shison.entityBn}">エンティティ枝番</label><span id="Tb1Shison.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1Shison.entityBn" name="Tb1Shison.entityBn" class="primaryKey" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1Shison.koBn" th:text="#{Tb1Shison.koBn}">子枝番</label><span id="Tb1Shison.koBn" class="primaryKey"></span><input type="hidden" id="Tb1Shison.koBn" name="Tb1Shison.koBn" class="primaryKey" />
+        </div>
+        <div id="shisonBn">
+          <label for="Tb1Shison.shisonBn" th:text="#{Tb1Shison.shisonBn}">子孫枝番</label><span id="Tb1Shison.shisonBn" class="primaryKey"></span><input type="hidden" id="Tb1Shison.shisonBn" name="Tb1Shison.shisonBn" class="primaryKey" />
+        </div>
+        <div id="shisonMei">
+          <label for="Tb1Shison.shisonMei" th:text="#{Tb1Shison.shisonMei}">子孫名</label><input type="text" id="Tb1Shison.shisonMei" name="Tb1Shison.shisonMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label for="Tb1Shison.insertTs" th:text="#{Tb1Shison.insertTs}">作成タイムスタンプ</label><span id="Tb1Shison.insertTs"></span><input type="hidden" id="Tb1Shison.insertTs" name="Tb1Shison.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Tb1Shison.insertId" th:text="#{Tb1Shison.insertId}">作成者</label><span id="Tb1Shison.insertId"></span><input type="hidden" id="Tb1Shison.insertId" name="Tb1Shison.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Tb1Shison.updateTs" th:text="#{Tb1Shison.updateTs}">更新タイムスタンプ</label><span id="Tb1Shison.updateTs"></span><input type="hidden" id="Tb1Shison.updateTs" name="Tb1Shison.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Tb1Shison.updateId" th:text="#{Tb1Shison.updateId}">更新者</label><span id="Tb1Shison.updateId"></span><input type="hidden" id="Tb1Shison.updateId" name="Tb1Shison.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Shison.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Shison.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Shison" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1ShisonGet.xlsx(baseMei=#{Tb1Shison.h2})}" id="Tb1ShisonGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1Shison" class="delete" data-action="Tb1ShisonDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1Shison" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

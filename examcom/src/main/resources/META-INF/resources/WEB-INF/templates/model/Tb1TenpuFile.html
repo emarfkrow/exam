@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1TenpuFile.title}">添付ファイル</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1TenpuFile.h2}">h2</h2>
+    <form name="Tb1TenpuFileRegistForm" action="Tb1TenpuFileRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1TenpuFile.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1TenpuFile.sosenId" th:text="#{Tb1TenpuFile.sosenId}">祖先ID</label><span id="Tb1TenpuFile.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.sosenId" name="Tb1TenpuFile.sosenId" class="primaryKey" /><a id="Tb1TenpuFile.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenpuFile." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1TenpuFile.oyaBn" th:text="#{Tb1TenpuFile.oyaBn}">親枝番</label><span id="Tb1TenpuFile.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.oyaBn" name="Tb1TenpuFile.oyaBn" class="primaryKey" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1TenpuFile.entityBn" th:text="#{Tb1TenpuFile.entityBn}">エンティティ枝番</label><span id="Tb1TenpuFile.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.entityBn" name="Tb1TenpuFile.entityBn" class="primaryKey" />
+        </div>
+        <div id="tenpuFileBn">
+          <label for="Tb1TenpuFile.tenpuFileBn" th:text="#{Tb1TenpuFile.tenpuFileBn}">添付ファイル枝番</label><span id="Tb1TenpuFile.tenpuFileBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.tenpuFileBn" name="Tb1TenpuFile.tenpuFileBn" class="primaryKey" />
+        </div>
+        <div id="tenpuFileMei">
+          <label for="Tb1TenpuFile.tenpuFileMei" th:text="#{Tb1TenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="Tb1TenpuFile.tenpuFileMei" name="Tb1TenpuFile.tenpuFileMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="tenpuFilePath">
+          <label for="Tb1TenpuFile.tenpuFilePath" th:text="#{Tb1TenpuFile.tenpuFilePath}">添付ファイルパス</label><input type="file" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" maxlength="256" class=" notblank" /><a id="Tb1TenpuFile.tenpuFilePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" disabled />
+        </div>
+        <div id="insertTs">
+          <label for="Tb1TenpuFile.insertTs" th:text="#{Tb1TenpuFile.insertTs}">作成タイムスタンプ</label><span id="Tb1TenpuFile.insertTs"></span><input type="hidden" id="Tb1TenpuFile.insertTs" name="Tb1TenpuFile.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Tb1TenpuFile.insertId" th:text="#{Tb1TenpuFile.insertId}">作成者</label><span id="Tb1TenpuFile.insertId"></span><input type="hidden" id="Tb1TenpuFile.insertId" name="Tb1TenpuFile.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Tb1TenpuFile.updateTs" th:text="#{Tb1TenpuFile.updateTs}">更新タイムスタンプ</label><span id="Tb1TenpuFile.updateTs"></span><input type="hidden" id="Tb1TenpuFile.updateTs" name="Tb1TenpuFile.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Tb1TenpuFile.updateId" th:text="#{Tb1TenpuFile.updateId}">更新者</label><span id="Tb1TenpuFile.updateId"></span><input type="hidden" id="Tb1TenpuFile.updateId" name="Tb1TenpuFile.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1TenpuFile.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1TenpuFile.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTb1TenpuFile" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1TenpuFileGet.xlsx(baseMei=#{Tb1TenpuFile.h2})}" id="Tb1TenpuFileGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1TenpuFile" class="delete" data-action="Tb1TenpuFileDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1TenpuFile" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

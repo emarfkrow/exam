@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1KoS.title}">子</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1KoS.h2}">h2</h2>
+    <form name="Tb1KoSearchForm" action="Tb1KoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1KoS.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1Ko.sosenId" th:text="#{Tb1Ko.sosenId}">祖先ID</label><input type="text" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" maxlength="10" /><a id="Tb1Ko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Ko." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Ko.oyaBn" th:text="#{Tb1Ko.oyaBn}">親枝番</label><input type="text" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1Ko.entityBn" th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" maxlength="10" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1Ko.koBn" th:text="#{Tb1Ko.koBn}">子枝番</label><input type="text" id="Tb1Ko.koBn" name="Tb1Ko.koBn" maxlength="10" />
+        </div>
+        <div id="koMei">
+          <label for="Tb1Ko.koMei" th:text="#{Tb1Ko.koMei}">子名</label><input type="text" id="Tb1Ko.koMei" name="Tb1Ko.koMei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1Ko" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1Ko" class="search" data-gridId="Tb1KoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="Tb1KoSRegistForm" action="Tb1KoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1Ko.h3}">h3</h3>
+      <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/Tb1Ko.html}"></div>
+      <div id="Tb1KoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1KoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Ko&quot;]').click();">reset</button>
+        <a th:href="@{Tb1KoSearch.xlsx(baseMei=#{Tb1KoS.h2})}" id="Tb1KoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1KoS" class="delete selectRows" data-action="Tb1KoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1KoS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

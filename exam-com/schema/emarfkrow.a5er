@@ -75,10 +75,12 @@ FooterRight=
 ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
+GenerateDropTableStatement=1
+DropTableIfExists=1
 BackupRestoreTempTable=0
-CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"SYSDATE","",$FFFFFFFF
+CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_ID","*ID","NOT NULL",,"","",$FFFFFFFF
-CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"SYSDATE","",$FFFFFFFF
+CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="更新者","UPDATE_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="削除フラグ","DELETE_F","*F",,,"0","必須チェックにかかるのでNOTNULLにしない",$FFFFFFFF
 DefaultPkName=%0:s_PKC
@@ -180,8 +182,8 @@ Position="MAIN",2050,700
 ZOrder=-16
 
 [Relation]
-Entity1=MST_KBN
-Entity2=MST_KBN_VAL
+Entity1=MSY_KBN
+Entity2=MSY_KBN_VAL
 RelationType1=2
 RelationType2=4
 Fields1=KBN_NM
@@ -202,14 +204,14 @@ TermPos2=R
 ZOrder=-18
 
 [Entity]
-PName=MST_KBN_VAL
+PName=MSY_KBN_VAL
 LName=区分値マスタ
 Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
 Left=100
-Top=250
+Top=2250
 Field="区分名称","KBN_NM","*NM","NOT NULL",0,"","",$FFFFFFFF,""
 Field="区分値","KBN_VAL","*KB","NOT NULL",1,"","",$FFFFFFFF,""
 Field="区分値名","KBN_VAL_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
@@ -218,26 +220,26 @@ Field="取得条件","CRITERIA","*TX",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241218074245
-Position="MAIN",100,250
+ModifiedDateTime=20241218194726
+Position="MAIN",100,2250
 ZOrder=-19
 
 [Entity]
-PName=MST_KBN
+PName=MSY_KBN
 LName=区分マスタ
 Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
 Left=100
-Top=100
+Top=2100
 Field="区分名称","KBN_NM","*NM","NOT NULL",0,"","",$FFFFFFFF,""
 Field="区分名","KBN_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241217184814
-Position="MAIN",100,100
+ModifiedDateTime=20241218194712
+Position="MAIN",100,2100
 ZOrder=-20
 
 [Relation]
@@ -950,7 +952,7 @@ TermPos2=R
 ZOrder=22
 
 [Entity]
-PName=MST_KINO
+PName=MSY_KINO
 LName=機能マスタ
 Comment=
 TableInnerOption=
@@ -965,12 +967,12 @@ Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241217185007
+ModifiedDateTime=20241218194745
 Position="MAIN",100,1900
 ZOrder=23
 
 [Relation]
-Entity1=MST_KINO
+Entity1=MSY_KINO
 Entity2=MHR_NINKA
 RelationType1=2
 RelationType2=3
@@ -1041,7 +1043,7 @@ Field="任意税抜金額","NULL_ZEINUKI_KG","*KG",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241217185304
+ModifiedDateTime=20241218194939
 Position="MAIN",3400,600
 ZOrder=25
 

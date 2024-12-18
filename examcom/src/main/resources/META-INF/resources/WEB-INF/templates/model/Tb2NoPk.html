@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2NoPk.title}">主キーなし</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2NoPkGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2NoPk.h2}">h2</h2>
+    <form name="Tb2NoPkRegistForm" action="Tb2NoPkRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb2NoPk.legend}">legend</legend>
+        <div id="columnA">
+          <label for="Tb2NoPk.columnA" th:text="#{Tb2NoPk.columnA}">列Ａ</label><input type="text" id="Tb2NoPk.columnA" name="Tb2NoPk.columnA" maxlength="120" />
+        </div>
+        <div id="columnB">
+          <label for="Tb2NoPk.columnB" th:text="#{Tb2NoPk.columnB}">列Ｂ</label><input type="text" id="Tb2NoPk.columnB" name="Tb2NoPk.columnB" maxlength="120" />
+        </div>
+        <div id="columnC">
+          <label for="Tb2NoPk.columnC" th:text="#{Tb2NoPk.columnC}">列Ｃ</label><input type="text" id="Tb2NoPk.columnC" name="Tb2NoPk.columnC" maxlength="120" />
+        </div>
+        <div id="columnD">
+          <label for="Tb2NoPk.columnD" th:text="#{Tb2NoPk.columnD}">列Ｄ</label><input type="text" id="Tb2NoPk.columnD" name="Tb2NoPk.columnD" maxlength="120" />
+        </div>
+        <div id="columnE">
+          <label for="Tb2NoPk.columnE" th:text="#{Tb2NoPk.columnE}">列Ｅ</label><input type="text" id="Tb2NoPk.columnE" name="Tb2NoPk.columnE" maxlength="120" />
+        </div>
+        <div id="insertTs">
+          <label for="Tb2NoPk.insertTs" th:text="#{Tb2NoPk.insertTs}">作成タイムスタンプ</label><span id="Tb2NoPk.insertTs"></span><input type="hidden" id="Tb2NoPk.insertTs" name="Tb2NoPk.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Tb2NoPk.insertId" th:text="#{Tb2NoPk.insertId}">作成者</label><span id="Tb2NoPk.insertId"></span><input type="hidden" id="Tb2NoPk.insertId" name="Tb2NoPk.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Tb2NoPk.updateTs" th:text="#{Tb2NoPk.updateTs}">更新タイムスタンプ</label><span id="Tb2NoPk.updateTs"></span><input type="hidden" id="Tb2NoPk.updateTs" name="Tb2NoPk.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Tb2NoPk.updateId" th:text="#{Tb2NoPk.updateId}">更新者</label><span id="Tb2NoPk.updateId"></span><input type="hidden" id="Tb2NoPk.updateId" name="Tb2NoPk.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2NoPk.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2NoPk.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTb2NoPk" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb2NoPkGet.xlsx(baseMei=#{Tb2NoPk.h2})}" id="Tb2NoPkGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb2NoPk" class="delete" data-action="Tb2NoPkDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2NoPk" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MsyKbnS.title}">区分マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MsyKbnGridColumns.js}"></script>
+<script th:src="@{/model/MsyKbnValGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MsyKbnS.h2}">h2</h2>
+    <form name="MsyKbnSearchForm" action="MsyKbnSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{MsyKbnS.legend}">legend</legend>
+        <div id="kbnNm">
+          <label for="MsyKbn.kbnNm" th:text="#{MsyKbn.kbnNm}">区分名称</label><input type="text" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" maxlength="30" />
+        </div>
+        <div id="kbnMei">
+          <label for="MsyKbn.kbnMei" th:text="#{MsyKbn.kbnMei}">区分名</label><input type="text" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MsyKbn.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMsyKbn" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MsyKbn.html}" id="MsyKbn" class="anew" target="dialog" th:text="#{MsyKbn.add}" tabindex="-1">区分マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMsyKbn" class="search" data-gridId="MsyKbnGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="MsyKbnSRegistForm" action="MsyKbnSRegist.ajax" class="regist">
+      <h3 th:text="#{MsyKbn.h3}">h3</h3>
+      <div id="MsyKbnGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MsyKbn.html}"></div>
+      <div id="MsyKbnPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbn&quot;]').click();">reset</button>
+        <a th:href="@{MsyKbnSearch.xlsx(baseMei=#{MsyKbnS.h2})}" id="MsyKbnSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMsyKbnS" class="delete selectRows" data-action="MsyKbnSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMsyKbnS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

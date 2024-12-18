@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb1Sansho3S.title}">参照３マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb1Sansho3S.h2}">h2</h2>
+    <form name="Mb1Sansho3SearchForm" action="Mb1Sansho3Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Mb1Sansho3S.legend}">legend</legend>
+        <div id="sansho3No">
+          <label for="Mb1Sansho3.sansho3No" th:text="#{Mb1Sansho3.sansho3No}">参照３NO</label><input type="text" id="Mb1Sansho3.sansho3No" name="Mb1Sansho3.sansho3No" maxlength="10" />
+        </div>
+        <div id="sansho3Mei">
+          <label for="Mb1Sansho3.sansho3Mei" th:text="#{Mb1Sansho3.sansho3Mei}">参照３名</label><input type="text" id="Mb1Sansho3.sansho3Mei" name="Mb1Sansho3.sansho3Mei" maxlength="120" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Mb1Sansho3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb1Sansho3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMb1Sansho3" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Mb1Sansho3.html}" id="Mb1Sansho3" class="anew" target="dialog" th:text="#{Mb1Sansho3.add}" tabindex="-1">参照３マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMb1Sansho3" class="search" data-gridId="Mb1Sansho3Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <form name="Mb1Sansho3SRegistForm" action="Mb1Sansho3SRegist.ajax" class="regist">
+      <h3 th:text="#{Mb1Sansho3.h3}">h3</h3>
+      <div id="Mb1Sansho3Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb1Sansho3.html}"></div>
+      <div id="Mb1Sansho3Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMb1Sansho3S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb1Sansho3&quot;]').click();">reset</button>
+        <a th:href="@{Mb1Sansho3Search.xlsx(baseMei=#{Mb1Sansho3S.h2})}" id="Mb1Sansho3Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMb1Sansho3S" class="delete selectRows" data-action="Mb1Sansho3SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMb1Sansho3S" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

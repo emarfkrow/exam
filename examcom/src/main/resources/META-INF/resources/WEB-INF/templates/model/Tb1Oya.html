@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Oya.title}">親</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Oya.h2}">h2</h2>
+    <form name="Tb1OyaRegistForm" action="Tb1OyaRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1Oya.legend}">legend</legend>
+        <div id="sosenId">
+          <label for="Tb1Oya.sosenId" th:text="#{Tb1Oya.sosenId}">祖先ID</label><span id="Tb1Oya.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Oya.sosenId" name="Tb1Oya.sosenId" class="primaryKey" /><a id="Tb1Oya.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Oya." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Oya.oyaBn" th:text="#{Tb1Oya.oyaBn}">親枝番</label><span id="Tb1Oya.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" class="primaryKey" />
+        </div>
+        <div id="oyaMei">
+          <label for="Tb1Oya.oyaMei" th:text="#{Tb1Oya.oyaMei}">親名</label><input type="text" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label for="Tb1Oya.insertTs" th:text="#{Tb1Oya.insertTs}">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Tb1Oya.insertId" th:text="#{Tb1Oya.insertId}">作成者</label><span id="Tb1Oya.insertId"></span><input type="hidden" id="Tb1Oya.insertId" name="Tb1Oya.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Tb1Oya.updateTs" th:text="#{Tb1Oya.updateTs}">更新タイムスタンプ</label><span id="Tb1Oya.updateTs"></span><input type="hidden" id="Tb1Oya.updateTs" name="Tb1Oya.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Tb1Oya.updateId" th:text="#{Tb1Oya.updateId}">更新者</label><span id="Tb1Oya.updateId"></span><input type="hidden" id="Tb1Oya.updateId" name="Tb1Oya.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Oya.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Oya.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <h3 th:text="#{Tb1Entity1.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Entity1.html}" id="Tb1Entity1" target="dialog" th:text="#{Tb1Entity1.add}" class="addChild" tabindex="-1">エンティティ１</a>
+      <div id="Tb1Entity1Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity1.html}"></div>
+      <h3 th:text="#{Tb1Entity2.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Entity2.html}" id="Tb1Entity2" target="dialog" th:text="#{Tb1Entity2.add}" class="addChild" tabindex="-1">エンティティ２</a>
+      <div id="Tb1Entity2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity2.html}"></div>
+      <h3 th:text="#{Tb1Entity3.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Entity3.html}" id="Tb1Entity3" target="dialog" th:text="#{Tb1Entity3.add}" class="addChild" tabindex="-1">エンティティ３</a>
+      <div id="Tb1Entity3Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity3.html}"></div>
+      <h3 th:text="#{Tb1Entity4.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Entity4.html}" id="Tb1Entity4" target="dialog" th:text="#{Tb1Entity4.add}" class="addChild" tabindex="-1">エンティティ４</a>
+      <div id="Tb1Entity4Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity4.html}"></div>
+      <h3 th:text="#{Tb1Entity5.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Entity5.html}" id="Tb1Entity5" target="dialog" th:text="#{Tb1Entity5.add}" class="addChild" tabindex="-1">エンティティ５</a>
+      <div id="Tb1Entity5Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity5.html}"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1OyaGet.xlsx(baseMei=#{Tb1Oya.h2})}" id="Tb1OyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1Oya" class="delete" data-action="Tb1OyaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1Oya" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Itoko.title}">従妹</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1ItokoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Itoko.h2}">h2</h2>
+    <form name="Tb1ItokoRegistForm" action="Tb1ItokoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1Itoko.legend}">legend</legend>
+        <div id="itokoId">
+          <label for="Tb1Itoko.itokoId" th:text="#{Tb1Itoko.itokoId}">従妹ID</label><span id="Tb1Itoko.itokoId" class="primaryKey"></span><input type="hidden" id="Tb1Itoko.itokoId" name="Tb1Itoko.itokoId" class="primaryKey" />
+        </div>
+        <div id="itokoMei">
+          <label for="Tb1Itoko.itokoMei" th:text="#{Tb1Itoko.itokoMei}">従妹名</label><input type="text" id="Tb1Itoko.itokoMei" name="Tb1Itoko.itokoMei" maxlength="120" />
+        </div>
+        <div id="sosenId">
+          <label for="Tb1Itoko.sosenId" th:text="#{Tb1Itoko.sosenId}">祖先ID</label><input type="text" id="Tb1Itoko.sosenId" name="Tb1Itoko.sosenId" maxlength="10" /><a id="Tb1Itoko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Itoko." class="refer"></span>
+        </div>
+        <div id="oyaBn">
+          <label for="Tb1Itoko.oyaBn" th:text="#{Tb1Itoko.oyaBn}">親枝番</label><input type="text" id="Tb1Itoko.oyaBn" name="Tb1Itoko.oyaBn" maxlength="10" />
+        </div>
+        <div id="entityBn">
+          <label for="Tb1Itoko.entityBn" th:text="#{Tb1Itoko.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Itoko.entityBn" name="Tb1Itoko.entityBn" maxlength="10" />
+        </div>
+        <div id="insertTs">
+          <label for="Tb1Itoko.insertTs" th:text="#{Tb1Itoko.insertTs}">作成タイムスタンプ</label><span id="Tb1Itoko.insertTs"></span><input type="hidden" id="Tb1Itoko.insertTs" name="Tb1Itoko.insertTs" />
+        </div>
+        <div id="insertId">
+          <label for="Tb1Itoko.insertId" th:text="#{Tb1Itoko.insertId}">作成者</label><span id="Tb1Itoko.insertId"></span><input type="hidden" id="Tb1Itoko.insertId" name="Tb1Itoko.insertId" />
+        </div>
+        <div id="updateTs">
+          <label for="Tb1Itoko.updateTs" th:text="#{Tb1Itoko.updateTs}">更新タイムスタンプ</label><span id="Tb1Itoko.updateTs"></span><input type="hidden" id="Tb1Itoko.updateTs" name="Tb1Itoko.updateTs" />
+        </div>
+        <div id="updateId">
+          <label for="Tb1Itoko.updateId" th:text="#{Tb1Itoko.updateId}">更新者</label><span id="Tb1Itoko.updateId"></span><input type="hidden" id="Tb1Itoko.updateId" name="Tb1Itoko.updateId" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Itoko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Itoko.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Itoko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1ItokoGet.xlsx(baseMei=#{Tb1Itoko.h2})}" id="Tb1ItokoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1Itoko" class="delete" data-action="Tb1ItokoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1Itoko" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
