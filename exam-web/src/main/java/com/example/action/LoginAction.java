@@ -9,7 +9,7 @@ import com.example.entity.MhrShozoku;
 import com.example.entity.MhrUser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import jp.co.golorp.emarf.action.LoginActionBase;
+import jp.co.golorp.emarf.action.base.LoginActionBase;
 import jp.co.golorp.emarf.form.LoginForm;
 import jp.co.golorp.emarf.sql.Queries;
 import jp.co.golorp.emarf.time.DateTimeUtil;
@@ -21,12 +21,8 @@ import jp.co.golorp.emarf.time.DateTimeUtil;
  */
 public class LoginAction extends LoginActionBase {
 
-    /**
-     * ログイン情報の取得
-     * @param userId
-     * @return LoginForm
-     */
-    protected LoginForm getLoginForm(final String userId) {
+    @Override
+    protected final LoginForm getLoginForm(final String userId) {
 
         LoginForm loginForm = null;
 
