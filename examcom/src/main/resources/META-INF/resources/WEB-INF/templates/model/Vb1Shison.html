@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Vb1Shison.title}">VIEW</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Vb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Vb1Shison.h2}">h2</h2>
+    <form name="Vb1ShisonRegistForm" action="Vb1ShisonRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Vb1Shison.legend}">legend</legend>
+        <div id="sosenMei">
+          <label for="Vb1Shison.sosenMei" th:text="#{Vb1Shison.sosenMei}">祖先名</label><input type="text" id="Vb1Shison.sosenMei" name="Vb1Shison.sosenMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="oyaMei">
+          <label for="Vb1Shison.oyaMei" th:text="#{Vb1Shison.oyaMei}">親名</label><input type="text" id="Vb1Shison.oyaMei" name="Vb1Shison.oyaMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="entity1Mei">
+          <label for="Vb1Shison.entity1Mei" th:text="#{Vb1Shison.entity1Mei}">エンティティ名</label><input type="text" id="Vb1Shison.entity1Mei" name="Vb1Shison.entity1Mei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="koMei">
+          <label for="Vb1Shison.koMei" th:text="#{Vb1Shison.koMei}">子名</label><input type="text" id="Vb1Shison.koMei" name="Vb1Shison.koMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="shisonMei">
+          <label for="Vb1Shison.shisonMei" th:text="#{Vb1Shison.shisonMei}">子孫名</label><input type="text" id="Vb1Shison.shisonMei" name="Vb1Shison.shisonMei" maxlength="120" class=" notblank" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetVb1Shison" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Vb1ShisonGet.xlsx(baseMei=#{Vb1Shison.h2})}" id="Vb1ShisonGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

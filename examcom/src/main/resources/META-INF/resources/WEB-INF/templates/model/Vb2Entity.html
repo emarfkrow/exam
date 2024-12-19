@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Vb2Entity.title}">VIEW</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Vb2EntityGridColumns.js}"></script>
+<script th:src="@{/model/Tb2EntityGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Vb2Entity.h2}">h2</h2>
+    <form name="Vb2EntityRegistForm" action="Vb2EntityRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Vb2Entity.legend}">legend</legend>
+        <div id="entityId">
+          <label for="Vb2Entity.entityId" th:text="#{Vb2Entity.entityId}">エンティティID</label><input type="text" id="Vb2Entity.entityId" name="Vb2Entity.entityId" maxlength="10" class=" notblank" /><a id="Vb2Entity.entityId" th:href="@{/model/Tb2EntityS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Vb2Entity." class="refer"></span>
+        </div>
+        <div id="entityNm">
+          <label for="Vb2Entity.entityNm" th:text="#{Vb2Entity.entityNm}">エンティティ名称</label><input type="text" id="Vb2Entity.entityNm" name="Vb2Entity.entityNm" maxlength="30" class=" notblank" />
+        </div>
+        <div id="entityMei">
+          <label for="Vb2Entity.entityMei" th:text="#{Vb2Entity.entityMei}">エンティティ名</label><input type="text" id="Vb2Entity.entityMei" name="Vb2Entity.entityMei" maxlength="120" class=" notblank" />
+        </div>
+        <div id="checkF">
+          <fieldset id="Vb2Entity.checkFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:CHECK_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.checkF}">チェックフラグ</legend>
+          </fieldset>
+        </div>
+        <div id="radioKb">
+          <fieldset id="Vb2Entity.radioKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:RADIO_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.radioKb}">ラジオ区分</legend>
+          </fieldset>
+        </div>
+        <div id="pulldownKb">
+          <fieldset id="Vb2Entity.pulldownKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:PULLDOWN_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.pulldownKb}">プルダウン区分</legend>
+          </fieldset>
+        </div>
+        <div id="memoTx">
+          <label for="Vb2Entity.memoTx" th:text="#{Vb2Entity.memoTx}">メモ</label>
+          <textarea id="Vb2Entity.memoTx" name="Vb2Entity.memoTx"></textarea>
+        </div>
+        <div id="nenY">
+          <label for="Vb2Entity.nenY" th:text="#{Vb2Entity.nenY}">年</label><input type="text" id="Vb2Entity.nenY" name="Vb2Entity.nenY" maxlength="4" class=" notblank" />
+        </div>
+        <div id="tsukiM">
+          <label for="Vb2Entity.tsukiM" th:text="#{Vb2Entity.tsukiM}">月</label><input type="text" id="Vb2Entity.tsukiM" name="Vb2Entity.tsukiM" maxlength="2" class=" notblank" />
+        </div>
+        <div id="hiD">
+          <label for="Vb2Entity.hiD" th:text="#{Vb2Entity.hiD}">日</label><input type="text" id="Vb2Entity.hiD" name="Vb2Entity.hiD" maxlength="2" class=" notblank" />
+        </div>
+        <div id="nengetsuYm">
+          <label for="Vb2Entity.nengetsuYm" th:text="#{Vb2Entity.nengetsuYm}">年月</label><input type="month" id="Vb2Entity.nengetsuYm" name="Vb2Entity.nengetsuYm" maxlength="6" class=" notblank" />
+        </div>
+        <div id="nengappiYmd">
+          <label for="Vb2Entity.nengappiYmd" th:text="#{Vb2Entity.nengappiYmd}">年月日</label><input type="text" id="Vb2Entity.nengappiYmd" name="Vb2Entity.nengappiYmd" maxlength="8" class=" datepicker notblank" data-format="yymmdd" />
+        </div>
+        <div id="timestampTs">
+          <label for="Vb2Entity.timestampTs" th:text="#{Vb2Entity.timestampTs}">タイムスタンプ</label><input type="text" id="Vb2Entity.timestampTs" name="Vb2Entity.timestampTs" maxlength="23" class=" notblank" />
+        </div>
+        <div id="nichijiDt">
+          <label for="Vb2Entity.nichijiDt" th:text="#{Vb2Entity.nichijiDt}">日時</label><input type="datetime-local" id="Vb2Entity.nichijiDt" name="Vb2Entity.nichijiDt" maxlength="19" class=" notblank" />
+        </div>
+        <div id="hidukeBi">
+          <label for="Vb2Entity.hidukeBi" th:text="#{Vb2Entity.hidukeBi}">日付</label><input type="text" id="Vb2Entity.hidukeBi" name="Vb2Entity.hidukeBi" maxlength="10" class=" datepicker notblank" />
+        </div>
+        <div id="jikokuHm">
+          <label for="Vb2Entity.jikokuHm" th:text="#{Vb2Entity.jikokuHm}">時刻</label><input type="time" id="Vb2Entity.jikokuHm" name="Vb2Entity.jikokuHm" maxlength="5" class=" notblank" />
+        </div>
+        <div id="jikanTm">
+          <label for="Vb2Entity.jikanTm" th:text="#{Vb2Entity.jikanTm}">時間</label><input type="text" id="Vb2Entity.jikanTm" name="Vb2Entity.jikanTm" maxlength="9" class=" notblank" />
+        </div>
+        <div id="suryoQt">
+          <label for="Vb2Entity.suryoQt" th:text="#{Vb2Entity.suryoQt}">数量</label><input type="text" id="Vb2Entity.suryoQt" name="Vb2Entity.suryoQt" maxlength="9" class=" notblank" />
+        </div>
+        <div id="tankaKg">
+          <label for="Vb2Entity.tankaKg" th:text="#{Vb2Entity.tankaKg}">単価</label><input type="text" id="Vb2Entity.tankaKg" name="Vb2Entity.tankaKg" maxlength="11" class=" notblank" />
+        </div>
+        <div id="zeinukiKg">
+          <label for="Vb2Entity.zeinukiKg" th:text="#{Vb2Entity.zeinukiKg}">税抜金額</label><input type="text" id="Vb2Entity.zeinukiKg" name="Vb2Entity.zeinukiKg" maxlength="11" class=" notblank" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetVb2Entity" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Vb2EntityGet.xlsx(baseMei=#{Vb2Entity.h2})}" id="Vb2EntityGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>
