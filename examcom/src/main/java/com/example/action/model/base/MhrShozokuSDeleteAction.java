@@ -54,6 +54,7 @@ public class MhrShozokuSDeleteAction extends BaseAction {
             }
 
             MhrShozoku e = FormValidator.toBean(MhrShozoku.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

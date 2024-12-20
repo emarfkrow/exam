@@ -45,6 +45,7 @@ public class Mb1Sansho2SDeleteAction extends BaseAction {
             }
 
             Mb1Sansho2 e = FormValidator.toBean(Mb1Sansho2.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

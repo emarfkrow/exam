@@ -42,6 +42,7 @@ public class Vb1ShisonSDeleteAction extends BaseAction {
             // 主キーが不足していたらエラー
 
             Vb1Shison e = FormValidator.toBean(Vb1Shison.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

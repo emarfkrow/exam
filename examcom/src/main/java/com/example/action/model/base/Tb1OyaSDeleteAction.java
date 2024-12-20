@@ -48,11 +48,67 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             }
 
             Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), gridRow);
-            //tb1_entity1 parents:1
-            //tb1_entity2 parents:1
-            //tb1_entity3 parents:1
-            //tb1_entity4 parents:1
-            //tb1_entity5 parents:1
+
+            java.util.List<com.example.entity.Tb1Entity1> tb1Entity1s = e.referTb1Entity1s();
+            for (com.example.entity.Tb1Entity1 tb1Entity1 : tb1Entity1s) {
+
+                // child:tb1_ko, parents:5
+
+                // child:tb1_tenpu_file, parents:5
+
+                if (tb1Entity1.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity2> tb1Entity2s = e.referTb1Entity2s();
+            for (com.example.entity.Tb1Entity2 tb1Entity2 : tb1Entity2s) {
+
+                // child:tb1_ko, parents:5
+
+                // child:tb1_tenpu_file, parents:5
+
+                if (tb1Entity2.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity3> tb1Entity3s = e.referTb1Entity3s();
+            for (com.example.entity.Tb1Entity3 tb1Entity3 : tb1Entity3s) {
+
+                // child:tb1_ko, parents:5
+
+                // child:tb1_tenpu_file, parents:5
+
+                if (tb1Entity3.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity4> tb1Entity4s = e.referTb1Entity4s();
+            for (com.example.entity.Tb1Entity4 tb1Entity4 : tb1Entity4s) {
+
+                // child:tb1_ko, parents:5
+
+                // child:tb1_tenpu_file, parents:5
+
+                if (tb1Entity4.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity5> tb1Entity5s = e.referTb1Entity5s();
+            for (com.example.entity.Tb1Entity5 tb1Entity5 : tb1Entity5s) {
+
+                // child:tb1_ko, parents:5
+
+                // child:tb1_tenpu_file, parents:5
+
+                if (tb1Entity5.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

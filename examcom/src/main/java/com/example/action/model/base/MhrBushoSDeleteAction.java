@@ -45,6 +45,7 @@ public class MhrBushoSDeleteAction extends BaseAction {
             }
 
             MhrBusho e = FormValidator.toBean(MhrBusho.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

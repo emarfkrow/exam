@@ -45,6 +45,7 @@ public class Tb2EntitySDeleteAction extends BaseAction {
             }
 
             Tb2Entity e = FormValidator.toBean(Tb2Entity.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

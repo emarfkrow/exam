@@ -42,6 +42,7 @@ public class Vb2EntitySDeleteAction extends BaseAction {
             // 主キーが不足していたらエラー
 
             Vb2Entity e = FormValidator.toBean(Vb2Entity.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

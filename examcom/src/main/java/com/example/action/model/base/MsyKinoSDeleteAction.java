@@ -45,6 +45,7 @@ public class MsyKinoSDeleteAction extends BaseAction {
             }
 
             MsyKino e = FormValidator.toBean(MsyKino.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

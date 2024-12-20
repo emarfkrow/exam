@@ -45,6 +45,7 @@ public class Tb1ItokoSDeleteAction extends BaseAction {
             }
 
             Tb1Itoko e = FormValidator.toBean(Tb1Itoko.class.getName(), gridRow);
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }
