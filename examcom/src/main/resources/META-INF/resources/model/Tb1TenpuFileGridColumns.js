@@ -9,9 +9,5 @@ let Tb1TenpuFileGridColumns = [
     Column.comma('TENPU_FILE_BN', Messages['Tb1TenpuFileGrid.tenpuFileBn'], 80, 'primaryKey numbering', null),
     Column.text('TENPU_FILE_MEI', Messages['Tb1TenpuFileGrid.tenpuFileMei'], 300, 'notblank', null),
     Column.link('TENPU_FILE_PATH', Messages['Tb1TenpuFileGrid.tenpuFilePath'], 300, 'notblank'),
-    Column.cell('INSERT_TS', Messages['Tb1TenpuFileGrid.insertTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-    Column.cell('INSERT_ID', Messages['Tb1TenpuFileGrid.insertId'], 80, 'metaInfo', null),
-    Column.cell('UPDATE_TS', Messages['Tb1TenpuFileGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-    Column.cell('UPDATE_ID', Messages['Tb1TenpuFileGrid.updateId'], 80, 'metaInfo', null),
     Column.check('DELETE_F', Messages['Tb1TenpuFileGrid.deleteF'], 30, ''),
 ];

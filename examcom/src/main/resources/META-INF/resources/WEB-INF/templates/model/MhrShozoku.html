@@ -34,18 +34,7 @@
         <div id="shuryoBi">
           <label for="MhrShozoku.shuryoBi" th:text="#{MhrShozoku.shuryoBi}">終了日</label><input type="text" id="MhrShozoku.shuryoBi" name="MhrShozoku.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
-        <div id="insertTs">
-          <label for="MhrShozoku.insertTs" th:text="#{MhrShozoku.insertTs}">作成タイムスタンプ</label><span id="MhrShozoku.insertTs"></span><input type="hidden" id="MhrShozoku.insertTs" name="MhrShozoku.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="MhrShozoku.insertId" th:text="#{MhrShozoku.insertId}">作成者</label><span id="MhrShozoku.insertId"></span><input type="hidden" id="MhrShozoku.insertId" name="MhrShozoku.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="MhrShozoku.updateTs" th:text="#{MhrShozoku.updateTs}">更新タイムスタンプ</label><span id="MhrShozoku.updateTs"></span><input type="hidden" id="MhrShozoku.updateTs" name="MhrShozoku.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="MhrShozoku.updateId" th:text="#{MhrShozoku.updateId}">更新者</label><span id="MhrShozoku.updateId"></span><input type="hidden" id="MhrShozoku.updateId" name="MhrShozoku.updateId" />
-        </div>
+        <input type="hidden" name="MhrShozoku.updateTs" />
         <div id="deleteF">
           <fieldset id="MhrShozoku.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MhrShozoku.deleteF}">削除フラグ</legend>

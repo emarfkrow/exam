@@ -20,10 +20,10 @@
           <label for="Tb2Entity.entityId" th:text="#{Tb2Entity.entityId}">エンティティID</label><span id="Tb2Entity.entityId" class="primaryKey"></span><input type="hidden" id="Tb2Entity.entityId" name="Tb2Entity.entityId" class="primaryKey" />
         </div>
         <div id="entityNm">
-          <label for="Tb2Entity.entityNm" th:text="#{Tb2Entity.entityNm}">エンティティ名称</label><input type="text" id="Tb2Entity.entityNm" name="Tb2Entity.entityNm" maxlength="30" class=" notblank" />
+          <label for="Tb2Entity.entityNm" th:text="#{Tb2Entity.entityNm}">エンティティ名称</label><input type="text" id="Tb2Entity.entityNm" name="Tb2Entity.entityNm" maxlength="20" class=" notblank" />
         </div>
         <div id="entityMei">
-          <label for="Tb2Entity.entityMei" th:text="#{Tb2Entity.entityMei}">エンティティ名</label><input type="text" id="Tb2Entity.entityMei" name="Tb2Entity.entityMei" maxlength="120" class=" notblank" />
+          <label for="Tb2Entity.entityMei" th:text="#{Tb2Entity.entityMei}">エンティティ名</label><input type="text" id="Tb2Entity.entityMei" name="Tb2Entity.entityMei" maxlength="60" class=" notblank" />
         </div>
         <div id="checkF">
           <fieldset id="Tb2Entity.checkFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:CHECK_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -84,10 +84,10 @@
           <label for="Tb2Entity.zeinukiKg" th:text="#{Tb2Entity.zeinukiKg}">税抜金額</label><input type="text" id="Tb2Entity.zeinukiKg" name="Tb2Entity.zeinukiKg" maxlength="11" class=" notblank" />
         </div>
         <div id="nullEntityNm">
-          <label for="Tb2Entity.nullEntityNm" th:text="#{Tb2Entity.nullEntityNm}">任意エンティティ名称</label><input type="text" id="Tb2Entity.nullEntityNm" name="Tb2Entity.nullEntityNm" maxlength="30" />
+          <label for="Tb2Entity.nullEntityNm" th:text="#{Tb2Entity.nullEntityNm}">任意エンティティ名称</label><input type="text" id="Tb2Entity.nullEntityNm" name="Tb2Entity.nullEntityNm" maxlength="20" />
         </div>
         <div id="nullEntityMei">
-          <label for="Tb2Entity.nullEntityMei" th:text="#{Tb2Entity.nullEntityMei}">任意エンティティ名</label><input type="text" id="Tb2Entity.nullEntityMei" name="Tb2Entity.nullEntityMei" maxlength="120" />
+          <label for="Tb2Entity.nullEntityMei" th:text="#{Tb2Entity.nullEntityMei}">任意エンティティ名</label><input type="text" id="Tb2Entity.nullEntityMei" name="Tb2Entity.nullEntityMei" maxlength="60" />
         </div>
         <div id="nullCheckF">
           <fieldset id="Tb2Entity.nullCheckFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:NULL_CHECK_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -147,18 +147,7 @@
         <div id="nullZeinukiKg">
           <label for="Tb2Entity.nullZeinukiKg" th:text="#{Tb2Entity.nullZeinukiKg}">任意税抜金額</label><input type="text" id="Tb2Entity.nullZeinukiKg" name="Tb2Entity.nullZeinukiKg" maxlength="11" />
         </div>
-        <div id="insertTs">
-          <label for="Tb2Entity.insertTs" th:text="#{Tb2Entity.insertTs}">作成タイムスタンプ</label><span id="Tb2Entity.insertTs"></span><input type="hidden" id="Tb2Entity.insertTs" name="Tb2Entity.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="Tb2Entity.insertId" th:text="#{Tb2Entity.insertId}">作成者</label><span id="Tb2Entity.insertId"></span><input type="hidden" id="Tb2Entity.insertId" name="Tb2Entity.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="Tb2Entity.updateTs" th:text="#{Tb2Entity.updateTs}">更新タイムスタンプ</label><span id="Tb2Entity.updateTs"></span><input type="hidden" id="Tb2Entity.updateTs" name="Tb2Entity.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="Tb2Entity.updateId" th:text="#{Tb2Entity.updateId}">更新者</label><span id="Tb2Entity.updateId"></span><input type="hidden" id="Tb2Entity.updateId" name="Tb2Entity.updateId" />
-        </div>
+        <input type="hidden" name="Tb2Entity.updateTs" />
         <div id="deleteF">
           <fieldset id="Tb2Entity.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb2Entity.deleteF}">削除フラグ</legend>

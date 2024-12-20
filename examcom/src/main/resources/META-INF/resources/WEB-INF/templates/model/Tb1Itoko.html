@@ -33,7 +33,7 @@
           <label for="Tb1Itoko.itokoId" th:text="#{Tb1Itoko.itokoId}">従妹ID</label><span id="Tb1Itoko.itokoId" class="primaryKey"></span><input type="hidden" id="Tb1Itoko.itokoId" name="Tb1Itoko.itokoId" class="primaryKey" />
         </div>
         <div id="itokoMei">
-          <label for="Tb1Itoko.itokoMei" th:text="#{Tb1Itoko.itokoMei}">従妹名</label><input type="text" id="Tb1Itoko.itokoMei" name="Tb1Itoko.itokoMei" maxlength="120" />
+          <label for="Tb1Itoko.itokoMei" th:text="#{Tb1Itoko.itokoMei}">従妹名</label><input type="text" id="Tb1Itoko.itokoMei" name="Tb1Itoko.itokoMei" maxlength="60" />
         </div>
         <div id="sosenId">
           <label for="Tb1Itoko.sosenId" th:text="#{Tb1Itoko.sosenId}">祖先ID</label><input type="text" id="Tb1Itoko.sosenId" name="Tb1Itoko.sosenId" maxlength="10" /><a id="Tb1Itoko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Itoko." class="refer"></span>
@@ -44,18 +44,7 @@
         <div id="entityBn">
           <label for="Tb1Itoko.entityBn" th:text="#{Tb1Itoko.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Itoko.entityBn" name="Tb1Itoko.entityBn" maxlength="10" />
         </div>
-        <div id="insertTs">
-          <label for="Tb1Itoko.insertTs" th:text="#{Tb1Itoko.insertTs}">作成タイムスタンプ</label><span id="Tb1Itoko.insertTs"></span><input type="hidden" id="Tb1Itoko.insertTs" name="Tb1Itoko.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="Tb1Itoko.insertId" th:text="#{Tb1Itoko.insertId}">作成者</label><span id="Tb1Itoko.insertId"></span><input type="hidden" id="Tb1Itoko.insertId" name="Tb1Itoko.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="Tb1Itoko.updateTs" th:text="#{Tb1Itoko.updateTs}">更新タイムスタンプ</label><span id="Tb1Itoko.updateTs"></span><input type="hidden" id="Tb1Itoko.updateTs" name="Tb1Itoko.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="Tb1Itoko.updateId" th:text="#{Tb1Itoko.updateId}">更新者</label><span id="Tb1Itoko.updateId"></span><input type="hidden" id="Tb1Itoko.updateId" name="Tb1Itoko.updateId" />
-        </div>
+        <input type="hidden" name="Tb1Itoko.updateTs" />
         <div id="deleteF">
           <fieldset id="Tb1Itoko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1Itoko.deleteF}">削除フラグ</legend>

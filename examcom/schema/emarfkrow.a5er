@@ -17,10 +17,10 @@ Domain=BN=@INT
 DomainInfo="BN","@INT","上位キー単位の枝番（BranchNumber）","_BN"
 Domain=ON=@INT
 DomainInfo="ON","@INT","順番（OrderNumber）","_ON"
-Domain=NM=@VARCHAR(30)
-DomainInfo="NM","@VARCHAR(30)","名称・英名・半角30byte以内","_NM"
-Domain=MEI=@VARCHAR(120)
-DomainInfo="MEI","@VARCHAR(120)","名・和名・全角120byte以内","_MEI"
+Domain=NM=@VARCHAR(20)
+DomainInfo="NM","@VARCHAR(20)","名称・英名・半角20byte以内","_NM"
+Domain=MEI=@VARCHAR(60)
+DomainInfo="MEI","@VARCHAR(60)","名・和名・全角60byte以内","_MEI"
 Domain=F=@CHAR(1)
 DomainInfo="F","@CHAR(1)","フラグ・「0」か「1」","_F"
 Domain=KB=@VARCHAR(2)
@@ -73,10 +73,8 @@ FooterLeft=
 FooterCenter=
 FooterRight=
 ShowPageoutRelation=1
-RDBMSType=6
-RDBMSTypeName=MySQL
-GenerateDropTableStatement=1
-DropTableIfExists=1
+RDBMSTypeName=Oracle Database
+BackupRestoreTempTable=0
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
@@ -127,14 +125,14 @@ Top=550
 Field="ユーザID","USER_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="ユーザ姓","USER_SEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="ユーザ名","USER_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
-Field="メールアドレス","EMAIL","*TX","NOT NULL",,"","",$FFFFFFFF,""
+Field="メールアドレス","E_MAIL","*TX","NOT NULL",,"","",$FFFFFFFF,""
 Field="パスワード","PASSWORD","*TX","NOT NULL",,"","",$FFFFFFFF,""
 Field="開始日","KAISHI_BI","*BI",,,"","",$FFFFFFFF,""
 Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241217184754
+ModifiedDateTime=20241220143707
 Position="MAIN",2550,550
 ZOrder=-12
 
@@ -1144,14 +1142,14 @@ Top=1350
 
 [View]
 PName=VB1_SHISON
-LName=子孫検索
+LName=子孫
 Comment=
 Query=SELECT\n    TB1_SOSEN.SOSEN_MEI\n    , TB1_OYA.OYA_MEI\n    , TB1_ENTITY1.ENTITY1_MEI\n    , TB1_KO.KO_MEI\n    , TB1_SHISON.SHISON_MEI\n    , TB1_SOSEN.SOSEN_ID AS SEARCH_SOSEN_ID\n    , TB1_OYA.OYA_BN AS SEARCH_OYA_BN\n    , TB1_ENTITY1.ENTITY_BN AS SEARCH_ENTITY_BN\n    , TB1_KO.KO_BN AS SEARCH_KO_BN\n    , TB1_SHISON.SHISON_BN AS SEARCH_SHISON_BN \nFROM\n    TB1_SOSEN \n    INNER JOIN TB1_OYA \n        ON TB1_OYA.SOSEN_ID = TB1_SOSEN.SOSEN_ID \n    INNER JOIN TB1_ENTITY1 \n        ON TB1_OYA.SOSEN_ID = TB1_ENTITY1.SOSEN_ID \n        AND TB1_OYA.OYA_BN = TB1_ENTITY1.OYA_BN \n    INNER JOIN TB1_KO \n        ON TB1_ENTITY1.SOSEN_ID = TB1_KO.SOSEN_ID \n        AND TB1_ENTITY1.OYA_BN = TB1_KO.OYA_BN \n        AND TB1_ENTITY1.ENTITY_BN = TB1_KO.ENTITY_BN \n    INNER JOIN TB1_SHISON \n        ON TB1_KO.SOSEN_ID = TB1_SHISON.SOSEN_ID \n        AND TB1_KO.OYA_BN = TB1_SHISON.OYA_BN \n        AND TB1_KO.ENTITY_BN = TB1_SHISON.ENTITY_BN \n        AND TB1_KO.KO_BN = TB1_SHISON.KO_BN\n
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
-Position="Main",100,2400
+Position="MAIN",100,2400
 ZOrder=31
-Page=Main
+Page=MAIN
 Left=100
 Top=2400

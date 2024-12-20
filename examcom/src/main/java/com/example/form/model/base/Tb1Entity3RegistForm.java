@@ -75,7 +75,7 @@ public class Tb1Entity3RegistForm implements IForm {
 
     /** エンティティ３名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String entity3Mei;
 
     /**

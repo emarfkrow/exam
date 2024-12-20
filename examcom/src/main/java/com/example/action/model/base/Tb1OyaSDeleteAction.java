@@ -48,6 +48,11 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             }
 
             Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), gridRow);
+            //tb1_entity1 parents:1
+            //tb1_entity2 parents:1
+            //tb1_entity3 parents:1
+            //tb1_entity4 parents:1
+            //tb1_entity5 parents:1
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

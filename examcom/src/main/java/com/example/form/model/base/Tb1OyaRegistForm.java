@@ -57,7 +57,7 @@ public class Tb1OyaRegistForm implements IForm {
 
     /** 親名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String oyaMei;
 
     /**

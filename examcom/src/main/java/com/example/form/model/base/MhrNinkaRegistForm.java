@@ -56,7 +56,7 @@ public class MhrNinkaRegistForm implements IForm {
 
     /** 機能名称 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 20)
     private String kinoNm;
 
     /**

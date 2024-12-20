@@ -20,13 +20,13 @@
           <label for="MhrUser.userId" th:text="#{MhrUser.userId}">ユーザID</label><span id="MhrUser.userId" class="primaryKey"></span><input type="hidden" id="MhrUser.userId" name="MhrUser.userId" class="primaryKey" />
         </div>
         <div id="userSei">
-          <label for="MhrUser.userSei" th:text="#{MhrUser.userSei}">ユーザ姓</label><input type="text" id="MhrUser.userSei" name="MhrUser.userSei" maxlength="120" class=" notblank" />
+          <label for="MhrUser.userSei" th:text="#{MhrUser.userSei}">ユーザ姓</label><input type="text" id="MhrUser.userSei" name="MhrUser.userSei" maxlength="60" class=" notblank" />
         </div>
         <div id="userMei">
-          <label for="MhrUser.userMei" th:text="#{MhrUser.userMei}">ユーザ名</label><input type="text" id="MhrUser.userMei" name="MhrUser.userMei" maxlength="120" class=" notblank" />
+          <label for="MhrUser.userMei" th:text="#{MhrUser.userMei}">ユーザ名</label><input type="text" id="MhrUser.userMei" name="MhrUser.userMei" maxlength="60" class=" notblank" />
         </div>
-        <div id="email">
-          <label for="MhrUser.email" th:text="#{MhrUser.email}">メールアドレス</label><input type="text" id="MhrUser.email" name="MhrUser.email" maxlength="800" class=" notblank" />
+        <div id="eMail">
+          <label for="MhrUser.eMail" th:text="#{MhrUser.eMail}">メールアドレス</label><input type="text" id="MhrUser.eMail" name="MhrUser.eMail" maxlength="800" class=" notblank" />
         </div>
         <div id="password">
           <label for="MhrUser.password" th:text="#{MhrUser.password}">パスワード</label><input type="text" id="MhrUser.password" name="MhrUser.password" maxlength="800" class=" notblank" />
@@ -37,18 +37,7 @@
         <div id="shuryoBi">
           <label for="MhrUser.shuryoBi" th:text="#{MhrUser.shuryoBi}">終了日</label><input type="text" id="MhrUser.shuryoBi" name="MhrUser.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
-        <div id="insertTs">
-          <label for="MhrUser.insertTs" th:text="#{MhrUser.insertTs}">作成タイムスタンプ</label><span id="MhrUser.insertTs"></span><input type="hidden" id="MhrUser.insertTs" name="MhrUser.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="MhrUser.insertId" th:text="#{MhrUser.insertId}">作成者</label><span id="MhrUser.insertId"></span><input type="hidden" id="MhrUser.insertId" name="MhrUser.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="MhrUser.updateTs" th:text="#{MhrUser.updateTs}">更新タイムスタンプ</label><span id="MhrUser.updateTs"></span><input type="hidden" id="MhrUser.updateTs" name="MhrUser.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="MhrUser.updateId" th:text="#{MhrUser.updateId}">更新者</label><span id="MhrUser.updateId"></span><input type="hidden" id="MhrUser.updateId" name="MhrUser.updateId" />
-        </div>
+        <input type="hidden" name="MhrUser.updateTs" />
         <div id="deleteF">
           <fieldset id="MhrUser.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MhrUser.deleteF}">削除フラグ</legend>

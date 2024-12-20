@@ -39,7 +39,7 @@ public class Mb1Sansho2RegistForm implements IForm {
 
     /** 参照２名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sansho2Mei;
 
     /**

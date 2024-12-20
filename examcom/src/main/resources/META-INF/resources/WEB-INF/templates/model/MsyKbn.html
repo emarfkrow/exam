@@ -18,23 +18,12 @@
       <fieldset>
         <legend th:text="#{MsyKbn.legend}">legend</legend>
         <div id="kbnNm">
-          <label for="MsyKbn.kbnNm" th:text="#{MsyKbn.kbnNm}">区分名称</label><input type="text" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" maxlength="30" class=" primaryKey notblank" />
+          <label for="MsyKbn.kbnNm" th:text="#{MsyKbn.kbnNm}">区分名称</label><input type="text" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" maxlength="20" class=" primaryKey notblank" />
         </div>
         <div id="kbnMei">
-          <label for="MsyKbn.kbnMei" th:text="#{MsyKbn.kbnMei}">区分名</label><input type="text" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" maxlength="120" class=" notblank" />
+          <label for="MsyKbn.kbnMei" th:text="#{MsyKbn.kbnMei}">区分名</label><input type="text" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" maxlength="60" class=" notblank" />
         </div>
-        <div id="insertTs">
-          <label for="MsyKbn.insertTs" th:text="#{MsyKbn.insertTs}">作成タイムスタンプ</label><span id="MsyKbn.insertTs"></span><input type="hidden" id="MsyKbn.insertTs" name="MsyKbn.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="MsyKbn.insertId" th:text="#{MsyKbn.insertId}">作成者</label><span id="MsyKbn.insertId"></span><input type="hidden" id="MsyKbn.insertId" name="MsyKbn.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="MsyKbn.updateTs" th:text="#{MsyKbn.updateTs}">更新タイムスタンプ</label><span id="MsyKbn.updateTs"></span><input type="hidden" id="MsyKbn.updateTs" name="MsyKbn.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="MsyKbn.updateId" th:text="#{MsyKbn.updateId}">更新者</label><span id="MsyKbn.updateId"></span><input type="hidden" id="MsyKbn.updateId" name="MsyKbn.updateId" />
-        </div>
+        <input type="hidden" name="MsyKbn.updateTs" />
         <div id="deleteF">
           <fieldset id="MsyKbn.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>

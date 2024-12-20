@@ -39,7 +39,7 @@ public class Tb1SosenRegistForm implements IForm {
 
     /** 祖先名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sosenMei;
 
     /**

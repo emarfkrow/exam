@@ -75,7 +75,7 @@ public class Tb1Entity1RegistForm implements IForm {
 
     /** エンティティ名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String entity1Mei;
 
     /**
@@ -111,7 +111,7 @@ public class Tb1Entity1RegistForm implements IForm {
     }
 
     /** 参照１名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sansho1Mei;
 
     /**
@@ -147,7 +147,7 @@ public class Tb1Entity1RegistForm implements IForm {
     }
 
     /** 参照２名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sansho2Mei;
 
     /**
@@ -183,7 +183,7 @@ public class Tb1Entity1RegistForm implements IForm {
     }
 
     /** 参照３名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sansho3Mei;
 
     /**
@@ -219,7 +219,7 @@ public class Tb1Entity1RegistForm implements IForm {
     }
 
     /** 別参照１名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String betsuSansho1Mei;
 
     /**

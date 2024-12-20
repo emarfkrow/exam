@@ -38,7 +38,7 @@ public class Tb2EntityRegistForm implements IForm {
 
     /** エンティティ名称 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 20)
     private String entityNm;
 
     /**
@@ -57,7 +57,7 @@ public class Tb2EntityRegistForm implements IForm {
 
     /** エンティティ名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String entityMei;
 
     /**
@@ -398,7 +398,7 @@ public class Tb2EntityRegistForm implements IForm {
     }
 
     /** 任意エンティティ名称 */
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 20)
     private String nullEntityNm;
 
     /**
@@ -416,7 +416,7 @@ public class Tb2EntityRegistForm implements IForm {
     }
 
     /** 任意エンティティ名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String nullEntityMei;
 
     /**

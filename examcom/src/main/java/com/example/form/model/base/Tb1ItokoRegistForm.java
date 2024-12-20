@@ -37,7 +37,7 @@ public class Tb1ItokoRegistForm implements IForm {
     }
 
     /** 従妹名 */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String itokoMei;
 
     /**

@@ -92,7 +92,7 @@ public class Tb1TenpuFileRegistForm implements IForm {
 
     /** 添付ファイル名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String tenpuFileMei;
 
     /**

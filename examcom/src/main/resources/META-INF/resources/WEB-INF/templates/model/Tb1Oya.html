@@ -35,20 +35,9 @@
           <label for="Tb1Oya.oyaBn" th:text="#{Tb1Oya.oyaBn}">親枝番</label><span id="Tb1Oya.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" class="primaryKey" />
         </div>
         <div id="oyaMei">
-          <label for="Tb1Oya.oyaMei" th:text="#{Tb1Oya.oyaMei}">親名</label><input type="text" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" maxlength="120" class=" notblank" />
+          <label for="Tb1Oya.oyaMei" th:text="#{Tb1Oya.oyaMei}">親名</label><input type="text" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" maxlength="60" class=" notblank" />
         </div>
-        <div id="insertTs">
-          <label for="Tb1Oya.insertTs" th:text="#{Tb1Oya.insertTs}">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="Tb1Oya.insertId" th:text="#{Tb1Oya.insertId}">作成者</label><span id="Tb1Oya.insertId"></span><input type="hidden" id="Tb1Oya.insertId" name="Tb1Oya.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="Tb1Oya.updateTs" th:text="#{Tb1Oya.updateTs}">更新タイムスタンプ</label><span id="Tb1Oya.updateTs"></span><input type="hidden" id="Tb1Oya.updateTs" name="Tb1Oya.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="Tb1Oya.updateId" th:text="#{Tb1Oya.updateId}">更新者</label><span id="Tb1Oya.updateId"></span><input type="hidden" id="Tb1Oya.updateId" name="Tb1Oya.updateId" />
-        </div>
+        <input type="hidden" name="Tb1Oya.updateTs" />
         <div id="deleteF">
           <fieldset id="Tb1Oya.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1Oya.deleteF}">削除フラグ</legend>

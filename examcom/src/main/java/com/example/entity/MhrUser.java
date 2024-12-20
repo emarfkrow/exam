@@ -91,20 +91,20 @@ public class MhrUser implements IEntity {
     }
 
     /** メールアドレス */
-    private String email;
+    private String eMail;
 
     /** @return メールアドレス */
-    @com.fasterxml.jackson.annotation.JsonProperty("EMAIL")
-    public String getEmail() {
-        return this.email;
+    @com.fasterxml.jackson.annotation.JsonProperty("E_MAIL")
+    public String getEMail() {
+        return this.eMail;
     }
 
     /** @param o メールアドレス */
-    public void setEmail(final Object o) {
+    public void setEMail(final Object o) {
         if (o != null) {
-            this.email = o.toString();
+            this.eMail = o.toString();
         } else {
-            this.email = null;
+            this.eMail = null;
         }
     }
 
@@ -289,7 +289,7 @@ public class MhrUser implements IEntity {
         sql += "      a.`USER_ID` \n";
         sql += "    , a.`USER_SEI` \n";
         sql += "    , a.`USER_MEI` \n";
-        sql += "    , a.`EMAIL` \n";
+        sql += "    , a.`E_MAIL` \n";
         sql += "    , a.`PASSWORD` \n";
         sql += "    , a.`KAISHI_BI` AS KAISHI_BI \n";
         sql += "    , a.`SHURYO_BI` AS SHURYO_BI \n";
@@ -329,7 +329,7 @@ public class MhrUser implements IEntity {
         nameList.add("`USER_ID` -- :user_id");
         nameList.add("`USER_SEI` -- :user_sei");
         nameList.add("`USER_MEI` -- :user_mei");
-        nameList.add("`EMAIL` -- :email");
+        nameList.add("`E_MAIL` -- :e_mail");
         nameList.add("`PASSWORD` -- :password");
         nameList.add("`KAISHI_BI` -- :kaishi_bi");
         nameList.add("`SHURYO_BI` -- :shuryo_bi");
@@ -347,7 +347,7 @@ public class MhrUser implements IEntity {
         valueList.add(":user_id");
         valueList.add(":user_sei");
         valueList.add(":user_mei");
-        valueList.add(":email");
+        valueList.add(":e_mail");
         valueList.add(":password");
         valueList.add(":kaishi_bi");
         valueList.add(":shuryo_bi");
@@ -390,7 +390,7 @@ public class MhrUser implements IEntity {
         setList.add("`USER_ID` = :user_id");
         setList.add("`USER_SEI` = :user_sei");
         setList.add("`USER_MEI` = :user_mei");
-        setList.add("`EMAIL` = :email");
+        setList.add("`E_MAIL` = :e_mail");
         setList.add("`PASSWORD` = :password");
         setList.add("`KAISHI_BI` = :kaishi_bi");
         setList.add("`SHURYO_BI` = :shuryo_bi");
@@ -428,7 +428,7 @@ public class MhrUser implements IEntity {
         map.put("user_id", this.userId);
         map.put("user_sei", this.userSei);
         map.put("user_mei", this.userMei);
-        map.put("email", this.email);
+        map.put("e_mail", this.eMail);
         map.put("password", this.password);
         map.put("kaishi_bi", this.kaishiBi);
         map.put("shuryo_bi", this.shuryoBi);

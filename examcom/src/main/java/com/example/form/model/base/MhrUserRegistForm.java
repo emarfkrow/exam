@@ -38,7 +38,7 @@ public class MhrUserRegistForm implements IForm {
 
     /** ユーザ姓 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String userSei;
 
     /**
@@ -57,7 +57,7 @@ public class MhrUserRegistForm implements IForm {
 
     /** ユーザ名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String userMei;
 
     /**
@@ -77,20 +77,20 @@ public class MhrUserRegistForm implements IForm {
     /** メールアドレス */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 800)
-    private String email;
+    private String eMail;
 
     /**
      * @return メールアドレス
      */
-    public String getEmail() {
-        return email;
+    public String getEMail() {
+        return eMail;
     }
 
     /**
      * @param p メールアドレス
      */
-    public void setEmail(final String p) {
-        this.email = p;
+    public void setEMail(final String p) {
+        this.eMail = p;
     }
 
     /** パスワード */

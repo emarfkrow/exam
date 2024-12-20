@@ -39,7 +39,7 @@ public class Vb2EntityRegistForm implements IForm {
 
     /** エンティティ名称 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 30)
+    @jakarta.validation.constraints.Size(max = 20)
     private String entityNm;
 
     /**
@@ -58,7 +58,7 @@ public class Vb2EntityRegistForm implements IForm {
 
     /** エンティティ名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String entityMei;
 
     /**

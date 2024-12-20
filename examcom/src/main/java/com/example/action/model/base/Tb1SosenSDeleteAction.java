@@ -45,6 +45,7 @@ public class Tb1SosenSDeleteAction extends BaseAction {
             }
 
             Tb1Sosen e = FormValidator.toBean(Tb1Sosen.class.getName(), gridRow);
+            //tb1_oya parents:1
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

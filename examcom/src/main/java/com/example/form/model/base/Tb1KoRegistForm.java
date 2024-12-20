@@ -93,7 +93,7 @@ public class Tb1KoRegistForm implements IForm {
 
     /** 子名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String koMei;
 
     /**

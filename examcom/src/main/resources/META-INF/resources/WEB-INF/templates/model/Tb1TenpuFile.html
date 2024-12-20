@@ -41,23 +41,12 @@
           <label for="Tb1TenpuFile.tenpuFileBn" th:text="#{Tb1TenpuFile.tenpuFileBn}">添付ファイル枝番</label><span id="Tb1TenpuFile.tenpuFileBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.tenpuFileBn" name="Tb1TenpuFile.tenpuFileBn" class="primaryKey" />
         </div>
         <div id="tenpuFileMei">
-          <label for="Tb1TenpuFile.tenpuFileMei" th:text="#{Tb1TenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="Tb1TenpuFile.tenpuFileMei" name="Tb1TenpuFile.tenpuFileMei" maxlength="120" class=" notblank" />
+          <label for="Tb1TenpuFile.tenpuFileMei" th:text="#{Tb1TenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="Tb1TenpuFile.tenpuFileMei" name="Tb1TenpuFile.tenpuFileMei" maxlength="60" class=" notblank" />
         </div>
         <div id="tenpuFilePath">
           <label for="Tb1TenpuFile.tenpuFilePath" th:text="#{Tb1TenpuFile.tenpuFilePath}">添付ファイルパス</label><input type="file" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" maxlength="256" class=" notblank" /><a id="Tb1TenpuFile.tenpuFilePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" disabled />
         </div>
-        <div id="insertTs">
-          <label for="Tb1TenpuFile.insertTs" th:text="#{Tb1TenpuFile.insertTs}">作成タイムスタンプ</label><span id="Tb1TenpuFile.insertTs"></span><input type="hidden" id="Tb1TenpuFile.insertTs" name="Tb1TenpuFile.insertTs" />
-        </div>
-        <div id="insertId">
-          <label for="Tb1TenpuFile.insertId" th:text="#{Tb1TenpuFile.insertId}">作成者</label><span id="Tb1TenpuFile.insertId"></span><input type="hidden" id="Tb1TenpuFile.insertId" name="Tb1TenpuFile.insertId" />
-        </div>
-        <div id="updateTs">
-          <label for="Tb1TenpuFile.updateTs" th:text="#{Tb1TenpuFile.updateTs}">更新タイムスタンプ</label><span id="Tb1TenpuFile.updateTs"></span><input type="hidden" id="Tb1TenpuFile.updateTs" name="Tb1TenpuFile.updateTs" />
-        </div>
-        <div id="updateId">
-          <label for="Tb1TenpuFile.updateId" th:text="#{Tb1TenpuFile.updateId}">更新者</label><span id="Tb1TenpuFile.updateId"></span><input type="hidden" id="Tb1TenpuFile.updateId" name="Tb1TenpuFile.updateId" />
-        </div>
+        <input type="hidden" name="Tb1TenpuFile.updateTs" />
         <div id="deleteF">
           <fieldset id="Tb1TenpuFile.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1TenpuFile.deleteF}">削除フラグ</legend>

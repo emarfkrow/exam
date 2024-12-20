@@ -45,6 +45,7 @@ public class MsyKbnSDeleteAction extends BaseAction {
             }
 
             MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), gridRow);
+            //msy_kbn_val parents:1
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

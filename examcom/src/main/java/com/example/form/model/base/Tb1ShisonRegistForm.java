@@ -110,7 +110,7 @@ public class Tb1ShisonRegistForm implements IForm {
 
     /** 子孫名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String shisonMei;
 
     /**

@@ -18,7 +18,7 @@ public class PassmailAction extends PassmailActionBase {
         MhrUser mhrUser = MhrUser.get(userId);
 
         LoginForm loginForm = new LoginForm();
-        loginForm.setEmail(mhrUser.getEmail());
+        loginForm.setEmail(mhrUser.getEMail());
         loginForm.setAuthnMei(mhrUser.getUserSei() + mhrUser.getUserMei());
 
         return loginForm;

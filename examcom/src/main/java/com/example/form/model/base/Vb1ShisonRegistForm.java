@@ -20,7 +20,7 @@ public class Vb1ShisonRegistForm implements IForm {
 
     /** 祖先名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String sosenMei;
 
     /**
@@ -39,7 +39,7 @@ public class Vb1ShisonRegistForm implements IForm {
 
     /** 親名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String oyaMei;
 
     /**
@@ -58,7 +58,7 @@ public class Vb1ShisonRegistForm implements IForm {
 
     /** エンティティ名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String entity1Mei;
 
     /**
@@ -77,7 +77,7 @@ public class Vb1ShisonRegistForm implements IForm {
 
     /** 子名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String koMei;
 
     /**
@@ -96,7 +96,7 @@ public class Vb1ShisonRegistForm implements IForm {
 
     /** 子孫名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String shisonMei;
 
     /**

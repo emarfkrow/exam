@@ -38,7 +38,7 @@ public class MhrBushoRegistForm implements IForm {
 
     /** 部署名 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String bushoMei;
 
     /**

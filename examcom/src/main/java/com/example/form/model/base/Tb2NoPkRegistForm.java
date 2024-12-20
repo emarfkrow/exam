@@ -19,7 +19,7 @@ public class Tb2NoPkRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb2NoPkRegistForm.class);
 
     /** 列Ａ */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String columnA;
 
     /**
@@ -37,7 +37,7 @@ public class Tb2NoPkRegistForm implements IForm {
     }
 
     /** 列Ｂ */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String columnB;
 
     /**
@@ -55,7 +55,7 @@ public class Tb2NoPkRegistForm implements IForm {
     }
 
     /** 列Ｃ */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String columnC;
 
     /**
@@ -91,7 +91,7 @@ public class Tb2NoPkRegistForm implements IForm {
     }
 
     /** 列Ｅ */
-    @jakarta.validation.constraints.Size(max = 120)
+    @jakarta.validation.constraints.Size(max = 60)
     private String columnE;
 
     /**

@@ -4,7 +4,7 @@
 
 let Tb2EntityGridColumns = [
     Column.comma('ENTITY_ID', Messages['Tb2EntityGrid.entityId'], 80, 'primaryKey numbering', null),
-    Column.text('ENTITY_NM', Messages['Tb2EntityGrid.entityNm'], 240, 'notblank', null),
+    Column.text('ENTITY_NM', Messages['Tb2EntityGrid.entityNm'], 160, 'notblank', null),
     Column.text('ENTITY_MEI', Messages['Tb2EntityGrid.entityMei'], 300, 'notblank', null),
     Column.check('CHECK_F', Messages['Tb2EntityGrid.checkF'], 30, 'notblank'),
     Column.select('RADIO_KB', Messages['Tb2EntityGrid.radioKb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
@@ -23,7 +23,7 @@ let Tb2EntityGridColumns = [
     Column.dec2('SURYO_QT', Messages['Tb2EntityGrid.suryoQt'], 72, 'notblank', null),
     Column.dec3('TANKA_KG', Messages['Tb2EntityGrid.tankaKg'], 88, 'notblank', null),
     Column.dec3('ZEINUKI_KG', Messages['Tb2EntityGrid.zeinukiKg'], 88, 'notblank', null),
-    Column.text('NULL_ENTITY_NM', Messages['Tb2EntityGrid.nullEntityNm'], 240, '', null),
+    Column.text('NULL_ENTITY_NM', Messages['Tb2EntityGrid.nullEntityNm'], 160, '', null),
     Column.text('NULL_ENTITY_MEI', Messages['Tb2EntityGrid.nullEntityMei'], 300, '', null),
     Column.check('NULL_CHECK_F', Messages['Tb2EntityGrid.nullCheckF'], 30, ''),
     Column.select('NULL_RADIO_KB', Messages['Tb2EntityGrid.nullRadioKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
@@ -42,9 +42,5 @@ let Tb2EntityGridColumns = [
     Column.dec2('NULL_SURYO_QT', Messages['Tb2EntityGrid.nullSuryoQt'], 72, '', null),
     Column.dec3('NULL_TANKA_KG', Messages['Tb2EntityGrid.nullTankaKg'], 88, '', null),
     Column.dec3('NULL_ZEINUKI_KG', Messages['Tb2EntityGrid.nullZeinukiKg'], 88, '', null),
-    Column.cell('INSERT_TS', Messages['Tb2EntityGrid.insertTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-    Column.cell('INSERT_ID', Messages['Tb2EntityGrid.insertId'], 80, 'metaInfo', null),
-    Column.cell('UPDATE_TS', Messages['Tb2EntityGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-    Column.cell('UPDATE_ID', Messages['Tb2EntityGrid.updateId'], 80, 'metaInfo', null),
     Column.check('DELETE_F', Messages['Tb2EntityGrid.deleteF'], 30, ''),
 ];
