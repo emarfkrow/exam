@@ -1,7 +1,10 @@
 SELECT
       a.`BUSHO_ID`
+    , (SELECT r1.`BUSHO_mei` FROM mhr_busho r1 WHERE r1.`BUSHO_ID` = a.`BUSHO_ID`) AS `BUSHO_mei`
     , a.`SHOKUI_ID`
+    , (SELECT r2.`SHOKUI_mei` FROM mhr_shokui r2 WHERE r2.`SHOKUI_ID` = a.`SHOKUI_ID`) AS `SHOKUI_mei`
     , a.`KINO_NM`
+    , (SELECT r3.`KINO_mei` FROM msy_kino r3 WHERE r3.`KINO_NM` = a.`KINO_NM`) AS `KINO_mei`
     , a.`KENGEN_KB`
     , a.`KAISHI_BI` AS KAISHI_BI
     , a.`SHURYO_BI` AS SHURYO_BI

@@ -1,5 +1,6 @@
 SELECT
       a.`KBN_NM`
+    , (SELECT r1.`KBN_mei` FROM msy_kbn r1 WHERE r1.`KBN_NM` = a.`KBN_NM`) AS `KBN_mei`
     , a.`KBN_VAL`
     , a.`KBN_VAL_MEI`
     , a.`HYOJI_ON`

@@ -31,7 +31,7 @@
       <fieldset>
         <legend th:text="#{Tb1TenpuFileS.legend}">legend</legend>
         <div id="sosenId">
-          <label for="Tb1TenpuFile.sosenId" th:text="#{Tb1TenpuFile.sosenId}">祖先ID</label><input type="text" id="Tb1TenpuFile.sosenId" name="Tb1TenpuFile.sosenId" maxlength="10" /><a id="Tb1TenpuFile.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenpuFile." class="refer"></span>
+          <label for="Tb1TenpuFile.sosenId" th:text="#{Tb1TenpuFile.sosenId}">祖先ID</label><input type="text" id="Tb1TenpuFile.sosenId" name="Tb1TenpuFile.sosenId" maxlength="10" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1TenpuFile.sosenId" data-destDef="Tb1TenpuFile.sosenMei:SOSEN_MEI" /><a id="Tb1TenpuFile.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenpuFile.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1TenpuFile.sosenId" data-destDef="Tb1TenpuFile.sosenMei:SOSEN_MEI"></span>
         </div>
         <div id="oyaBn">
           <label for="Tb1TenpuFile.oyaBn" th:text="#{Tb1TenpuFile.oyaBn}">親枝番</label><input type="text" id="Tb1TenpuFile.oyaBn" name="Tb1TenpuFile.oyaBn" maxlength="10" />

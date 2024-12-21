@@ -29,6 +29,12 @@
     <form name="Vb1ShisonRegistForm" action="Vb1ShisonRegist.ajax" class="regist">
       <fieldset>
         <legend th:text="#{Vb1Shison.legend}">legend</legend>
+        <div id="entityName">
+          <label for="Vb1Shison.entityName" th:text="#{Vb1Shison.entityName}">entity_name</label><span id="Vb1Shison.entityName"></span><input type="hidden" id="Vb1Shison.entityName" name="Vb1Shison.entityName" />
+        </div>
+        <div id="sosenId">
+          <label for="Vb1Shison.sosenId" th:text="#{Vb1Shison.sosenId}">祖先ID</label><span id="Vb1Shison.sosenId"></span><input type="hidden" id="Vb1Shison.sosenId" name="Vb1Shison.sosenId" />
+        </div>
         <div id="sosenMei">
           <label for="Vb1Shison.sosenMei" th:text="#{Vb1Shison.sosenMei}">祖先名</label><span id="Vb1Shison.sosenMei"></span><input type="hidden" id="Vb1Shison.sosenMei" name="Vb1Shison.sosenMei" />
         </div>

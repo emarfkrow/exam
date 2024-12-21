@@ -36,6 +36,42 @@ public class Vb1Shison implements IEntity {
         }
     }
 
+    /** entity_name */
+    private String entityName;
+
+    /** @return entity_name */
+    @com.fasterxml.jackson.annotation.JsonProperty("entity_name")
+    public String getEntityName() {
+        return this.entityName;
+    }
+
+    /** @param o entity_name */
+    public void setEntityName(final Object o) {
+        if (o != null) {
+            this.entityName = o.toString();
+        } else {
+            this.entityName = null;
+        }
+    }
+
+    /** 祖先ID */
+    private Integer sosenId;
+
+    /** @return 祖先ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_ID")
+    public Integer getSosenId() {
+        return this.sosenId;
+    }
+
+    /** @param o 祖先ID */
+    public void setSosenId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.sosenId = Integer.valueOf(o.toString());
+        } else {
+            this.sosenId = null;
+        }
+    }
+
     /** 祖先名 */
     private String sosenMei;
 
@@ -216,12 +252,41 @@ public class Vb1Shison implements IEntity {
         }
     }
 
+    /** 作成タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime insertTs;
+
+    /** @return 作成タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    public java.time.LocalDateTime getInsertTs() {
+        return this.insertTs;
+    }
+
+    /** @param o 作成タイムスタンプ */
+    public void setInsertTs(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
+        } else {
+            this.insertTs = null;
+        }
+    }
+
     /**
      * VIEW照会
      * @return VIEW
      */
     public static Vb1Shison get() {
         List<String> whereList = new ArrayList<String>();
+        whereList.add("`entity_name` = :entity_name");
+        whereList.add("`SOSEN_ID` = :sosen_id");
         whereList.add("`SOSEN_MEI` = :sosen_mei");
         whereList.add("`OYA_MEI` = :oya_mei");
         whereList.add("`ENTITY1_MEI` = :entity_1_mei");
@@ -232,9 +297,12 @@ public class Vb1Shison implements IEntity {
         whereList.add("`SEARCH_ENTITY_BN` = :search_entity_bn");
         whereList.add("`SEARCH_KO_BN` = :search_ko_bn");
         whereList.add("`SEARCH_SHISON_BN` = :search_shison_bn");
+        whereList.add("`INSERT_TS` = :insert_ts");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_MEI` \n";
+        sql += "      a.`entity_name` \n";
+        sql += "    , a.`SOSEN_ID` \n";
+        sql += "    , a.`SOSEN_MEI` \n";
         sql += "    , a.`OYA_MEI` \n";
         sql += "    , a.`ENTITY1_MEI` \n";
         sql += "    , a.`KO_MEI` \n";
@@ -244,6 +312,7 @@ public class Vb1Shison implements IEntity {
         sql += "    , a.`SEARCH_ENTITY_BN` \n";
         sql += "    , a.`SEARCH_KO_BN` \n";
         sql += "    , a.`SEARCH_SHISON_BN` \n";
+        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "FROM \n";
         sql += "    vb1_shison a \n";
         sql += "WHERE \n";
@@ -268,6 +337,8 @@ public class Vb1Shison implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
+        nameList.add("`entity_name` -- :entity_name");
+        nameList.add("`SOSEN_ID` -- :sosen_id");
         nameList.add("`SOSEN_MEI` -- :sosen_mei");
         nameList.add("`OYA_MEI` -- :oya_mei");
         nameList.add("`ENTITY1_MEI` -- :entity_1_mei");
@@ -278,12 +349,15 @@ public class Vb1Shison implements IEntity {
         nameList.add("`SEARCH_ENTITY_BN` -- :search_entity_bn");
         nameList.add("`SEARCH_KO_BN` -- :search_ko_bn");
         nameList.add("`SEARCH_SHISON_BN` -- :search_shison_bn");
+        nameList.add("`INSERT_TS` -- :insert_ts");
         return String.join("\r\n    , ", nameList);
     }
 
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
+        valueList.add(":entity_name");
+        valueList.add(":sosen_id");
         valueList.add(":sosen_mei");
         valueList.add(":oya_mei");
         valueList.add(":entity_1_mei");
@@ -294,6 +368,7 @@ public class Vb1Shison implements IEntity {
         valueList.add(":search_entity_bn");
         valueList.add(":search_ko_bn");
         valueList.add(":search_shison_bn");
+        valueList.add(":insert_ts");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -313,6 +388,8 @@ public class Vb1Shison implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
+        setList.add("`entity_name` = :entity_name");
+        setList.add("`SOSEN_ID` = :sosen_id");
         setList.add("`SOSEN_MEI` = :sosen_mei");
         setList.add("`OYA_MEI` = :oya_mei");
         setList.add("`ENTITY1_MEI` = :entity_1_mei");
@@ -350,6 +427,8 @@ public class Vb1Shison implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
+        map.put("entity_name", this.entityName);
+        map.put("sosen_id", this.sosenId);
         map.put("sosen_mei", this.sosenMei);
         map.put("oya_mei", this.oyaMei);
         map.put("entity_1_mei", this.entity1Mei);

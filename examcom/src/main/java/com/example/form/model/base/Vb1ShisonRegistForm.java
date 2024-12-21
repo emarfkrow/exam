@@ -18,6 +18,44 @@ public class Vb1ShisonRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Vb1ShisonRegistForm.class);
 
+    /** entity_name */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 9)
+    private String entityName;
+
+    /**
+     * @return entity_name
+     */
+    public String getEntityName() {
+        return entityName;
+    }
+
+    /**
+     * @param p entity_name
+     */
+    public void setEntityName(final String p) {
+        this.entityName = p;
+    }
+
+    /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String sosenId;
+
+    /**
+     * @return 祖先ID
+     */
+    public String getSosenId() {
+        return sosenId;
+    }
+
+    /**
+     * @param p 祖先ID
+     */
+    public void setSosenId(final String p) {
+        this.sosenId = p;
+    }
+
     /** 祖先名 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
@@ -38,7 +76,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 親名 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String oyaMei;
 
@@ -57,7 +94,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** エンティティ名 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String entity1Mei;
 
@@ -76,7 +112,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 子名 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String koMei;
 
@@ -95,7 +130,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 子孫名 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String shisonMei;
 
@@ -133,7 +167,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 親枝番 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchOyaBn;
 
@@ -152,7 +185,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** エンティティ枝番 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchEntityBn;
 
@@ -171,7 +203,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 子枝番 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchKoBn;
 
@@ -190,7 +221,6 @@ public class Vb1ShisonRegistForm implements IForm {
     }
 
     /** 子孫枝番 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchShisonBn;
 

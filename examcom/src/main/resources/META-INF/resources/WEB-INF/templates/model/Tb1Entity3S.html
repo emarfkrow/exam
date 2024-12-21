@@ -31,7 +31,7 @@
       <fieldset>
         <legend th:text="#{Tb1Entity3S.legend}">legend</legend>
         <div id="sosenId">
-          <label for="Tb1Entity3.sosenId" th:text="#{Tb1Entity3.sosenId}">祖先ID</label><input type="text" id="Tb1Entity3.sosenId" name="Tb1Entity3.sosenId" maxlength="10" /><a id="Tb1Entity3.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity3." class="refer"></span>
+          <label for="Tb1Entity3.sosenId" th:text="#{Tb1Entity3.sosenId}">祖先ID</label><input type="text" id="Tb1Entity3.sosenId" name="Tb1Entity3.sosenId" maxlength="10" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Entity3.sosenId" data-destDef="Tb1Entity3.sosenMei:SOSEN_MEI" /><a id="Tb1Entity3.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity3.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Entity3.sosenId" data-destDef="Tb1Entity3.sosenMei:SOSEN_MEI"></span>
         </div>
         <div id="oyaBn">
           <label for="Tb1Entity3.oyaBn" th:text="#{Tb1Entity3.oyaBn}">親枝番</label><input type="text" id="Tb1Entity3.oyaBn" name="Tb1Entity3.oyaBn" maxlength="10" />

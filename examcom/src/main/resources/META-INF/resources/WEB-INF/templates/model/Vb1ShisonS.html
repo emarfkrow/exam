@@ -32,7 +32,7 @@
       <fieldset>
         <legend th:text="#{Vb1ShisonS.legend}">legend</legend>
         <div id="searchSosenId">
-          <label for="Vb1Shison.searchSosenId" th:text="#{Vb1Shison.searchSosenId}">祖先ID</label><input type="text" id="Vb1Shison.searchSosenId" name="Vb1Shison.searchSosenId" maxlength="10" /><a id="Vb1Shison.searchSosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Vb1Shison." class="refer"></span>
+          <label for="Vb1Shison.searchSosenId" th:text="#{Vb1Shison.searchSosenId}">祖先ID</label><input type="text" id="Vb1Shison.searchSosenId" name="Vb1Shison.searchSosenId" maxlength="10" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Vb1Shison.searchSosenId" data-destDef="Vb1Shison.searchSosenMei:SOSEN_MEI" /><a id="Vb1Shison.searchSosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Vb1Shison.searchSosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Vb1Shison.searchSosenId" data-destDef="Vb1Shison.searchSosenMei:SOSEN_MEI"></span>
         </div>
         <div id="searchOyaBn">
           <label for="Vb1Shison.searchOyaBn" th:text="#{Vb1Shison.searchOyaBn}">親枝番</label><input type="text" id="Vb1Shison.searchOyaBn" name="Vb1Shison.searchOyaBn" maxlength="10" />

@@ -38,7 +38,7 @@
           <label for="Tb1Itoko.itokoMei" th:text="#{Tb1Itoko.itokoMei}">従妹名</label><input type="text" id="Tb1Itoko.itokoMei" name="Tb1Itoko.itokoMei" maxlength="60" />
         </div>
         <div id="sosenId">
-          <label for="Tb1Itoko.sosenId" th:text="#{Tb1Itoko.sosenId}">祖先ID</label><input type="text" id="Tb1Itoko.sosenId" name="Tb1Itoko.sosenId" maxlength="10" /><a id="Tb1Itoko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Itoko." class="refer"></span>
+          <label for="Tb1Itoko.sosenId" th:text="#{Tb1Itoko.sosenId}">祖先ID</label><input type="text" id="Tb1Itoko.sosenId" name="Tb1Itoko.sosenId" maxlength="10" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Itoko.sosenId" data-destDef="Tb1Itoko.sosenMei:SOSEN_MEI" /><a id="Tb1Itoko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Itoko.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Itoko.sosenId" data-destDef="Tb1Itoko.sosenMei:SOSEN_MEI"></span>
         </div>
         <div id="oyaBn">
           <label for="Tb1Itoko.oyaBn" th:text="#{Tb1Itoko.oyaBn}">親枝番</label><input type="text" id="Tb1Itoko.oyaBn" name="Tb1Itoko.oyaBn" maxlength="10" />
