@@ -32,6 +32,7 @@ public class MsyKinoDeleteAction extends BaseAction {
         }
 
         MsyKino e = FormValidator.toBean(MsyKino.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

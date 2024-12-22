@@ -53,6 +53,7 @@ public class Tb1TenpuFileDeleteAction extends BaseAction {
         }
 
         Tb1TenpuFile e = FormValidator.toBean(Tb1TenpuFile.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

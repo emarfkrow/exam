@@ -32,6 +32,7 @@ public class MhrShokuiDeleteAction extends BaseAction {
         }
 
         MhrShokui e = FormValidator.toBean(MhrShokui.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

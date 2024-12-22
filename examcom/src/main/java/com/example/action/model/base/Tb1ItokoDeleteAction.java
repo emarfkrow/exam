@@ -32,6 +32,7 @@ public class Tb1ItokoDeleteAction extends BaseAction {
         }
 
         Tb1Itoko e = FormValidator.toBean(Tb1Itoko.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

@@ -53,6 +53,17 @@ public class Tb1KoDeleteAction extends BaseAction {
         }
 
         Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), postJson);
+
+        java.util.List<com.example.entity.Tb1Shison> tb1Shisons = e.referTb1Shisons();
+        if (tb1Shisons != null) {
+            for (com.example.entity.Tb1Shison tb1Shison : tb1Shisons) {
+
+                if (tb1Shison.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+            }
+        }
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

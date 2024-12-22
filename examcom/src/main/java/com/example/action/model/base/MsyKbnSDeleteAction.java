@@ -47,10 +47,12 @@ public class MsyKbnSDeleteAction extends BaseAction {
             MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), gridRow);
 
             java.util.List<com.example.entity.MsyKbnVal> msyKbnVals = e.referMsyKbnVals();
-            for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
+            if (msyKbnVals != null) {
+                for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
 
-                if (msyKbnVal.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    if (msyKbnVal.delete() != 1) {
+                        throw new OptLockError("error.cant.delete");
+                    }
                 }
             }
 

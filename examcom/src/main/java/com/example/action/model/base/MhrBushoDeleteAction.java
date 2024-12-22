@@ -32,6 +32,7 @@ public class MhrBushoDeleteAction extends BaseAction {
         }
 
         MhrBusho e = FormValidator.toBean(MhrBusho.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

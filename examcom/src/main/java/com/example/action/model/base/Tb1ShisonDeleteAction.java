@@ -60,6 +60,7 @@ public class Tb1ShisonDeleteAction extends BaseAction {
         }
 
         Tb1Shison e = FormValidator.toBean(Tb1Shison.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

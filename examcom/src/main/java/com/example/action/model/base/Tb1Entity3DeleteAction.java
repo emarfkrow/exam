@@ -46,6 +46,11 @@ public class Tb1Entity3DeleteAction extends BaseAction {
         }
 
         Tb1Entity3 e = FormValidator.toBean(Tb1Entity3.class.getName(), postJson);
+
+            // child:tb1_ko, parents:5
+
+            // child:tb1_tenpu_file, parents:5
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

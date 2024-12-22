@@ -25,6 +25,7 @@ public class Tb2NoPkDeleteAction extends BaseAction {
         // 主キーが不足していたらエラー
 
         Tb2NoPk e = FormValidator.toBean(Tb2NoPk.class.getName(), postJson);
+
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }
