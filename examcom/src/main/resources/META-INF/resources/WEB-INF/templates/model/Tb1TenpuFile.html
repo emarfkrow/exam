@@ -29,16 +29,16 @@
       <fieldset>
         <legend th:text="#{Tb1TenpuFile.legend}">legend</legend>
         <div id="sosenId">
-          <label for="Tb1TenpuFile.sosenId" th:text="#{Tb1TenpuFile.sosenId}">祖先ID</label><span id="Tb1TenpuFile.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.sosenId" name="Tb1TenpuFile.sosenId" class="primaryKey" /><a id="Tb1TenpuFile.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenpuFile.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1TenpuFile.sosenId" data-destDef="Tb1TenpuFile.sosenMei:SOSEN_MEI"></span>
+          <label th:text="#{Tb1TenpuFile.sosenId}">祖先ID</label><span id="Tb1TenpuFile.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.sosenId" name="Tb1TenpuFile.sosenId" class="primaryKey" /><a id="Tb1TenpuFile.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenpuFile.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1TenpuFile.sosenId" data-destDef="Tb1TenpuFile.sosenMei:SOSEN_MEI"></span>
         </div>
         <div id="oyaBn">
-          <label for="Tb1TenpuFile.oyaBn" th:text="#{Tb1TenpuFile.oyaBn}">親枝番</label><span id="Tb1TenpuFile.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.oyaBn" name="Tb1TenpuFile.oyaBn" class="primaryKey" />
+          <label th:text="#{Tb1TenpuFile.oyaBn}">親枝番</label><span id="Tb1TenpuFile.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.oyaBn" name="Tb1TenpuFile.oyaBn" class="primaryKey" />
         </div>
         <div id="entityBn">
-          <label for="Tb1TenpuFile.entityBn" th:text="#{Tb1TenpuFile.entityBn}">エンティティ枝番</label><span id="Tb1TenpuFile.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.entityBn" name="Tb1TenpuFile.entityBn" class="primaryKey" />
+          <label th:text="#{Tb1TenpuFile.entityBn}">エンティティ枝番</label><span id="Tb1TenpuFile.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.entityBn" name="Tb1TenpuFile.entityBn" class="primaryKey" />
         </div>
         <div id="tenpuFileBn">
-          <label for="Tb1TenpuFile.tenpuFileBn" th:text="#{Tb1TenpuFile.tenpuFileBn}">添付ファイル枝番</label><span id="Tb1TenpuFile.tenpuFileBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.tenpuFileBn" name="Tb1TenpuFile.tenpuFileBn" class="primaryKey" />
+          <label th:text="#{Tb1TenpuFile.tenpuFileBn}">添付ファイル枝番</label><span id="Tb1TenpuFile.tenpuFileBn" class="primaryKey"></span><input type="hidden" id="Tb1TenpuFile.tenpuFileBn" name="Tb1TenpuFile.tenpuFileBn" class="primaryKey" />
         </div>
         <div id="tenpuFileMei">
           <label for="Tb1TenpuFile.tenpuFileMei" th:text="#{Tb1TenpuFile.tenpuFileMei}">添付ファイル名</label><input type="text" id="Tb1TenpuFile.tenpuFileMei" name="Tb1TenpuFile.tenpuFileMei" maxlength="60" class=" notblank" />

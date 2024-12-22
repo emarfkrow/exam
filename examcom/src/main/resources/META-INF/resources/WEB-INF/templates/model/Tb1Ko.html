@@ -29,16 +29,16 @@
       <fieldset>
         <legend th:text="#{Tb1Ko.legend}">legend</legend>
         <div id="sosenId">
-          <label for="Tb1Ko.sosenId" th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" class="primaryKey" /><a id="Tb1Ko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Ko.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Ko.sosenId" data-destDef="Tb1Ko.sosenMei:SOSEN_MEI"></span>
+          <label th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" class="primaryKey" /><a id="Tb1Ko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Ko.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Ko.sosenId" data-destDef="Tb1Ko.sosenMei:SOSEN_MEI"></span>
         </div>
         <div id="oyaBn">
-          <label for="Tb1Ko.oyaBn" th:text="#{Tb1Ko.oyaBn}">親枝番</label><span id="Tb1Ko.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" class="primaryKey" />
+          <label th:text="#{Tb1Ko.oyaBn}">親枝番</label><span id="Tb1Ko.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" class="primaryKey" />
         </div>
         <div id="entityBn">
-          <label for="Tb1Ko.entityBn" th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><span id="Tb1Ko.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" class="primaryKey" />
+          <label th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><span id="Tb1Ko.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" class="primaryKey" />
         </div>
         <div id="koBn">
-          <label for="Tb1Ko.koBn" th:text="#{Tb1Ko.koBn}">子枝番</label><span id="Tb1Ko.koBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.koBn" name="Tb1Ko.koBn" class="primaryKey" />
+          <label th:text="#{Tb1Ko.koBn}">子枝番</label><span id="Tb1Ko.koBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.koBn" name="Tb1Ko.koBn" class="primaryKey" />
         </div>
         <div id="koMei">
           <label for="Tb1Ko.koMei" th:text="#{Tb1Ko.koMei}">子名</label><input type="text" id="Tb1Ko.koMei" name="Tb1Ko.koMei" maxlength="60" class=" notblank" />

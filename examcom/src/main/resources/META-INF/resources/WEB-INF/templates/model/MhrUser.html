@@ -17,7 +17,7 @@
       <fieldset>
         <legend th:text="#{MhrUser.legend}">legend</legend>
         <div id="userId">
-          <label for="MhrUser.userId" th:text="#{MhrUser.userId}">ユーザID</label><span id="MhrUser.userId" class="primaryKey"></span><input type="hidden" id="MhrUser.userId" name="MhrUser.userId" class="primaryKey" />
+          <label th:text="#{MhrUser.userId}">ユーザID</label><span id="MhrUser.userId" class="primaryKey"></span><input type="hidden" id="MhrUser.userId" name="MhrUser.userId" class="primaryKey" />
         </div>
         <div id="userSei">
           <label for="MhrUser.userSei" th:text="#{MhrUser.userSei}">ユーザ姓</label><input type="text" id="MhrUser.userSei" name="MhrUser.userSei" maxlength="60" class=" notblank" />
