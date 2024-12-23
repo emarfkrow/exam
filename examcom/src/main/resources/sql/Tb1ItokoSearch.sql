@@ -2,7 +2,7 @@ SELECT
       a.`ITOKO_ID`
     , a.`ITOKO_MEI`
     , a.`SOSEN_ID`
-    , (SELECT r1.`SOSEN_mei` FROM tb1_sosen r1 WHERE r1.`SOSEN_ID` = a.`SOSEN_ID`) AS `SOSEN_mei`
+    , (SELECT r1.`SOSEN_MEI` FROM tb1_sosen r1 WHERE r1.`SOSEN_ID` = a.`SOSEN_ID`) AS `SOSEN_MEI`
     , a.`OYA_BN`
     , a.`ENTITY_BN`
     , a.`INSERT_TS` AS INSERT_TS

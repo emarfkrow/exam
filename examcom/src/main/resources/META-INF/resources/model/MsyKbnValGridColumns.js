@@ -3,7 +3,7 @@
  */
 
 let MsyKbnValGridColumns = [
-    Column.refer('KBN_NM', Messages['MsyKbnValGrid.kbnNm'], 160, 'primaryKey', 'null'),
+    Column.refer('KBN_NM', Messages['MsyKbnValGrid.kbnNm'], 160, 'primaryKey', 'KBN_MEI'),
     Column.text('KBN_VAL', Messages['MsyKbnValGrid.kbnVal'], 30, 'primaryKey', null),
     Column.text('KBN_VAL_MEI', Messages['MsyKbnValGrid.kbnValMei'], 300, 'notblank', null),
     Column.comma('HYOJI_ON', Messages['MsyKbnValGrid.hyojiOn'], 80, 'notblank', null),

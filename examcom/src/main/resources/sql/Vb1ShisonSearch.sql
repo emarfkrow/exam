@@ -7,7 +7,7 @@ SELECT
     , a.`KO_MEI`
     , a.`SHISON_MEI`
     , a.`SEARCH_SOSEN_ID`
-    , (SELECT r2.`SOSEN_mei` FROM tb1_sosen r2 WHERE r2.`SOSEN_ID` = a.`SEARCH_SOSEN_ID`) AS `SEARCH_SOSEN_mei`
+    , (SELECT r2.`SOSEN_MEI` FROM tb1_sosen r2 WHERE r2.`SOSEN_ID` = a.`SEARCH_SOSEN_ID`) AS `SEARCH_SOSEN_MEI`
     , a.`SEARCH_OYA_BN`
     , a.`SEARCH_ENTITY_BN`
     , a.`SEARCH_KO_BN`

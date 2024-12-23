@@ -3,7 +3,7 @@
  */
 
 let Tb1TenpuFileGridColumns = [
-    Column.refer('SOSEN_ID', Messages['Tb1TenpuFileGrid.sosenId'], 80, 'primaryKey numbering', 'null'),
+    Column.refer('SOSEN_ID', Messages['Tb1TenpuFileGrid.sosenId'], 80, 'primaryKey numbering', 'SOSEN_MEI'),
     Column.comma('OYA_BN', Messages['Tb1TenpuFileGrid.oyaBn'], 80, 'primaryKey numbering', null),
     Column.comma('ENTITY_BN', Messages['Tb1TenpuFileGrid.entityBn'], 80, 'primaryKey numbering', null),
     Column.comma('TENPU_FILE_BN', Messages['Tb1TenpuFileGrid.tenpuFileBn'], 80, 'primaryKey numbering', null),

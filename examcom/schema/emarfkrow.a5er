@@ -215,12 +215,12 @@ Top=250
 Field="区分名称","KBN_NM","*NM","NOT NULL",0,"","",$FFFFFFFF,""
 Field="区分値","KBN_VAL","*KB","NOT NULL",1,"","",$FFFFFFFF,""
 Field="区分値名","KBN_VAL_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
-Field="表示順","HYOJI_ON","*ON","NOT NULL",,"","",$FFFFFFFF,""
+Field="表示順","HYOJI_ON","*ON",,,"","",$FFFFFFFF,""
 Field="取得条件","CRITERIA","*TX",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20241218194726
+ModifiedDateTime=20241223163842
 Position="MAIN",50,250
 ZOrder=-19
 

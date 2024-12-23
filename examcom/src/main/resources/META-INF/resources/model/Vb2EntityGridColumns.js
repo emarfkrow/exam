@@ -3,7 +3,7 @@
  */
 
 let Vb2EntityGridColumns = [
-    Column.refer('ENTITY_ID', Messages['Vb2EntityGrid.entityId'], 80, '', 'null'),
+    Column.refer('ENTITY_ID', Messages['Vb2EntityGrid.entityId'], 80, '', 'ENTITY_MEI'),
     Column.cell('ENTITY_NM', Messages['Vb2EntityGrid.entityNm'], 160, '', null),
     Column.cell('ENTITY_MEI', Messages['Vb2EntityGrid.entityMei'], 300, '', null),
     Column.cell('CHECK_F', Messages['Vb2EntityGrid.checkF'], 30, '', null),

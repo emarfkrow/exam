@@ -2,7 +2,7 @@ SELECT
       a.`BUSHO_ID`
     , a.`BUSHO_MEI`
     , a.`OYA_BUSHO_ID`
-    , (SELECT r1.`BUSHO_mei` FROM mhr_busho r1 WHERE r1.`BUSHO_ID` = a.`OYA_BUSHO_ID`) AS `OYA_BUSHO_mei`
+    , (SELECT r1.`BUSHO_MEI` FROM mhr_busho r1 WHERE r1.`BUSHO_ID` = a.`OYA_BUSHO_ID`) AS `OYA_BUSHO_MEI`
     , a.`KAISHI_BI` AS KAISHI_BI
     , a.`SHURYO_BI` AS SHURYO_BI
     , a.`INSERT_TS` AS INSERT_TS
