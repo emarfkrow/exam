@@ -76,7 +76,6 @@ public class MsyKbnValRegistForm implements IForm {
     }
 
     /** 表示順 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String hyojiOn;
 
