@@ -180,6 +180,24 @@ public class Mb1Sansho1 implements IEntity {
         }
     }
 
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /**
      * 参照１マスタ照会
      * @param param1 参照１ID
@@ -197,8 +215,9 @@ public class Mb1Sansho1 implements IEntity {
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    mb1_sansho1 a \n";
+        sql += "    MB1_SANSHO1 a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -218,7 +237,7 @@ public class Mb1Sansho1 implements IEntity {
         numbering();
 
         // 参照１マスタの登録
-        String sql = "INSERT INTO mb1_sansho1(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO MB1_SANSHO1(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -232,6 +251,7 @@ public class Mb1Sansho1 implements IEntity {
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_ID` -- :update_id");
         nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -245,6 +265,7 @@ public class Mb1Sansho1 implements IEntity {
         valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -253,7 +274,7 @@ public class Mb1Sansho1 implements IEntity {
         if (this.sansho1Id != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SANSHO1_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO1_ID`) * 1 END + 1 AS `SANSHO1_ID` FROM mb1_sansho1 e";
+        String sql = "SELECT CASE WHEN MAX(e.`SANSHO1_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO1_ID`) * 1 END + 1 AS `SANSHO1_ID` FROM MB1_SANSHO1 e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SANSHO1_ID");
@@ -269,7 +290,7 @@ public class Mb1Sansho1 implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 参照１マスタの登録
-        String sql = "UPDATE mb1_sansho1\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE MB1_SANSHO1\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -281,6 +302,7 @@ public class Mb1Sansho1 implements IEntity {
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_ID` = :update_id");
         setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -291,7 +313,7 @@ public class Mb1Sansho1 implements IEntity {
     public int delete() {
 
         // 参照１マスタの削除
-        String sql = "DELETE FROM mb1_sansho1 WHERE " + getWhere();
+        String sql = "DELETE FROM MB1_SANSHO1 WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -312,6 +334,7 @@ public class Mb1Sansho1 implements IEntity {
         map.put("sansho_1_id", this.sansho1Id);
         map.put("sansho_1_mei", this.sansho1Mei);
         map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_id", execId);
         map.put("update_ts", now);

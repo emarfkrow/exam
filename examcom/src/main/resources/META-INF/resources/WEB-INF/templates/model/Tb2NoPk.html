@@ -37,6 +37,11 @@
             <legend th:text="#{Tb2NoPk.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb2NoPk.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2NoPk.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetTb2NoPk" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -44,6 +49,8 @@
         <button id="DeleteTb2NoPk" class="delete" data-action="Tb2NoPkDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitTb2NoPk" class="permit" data-action="Tb2NoPkPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2NoPk" class="forbid" data-action="Tb2NoPkForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb2NoPk" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

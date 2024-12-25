@@ -55,6 +55,7 @@ public class Tb1ItokoRegistForm implements IForm {
     }
 
     /** 祖先ID */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
@@ -73,6 +74,7 @@ public class Tb1ItokoRegistForm implements IForm {
     }
 
     /** 親枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaBn;
 
@@ -91,6 +93,7 @@ public class Tb1ItokoRegistForm implements IForm {
     }
 
     /** エンティティ枝番 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityBn;
 
@@ -124,6 +127,24 @@ public class Tb1ItokoRegistForm implements IForm {
      */
     public void setDeleteF(final String p) {
         this.deleteF = p;
+    }
+
+    /** ステータス区分 */
+    @jakarta.validation.constraints.Size(max = 2)
+    private String statusKb;
+
+    /**
+     * @return ステータス区分
+     */
+    public String getStatusKb() {
+        return statusKb;
+    }
+
+    /**
+     * @param p ステータス区分
+     */
+    public void setStatusKb(final String p) {
+        this.statusKb = p;
     }
 
     /** 関連チェック */

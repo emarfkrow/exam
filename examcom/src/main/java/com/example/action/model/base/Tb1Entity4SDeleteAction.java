@@ -25,14 +25,10 @@ public class Tb1Entity4SDeleteAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
+        int count = 0;
+
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb1Entity4Grid");
-
-        if (gridData.size() == 0) {
-            map.put("ERROR", Messages.get("error.nopost"));
-            return map;
-        }
-
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -52,13 +48,19 @@ public class Tb1Entity4SDeleteAction extends BaseAction {
 
             Tb1Entity4 e = FormValidator.toBean(Tb1Entity4.class.getName(), gridRow);
 
-                // child:tb1_ko, parents:5
+            // child:TB1_KO, parents:5
 
-                // child:tb1_tenpu_file, parents:5
+            // child:TB1_TENPU_FILE, parents:5
 
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }
+            ++count;
+        }
+
+        if (count == 0) {
+            map.put("ERROR", Messages.get("error.nopost"));
+            return map;
         }
 
         map.put("INFO", Messages.get("info.delete"));

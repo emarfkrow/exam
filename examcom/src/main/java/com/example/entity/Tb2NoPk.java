@@ -234,6 +234,24 @@ public class Tb2NoPk implements IEntity {
         }
     }
 
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /**
      * 主キーなし照会
      * @return 主キーなし
@@ -250,6 +268,7 @@ public class Tb2NoPk implements IEntity {
         whereList.add("`UPDATE_TS` = :update_ts");
         whereList.add("`UPDATE_ID` = :update_id");
         whereList.add("TRIM (`DELETE_F`) = TRIM (:delete_f)");
+        whereList.add("`STATUS_KB` = :status_kb");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`COLUMN_A` \n";
@@ -262,8 +281,9 @@ public class Tb2NoPk implements IEntity {
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    tb2_no_pk a \n";
+        sql += "    TB2_NO_PK a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -279,7 +299,7 @@ public class Tb2NoPk implements IEntity {
     public int insert(final LocalDateTime now, final String execId) {
 
         // 主キーなしの登録
-        String sql = "INSERT INTO tb2_no_pk(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO TB2_NO_PK(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -296,6 +316,7 @@ public class Tb2NoPk implements IEntity {
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_ID` -- :update_id");
         nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -312,6 +333,7 @@ public class Tb2NoPk implements IEntity {
         valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -324,7 +346,7 @@ public class Tb2NoPk implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 主キーなしの登録
-        String sql = "UPDATE tb2_no_pk\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE TB2_NO_PK\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -339,6 +361,7 @@ public class Tb2NoPk implements IEntity {
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_ID` = :update_id");
         setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -349,7 +372,7 @@ public class Tb2NoPk implements IEntity {
     public int delete() {
 
         // 主キーなしの削除
-        String sql = "DELETE FROM tb2_no_pk WHERE " + getWhere();
+        String sql = "DELETE FROM TB2_NO_PK WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -372,6 +395,7 @@ public class Tb2NoPk implements IEntity {
         map.put("column_d", this.columnD);
         map.put("column_e", this.columnE);
         map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_id", execId);
         map.put("update_ts", now);

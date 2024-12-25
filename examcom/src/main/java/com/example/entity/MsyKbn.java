@@ -180,6 +180,24 @@ public class MsyKbn implements IEntity {
         }
     }
 
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /**
      * 区分マスタ照会
      * @param param1 区分名称
@@ -197,8 +215,9 @@ public class MsyKbn implements IEntity {
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    msy_kbn a \n";
+        sql += "    MSY_KBN a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -223,7 +242,7 @@ public class MsyKbn implements IEntity {
         }
 
         // 区分マスタの登録
-        String sql = "INSERT INTO msy_kbn(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO MSY_KBN(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -237,6 +256,7 @@ public class MsyKbn implements IEntity {
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_ID` -- :update_id");
         nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -250,6 +270,7 @@ public class MsyKbn implements IEntity {
         valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -277,7 +298,7 @@ public class MsyKbn implements IEntity {
         }
 
         // 区分マスタの登録
-        String sql = "UPDATE msy_kbn\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE MSY_KBN\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -289,6 +310,7 @@ public class MsyKbn implements IEntity {
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_ID` = :update_id");
         setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -306,7 +328,7 @@ public class MsyKbn implements IEntity {
         }
 
         // 区分マスタの削除
-        String sql = "DELETE FROM msy_kbn WHERE " + getWhere();
+        String sql = "DELETE FROM MSY_KBN WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -327,6 +349,7 @@ public class MsyKbn implements IEntity {
         map.put("kbn_nm", this.kbnNm);
         map.put("kbn_mei", this.kbnMei);
         map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_id", execId);
         map.put("update_ts", now);
@@ -371,7 +394,7 @@ public class MsyKbn implements IEntity {
     public static List<MsyKbnVal> referMsyKbnVals(final String param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("KBN_NM = :kbn_nm");
-        String sql = "SELECT * FROM msy_kbn_val WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT * FROM MSY_KBN_VAL WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "KBN_NM, KBN_VAL";
         Map<String, Object> map = new HashMap<String, Object>();

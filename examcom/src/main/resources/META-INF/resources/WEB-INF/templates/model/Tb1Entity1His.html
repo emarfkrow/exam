@@ -72,6 +72,9 @@
         <div id="deleteF">
           <label th:text="#{Tb1Entity1His.deleteF}">削除フラグ</label><span id="Tb1Entity1His.deleteF"></span><input type="hidden" id="Tb1Entity1His.deleteF" name="Tb1Entity1His.deleteF" />
         </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity1His.statusKb}">ステータス区分</label><span id="Tb1Entity1His.statusKb"></span><input type="hidden" id="Tb1Entity1His.statusKb" name="Tb1Entity1His.statusKb" />
+        </div>
       </fieldset>
       <div class="buttons">
         <a th:href="@{Tb1Entity1HisGet.xlsx(baseMei=#{Tb1Entity1His.h2})}" id="Tb1Entity1HisGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

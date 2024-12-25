@@ -30,6 +30,11 @@
             <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MsyKbn.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbn.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMsyKbn" th:text="#{common.reset}" class="reset">reset</button>
@@ -47,6 +52,8 @@
         <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbn&quot;]').click();">reset</button>
         <a th:href="@{MsyKbnSearch.xlsx(baseMei=#{MsyKbnS.h2})}" id="MsyKbnSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMsyKbnS" class="delete selectRows" data-action="MsyKbnSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyKbnS" class="permit selectRows" data-action="MsyKbnSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyKbnS" class="forbid selectRows" data-action="MsyKbnSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistMsyKbnS" class="regist" th:text="#{common.regist}">submit</button>

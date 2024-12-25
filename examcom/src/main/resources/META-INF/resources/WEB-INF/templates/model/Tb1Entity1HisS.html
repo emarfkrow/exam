@@ -75,6 +75,11 @@
             <legend th:text="#{Tb1Entity1His.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity1His.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity1His.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb1Entity1His" th:text="#{common.reset}" class="reset">reset</button>

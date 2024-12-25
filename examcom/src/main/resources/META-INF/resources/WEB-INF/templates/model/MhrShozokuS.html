@@ -41,6 +41,11 @@
             <legend th:text="#{MhrShozoku.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrShozoku.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrShozoku.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrShozoku" th:text="#{common.reset}" class="reset">reset</button>
@@ -58,6 +63,8 @@
         <button type="button" id="ResetMhrShozokuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrShozoku&quot;]').click();">reset</button>
         <a th:href="@{MhrShozokuSearch.xlsx(baseMei=#{MhrShozokuS.h2})}" id="MhrShozokuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMhrShozokuS" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrShozokuS" class="permit selectRows" data-action="MhrShozokuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShozokuS" class="forbid selectRows" data-action="MhrShozokuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistMhrShozokuS" class="regist" th:text="#{common.regist}">submit</button>

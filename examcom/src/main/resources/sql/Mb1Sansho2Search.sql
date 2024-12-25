@@ -6,8 +6,9 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_ID`
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
-    mb1_sansho2 a 
+    MB1_SANSHO2 a 
 WHERE
     1 = 1 
     AND TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) LIKE CONCAT ('%', :sansho_2_cd, '%') 
@@ -21,5 +22,6 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_ID` = :update_id 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`SANSHO2_CD`

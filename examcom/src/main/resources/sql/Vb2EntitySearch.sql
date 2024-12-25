@@ -20,7 +20,7 @@ SELECT
     , a.`TANKA_KG`
     , a.`ZEINUKI_KG`
 FROM
-    vb2_entity a 
+    VB2_ENTITY a 
 WHERE
     1 = 1 
     AND a.`ENTITY_ID` = :entity_id 

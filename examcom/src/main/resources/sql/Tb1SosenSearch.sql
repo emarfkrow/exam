@@ -6,8 +6,9 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_ID`
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
-    tb1_sosen a 
+    TB1_SOSEN a 
 WHERE
     1 = 1 
     AND a.`SOSEN_ID` = :sosen_id 
@@ -21,5 +22,6 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_ID` = :update_id 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`SOSEN_ID`

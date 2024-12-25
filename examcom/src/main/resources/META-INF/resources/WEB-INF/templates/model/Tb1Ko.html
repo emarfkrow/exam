@@ -49,6 +49,11 @@
             <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Ko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <h3 th:text="#{Tb1Shison.h3}">h3</h3>
       <a th:href="@{/model/Tb1Shison.html}" id="Tb1Shison" target="dialog" th:text="#{Tb1Shison.add}" class="addChild" tabindex="-1">子孫</a>
@@ -59,6 +64,8 @@
         <button id="DeleteTb1Ko" class="delete" data-action="Tb1KoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitTb1Ko" class="permit" data-action="Tb1KoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Ko" class="forbid" data-action="Tb1KoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Ko" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

@@ -53,6 +53,11 @@
             <legend th:text="#{Tb1Shison.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Shison.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Shison.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb1Shison" th:text="#{common.reset}" class="reset">reset</button>
@@ -69,6 +74,8 @@
         <button type="button" id="ResetTb1ShisonS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Shison&quot;]').click();">reset</button>
         <a th:href="@{Tb1ShisonSearch.xlsx(baseMei=#{Tb1ShisonS.h2})}" id="Tb1ShisonSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb1ShisonS" class="delete selectRows" data-action="Tb1ShisonSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1ShisonS" class="permit selectRows" data-action="Tb1ShisonSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1ShisonS" class="forbid selectRows" data-action="Tb1ShisonSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistTb1ShisonS" class="regist" th:text="#{common.regist}">submit</button>

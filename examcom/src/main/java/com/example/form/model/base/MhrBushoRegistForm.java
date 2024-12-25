@@ -127,6 +127,24 @@ public class MhrBushoRegistForm implements IForm {
         this.deleteF = p;
     }
 
+    /** ステータス区分 */
+    @jakarta.validation.constraints.Size(max = 2)
+    private String statusKb;
+
+    /**
+     * @return ステータス区分
+     */
+    public String getStatusKb() {
+        return statusKb;
+    }
+
+    /**
+     * @param p ステータス区分
+     */
+    public void setStatusKb(final String p) {
+        this.statusKb = p;
+    }
+
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {

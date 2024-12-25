@@ -16,4 +16,5 @@ let Tb1Entity1GridColumns = [
     Column.refer('BETSU_SANSHO1_ID', Messages['Tb1Entity1Grid.betsuSansho1Id'], 80, '', 'BETSU_SANSHO1_MEI'),
     Column.text('BETSU_SANSHO1_MEI', Messages['Tb1Entity1Grid.betsuSansho1Mei'], 300, '', null),
     Column.check('DELETE_F', Messages['Tb1Entity1Grid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['Tb1Entity1Grid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

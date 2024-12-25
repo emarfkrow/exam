@@ -25,14 +25,10 @@ public class MhrShozokuSDeleteAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
+        int count = 0;
+
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("MhrShozokuGrid");
-
-        if (gridData.size() == 0) {
-            map.put("ERROR", Messages.get("error.nopost"));
-            return map;
-        }
-
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -58,6 +54,12 @@ public class MhrShozokuSDeleteAction extends BaseAction {
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }
+            ++count;
+        }
+
+        if (count == 0) {
+            map.put("ERROR", Messages.get("error.nopost"));
+            return map;
         }
 
         map.put("INFO", Messages.get("info.delete"));

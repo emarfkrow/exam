@@ -38,6 +38,11 @@
             <legend th:text="#{MhrBusho.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrBusho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrBusho.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrBusho" th:text="#{common.reset}" class="reset">reset</button>
@@ -55,6 +60,8 @@
         <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrBusho&quot;]').click();">reset</button>
         <a th:href="@{MhrBushoSearch.xlsx(baseMei=#{MhrBushoS.h2})}" id="MhrBushoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMhrBushoS" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrBushoS" class="permit selectRows" data-action="MhrBushoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrBushoS" class="forbid selectRows" data-action="MhrBushoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistMhrBushoS" class="regist" th:text="#{common.regist}">submit</button>

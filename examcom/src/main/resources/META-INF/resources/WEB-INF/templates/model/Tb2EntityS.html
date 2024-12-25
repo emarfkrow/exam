@@ -152,6 +152,11 @@
             <legend th:text="#{Tb2Entity.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Entity.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Entity.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb2Entity" th:text="#{common.reset}" class="reset">reset</button>
@@ -169,6 +174,8 @@
         <button type="button" id="ResetTb2EntityS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Entity&quot;]').click();">reset</button>
         <a th:href="@{Tb2EntitySearch.xlsx(baseMei=#{Tb2EntityS.h2})}" id="Tb2EntitySearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb2EntityS" class="delete selectRows" data-action="Tb2EntitySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2EntityS" class="permit selectRows" data-action="Tb2EntitySPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2EntityS" class="forbid selectRows" data-action="Tb2EntitySForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistTb2EntityS" class="regist" th:text="#{common.regist}">submit</button>

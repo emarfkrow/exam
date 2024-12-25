@@ -7,14 +7,14 @@ SELECT
     , a.`KO_MEI`
     , a.`SHISON_MEI`
     , a.`SEARCH_SOSEN_ID`
-    , (SELECT r2.`SOSEN_MEI` FROM tb1_sosen r2 WHERE r2.`SOSEN_ID` = a.`SEARCH_SOSEN_ID`) AS `SEARCH_SOSEN_MEI`
+    , (SELECT r2.`SOSEN_MEI` FROM TB1_SOSEN r2 WHERE r2.`SOSEN_ID` = a.`SEARCH_SOSEN_ID`) AS `SEARCH_SOSEN_MEI`
     , a.`SEARCH_OYA_BN`
     , a.`SEARCH_ENTITY_BN`
     , a.`SEARCH_KO_BN`
     , a.`SEARCH_SHISON_BN`
     , a.`INSERT_TS` AS INSERT_TS
 FROM
-    vb1_shison a 
+    VB1_SHISON a 
 WHERE
     1 = 1 
     AND TRIM(TRAILING ' ' FROM a.`entity_name`) LIKE CONCAT ('%', :entity_name, '%') 

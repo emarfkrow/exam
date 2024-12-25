@@ -8,4 +8,5 @@ let Tb1Entity2GridColumns = [
     Column.comma('ENTITY_BN', Messages['Tb1Entity2Grid.entityBn'], 80, 'primaryKey numbering', null),
     Column.text('ENTITY2_MEI', Messages['Tb1Entity2Grid.entity2Mei'], 300, 'notblank', null),
     Column.check('DELETE_F', Messages['Tb1Entity2Grid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['Tb1Entity2Grid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

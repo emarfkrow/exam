@@ -9,8 +9,9 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_ID`
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
-    tb2_no_pk a 
+    TB2_NO_PK a 
 WHERE
     1 = 1 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_A`) LIKE CONCAT ('%', :column_a, '%') 
@@ -29,6 +30,7 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_ID` = :update_id 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     1
     , 2
@@ -40,3 +42,4 @@ ORDER BY
     , 8
     , 9
     , 10
+    , 11

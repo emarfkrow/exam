@@ -37,75 +37,75 @@ public class Tb1SosenDeleteAction extends BaseAction {
         if (tb1Oyas != null) {
             for (com.example.entity.Tb1Oya tb1Oya : tb1Oyas) {
 
-            java.util.List<com.example.entity.Tb1Entity1> tb1Entity1s = tb1Oya.referTb1Entity1s();
-            if (tb1Entity1s != null) {
-                for (com.example.entity.Tb1Entity1 tb1Entity1 : tb1Entity1s) {
+                java.util.List<com.example.entity.Tb1Entity1> tb1Entity1s = tb1Oya.referTb1Entity1s();
+                if (tb1Entity1s != null) {
+                    for (com.example.entity.Tb1Entity1 tb1Entity1 : tb1Entity1s) {
 
-                    // child:tb1_ko, parents:5
+                        // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                        // child:TB1_TENPU_FILE, parents:5
 
-                    if (tb1Entity1.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Entity1.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            java.util.List<com.example.entity.Tb1Entity2> tb1Entity2s = tb1Oya.referTb1Entity2s();
-            if (tb1Entity2s != null) {
-                for (com.example.entity.Tb1Entity2 tb1Entity2 : tb1Entity2s) {
+                java.util.List<com.example.entity.Tb1Entity2> tb1Entity2s = tb1Oya.referTb1Entity2s();
+                if (tb1Entity2s != null) {
+                    for (com.example.entity.Tb1Entity2 tb1Entity2 : tb1Entity2s) {
 
-                    // child:tb1_ko, parents:5
+                        // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                        // child:TB1_TENPU_FILE, parents:5
 
-                    if (tb1Entity2.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Entity2.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            java.util.List<com.example.entity.Tb1Entity3> tb1Entity3s = tb1Oya.referTb1Entity3s();
-            if (tb1Entity3s != null) {
-                for (com.example.entity.Tb1Entity3 tb1Entity3 : tb1Entity3s) {
+                java.util.List<com.example.entity.Tb1Entity3> tb1Entity3s = tb1Oya.referTb1Entity3s();
+                if (tb1Entity3s != null) {
+                    for (com.example.entity.Tb1Entity3 tb1Entity3 : tb1Entity3s) {
 
-                    // child:tb1_ko, parents:5
+                        // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                        // child:TB1_TENPU_FILE, parents:5
 
-                    if (tb1Entity3.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Entity3.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            java.util.List<com.example.entity.Tb1Entity4> tb1Entity4s = tb1Oya.referTb1Entity4s();
-            if (tb1Entity4s != null) {
-                for (com.example.entity.Tb1Entity4 tb1Entity4 : tb1Entity4s) {
+                java.util.List<com.example.entity.Tb1Entity4> tb1Entity4s = tb1Oya.referTb1Entity4s();
+                if (tb1Entity4s != null) {
+                    for (com.example.entity.Tb1Entity4 tb1Entity4 : tb1Entity4s) {
 
-                    // child:tb1_ko, parents:5
+                        // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                        // child:TB1_TENPU_FILE, parents:5
 
-                    if (tb1Entity4.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Entity4.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            java.util.List<com.example.entity.Tb1Entity5> tb1Entity5s = tb1Oya.referTb1Entity5s();
-            if (tb1Entity5s != null) {
-                for (com.example.entity.Tb1Entity5 tb1Entity5 : tb1Entity5s) {
+                java.util.List<com.example.entity.Tb1Entity5> tb1Entity5s = tb1Oya.referTb1Entity5s();
+                if (tb1Entity5s != null) {
+                    for (com.example.entity.Tb1Entity5 tb1Entity5 : tb1Entity5s) {
 
-                    // child:tb1_ko, parents:5
+                        // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                        // child:TB1_TENPU_FILE, parents:5
 
-                    if (tb1Entity5.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Entity5.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
                 if (tb1Oya.delete() != 1) {
                     throw new OptLockError("error.cant.delete");

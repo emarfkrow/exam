@@ -252,6 +252,24 @@ public class Tb1TenpuFile implements IEntity {
         }
     }
 
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /**
      * 添付ファイル照会
      * @param param1 祖先ID
@@ -279,8 +297,9 @@ public class Tb1TenpuFile implements IEntity {
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    tb1_tenpu_file a \n";
+        sql += "    TB1_TENPU_FILE a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -303,7 +322,7 @@ public class Tb1TenpuFile implements IEntity {
         numbering();
 
         // 添付ファイルの登録
-        String sql = "INSERT INTO tb1_tenpu_file(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO TB1_TENPU_FILE(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -321,6 +340,7 @@ public class Tb1TenpuFile implements IEntity {
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_ID` -- :update_id");
         nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -338,6 +358,7 @@ public class Tb1TenpuFile implements IEntity {
         valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -346,7 +367,7 @@ public class Tb1TenpuFile implements IEntity {
         if (this.tenpuFileBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`TENPU_FILE_BN`) IS NULL THEN 0 ELSE MAX(e.`TENPU_FILE_BN`) * 1 END + 1 AS `TENPU_FILE_BN` FROM tb1_tenpu_file e";
+        String sql = "SELECT CASE WHEN MAX(e.`TENPU_FILE_BN`) IS NULL THEN 0 ELSE MAX(e.`TENPU_FILE_BN`) * 1 END + 1 AS `TENPU_FILE_BN` FROM TB1_TENPU_FILE e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
         whereList.add("e.`SOSEN_ID` = :sosen_id");
@@ -370,7 +391,7 @@ public class Tb1TenpuFile implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 添付ファイルの登録
-        String sql = "UPDATE tb1_tenpu_file\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE TB1_TENPU_FILE\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -386,6 +407,7 @@ public class Tb1TenpuFile implements IEntity {
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_ID` = :update_id");
         setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -403,7 +425,7 @@ public class Tb1TenpuFile implements IEntity {
         }
 
         // 添付ファイルの削除
-        String sql = "DELETE FROM tb1_tenpu_file WHERE " + getWhere();
+        String sql = "DELETE FROM TB1_TENPU_FILE WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -431,6 +453,7 @@ public class Tb1TenpuFile implements IEntity {
         map.put("tenpu_file_mei", this.tenpuFileMei);
         map.put("tenpu_file_path", this.tenpuFilePath);
         map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_id", execId);
         map.put("update_ts", now);

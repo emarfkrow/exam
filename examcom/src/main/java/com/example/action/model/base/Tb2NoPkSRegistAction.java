@@ -25,14 +25,10 @@ public class Tb2NoPkSRegistAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
+        int count = 0;
+
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb2NoPkGrid");
-
-        if (gridData.size() == 0) {
-            map.put("ERROR", Messages.get("error.nopost"));
-            return map;
-        }
-
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -53,13 +49,20 @@ public class Tb2NoPkSRegistAction extends BaseAction {
                 if (e.insert(now, execId) != 1) {
                     throw new OptLockError("error.cant.insert");
                 }
+                ++count;
 
             } else {
 
                 if (e.update(now, execId) != 1) {
                     throw new OptLockError("error.cant.update");
                 }
+                ++count;
             }
+        }
+
+        if (count == 0) {
+            map.put("ERROR", Messages.get("error.nopost"));
+            return map;
         }
 
         map.put("INFO", Messages.get("info.regist"));

@@ -25,14 +25,10 @@ public class Tb1OyaSDeleteAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
+        int count = 0;
+
         @SuppressWarnings("unchecked")
         List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb1OyaGrid");
-
-        if (gridData.size() == 0) {
-            map.put("ERROR", Messages.get("error.nopost"));
-            return map;
-        }
-
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -53,9 +49,9 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Entity1s != null) {
                 for (com.example.entity.Tb1Entity1 tb1Entity1 : tb1Entity1s) {
 
-                    // child:tb1_ko, parents:5
+                    // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                    // child:TB1_TENPU_FILE, parents:5
 
                     if (tb1Entity1.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -67,9 +63,9 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Entity2s != null) {
                 for (com.example.entity.Tb1Entity2 tb1Entity2 : tb1Entity2s) {
 
-                    // child:tb1_ko, parents:5
+                    // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                    // child:TB1_TENPU_FILE, parents:5
 
                     if (tb1Entity2.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -81,9 +77,9 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Entity3s != null) {
                 for (com.example.entity.Tb1Entity3 tb1Entity3 : tb1Entity3s) {
 
-                    // child:tb1_ko, parents:5
+                    // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                    // child:TB1_TENPU_FILE, parents:5
 
                     if (tb1Entity3.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -95,9 +91,9 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Entity4s != null) {
                 for (com.example.entity.Tb1Entity4 tb1Entity4 : tb1Entity4s) {
 
-                    // child:tb1_ko, parents:5
+                    // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                    // child:TB1_TENPU_FILE, parents:5
 
                     if (tb1Entity4.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -109,9 +105,9 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Entity5s != null) {
                 for (com.example.entity.Tb1Entity5 tb1Entity5 : tb1Entity5s) {
 
-                    // child:tb1_ko, parents:5
+                    // child:TB1_KO, parents:5
 
-                    // child:tb1_tenpu_file, parents:5
+                    // child:TB1_TENPU_FILE, parents:5
 
                     if (tb1Entity5.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -122,6 +118,12 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }
+            ++count;
+        }
+
+        if (count == 0) {
+            map.put("ERROR", Messages.get("error.nopost"));
+            return map;
         }
 
         map.put("INFO", Messages.get("info.delete"));

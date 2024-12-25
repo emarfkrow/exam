@@ -314,7 +314,7 @@ public class Vb1Shison implements IEntity {
         sql += "    , a.`SEARCH_SHISON_BN` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "FROM \n";
-        sql += "    vb1_shison a \n";
+        sql += "    VB1_SHISON a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -330,7 +330,7 @@ public class Vb1Shison implements IEntity {
     public int insert(final LocalDateTime now, final String execId) {
 
         // VIEWの登録
-        String sql = "INSERT INTO vb1_shison(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO VB1_SHISON(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -381,7 +381,7 @@ public class Vb1Shison implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // VIEWの登録
-        String sql = "UPDATE vb1_shison\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE VB1_SHISON\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -410,7 +410,7 @@ public class Vb1Shison implements IEntity {
     public int delete() {
 
         // VIEWの削除
-        String sql = "DELETE FROM vb1_shison WHERE " + getWhere();
+        String sql = "DELETE FROM VB1_SHISON WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 

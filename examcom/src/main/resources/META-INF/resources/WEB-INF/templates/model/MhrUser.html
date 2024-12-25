@@ -43,6 +43,11 @@
             <legend th:text="#{MhrUser.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrUser.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrUser.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMhrUser" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -50,6 +55,8 @@
         <button id="DeleteMhrUser" class="delete" data-action="MhrUserDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMhrUser" class="permit" data-action="MhrUserPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrUser" class="forbid" data-action="MhrUserForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrUser" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

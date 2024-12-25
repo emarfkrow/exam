@@ -180,6 +180,24 @@ public class Mb1Sansho3 implements IEntity {
         }
     }
 
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /**
      * 参照３マスタ照会
      * @param param1 参照３NO
@@ -197,8 +215,9 @@ public class Mb1Sansho3 implements IEntity {
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    mb1_sansho3 a \n";
+        sql += "    MB1_SANSHO3 a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -215,7 +234,7 @@ public class Mb1Sansho3 implements IEntity {
     public int insert(final LocalDateTime now, final String execId) {
 
         // 参照３マスタの登録
-        String sql = "INSERT INTO mb1_sansho3(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO MB1_SANSHO3(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -229,6 +248,7 @@ public class Mb1Sansho3 implements IEntity {
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_ID` -- :update_id");
         nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -242,6 +262,7 @@ public class Mb1Sansho3 implements IEntity {
         valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -254,7 +275,7 @@ public class Mb1Sansho3 implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 参照３マスタの登録
-        String sql = "UPDATE mb1_sansho3\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE MB1_SANSHO3\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -266,6 +287,7 @@ public class Mb1Sansho3 implements IEntity {
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_ID` = :update_id");
         setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -276,7 +298,7 @@ public class Mb1Sansho3 implements IEntity {
     public int delete() {
 
         // 参照３マスタの削除
-        String sql = "DELETE FROM mb1_sansho3 WHERE " + getWhere();
+        String sql = "DELETE FROM MB1_SANSHO3 WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -297,6 +319,7 @@ public class Mb1Sansho3 implements IEntity {
         map.put("sansho_3_no", this.sansho3No);
         map.put("sansho_3_mei", this.sansho3Mei);
         map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_id", execId);
         map.put("update_ts", now);

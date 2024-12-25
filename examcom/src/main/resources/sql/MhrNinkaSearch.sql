@@ -1,10 +1,9 @@
 SELECT
       a.`BUSHO_ID`
-    , (SELECT r1.`BUSHO_MEI` FROM mhr_busho r1 WHERE r1.`BUSHO_ID` = a.`BUSHO_ID`) AS `BUSHO_MEI`
+    , (SELECT r1.`BUSHO_MEI` FROM MHR_BUSHO r1 WHERE r1.`BUSHO_ID` = a.`BUSHO_ID`) AS `BUSHO_MEI`
     , a.`SHOKUI_ID`
-    , (SELECT r2.`SHOKUI_MEI` FROM mhr_shokui r2 WHERE r2.`SHOKUI_ID` = a.`SHOKUI_ID`) AS `SHOKUI_MEI`
+    , (SELECT r2.`SHOKUI_MEI` FROM MHR_SHOKUI r2 WHERE r2.`SHOKUI_ID` = a.`SHOKUI_ID`) AS `SHOKUI_MEI`
     , a.`KINO_NM`
-    , (SELECT r3.`KINO_MEI` FROM msy_kino r3 WHERE r3.`KINO_NM` = a.`KINO_NM`) AS `KINO_MEI`
     , a.`KENGEN_KB`
     , a.`KAISHI_BI` AS KAISHI_BI
     , a.`SHURYO_BI` AS SHURYO_BI
@@ -13,8 +12,9 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_ID`
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
-    mhr_ninka a 
+    MHR_NINKA a 
 WHERE
     1 = 1 
     AND a.`BUSHO_ID` = :busho_id 
@@ -36,5 +36,6 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_ID` = :update_id 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`BUSHO_ID`, a.`SHOKUI_ID`, a.`KINO_NM`

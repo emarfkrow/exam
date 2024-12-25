@@ -3,7 +3,7 @@
 <body>
   <div class="nav" layout:fragment="nav" th:if="${#ctx.session != null && #ctx.session.get('AUTHN_KEY') != null}">
     <dl>
-      <dt id="mb1" th:text="#{nav.dt.mb1}">mb1</dt>
+      <dt id="MB1" th:text="#{nav.dt.MB1}">MB1</dt>
       <dd>
         <ul>
           <li><a id="Mb1Sansho1" th:href="@{/model/Mb1Sansho1S.html}" th:text="#{nav.Mb1Sansho1S}">参照１マスタ</a></li>
@@ -11,7 +11,7 @@
           <li><a id="Mb1Sansho3" th:href="@{/model/Mb1Sansho3S.html}" th:text="#{nav.Mb1Sansho3S}">参照３マスタ</a></li>
         </ul>
       </dd>
-      <dt id="mhr" th:text="#{nav.dt.mhr}">mhr</dt>
+      <dt id="MHR" th:text="#{nav.dt.MHR}">MHR</dt>
       <dd>
         <ul>
           <li><a id="MhrBusho" th:href="@{/model/MhrBushoS.html}" th:text="#{nav.MhrBushoS}">部署マスタ</a></li>
@@ -21,14 +21,13 @@
           <li><a id="MhrUser" th:href="@{/model/MhrUserS.html}" th:text="#{nav.MhrUserS}">ユーザマスタ</a></li>
         </ul>
       </dd>
-      <dt id="msy" th:text="#{nav.dt.msy}">msy</dt>
+      <dt id="MSY" th:text="#{nav.dt.MSY}">MSY</dt>
       <dd>
         <ul>
           <li><a id="MsyKbn" th:href="@{/model/MsyKbnS.html}" th:text="#{nav.MsyKbnS}">区分マスタ</a></li>
-          <li><a id="MsyKino" th:href="@{/model/MsyKinoS.html}" th:text="#{nav.MsyKinoS}">機能マスタ</a></li>
         </ul>
       </dd>
-      <dt id="tb1" th:text="#{nav.dt.tb1}">tb1</dt>
+      <dt id="TB1" th:text="#{nav.dt.TB1}">TB1</dt>
       <dd>
         <ul>
           <li><a id="Tb1Entity1His" th:href="@{/model/Tb1Entity1HisS.html}" th:text="#{nav.Tb1Entity1HisS}">エンティティ１履歴</a></li>
@@ -36,20 +35,20 @@
           <li><a id="Tb1Sosen" th:href="@{/model/Tb1SosenS.html}" th:text="#{nav.Tb1SosenS}">祖先</a></li>
         </ul>
       </dd>
-      <dt id="tb2" th:text="#{nav.dt.tb2}">tb2</dt>
+      <dt id="TB2" th:text="#{nav.dt.TB2}">TB2</dt>
       <dd>
         <ul>
           <li><a id="Tb2Entity" th:href="@{/model/Tb2EntityS.html}" th:text="#{nav.Tb2EntityS}">エンティティ</a></li>
           <li><a id="Tb2NoPk" th:href="@{/model/Tb2NoPkS.html}" th:text="#{nav.Tb2NoPkS}">主キーなし</a></li>
         </ul>
       </dd>
-      <dt id="vb1" th:text="#{nav.dt.vb1}">vb1</dt>
+      <dt id="VB1" th:text="#{nav.dt.VB1}">VB1</dt>
       <dd>
         <ul>
           <li><a id="Vb1Shison" th:href="@{/model/Vb1ShisonS.html}" th:text="#{nav.Vb1ShisonS}">VIEW</a></li>
         </ul>
       </dd>
-      <dt id="vb2" th:text="#{nav.dt.vb2}">vb2</dt>
+      <dt id="VB2" th:text="#{nav.dt.VB2}">VB2</dt>
       <dd>
         <ul>
           <li><a id="Vb2Entity" th:href="@{/model/Vb2EntityS.html}" th:text="#{nav.Vb2EntityS}">VIEW</a></li>

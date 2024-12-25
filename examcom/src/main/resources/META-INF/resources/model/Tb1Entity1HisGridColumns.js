@@ -17,4 +17,5 @@ let Tb1Entity1HisGridColumns = [
     Column.refer('BETSU_SANSHO1_ID', Messages['Tb1Entity1HisGrid.betsuSansho1Id'], 80, '', 'BETSU_SANSHO1_MEI'),
     Column.cell('BETSU_SANSHO1_MEI', Messages['Tb1Entity1HisGrid.betsuSansho1Mei'], 300, '', null),
     Column.cell('DELETE_F', Messages['Tb1Entity1HisGrid.deleteF'], 30, '', null),
+    Column.cell('STATUS_KB', Messages['Tb1Entity1HisGrid.statusKb'], 30, '', null),
 ];

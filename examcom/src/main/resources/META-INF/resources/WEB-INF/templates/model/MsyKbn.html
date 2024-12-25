@@ -29,6 +29,11 @@
             <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MsyKbn.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbn.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <h3 th:text="#{MsyKbnVal.h3}">h3</h3>
       <a th:href="@{/model/MsyKbnVal.html}" id="MsyKbnVal" target="dialog" th:text="#{MsyKbnVal.add}" class="addChild" tabindex="-1">区分値マスタ</a>
@@ -39,6 +44,8 @@
         <button id="DeleteMsyKbn" class="delete" data-action="MsyKbnDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMsyKbn" class="permit" data-action="MsyKbnPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyKbn" class="forbid" data-action="MsyKbnForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyKbn" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

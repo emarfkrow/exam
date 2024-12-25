@@ -254,6 +254,24 @@ public class Tb1Entity1RegistForm implements IForm {
         this.deleteF = p;
     }
 
+    /** ステータス区分 */
+    @jakarta.validation.constraints.Size(max = 2)
+    private String statusKb;
+
+    /**
+     * @return ステータス区分
+     */
+    public String getStatusKb() {
+        return statusKb;
+    }
+
+    /**
+     * @param p ステータス区分
+     */
+    public void setStatusKb(final String p) {
+        this.statusKb = p;
+    }
+
     /** エンティティ２ */
     @jakarta.validation.Valid
     private Tb1Entity2RegistForm tb1Entity2RegistForm;

@@ -1,6 +1,6 @@
 SELECT
       a.`KBN_NM`
-    , (SELECT r1.`KBN_MEI` FROM msy_kbn r1 WHERE r1.`KBN_NM` = a.`KBN_NM`) AS `KBN_MEI`
+    , (SELECT r1.`KBN_MEI` FROM MSY_KBN r1 WHERE r1.`KBN_NM` = a.`KBN_NM`) AS `KBN_MEI`
     , a.`KBN_VAL`
     , a.`KBN_VAL_MEI`
     , a.`HYOJI_ON`
@@ -10,8 +10,9 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_ID`
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
-    msy_kbn_val a 
+    MSY_KBN_VAL a 
 WHERE
     1 = 1 
     AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
@@ -28,5 +29,6 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_ID` = :update_id 
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`KBN_NM`, a.`KBN_VAL`

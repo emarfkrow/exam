@@ -37,6 +37,11 @@
             <legend th:text="#{MhrShokui.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrShokui.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrShokui.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMhrShokui" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -44,6 +49,8 @@
         <button id="DeleteMhrShokui" class="delete" data-action="MhrShokuiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMhrShokui" class="permit" data-action="MhrShokuiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShokui" class="forbid" data-action="MhrShokuiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrShokui" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

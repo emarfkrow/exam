@@ -11,7 +11,6 @@
 <script th:src="@{/model/MhrNinkaGridColumns.js}"></script>
 <script th:src="@{/model/MhrBushoGridColumns.js}"></script>
 <script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
-<script th:src="@{/model/MsyKinoGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -26,7 +25,7 @@
           <label th:text="#{MhrNinka.shokuiId}">職位ID</label><span id="MhrNinka.shokuiId" class="primaryKey"></span><input type="hidden" id="MhrNinka.shokuiId" name="MhrNinka.shokuiId" class="primaryKey" /><a id="MhrNinka.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrNinka.shokuiMei" class="refer" data-json="MhrShokuiSearch.json" data-srcDef="SHOKUI_ID:MhrNinka.shokuiId" data-destDef="MhrNinka.shokuiMei:SHOKUI_MEI"></span>
         </div>
         <div id="kinoNm">
-          <label for="MhrNinka.kinoNm" th:text="#{MhrNinka.kinoNm}">機能名称</label><input type="text" id="MhrNinka.kinoNm" name="MhrNinka.kinoNm" maxlength="20" class=" primaryKey notblank" data-json="MsyKinoSearch.json" data-srcDef="KINO_NM:MhrNinka.kinoNm" data-destDef="MhrNinka.kinoMei:KINO_MEI" /><a id="MhrNinka.kinoNm" th:href="@{/model/MsyKinoS.html}" target="dialog" class="refer primaryKey" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrNinka.kinoMei" class="refer primaryKey" data-json="MsyKinoSearch.json" data-srcDef="KINO_NM:MhrNinka.kinoNm" data-destDef="MhrNinka.kinoMei:KINO_MEI"></span>
+          <label for="MhrNinka.kinoNm" th:text="#{MhrNinka.kinoNm}">機能名称</label><input type="text" id="MhrNinka.kinoNm" name="MhrNinka.kinoNm" maxlength="20" class=" primaryKey notblank" />
         </div>
         <div id="kengenKb">
           <fieldset id="MhrNinka.kengenKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:KENGEN_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -45,6 +44,11 @@
             <legend th:text="#{MhrNinka.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrNinka.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrNinka.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMhrNinka" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -52,6 +56,8 @@
         <button id="DeleteMhrNinka" class="delete" data-action="MhrNinkaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMhrNinka" class="permit" data-action="MhrNinkaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrNinka" class="forbid" data-action="MhrNinkaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrNinka" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

@@ -43,4 +43,5 @@ let Tb2EntityGridColumns = [
     Column.dec3('NULL_TANKA_KG', Messages['Tb2EntityGrid.nullTankaKg'], 88, '', null),
     Column.dec3('NULL_ZEINUKI_KG', Messages['Tb2EntityGrid.nullZeinukiKg'], 88, '', null),
     Column.check('DELETE_F', Messages['Tb2EntityGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['Tb2EntityGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

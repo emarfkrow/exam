@@ -9,4 +9,5 @@ let Tb1KoGridColumns = [
     Column.comma('KO_BN', Messages['Tb1KoGrid.koBn'], 80, 'primaryKey numbering', null),
     Column.text('KO_MEI', Messages['Tb1KoGrid.koMei'], 300, 'notblank', null),
     Column.check('DELETE_F', Messages['Tb1KoGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['Tb1KoGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

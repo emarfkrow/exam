@@ -466,7 +466,7 @@ public class Vb2Entity implements IEntity {
         sql += "    , a.`TANKA_KG` \n";
         sql += "    , a.`ZEINUKI_KG` \n";
         sql += "FROM \n";
-        sql += "    vb2_entity a \n";
+        sql += "    VB2_ENTITY a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -482,7 +482,7 @@ public class Vb2Entity implements IEntity {
     public int insert(final LocalDateTime now, final String execId) {
 
         // VIEWの登録
-        String sql = "INSERT INTO vb2_entity(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO VB2_ENTITY(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -547,7 +547,7 @@ public class Vb2Entity implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // VIEWの登録
-        String sql = "UPDATE vb2_entity\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE VB2_ENTITY\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -584,7 +584,7 @@ public class Vb2Entity implements IEntity {
     public int delete() {
 
         // VIEWの削除
-        String sql = "DELETE FROM vb2_entity WHERE " + getWhere();
+        String sql = "DELETE FROM VB2_ENTITY WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 

@@ -9,4 +9,5 @@ let MhrShokuiGridColumns = [
     Column.date('KAISHI_BI', Messages['MhrShokuiGrid.kaishiBi'], 80, '', Slick.Formatters.Extends.Date),
     Column.date('SHURYO_BI', Messages['MhrShokuiGrid.shuryoBi'], 80, '', Slick.Formatters.Extends.Date),
     Column.check('DELETE_F', Messages['MhrShokuiGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['MhrShokuiGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

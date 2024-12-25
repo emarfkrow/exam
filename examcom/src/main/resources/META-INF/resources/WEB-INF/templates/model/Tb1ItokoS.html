@@ -51,6 +51,11 @@
             <legend th:text="#{Tb1Itoko.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Itoko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Itoko.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb1Itoko" th:text="#{common.reset}" class="reset">reset</button>
@@ -68,6 +73,8 @@
         <button type="button" id="ResetTb1ItokoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Itoko&quot;]').click();">reset</button>
         <a th:href="@{Tb1ItokoSearch.xlsx(baseMei=#{Tb1ItokoS.h2})}" id="Tb1ItokoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb1ItokoS" class="delete selectRows" data-action="Tb1ItokoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1ItokoS" class="permit selectRows" data-action="Tb1ItokoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1ItokoS" class="forbid selectRows" data-action="Tb1ItokoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
         <button id="RegistTb1ItokoS" class="regist" th:text="#{common.regist}">submit</button>

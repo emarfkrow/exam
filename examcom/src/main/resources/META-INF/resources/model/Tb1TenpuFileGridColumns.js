@@ -10,4 +10,5 @@ let Tb1TenpuFileGridColumns = [
     Column.text('TENPU_FILE_MEI', Messages['Tb1TenpuFileGrid.tenpuFileMei'], 300, 'notblank', null),
     Column.link('TENPU_FILE_PATH', Messages['Tb1TenpuFileGrid.tenpuFilePath'], 300, 'notblank'),
     Column.check('DELETE_F', Messages['Tb1TenpuFileGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['Tb1TenpuFileGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

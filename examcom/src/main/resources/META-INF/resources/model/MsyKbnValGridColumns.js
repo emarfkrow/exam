@@ -9,4 +9,5 @@ let MsyKbnValGridColumns = [
     Column.comma('HYOJI_ON', Messages['MsyKbnValGrid.hyojiOn'], 80, '', null),
     Column.text('CRITERIA', Messages['MsyKbnValGrid.criteria'], 300, '', null),
     Column.check('DELETE_F', Messages['MsyKbnValGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['MsyKbnValGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

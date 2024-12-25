@@ -128,6 +128,24 @@ public class Tb1KoRegistForm implements IForm {
         this.deleteF = p;
     }
 
+    /** ステータス区分 */
+    @jakarta.validation.constraints.Size(max = 2)
+    private String statusKb;
+
+    /**
+     * @return ステータス区分
+     */
+    public String getStatusKb() {
+        return statusKb;
+    }
+
+    /**
+     * @param p ステータス区分
+     */
+    public void setStatusKb(final String p) {
+        this.statusKb = p;
+    }
+
     /** 子孫 */
     @jakarta.validation.Valid
     private List<Tb1ShisonRegistForm> tb1ShisonGrid;

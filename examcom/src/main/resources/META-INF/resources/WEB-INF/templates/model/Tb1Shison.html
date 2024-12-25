@@ -52,6 +52,11 @@
             <legend th:text="#{Tb1Shison.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Shison.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Shison.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetTb1Shison" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -59,6 +64,8 @@
         <button id="DeleteTb1Shison" class="delete" data-action="Tb1ShisonDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitTb1Shison" class="permit" data-action="Tb1ShisonPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Shison" class="forbid" data-action="Tb1ShisonForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Shison" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

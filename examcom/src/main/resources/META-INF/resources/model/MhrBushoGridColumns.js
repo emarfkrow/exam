@@ -9,4 +9,5 @@ let MhrBushoGridColumns = [
     Column.date('KAISHI_BI', Messages['MhrBushoGrid.kaishiBi'], 80, '', Slick.Formatters.Extends.Date),
     Column.date('SHURYO_BI', Messages['MhrBushoGrid.shuryoBi'], 80, '', Slick.Formatters.Extends.Date),
     Column.check('DELETE_F', Messages['MhrBushoGrid.deleteF'], 30, ''),
+    Column.select('STATUS_KB', Messages['MhrBushoGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

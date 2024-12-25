@@ -46,6 +46,11 @@
             <legend th:text="#{Tb1Entity5.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity5.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity5.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Entity1.legend}">legend</legend>
@@ -82,6 +87,11 @@
             <legend th:text="#{Tb1Entity1.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity1.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity1.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Entity2.legend}">legend</legend>
@@ -92,6 +102,11 @@
         <div id="deleteF">
           <fieldset id="Tb1Entity2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1Entity2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity2.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
@@ -106,6 +121,11 @@
             <legend th:text="#{Tb1Entity3.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Entity4.legend}">legend</legend>
@@ -116,6 +136,11 @@
         <div id="deleteF">
           <fieldset id="Tb1Entity4.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1Entity4.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Entity4.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Entity4.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
@@ -131,6 +156,8 @@
         <button id="DeleteTb1Entity5" class="delete" data-action="Tb1Entity5Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitTb1Entity5" class="permit" data-action="Tb1Entity5Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Entity5" class="forbid" data-action="Tb1Entity5Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Entity5" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

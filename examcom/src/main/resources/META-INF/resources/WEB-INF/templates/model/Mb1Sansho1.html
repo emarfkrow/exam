@@ -28,6 +28,11 @@
             <legend th:text="#{Mb1Sansho1.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="Mb1Sansho1.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb1Sansho1.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMb1Sansho1" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -35,6 +40,8 @@
         <button id="DeleteMb1Sansho1" class="delete" data-action="Mb1Sansho1Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMb1Sansho1" class="permit" data-action="Mb1Sansho1Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMb1Sansho1" class="forbid" data-action="Mb1Sansho1Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMb1Sansho1" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

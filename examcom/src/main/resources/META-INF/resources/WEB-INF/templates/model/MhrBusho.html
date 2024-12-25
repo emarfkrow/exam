@@ -37,6 +37,11 @@
             <legend th:text="#{MhrBusho.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
+        <div id="statusKb">
+          <fieldset id="MhrBusho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MhrBusho.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="ResetMhrBusho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -44,6 +49,8 @@
         <button id="DeleteMhrBusho" class="delete" data-action="MhrBushoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="PermitMhrBusho" class="permit" data-action="MhrBushoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrBusho" class="forbid" data-action="MhrBushoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrBusho" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
