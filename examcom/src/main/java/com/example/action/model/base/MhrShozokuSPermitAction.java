@@ -36,8 +36,29 @@ public class MhrShozokuSPermitAction extends BaseAction {
             }
 
             MhrShozoku e = FormValidator.toBean(MhrShozoku.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object bushoId = e.getBushoId();
+            if (bushoId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object shokuiId = e.getShokuiId();
+            if (shokuiId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object userId = e.getUserId();
+            if (userId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object kaishiBi = e.getKaishiBi();
+            if (kaishiBi == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            MhrShozoku f = MhrShozoku.get(bushoId, shokuiId, userId, kaishiBi);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

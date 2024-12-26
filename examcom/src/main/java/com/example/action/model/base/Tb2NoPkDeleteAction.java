@@ -23,6 +23,13 @@ public class Tb2NoPkDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
+        Object columnA = postJson.get("columnA");
+        if (columnA == null) {
+            columnA = postJson.get("Tb2NoPk.columnA");
+        }
+        if (columnA == null) {
+            throw new OptLockError("error.cant.delete");
+        }
 
         Tb2NoPk e = FormValidator.toBean(Tb2NoPk.class.getName(), postJson);
 

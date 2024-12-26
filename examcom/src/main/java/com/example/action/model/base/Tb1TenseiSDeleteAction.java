@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Vb2Entity;
+import com.example.entity.Tb1Tensei;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * VIEW一覧承認
+ * 転生一覧削除
  *
  * @author emarfkrow
  */
-public class Vb2EntitySPermitAction extends BaseAction {
+public class Tb1TenseiSDeleteAction extends BaseAction {
 
-    /** VIEW一覧承認処理 */
+    /** 転生一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -28,16 +28,22 @@ public class Vb2EntitySPermitAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Vb2EntityGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb1TenseiGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Vb2Entity e = FormValidator.toBean(Vb2Entity.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+            // 主キーが不足していたらエラー
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TENSEI_ID"))) {
+                throw new OptLockError("error.cant.delete");
+            }
+
+            Tb1Tensei e = FormValidator.toBean(Tb1Tensei.class.getName(), gridRow);
+
+            if (e.delete() != 1) {
+                throw new OptLockError("error.cant.delete");
             }
             ++count;
         }
@@ -47,7 +53,7 @@ public class Vb2EntitySPermitAction extends BaseAction {
             return map;
         }
 
-        map.put("INFO", Messages.get("info.permit"));
+        map.put("INFO", Messages.get("info.delete"));
         return map;
     }
 

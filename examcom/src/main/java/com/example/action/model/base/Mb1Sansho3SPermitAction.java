@@ -36,8 +36,17 @@ public class Mb1Sansho3SPermitAction extends BaseAction {
             }
 
             Mb1Sansho3 e = FormValidator.toBean(Mb1Sansho3.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sansho3No = e.getSansho3No();
+            if (sansho3No == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            Mb1Sansho3 f = Mb1Sansho3.get(sansho3No);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

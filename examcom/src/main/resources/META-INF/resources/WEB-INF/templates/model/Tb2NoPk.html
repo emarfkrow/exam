@@ -17,13 +17,13 @@
       <fieldset>
         <legend th:text="#{Tb2NoPk.legend}">legend</legend>
         <div id="columnA">
-          <label for="Tb2NoPk.columnA" th:text="#{Tb2NoPk.columnA}">列Ａ</label><input type="text" id="Tb2NoPk.columnA" name="Tb2NoPk.columnA" maxlength="60" />
+          <label for="Tb2NoPk.columnA" th:text="#{Tb2NoPk.columnA}">列Ａ</label><input type="text" id="Tb2NoPk.columnA" name="Tb2NoPk.columnA" maxlength="60" class=" primaryKey" />
         </div>
         <div id="columnB">
-          <label for="Tb2NoPk.columnB" th:text="#{Tb2NoPk.columnB}">列Ｂ</label><input type="text" id="Tb2NoPk.columnB" name="Tb2NoPk.columnB" maxlength="60" />
+          <label for="Tb2NoPk.columnB" th:text="#{Tb2NoPk.columnB}">列Ｂ</label><input type="text" id="Tb2NoPk.columnB" name="Tb2NoPk.columnB" maxlength="60" class=" uniqueKey" />
         </div>
         <div id="columnC">
-          <label for="Tb2NoPk.columnC" th:text="#{Tb2NoPk.columnC}">列Ｃ</label><input type="text" id="Tb2NoPk.columnC" name="Tb2NoPk.columnC" maxlength="60" />
+          <label for="Tb2NoPk.columnC" th:text="#{Tb2NoPk.columnC}">列Ｃ</label><input type="text" id="Tb2NoPk.columnC" name="Tb2NoPk.columnC" maxlength="60" class=" uniqueKey" />
         </div>
         <div id="columnD">
           <label for="Tb2NoPk.columnD" th:text="#{Tb2NoPk.columnD}">列Ｄ</label><input type="text" id="Tb2NoPk.columnD" name="Tb2NoPk.columnD" maxlength="60" />
@@ -46,9 +46,9 @@
       <div class="buttons">
         <button type="button" id="ResetTb2NoPk" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb2NoPkGet.xlsx(baseMei=#{Tb2NoPk.h2})}" id="Tb2NoPkGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb2NoPk" class="delete" data-action="Tb2NoPkDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteTb2NoPk" class="delete" data-action="Tb2NoPkDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb2NoPk" class="permit" data-action="Tb2NoPkPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb2NoPk" class="forbid" data-action="Tb2NoPkForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb2NoPk" class="regist" th:text="#{common.regist}">登録</button>

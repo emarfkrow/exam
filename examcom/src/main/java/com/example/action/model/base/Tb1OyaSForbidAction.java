@@ -36,8 +36,96 @@ public class Tb1OyaSForbidAction extends BaseAction {
             }
 
             Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            java.util.List<com.example.entity.Tb1Entity1> tb1Entity1s = e.referTb1Entity1s();
+            if (tb1Entity1s != null) {
+                for (com.example.entity.Tb1Entity1 tb1Entity1 : tb1Entity1s) {
+
+                    // child:Tb1Ko, parents:5
+
+                    // child:Tb1TenpuFile, parents:5
+
+                    tb1Entity1.setStatusKb(-1);
+                    if (tb1Entity1.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.forbid");
+                    }
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity2> tb1Entity2s = e.referTb1Entity2s();
+            if (tb1Entity2s != null) {
+                for (com.example.entity.Tb1Entity2 tb1Entity2 : tb1Entity2s) {
+
+                    // child:Tb1Ko, parents:5
+
+                    // child:Tb1TenpuFile, parents:5
+
+                    tb1Entity2.setStatusKb(-1);
+                    if (tb1Entity2.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.forbid");
+                    }
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity3> tb1Entity3s = e.referTb1Entity3s();
+            if (tb1Entity3s != null) {
+                for (com.example.entity.Tb1Entity3 tb1Entity3 : tb1Entity3s) {
+
+                    // child:Tb1Ko, parents:5
+
+                    // child:Tb1TenpuFile, parents:5
+
+                    tb1Entity3.setStatusKb(-1);
+                    if (tb1Entity3.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.forbid");
+                    }
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity4> tb1Entity4s = e.referTb1Entity4s();
+            if (tb1Entity4s != null) {
+                for (com.example.entity.Tb1Entity4 tb1Entity4 : tb1Entity4s) {
+
+                    // child:Tb1Ko, parents:5
+
+                    // child:Tb1TenpuFile, parents:5
+
+                    tb1Entity4.setStatusKb(-1);
+                    if (tb1Entity4.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.forbid");
+                    }
+                }
+            }
+
+            java.util.List<com.example.entity.Tb1Entity5> tb1Entity5s = e.referTb1Entity5s();
+            if (tb1Entity5s != null) {
+                for (com.example.entity.Tb1Entity5 tb1Entity5 : tb1Entity5s) {
+
+                    // child:Tb1Ko, parents:5
+
+                    // child:Tb1TenpuFile, parents:5
+
+                    tb1Entity5.setStatusKb(-1);
+                    if (tb1Entity5.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.forbid");
+                    }
+                }
+            }
+
+            Tb1Oya f = Tb1Oya.get(sosenId, oyaBn);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

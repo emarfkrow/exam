@@ -36,8 +36,17 @@ public class Tb2EntitySForbidAction extends BaseAction {
             }
 
             Tb2Entity e = FormValidator.toBean(Tb2Entity.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object entityId = e.getEntityId();
+            if (entityId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            Tb2Entity f = Tb2Entity.get(entityId);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

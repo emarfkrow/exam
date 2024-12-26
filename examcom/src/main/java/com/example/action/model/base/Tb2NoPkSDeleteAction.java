@@ -36,6 +36,9 @@ public class Tb2NoPkSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COLUMN_A"))) {
+                throw new OptLockError("error.cant.delete");
+            }
 
             Tb2NoPk e = FormValidator.toBean(Tb2NoPk.class.getName(), gridRow);
 

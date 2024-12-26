@@ -162,9 +162,9 @@
       <div class="buttons">
         <button type="button" id="ResetTb2Entity" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb2EntityGet.xlsx(baseMei=#{Tb2Entity.h2})}" id="Tb2EntityGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb2Entity" class="delete" data-action="Tb2EntityDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteTb2Entity" class="delete" data-action="Tb2EntityDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb2Entity" class="permit" data-action="Tb2EntityPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb2Entity" class="forbid" data-action="Tb2EntityForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb2Entity" class="regist" th:text="#{common.regist}">登録</button>

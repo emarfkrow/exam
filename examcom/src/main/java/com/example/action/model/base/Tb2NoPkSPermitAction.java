@@ -36,8 +36,17 @@ public class Tb2NoPkSPermitAction extends BaseAction {
             }
 
             Tb2NoPk e = FormValidator.toBean(Tb2NoPk.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object columnA = e.getColumnA();
+            if (columnA == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            Tb2NoPk f = Tb2NoPk.get(columnA);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

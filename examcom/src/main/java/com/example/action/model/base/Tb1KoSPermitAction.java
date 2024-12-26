@@ -36,8 +36,40 @@ public class Tb1KoSPermitAction extends BaseAction {
             }
 
             Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object entityBn = e.getEntityBn();
+            if (entityBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object koBn = e.getKoBn();
+            if (koBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            java.util.List<com.example.entity.Tb1Shison> tb1Shisons = e.referTb1Shisons();
+            if (tb1Shisons != null) {
+                for (com.example.entity.Tb1Shison tb1Shison : tb1Shisons) {
+
+                    tb1Shison.setStatusKb(1);
+                    if (tb1Shison.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.permit");
+                    }
+                }
+            }
+
+            Tb1Ko f = Tb1Ko.get(sosenId, oyaBn, entityBn, koBn);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

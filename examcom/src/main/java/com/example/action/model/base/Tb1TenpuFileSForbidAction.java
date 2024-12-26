@@ -36,8 +36,29 @@ public class Tb1TenpuFileSForbidAction extends BaseAction {
             }
 
             Tb1TenpuFile e = FormValidator.toBean(Tb1TenpuFile.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object entityBn = e.getEntityBn();
+            if (entityBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object tenpuFileBn = e.getTenpuFileBn();
+            if (tenpuFileBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            Tb1TenpuFile f = Tb1TenpuFile.get(sosenId, oyaBn, entityBn, tenpuFileBn);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

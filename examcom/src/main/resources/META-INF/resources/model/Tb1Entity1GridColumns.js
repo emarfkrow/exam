@@ -3,7 +3,7 @@
  */
 
 let Tb1Entity1GridColumns = [
-    Column.refer('SOSEN_ID', Messages['Tb1Entity1Grid.sosenId'], 80, 'primaryKey numbering', 'SOSEN_MEI'),
+    Column.comma('SOSEN_ID', Messages['Tb1Entity1Grid.sosenId'], 80, 'primaryKey numbering', null),
     Column.comma('OYA_BN', Messages['Tb1Entity1Grid.oyaBn'], 80, 'primaryKey numbering', null),
     Column.comma('ENTITY_BN', Messages['Tb1Entity1Grid.entityBn'], 80, 'primaryKey numbering', null),
     Column.text('ENTITY1_MEI', Messages['Tb1Entity1Grid.entity1Mei'], 300, 'notblank', null),

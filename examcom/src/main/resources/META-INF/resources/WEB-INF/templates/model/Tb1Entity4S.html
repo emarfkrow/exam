@@ -11,16 +11,10 @@
 <script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
-<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
 <script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -31,7 +25,7 @@
       <fieldset>
         <legend th:text="#{Tb1Entity4S.legend}">legend</legend>
         <div id="sosenId">
-          <label for="Tb1Entity4.sosenId" th:text="#{Tb1Entity4.sosenId}">祖先ID</label><input type="text" id="Tb1Entity4.sosenId" name="Tb1Entity4.sosenId" maxlength="10" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Entity4.sosenId" data-destDef="Tb1Entity4.sosenMei:SOSEN_MEI" /><a id="Tb1Entity4.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity4.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Entity4.sosenId" data-destDef="Tb1Entity4.sosenMei:SOSEN_MEI"></span>
+          <label for="Tb1Entity4.sosenId" th:text="#{Tb1Entity4.sosenId}">祖先ID</label><input type="text" id="Tb1Entity4.sosenId" name="Tb1Entity4.sosenId" maxlength="10" />
         </div>
         <div id="oyaBn">
           <label for="Tb1Entity4.oyaBn" th:text="#{Tb1Entity4.oyaBn}">親枝番</label><input type="text" id="Tb1Entity4.oyaBn" name="Tb1Entity4.oyaBn" maxlength="10" />

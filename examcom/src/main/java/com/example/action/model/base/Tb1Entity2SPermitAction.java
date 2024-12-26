@@ -36,8 +36,29 @@ public class Tb1Entity2SPermitAction extends BaseAction {
             }
 
             Tb1Entity2 e = FormValidator.toBean(Tb1Entity2.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object entityBn = e.getEntityBn();
+            if (entityBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            // child:Tb1Ko, parents:5
+
+            // child:Tb1TenpuFile, parents:5
+
+            Tb1Entity2 f = Tb1Entity2.get(sosenId, oyaBn, entityBn);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

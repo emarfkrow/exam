@@ -36,8 +36,29 @@ public class Tb1Entity1HisSForbidAction extends BaseAction {
             }
 
             Tb1Entity1His e = FormValidator.toBean(Tb1Entity1His.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object entityBn = e.getEntityBn();
+            if (entityBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object historyBn = e.getHistoryBn();
+            if (historyBn == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            Tb1Entity1His f = Tb1Entity1His.get(sosenId, oyaBn, entityBn, historyBn);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

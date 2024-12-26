@@ -36,8 +36,25 @@ public class MhrNinkaSPermitAction extends BaseAction {
             }
 
             MhrNinka e = FormValidator.toBean(MhrNinka.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object bushoId = e.getBushoId();
+            if (bushoId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object shokuiId = e.getShokuiId();
+            if (shokuiId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object kinoNm = e.getKinoNm();
+            if (kinoNm == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            MhrNinka f = MhrNinka.get(bushoId, shokuiId, kinoNm);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

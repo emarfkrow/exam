@@ -54,7 +54,7 @@
     </form>
     <form name="Tb2NoPkSRegistForm" action="Tb2NoPkSRegist.ajax" class="regist">
       <h3 th:text="#{Tb2NoPk.h3}">h3</h3>
-      <div id="Tb2NoPkGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Tb2NoPk.html}"></div>
+      <div id="Tb2NoPkGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2NoPk.html}"></div>
       <div id="Tb2NoPkPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb2NoPkS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2NoPk&quot;]').click();">reset</button>

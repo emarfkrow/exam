@@ -31,8 +31,8 @@
         <div id="sosenId">
           <label th:text="#{Tb1Sosen.sosenId}">祖先ID</label><span id="Tb1Sosen.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Sosen.sosenId" name="Tb1Sosen.sosenId" class="primaryKey" />
         </div>
-        <div id="sosenMei">
-          <label for="Tb1Sosen.sosenMei" th:text="#{Tb1Sosen.sosenMei}">祖先名</label><input type="text" id="Tb1Sosen.sosenMei" name="Tb1Sosen.sosenMei" maxlength="60" class=" notblank" />
+        <div id="biko">
+          <label for="Tb1Sosen.biko" th:text="#{Tb1Sosen.biko}">備考</label><input type="text" id="Tb1Sosen.biko" name="Tb1Sosen.biko" maxlength="800" />
         </div>
         <input type="hidden" name="Tb1Sosen.updateTs" />
         <div id="deleteF">
@@ -52,9 +52,10 @@
       <div class="buttons">
         <button type="button" id="ResetTb1Sosen" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1SosenGet.xlsx(baseMei=#{Tb1Sosen.h2})}" id="Tb1SosenGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1Sosen" class="delete" data-action="Tb1SosenDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <a th:href="@{/model/Tb1Tensei.html}" id="Tb1Tensei" target="dialog" th:text="#{Tb1Tensei.add}" class="reborn" tabindex="-1">転生</a>
       </div>
       <div class="submits">
+        <button id="DeleteTb1Sosen" class="delete" data-action="Tb1SosenDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1Sosen" class="permit" data-action="Tb1SosenPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb1Sosen" class="forbid" data-action="Tb1SosenForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Sosen" class="regist" th:text="#{common.regist}">登録</button>

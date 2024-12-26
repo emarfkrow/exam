@@ -243,21 +243,21 @@ public class Tb1Entity4 implements IEntity {
      */
     public static Tb1Entity4 get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
+        whereList.add("\"OYA_BN\" = :oya_bn");
+        whereList.add("\"ENTITY_BN\" = :entity_bn");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_BN` \n";
-        sql += "    , a.`ENTITY_BN` \n";
-        sql += "    , a.`ENTITY4_MEI` \n";
-        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
-        sql += "    , a.`INSERT_ID` \n";
-        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
-        sql += "    , a.`UPDATE_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
+        sql += "      a.\"SOSEN_ID\" \n";
+        sql += "    , a.\"OYA_BN\" \n";
+        sql += "    , a.\"ENTITY_BN\" \n";
+        sql += "    , a.\"ENTITY4_MEI\" \n";
+        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "    , a.\"INSERT_ID\" \n";
+        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
+        sql += "    , a.\"UPDATE_ID\" \n";
+        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
+        sql += "    , a.\"STATUS_KB\" \n";
         sql += "FROM \n";
         sql += "    TB1_ENTITY4 a \n";
         sql += "WHERE \n";
@@ -340,16 +340,16 @@ public class Tb1Entity4 implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_BN` -- :oya_bn");
-        nameList.add("`ENTITY_BN` -- :entity_bn");
-        nameList.add("`ENTITY4_MEI` -- :entity_4_mei");
-        nameList.add("`INSERT_TS` -- :insert_ts");
-        nameList.add("`INSERT_ID` -- :insert_id");
-        nameList.add("`UPDATE_TS` -- :update_ts");
-        nameList.add("`UPDATE_ID` -- :update_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
+        nameList.add("\"SOSEN_ID\" -- :sosen_id");
+        nameList.add("\"OYA_BN\" -- :oya_bn");
+        nameList.add("\"ENTITY_BN\" -- :entity_bn");
+        nameList.add("\"ENTITY4_MEI\" -- :entity_4_mei");
+        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("\"INSERT_ID\" -- :insert_id");
+        nameList.add("\"UPDATE_TS\" -- :update_ts");
+        nameList.add("\"UPDATE_ID\" -- :update_id");
+        nameList.add("\"DELETE_F\" -- :delete_f");
+        nameList.add("\"STATUS_KB\" -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -360,9 +360,9 @@ public class Tb1Entity4 implements IEntity {
         valueList.add(":oya_bn");
         valueList.add(":entity_bn");
         valueList.add(":entity_4_mei");
-        valueList.add(":insert_ts");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
         valueList.add(":insert_id");
-        valueList.add(":update_ts");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
         valueList.add(":update_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
@@ -374,11 +374,11 @@ public class Tb1Entity4 implements IEntity {
         if (this.entityBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`ENTITY_BN`) IS NULL THEN 0 ELSE MAX(e.`ENTITY_BN`) * 1 END + 1 AS `ENTITY_BN` FROM TB1_ENTITY4 e";
+        String sql = "SELECT CASE WHEN MAX(e.\"ENTITY_BN\") IS NULL THEN 0 ELSE MAX(e.\"ENTITY_BN\") * 1 END + 1 AS \"ENTITY_BN\" FROM TB1_ENTITY4 e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_BN` = :oya_bn");
+        whereList.add("e.\"SOSEN_ID\" = :sosen_id");
+        whereList.add("e.\"OYA_BN\" = :oya_bn");
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_bn", this.oyaBn);
@@ -485,14 +485,14 @@ public class Tb1Entity4 implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_BN` = :oya_bn");
-        setList.add("`ENTITY_BN` = :entity_bn");
-        setList.add("`ENTITY4_MEI` = :entity_4_mei");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_ID` = :update_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
+        setList.add("\"SOSEN_ID\" = :sosen_id");
+        setList.add("\"OYA_BN\" = :oya_bn");
+        setList.add("\"ENTITY_BN\" = :entity_bn");
+        setList.add("\"ENTITY4_MEI\" = :entity_4_mei");
+        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        setList.add("\"UPDATE_ID\" = :update_id");
+        setList.add("\"DELETE_F\" = :delete_f");
+        setList.add("\"STATUS_KB\" = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -544,9 +544,9 @@ public class Tb1Entity4 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
+        whereList.add("\"OYA_BN\" = :oya_bn");
+        whereList.add("\"ENTITY_BN\" = :entity_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -694,9 +694,7 @@ public class Tb1Entity4 implements IEntity {
 
     /** @return 子のリスト */
     public List<Tb1Ko> referTb1Kos() {
-        if (this.tb1Kos == null) {
-            this.tb1Kos = Tb1Entity4.referTb1Kos(this.sosenId, this.oyaBn, this.entityBn);
-        }
+        this.tb1Kos = Tb1Entity4.referTb1Kos(this.sosenId, this.oyaBn, this.entityBn);
         return this.tb1Kos;
     }
 
@@ -745,9 +743,7 @@ public class Tb1Entity4 implements IEntity {
 
     /** @return 添付ファイルのリスト */
     public List<Tb1TenpuFile> referTb1TenpuFiles() {
-        if (this.tb1TenpuFiles == null) {
-            this.tb1TenpuFiles = Tb1Entity4.referTb1TenpuFiles(this.sosenId, this.oyaBn, this.entityBn);
-        }
+        this.tb1TenpuFiles = Tb1Entity4.referTb1TenpuFiles(this.sosenId, this.oyaBn, this.entityBn);
         return this.tb1TenpuFiles;
     }
 

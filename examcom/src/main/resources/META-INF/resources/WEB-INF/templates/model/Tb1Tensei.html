@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Tensei.title}">転生</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Tensei.h2}">h2</h2>
+    <form name="Tb1TenseiRegistForm" action="Tb1TenseiRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1Tensei.legend}">legend</legend>
+        <div id="tenseiId">
+          <label th:text="#{Tb1Tensei.tenseiId}">転生ID</label><span id="Tb1Tensei.tenseiId" class="primaryKey"></span><input type="hidden" id="Tb1Tensei.tenseiId" name="Tb1Tensei.tenseiId" class="primaryKey" />
+        </div>
+        <div id="tenseiMei">
+          <label for="Tb1Tensei.tenseiMei" th:text="#{Tb1Tensei.tenseiMei}">転生名</label><input type="text" id="Tb1Tensei.tenseiMei" name="Tb1Tensei.tenseiMei" maxlength="60" class=" notblank" />
+        </div>
+        <div id="sosenId">
+          <label th:text="#{Tb1Tensei.sosenId}">祖先ID</label><span id="Tb1Tensei.sosenId"></span><input type="hidden" id="Tb1Tensei.sosenId" name="Tb1Tensei.sosenId" />
+        </div>
+        <input type="hidden" name="Tb1Tensei.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb1Tensei.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Tensei.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Tensei.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Tensei.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Tensei" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1TenseiGet.xlsx(baseMei=#{Tb1Tensei.h2})}" id="Tb1TenseiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb1Tensei" class="delete" data-action="Tb1TenseiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1Tensei" class="permit" data-action="Tb1TenseiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Tensei" class="forbid" data-action="Tb1TenseiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb1Tensei" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

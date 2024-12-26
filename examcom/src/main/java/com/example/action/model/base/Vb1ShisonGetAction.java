@@ -9,13 +9,13 @@ import com.example.entity.Vb1Shison;
 import jp.co.golorp.emarf.action.BaseAction;
 
 /**
- * VIEW照会
+ * 子孫照会
  *
  * @author emarfkrow
  */
 public class Vb1ShisonGetAction extends BaseAction {
 
-    /** VIEW照会処理 */
+    /** 子孫照会処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

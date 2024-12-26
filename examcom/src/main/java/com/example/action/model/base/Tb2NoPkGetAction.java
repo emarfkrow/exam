@@ -22,8 +22,15 @@ public class Tb2NoPkGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
+        Object columnA = postJson.get("columnA");
+        if (columnA == null) {
+            columnA = postJson.get("Tb2NoPk.columnA");
+        }
+        if (columnA == null) {
+            return map;
+        }
 
-        Tb2NoPk tb2NoPk = Tb2NoPk.get();
+        Tb2NoPk tb2NoPk = Tb2NoPk.get(columnA);
         map.put("Tb2NoPk", tb2NoPk);
         return map;
     }

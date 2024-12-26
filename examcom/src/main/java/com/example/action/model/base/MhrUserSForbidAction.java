@@ -36,8 +36,17 @@ public class MhrUserSForbidAction extends BaseAction {
             }
 
             MhrUser e = FormValidator.toBean(MhrUser.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object userId = e.getUserId();
+            if (userId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            MhrUser f = MhrUser.get(userId);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

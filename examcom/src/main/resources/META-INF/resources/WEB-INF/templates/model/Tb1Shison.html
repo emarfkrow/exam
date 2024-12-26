@@ -9,18 +9,6 @@
 
 </script>
 <script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
-<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
-<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -29,7 +17,7 @@
       <fieldset>
         <legend th:text="#{Tb1Shison.legend}">legend</legend>
         <div id="sosenId">
-          <label th:text="#{Tb1Shison.sosenId}">祖先ID</label><span id="Tb1Shison.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Shison.sosenId" name="Tb1Shison.sosenId" class="primaryKey" /><a id="Tb1Shison.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Shison.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Shison.sosenId" data-destDef="Tb1Shison.sosenMei:SOSEN_MEI"></span>
+          <label th:text="#{Tb1Shison.sosenId}">祖先ID</label><span id="Tb1Shison.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Shison.sosenId" name="Tb1Shison.sosenId" class="primaryKey" />
         </div>
         <div id="oyaBn">
           <label th:text="#{Tb1Shison.oyaBn}">親枝番</label><span id="Tb1Shison.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Shison.oyaBn" name="Tb1Shison.oyaBn" class="primaryKey" />
@@ -61,9 +49,9 @@
       <div class="buttons">
         <button type="button" id="ResetTb1Shison" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1ShisonGet.xlsx(baseMei=#{Tb1Shison.h2})}" id="Tb1ShisonGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1Shison" class="delete" data-action="Tb1ShisonDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteTb1Shison" class="delete" data-action="Tb1ShisonDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1Shison" class="permit" data-action="Tb1ShisonPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb1Shison" class="forbid" data-action="Tb1ShisonForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Shison" class="regist" th:text="#{common.regist}">登録</button>

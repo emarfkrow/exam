@@ -10,17 +10,6 @@
 </script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
-<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -29,7 +18,7 @@
       <fieldset>
         <legend th:text="#{Tb1Ko.legend}">legend</legend>
         <div id="sosenId">
-          <label th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" class="primaryKey" /><a id="Tb1Ko.sosenId" th:href="@{/model/Tb1SosenS.html}" target="dialog" class="primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Ko.sosenMei" class="refer" data-json="Tb1SosenSearch.json" data-srcDef="SOSEN_ID:Tb1Ko.sosenId" data-destDef="Tb1Ko.sosenMei:SOSEN_MEI"></span>
+          <label th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" class="primaryKey" />
         </div>
         <div id="oyaBn">
           <label th:text="#{Tb1Ko.oyaBn}">親枝番</label><span id="Tb1Ko.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" class="primaryKey" />
@@ -61,9 +50,9 @@
       <div class="buttons">
         <button type="button" id="ResetTb1Ko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1KoGet.xlsx(baseMei=#{Tb1Ko.h2})}" id="Tb1KoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1Ko" class="delete" data-action="Tb1KoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteTb1Ko" class="delete" data-action="Tb1KoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1Ko" class="permit" data-action="Tb1KoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb1Ko" class="forbid" data-action="Tb1KoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Ko" class="regist" th:text="#{common.regist}">登録</button>

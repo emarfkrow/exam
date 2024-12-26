@@ -1,5 +1,5 @@
 /**
- * VIEWグリッド定義
+ * エンティティ検索グリッド定義
  */
 
 let Vb2EntityGridColumns = [

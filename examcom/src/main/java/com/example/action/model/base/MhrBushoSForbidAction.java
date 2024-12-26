@@ -36,8 +36,17 @@ public class MhrBushoSForbidAction extends BaseAction {
             }
 
             MhrBusho e = FormValidator.toBean(MhrBusho.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object bushoId = e.getBushoId();
+            if (bushoId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            MhrBusho f = MhrBusho.get(bushoId);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

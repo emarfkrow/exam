@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * VIEW一覧削除
+ * 子孫一覧削除
  *
  * @author emarfkrow
  */
 public class Vb1ShisonSDeleteAction extends BaseAction {
 
-    /** VIEW一覧削除処理 */
+    /** 子孫一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

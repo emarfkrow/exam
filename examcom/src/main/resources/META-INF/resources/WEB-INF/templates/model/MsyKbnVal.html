@@ -47,9 +47,9 @@
       <div class="buttons">
         <button type="button" id="ResetMsyKbnVal" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{MsyKbnValGet.xlsx(baseMei=#{MsyKbnVal.h2})}" id="MsyKbnValGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMsyKbnVal" class="delete" data-action="MsyKbnValDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteMsyKbnVal" class="delete" data-action="MsyKbnValDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMsyKbnVal" class="permit" data-action="MsyKbnValPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMsyKbnVal" class="forbid" data-action="MsyKbnValForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyKbnVal" class="regist" th:text="#{common.regist}">登録</button>

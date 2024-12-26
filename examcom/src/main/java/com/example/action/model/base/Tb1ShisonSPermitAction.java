@@ -36,8 +36,33 @@ public class Tb1ShisonSPermitAction extends BaseAction {
             }
 
             Tb1Shison e = FormValidator.toBean(Tb1Shison.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sosenId = e.getSosenId();
+            if (sosenId == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object oyaBn = e.getOyaBn();
+            if (oyaBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object entityBn = e.getEntityBn();
+            if (entityBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object koBn = e.getKoBn();
+            if (koBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+            Object shisonBn = e.getShisonBn();
+            if (shisonBn == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            Tb1Shison f = Tb1Shison.get(sosenId, oyaBn, entityBn, koBn, shisonBn);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }

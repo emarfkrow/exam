@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * VIEW登録フォーム
+ * 子孫登録フォーム
  *
  * @author emarfkrow
  */
@@ -19,7 +19,6 @@ public class Vb1ShisonRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Vb1ShisonRegistForm.class);
 
     /** entity_name */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 9)
     private String entityName;
 
@@ -37,202 +36,202 @@ public class Vb1ShisonRegistForm implements IForm {
         this.entityName = p;
     }
 
-    /** 祖先ID */
+    /** SOSEN_ID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sosenId;
 
     /**
-     * @return 祖先ID
+     * @return SOSEN_ID
      */
     public String getSosenId() {
         return sosenId;
     }
 
     /**
-     * @param p 祖先ID
+     * @param p SOSEN_ID
      */
     public void setSosenId(final String p) {
         this.sosenId = p;
     }
 
-    /** 祖先名 */
+    /** SOSEN_MEI */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String sosenMei;
 
     /**
-     * @return 祖先名
+     * @return SOSEN_MEI
      */
     public String getSosenMei() {
         return sosenMei;
     }
 
     /**
-     * @param p 祖先名
+     * @param p SOSEN_MEI
      */
     public void setSosenMei(final String p) {
         this.sosenMei = p;
     }
 
-    /** 親名 */
+    /** OYA_MEI */
     @jakarta.validation.constraints.Size(max = 60)
     private String oyaMei;
 
     /**
-     * @return 親名
+     * @return OYA_MEI
      */
     public String getOyaMei() {
         return oyaMei;
     }
 
     /**
-     * @param p 親名
+     * @param p OYA_MEI
      */
     public void setOyaMei(final String p) {
         this.oyaMei = p;
     }
 
-    /** エンティティ名 */
+    /** ENTITY1_MEI */
     @jakarta.validation.constraints.Size(max = 60)
     private String entity1Mei;
 
     /**
-     * @return エンティティ名
+     * @return ENTITY1_MEI
      */
     public String getEntity1Mei() {
         return entity1Mei;
     }
 
     /**
-     * @param p エンティティ名
+     * @param p ENTITY1_MEI
      */
     public void setEntity1Mei(final String p) {
         this.entity1Mei = p;
     }
 
-    /** 子名 */
+    /** KO_MEI */
     @jakarta.validation.constraints.Size(max = 60)
     private String koMei;
 
     /**
-     * @return 子名
+     * @return KO_MEI
      */
     public String getKoMei() {
         return koMei;
     }
 
     /**
-     * @param p 子名
+     * @param p KO_MEI
      */
     public void setKoMei(final String p) {
         this.koMei = p;
     }
 
-    /** 子孫名 */
+    /** SHISON_MEI */
     @jakarta.validation.constraints.Size(max = 60)
     private String shisonMei;
 
     /**
-     * @return 子孫名
+     * @return SHISON_MEI
      */
     public String getShisonMei() {
         return shisonMei;
     }
 
     /**
-     * @param p 子孫名
+     * @param p SHISON_MEI
      */
     public void setShisonMei(final String p) {
         this.shisonMei = p;
     }
 
-    /** 祖先ID */
+    /** SEARCH_SOSEN_ID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchSosenId;
 
     /**
-     * @return 祖先ID
+     * @return SEARCH_SOSEN_ID
      */
     public String getSearchSosenId() {
         return searchSosenId;
     }
 
     /**
-     * @param p 祖先ID
+     * @param p SEARCH_SOSEN_ID
      */
     public void setSearchSosenId(final String p) {
         this.searchSosenId = p;
     }
 
-    /** 親枝番 */
+    /** SEARCH_OYA_BN */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchOyaBn;
 
     /**
-     * @return 親枝番
+     * @return SEARCH_OYA_BN
      */
     public String getSearchOyaBn() {
         return searchOyaBn;
     }
 
     /**
-     * @param p 親枝番
+     * @param p SEARCH_OYA_BN
      */
     public void setSearchOyaBn(final String p) {
         this.searchOyaBn = p;
     }
 
-    /** エンティティ枝番 */
+    /** SEARCH_ENTITY_BN */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchEntityBn;
 
     /**
-     * @return エンティティ枝番
+     * @return SEARCH_ENTITY_BN
      */
     public String getSearchEntityBn() {
         return searchEntityBn;
     }
 
     /**
-     * @param p エンティティ枝番
+     * @param p SEARCH_ENTITY_BN
      */
     public void setSearchEntityBn(final String p) {
         this.searchEntityBn = p;
     }
 
-    /** 子枝番 */
+    /** SEARCH_KO_BN */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchKoBn;
 
     /**
-     * @return 子枝番
+     * @return SEARCH_KO_BN
      */
     public String getSearchKoBn() {
         return searchKoBn;
     }
 
     /**
-     * @param p 子枝番
+     * @param p SEARCH_KO_BN
      */
     public void setSearchKoBn(final String p) {
         this.searchKoBn = p;
     }
 
-    /** 子孫枝番 */
+    /** SEARCH_SHISON_BN */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String searchShisonBn;
 
     /**
-     * @return 子孫枝番
+     * @return SEARCH_SHISON_BN
      */
     public String getSearchShisonBn() {
         return searchShisonBn;
     }
 
     /**
-     * @param p 子孫枝番
+     * @param p SEARCH_SHISON_BN
      */
     public void setSearchShisonBn(final String p) {
         this.searchShisonBn = p;

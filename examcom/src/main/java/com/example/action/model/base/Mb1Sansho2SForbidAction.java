@@ -36,8 +36,17 @@ public class Mb1Sansho2SForbidAction extends BaseAction {
             }
 
             Mb1Sansho2 e = FormValidator.toBean(Mb1Sansho2.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object sansho2Cd = e.getSansho2Cd();
+            if (sansho2Cd == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            Mb1Sansho2 f = Mb1Sansho2.get(sansho2Cd);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

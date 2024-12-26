@@ -36,8 +36,21 @@ public class MsyKbnValSForbidAction extends BaseAction {
             }
 
             MsyKbnVal e = FormValidator.toBean(MsyKbnVal.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object kbnNm = e.getKbnNm();
+            if (kbnNm == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+            Object kbnVal = e.getKbnVal();
+            if (kbnVal == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            MsyKbnVal f = MsyKbnVal.get(kbnNm, kbnVal);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

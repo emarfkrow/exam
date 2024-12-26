@@ -37,9 +37,9 @@
       <div class="buttons">
         <button type="button" id="ResetMb1Sansho1" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Mb1Sansho1Get.xlsx(baseMei=#{Mb1Sansho1.h2})}" id="Mb1Sansho1Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMb1Sansho1" class="delete" data-action="Mb1Sansho1Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
+        <button id="DeleteMb1Sansho1" class="delete" data-action="Mb1Sansho1Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMb1Sansho1" class="permit" data-action="Mb1Sansho1Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMb1Sansho1" class="forbid" data-action="Mb1Sansho1Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMb1Sansho1" class="regist" th:text="#{common.regist}">登録</button>

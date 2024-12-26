@@ -3,7 +3,7 @@
  */
 
 let Tb1Entity1HisGridColumns = [
-    Column.refer('SOSEN_ID', Messages['Tb1Entity1HisGrid.sosenId'], 80, 'primaryKey numbering', 'SOSEN_MEI'),
+    Column.cell('SOSEN_ID', Messages['Tb1Entity1HisGrid.sosenId'], 80, 'primaryKey numbering', null),
     Column.cell('OYA_BN', Messages['Tb1Entity1HisGrid.oyaBn'], 80, 'primaryKey numbering', null),
     Column.cell('ENTITY_BN', Messages['Tb1Entity1HisGrid.entityBn'], 80, 'primaryKey numbering', null),
     Column.cell('HISTORY_BN', Messages['Tb1Entity1HisGrid.historyBn'], 80, 'primaryKey numbering', null),

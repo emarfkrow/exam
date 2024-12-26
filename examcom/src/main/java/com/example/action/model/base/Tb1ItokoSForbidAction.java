@@ -36,8 +36,17 @@ public class Tb1ItokoSForbidAction extends BaseAction {
             }
 
             Tb1Itoko e = FormValidator.toBean(Tb1Itoko.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object itokoId = e.getItokoId();
+            if (itokoId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            Tb1Itoko f = Tb1Itoko.get(itokoId);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

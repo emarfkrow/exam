@@ -36,8 +36,17 @@ public class MhrShokuiSForbidAction extends BaseAction {
             }
 
             MhrShokui e = FormValidator.toBean(MhrShokui.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object shokuiId = e.getShokuiId();
+            if (shokuiId == null) {
+                throw new OptLockError("error.cant.forbid");
+            }
+
+            MhrShokui f = MhrShokui.get(shokuiId);
+            f.setStatusKb(-1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.forbid");
             }
             ++count;
         }

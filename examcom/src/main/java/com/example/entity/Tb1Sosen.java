@@ -54,21 +54,21 @@ public class Tb1Sosen implements IEntity {
         }
     }
 
-    /** 祖先名 */
-    private String sosenMei;
+    /** 備考 */
+    private String biko;
 
-    /** @return 祖先名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_MEI")
-    public String getSosenMei() {
-        return this.sosenMei;
+    /** @return 備考 */
+    @com.fasterxml.jackson.annotation.JsonProperty("BIKO")
+    public String getBiko() {
+        return this.biko;
     }
 
-    /** @param o 祖先名 */
-    public void setSosenMei(final Object o) {
+    /** @param o 備考 */
+    public void setBiko(final Object o) {
         if (o != null) {
-            this.sosenMei = o.toString();
+            this.biko = o.toString();
         } else {
-            this.sosenMei = null;
+            this.biko = null;
         }
     }
 
@@ -205,17 +205,17 @@ public class Tb1Sosen implements IEntity {
      */
     public static Tb1Sosen get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`SOSEN_MEI` \n";
-        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
-        sql += "    , a.`INSERT_ID` \n";
-        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
-        sql += "    , a.`UPDATE_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
+        sql += "      a.\"SOSEN_ID\" \n";
+        sql += "    , a.\"BIKO\" \n";
+        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "    , a.\"INSERT_ID\" \n";
+        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
+        sql += "    , a.\"UPDATE_ID\" \n";
+        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
+        sql += "    , a.\"STATUS_KB\" \n";
         sql += "FROM \n";
         sql += "    TB1_SOSEN a \n";
         sql += "WHERE \n";
@@ -252,14 +252,14 @@ public class Tb1Sosen implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`SOSEN_MEI` -- :sosen_mei");
-        nameList.add("`INSERT_TS` -- :insert_ts");
-        nameList.add("`INSERT_ID` -- :insert_id");
-        nameList.add("`UPDATE_TS` -- :update_ts");
-        nameList.add("`UPDATE_ID` -- :update_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
+        nameList.add("\"SOSEN_ID\" -- :sosen_id");
+        nameList.add("\"BIKO\" -- :biko");
+        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("\"INSERT_ID\" -- :insert_id");
+        nameList.add("\"UPDATE_TS\" -- :update_ts");
+        nameList.add("\"UPDATE_ID\" -- :update_id");
+        nameList.add("\"DELETE_F\" -- :delete_f");
+        nameList.add("\"STATUS_KB\" -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -267,10 +267,10 @@ public class Tb1Sosen implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sosen_id");
-        valueList.add(":sosen_mei");
-        valueList.add(":insert_ts");
+        valueList.add(":biko");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
         valueList.add(":insert_id");
-        valueList.add(":update_ts");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
         valueList.add(":update_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
@@ -282,7 +282,7 @@ public class Tb1Sosen implements IEntity {
         if (this.sosenId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SOSEN_ID`) IS NULL THEN 0 ELSE MAX(e.`SOSEN_ID`) * 1 END + 1 AS `SOSEN_ID` FROM TB1_SOSEN e";
+        String sql = "SELECT CASE WHEN MAX(e.\"SOSEN_ID\") IS NULL THEN 0 ELSE MAX(e.\"SOSEN_ID\") * 1 END + 1 AS \"SOSEN_ID\" FROM TB1_SOSEN e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SOSEN_ID");
@@ -320,12 +320,12 @@ public class Tb1Sosen implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`SOSEN_MEI` = :sosen_mei");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_ID` = :update_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
+        setList.add("\"SOSEN_ID\" = :sosen_id");
+        setList.add("\"BIKO\" = :biko");
+        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        setList.add("\"UPDATE_ID\" = :update_id");
+        setList.add("\"DELETE_F\" = :delete_f");
+        setList.add("\"STATUS_KB\" = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -350,7 +350,7 @@ public class Tb1Sosen implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
         return String.join(" AND ", whereList);
     }
 
@@ -362,7 +362,7 @@ public class Tb1Sosen implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
-        map.put("sosen_mei", this.sosenMei);
+        map.put("biko", this.biko);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
@@ -396,9 +396,7 @@ public class Tb1Sosen implements IEntity {
 
     /** @return 親のリスト */
     public List<Tb1Oya> referTb1Oyas() {
-        if (this.tb1Oyas == null) {
-            this.tb1Oyas = Tb1Sosen.referTb1Oyas(this.sosenId);
-        }
+        this.tb1Oyas = Tb1Sosen.referTb1Oyas(this.sosenId);
         return this.tb1Oyas;
     }
 

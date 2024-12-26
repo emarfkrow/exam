@@ -36,8 +36,28 @@ public class MsyKbnSPermitAction extends BaseAction {
             }
 
             MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), gridRow);
-            if (e.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.update");
+
+            // 主キーが不足していたらエラー
+            Object kbnNm = e.getKbnNm();
+            if (kbnNm == null) {
+                throw new OptLockError("error.cant.permit");
+            }
+
+            java.util.List<com.example.entity.MsyKbnVal> msyKbnVals = e.referMsyKbnVals();
+            if (msyKbnVals != null) {
+                for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
+
+                    msyKbnVal.setStatusKb(1);
+                    if (msyKbnVal.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.permit");
+                    }
+                }
+            }
+
+            MsyKbn f = MsyKbn.get(kbnNm);
+            f.setStatusKb(1);
+            if (f.update(now, execId) != 1) {
+                throw new OptLockError("error.cant.permit");
             }
             ++count;
         }
