@@ -205,17 +205,17 @@ public class Mb1Sansho2 implements IEntity {
      */
     public static Mb1Sansho2 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM (\"SANSHO2_CD\") = TRIM (:sansho_2_cd)");
+        whereList.add("TRIM (`SANSHO2_CD`) = TRIM (:sansho_2_cd)");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      RTRIM (RTRIM (a.\"SANSHO2_CD\"), '　') AS SANSHO2_CD \n";
-        sql += "    , a.\"SANSHO2_MEI\" \n";
-        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
-        sql += "    , a.\"INSERT_ID\" \n";
-        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
-        sql += "    , a.\"UPDATE_ID\" \n";
-        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
-        sql += "    , a.\"STATUS_KB\" \n";
+        sql += "      TRIM(TRAILING ' ' FROM a.`SANSHO2_CD`) AS SANSHO2_CD \n";
+        sql += "    , a.`SANSHO2_MEI` \n";
+        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
+        sql += "    , a.`INSERT_ID` \n";
+        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
+        sql += "    , a.`UPDATE_ID` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    MB1_SANSHO2 a \n";
         sql += "WHERE \n";
@@ -241,14 +241,14 @@ public class Mb1Sansho2 implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("\"SANSHO2_CD\" -- :sansho_2_cd");
-        nameList.add("\"SANSHO2_MEI\" -- :sansho_2_mei");
-        nameList.add("\"INSERT_TS\" -- :insert_ts");
-        nameList.add("\"INSERT_ID\" -- :insert_id");
-        nameList.add("\"UPDATE_TS\" -- :update_ts");
-        nameList.add("\"UPDATE_ID\" -- :update_id");
-        nameList.add("\"DELETE_F\" -- :delete_f");
-        nameList.add("\"STATUS_KB\" -- :status_kb");
+        nameList.add("`SANSHO2_CD` -- :sansho_2_cd");
+        nameList.add("`SANSHO2_MEI` -- :sansho_2_mei");
+        nameList.add("`INSERT_TS` -- :insert_ts");
+        nameList.add("`INSERT_ID` -- :insert_id");
+        nameList.add("`UPDATE_TS` -- :update_ts");
+        nameList.add("`UPDATE_ID` -- :update_id");
+        nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -257,9 +257,9 @@ public class Mb1Sansho2 implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sansho_2_cd");
         valueList.add(":sansho_2_mei");
-        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_ts");
         valueList.add(":insert_id");
-        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":update_ts");
         valueList.add(":update_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
@@ -282,12 +282,12 @@ public class Mb1Sansho2 implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("\"SANSHO2_CD\" = :sansho_2_cd");
-        setList.add("\"SANSHO2_MEI\" = :sansho_2_mei");
-        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
-        setList.add("\"UPDATE_ID\" = :update_id");
-        setList.add("\"DELETE_F\" = :delete_f");
-        setList.add("\"STATUS_KB\" = :status_kb");
+        setList.add("`SANSHO2_CD` = :sansho_2_cd");
+        setList.add("`SANSHO2_MEI` = :sansho_2_mei");
+        setList.add("`UPDATE_TS` = :update_ts");
+        setList.add("`UPDATE_ID` = :update_id");
+        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -305,7 +305,7 @@ public class Mb1Sansho2 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM (\"SANSHO2_CD\") = TRIM (:sansho_2_cd)");
+        whereList.add("TRIM (`SANSHO2_CD`) = TRIM (:sansho_2_cd)");
         return String.join(" AND ", whereList);
     }
 

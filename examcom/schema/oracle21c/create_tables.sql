@@ -1,6 +1,6 @@
 -- Project Name : emarf
--- Date/Time    : 2024/12/24 8:36:28
--- Author       : KTC0966
+-- Date/Time    : 2024/12/26 19:37:44
+-- Author       : toshiyuki
 -- RDBMS Type   : Oracle Database
 -- Application  : A5:SQL Mk-2
 
@@ -13,6 +13,7 @@ create table MB1_SANSHO1 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MB1_SANSHO1_PKC primary key (SANSHO1_ID)
 ) ;
 
@@ -25,6 +26,7 @@ create table MB1_SANSHO2 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MB1_SANSHO2_PKC primary key (SANSHO2_CD)
 ) ;
 
@@ -37,6 +39,7 @@ create table MB1_SANSHO3 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MB1_SANSHO3_PKC primary key (SANSHO3_NO)
 ) ;
 
@@ -52,6 +55,7 @@ create table MHR_BUSHO (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MHR_BUSHO_PKC primary key (BUSHO_ID)
 ) ;
 
@@ -68,6 +72,7 @@ create table MHR_NINKA (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MHR_NINKA_PKC primary key (BUSHO_ID,SHOKUI_ID,KINO_NM)
 ) ;
 
@@ -83,6 +88,7 @@ create table MHR_SHOKUI (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MHR_SHOKUI_PKC primary key (SHOKUI_ID)
 ) ;
 
@@ -98,6 +104,7 @@ create table MHR_SHOZOKU (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MHR_SHOZOKU_PKC primary key (BUSHO_ID,SHOKUI_ID,USER_ID,KAISHI_BI)
 ) ;
 
@@ -115,6 +122,7 @@ create table MHR_USER (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MHR_USER_PKC primary key (USER_ID)
 ) ;
 
@@ -127,6 +135,7 @@ create table MSY_KBN (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MSY_KBN_PKC primary key (KBN_NM)
 ) ;
 
@@ -142,21 +151,8 @@ create table MSY_KBN_VAL (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint MSY_KBN_VAL_PKC primary key (KBN_NM,KBN_VAL)
-) ;
-
--- 機能マスタ
-create table MSY_KINO (
-  KINO_NM VARCHAR2(20)
-  , KINO_MEI VARCHAR2(60)
-  , KAISHI_BI DATE
-  , SHURYO_BI DATE
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null
-  , INSERT_ID NUMBER(10) not null
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
-  , UPDATE_ID NUMBER(10) not null
-  , DELETE_F CHAR(1) default 0
-  , constraint MSY_KINO_PKC primary key (KINO_NM)
 ) ;
 
 -- エンティティ１
@@ -178,6 +174,7 @@ create table TB1_ENTITY1 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY1_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
 ) ;
 
@@ -201,6 +198,7 @@ create table TB1_ENTITY1_HIS (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY1_HIS_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,HISTORY_BN)
 ) ;
 
@@ -215,6 +213,7 @@ create table TB1_ENTITY2 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY2_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
 ) ;
 
@@ -229,6 +228,7 @@ create table TB1_ENTITY3 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY3_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
 ) ;
 
@@ -243,6 +243,7 @@ create table TB1_ENTITY4 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY4_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
 ) ;
 
@@ -257,6 +258,7 @@ create table TB1_ENTITY5 (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ENTITY5_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
 ) ;
 
@@ -264,14 +266,15 @@ create table TB1_ENTITY5 (
 create table TB1_ITOKO (
   ITOKO_ID NUMBER(10)
   , ITOKO_MEI VARCHAR2(60)
-  , SOSEN_ID NUMBER(10)
-  , OYA_BN NUMBER(10)
-  , ENTITY_BN NUMBER(10)
+  , SOSEN_ID NUMBER(10) not null
+  , OYA_BN NUMBER(10) not null
+  , ENTITY_BN NUMBER(10) not null
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , INSERT_ID NUMBER(10) not null
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_ITOKO_PKC primary key (ITOKO_ID)
 ) ;
 
@@ -287,6 +290,7 @@ create table TB1_KO (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_KO_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,KO_BN)
 ) ;
 
@@ -300,6 +304,7 @@ create table TB1_OYA (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_OYA_PKC primary key (SOSEN_ID,OYA_BN)
 ) ;
 
@@ -316,18 +321,20 @@ create table TB1_SHISON (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_SHISON_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,KO_BN,SHISON_BN)
 ) ;
 
 -- 祖先
 create table TB1_SOSEN (
   SOSEN_ID NUMBER(10) not null
-  , SOSEN_MEI VARCHAR2(60) not null
+  , BIKO VARCHAR2(800)
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , INSERT_ID NUMBER(10) not null
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_SOSEN_PKC primary key (SOSEN_ID)
 ) ;
 
@@ -344,7 +351,22 @@ create table TB1_TENPU_FILE (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB1_TENPU_FILE_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,TENPU_FILE_BN)
+) ;
+
+-- 転生
+create table TB1_TENSEI (
+  TENSEI_ID NUMBER(10)
+  , TENSEI_MEI VARCHAR2(60) not null
+  , SOSEN_ID NUMBER(10) not null
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null
+  , INSERT_ID NUMBER(10) not null
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
+  , UPDATE_ID NUMBER(10) not null
+  , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
+  , constraint TB1_TENSEI_PKC primary key (TENSEI_ID)
 ) ;
 
 -- エンティティ
@@ -393,6 +415,7 @@ create table TB2_ENTITY (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
   , constraint TB2_ENTITY_PKC primary key (ENTITY_ID)
 ) ;
 
@@ -408,6 +431,7 @@ create table TB2_NO_PK (
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null
   , UPDATE_ID NUMBER(10) not null
   , DELETE_F CHAR(1) default 0
+  , STATUS_KB VARCHAR2(2) default 0
 ) ;
 
 create unique index TB2_NO_PK_IX1
@@ -493,6 +517,7 @@ comment on column MB1_SANSHO1.INSERT_ID is '作成者';
 comment on column MB1_SANSHO1.UPDATE_TS is '更新タイムスタンプ';
 comment on column MB1_SANSHO1.UPDATE_ID is '更新者';
 comment on column MB1_SANSHO1.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MB1_SANSHO1.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MB1_SANSHO2 is '参照２マスタ';
 comment on column MB1_SANSHO2.SANSHO2_CD is '参照２CD';
@@ -502,6 +527,7 @@ comment on column MB1_SANSHO2.INSERT_ID is '作成者';
 comment on column MB1_SANSHO2.UPDATE_TS is '更新タイムスタンプ';
 comment on column MB1_SANSHO2.UPDATE_ID is '更新者';
 comment on column MB1_SANSHO2.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MB1_SANSHO2.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MB1_SANSHO3 is '参照３マスタ';
 comment on column MB1_SANSHO3.SANSHO3_NO is '参照３NO';
@@ -511,6 +537,7 @@ comment on column MB1_SANSHO3.INSERT_ID is '作成者';
 comment on column MB1_SANSHO3.UPDATE_TS is '更新タイムスタンプ';
 comment on column MB1_SANSHO3.UPDATE_ID is '更新者';
 comment on column MB1_SANSHO3.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MB1_SANSHO3.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MHR_BUSHO is '部署マスタ';
 comment on column MHR_BUSHO.BUSHO_ID is '部署ID';
@@ -523,6 +550,7 @@ comment on column MHR_BUSHO.INSERT_ID is '作成者';
 comment on column MHR_BUSHO.UPDATE_TS is '更新タイムスタンプ';
 comment on column MHR_BUSHO.UPDATE_ID is '更新者';
 comment on column MHR_BUSHO.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MHR_BUSHO.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MHR_NINKA is '認可マスタ';
 comment on column MHR_NINKA.BUSHO_ID is '部署ID';
@@ -536,6 +564,7 @@ comment on column MHR_NINKA.INSERT_ID is '作成者';
 comment on column MHR_NINKA.UPDATE_TS is '更新タイムスタンプ';
 comment on column MHR_NINKA.UPDATE_ID is '更新者';
 comment on column MHR_NINKA.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MHR_NINKA.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MHR_SHOKUI is '職位マスタ';
 comment on column MHR_SHOKUI.SHOKUI_ID is '職位ID';
@@ -548,6 +577,7 @@ comment on column MHR_SHOKUI.INSERT_ID is '作成者';
 comment on column MHR_SHOKUI.UPDATE_TS is '更新タイムスタンプ';
 comment on column MHR_SHOKUI.UPDATE_ID is '更新者';
 comment on column MHR_SHOKUI.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MHR_SHOKUI.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MHR_SHOZOKU is '所属マスタ';
 comment on column MHR_SHOZOKU.BUSHO_ID is '部署ID';
@@ -560,6 +590,7 @@ comment on column MHR_SHOZOKU.INSERT_ID is '作成者';
 comment on column MHR_SHOZOKU.UPDATE_TS is '更新タイムスタンプ';
 comment on column MHR_SHOZOKU.UPDATE_ID is '更新者';
 comment on column MHR_SHOZOKU.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MHR_SHOZOKU.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MHR_USER is 'ユーザマスタ';
 comment on column MHR_USER.USER_ID is 'ユーザID';
@@ -574,6 +605,7 @@ comment on column MHR_USER.INSERT_ID is '作成者';
 comment on column MHR_USER.UPDATE_TS is '更新タイムスタンプ';
 comment on column MHR_USER.UPDATE_ID is '更新者';
 comment on column MHR_USER.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MHR_USER.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MSY_KBN is '区分マスタ';
 comment on column MSY_KBN.KBN_NM is '区分名称';
@@ -583,6 +615,7 @@ comment on column MSY_KBN.INSERT_ID is '作成者';
 comment on column MSY_KBN.UPDATE_TS is '更新タイムスタンプ';
 comment on column MSY_KBN.UPDATE_ID is '更新者';
 comment on column MSY_KBN.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MSY_KBN.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table MSY_KBN_VAL is '区分値マスタ';
 comment on column MSY_KBN_VAL.KBN_NM is '区分名称';
@@ -595,17 +628,7 @@ comment on column MSY_KBN_VAL.INSERT_ID is '作成者';
 comment on column MSY_KBN_VAL.UPDATE_TS is '更新タイムスタンプ';
 comment on column MSY_KBN_VAL.UPDATE_ID is '更新者';
 comment on column MSY_KBN_VAL.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
-
-comment on table MSY_KINO is '機能マスタ';
-comment on column MSY_KINO.KINO_NM is '機能名称';
-comment on column MSY_KINO.KINO_MEI is '機能名';
-comment on column MSY_KINO.KAISHI_BI is '開始日';
-comment on column MSY_KINO.SHURYO_BI is '終了日';
-comment on column MSY_KINO.INSERT_TS is '作成タイムスタンプ';
-comment on column MSY_KINO.INSERT_ID is '作成者';
-comment on column MSY_KINO.UPDATE_TS is '更新タイムスタンプ';
-comment on column MSY_KINO.UPDATE_ID is '更新者';
-comment on column MSY_KINO.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column MSY_KBN_VAL.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY1 is 'エンティティ１';
 comment on column TB1_ENTITY1.SOSEN_ID is '祖先ID';
@@ -625,6 +648,7 @@ comment on column TB1_ENTITY1.INSERT_ID is '作成者';
 comment on column TB1_ENTITY1.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY1.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY1.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY1.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY1_HIS is 'エンティティ１履歴';
 comment on column TB1_ENTITY1_HIS.SOSEN_ID is '祖先ID';
@@ -645,6 +669,7 @@ comment on column TB1_ENTITY1_HIS.INSERT_ID is '作成者';
 comment on column TB1_ENTITY1_HIS.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY1_HIS.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY1_HIS.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY1_HIS.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY2 is 'エンティティ２';
 comment on column TB1_ENTITY2.SOSEN_ID is '祖先ID';
@@ -656,6 +681,7 @@ comment on column TB1_ENTITY2.INSERT_ID is '作成者';
 comment on column TB1_ENTITY2.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY2.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY2.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY2.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY3 is 'エンティティ３';
 comment on column TB1_ENTITY3.SOSEN_ID is '祖先ID';
@@ -667,6 +693,7 @@ comment on column TB1_ENTITY3.INSERT_ID is '作成者';
 comment on column TB1_ENTITY3.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY3.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY3.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY3.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY4 is 'エンティティ４';
 comment on column TB1_ENTITY4.SOSEN_ID is '祖先ID';
@@ -678,6 +705,7 @@ comment on column TB1_ENTITY4.INSERT_ID is '作成者';
 comment on column TB1_ENTITY4.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY4.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY4.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY4.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ENTITY5 is 'エンティティ５';
 comment on column TB1_ENTITY5.SOSEN_ID is '祖先ID';
@@ -689,6 +717,7 @@ comment on column TB1_ENTITY5.INSERT_ID is '作成者';
 comment on column TB1_ENTITY5.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ENTITY5.UPDATE_ID is '更新者';
 comment on column TB1_ENTITY5.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ENTITY5.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_ITOKO is '従妹';
 comment on column TB1_ITOKO.ITOKO_ID is '従妹ID';
@@ -701,6 +730,7 @@ comment on column TB1_ITOKO.INSERT_ID is '作成者';
 comment on column TB1_ITOKO.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_ITOKO.UPDATE_ID is '更新者';
 comment on column TB1_ITOKO.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_ITOKO.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_KO is '子';
 comment on column TB1_KO.SOSEN_ID is '祖先ID';
@@ -713,6 +743,7 @@ comment on column TB1_KO.INSERT_ID is '作成者';
 comment on column TB1_KO.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_KO.UPDATE_ID is '更新者';
 comment on column TB1_KO.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_KO.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_OYA is '親';
 comment on column TB1_OYA.SOSEN_ID is '祖先ID';
@@ -723,6 +754,7 @@ comment on column TB1_OYA.INSERT_ID is '作成者';
 comment on column TB1_OYA.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_OYA.UPDATE_ID is '更新者';
 comment on column TB1_OYA.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_OYA.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_SHISON is '子孫';
 comment on column TB1_SHISON.SOSEN_ID is '祖先ID';
@@ -736,15 +768,17 @@ comment on column TB1_SHISON.INSERT_ID is '作成者';
 comment on column TB1_SHISON.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_SHISON.UPDATE_ID is '更新者';
 comment on column TB1_SHISON.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_SHISON.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_SOSEN is '祖先';
 comment on column TB1_SOSEN.SOSEN_ID is '祖先ID';
-comment on column TB1_SOSEN.SOSEN_MEI is '祖先名';
+comment on column TB1_SOSEN.BIKO is '備考';
 comment on column TB1_SOSEN.INSERT_TS is '作成タイムスタンプ';
 comment on column TB1_SOSEN.INSERT_ID is '作成者';
 comment on column TB1_SOSEN.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_SOSEN.UPDATE_ID is '更新者';
 comment on column TB1_SOSEN.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_SOSEN.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB1_TENPU_FILE is '添付ファイル';
 comment on column TB1_TENPU_FILE.SOSEN_ID is '祖先ID';
@@ -758,6 +792,18 @@ comment on column TB1_TENPU_FILE.INSERT_ID is '作成者';
 comment on column TB1_TENPU_FILE.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB1_TENPU_FILE.UPDATE_ID is '更新者';
 comment on column TB1_TENPU_FILE.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_TENPU_FILE.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
+
+comment on table TB1_TENSEI is '転生';
+comment on column TB1_TENSEI.TENSEI_ID is '転生ID';
+comment on column TB1_TENSEI.TENSEI_MEI is '転生名';
+comment on column TB1_TENSEI.SOSEN_ID is '祖先ID';
+comment on column TB1_TENSEI.INSERT_TS is '作成タイムスタンプ';
+comment on column TB1_TENSEI.INSERT_ID is '作成者';
+comment on column TB1_TENSEI.UPDATE_TS is '更新タイムスタンプ';
+comment on column TB1_TENSEI.UPDATE_ID is '更新者';
+comment on column TB1_TENSEI.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB1_TENSEI.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB2_ENTITY is 'エンティティ';
 comment on column TB2_ENTITY.ENTITY_ID is 'エンティティID';
@@ -804,6 +850,7 @@ comment on column TB2_ENTITY.INSERT_ID is '作成者';
 comment on column TB2_ENTITY.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB2_ENTITY.UPDATE_ID is '更新者';
 comment on column TB2_ENTITY.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB2_ENTITY.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table TB2_NO_PK is '主キーなし';
 comment on column TB2_NO_PK.COLUMN_A is '列Ａ';
@@ -816,6 +863,7 @@ comment on column TB2_NO_PK.INSERT_ID is '作成者';
 comment on column TB2_NO_PK.UPDATE_TS is '更新タイムスタンプ';
 comment on column TB2_NO_PK.UPDATE_ID is '更新者';
 comment on column TB2_NO_PK.DELETE_F is '削除フラグ:必須チェックにかかるのでNOTNULLにしない';
+comment on column TB2_NO_PK.STATUS_KB is 'ステータス区分:必須チェックにかかるのでNOTNULLにしない';
 
 comment on table VB1_SHISON is '子孫';
 comment on column VB1_SHISON.entity_name is 'entity_name';

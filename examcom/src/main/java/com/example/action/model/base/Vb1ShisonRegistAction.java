@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 子孫登録
+ * VIEW登録
  *
  * @author emarfkrow
  */
 public class Vb1ShisonRegistAction extends BaseAction {
 
-    /** 子孫登録処理 */
+    /** VIEW登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

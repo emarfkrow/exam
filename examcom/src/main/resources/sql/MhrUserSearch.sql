@@ -1,41 +1,41 @@
 SELECT
-      a."USER_ID"
-    , a."USER_SEI"
-    , a."USER_MEI"
-    , a."E_MAIL"
-    , a."PASSWORD"
-    , TO_CHAR (a."KAISHI_BI", 'YYYY-MM-DD') AS KAISHI_BI
-    , TO_CHAR (a."SHURYO_BI", 'YYYY-MM-DD') AS SHURYO_BI
-    , TO_CHAR (a."INSERT_TS", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS
-    , a."INSERT_ID"
-    , TO_CHAR (a."UPDATE_TS", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS
-    , a."UPDATE_ID"
-    , RTRIM (RTRIM (a."DELETE_F"), '　') AS DELETE_F
-    , a."STATUS_KB"
+      a.`USER_ID`
+    , a.`USER_SEI`
+    , a.`USER_MEI`
+    , a.`E_MAIL`
+    , a.`PASSWORD`
+    , a.`KAISHI_BI` AS KAISHI_BI
+    , a.`SHURYO_BI` AS SHURYO_BI
+    , a.`INSERT_TS` AS INSERT_TS
+    , a.`INSERT_ID`
+    , a.`UPDATE_TS` AS UPDATE_TS
+    , a.`UPDATE_ID`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
     MHR_USER a 
 WHERE
     1 = 1 
-    AND a."USER_ID" = :user_id 
-    AND RTRIM (RTRIM (a."USER_SEI"), '　') LIKE '%' || :user_sei || '%' 
-    AND RTRIM (RTRIM (a."USER_MEI"), '　') LIKE '%' || :user_mei || '%' 
-    AND RTRIM (RTRIM (a."E_MAIL"), '　') LIKE '%' || :e_mail || '%' 
-    AND RTRIM (RTRIM (a."PASSWORD"), '　') LIKE '%' || :password || '%' 
-    AND a."KAISHI_BI" = TO_DATE (SUBSTR (:kaishi_bi, 0, 10), 'YYYY-MM-DD') 
-    AND a."KAISHI_BI" >= TO_DATE (SUBSTR (:kaishi_bi_1 , 0, 10), 'YYYY-MM-DD')
-    AND a."KAISHI_BI" <= TO_DATE (SUBSTR (:kaishi_bi_2 , 0, 10), 'YYYY-MM-DD')
-    AND a."SHURYO_BI" = TO_DATE (SUBSTR (:shuryo_bi, 0, 10), 'YYYY-MM-DD') 
-    AND a."SHURYO_BI" >= TO_DATE (SUBSTR (:shuryo_bi_1 , 0, 10), 'YYYY-MM-DD')
-    AND a."SHURYO_BI" <= TO_DATE (SUBSTR (:shuryo_bi_2 , 0, 10), 'YYYY-MM-DD')
-    AND a."INSERT_TS" = TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3') 
-    AND a."INSERT_TS" >= TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts_1 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."INSERT_TS" <= TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts_2 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."INSERT_ID" = :insert_id 
-    AND a."UPDATE_TS" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3') 
-    AND a."UPDATE_TS" >= TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts_1 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."UPDATE_TS" <= TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts_2 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."UPDATE_ID" = :update_id 
-    AND CASE WHEN TRIM (a."DELETE_F") IS NULL THEN '0' ELSE TO_CHAR (a."DELETE_F") END IN (:delete_f) 
-    AND TRIM (a."STATUS_KB") IN (:status_kb) 
+    AND a.`USER_ID` = :user_id 
+    AND TRIM(TRAILING ' ' FROM a.`USER_SEI`) LIKE CONCAT ('%', :user_sei, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`USER_MEI`) LIKE CONCAT ('%', :user_mei, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`E_MAIL`) LIKE CONCAT ('%', :e_mail, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`PASSWORD`) LIKE CONCAT ('%', :password, '%') 
+    AND a.`KAISHI_BI` = :kaishi_bi 
+    AND a.`KAISHI_BI` >= :kaishi_bi_1 
+    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`SHURYO_BI` = :shuryo_bi 
+    AND a.`SHURYO_BI` >= :shuryo_bi_1 
+    AND a.`SHURYO_BI` <= :shuryo_bi_2 
+    AND a.`INSERT_TS` = :insert_ts 
+    AND a.`INSERT_TS` >= :insert_ts_1 
+    AND a.`INSERT_TS` <= :insert_ts_2 
+    AND a.`INSERT_ID` = :insert_id 
+    AND a.`UPDATE_TS` = :update_ts 
+    AND a.`UPDATE_TS` >= :update_ts_1 
+    AND a.`UPDATE_TS` <= :update_ts_2 
+    AND a.`UPDATE_ID` = :update_id 
+    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a."USER_ID"
+    a.`USER_ID`
