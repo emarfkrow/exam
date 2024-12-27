@@ -9,6 +9,7 @@
 
 </script>
 <script th:src="@{/model/Tb2EntityGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -147,7 +148,18 @@
         <div id="nullZeinukiKg">
           <label for="Tb2Entity.nullZeinukiKg" th:text="#{Tb2Entity.nullZeinukiKg}">任意税抜金額</label><input type="text" id="Tb2Entity.nullZeinukiKg" name="Tb2Entity.nullZeinukiKg" maxlength="11" />
         </div>
-        <input type="hidden" name="Tb2Entity.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{Tb2Entity.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Entity.insertTs"></span><input type="hidden" id="Tb2Entity.insertTs" name="Tb2Entity.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2Entity.insertUserId}" class="meta">作成者</label><span id="Tb2Entity.insertUserId"></span><input type="hidden" id="Tb2Entity.insertUserId" name="Tb2Entity.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2Entity.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2Entity.updateTs"></span><input type="hidden" id="Tb2Entity.updateTs" name="Tb2Entity.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2Entity.updateUserId}" class="meta">更新者</label><span id="Tb2Entity.updateUserId"></span><input type="hidden" id="Tb2Entity.updateUserId" name="Tb2Entity.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="Tb2Entity.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb2Entity.deleteF}">削除フラグ</legend>

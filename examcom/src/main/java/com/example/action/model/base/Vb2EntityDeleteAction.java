@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * VIEW削除
+ * エンティティ検索削除
  *
  * @author emarfkrow
  */
 public class Vb2EntityDeleteAction extends BaseAction {
 
-    /** VIEW削除処理 */
+    /** エンティティ検索削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

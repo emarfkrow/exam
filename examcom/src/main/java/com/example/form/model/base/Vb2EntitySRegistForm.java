@@ -11,7 +11,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * VIEW一覧登録フォーム
+ * エンティティ検索一覧登録フォーム
  *
  * @author emarfkrow
  */
@@ -20,19 +20,19 @@ public class Vb2EntitySRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Vb2EntityRegistForm.class);
 
-    /** VIEW登録フォームのリスト */
+    /** エンティティ検索登録フォームのリスト */
     @Valid
     private List<Vb2EntityRegistForm> vb2EntityGrid;
 
     /**
-     * @return VIEW登録フォームのリスト
+     * @return エンティティ検索登録フォームのリスト
      */
     public List<Vb2EntityRegistForm> getVb2EntityGrid() {
         return vb2EntityGrid;
     }
 
     /**
-     * @param p VIEW登録フォームのリスト
+     * @param p エンティティ検索登録フォームのリスト
      */
     public void setVb2EntityGrid(final List<Vb2EntityRegistForm> p) {
         this.vb2EntityGrid = p;

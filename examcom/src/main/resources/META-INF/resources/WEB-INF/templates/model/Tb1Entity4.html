@@ -9,12 +9,13 @@
 
 </script>
 <script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
-<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -34,7 +35,18 @@
         <div id="entity4Mei">
           <label for="Tb1Entity4.entity4Mei" th:text="#{Tb1Entity4.entity4Mei}">エンティティ４名</label><input type="text" id="Tb1Entity4.entity4Mei" name="Tb1Entity4.entity4Mei" maxlength="60" class=" notblank" />
         </div>
-        <input type="hidden" name="Tb1Entity4.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity4.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity4.insertTs"></span><input type="hidden" id="Tb1Entity4.insertTs" name="Tb1Entity4.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity4.insertUserId}" class="meta">作成者</label><span id="Tb1Entity4.insertUserId"></span><input type="hidden" id="Tb1Entity4.insertUserId" name="Tb1Entity4.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity4.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity4.updateTs"></span><input type="hidden" id="Tb1Entity4.updateTs" name="Tb1Entity4.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity4.updateUserId}" class="meta">更新者</label><span id="Tb1Entity4.updateUserId"></span><input type="hidden" id="Tb1Entity4.updateUserId" name="Tb1Entity4.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="Tb1Entity4.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1Entity4.deleteF}">削除フラグ</legend>

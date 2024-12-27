@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/MsyKbnValGridColumns.js}"></script>
 <script th:src="@{/model/MsyKbnGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -32,7 +33,18 @@
         <div id="criteria">
           <label for="MsyKbnVal.criteria" th:text="#{MsyKbnVal.criteria}">取得条件</label><input type="text" id="MsyKbnVal.criteria" name="MsyKbnVal.criteria" maxlength="800" />
         </div>
-        <input type="hidden" name="MsyKbnVal.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{MsyKbnVal.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyKbnVal.insertTs"></span><input type="hidden" id="MsyKbnVal.insertTs" name="MsyKbnVal.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{MsyKbnVal.insertUserId}" class="meta">作成者</label><span id="MsyKbnVal.insertUserId"></span><input type="hidden" id="MsyKbnVal.insertUserId" name="MsyKbnVal.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{MsyKbnVal.updateTs}" class="meta">更新タイムスタンプ</label><span id="MsyKbnVal.updateTs"></span><input type="hidden" id="MsyKbnVal.updateTs" name="MsyKbnVal.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{MsyKbnVal.updateUserId}" class="meta">更新者</label><span id="MsyKbnVal.updateUserId"></span><input type="hidden" id="MsyKbnVal.updateUserId" name="MsyKbnVal.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="MsyKbnVal.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MsyKbnVal.deleteF}">削除フラグ</legend>

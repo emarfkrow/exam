@@ -11,7 +11,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * VIEW一覧登録フォーム
+ * 子孫一覧登録フォーム
  *
  * @author emarfkrow
  */
@@ -20,19 +20,19 @@ public class Vb1ShisonSRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Vb1ShisonRegistForm.class);
 
-    /** VIEW登録フォームのリスト */
+    /** 子孫登録フォームのリスト */
     @Valid
     private List<Vb1ShisonRegistForm> vb1ShisonGrid;
 
     /**
-     * @return VIEW登録フォームのリスト
+     * @return 子孫登録フォームのリスト
      */
     public List<Vb1ShisonRegistForm> getVb1ShisonGrid() {
         return vb1ShisonGrid;
     }
 
     /**
-     * @param p VIEW登録フォームのリスト
+     * @param p 子孫登録フォームのリスト
      */
     public void setVb1ShisonGrid(final List<Vb1ShisonRegistForm> p) {
         this.vb1ShisonGrid = p;

@@ -10,12 +10,13 @@
 </script>
 <script th:src="@{/model/MhrShozokuGridColumns.js}"></script>
 <script th:src="@{/model/MhrBushoGridColumns.js}"></script>
-<script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{MhrShozokuS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="MhrShozokuSearchForm" action="MhrShozokuSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -49,12 +50,12 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrShozoku" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/MhrShozoku.html}" id="MhrShozoku" class="anew" target="dialog" th:text="#{MhrShozoku.add}" tabindex="-1">所属マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMhrShozoku" class="search" data-gridId="MhrShozokuGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="MhrShozokuSRegistForm" action="MhrShozokuSRegist.ajax" class="regist">
       <h3 th:text="#{MhrShozoku.h3}">h3</h3>
       <div id="MhrShozokuGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/MhrShozoku.html}"></div>

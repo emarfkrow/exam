@@ -9,11 +9,13 @@
 
 </script>
 <script th:src="@{/model/MsyKbnGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/MsyKbnValGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{MsyKbnS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="MsyKbnSearchForm" action="MsyKbnSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -38,12 +40,12 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMsyKbn" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/MsyKbn.html}" id="MsyKbn" class="anew" target="dialog" th:text="#{MsyKbn.add}" tabindex="-1">区分マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMsyKbn" class="search" data-gridId="MsyKbnGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="MsyKbnSRegistForm" action="MsyKbnSRegist.ajax" class="regist">
       <h3 th:text="#{MsyKbn.h3}">h3</h3>
       <div id="MsyKbnGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MsyKbn.html}"></div>

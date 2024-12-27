@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/MhrNinkaGridColumns.js}"></script>
 <script th:src="@{/model/MhrBushoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 </head>
 <body>
@@ -38,7 +39,18 @@
         <div id="shuryoBi">
           <label for="MhrNinka.shuryoBi" th:text="#{MhrNinka.shuryoBi}">終了日</label><input type="text" id="MhrNinka.shuryoBi" name="MhrNinka.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
-        <input type="hidden" name="MhrNinka.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{MhrNinka.insertTs}" class="meta">作成タイムスタンプ</label><span id="MhrNinka.insertTs"></span><input type="hidden" id="MhrNinka.insertTs" name="MhrNinka.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{MhrNinka.insertUserId}" class="meta">作成者</label><span id="MhrNinka.insertUserId"></span><input type="hidden" id="MhrNinka.insertUserId" name="MhrNinka.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{MhrNinka.updateTs}" class="meta">更新タイムスタンプ</label><span id="MhrNinka.updateTs"></span><input type="hidden" id="MhrNinka.updateTs" name="MhrNinka.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{MhrNinka.updateUserId}" class="meta">更新者</label><span id="MhrNinka.updateUserId"></span><input type="hidden" id="MhrNinka.updateUserId" name="MhrNinka.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="MhrNinka.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MhrNinka.deleteF}">削除フラグ</legend>

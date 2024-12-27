@@ -9,10 +9,12 @@
 
 </script>
 <script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1TenpuFileS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1TenpuFileSearchForm" action="Tb1TenpuFileSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -51,6 +53,7 @@
         <button id="SearchTb1TenpuFile" class="search" data-gridId="Tb1TenpuFileGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1TenpuFileSRegistForm" action="Tb1TenpuFileSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1TenpuFile.h3}">h3</h3>
       <div id="Tb1TenpuFileGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/Tb1TenpuFile.html}"></div>

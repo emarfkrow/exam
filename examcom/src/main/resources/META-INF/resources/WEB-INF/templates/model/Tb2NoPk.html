@@ -9,6 +9,7 @@
 
 </script>
 <script th:src="@{/model/Tb2NoPkGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -31,7 +32,18 @@
         <div id="columnE">
           <label for="Tb2NoPk.columnE" th:text="#{Tb2NoPk.columnE}">列Ｅ</label><input type="text" id="Tb2NoPk.columnE" name="Tb2NoPk.columnE" maxlength="60" />
         </div>
-        <input type="hidden" name="Tb2NoPk.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{Tb2NoPk.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2NoPk.insertTs"></span><input type="hidden" id="Tb2NoPk.insertTs" name="Tb2NoPk.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2NoPk.insertUserId}" class="meta">作成者</label><span id="Tb2NoPk.insertUserId"></span><input type="hidden" id="Tb2NoPk.insertUserId" name="Tb2NoPk.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2NoPk.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2NoPk.updateTs"></span><input type="hidden" id="Tb2NoPk.updateTs" name="Tb2NoPk.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2NoPk.updateUserId}" class="meta">更新者</label><span id="Tb2NoPk.updateUserId"></span><input type="hidden" id="Tb2NoPk.updateUserId" name="Tb2NoPk.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="Tb2NoPk.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb2NoPk.deleteF}">削除フラグ</legend>

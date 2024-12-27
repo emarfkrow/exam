@@ -10,8 +10,8 @@
 </script>
 <script th:src="@{/model/MhrShozokuGridColumns.js}"></script>
 <script th:src="@{/model/MhrBushoGridColumns.js}"></script>
-<script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -34,7 +34,18 @@
         <div id="shuryoBi">
           <label for="MhrShozoku.shuryoBi" th:text="#{MhrShozoku.shuryoBi}">終了日</label><input type="text" id="MhrShozoku.shuryoBi" name="MhrShozoku.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
-        <input type="hidden" name="MhrShozoku.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{MhrShozoku.insertTs}" class="meta">作成タイムスタンプ</label><span id="MhrShozoku.insertTs"></span><input type="hidden" id="MhrShozoku.insertTs" name="MhrShozoku.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{MhrShozoku.insertUserId}" class="meta">作成者</label><span id="MhrShozoku.insertUserId"></span><input type="hidden" id="MhrShozoku.insertUserId" name="MhrShozoku.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{MhrShozoku.updateTs}" class="meta">更新タイムスタンプ</label><span id="MhrShozoku.updateTs"></span><input type="hidden" id="MhrShozoku.updateTs" name="MhrShozoku.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{MhrShozoku.updateUserId}" class="meta">更新者</label><span id="MhrShozoku.updateUserId"></span><input type="hidden" id="MhrShozoku.updateUserId" name="MhrShozoku.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="MhrShozoku.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{MhrShozoku.deleteF}">削除フラグ</legend>

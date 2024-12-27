@@ -8,6 +8,7 @@ let MhrShozokuGridColumns = [
     Column.refer('USER_ID', Messages['MhrShozokuGrid.userId'], 80, 'primaryKey numbering', 'USER_SEI'),
     Column.date('KAISHI_BI', Messages['MhrShozokuGrid.kaishiBi'], 80, 'primaryKey', Slick.Formatters.Extends.Date),
     Column.date('SHURYO_BI', Messages['MhrShozokuGrid.shuryoBi'], 80, '', Slick.Formatters.Extends.Date),
+    Column.cell('UPDATE_TS', Messages['MhrShozokuGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     Column.check('DELETE_F', Messages['MhrShozokuGrid.deleteF'], 30, ''),
     Column.select('STATUS_KB', Messages['MhrShozokuGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

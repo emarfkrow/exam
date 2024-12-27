@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Vb1ShisonS.title}">VIEW</title>
+<title th:text="#{Vb1ShisonS.title}">子孫</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
@@ -13,25 +13,26 @@
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Vb1ShisonS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Vb1ShisonSearchForm" action="Vb1ShisonSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Vb1ShisonS.legend}">legend</legend>
         <div id="searchSosenId">
-          <label for="Vb1Shison.searchSosenId" th:text="#{Vb1Shison.searchSosenId}">祖先ID</label><input type="text" id="Vb1Shison.searchSosenId" name="Vb1Shison.searchSosenId" maxlength="10" />
+          <label for="Vb1Shison.searchSosenId" th:text="#{Vb1Shison.searchSosenId}">SEARCH_SOSEN_ID</label><input type="text" id="Vb1Shison.searchSosenId" name="Vb1Shison.searchSosenId" maxlength="10" />
         </div>
         <div id="searchOyaBn">
-          <label for="Vb1Shison.searchOyaBn" th:text="#{Vb1Shison.searchOyaBn}">親枝番</label><input type="text" id="Vb1Shison.searchOyaBn" name="Vb1Shison.searchOyaBn" maxlength="10" />
+          <label for="Vb1Shison.searchOyaBn" th:text="#{Vb1Shison.searchOyaBn}">SEARCH_OYA_BN</label><input type="text" id="Vb1Shison.searchOyaBn" name="Vb1Shison.searchOyaBn" maxlength="10" />
         </div>
         <div id="searchEntityBn">
-          <label for="Vb1Shison.searchEntityBn" th:text="#{Vb1Shison.searchEntityBn}">エンティティ枝番</label><input type="text" id="Vb1Shison.searchEntityBn" name="Vb1Shison.searchEntityBn" maxlength="10" />
+          <label for="Vb1Shison.searchEntityBn" th:text="#{Vb1Shison.searchEntityBn}">SEARCH_ENTITY_BN</label><input type="text" id="Vb1Shison.searchEntityBn" name="Vb1Shison.searchEntityBn" maxlength="10" />
         </div>
         <div id="searchKoBn">
-          <label for="Vb1Shison.searchKoBn" th:text="#{Vb1Shison.searchKoBn}">子枝番</label><input type="text" id="Vb1Shison.searchKoBn" name="Vb1Shison.searchKoBn" maxlength="10" />
+          <label for="Vb1Shison.searchKoBn" th:text="#{Vb1Shison.searchKoBn}">SEARCH_KO_BN</label><input type="text" id="Vb1Shison.searchKoBn" name="Vb1Shison.searchKoBn" maxlength="10" />
         </div>
         <div id="searchShisonBn">
-          <label for="Vb1Shison.searchShisonBn" th:text="#{Vb1Shison.searchShisonBn}">子孫枝番</label><input type="text" id="Vb1Shison.searchShisonBn" name="Vb1Shison.searchShisonBn" maxlength="10" />
+          <label for="Vb1Shison.searchShisonBn" th:text="#{Vb1Shison.searchShisonBn}">SEARCH_SHISON_BN</label><input type="text" id="Vb1Shison.searchShisonBn" name="Vb1Shison.searchShisonBn" maxlength="10" />
         </div>
       </fieldset>
       <div class="buttons">
@@ -41,6 +42,7 @@
         <button id="SearchVb1Shison" class="search" data-gridId="Vb1ShisonGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Vb1ShisonSRegistForm" action="Vb1ShisonSRegist.ajax" class="regist">
       <h3 th:text="#{Vb1Shison.h3}">h3</h3>
       <div id="Vb1ShisonGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb1Shison.html}"></div>

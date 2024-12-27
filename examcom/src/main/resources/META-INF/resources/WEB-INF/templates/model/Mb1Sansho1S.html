@@ -9,10 +9,12 @@
 
 </script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Mb1Sansho1S.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Mb1Sansho1SearchForm" action="Mb1Sansho1Search.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -43,6 +45,7 @@
         <button id="SearchMb1Sansho1" class="search" data-gridId="Mb1Sansho1Grid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Mb1Sansho1SRegistForm" action="Mb1Sansho1SRegist.ajax" class="regist">
       <h3 th:text="#{Mb1Sansho1.h3}">h3</h3>
       <div id="Mb1Sansho1Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb1Sansho1.html}"></div>

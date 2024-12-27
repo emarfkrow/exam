@@ -9,10 +9,12 @@
 
 </script>
 <script th:src="@{/model/Tb2NoPkGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb2NoPkS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb2NoPkSearchForm" action="Tb2NoPkSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -46,12 +48,12 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb2NoPk" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb2NoPk.html}" id="Tb2NoPk" class="anew" target="dialog" th:text="#{Tb2NoPk.add}" tabindex="-1">主キーなし</a>
       </div>
       <div class="submits">
         <button id="SearchTb2NoPk" class="search" data-gridId="Tb2NoPkGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb2NoPkSRegistForm" action="Tb2NoPkSRegist.ajax" class="regist">
       <h3 th:text="#{Tb2NoPk.h3}">h3</h3>
       <div id="Tb2NoPkGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2NoPk.html}"></div>

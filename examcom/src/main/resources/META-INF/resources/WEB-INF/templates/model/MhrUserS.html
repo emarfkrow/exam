@@ -13,6 +13,7 @@
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{MhrUserS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="MhrUserSearchForm" action="MhrUserSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -58,6 +59,7 @@
         <button id="SearchMhrUser" class="search" data-gridId="MhrUserGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="MhrUserSRegistForm" action="MhrUserSRegist.ajax" class="regist">
       <h3 th:text="#{MhrUser.h3}">h3</h3>
       <div id="MhrUserGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MhrUser.html}"></div>

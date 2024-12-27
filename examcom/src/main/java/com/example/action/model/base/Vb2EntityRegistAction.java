@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * VIEW登録
+ * エンティティ検索登録
  *
  * @author emarfkrow
  */
 public class Vb2EntityRegistAction extends BaseAction {
 
-    /** VIEW登録処理 */
+    /** エンティティ検索登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

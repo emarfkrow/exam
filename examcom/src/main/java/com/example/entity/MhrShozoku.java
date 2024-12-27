@@ -160,20 +160,20 @@ public class MhrShozoku implements IEntity {
     }
 
     /** 作成者 */
-    private Integer insertId;
+    private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_ID")
-    public Integer getInsertId() {
-        return this.insertId;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    public Integer getInsertUserId() {
+        return this.insertUserId;
     }
 
     /** @param o 作成者 */
-    public void setInsertId(final Object o) {
+    public void setInsertUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.insertId = Integer.valueOf(o.toString());
+            this.insertUserId = Integer.valueOf(o.toString());
         } else {
-            this.insertId = null;
+            this.insertUserId = null;
         }
     }
 
@@ -205,20 +205,20 @@ public class MhrShozoku implements IEntity {
     }
 
     /** 更新者 */
-    private Integer updateId;
+    private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_ID")
-    public Integer getUpdateId() {
-        return this.updateId;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    public Integer getUpdateUserId() {
+        return this.updateUserId;
     }
 
     /** @param o 更新者 */
-    public void setUpdateId(final Object o) {
+    public void setUpdateUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.updateId = Integer.valueOf(o.toString());
+            this.updateUserId = Integer.valueOf(o.toString());
         } else {
-            this.updateId = null;
+            this.updateUserId = null;
         }
     }
 
@@ -268,23 +268,23 @@ public class MhrShozoku implements IEntity {
      */
     public static MhrShozoku get(final Object param1, final Object param2, final Object param3, final Object param4) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = :busho_id");
-        whereList.add("`SHOKUI_ID` = :shokui_id");
-        whereList.add("`USER_ID` = :user_id");
-        whereList.add("`KAISHI_BI` = :kaishi_bi");
+        whereList.add("\"BUSHO_ID\" = :busho_id");
+        whereList.add("\"SHOKUI_ID\" = :shokui_id");
+        whereList.add("\"USER_ID\" = :user_id");
+        whereList.add("\"KAISHI_BI\" = :kaishi_bi");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`BUSHO_ID` \n";
-        sql += "    , a.`SHOKUI_ID` \n";
-        sql += "    , a.`USER_ID` \n";
-        sql += "    , a.`KAISHI_BI` AS KAISHI_BI \n";
-        sql += "    , a.`SHURYO_BI` AS SHURYO_BI \n";
-        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
-        sql += "    , a.`INSERT_ID` \n";
-        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
-        sql += "    , a.`UPDATE_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
+        sql += "      a.\"BUSHO_ID\" \n";
+        sql += "    , a.\"SHOKUI_ID\" \n";
+        sql += "    , a.\"USER_ID\" \n";
+        sql += "    , TO_CHAR (a.\"KAISHI_BI\", 'YYYY-MM-DD') AS KAISHI_BI \n";
+        sql += "    , TO_CHAR (a.\"SHURYO_BI\", 'YYYY-MM-DD') AS SHURYO_BI \n";
+        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "    , a.\"INSERT_USER_ID\" \n";
+        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
+        sql += "    , a.\"UPDATE_USER_ID\" \n";
+        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
+        sql += "    , a.\"STATUS_KB\" \n";
         sql += "FROM \n";
         sql += "    MHR_SHOZOKU a \n";
         sql += "WHERE \n";
@@ -313,17 +313,17 @@ public class MhrShozoku implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`BUSHO_ID` -- :busho_id");
-        nameList.add("`SHOKUI_ID` -- :shokui_id");
-        nameList.add("`USER_ID` -- :user_id");
-        nameList.add("`KAISHI_BI` -- :kaishi_bi");
-        nameList.add("`SHURYO_BI` -- :shuryo_bi");
-        nameList.add("`INSERT_TS` -- :insert_ts");
-        nameList.add("`INSERT_ID` -- :insert_id");
-        nameList.add("`UPDATE_TS` -- :update_ts");
-        nameList.add("`UPDATE_ID` -- :update_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
+        nameList.add("\"BUSHO_ID\" -- :busho_id");
+        nameList.add("\"SHOKUI_ID\" -- :shokui_id");
+        nameList.add("\"USER_ID\" -- :user_id");
+        nameList.add("\"KAISHI_BI\" -- :kaishi_bi");
+        nameList.add("\"SHURYO_BI\" -- :shuryo_bi");
+        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("\"INSERT_USER_ID\" -- :insert_user_id");
+        nameList.add("\"UPDATE_TS\" -- :update_ts");
+        nameList.add("\"UPDATE_USER_ID\" -- :update_user_id");
+        nameList.add("\"DELETE_F\" -- :delete_f");
+        nameList.add("\"STATUS_KB\" -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -333,12 +333,12 @@ public class MhrShozoku implements IEntity {
         valueList.add(":busho_id");
         valueList.add(":shokui_id");
         valueList.add(":user_id");
-        valueList.add(":kaishi_bi");
-        valueList.add(":shuryo_bi");
-        valueList.add(":insert_ts");
-        valueList.add(":insert_id");
-        valueList.add(":update_ts");
-        valueList.add(":update_id");
+        valueList.add("TO_DATE (SUBSTR (:kaishi_bi, 0, 10), 'YYYY-MM-DD')");
+        valueList.add("TO_DATE (SUBSTR (:shuryo_bi, 0, 10), 'YYYY-MM-DD')");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_user_id");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":update_user_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
@@ -360,15 +360,15 @@ public class MhrShozoku implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`BUSHO_ID` = :busho_id");
-        setList.add("`SHOKUI_ID` = :shokui_id");
-        setList.add("`USER_ID` = :user_id");
-        setList.add("`KAISHI_BI` = :kaishi_bi");
-        setList.add("`SHURYO_BI` = :shuryo_bi");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_ID` = :update_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
+        setList.add("\"BUSHO_ID\" = :busho_id");
+        setList.add("\"SHOKUI_ID\" = :shokui_id");
+        setList.add("\"USER_ID\" = :user_id");
+        setList.add("\"KAISHI_BI\" = TO_DATE (SUBSTR (:kaishi_bi, 0, 10), 'YYYY-MM-DD')");
+        setList.add("\"SHURYO_BI\" = TO_DATE (SUBSTR (:shuryo_bi, 0, 10), 'YYYY-MM-DD')");
+        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        setList.add("\"UPDATE_USER_ID\" = :update_user_id");
+        setList.add("\"DELETE_F\" = :delete_f");
+        setList.add("\"STATUS_KB\" = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -386,10 +386,10 @@ public class MhrShozoku implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = :busho_id");
-        whereList.add("`SHOKUI_ID` = :shokui_id");
-        whereList.add("`USER_ID` = :user_id");
-        whereList.add("`KAISHI_BI` = :kaishi_bi");
+        whereList.add("\"BUSHO_ID\" = :busho_id");
+        whereList.add("\"SHOKUI_ID\" = :shokui_id");
+        whereList.add("\"USER_ID\" = :user_id");
+        whereList.add("\"KAISHI_BI\" = :kaishi_bi");
         return String.join(" AND ", whereList);
     }
 
@@ -408,9 +408,9 @@ public class MhrShozoku implements IEntity {
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
-        map.put("insert_id", execId);
+        map.put("insert_user_id", execId);
         map.put("update_ts", now);
-        map.put("update_id", execId);
+        map.put("update_user_id", execId);
         return map;
     }
 }

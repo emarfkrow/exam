@@ -1,5 +1,5 @@
 /**
- * VIEWグリッド定義
+ * 子孫グリッド定義
  */
 
 let Vb1ShisonGridColumns = [

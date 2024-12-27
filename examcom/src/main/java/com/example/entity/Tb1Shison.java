@@ -172,20 +172,20 @@ public class Tb1Shison implements IEntity {
     }
 
     /** 作成者 */
-    private Integer insertId;
+    private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_ID")
-    public Integer getInsertId() {
-        return this.insertId;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    public Integer getInsertUserId() {
+        return this.insertUserId;
     }
 
     /** @param o 作成者 */
-    public void setInsertId(final Object o) {
+    public void setInsertUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.insertId = Integer.valueOf(o.toString());
+            this.insertUserId = Integer.valueOf(o.toString());
         } else {
-            this.insertId = null;
+            this.insertUserId = null;
         }
     }
 
@@ -217,20 +217,20 @@ public class Tb1Shison implements IEntity {
     }
 
     /** 更新者 */
-    private Integer updateId;
+    private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_ID")
-    public Integer getUpdateId() {
-        return this.updateId;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    public Integer getUpdateUserId() {
+        return this.updateUserId;
     }
 
     /** @param o 更新者 */
-    public void setUpdateId(final Object o) {
+    public void setUpdateUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.updateId = Integer.valueOf(o.toString());
+            this.updateUserId = Integer.valueOf(o.toString());
         } else {
-            this.updateId = null;
+            this.updateUserId = null;
         }
     }
 
@@ -281,25 +281,25 @@ public class Tb1Shison implements IEntity {
      */
     public static Tb1Shison get(final Object param1, final Object param2, final Object param3, final Object param4, final Object param5) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
-        whereList.add("`KO_BN` = :ko_bn");
-        whereList.add("`SHISON_BN` = :shison_bn");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
+        whereList.add("\"OYA_BN\" = :oya_bn");
+        whereList.add("\"ENTITY_BN\" = :entity_bn");
+        whereList.add("\"KO_BN\" = :ko_bn");
+        whereList.add("\"SHISON_BN\" = :shison_bn");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_BN` \n";
-        sql += "    , a.`ENTITY_BN` \n";
-        sql += "    , a.`KO_BN` \n";
-        sql += "    , a.`SHISON_BN` \n";
-        sql += "    , a.`SHISON_MEI` \n";
-        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
-        sql += "    , a.`INSERT_ID` \n";
-        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
-        sql += "    , a.`UPDATE_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
+        sql += "      a.\"SOSEN_ID\" \n";
+        sql += "    , a.\"OYA_BN\" \n";
+        sql += "    , a.\"ENTITY_BN\" \n";
+        sql += "    , a.\"KO_BN\" \n";
+        sql += "    , a.\"SHISON_BN\" \n";
+        sql += "    , a.\"SHISON_MEI\" \n";
+        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "    , a.\"INSERT_USER_ID\" \n";
+        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
+        sql += "    , a.\"UPDATE_USER_ID\" \n";
+        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
+        sql += "    , a.\"STATUS_KB\" \n";
         sql += "FROM \n";
         sql += "    TB1_SHISON a \n";
         sql += "WHERE \n";
@@ -332,18 +332,18 @@ public class Tb1Shison implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_BN` -- :oya_bn");
-        nameList.add("`ENTITY_BN` -- :entity_bn");
-        nameList.add("`KO_BN` -- :ko_bn");
-        nameList.add("`SHISON_BN` -- :shison_bn");
-        nameList.add("`SHISON_MEI` -- :shison_mei");
-        nameList.add("`INSERT_TS` -- :insert_ts");
-        nameList.add("`INSERT_ID` -- :insert_id");
-        nameList.add("`UPDATE_TS` -- :update_ts");
-        nameList.add("`UPDATE_ID` -- :update_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
+        nameList.add("\"SOSEN_ID\" -- :sosen_id");
+        nameList.add("\"OYA_BN\" -- :oya_bn");
+        nameList.add("\"ENTITY_BN\" -- :entity_bn");
+        nameList.add("\"KO_BN\" -- :ko_bn");
+        nameList.add("\"SHISON_BN\" -- :shison_bn");
+        nameList.add("\"SHISON_MEI\" -- :shison_mei");
+        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("\"INSERT_USER_ID\" -- :insert_user_id");
+        nameList.add("\"UPDATE_TS\" -- :update_ts");
+        nameList.add("\"UPDATE_USER_ID\" -- :update_user_id");
+        nameList.add("\"DELETE_F\" -- :delete_f");
+        nameList.add("\"STATUS_KB\" -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -356,10 +356,10 @@ public class Tb1Shison implements IEntity {
         valueList.add(":ko_bn");
         valueList.add(":shison_bn");
         valueList.add(":shison_mei");
-        valueList.add(":insert_ts");
-        valueList.add(":insert_id");
-        valueList.add(":update_ts");
-        valueList.add(":update_id");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_user_id");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":update_user_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
@@ -370,13 +370,13 @@ public class Tb1Shison implements IEntity {
         if (this.shisonBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SHISON_BN`) IS NULL THEN 0 ELSE MAX(e.`SHISON_BN`) * 1 END + 1 AS `SHISON_BN` FROM TB1_SHISON e";
+        String sql = "SELECT CASE WHEN MAX(e.\"SHISON_BN\") IS NULL THEN 0 ELSE MAX(e.\"SHISON_BN\") * 1 END + 1 AS \"SHISON_BN\" FROM TB1_SHISON e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_BN` = :oya_bn");
-        whereList.add("e.`ENTITY_BN` = :entity_bn");
-        whereList.add("e.`KO_BN` = :ko_bn");
+        whereList.add("e.\"SOSEN_ID\" = :sosen_id");
+        whereList.add("e.\"OYA_BN\" = :oya_bn");
+        whereList.add("e.\"ENTITY_BN\" = :entity_bn");
+        whereList.add("e.\"KO_BN\" = :ko_bn");
         sql += " WHERE " + String.join(" AND ", whereList);
         map.put("sosen_id", this.sosenId);
         map.put("oya_bn", this.oyaBn);
@@ -403,16 +403,16 @@ public class Tb1Shison implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_BN` = :oya_bn");
-        setList.add("`ENTITY_BN` = :entity_bn");
-        setList.add("`KO_BN` = :ko_bn");
-        setList.add("`SHISON_BN` = :shison_bn");
-        setList.add("`SHISON_MEI` = :shison_mei");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_ID` = :update_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
+        setList.add("\"SOSEN_ID\" = :sosen_id");
+        setList.add("\"OYA_BN\" = :oya_bn");
+        setList.add("\"ENTITY_BN\" = :entity_bn");
+        setList.add("\"KO_BN\" = :ko_bn");
+        setList.add("\"SHISON_BN\" = :shison_bn");
+        setList.add("\"SHISON_MEI\" = :shison_mei");
+        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        setList.add("\"UPDATE_USER_ID\" = :update_user_id");
+        setList.add("\"DELETE_F\" = :delete_f");
+        setList.add("\"STATUS_KB\" = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -430,11 +430,11 @@ public class Tb1Shison implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
-        whereList.add("`KO_BN` = :ko_bn");
-        whereList.add("`SHISON_BN` = :shison_bn");
+        whereList.add("\"SOSEN_ID\" = :sosen_id");
+        whereList.add("\"OYA_BN\" = :oya_bn");
+        whereList.add("\"ENTITY_BN\" = :entity_bn");
+        whereList.add("\"KO_BN\" = :ko_bn");
+        whereList.add("\"SHISON_BN\" = :shison_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -454,9 +454,9 @@ public class Tb1Shison implements IEntity {
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
-        map.put("insert_id", execId);
+        map.put("insert_user_id", execId);
         map.put("update_ts", now);
-        map.put("update_id", execId);
+        map.put("update_user_id", execId);
         return map;
     }
 }

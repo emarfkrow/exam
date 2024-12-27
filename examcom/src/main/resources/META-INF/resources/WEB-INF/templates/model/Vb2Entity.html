@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Vb2Entity.title}">VIEW</title>
+<title th:text="#{Vb2Entity.title}">エンティティ検索</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/Vb2EntityGridColumns.js}"></script>
 <script th:src="@{/model/Tb2EntityGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -18,64 +19,64 @@
       <fieldset>
         <legend th:text="#{Vb2Entity.legend}">legend</legend>
         <div id="entityId">
-          <label th:text="#{Vb2Entity.entityId}">エンティティID</label><span id="Vb2Entity.entityId"></span><input type="hidden" id="Vb2Entity.entityId" name="Vb2Entity.entityId" />
+          <label th:text="#{Vb2Entity.entityId}">ENTITY_ID</label><span id="Vb2Entity.entityId"></span><input type="hidden" id="Vb2Entity.entityId" name="Vb2Entity.entityId" />
         </div>
         <div id="entityNm">
-          <label th:text="#{Vb2Entity.entityNm}">エンティティ名称</label><span id="Vb2Entity.entityNm"></span><input type="hidden" id="Vb2Entity.entityNm" name="Vb2Entity.entityNm" />
+          <label th:text="#{Vb2Entity.entityNm}">ENTITY_NM</label><span id="Vb2Entity.entityNm"></span><input type="hidden" id="Vb2Entity.entityNm" name="Vb2Entity.entityNm" />
         </div>
         <div id="entityMei">
-          <label th:text="#{Vb2Entity.entityMei}">エンティティ名</label><span id="Vb2Entity.entityMei"></span><input type="hidden" id="Vb2Entity.entityMei" name="Vb2Entity.entityMei" />
+          <label th:text="#{Vb2Entity.entityMei}">ENTITY_MEI</label><span id="Vb2Entity.entityMei"></span><input type="hidden" id="Vb2Entity.entityMei" name="Vb2Entity.entityMei" />
         </div>
         <div id="checkF">
-          <label th:text="#{Vb2Entity.checkF}">チェックフラグ</label><span id="Vb2Entity.checkF"></span><input type="hidden" id="Vb2Entity.checkF" name="Vb2Entity.checkF" />
+          <label th:text="#{Vb2Entity.checkF}">CHECK_F</label><span id="Vb2Entity.checkF"></span><input type="hidden" id="Vb2Entity.checkF" name="Vb2Entity.checkF" />
         </div>
         <div id="radioKb">
-          <label th:text="#{Vb2Entity.radioKb}">ラジオ区分</label><span id="Vb2Entity.radioKb"></span><input type="hidden" id="Vb2Entity.radioKb" name="Vb2Entity.radioKb" />
+          <label th:text="#{Vb2Entity.radioKb}">RADIO_KB</label><span id="Vb2Entity.radioKb"></span><input type="hidden" id="Vb2Entity.radioKb" name="Vb2Entity.radioKb" />
         </div>
         <div id="pulldownKb">
-          <label th:text="#{Vb2Entity.pulldownKb}">プルダウン区分</label><span id="Vb2Entity.pulldownKb"></span><input type="hidden" id="Vb2Entity.pulldownKb" name="Vb2Entity.pulldownKb" />
+          <label th:text="#{Vb2Entity.pulldownKb}">PULLDOWN_KB</label><span id="Vb2Entity.pulldownKb"></span><input type="hidden" id="Vb2Entity.pulldownKb" name="Vb2Entity.pulldownKb" />
         </div>
         <div id="memoTx">
-          <label th:text="#{Vb2Entity.memoTx}">メモ</label><span id="Vb2Entity.memoTx"></span><input type="hidden" id="Vb2Entity.memoTx" name="Vb2Entity.memoTx" />
+          <label th:text="#{Vb2Entity.memoTx}">MEMO_TX</label><span id="Vb2Entity.memoTx"></span><input type="hidden" id="Vb2Entity.memoTx" name="Vb2Entity.memoTx" />
         </div>
         <div id="nenY">
-          <label th:text="#{Vb2Entity.nenY}">年</label><span id="Vb2Entity.nenY"></span><input type="hidden" id="Vb2Entity.nenY" name="Vb2Entity.nenY" />
+          <label th:text="#{Vb2Entity.nenY}">NEN_Y</label><span id="Vb2Entity.nenY"></span><input type="hidden" id="Vb2Entity.nenY" name="Vb2Entity.nenY" />
         </div>
         <div id="tsukiM">
-          <label th:text="#{Vb2Entity.tsukiM}">月</label><span id="Vb2Entity.tsukiM"></span><input type="hidden" id="Vb2Entity.tsukiM" name="Vb2Entity.tsukiM" />
+          <label th:text="#{Vb2Entity.tsukiM}">TSUKI_M</label><span id="Vb2Entity.tsukiM"></span><input type="hidden" id="Vb2Entity.tsukiM" name="Vb2Entity.tsukiM" />
         </div>
         <div id="hiD">
-          <label th:text="#{Vb2Entity.hiD}">日</label><span id="Vb2Entity.hiD"></span><input type="hidden" id="Vb2Entity.hiD" name="Vb2Entity.hiD" />
+          <label th:text="#{Vb2Entity.hiD}">HI_D</label><span id="Vb2Entity.hiD"></span><input type="hidden" id="Vb2Entity.hiD" name="Vb2Entity.hiD" />
         </div>
         <div id="nengetsuYm">
-          <label th:text="#{Vb2Entity.nengetsuYm}">年月</label><span id="Vb2Entity.nengetsuYm"></span><input type="hidden" id="Vb2Entity.nengetsuYm" name="Vb2Entity.nengetsuYm" />
+          <label th:text="#{Vb2Entity.nengetsuYm}">NENGETSU_YM</label><span id="Vb2Entity.nengetsuYm"></span><input type="hidden" id="Vb2Entity.nengetsuYm" name="Vb2Entity.nengetsuYm" />
         </div>
         <div id="nengappiYmd">
-          <label th:text="#{Vb2Entity.nengappiYmd}">年月日</label><span id="Vb2Entity.nengappiYmd"></span><input type="hidden" id="Vb2Entity.nengappiYmd" name="Vb2Entity.nengappiYmd" />
+          <label th:text="#{Vb2Entity.nengappiYmd}">NENGAPPI_YMD</label><span id="Vb2Entity.nengappiYmd"></span><input type="hidden" id="Vb2Entity.nengappiYmd" name="Vb2Entity.nengappiYmd" />
         </div>
         <div id="timestampTs">
-          <label th:text="#{Vb2Entity.timestampTs}">タイムスタンプ</label><span id="Vb2Entity.timestampTs"></span><input type="hidden" id="Vb2Entity.timestampTs" name="Vb2Entity.timestampTs" />
+          <label th:text="#{Vb2Entity.timestampTs}">TIMESTAMP_TS</label><span id="Vb2Entity.timestampTs"></span><input type="hidden" id="Vb2Entity.timestampTs" name="Vb2Entity.timestampTs" />
         </div>
         <div id="nichijiDt">
-          <label th:text="#{Vb2Entity.nichijiDt}">日時</label><span id="Vb2Entity.nichijiDt"></span><input type="hidden" id="Vb2Entity.nichijiDt" name="Vb2Entity.nichijiDt" />
+          <label th:text="#{Vb2Entity.nichijiDt}">NICHIJI_DT</label><span id="Vb2Entity.nichijiDt"></span><input type="hidden" id="Vb2Entity.nichijiDt" name="Vb2Entity.nichijiDt" />
         </div>
         <div id="hidukeBi">
-          <label th:text="#{Vb2Entity.hidukeBi}">日付</label><span id="Vb2Entity.hidukeBi"></span><input type="hidden" id="Vb2Entity.hidukeBi" name="Vb2Entity.hidukeBi" />
+          <label th:text="#{Vb2Entity.hidukeBi}">HIDUKE_BI</label><span id="Vb2Entity.hidukeBi"></span><input type="hidden" id="Vb2Entity.hidukeBi" name="Vb2Entity.hidukeBi" />
         </div>
         <div id="jikokuHm">
-          <label th:text="#{Vb2Entity.jikokuHm}">時刻</label><span id="Vb2Entity.jikokuHm"></span><input type="hidden" id="Vb2Entity.jikokuHm" name="Vb2Entity.jikokuHm" />
+          <label th:text="#{Vb2Entity.jikokuHm}">JIKOKU_HM</label><span id="Vb2Entity.jikokuHm"></span><input type="hidden" id="Vb2Entity.jikokuHm" name="Vb2Entity.jikokuHm" />
         </div>
         <div id="jikanTm">
-          <label th:text="#{Vb2Entity.jikanTm}">時間</label><span id="Vb2Entity.jikanTm"></span><input type="hidden" id="Vb2Entity.jikanTm" name="Vb2Entity.jikanTm" />
+          <label th:text="#{Vb2Entity.jikanTm}">JIKAN_TM</label><span id="Vb2Entity.jikanTm"></span><input type="hidden" id="Vb2Entity.jikanTm" name="Vb2Entity.jikanTm" />
         </div>
         <div id="suryoQt">
-          <label th:text="#{Vb2Entity.suryoQt}">数量</label><span id="Vb2Entity.suryoQt"></span><input type="hidden" id="Vb2Entity.suryoQt" name="Vb2Entity.suryoQt" />
+          <label th:text="#{Vb2Entity.suryoQt}">SURYO_QT</label><span id="Vb2Entity.suryoQt"></span><input type="hidden" id="Vb2Entity.suryoQt" name="Vb2Entity.suryoQt" />
         </div>
         <div id="tankaKg">
-          <label th:text="#{Vb2Entity.tankaKg}">単価</label><span id="Vb2Entity.tankaKg"></span><input type="hidden" id="Vb2Entity.tankaKg" name="Vb2Entity.tankaKg" />
+          <label th:text="#{Vb2Entity.tankaKg}">TANKA_KG</label><span id="Vb2Entity.tankaKg"></span><input type="hidden" id="Vb2Entity.tankaKg" name="Vb2Entity.tankaKg" />
         </div>
         <div id="zeinukiKg">
-          <label th:text="#{Vb2Entity.zeinukiKg}">税抜金額</label><span id="Vb2Entity.zeinukiKg"></span><input type="hidden" id="Vb2Entity.zeinukiKg" name="Vb2Entity.zeinukiKg" />
+          <label th:text="#{Vb2Entity.zeinukiKg}">ZEINUKI_KG</label><span id="Vb2Entity.zeinukiKg"></span><input type="hidden" id="Vb2Entity.zeinukiKg" name="Vb2Entity.zeinukiKg" />
         </div>
       </fieldset>
       <div class="buttons">

@@ -100,20 +100,20 @@ public class Mb1Sansho1 implements IEntity {
     }
 
     /** 作成者 */
-    private Integer insertId;
+    private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_ID")
-    public Integer getInsertId() {
-        return this.insertId;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    public Integer getInsertUserId() {
+        return this.insertUserId;
     }
 
     /** @param o 作成者 */
-    public void setInsertId(final Object o) {
+    public void setInsertUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.insertId = Integer.valueOf(o.toString());
+            this.insertUserId = Integer.valueOf(o.toString());
         } else {
-            this.insertId = null;
+            this.insertUserId = null;
         }
     }
 
@@ -145,20 +145,20 @@ public class Mb1Sansho1 implements IEntity {
     }
 
     /** 更新者 */
-    private Integer updateId;
+    private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_ID")
-    public Integer getUpdateId() {
-        return this.updateId;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    public Integer getUpdateUserId() {
+        return this.updateUserId;
     }
 
     /** @param o 更新者 */
-    public void setUpdateId(final Object o) {
+    public void setUpdateUserId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.updateId = Integer.valueOf(o.toString());
+            this.updateUserId = Integer.valueOf(o.toString());
         } else {
-            this.updateId = null;
+            this.updateUserId = null;
         }
     }
 
@@ -205,17 +205,17 @@ public class Mb1Sansho1 implements IEntity {
      */
     public static Mb1Sansho1 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho_1_id");
+        whereList.add("\"SANSHO1_ID\" = :sansho_1_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SANSHO1_ID` \n";
-        sql += "    , a.`SANSHO1_MEI` \n";
-        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
-        sql += "    , a.`INSERT_ID` \n";
-        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
-        sql += "    , a.`UPDATE_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
+        sql += "      a.\"SANSHO1_ID\" \n";
+        sql += "    , a.\"SANSHO1_MEI\" \n";
+        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "    , a.\"INSERT_USER_ID\" \n";
+        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
+        sql += "    , a.\"UPDATE_USER_ID\" \n";
+        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
+        sql += "    , a.\"STATUS_KB\" \n";
         sql += "FROM \n";
         sql += "    MB1_SANSHO1 a \n";
         sql += "WHERE \n";
@@ -244,14 +244,14 @@ public class Mb1Sansho1 implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHO1_ID` -- :sansho_1_id");
-        nameList.add("`SANSHO1_MEI` -- :sansho_1_mei");
-        nameList.add("`INSERT_TS` -- :insert_ts");
-        nameList.add("`INSERT_ID` -- :insert_id");
-        nameList.add("`UPDATE_TS` -- :update_ts");
-        nameList.add("`UPDATE_ID` -- :update_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
+        nameList.add("\"SANSHO1_ID\" -- :sansho_1_id");
+        nameList.add("\"SANSHO1_MEI\" -- :sansho_1_mei");
+        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("\"INSERT_USER_ID\" -- :insert_user_id");
+        nameList.add("\"UPDATE_TS\" -- :update_ts");
+        nameList.add("\"UPDATE_USER_ID\" -- :update_user_id");
+        nameList.add("\"DELETE_F\" -- :delete_f");
+        nameList.add("\"STATUS_KB\" -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -260,10 +260,10 @@ public class Mb1Sansho1 implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sansho_1_id");
         valueList.add(":sansho_1_mei");
-        valueList.add(":insert_ts");
-        valueList.add(":insert_id");
-        valueList.add(":update_ts");
-        valueList.add(":update_id");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_user_id");
+        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":update_user_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
@@ -274,7 +274,7 @@ public class Mb1Sansho1 implements IEntity {
         if (this.sansho1Id != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SANSHO1_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO1_ID`) * 1 END + 1 AS `SANSHO1_ID` FROM MB1_SANSHO1 e";
+        String sql = "SELECT CASE WHEN MAX(e.\"SANSHO1_ID\") IS NULL THEN 0 ELSE MAX(e.\"SANSHO1_ID\") * 1 END + 1 AS \"SANSHO1_ID\" FROM MB1_SANSHO1 e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("SANSHO1_ID");
@@ -297,12 +297,12 @@ public class Mb1Sansho1 implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHO1_ID` = :sansho_1_id");
-        setList.add("`SANSHO1_MEI` = :sansho_1_mei");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_ID` = :update_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
+        setList.add("\"SANSHO1_ID\" = :sansho_1_id");
+        setList.add("\"SANSHO1_MEI\" = :sansho_1_mei");
+        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        setList.add("\"UPDATE_USER_ID\" = :update_user_id");
+        setList.add("\"DELETE_F\" = :delete_f");
+        setList.add("\"STATUS_KB\" = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -320,7 +320,7 @@ public class Mb1Sansho1 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho_1_id");
+        whereList.add("\"SANSHO1_ID\" = :sansho_1_id");
         return String.join(" AND ", whereList);
     }
 
@@ -336,9 +336,9 @@ public class Mb1Sansho1 implements IEntity {
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
-        map.put("insert_id", execId);
+        map.put("insert_user_id", execId);
         map.put("update_ts", now);
-        map.put("update_id", execId);
+        map.put("update_user_id", execId);
         return map;
     }
 }

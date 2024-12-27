@@ -9,13 +9,14 @@
 
 </script>
 <script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
-<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
@@ -24,6 +25,7 @@
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1OyaS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1OyaSearchForm" action="Tb1OyaSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -56,6 +58,7 @@
         <button id="SearchTb1Oya" class="search" data-gridId="Tb1OyaGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1OyaSRegistForm" action="Tb1OyaSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Oya.h3}">h3</h3>
       <div id="Tb1OyaGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1Oya.html}"></div>

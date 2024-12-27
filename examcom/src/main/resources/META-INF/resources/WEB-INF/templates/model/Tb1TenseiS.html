@@ -9,10 +9,12 @@
 
 </script>
 <script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1TenseiS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1TenseiSearchForm" action="Tb1TenseiSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -46,6 +48,7 @@
         <button id="SearchTb1Tensei" class="search" data-gridId="Tb1TenseiGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1TenseiSRegistForm" action="Tb1TenseiSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Tensei.h3}">h3</h3>
       <div id="Tb1TenseiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb1Tensei.html}"></div>

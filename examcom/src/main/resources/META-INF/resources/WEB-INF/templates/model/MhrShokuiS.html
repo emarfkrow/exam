@@ -9,10 +9,12 @@
 
 </script>
 <script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{MhrShokuiS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="MhrShokuiSearchForm" action="MhrShokuiSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -52,6 +54,7 @@
         <button id="SearchMhrShokui" class="search" data-gridId="MhrShokuiGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="MhrShokuiSRegistForm" action="MhrShokuiSRegist.ajax" class="regist">
       <h3 th:text="#{MhrShokui.h3}">h3</h3>
       <div id="MhrShokuiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MhrShokui.html}"></div>

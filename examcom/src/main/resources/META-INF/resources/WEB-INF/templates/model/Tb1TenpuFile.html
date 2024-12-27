@@ -9,6 +9,7 @@
 
 </script>
 <script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -34,7 +35,18 @@
         <div id="tenpuFilePath">
           <label for="Tb1TenpuFile.tenpuFilePath" th:text="#{Tb1TenpuFile.tenpuFilePath}">添付ファイルパス</label><input type="file" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" maxlength="256" class=" notblank" /><a id="Tb1TenpuFile.tenpuFilePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="Tb1TenpuFile.tenpuFilePath" name="Tb1TenpuFile.tenpuFilePath" disabled />
         </div>
-        <input type="hidden" name="Tb1TenpuFile.updateTs" />
+        <div id="insertTs">
+          <label th:text="#{Tb1TenpuFile.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1TenpuFile.insertTs"></span><input type="hidden" id="Tb1TenpuFile.insertTs" name="Tb1TenpuFile.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1TenpuFile.insertUserId}" class="meta">作成者</label><span id="Tb1TenpuFile.insertUserId"></span><input type="hidden" id="Tb1TenpuFile.insertUserId" name="Tb1TenpuFile.insertUserId" />
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1TenpuFile.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1TenpuFile.updateTs"></span><input type="hidden" id="Tb1TenpuFile.updateTs" name="Tb1TenpuFile.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1TenpuFile.updateUserId}" class="meta">更新者</label><span id="Tb1TenpuFile.updateUserId"></span><input type="hidden" id="Tb1TenpuFile.updateUserId" name="Tb1TenpuFile.updateUserId" />
+        </div>
         <div id="deleteF">
           <fieldset id="Tb1TenpuFile.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
             <legend th:text="#{Tb1TenpuFile.deleteF}">削除フラグ</legend>

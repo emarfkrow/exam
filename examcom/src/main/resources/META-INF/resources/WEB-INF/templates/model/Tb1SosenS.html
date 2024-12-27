@@ -9,14 +9,15 @@
 
 </script>
 <script th:src="@{/model/Tb1SosenGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
-<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
@@ -25,6 +26,7 @@
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1SosenS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1SosenSearchForm" action="Tb1SosenSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -55,6 +57,7 @@
         <button id="SearchTb1Sosen" class="search" data-gridId="Tb1SosenGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1SosenSRegistForm" action="Tb1SosenSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Sosen.h3}">h3</h3>
       <div id="Tb1SosenGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb1Sosen.html}"></div>

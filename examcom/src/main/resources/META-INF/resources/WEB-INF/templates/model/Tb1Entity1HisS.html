@@ -10,12 +10,14 @@
 </script>
 <script th:src="@{/model/Tb1Entity1HisGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
 <script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1Entity1HisS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1Entity1HisSearchForm" action="Tb1Entity1HisSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -78,6 +80,7 @@
         <button id="SearchTb1Entity1His" class="search" data-gridId="Tb1Entity1HisGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1Entity1HisSRegistForm" action="Tb1Entity1HisSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Entity1His.h3}">h3</h3>
       <div id="Tb1Entity1HisGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/Tb1Entity1His.html}"></div>

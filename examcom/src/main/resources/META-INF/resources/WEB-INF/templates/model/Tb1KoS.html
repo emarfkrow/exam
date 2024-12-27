@@ -9,11 +9,13 @@
 
 </script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1KoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="Tb1KoSearchForm" action="Tb1KoSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -52,6 +54,7 @@
         <button id="SearchTb1Ko" class="search" data-gridId="Tb1KoGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="Tb1KoSRegistForm" action="Tb1KoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Ko.h3}">h3</h3>
       <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/Tb1Ko.html}"></div>

@@ -10,6 +10,7 @@ let MhrUserGridColumns = [
     Column.text('PASSWORD', Messages['MhrUserGrid.password'], 300, 'notblank', null),
     Column.date('KAISHI_BI', Messages['MhrUserGrid.kaishiBi'], 80, '', Slick.Formatters.Extends.Date),
     Column.date('SHURYO_BI', Messages['MhrUserGrid.shuryoBi'], 80, '', Slick.Formatters.Extends.Date),
+    Column.cell('UPDATE_TS', Messages['MhrUserGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     Column.check('DELETE_F', Messages['MhrUserGrid.deleteF'], 30, ''),
     Column.select('STATUS_KB', Messages['MhrUserGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

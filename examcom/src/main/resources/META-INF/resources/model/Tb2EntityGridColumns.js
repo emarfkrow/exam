@@ -42,6 +42,7 @@ let Tb2EntityGridColumns = [
     Column.dec2('NULL_SURYO_QT', Messages['Tb2EntityGrid.nullSuryoQt'], 72, '', null),
     Column.dec3('NULL_TANKA_KG', Messages['Tb2EntityGrid.nullTankaKg'], 88, '', null),
     Column.dec3('NULL_ZEINUKI_KG', Messages['Tb2EntityGrid.nullZeinukiKg'], 88, '', null),
+    Column.cell('UPDATE_TS', Messages['Tb2EntityGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     Column.check('DELETE_F', Messages['Tb2EntityGrid.deleteF'], 30, ''),
     Column.select('STATUS_KB', Messages['Tb2EntityGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
 ];

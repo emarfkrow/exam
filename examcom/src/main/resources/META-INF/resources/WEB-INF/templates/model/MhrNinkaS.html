@@ -10,11 +10,13 @@
 </script>
 <script th:src="@{/model/MhrNinkaGridColumns.js}"></script>
 <script th:src="@{/model/MhrBushoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/MhrShokuiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{MhrNinkaS.h2}">h2</h2>
+    <!-- 検索フォーム -->
     <form name="MhrNinkaSearchForm" action="MhrNinkaSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
@@ -53,12 +55,12 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrNinka" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/MhrNinka.html}" id="MhrNinka" class="anew" target="dialog" th:text="#{MhrNinka.add}" tabindex="-1">認可マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMhrNinka" class="search" data-gridId="MhrNinkaGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
+    <!-- 一覧フォーム -->
     <form name="MhrNinkaSRegistForm" action="MhrNinkaSRegist.ajax" class="regist">
       <h3 th:text="#{MhrNinka.h3}">h3</h3>
       <div id="MhrNinkaGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/MhrNinka.html}"></div>
