@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 子孫
+ * VIEW
  * @author emarfkrow
  */
 public class Vb1Shison implements IEntity {
@@ -40,7 +40,7 @@ public class Vb1Shison implements IEntity {
     private String entityName;
 
     /** @return entity_name */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_NAME")
+    @com.fasterxml.jackson.annotation.JsonProperty("entity_name")
     public String getEntityName() {
         return this.entityName;
     }
@@ -54,16 +54,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SOSEN_ID */
+    /** 祖先ID */
     private Integer sosenId;
 
-    /** @return SOSEN_ID */
+    /** @return 祖先ID */
     @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_ID")
     public Integer getSosenId() {
         return this.sosenId;
     }
 
-    /** @param o SOSEN_ID */
+    /** @param o 祖先ID */
     public void setSosenId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.sosenId = Integer.valueOf(o.toString());
@@ -72,16 +72,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** OYA_MEI */
+    /** 親名 */
     private String oyaMei;
 
-    /** @return OYA_MEI */
+    /** @return 親名 */
     @com.fasterxml.jackson.annotation.JsonProperty("OYA_MEI")
     public String getOyaMei() {
         return this.oyaMei;
     }
 
-    /** @param o OYA_MEI */
+    /** @param o 親名 */
     public void setOyaMei(final Object o) {
         if (o != null) {
             this.oyaMei = o.toString();
@@ -90,16 +90,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** ENTITY1_MEI */
+    /** エンティティ名 */
     private String entity1Mei;
 
-    /** @return ENTITY1_MEI */
+    /** @return エンティティ名 */
     @com.fasterxml.jackson.annotation.JsonProperty("ENTITY1_MEI")
     public String getEntity1Mei() {
         return this.entity1Mei;
     }
 
-    /** @param o ENTITY1_MEI */
+    /** @param o エンティティ名 */
     public void setEntity1Mei(final Object o) {
         if (o != null) {
             this.entity1Mei = o.toString();
@@ -108,16 +108,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** KO_MEI */
+    /** 子名 */
     private String koMei;
 
-    /** @return KO_MEI */
+    /** @return 子名 */
     @com.fasterxml.jackson.annotation.JsonProperty("KO_MEI")
     public String getKoMei() {
         return this.koMei;
     }
 
-    /** @param o KO_MEI */
+    /** @param o 子名 */
     public void setKoMei(final Object o) {
         if (o != null) {
             this.koMei = o.toString();
@@ -126,16 +126,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SHISON_MEI */
+    /** 子孫名 */
     private String shisonMei;
 
-    /** @return SHISON_MEI */
+    /** @return 子孫名 */
     @com.fasterxml.jackson.annotation.JsonProperty("SHISON_MEI")
     public String getShisonMei() {
         return this.shisonMei;
     }
 
-    /** @param o SHISON_MEI */
+    /** @param o 子孫名 */
     public void setShisonMei(final Object o) {
         if (o != null) {
             this.shisonMei = o.toString();
@@ -144,16 +144,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SEARCH_SOSEN_ID */
+    /** 祖先ID */
     private Integer searchSosenId;
 
-    /** @return SEARCH_SOSEN_ID */
+    /** @return 祖先ID */
     @com.fasterxml.jackson.annotation.JsonProperty("SEARCH_SOSEN_ID")
     public Integer getSearchSosenId() {
         return this.searchSosenId;
     }
 
-    /** @param o SEARCH_SOSEN_ID */
+    /** @param o 祖先ID */
     public void setSearchSosenId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.searchSosenId = Integer.valueOf(o.toString());
@@ -162,16 +162,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SEARCH_OYA_BN */
+    /** 親枝番 */
     private Integer searchOyaBn;
 
-    /** @return SEARCH_OYA_BN */
+    /** @return 親枝番 */
     @com.fasterxml.jackson.annotation.JsonProperty("SEARCH_OYA_BN")
     public Integer getSearchOyaBn() {
         return this.searchOyaBn;
     }
 
-    /** @param o SEARCH_OYA_BN */
+    /** @param o 親枝番 */
     public void setSearchOyaBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.searchOyaBn = Integer.valueOf(o.toString());
@@ -180,16 +180,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SEARCH_ENTITY_BN */
+    /** エンティティ枝番 */
     private Integer searchEntityBn;
 
-    /** @return SEARCH_ENTITY_BN */
+    /** @return エンティティ枝番 */
     @com.fasterxml.jackson.annotation.JsonProperty("SEARCH_ENTITY_BN")
     public Integer getSearchEntityBn() {
         return this.searchEntityBn;
     }
 
-    /** @param o SEARCH_ENTITY_BN */
+    /** @param o エンティティ枝番 */
     public void setSearchEntityBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.searchEntityBn = Integer.valueOf(o.toString());
@@ -198,16 +198,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SEARCH_KO_BN */
+    /** 子枝番 */
     private Integer searchKoBn;
 
-    /** @return SEARCH_KO_BN */
+    /** @return 子枝番 */
     @com.fasterxml.jackson.annotation.JsonProperty("SEARCH_KO_BN")
     public Integer getSearchKoBn() {
         return this.searchKoBn;
     }
 
-    /** @param o SEARCH_KO_BN */
+    /** @param o 子枝番 */
     public void setSearchKoBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.searchKoBn = Integer.valueOf(o.toString());
@@ -216,16 +216,16 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** SEARCH_SHISON_BN */
+    /** 子孫枝番 */
     private Integer searchShisonBn;
 
-    /** @return SEARCH_SHISON_BN */
+    /** @return 子孫枝番 */
     @com.fasterxml.jackson.annotation.JsonProperty("SEARCH_SHISON_BN")
     public Integer getSearchShisonBn() {
         return this.searchShisonBn;
     }
 
-    /** @param o SEARCH_SHISON_BN */
+    /** @param o 子孫枝番 */
     public void setSearchShisonBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.searchShisonBn = Integer.valueOf(o.toString());
@@ -234,19 +234,19 @@ public class Vb1Shison implements IEntity {
         }
     }
 
-    /** INSERT_TS */
+    /** 作成タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
     private java.time.LocalDateTime insertTs;
 
-    /** @return INSERT_TS */
+    /** @return 作成タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
 
-    /** @param o INSERT_TS */
+    /** @param o 作成タイムスタンプ */
     public void setInsertTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);
@@ -262,37 +262,37 @@ public class Vb1Shison implements IEntity {
     }
 
     /**
-     * 子孫照会
-     * @return 子孫
+     * VIEW照会
+     * @return VIEW
      */
     public static Vb1Shison get() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM (\"ENTITY_NAME\") = TRIM (:entity_name)");
-        whereList.add("\"SOSEN_ID\" = :sosen_id");
-        whereList.add("\"OYA_MEI\" = :oya_mei");
-        whereList.add("\"ENTITY1_MEI\" = :entity_1_mei");
-        whereList.add("\"KO_MEI\" = :ko_mei");
-        whereList.add("\"SHISON_MEI\" = :shison_mei");
-        whereList.add("\"SEARCH_SOSEN_ID\" = :search_sosen_id");
-        whereList.add("\"SEARCH_OYA_BN\" = :search_oya_bn");
-        whereList.add("\"SEARCH_ENTITY_BN\" = :search_entity_bn");
-        whereList.add("\"SEARCH_KO_BN\" = :search_ko_bn");
-        whereList.add("\"SEARCH_SHISON_BN\" = :search_shison_bn");
-        whereList.add("\"INSERT_TS\" = :insert_ts");
+        whereList.add("`entity_name` = :entity_name");
+        whereList.add("`SOSEN_ID` = :sosen_id");
+        whereList.add("`OYA_MEI` = :oya_mei");
+        whereList.add("`ENTITY1_MEI` = :entity_1_mei");
+        whereList.add("`KO_MEI` = :ko_mei");
+        whereList.add("`SHISON_MEI` = :shison_mei");
+        whereList.add("`SEARCH_SOSEN_ID` = :search_sosen_id");
+        whereList.add("`SEARCH_OYA_BN` = :search_oya_bn");
+        whereList.add("`SEARCH_ENTITY_BN` = :search_entity_bn");
+        whereList.add("`SEARCH_KO_BN` = :search_ko_bn");
+        whereList.add("`SEARCH_SHISON_BN` = :search_shison_bn");
+        whereList.add("`INSERT_TS` = :insert_ts");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      RTRIM (RTRIM (a.\"ENTITY_NAME\"), '　') AS ENTITY_NAME \n";
-        sql += "    , a.\"SOSEN_ID\" \n";
-        sql += "    , a.\"OYA_MEI\" \n";
-        sql += "    , a.\"ENTITY1_MEI\" \n";
-        sql += "    , a.\"KO_MEI\" \n";
-        sql += "    , a.\"SHISON_MEI\" \n";
-        sql += "    , a.\"SEARCH_SOSEN_ID\" \n";
-        sql += "    , a.\"SEARCH_OYA_BN\" \n";
-        sql += "    , a.\"SEARCH_ENTITY_BN\" \n";
-        sql += "    , a.\"SEARCH_KO_BN\" \n";
-        sql += "    , a.\"SEARCH_SHISON_BN\" \n";
-        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
+        sql += "      a.`entity_name` \n";
+        sql += "    , a.`SOSEN_ID` \n";
+        sql += "    , a.`OYA_MEI` \n";
+        sql += "    , a.`ENTITY1_MEI` \n";
+        sql += "    , a.`KO_MEI` \n";
+        sql += "    , a.`SHISON_MEI` \n";
+        sql += "    , a.`SEARCH_SOSEN_ID` \n";
+        sql += "    , a.`SEARCH_OYA_BN` \n";
+        sql += "    , a.`SEARCH_ENTITY_BN` \n";
+        sql += "    , a.`SEARCH_KO_BN` \n";
+        sql += "    , a.`SEARCH_SHISON_BN` \n";
+        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "FROM \n";
         sql += "    VB1_SHISON a \n";
         sql += "WHERE \n";
@@ -302,14 +302,14 @@ public class Vb1Shison implements IEntity {
     }
 
     /**
-     * 子孫追加
+     * VIEW追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 子孫の登録
+        // VIEWの登録
         String sql = "INSERT INTO VB1_SHISON(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -317,18 +317,18 @@ public class Vb1Shison implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("\"ENTITY_NAME\" -- :entity_name");
-        nameList.add("\"SOSEN_ID\" -- :sosen_id");
-        nameList.add("\"OYA_MEI\" -- :oya_mei");
-        nameList.add("\"ENTITY1_MEI\" -- :entity_1_mei");
-        nameList.add("\"KO_MEI\" -- :ko_mei");
-        nameList.add("\"SHISON_MEI\" -- :shison_mei");
-        nameList.add("\"SEARCH_SOSEN_ID\" -- :search_sosen_id");
-        nameList.add("\"SEARCH_OYA_BN\" -- :search_oya_bn");
-        nameList.add("\"SEARCH_ENTITY_BN\" -- :search_entity_bn");
-        nameList.add("\"SEARCH_KO_BN\" -- :search_ko_bn");
-        nameList.add("\"SEARCH_SHISON_BN\" -- :search_shison_bn");
-        nameList.add("\"INSERT_TS\" -- :insert_ts");
+        nameList.add("`entity_name` -- :entity_name");
+        nameList.add("`SOSEN_ID` -- :sosen_id");
+        nameList.add("`OYA_MEI` -- :oya_mei");
+        nameList.add("`ENTITY1_MEI` -- :entity_1_mei");
+        nameList.add("`KO_MEI` -- :ko_mei");
+        nameList.add("`SHISON_MEI` -- :shison_mei");
+        nameList.add("`SEARCH_SOSEN_ID` -- :search_sosen_id");
+        nameList.add("`SEARCH_OYA_BN` -- :search_oya_bn");
+        nameList.add("`SEARCH_ENTITY_BN` -- :search_entity_bn");
+        nameList.add("`SEARCH_KO_BN` -- :search_ko_bn");
+        nameList.add("`SEARCH_SHISON_BN` -- :search_shison_bn");
+        nameList.add("`INSERT_TS` -- :insert_ts");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -346,19 +346,19 @@ public class Vb1Shison implements IEntity {
         valueList.add(":search_entity_bn");
         valueList.add(":search_ko_bn");
         valueList.add(":search_shison_bn");
-        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_ts");
         return String.join("\r\n    , ", valueList);
     }
 
     /**
-     * 子孫更新
+     * VIEW更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 子孫の登録
+        // VIEWの登録
         String sql = "UPDATE VB1_SHISON\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -366,27 +366,27 @@ public class Vb1Shison implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("\"ENTITY_NAME\" = :entity_name");
-        setList.add("\"SOSEN_ID\" = :sosen_id");
-        setList.add("\"OYA_MEI\" = :oya_mei");
-        setList.add("\"ENTITY1_MEI\" = :entity_1_mei");
-        setList.add("\"KO_MEI\" = :ko_mei");
-        setList.add("\"SHISON_MEI\" = :shison_mei");
-        setList.add("\"SEARCH_SOSEN_ID\" = :search_sosen_id");
-        setList.add("\"SEARCH_OYA_BN\" = :search_oya_bn");
-        setList.add("\"SEARCH_ENTITY_BN\" = :search_entity_bn");
-        setList.add("\"SEARCH_KO_BN\" = :search_ko_bn");
-        setList.add("\"SEARCH_SHISON_BN\" = :search_shison_bn");
+        setList.add("`entity_name` = :entity_name");
+        setList.add("`SOSEN_ID` = :sosen_id");
+        setList.add("`OYA_MEI` = :oya_mei");
+        setList.add("`ENTITY1_MEI` = :entity_1_mei");
+        setList.add("`KO_MEI` = :ko_mei");
+        setList.add("`SHISON_MEI` = :shison_mei");
+        setList.add("`SEARCH_SOSEN_ID` = :search_sosen_id");
+        setList.add("`SEARCH_OYA_BN` = :search_oya_bn");
+        setList.add("`SEARCH_ENTITY_BN` = :search_entity_bn");
+        setList.add("`SEARCH_KO_BN` = :search_ko_bn");
+        setList.add("`SEARCH_SHISON_BN` = :search_shison_bn");
         return String.join("\r\n    , ", setList);
     }
 
     /**
-     * 子孫削除
+     * VIEW削除
      * @return 削除件数
      */
     public int delete() {
 
-        // 子孫の削除
+        // VIEWの削除
         String sql = "DELETE FROM VB1_SHISON WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }

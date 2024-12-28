@@ -1,43 +1,43 @@
 SELECT
-      a."BUSHO_ID"
-    , (SELECT r1."BUSHO_MEI" FROM MHR_BUSHO r1 WHERE r1."BUSHO_ID" = a."BUSHO_ID") AS "BUSHO_MEI"
-    , a."SHOKUI_ID"
-    , (SELECT r2."SHOKUI_MEI" FROM MHR_SHOKUI r2 WHERE r2."SHOKUI_ID" = a."SHOKUI_ID") AS "SHOKUI_MEI"
-    , a."KINO_NM"
-    , a."KENGEN_KB"
-    , TO_CHAR (a."KAISHI_BI", 'YYYY-MM-DD') AS KAISHI_BI
-    , TO_CHAR (a."SHURYO_BI", 'YYYY-MM-DD') AS SHURYO_BI
-    , TO_CHAR (a."INSERT_TS", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS
-    , a."INSERT_USER_ID"
-    , (SELECT r3."USER_SEI" FROM MHR_USER r3 WHERE r3."USER_ID" = a."INSERT_USER_ID") AS "INSERT_USER_SEI"
-    , TO_CHAR (a."UPDATE_TS", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS
-    , a."UPDATE_USER_ID"
-    , (SELECT r4."USER_SEI" FROM MHR_USER r4 WHERE r4."USER_ID" = a."UPDATE_USER_ID") AS "UPDATE_USER_SEI"
-    , RTRIM (RTRIM (a."DELETE_F"), '　') AS DELETE_F
-    , a."STATUS_KB"
+      a.`BUSHO_ID`
+    , (SELECT r1.`BUSHO_MEI` FROM MHR_BUSHO r1 WHERE r1.`BUSHO_ID` = a.`BUSHO_ID`) AS `BUSHO_MEI`
+    , a.`SHOKUI_ID`
+    , (SELECT r2.`SHOKUI_MEI` FROM MHR_SHOKUI r2 WHERE r2.`SHOKUI_ID` = a.`SHOKUI_ID`) AS `SHOKUI_MEI`
+    , a.`KINO_NM`
+    , a.`KENGEN_KB`
+    , a.`KAISHI_BI` AS KAISHI_BI
+    , a.`SHURYO_BI` AS SHURYO_BI
+    , a.`INSERT_TS` AS INSERT_TS
+    , a.`INSERT_USER_ID`
+    , (SELECT r3.`USER_SEI` FROM MHR_USER r3 WHERE r3.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
+    , a.`UPDATE_TS` AS UPDATE_TS
+    , a.`UPDATE_USER_ID`
+    , (SELECT r4.`USER_SEI` FROM MHR_USER r4 WHERE r4.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
     MHR_NINKA a 
 WHERE
     1 = 1 
-    AND a."BUSHO_ID" = :busho_id 
-    AND a."SHOKUI_ID" = :shokui_id 
-    AND RTRIM (RTRIM (a."KINO_NM"), '　') LIKE '%' || :kino_nm || '%' 
-    AND TRIM (a."KENGEN_KB") IN (:kengen_kb) 
-    AND a."KAISHI_BI" = TO_DATE (SUBSTR (:kaishi_bi, 0, 10), 'YYYY-MM-DD') 
-    AND a."KAISHI_BI" >= TO_DATE (SUBSTR (:kaishi_bi_1 , 0, 10), 'YYYY-MM-DD')
-    AND a."KAISHI_BI" <= TO_DATE (SUBSTR (:kaishi_bi_2 , 0, 10), 'YYYY-MM-DD')
-    AND a."SHURYO_BI" = TO_DATE (SUBSTR (:shuryo_bi, 0, 10), 'YYYY-MM-DD') 
-    AND a."SHURYO_BI" >= TO_DATE (SUBSTR (:shuryo_bi_1 , 0, 10), 'YYYY-MM-DD')
-    AND a."SHURYO_BI" <= TO_DATE (SUBSTR (:shuryo_bi_2 , 0, 10), 'YYYY-MM-DD')
-    AND a."INSERT_TS" = TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3') 
-    AND a."INSERT_TS" >= TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts_1 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."INSERT_TS" <= TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts_2 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."INSERT_USER_ID" = :insert_user_id 
-    AND a."UPDATE_TS" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3') 
-    AND a."UPDATE_TS" >= TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts_1 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."UPDATE_TS" <= TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts_2 , 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')
-    AND a."UPDATE_USER_ID" = :update_user_id 
-    AND CASE WHEN TRIM (a."DELETE_F") IS NULL THEN '0' ELSE TO_CHAR (a."DELETE_F") END IN (:delete_f) 
-    AND TRIM (a."STATUS_KB") IN (:status_kb) 
+    AND a.`BUSHO_ID` = :busho_id 
+    AND a.`SHOKUI_ID` = :shokui_id 
+    AND TRIM(TRAILING ' ' FROM a.`KINO_NM`) LIKE CONCAT ('%', :kino_nm, '%') 
+    AND TRIM (a.`KENGEN_KB`) IN (:kengen_kb) 
+    AND a.`KAISHI_BI` = :kaishi_bi 
+    AND a.`KAISHI_BI` >= :kaishi_bi_1 
+    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`SHURYO_BI` = :shuryo_bi 
+    AND a.`SHURYO_BI` >= :shuryo_bi_1 
+    AND a.`SHURYO_BI` <= :shuryo_bi_2 
+    AND a.`INSERT_TS` = :insert_ts 
+    AND a.`INSERT_TS` >= :insert_ts_1 
+    AND a.`INSERT_TS` <= :insert_ts_2 
+    AND a.`INSERT_USER_ID` = :insert_user_id 
+    AND a.`UPDATE_TS` = :update_ts 
+    AND a.`UPDATE_TS` >= :update_ts_1 
+    AND a.`UPDATE_TS` <= :update_ts_2 
+    AND a.`UPDATE_USER_ID` = :update_user_id 
+    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a."BUSHO_ID", a."SHOKUI_ID", a."KINO_NM"
+    a.`BUSHO_ID`, a.`SHOKUI_ID`, a.`KINO_NM`

@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * エンティティ検索登録フォーム
+ * VIEW登録フォーム
  *
  * @author emarfkrow
  */
@@ -18,381 +18,381 @@ public class Vb2EntityRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Vb2EntityRegistForm.class);
 
-    /** ENTITY_ID */
+    /** エンティティID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityId;
 
     /**
-     * @return ENTITY_ID
+     * @return エンティティID
      */
     public String getEntityId() {
         return entityId;
     }
 
     /**
-     * @param p ENTITY_ID
+     * @param p エンティティID
      */
     public void setEntityId(final String p) {
         this.entityId = p;
     }
 
-    /** ENTITY_NM */
+    /** エンティティ名称 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 20)
     private String entityNm;
 
     /**
-     * @return ENTITY_NM
+     * @return エンティティ名称
      */
     public String getEntityNm() {
         return entityNm;
     }
 
     /**
-     * @param p ENTITY_NM
+     * @param p エンティティ名称
      */
     public void setEntityNm(final String p) {
         this.entityNm = p;
     }
 
-    /** ENTITY_MEI */
+    /** エンティティ名 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
     private String entityMei;
 
     /**
-     * @return ENTITY_MEI
+     * @return エンティティ名
      */
     public String getEntityMei() {
         return entityMei;
     }
 
     /**
-     * @param p ENTITY_MEI
+     * @param p エンティティ名
      */
     public void setEntityMei(final String p) {
         this.entityMei = p;
     }
 
-    /** CHECK_F */
+    /** チェックフラグ */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 1)
     private String checkF;
 
     /**
-     * @return CHECK_F
+     * @return チェックフラグ
      */
     public String getCheckF() {
         return checkF;
     }
 
     /**
-     * @param p CHECK_F
+     * @param p チェックフラグ
      */
     public void setCheckF(final String p) {
         this.checkF = p;
     }
 
-    /** RADIO_KB */
+    /** ラジオ区分 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 2)
     private String radioKb;
 
     /**
-     * @return RADIO_KB
+     * @return ラジオ区分
      */
     public String getRadioKb() {
         return radioKb;
     }
 
     /**
-     * @param p RADIO_KB
+     * @param p ラジオ区分
      */
     public void setRadioKb(final String p) {
         this.radioKb = p;
     }
 
-    /** PULLDOWN_KB */
+    /** プルダウン区分 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 2)
     private String pulldownKb;
 
     /**
-     * @return PULLDOWN_KB
+     * @return プルダウン区分
      */
     public String getPulldownKb() {
         return pulldownKb;
     }
 
     /**
-     * @param p PULLDOWN_KB
+     * @param p プルダウン区分
      */
     public void setPulldownKb(final String p) {
         this.pulldownKb = p;
     }
 
-    /** MEMO_TX */
+    /** メモ */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 800)
     private String memoTx;
 
     /**
-     * @return MEMO_TX
+     * @return メモ
      */
     public String getMemoTx() {
         return memoTx;
     }
 
     /**
-     * @param p MEMO_TX
+     * @param p メモ
      */
     public void setMemoTx(final String p) {
         this.memoTx = p;
     }
 
-    /** NEN_Y */
+    /** 年 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4})?")
     private String nenY;
 
     /**
-     * @return NEN_Y
+     * @return 年
      */
     public String getNenY() {
         return nenY;
     }
 
     /**
-     * @param p NEN_Y
+     * @param p 年
      */
     public void setNenY(final String p) {
         this.nenY = p;
     }
 
-    /** TSUKI_M */
+    /** 月 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
     private String tsukiM;
 
     /**
-     * @return TSUKI_M
+     * @return 月
      */
     public String getTsukiM() {
         return tsukiM;
     }
 
     /**
-     * @param p TSUKI_M
+     * @param p 月
      */
     public void setTsukiM(final String p) {
         this.tsukiM = p;
     }
 
-    /** HI_D */
+    /** 日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
     private String hiD;
 
     /**
-     * @return HI_D
+     * @return 日
      */
     public String getHiD() {
         return hiD;
     }
 
     /**
-     * @param p HI_D
+     * @param p 日
      */
     public void setHiD(final String p) {
         this.hiD = p;
     }
 
-    /** NENGETSU_YM */
+    /** 年月 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2})?")
     private String nengetsuYm;
 
     /**
-     * @return NENGETSU_YM
+     * @return 年月
      */
     public String getNengetsuYm() {
         return nengetsuYm;
     }
 
     /**
-     * @param p NENGETSU_YM
+     * @param p 年月
      */
     public void setNengetsuYm(final String p) {
         this.nengetsuYm = p;
     }
 
-    /** NENGAPPI_YMD */
+    /** 年月日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{8})?")
     private String nengappiYmd;
 
     /**
-     * @return NENGAPPI_YMD
+     * @return 年月日
      */
     public String getNengappiYmd() {
         return nengappiYmd;
     }
 
     /**
-     * @param p NENGAPPI_YMD
+     * @param p 年月日
      */
     public void setNengappiYmd(final String p) {
         this.nengappiYmd = p;
     }
 
-    /** TIMESTAMP_TS */
+    /** タイムスタンプ */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     private String timestampTs;
 
     /**
-     * @return TIMESTAMP_TS
+     * @return タイムスタンプ
      */
     public String getTimestampTs() {
         return timestampTs;
     }
 
     /**
-     * @param p TIMESTAMP_TS
+     * @param p タイムスタンプ
      */
     public void setTimestampTs(final String p) {
         this.timestampTs = p;
     }
 
-    /** NICHIJI_DT */
+    /** 日時 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     private String nichijiDt;
 
     /**
-     * @return NICHIJI_DT
+     * @return 日時
      */
     public String getNichijiDt() {
         return nichijiDt;
     }
 
     /**
-     * @param p NICHIJI_DT
+     * @param p 日時
      */
     public void setNichijiDt(final String p) {
         this.nichijiDt = p;
     }
 
-    /** HIDUKE_BI */
+    /** 日付 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
     private String hidukeBi;
 
     /**
-     * @return HIDUKE_BI
+     * @return 日付
      */
     public String getHidukeBi() {
         return hidukeBi;
     }
 
     /**
-     * @param p HIDUKE_BI
+     * @param p 日付
      */
     public void setHidukeBi(final String p) {
         this.hidukeBi = p;
     }
 
-    /** JIKOKU_HM */
+    /** 時刻 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,2}:[0-9]{1,2})?")
     private String jikokuHm;
 
     /**
-     * @return JIKOKU_HM
+     * @return 時刻
      */
     public String getJikokuHm() {
         return jikokuHm;
     }
 
     /**
-     * @param p JIKOKU_HM
+     * @param p 時刻
      */
     public void setJikokuHm(final String p) {
         this.jikokuHm = p;
     }
 
-    /** JIKAN_TM */
+    /** 時間 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,}:[0-9]{1,2})?")
     private String jikanTm;
 
     /**
-     * @return JIKAN_TM
+     * @return 時間
      */
     public String getJikanTm() {
         return jikanTm;
     }
 
     /**
-     * @param p JIKAN_TM
+     * @param p 時間
      */
     public void setJikanTm(final String p) {
         this.jikanTm = p;
     }
 
-    /** SURYO_QT */
+    /** 数量 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,7}\\.?[0-9]{0,2}?)?")
     private String suryoQt;
 
     /**
-     * @return SURYO_QT
+     * @return 数量
      */
     public String getSuryoQt() {
         return suryoQt;
     }
 
     /**
-     * @param p SURYO_QT
+     * @param p 数量
      */
     public void setSuryoQt(final String p) {
         this.suryoQt = p;
     }
 
-    /** TANKA_KG */
+    /** 単価 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String tankaKg;
 
     /**
-     * @return TANKA_KG
+     * @return 単価
      */
     public String getTankaKg() {
         return tankaKg;
     }
 
     /**
-     * @param p TANKA_KG
+     * @param p 単価
      */
     public void setTankaKg(final String p) {
         this.tankaKg = p;
     }
 
-    /** ZEINUKI_KG */
+    /** 税抜金額 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String zeinukiKg;
 
     /**
-     * @return ZEINUKI_KG
+     * @return 税抜金額
      */
     public String getZeinukiKg() {
         return zeinukiKg;
     }
 
     /**
-     * @param p ZEINUKI_KG
+     * @param p 税抜金額
      */
     public void setZeinukiKg(final String p) {
         this.zeinukiKg = p;

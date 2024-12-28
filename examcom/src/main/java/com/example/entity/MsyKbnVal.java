@@ -260,21 +260,21 @@ public class MsyKbnVal implements IEntity {
      */
     public static MsyKbnVal get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("\"KBN_NM\" = :kbn_nm");
-        whereList.add("\"KBN_VAL\" = :kbn_val");
+        whereList.add("`KBN_NM` = :kbn_nm");
+        whereList.add("`KBN_VAL` = :kbn_val");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.\"KBN_NM\" \n";
-        sql += "    , a.\"KBN_VAL\" \n";
-        sql += "    , a.\"KBN_VAL_MEI\" \n";
-        sql += "    , a.\"HYOJI_ON\" \n";
-        sql += "    , a.\"CRITERIA\" \n";
-        sql += "    , TO_CHAR (a.\"INSERT_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS INSERT_TS \n";
-        sql += "    , a.\"INSERT_USER_ID\" \n";
-        sql += "    , TO_CHAR (a.\"UPDATE_TS\", 'YYYY-MM-DD HH24:MI:SS.FF3') AS UPDATE_TS \n";
-        sql += "    , a.\"UPDATE_USER_ID\" \n";
-        sql += "    , RTRIM (RTRIM (a.\"DELETE_F\"), '　') AS DELETE_F \n";
-        sql += "    , a.\"STATUS_KB\" \n";
+        sql += "      a.`KBN_NM` \n";
+        sql += "    , a.`KBN_VAL` \n";
+        sql += "    , a.`KBN_VAL_MEI` \n";
+        sql += "    , a.`HYOJI_ON` \n";
+        sql += "    , a.`CRITERIA` \n";
+        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
+        sql += "    , a.`INSERT_USER_ID` \n";
+        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
+        sql += "    , a.`UPDATE_USER_ID` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    MSY_KBN_VAL a \n";
         sql += "WHERE \n";
@@ -301,17 +301,17 @@ public class MsyKbnVal implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("\"KBN_NM\" -- :kbn_nm");
-        nameList.add("\"KBN_VAL\" -- :kbn_val");
-        nameList.add("\"KBN_VAL_MEI\" -- :kbn_val_mei");
-        nameList.add("\"HYOJI_ON\" -- :hyoji_on");
-        nameList.add("\"CRITERIA\" -- :criteria");
-        nameList.add("\"INSERT_TS\" -- :insert_ts");
-        nameList.add("\"INSERT_USER_ID\" -- :insert_user_id");
-        nameList.add("\"UPDATE_TS\" -- :update_ts");
-        nameList.add("\"UPDATE_USER_ID\" -- :update_user_id");
-        nameList.add("\"DELETE_F\" -- :delete_f");
-        nameList.add("\"STATUS_KB\" -- :status_kb");
+        nameList.add("`KBN_NM` -- :kbn_nm");
+        nameList.add("`KBN_VAL` -- :kbn_val");
+        nameList.add("`KBN_VAL_MEI` -- :kbn_val_mei");
+        nameList.add("`HYOJI_ON` -- :hyoji_on");
+        nameList.add("`CRITERIA` -- :criteria");
+        nameList.add("`INSERT_TS` -- :insert_ts");
+        nameList.add("`INSERT_USER_ID` -- :insert_user_id");
+        nameList.add("`UPDATE_TS` -- :update_ts");
+        nameList.add("`UPDATE_USER_ID` -- :update_user_id");
+        nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -323,9 +323,9 @@ public class MsyKbnVal implements IEntity {
         valueList.add(":kbn_val_mei");
         valueList.add(":hyoji_on");
         valueList.add(":criteria");
-        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:insert_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
-        valueList.add("TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
+        valueList.add(":update_ts");
         valueList.add(":update_user_id");
         valueList.add(":delete_f");
         valueList.add(":status_kb");
@@ -348,15 +348,15 @@ public class MsyKbnVal implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("\"KBN_NM\" = :kbn_nm");
-        setList.add("\"KBN_VAL\" = :kbn_val");
-        setList.add("\"KBN_VAL_MEI\" = :kbn_val_mei");
-        setList.add("\"HYOJI_ON\" = :hyoji_on");
-        setList.add("\"CRITERIA\" = :criteria");
-        setList.add("\"UPDATE_TS\" = TO_TIMESTAMP (REPLACE (SUBSTR (:update_ts, 0, 23), 'T', ' '), 'YYYY-MM-DD HH24:MI:SS.FF3')");
-        setList.add("\"UPDATE_USER_ID\" = :update_user_id");
-        setList.add("\"DELETE_F\" = :delete_f");
-        setList.add("\"STATUS_KB\" = :status_kb");
+        setList.add("`KBN_NM` = :kbn_nm");
+        setList.add("`KBN_VAL` = :kbn_val");
+        setList.add("`KBN_VAL_MEI` = :kbn_val_mei");
+        setList.add("`HYOJI_ON` = :hyoji_on");
+        setList.add("`CRITERIA` = :criteria");
+        setList.add("`UPDATE_TS` = :update_ts");
+        setList.add("`UPDATE_USER_ID` = :update_user_id");
+        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -374,8 +374,8 @@ public class MsyKbnVal implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("\"KBN_NM\" = :kbn_nm");
-        whereList.add("\"KBN_VAL\" = :kbn_val");
+        whereList.add("`KBN_NM` = :kbn_nm");
+        whereList.add("`KBN_VAL` = :kbn_val");
         return String.join(" AND ", whereList);
     }
 
