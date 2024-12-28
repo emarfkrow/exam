@@ -14,6 +14,13 @@ SELECT
     , a.`STATUS_KB`
 FROM
     MHR_SHOKUI a 
+    INNER JOIN MHR_SHOZOKU c 
+        ON IFNULL (c.delete_f, 0) != 1 
+        AND IFNULL (c.kaishi_bi, sysdate()) <= sysdate() 
+        AND date_add(IFNULL (c.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate()
+        AND c.BUSHO_ID = :BUSHO_ID 
+        AND c.SHOKUI_ID = a.SHOKUI_ID 
+        AND c.USER_ID = :USER_ID 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
     AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
