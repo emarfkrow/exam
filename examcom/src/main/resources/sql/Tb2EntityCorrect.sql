@@ -50,8 +50,6 @@ FROM
     TB2_ENTITY a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND a.`ENTITY_ID` = :entity_id 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_NM`) LIKE CONCAT ('%', :entity_nm, '%') 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_MEI`) LIKE CONCAT ('%', :entity_mei, '%') 

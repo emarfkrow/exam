@@ -13,8 +13,6 @@ FROM
     MSY_KBN a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
     AND TRIM(TRAILING ' ' FROM a.`KBN_MEI`) LIKE CONCAT ('%', :kbn_mei, '%') 
     AND a.`INSERT_TS` = :insert_ts 

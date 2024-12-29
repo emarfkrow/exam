@@ -17,8 +17,6 @@ FROM
     MSY_KBN_VAL a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
     AND TRIM(TRAILING ' ' FROM a.`KBN_VAL`) LIKE CONCAT ('%', :kbn_val, '%') 
     AND TRIM(TRAILING ' ' FROM a.`KBN_VAL_MEI`) LIKE CONCAT ('%', :kbn_val_mei, '%') 

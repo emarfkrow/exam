@@ -15,8 +15,6 @@ FROM
     VB1_SHISON a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND TRIM(TRAILING ' ' FROM a.`entity_name`) LIKE CONCAT ('%', :entity_name, '%') 
     AND a.`SOSEN_ID` = :sosen_id 
     AND TRIM(TRAILING ' ' FROM a.`OYA_MEI`) LIKE CONCAT ('%', :oya_mei, '%') 

@@ -14,8 +14,6 @@ FROM
     TB1_TENSEI a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND a.`TENSEI_ID` = :tensei_id 
     AND TRIM(TRAILING ' ' FROM a.`TENSEI_MEI`) LIKE CONCAT ('%', :tensei_mei, '%') 
     AND a.`SOSEN_ID` = :sosen_id 

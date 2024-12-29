@@ -13,8 +13,6 @@ FROM
     MB1_SANSHO1 a 
 WHERE
     IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND a.`SANSHO1_ID` = :sansho_1_id 
     AND TRIM(TRAILING ' ' FROM a.`SANSHO1_MEI`) LIKE CONCAT ('%', :sansho_1_mei, '%') 
     AND a.`INSERT_TS` = :insert_ts 
