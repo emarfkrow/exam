@@ -84,6 +84,9 @@
         <div id="zeinukiKg">
           <label for="Tb2Entity.zeinukiKg" th:text="#{Tb2Entity.zeinukiKg}">税抜金額</label><input type="text" id="Tb2Entity.zeinukiKg" name="Tb2Entity.zeinukiKg" maxlength="11" class=" notblank" />
         </div>
+        <div id="filePath">
+          <label for="Tb2Entity.filePath" th:text="#{Tb2Entity.filePath}">ファイルパス</label><input type="file" id="Tb2Entity.filePath" name="Tb2Entity.filePath" maxlength="800" class=" notblank" /><a id="Tb2Entity.filePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="Tb2Entity.filePath" name="Tb2Entity.filePath" disabled />
+        </div>
         <div id="nullEntityNm">
           <label for="Tb2Entity.nullEntityNm" th:text="#{Tb2Entity.nullEntityNm}">任意エンティティ名称</label><input type="text" id="Tb2Entity.nullEntityNm" name="Tb2Entity.nullEntityNm" maxlength="20" />
         </div>

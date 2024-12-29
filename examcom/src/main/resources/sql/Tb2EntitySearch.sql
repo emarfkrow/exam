@@ -19,6 +19,7 @@ SELECT
     , a.`SURYO_QT`
     , a.`TANKA_KG`
     , a.`ZEINUKI_KG`
+    , a.`FILE_PATH`
     , a.`NULL_ENTITY_NM`
     , a.`NULL_ENTITY_MEI`
     , TRIM(TRAILING ' ' FROM a.`NULL_CHECK_F`) AS NULL_CHECK_F
@@ -96,6 +97,7 @@ WHERE
     AND a.`ZEINUKI_KG` = :zeinuki_kg 
     AND a.`ZEINUKI_KG` >= :zeinuki_kg_1 
     AND a.`ZEINUKI_KG` <= :zeinuki_kg_2 
+    AND TRIM(TRAILING ' ' FROM a.`FILE_PATH`) LIKE CONCAT ('%', :file_path, '%') 
     AND TRIM(TRAILING ' ' FROM a.`NULL_ENTITY_NM`) LIKE CONCAT ('%', :null_entity_nm, '%') 
     AND TRIM(TRAILING ' ' FROM a.`NULL_ENTITY_MEI`) LIKE CONCAT ('%', :null_entity_mei, '%') 
     AND CASE WHEN TRIM (a.`NULL_CHECK_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`NULL_CHECK_F`) END IN (:null_check_f) 

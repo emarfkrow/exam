@@ -397,6 +397,25 @@ public class Tb2EntityRegistForm implements IForm {
         this.zeinukiKg = p;
     }
 
+    /** ファイルパス */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 800)
+    private String filePath;
+
+    /**
+     * @return ファイルパス
+     */
+    public String getFilePath() {
+        return filePath;
+    }
+
+    /**
+     * @param p ファイルパス
+     */
+    public void setFilePath(final String p) {
+        this.filePath = p;
+    }
+
     /** 任意エンティティ名称 */
     @jakarta.validation.constraints.Size(max = 20)
     private String nullEntityNm;

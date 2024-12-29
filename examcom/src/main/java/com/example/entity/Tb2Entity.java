@@ -417,6 +417,24 @@ public class Tb2Entity implements IEntity {
         }
     }
 
+    /** ファイルパス */
+    private String filePath;
+
+    /** @return ファイルパス */
+    @com.fasterxml.jackson.annotation.JsonProperty("FILE_PATH")
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    /** @param o ファイルパス */
+    public void setFilePath(final Object o) {
+        if (o != null) {
+            this.filePath = o.toString();
+        } else {
+            this.filePath = null;
+        }
+    }
+
     /** 任意エンティティ名称 */
     private String nullEntityNm;
 
@@ -936,6 +954,7 @@ public class Tb2Entity implements IEntity {
         sql += "    , a.`SURYO_QT` \n";
         sql += "    , a.`TANKA_KG` \n";
         sql += "    , a.`ZEINUKI_KG` \n";
+        sql += "    , a.`FILE_PATH` \n";
         sql += "    , a.`NULL_ENTITY_NM` \n";
         sql += "    , a.`NULL_ENTITY_MEI` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`NULL_CHECK_F`) AS NULL_CHECK_F \n";
@@ -1009,6 +1028,7 @@ public class Tb2Entity implements IEntity {
         nameList.add("`SURYO_QT` -- :suryo_qt");
         nameList.add("`TANKA_KG` -- :tanka_kg");
         nameList.add("`ZEINUKI_KG` -- :zeinuki_kg");
+        nameList.add("`FILE_PATH` -- :file_path");
         nameList.add("`NULL_ENTITY_NM` -- :null_entity_nm");
         nameList.add("`NULL_ENTITY_MEI` -- :null_entity_mei");
         nameList.add("`NULL_CHECK_F` -- :null_check_f");
@@ -1060,6 +1080,7 @@ public class Tb2Entity implements IEntity {
         valueList.add(":suryo_qt");
         valueList.add(":tanka_kg");
         valueList.add(":zeinuki_kg");
+        valueList.add(":file_path");
         valueList.add(":null_entity_nm");
         valueList.add(":null_entity_mei");
         valueList.add(":null_check_f");
@@ -1136,6 +1157,7 @@ public class Tb2Entity implements IEntity {
         setList.add("`SURYO_QT` = :suryo_qt");
         setList.add("`TANKA_KG` = :tanka_kg");
         setList.add("`ZEINUKI_KG` = :zeinuki_kg");
+        setList.add("`FILE_PATH` = :file_path");
         setList.add("`NULL_ENTITY_NM` = :null_entity_nm");
         setList.add("`NULL_ENTITY_MEI` = :null_entity_mei");
         setList.add("`NULL_CHECK_F` = :null_check_f");
@@ -1167,6 +1189,13 @@ public class Tb2Entity implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        Tb2Entity tb2Entity = Tb2Entity.get(this.entityId);
+        try {
+            java.nio.file.Files.delete(java.nio.file.Paths.get(tb2Entity.filePath));
+        } catch (Exception e) {
+            throw new jp.co.golorp.emarf.exception.SysError(e);
+        }
 
         // エンティティの削除
         String sql = "DELETE FROM TB2_ENTITY WHERE " + getWhere();
@@ -1207,6 +1236,7 @@ public class Tb2Entity implements IEntity {
         map.put("suryo_qt", this.suryoQt);
         map.put("tanka_kg", this.tankaKg);
         map.put("zeinuki_kg", this.zeinukiKg);
+        map.put("file_path", this.filePath);
         map.put("null_entity_nm", this.nullEntityNm);
         map.put("null_entity_mei", this.nullEntityMei);
         map.put("null_check_f", this.nullCheckF);

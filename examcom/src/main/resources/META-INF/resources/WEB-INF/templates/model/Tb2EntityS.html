@@ -171,7 +171,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb2EntitySRegistForm" action="Tb2EntitySRegist.ajax" class="regist">
       <h3 th:text="#{Tb2Entity.h3}">h3</h3>
-      <div id="Tb2EntityGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Entity.html}"></div>
+      <div id="Tb2EntityGrid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb2Entity.html}"></div>
       <div id="Tb2EntityPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb2EntityS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Entity&quot;]').click();">reset</button>

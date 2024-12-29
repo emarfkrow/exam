@@ -23,6 +23,7 @@ let Tb2EntityGridColumns = [
     Column.dec2('SURYO_QT', Messages['Tb2EntityGrid.suryoQt'], 72, 'notblank', null),
     Column.dec3('TANKA_KG', Messages['Tb2EntityGrid.tankaKg'], 88, 'notblank', null),
     Column.dec3('ZEINUKI_KG', Messages['Tb2EntityGrid.zeinukiKg'], 88, 'notblank', null),
+    Column.link('FILE_PATH', Messages['Tb2EntityGrid.filePath'], 300, 'notblank'),
     Column.text('NULL_ENTITY_NM', Messages['Tb2EntityGrid.nullEntityNm'], 160, '', null),
     Column.text('NULL_ENTITY_MEI', Messages['Tb2EntityGrid.nullEntityMei'], 300, '', null),
     Column.check('NULL_CHECK_F', Messages['Tb2EntityGrid.nullCheckF'], 30, ''),
