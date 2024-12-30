@@ -17,16 +17,18 @@ SELECT
 FROM
     MHR_USER a 
     INNER JOIN MHR_SHOZOKU c 
-        ON IFNULL (c.delete_f, 0) != 1 
-        AND IFNULL (c.kaishi_bi, sysdate()) <= sysdate() 
-        AND date_add(IFNULL (c.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate()
+        ON 1 = 1 
+        AND IFNULL (c.DELETE_F, 0) != 1 
+        AND IFNULL (c.KAISHI_BI, sysdate()) <= sysdate() 
+        AND date_add(IFNULL (c.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate()
         AND c.BUSHO_ID = :BUSHO_ID 
         AND c.SHOKUI_ID = :SHOKUI_ID 
         AND c.USER_ID = a.USER_ID 
 WHERE
-    IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
+    1= 1 
+    AND IFNULL (a.DELETE_F, 0) != 1 
+    AND IFNULL (a.KAISHI_BI, sysdate()) <= sysdate() 
+    AND date_add(IFNULL (u.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND a.`USER_ID` = :user_id 
     AND TRIM(TRAILING ' ' FROM a.`USER_SEI`) LIKE CONCAT ('%', :user_sei, '%') 
     AND TRIM(TRAILING ' ' FROM a.`USER_MEI`) LIKE CONCAT ('%', :user_mei, '%') 

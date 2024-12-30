@@ -12,7 +12,8 @@ SELECT
 FROM
     MSY_KBN a 
 WHERE
-    IFNULL (a.delete_f, 0) != 1 
+    1= 1 
+    AND IFNULL (a.DELETE_F, 0) != 1 
     AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
     AND TRIM(TRAILING ' ' FROM a.`KBN_MEI`) LIKE CONCAT ('%', :kbn_mei, '%') 
     AND a.`INSERT_TS` = :insert_ts 

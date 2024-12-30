@@ -18,9 +18,10 @@ SELECT
 FROM
     MHR_NINKA a 
 WHERE
-    IFNULL (a.delete_f, 0) != 1 
-    AND IFNULL (a.kaishi_bi, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.shuryo_bi, sysdate()), INTERVAL 1 DAY) >= sysdate() 
+    1= 1 
+    AND IFNULL (a.DELETE_F, 0) != 1 
+    AND IFNULL (a.KAISHI_BI, sysdate()) <= sysdate() 
+    AND date_add(IFNULL (u.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate() 
     AND a.`BUSHO_ID` = :busho_id 
     AND a.`SHOKUI_ID` = :shokui_id 
     AND TRIM(TRAILING ' ' FROM a.`KINO_NM`) LIKE CONCAT ('%', :kino_nm, '%') 

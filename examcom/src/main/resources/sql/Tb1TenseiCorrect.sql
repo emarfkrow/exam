@@ -13,7 +13,8 @@ SELECT
 FROM
     TB1_TENSEI a 
 WHERE
-    IFNULL (a.delete_f, 0) != 1 
+    1= 1 
+    AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`TENSEI_ID` = :tensei_id 
     AND TRIM(TRAILING ' ' FROM a.`TENSEI_MEI`) LIKE CONCAT ('%', :tensei_mei, '%') 
     AND a.`SOSEN_ID` = :sosen_id 

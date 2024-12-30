@@ -15,7 +15,8 @@ SELECT
 FROM
     TB1_ITOKO a 
 WHERE
-    IFNULL (a.delete_f, 0) != 1 
+    1= 1 
+    AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`ITOKO_ID` = :itoko_id 
     AND TRIM(TRAILING ' ' FROM a.`ITOKO_MEI`) LIKE CONCAT ('%', :itoko_mei, '%') 
     AND a.`SOSEN_ID` = :sosen_id 
