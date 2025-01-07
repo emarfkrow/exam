@@ -17,7 +17,7 @@
       <fieldset>
         <legend th:text="#{MhrUser.legend}">legend</legend>
         <div id="userId">
-          <label th:text="#{MhrUser.userId}">ユーザID</label><span id="MhrUser.userId" class="primaryKey"></span><input type="hidden" id="MhrUser.userId" name="MhrUser.userId" class="primaryKey" />
+          <label for="MhrUser.userId" th:text="#{MhrUser.userId}">ユーザID</label><input type="text" id="MhrUser.userId" name="MhrUser.userId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="userSei">
           <label for="MhrUser.userSei" th:text="#{MhrUser.userSei}">ユーザ姓</label><input type="text" id="MhrUser.userSei" name="MhrUser.userSei" maxlength="60" class=" notblank" />
@@ -42,12 +42,14 @@
         </div>
         <div id="insertUserId">
           <label th:text="#{MhrUser.insertUserId}" class="meta">作成者</label><span id="MhrUser.insertUserId"></span><input type="hidden" id="MhrUser.insertUserId" name="MhrUser.insertUserId" />
+          <span id="MhrUser.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrUser.insertUserId" data-destDef="MhrUser.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
           <label th:text="#{MhrUser.updateTs}" class="meta">更新タイムスタンプ</label><span id="MhrUser.updateTs"></span><input type="hidden" id="MhrUser.updateTs" name="MhrUser.updateTs" />
         </div>
         <div id="updateUserId">
           <label th:text="#{MhrUser.updateUserId}" class="meta">更新者</label><span id="MhrUser.updateUserId"></span><input type="hidden" id="MhrUser.updateUserId" name="MhrUser.updateUserId" />
+          <span id="MhrUser.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrUser.updateUserId" data-destDef="MhrUser.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
           <fieldset id="MhrUser.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

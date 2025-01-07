@@ -22,7 +22,7 @@ SELECT
 FROM
     VB2_ENTITY a 
 WHERE
-    1= 1 
+    1 = 1 
     AND a.`ENTITY_ID` = :entity_id 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_NM`) LIKE CONCAT ('%', :entity_nm, '%') 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_MEI`) LIKE CONCAT ('%', :entity_mei, '%') 

@@ -24,13 +24,13 @@
       <fieldset>
         <legend th:text="#{Tb1Entity4.legend}">legend</legend>
         <div id="sosenId">
-          <label th:text="#{Tb1Entity4.sosenId}">祖先ID</label><span id="Tb1Entity4.sosenId" class="primaryKey"></span><input type="hidden" id="Tb1Entity4.sosenId" name="Tb1Entity4.sosenId" class="primaryKey" />
+          <label for="Tb1Entity4.sosenId" th:text="#{Tb1Entity4.sosenId}">祖先ID</label><input type="text" id="Tb1Entity4.sosenId" name="Tb1Entity4.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="oyaBn">
-          <label th:text="#{Tb1Entity4.oyaBn}">親枝番</label><span id="Tb1Entity4.oyaBn" class="primaryKey"></span><input type="hidden" id="Tb1Entity4.oyaBn" name="Tb1Entity4.oyaBn" class="primaryKey" />
+          <label for="Tb1Entity4.oyaBn" th:text="#{Tb1Entity4.oyaBn}">親枝番</label><input type="text" id="Tb1Entity4.oyaBn" name="Tb1Entity4.oyaBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="entityBn">
-          <label th:text="#{Tb1Entity4.entityBn}">エンティティ枝番</label><span id="Tb1Entity4.entityBn" class="primaryKey"></span><input type="hidden" id="Tb1Entity4.entityBn" name="Tb1Entity4.entityBn" class="primaryKey" />
+          <label for="Tb1Entity4.entityBn" th:text="#{Tb1Entity4.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Entity4.entityBn" name="Tb1Entity4.entityBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="entity4Mei">
           <label for="Tb1Entity4.entity4Mei" th:text="#{Tb1Entity4.entity4Mei}">エンティティ４名</label><input type="text" id="Tb1Entity4.entity4Mei" name="Tb1Entity4.entity4Mei" maxlength="60" class=" notblank" />
@@ -40,12 +40,14 @@
         </div>
         <div id="insertUserId">
           <label th:text="#{Tb1Entity4.insertUserId}" class="meta">作成者</label><span id="Tb1Entity4.insertUserId"></span><input type="hidden" id="Tb1Entity4.insertUserId" name="Tb1Entity4.insertUserId" />
+          <span id="Tb1Entity4.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity4.insertUserId" data-destDef="Tb1Entity4.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
           <label th:text="#{Tb1Entity4.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity4.updateTs"></span><input type="hidden" id="Tb1Entity4.updateTs" name="Tb1Entity4.updateTs" />
         </div>
         <div id="updateUserId">
           <label th:text="#{Tb1Entity4.updateUserId}" class="meta">更新者</label><span id="Tb1Entity4.updateUserId"></span><input type="hidden" id="Tb1Entity4.updateUserId" name="Tb1Entity4.updateUserId" />
+          <span id="Tb1Entity4.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity4.updateUserId" data-destDef="Tb1Entity4.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
           <fieldset id="Tb1Entity4.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

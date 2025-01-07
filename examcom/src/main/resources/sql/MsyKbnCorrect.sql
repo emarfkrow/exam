@@ -12,7 +12,7 @@ SELECT
 FROM
     MSY_KBN a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
     AND TRIM(TRAILING ' ' FROM a.`KBN_MEI`) LIKE CONCAT ('%', :kbn_mei, '%') 

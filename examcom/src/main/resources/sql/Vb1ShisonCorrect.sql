@@ -14,7 +14,7 @@ SELECT
 FROM
     VB1_SHISON a 
 WHERE
-    1= 1 
+    1 = 1 
     AND TRIM(TRAILING ' ' FROM a.`entity_name`) LIKE CONCAT ('%', :entity_name, '%') 
     AND a.`SOSEN_ID` = :sosen_id 
     AND TRIM(TRAILING ' ' FROM a.`OYA_MEI`) LIKE CONCAT ('%', :oya_mei, '%') 

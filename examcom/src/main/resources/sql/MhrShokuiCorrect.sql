@@ -14,19 +14,11 @@ SELECT
     , a.`STATUS_KB`
 FROM
     MHR_SHOKUI a 
-    INNER JOIN MHR_SHOZOKU c 
-        ON 1 = 1 
-        AND IFNULL (c.DELETE_F, 0) != 1 
-        AND IFNULL (c.KAISHI_BI, sysdate()) <= sysdate() 
-        AND date_add(IFNULL (c.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate()
-        AND c.BUSHO_ID = :BUSHO_ID 
-        AND c.SHOKUI_ID = a.SHOKUI_ID 
-        AND c.USER_ID = :USER_ID 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND IFNULL (a.KAISHI_BI, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate() 
+    AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`SHOKUI_ID` = :shokui_id 
     AND TRIM(TRAILING ' ' FROM a.`SHOKUI_MEI`) LIKE CONCAT ('%', :shokui_mei, '%') 
     AND a.`SHOKUI_ON` = :shokui_on 

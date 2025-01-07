@@ -12,7 +12,7 @@ SELECT
 FROM
     TB1_SOSEN a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`SOSEN_ID` = :sosen_id 
     AND TRIM(TRAILING ' ' FROM a.`BIKO`) LIKE CONCAT ('%', :biko, '%') 

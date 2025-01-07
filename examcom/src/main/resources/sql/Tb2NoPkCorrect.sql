@@ -15,7 +15,7 @@ SELECT
 FROM
     TB2_NO_PK a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_A`) LIKE CONCAT ('%', :column_a, '%') 
     AND TRIM(TRAILING ' ' FROM a.`COLUMN_B`) LIKE CONCAT ('%', :column_b, '%') 

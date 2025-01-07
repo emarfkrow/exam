@@ -12,7 +12,7 @@ SELECT
 FROM
     MB1_SANSHO3 a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND TRIM(TRAILING ' ' FROM a.`SANSHO3_NO`) LIKE CONCAT ('%', :sansho_3_no, '%') 
     AND TRIM(TRAILING ' ' FROM a.`SANSHO3_MEI`) LIKE CONCAT ('%', :sansho_3_mei, '%') 

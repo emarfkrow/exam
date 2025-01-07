@@ -23,7 +23,7 @@ SELECT
 FROM
     TB1_ENTITY1_HIS a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`SOSEN_ID` = :sosen_id 
     AND a.`OYA_BN` = :oya_bn 

@@ -35,7 +35,6 @@
       <div id="Vb2EntityGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb2Entity.html}"></div>
       <div id="Vb2EntityPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetVb2EntityS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchVb2Entity&quot;]').click();">reset</button>
         <a th:href="@{Vb2EntitySearch.xlsx(baseMei=#{Vb2EntityS.h2})}" id="Vb2EntitySearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

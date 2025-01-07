@@ -18,7 +18,7 @@
       <fieldset>
         <legend th:text="#{Tb1Itoko.legend}">legend</legend>
         <div id="itokoId">
-          <label th:text="#{Tb1Itoko.itokoId}">従妹ID</label><span id="Tb1Itoko.itokoId" class="primaryKey"></span><input type="hidden" id="Tb1Itoko.itokoId" name="Tb1Itoko.itokoId" class="primaryKey" />
+          <label for="Tb1Itoko.itokoId" th:text="#{Tb1Itoko.itokoId}">従妹ID</label><input type="text" id="Tb1Itoko.itokoId" name="Tb1Itoko.itokoId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="itokoMei">
           <label for="Tb1Itoko.itokoMei" th:text="#{Tb1Itoko.itokoMei}">従妹名</label><input type="text" id="Tb1Itoko.itokoMei" name="Tb1Itoko.itokoMei" maxlength="60" />
@@ -37,12 +37,14 @@
         </div>
         <div id="insertUserId">
           <label th:text="#{Tb1Itoko.insertUserId}" class="meta">作成者</label><span id="Tb1Itoko.insertUserId"></span><input type="hidden" id="Tb1Itoko.insertUserId" name="Tb1Itoko.insertUserId" />
+          <span id="Tb1Itoko.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Itoko.insertUserId" data-destDef="Tb1Itoko.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
           <label th:text="#{Tb1Itoko.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Itoko.updateTs"></span><input type="hidden" id="Tb1Itoko.updateTs" name="Tb1Itoko.updateTs" />
         </div>
         <div id="updateUserId">
           <label th:text="#{Tb1Itoko.updateUserId}" class="meta">更新者</label><span id="Tb1Itoko.updateUserId"></span><input type="hidden" id="Tb1Itoko.updateUserId" name="Tb1Itoko.updateUserId" />
+          <span id="Tb1Itoko.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Itoko.updateUserId" data-destDef="Tb1Itoko.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
           <fieldset id="Tb1Itoko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

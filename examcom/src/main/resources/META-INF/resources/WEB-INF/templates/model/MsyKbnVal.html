@@ -19,10 +19,10 @@
       <fieldset>
         <legend th:text="#{MsyKbnVal.legend}">legend</legend>
         <div id="kbnNm">
-          <label for="MsyKbnVal.kbnNm" th:text="#{MsyKbnVal.kbnNm}">区分名称</label><input type="text" id="MsyKbnVal.kbnNm" name="MsyKbnVal.kbnNm" maxlength="20" class=" primaryKey notblank" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI" /><a id="MsyKbnVal.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer primaryKey" th:text="#{common.refer}" tabindex="-1">...</a><span id="MsyKbnVal.kbnMei" class="refer primaryKey" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI"></span>
+          <label for="MsyKbnVal.kbnNm" th:text="#{MsyKbnVal.kbnNm}">区分名称</label><input type="text" id="MsyKbnVal.kbnNm" name="MsyKbnVal.kbnNm" maxlength="20" class=" notblank primaryKey correct" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI" /><a id="MsyKbnVal.kbnNm" th:href="@{/model/MsyKbnS.html?action=MsyKbnCorrect.ajax}" target="dialog" class="refer primaryKey correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="MsyKbnVal.kbnMei" class="refer primaryKey correct" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI"></span>
         </div>
         <div id="kbnVal">
-          <label for="MsyKbnVal.kbnVal" th:text="#{MsyKbnVal.kbnVal}">区分値</label><input type="text" id="MsyKbnVal.kbnVal" name="MsyKbnVal.kbnVal" maxlength="2" class=" primaryKey notblank" />
+          <label for="MsyKbnVal.kbnVal" th:text="#{MsyKbnVal.kbnVal}">区分値</label><input type="text" id="MsyKbnVal.kbnVal" name="MsyKbnVal.kbnVal" maxlength="2" class=" notblank primaryKey" />
         </div>
         <div id="kbnValMei">
           <label for="MsyKbnVal.kbnValMei" th:text="#{MsyKbnVal.kbnValMei}">区分値名</label><input type="text" id="MsyKbnVal.kbnValMei" name="MsyKbnVal.kbnValMei" maxlength="60" class=" notblank" />
@@ -38,12 +38,14 @@
         </div>
         <div id="insertUserId">
           <label th:text="#{MsyKbnVal.insertUserId}" class="meta">作成者</label><span id="MsyKbnVal.insertUserId"></span><input type="hidden" id="MsyKbnVal.insertUserId" name="MsyKbnVal.insertUserId" />
+          <span id="MsyKbnVal.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbnVal.insertUserId" data-destDef="MsyKbnVal.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
           <label th:text="#{MsyKbnVal.updateTs}" class="meta">更新タイムスタンプ</label><span id="MsyKbnVal.updateTs"></span><input type="hidden" id="MsyKbnVal.updateTs" name="MsyKbnVal.updateTs" />
         </div>
         <div id="updateUserId">
           <label th:text="#{MsyKbnVal.updateUserId}" class="meta">更新者</label><span id="MsyKbnVal.updateUserId"></span><input type="hidden" id="MsyKbnVal.updateUserId" name="MsyKbnVal.updateUserId" />
+          <span id="MsyKbnVal.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbnVal.updateUserId" data-destDef="MsyKbnVal.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
           <fieldset id="MsyKbnVal.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

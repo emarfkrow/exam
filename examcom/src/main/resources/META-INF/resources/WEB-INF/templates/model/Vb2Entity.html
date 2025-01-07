@@ -20,6 +20,7 @@
         <legend th:text="#{Vb2Entity.legend}">legend</legend>
         <div id="entityId">
           <label th:text="#{Vb2Entity.entityId}">エンティティID</label><span id="Vb2Entity.entityId"></span><input type="hidden" id="Vb2Entity.entityId" name="Vb2Entity.entityId" />
+          <span id="Vb2Entity.entityMei" class="refer" data-json="Tb2EntitySearch.json" data-srcDef="ENTITY_ID:Vb2Entity.entityId" data-destDef="Vb2Entity.entityMei:ENTITY_MEI"></span>
         </div>
         <div id="entityNm">
           <label th:text="#{Vb2Entity.entityNm}">エンティティ名称</label><span id="Vb2Entity.entityNm"></span><input type="hidden" id="Vb2Entity.entityNm" name="Vb2Entity.entityNm" />

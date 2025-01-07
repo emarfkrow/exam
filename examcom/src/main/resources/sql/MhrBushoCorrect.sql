@@ -16,10 +16,10 @@ SELECT
 FROM
     MHR_BUSHO a 
 WHERE
-    1= 1 
+    1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND IFNULL (a.KAISHI_BI, sysdate()) <= sysdate() 
-    AND date_add(IFNULL (u.SHURYO_BI, sysdate()), INTERVAL 1 DAY) >= sysdate() 
+    AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`BUSHO_ID` = :busho_id 
     AND TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`) LIKE CONCAT ('%', :busho_mei, '%') 
     AND a.`OYA_BUSHO_ID` = :oya_busho_id 

@@ -18,7 +18,7 @@
       <fieldset>
         <legend th:text="#{MhrShokui.legend}">legend</legend>
         <div id="shokuiId">
-          <label th:text="#{MhrShokui.shokuiId}">職位ID</label><span id="MhrShokui.shokuiId" class="primaryKey"></span><input type="hidden" id="MhrShokui.shokuiId" name="MhrShokui.shokuiId" class="primaryKey" />
+          <label for="MhrShokui.shokuiId" th:text="#{MhrShokui.shokuiId}">職位ID</label><input type="text" id="MhrShokui.shokuiId" name="MhrShokui.shokuiId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="shokuiMei">
           <label for="MhrShokui.shokuiMei" th:text="#{MhrShokui.shokuiMei}">職位名</label><input type="text" id="MhrShokui.shokuiMei" name="MhrShokui.shokuiMei" maxlength="60" class=" notblank" />
@@ -37,12 +37,14 @@
         </div>
         <div id="insertUserId">
           <label th:text="#{MhrShokui.insertUserId}" class="meta">作成者</label><span id="MhrShokui.insertUserId"></span><input type="hidden" id="MhrShokui.insertUserId" name="MhrShokui.insertUserId" />
+          <span id="MhrShokui.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShokui.insertUserId" data-destDef="MhrShokui.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
           <label th:text="#{MhrShokui.updateTs}" class="meta">更新タイムスタンプ</label><span id="MhrShokui.updateTs"></span><input type="hidden" id="MhrShokui.updateTs" name="MhrShokui.updateTs" />
         </div>
         <div id="updateUserId">
           <label th:text="#{MhrShokui.updateUserId}" class="meta">更新者</label><span id="MhrShokui.updateUserId"></span><input type="hidden" id="MhrShokui.updateUserId" name="MhrShokui.updateUserId" />
+          <span id="MhrShokui.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShokui.updateUserId" data-destDef="MhrShokui.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
           <fieldset id="MhrShokui.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
