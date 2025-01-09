@@ -43,6 +43,21 @@ public class Tb1TenpuFileGetAction extends BaseAction {
         if (entityBn == null) {
             return map;
         }
+        com.example.entity.Tb1Entity1 tb1Entity1 = com.example.entity.Tb1Entity1.get(sosenId, oyaBn, entityBn);
+        map.put("Tb1Entity1", tb1Entity1);
+
+        com.example.entity.Tb1Entity2 tb1Entity2 = com.example.entity.Tb1Entity2.get(sosenId, oyaBn, entityBn);
+        map.put("Tb1Entity2", tb1Entity2);
+
+        com.example.entity.Tb1Entity3 tb1Entity3 = com.example.entity.Tb1Entity3.get(sosenId, oyaBn, entityBn);
+        map.put("Tb1Entity3", tb1Entity3);
+
+        com.example.entity.Tb1Entity4 tb1Entity4 = com.example.entity.Tb1Entity4.get(sosenId, oyaBn, entityBn);
+        map.put("Tb1Entity4", tb1Entity4);
+
+        com.example.entity.Tb1Entity5 tb1Entity5 = com.example.entity.Tb1Entity5.get(sosenId, oyaBn, entityBn);
+        map.put("Tb1Entity5", tb1Entity5);
+
         Object tenpuFileBn = postJson.get("tenpuFileBn");
         if (tenpuFileBn == null) {
             tenpuFileBn = postJson.get("Tb1TenpuFile.tenpuFileBn");

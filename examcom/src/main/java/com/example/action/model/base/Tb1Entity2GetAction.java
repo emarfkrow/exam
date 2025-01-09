@@ -36,6 +36,9 @@ public class Tb1Entity2GetAction extends BaseAction {
         if (oyaBn == null) {
             return map;
         }
+        com.example.entity.Tb1Oya tb1Oya = com.example.entity.Tb1Oya.get(sosenId, oyaBn);
+        map.put("Tb1Oya", tb1Oya);
+
         Object entityBn = postJson.get("entityBn");
         if (entityBn == null) {
             entityBn = postJson.get("Tb1Entity2.entityBn");

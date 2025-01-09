@@ -29,6 +29,9 @@ public class MsyKbnValGetAction extends BaseAction {
         if (kbnNm == null) {
             return map;
         }
+        com.example.entity.MsyKbn msyKbn = com.example.entity.MsyKbn.get(kbnNm);
+        map.put("MsyKbn", msyKbn);
+
         Object kbnVal = postJson.get("kbnVal");
         if (kbnVal == null) {
             kbnVal = postJson.get("MsyKbnVal.kbnVal");

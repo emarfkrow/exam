@@ -15,10 +15,6 @@ SELECT
     , a.`STATUS_KB`
 FROM
     MSY_KBN_VAL a 
-    INNER JOIN MSY_KBN c1 
-        ON 1 = 1 
-        AND IFNULL (c1.DELETE_F, 0) != 1 
-        AND c1.KBN_NM = a.KBN_NM 
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 

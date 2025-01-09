@@ -17,6 +17,209 @@
     <h2 th:text="#{Tb1Ko.h2}">h2</h2>
     <form name="Tb1KoRegistForm" action="Tb1KoRegist.ajax" class="regist">
       <fieldset>
+        <legend th:text="#{Tb1Entity1.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Entity1.sosenId}">祖先ID</label><span id="Tb1Entity1.sosenId"></span><input type="hidden" id="Tb1Entity1.sosenId" name="Tb1Entity1.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Entity1.oyaBn}">親枝番</label><span id="Tb1Entity1.oyaBn"></span><input type="hidden" id="Tb1Entity1.oyaBn" name="Tb1Entity1.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Entity1.entityBn}">エンティティ枝番</label><span id="Tb1Entity1.entityBn"></span><input type="hidden" id="Tb1Entity1.entityBn" name="Tb1Entity1.entityBn" />
+        </div>
+        <div id="entity1Mei">
+          <label th:text="#{Tb1Entity1.entity1Mei}">エンティティ名</label><span id="Tb1Entity1.entity1Mei"></span><input type="hidden" id="Tb1Entity1.entity1Mei" name="Tb1Entity1.entity1Mei" />
+        </div>
+        <div id="sansho1Id">
+          <label th:text="#{Tb1Entity1.sansho1Id}">参照１ID</label><span id="Tb1Entity1.sansho1Id"></span><input type="hidden" id="Tb1Entity1.sansho1Id" name="Tb1Entity1.sansho1Id" />
+          <span id="Tb1Entity1.sansho1Mei" class="refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.sansho1Id" data-destDef="Tb1Entity1.sansho1Mei:SANSHO1_MEI"></span>
+        </div>
+        <div id="sansho1Mei">
+          <label th:text="#{Tb1Entity1.sansho1Mei}">参照１名</label><span id="Tb1Entity1.sansho1Mei"></span><input type="hidden" id="Tb1Entity1.sansho1Mei" name="Tb1Entity1.sansho1Mei" />
+        </div>
+        <div id="sansho2Cd">
+          <label th:text="#{Tb1Entity1.sansho2Cd}">参照２CD</label><span id="Tb1Entity1.sansho2Cd"></span><input type="hidden" id="Tb1Entity1.sansho2Cd" name="Tb1Entity1.sansho2Cd" />
+          <span id="Tb1Entity1.sansho2Mei" class="refer" data-json="Mb1Sansho2Search.json" data-srcDef="SANSHO2_CD:Tb1Entity1.sansho2Cd" data-destDef="Tb1Entity1.sansho2Mei:SANSHO2_MEI"></span>
+        </div>
+        <div id="sansho2Mei">
+          <label th:text="#{Tb1Entity1.sansho2Mei}">参照２名</label><span id="Tb1Entity1.sansho2Mei"></span><input type="hidden" id="Tb1Entity1.sansho2Mei" name="Tb1Entity1.sansho2Mei" />
+        </div>
+        <div id="sansho3No">
+          <label th:text="#{Tb1Entity1.sansho3No}">参照３NO</label><span id="Tb1Entity1.sansho3No"></span><input type="hidden" id="Tb1Entity1.sansho3No" name="Tb1Entity1.sansho3No" />
+          <span id="Tb1Entity1.sansho3Mei" class="refer" data-json="Mb1Sansho3Search.json" data-srcDef="SANSHO3_NO:Tb1Entity1.sansho3No" data-destDef="Tb1Entity1.sansho3Mei:SANSHO3_MEI"></span>
+        </div>
+        <div id="sansho3Mei">
+          <label th:text="#{Tb1Entity1.sansho3Mei}">参照３名</label><span id="Tb1Entity1.sansho3Mei"></span><input type="hidden" id="Tb1Entity1.sansho3Mei" name="Tb1Entity1.sansho3Mei" />
+        </div>
+        <div id="betsuSansho1Id">
+          <label th:text="#{Tb1Entity1.betsuSansho1Id}">別参照１ID</label><span id="Tb1Entity1.betsuSansho1Id"></span><input type="hidden" id="Tb1Entity1.betsuSansho1Id" name="Tb1Entity1.betsuSansho1Id" />
+          <span id="Tb1Entity1.betsuSansho1Mei" class="refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.betsuSansho1Id" data-destDef="Tb1Entity1.betsuSansho1Mei:SANSHO1_MEI"></span>
+        </div>
+        <div id="betsuSansho1Mei">
+          <label th:text="#{Tb1Entity1.betsuSansho1Mei}">別参照１名</label><span id="Tb1Entity1.betsuSansho1Mei"></span><input type="hidden" id="Tb1Entity1.betsuSansho1Mei" name="Tb1Entity1.betsuSansho1Mei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity1.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity1.insertTs"></span><input type="hidden" id="Tb1Entity1.insertTs" name="Tb1Entity1.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity1.insertUserId}" class="meta">作成者</label><span id="Tb1Entity1.insertUserId"></span><input type="hidden" id="Tb1Entity1.insertUserId" name="Tb1Entity1.insertUserId" />
+          <span id="Tb1Entity1.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity1.insertUserId" data-destDef="Tb1Entity1.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity1.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity1.updateTs"></span><input type="hidden" id="Tb1Entity1.updateTs" name="Tb1Entity1.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity1.updateUserId}" class="meta">更新者</label><span id="Tb1Entity1.updateUserId"></span><input type="hidden" id="Tb1Entity1.updateUserId" name="Tb1Entity1.updateUserId" />
+          <span id="Tb1Entity1.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity1.updateUserId" data-destDef="Tb1Entity1.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Entity1.deleteF}">削除フラグ</label><span id="Tb1Entity1.deleteF"></span><input type="hidden" id="Tb1Entity1.deleteF" name="Tb1Entity1.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity1.statusKb}">ステータス区分</label><span id="Tb1Entity1.statusKb"></span><input type="hidden" id="Tb1Entity1.statusKb" name="Tb1Entity1.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Entity2.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Entity2.sosenId}">祖先ID</label><span id="Tb1Entity2.sosenId"></span><input type="hidden" id="Tb1Entity2.sosenId" name="Tb1Entity2.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Entity2.oyaBn}">親枝番</label><span id="Tb1Entity2.oyaBn"></span><input type="hidden" id="Tb1Entity2.oyaBn" name="Tb1Entity2.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Entity2.entityBn}">エンティティ枝番</label><span id="Tb1Entity2.entityBn"></span><input type="hidden" id="Tb1Entity2.entityBn" name="Tb1Entity2.entityBn" />
+        </div>
+        <div id="entity2Mei">
+          <label th:text="#{Tb1Entity2.entity2Mei}">エンティティ２名</label><span id="Tb1Entity2.entity2Mei"></span><input type="hidden" id="Tb1Entity2.entity2Mei" name="Tb1Entity2.entity2Mei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity2.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity2.insertTs"></span><input type="hidden" id="Tb1Entity2.insertTs" name="Tb1Entity2.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity2.insertUserId}" class="meta">作成者</label><span id="Tb1Entity2.insertUserId"></span><input type="hidden" id="Tb1Entity2.insertUserId" name="Tb1Entity2.insertUserId" />
+          <span id="Tb1Entity2.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity2.insertUserId" data-destDef="Tb1Entity2.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity2.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity2.updateTs"></span><input type="hidden" id="Tb1Entity2.updateTs" name="Tb1Entity2.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity2.updateUserId}" class="meta">更新者</label><span id="Tb1Entity2.updateUserId"></span><input type="hidden" id="Tb1Entity2.updateUserId" name="Tb1Entity2.updateUserId" />
+          <span id="Tb1Entity2.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity2.updateUserId" data-destDef="Tb1Entity2.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Entity2.deleteF}">削除フラグ</label><span id="Tb1Entity2.deleteF"></span><input type="hidden" id="Tb1Entity2.deleteF" name="Tb1Entity2.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity2.statusKb}">ステータス区分</label><span id="Tb1Entity2.statusKb"></span><input type="hidden" id="Tb1Entity2.statusKb" name="Tb1Entity2.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Entity3.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Entity3.sosenId}">祖先ID</label><span id="Tb1Entity3.sosenId"></span><input type="hidden" id="Tb1Entity3.sosenId" name="Tb1Entity3.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Entity3.oyaBn}">親枝番</label><span id="Tb1Entity3.oyaBn"></span><input type="hidden" id="Tb1Entity3.oyaBn" name="Tb1Entity3.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Entity3.entityBn}">エンティティ枝番</label><span id="Tb1Entity3.entityBn"></span><input type="hidden" id="Tb1Entity3.entityBn" name="Tb1Entity3.entityBn" />
+        </div>
+        <div id="entity3Mei">
+          <label th:text="#{Tb1Entity3.entity3Mei}">エンティティ３名</label><span id="Tb1Entity3.entity3Mei"></span><input type="hidden" id="Tb1Entity3.entity3Mei" name="Tb1Entity3.entity3Mei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity3.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity3.insertTs"></span><input type="hidden" id="Tb1Entity3.insertTs" name="Tb1Entity3.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity3.insertUserId}" class="meta">作成者</label><span id="Tb1Entity3.insertUserId"></span><input type="hidden" id="Tb1Entity3.insertUserId" name="Tb1Entity3.insertUserId" />
+          <span id="Tb1Entity3.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity3.insertUserId" data-destDef="Tb1Entity3.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity3.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity3.updateTs"></span><input type="hidden" id="Tb1Entity3.updateTs" name="Tb1Entity3.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity3.updateUserId}" class="meta">更新者</label><span id="Tb1Entity3.updateUserId"></span><input type="hidden" id="Tb1Entity3.updateUserId" name="Tb1Entity3.updateUserId" />
+          <span id="Tb1Entity3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity3.updateUserId" data-destDef="Tb1Entity3.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Entity3.deleteF}">削除フラグ</label><span id="Tb1Entity3.deleteF"></span><input type="hidden" id="Tb1Entity3.deleteF" name="Tb1Entity3.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity3.statusKb}">ステータス区分</label><span id="Tb1Entity3.statusKb"></span><input type="hidden" id="Tb1Entity3.statusKb" name="Tb1Entity3.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Entity4.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Entity4.sosenId}">祖先ID</label><span id="Tb1Entity4.sosenId"></span><input type="hidden" id="Tb1Entity4.sosenId" name="Tb1Entity4.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Entity4.oyaBn}">親枝番</label><span id="Tb1Entity4.oyaBn"></span><input type="hidden" id="Tb1Entity4.oyaBn" name="Tb1Entity4.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Entity4.entityBn}">エンティティ枝番</label><span id="Tb1Entity4.entityBn"></span><input type="hidden" id="Tb1Entity4.entityBn" name="Tb1Entity4.entityBn" />
+        </div>
+        <div id="entity4Mei">
+          <label th:text="#{Tb1Entity4.entity4Mei}">エンティティ４名</label><span id="Tb1Entity4.entity4Mei"></span><input type="hidden" id="Tb1Entity4.entity4Mei" name="Tb1Entity4.entity4Mei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity4.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity4.insertTs"></span><input type="hidden" id="Tb1Entity4.insertTs" name="Tb1Entity4.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity4.insertUserId}" class="meta">作成者</label><span id="Tb1Entity4.insertUserId"></span><input type="hidden" id="Tb1Entity4.insertUserId" name="Tb1Entity4.insertUserId" />
+          <span id="Tb1Entity4.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity4.insertUserId" data-destDef="Tb1Entity4.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity4.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity4.updateTs"></span><input type="hidden" id="Tb1Entity4.updateTs" name="Tb1Entity4.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity4.updateUserId}" class="meta">更新者</label><span id="Tb1Entity4.updateUserId"></span><input type="hidden" id="Tb1Entity4.updateUserId" name="Tb1Entity4.updateUserId" />
+          <span id="Tb1Entity4.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity4.updateUserId" data-destDef="Tb1Entity4.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Entity4.deleteF}">削除フラグ</label><span id="Tb1Entity4.deleteF"></span><input type="hidden" id="Tb1Entity4.deleteF" name="Tb1Entity4.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity4.statusKb}">ステータス区分</label><span id="Tb1Entity4.statusKb"></span><input type="hidden" id="Tb1Entity4.statusKb" name="Tb1Entity4.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Entity5.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Entity5.sosenId}">祖先ID</label><span id="Tb1Entity5.sosenId"></span><input type="hidden" id="Tb1Entity5.sosenId" name="Tb1Entity5.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Entity5.oyaBn}">親枝番</label><span id="Tb1Entity5.oyaBn"></span><input type="hidden" id="Tb1Entity5.oyaBn" name="Tb1Entity5.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Entity5.entityBn}">エンティティ枝番</label><span id="Tb1Entity5.entityBn"></span><input type="hidden" id="Tb1Entity5.entityBn" name="Tb1Entity5.entityBn" />
+        </div>
+        <div id="entity5Mei">
+          <label th:text="#{Tb1Entity5.entity5Mei}">エンティティ５名</label><span id="Tb1Entity5.entity5Mei"></span><input type="hidden" id="Tb1Entity5.entity5Mei" name="Tb1Entity5.entity5Mei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Entity5.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Entity5.insertTs"></span><input type="hidden" id="Tb1Entity5.insertTs" name="Tb1Entity5.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Entity5.insertUserId}" class="meta">作成者</label><span id="Tb1Entity5.insertUserId"></span><input type="hidden" id="Tb1Entity5.insertUserId" name="Tb1Entity5.insertUserId" />
+          <span id="Tb1Entity5.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity5.insertUserId" data-destDef="Tb1Entity5.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Entity5.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Entity5.updateTs"></span><input type="hidden" id="Tb1Entity5.updateTs" name="Tb1Entity5.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Entity5.updateUserId}" class="meta">更新者</label><span id="Tb1Entity5.updateUserId"></span><input type="hidden" id="Tb1Entity5.updateUserId" name="Tb1Entity5.updateUserId" />
+          <span id="Tb1Entity5.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Entity5.updateUserId" data-destDef="Tb1Entity5.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Entity5.deleteF}">削除フラグ</label><span id="Tb1Entity5.deleteF"></span><input type="hidden" id="Tb1Entity5.deleteF" name="Tb1Entity5.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Entity5.statusKb}">ステータス区分</label><span id="Tb1Entity5.statusKb"></span><input type="hidden" id="Tb1Entity5.statusKb" name="Tb1Entity5.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
         <legend th:text="#{Tb1Ko.legend}">legend</legend>
         <div id="sosenId">
           <label for="Tb1Ko.sosenId" th:text="#{Tb1Ko.sosenId}">祖先ID</label><input type="text" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" maxlength="10" class=" notblank primaryKey numbering" />

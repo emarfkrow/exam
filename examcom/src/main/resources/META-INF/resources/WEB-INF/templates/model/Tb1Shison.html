@@ -16,6 +16,44 @@
     <h2 th:text="#{Tb1Shison.h2}">h2</h2>
     <form name="Tb1ShisonRegistForm" action="Tb1ShisonRegist.ajax" class="regist">
       <fieldset>
+        <legend th:text="#{Tb1Ko.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Ko.oyaBn}">親枝番</label><span id="Tb1Ko.oyaBn"></span><input type="hidden" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" />
+        </div>
+        <div id="entityBn">
+          <label th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><span id="Tb1Ko.entityBn"></span><input type="hidden" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" />
+        </div>
+        <div id="koBn">
+          <label th:text="#{Tb1Ko.koBn}">子枝番</label><span id="Tb1Ko.koBn"></span><input type="hidden" id="Tb1Ko.koBn" name="Tb1Ko.koBn" />
+        </div>
+        <div id="koMei">
+          <label th:text="#{Tb1Ko.koMei}">子名</label><span id="Tb1Ko.koMei"></span><input type="hidden" id="Tb1Ko.koMei" name="Tb1Ko.koMei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Ko.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Ko.insertTs"></span><input type="hidden" id="Tb1Ko.insertTs" name="Tb1Ko.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Ko.insertUserId}" class="meta">作成者</label><span id="Tb1Ko.insertUserId"></span><input type="hidden" id="Tb1Ko.insertUserId" name="Tb1Ko.insertUserId" />
+          <span id="Tb1Ko.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Ko.insertUserId" data-destDef="Tb1Ko.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Ko.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Ko.updateTs"></span><input type="hidden" id="Tb1Ko.updateTs" name="Tb1Ko.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Ko.updateUserId}" class="meta">更新者</label><span id="Tb1Ko.updateUserId"></span><input type="hidden" id="Tb1Ko.updateUserId" name="Tb1Ko.updateUserId" />
+          <span id="Tb1Ko.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Ko.updateUserId" data-destDef="Tb1Ko.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Ko.deleteF}">削除フラグ</label><span id="Tb1Ko.deleteF"></span><input type="hidden" id="Tb1Ko.deleteF" name="Tb1Ko.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Ko.statusKb}">ステータス区分</label><span id="Tb1Ko.statusKb"></span><input type="hidden" id="Tb1Ko.statusKb" name="Tb1Ko.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
         <legend th:text="#{Tb1Shison.legend}">legend</legend>
         <div id="sosenId">
           <label for="Tb1Shison.sosenId" th:text="#{Tb1Shison.sosenId}">祖先ID</label><input type="text" id="Tb1Shison.sosenId" name="Tb1Shison.sosenId" maxlength="10" class=" notblank primaryKey numbering" />

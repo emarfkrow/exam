@@ -29,6 +29,9 @@ public class Tb1OyaGetAction extends BaseAction {
         if (sosenId == null) {
             return map;
         }
+        com.example.entity.Tb1Sosen tb1Sosen = com.example.entity.Tb1Sosen.get(sosenId);
+        map.put("Tb1Sosen", tb1Sosen);
+
         Object oyaBn = postJson.get("oyaBn");
         if (oyaBn == null) {
             oyaBn = postJson.get("Tb1Oya.oyaBn");

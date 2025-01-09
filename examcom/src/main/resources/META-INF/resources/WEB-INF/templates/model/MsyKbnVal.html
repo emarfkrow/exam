@@ -17,9 +17,38 @@
     <h2 th:text="#{MsyKbnVal.h2}">h2</h2>
     <form name="MsyKbnValRegistForm" action="MsyKbnValRegist.ajax" class="regist">
       <fieldset>
+        <legend th:text="#{MsyKbn.legend}">legend</legend>
+        <div id="kbnNm">
+          <label th:text="#{MsyKbn.kbnNm}">区分名称</label><span id="MsyKbn.kbnNm"></span><input type="hidden" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" />
+        </div>
+        <div id="kbnMei">
+          <label th:text="#{MsyKbn.kbnMei}">区分名</label><span id="MsyKbn.kbnMei"></span><input type="hidden" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{MsyKbn.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyKbn.insertTs"></span><input type="hidden" id="MsyKbn.insertTs" name="MsyKbn.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{MsyKbn.insertUserId}" class="meta">作成者</label><span id="MsyKbn.insertUserId"></span><input type="hidden" id="MsyKbn.insertUserId" name="MsyKbn.insertUserId" />
+          <span id="MsyKbn.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbn.insertUserId" data-destDef="MsyKbn.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{MsyKbn.updateTs}" class="meta">更新タイムスタンプ</label><span id="MsyKbn.updateTs"></span><input type="hidden" id="MsyKbn.updateTs" name="MsyKbn.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{MsyKbn.updateUserId}" class="meta">更新者</label><span id="MsyKbn.updateUserId"></span><input type="hidden" id="MsyKbn.updateUserId" name="MsyKbn.updateUserId" />
+          <span id="MsyKbn.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbn.updateUserId" data-destDef="MsyKbn.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{MsyKbn.deleteF}">削除フラグ</label><span id="MsyKbn.deleteF"></span><input type="hidden" id="MsyKbn.deleteF" name="MsyKbn.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{MsyKbn.statusKb}">ステータス区分</label><span id="MsyKbn.statusKb"></span><input type="hidden" id="MsyKbn.statusKb" name="MsyKbn.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
         <legend th:text="#{MsyKbnVal.legend}">legend</legend>
         <div id="kbnNm">
-          <label for="MsyKbnVal.kbnNm" th:text="#{MsyKbnVal.kbnNm}">区分名称</label><input type="text" id="MsyKbnVal.kbnNm" name="MsyKbnVal.kbnNm" maxlength="20" class=" notblank primaryKey correct" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI" /><a id="MsyKbnVal.kbnNm" th:href="@{/model/MsyKbnS.html?action=MsyKbnCorrect.ajax}" target="dialog" class="refer primaryKey correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="MsyKbnVal.kbnMei" class="refer primaryKey correct" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI"></span>
+          <label for="MsyKbnVal.kbnNm" th:text="#{MsyKbnVal.kbnNm}">区分名称</label><input type="text" id="MsyKbnVal.kbnNm" name="MsyKbnVal.kbnNm" maxlength="20" class=" notblank primaryKey refer" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI" /><a id="MsyKbnVal.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class=" primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MsyKbnVal.kbnMei" class=" primaryKey refer" data-json="MsyKbnSearch.json" data-srcDef="KBN_NM:MsyKbnVal.kbnNm" data-destDef="MsyKbnVal.kbnMei:KBN_MEI"></span>
         </div>
         <div id="kbnVal">
           <label for="MsyKbnVal.kbnVal" th:text="#{MsyKbnVal.kbnVal}">区分値</label><input type="text" id="MsyKbnVal.kbnVal" name="MsyKbnVal.kbnVal" maxlength="2" class=" notblank primaryKey" />

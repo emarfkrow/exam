@@ -50,6 +50,9 @@ public class Tb1ShisonGetAction extends BaseAction {
         if (koBn == null) {
             return map;
         }
+        com.example.entity.Tb1Ko tb1Ko = com.example.entity.Tb1Ko.get(sosenId, oyaBn, entityBn, koBn);
+        map.put("Tb1Ko", tb1Ko);
+
         Object shisonBn = postJson.get("shisonBn");
         if (shisonBn == null) {
             shisonBn = postJson.get("Tb1Shison.shisonBn");

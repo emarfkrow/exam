@@ -22,6 +22,38 @@
     <h2 th:text="#{Tb1Entity2.h2}">h2</h2>
     <form name="Tb1Entity2RegistForm" action="Tb1Entity2Regist.ajax" class="regist">
       <fieldset>
+        <legend th:text="#{Tb1Oya.legend}">legend</legend>
+        <div id="sosenId">
+          <label th:text="#{Tb1Oya.sosenId}">祖先ID</label><span id="Tb1Oya.sosenId"></span><input type="hidden" id="Tb1Oya.sosenId" name="Tb1Oya.sosenId" />
+        </div>
+        <div id="oyaBn">
+          <label th:text="#{Tb1Oya.oyaBn}">親枝番</label><span id="Tb1Oya.oyaBn"></span><input type="hidden" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" />
+        </div>
+        <div id="oyaMei">
+          <label th:text="#{Tb1Oya.oyaMei}">親名</label><span id="Tb1Oya.oyaMei"></span><input type="hidden" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Oya.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Oya.insertUserId}" class="meta">作成者</label><span id="Tb1Oya.insertUserId"></span><input type="hidden" id="Tb1Oya.insertUserId" name="Tb1Oya.insertUserId" />
+          <span id="Tb1Oya.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.insertUserId" data-destDef="Tb1Oya.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Oya.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Oya.updateTs"></span><input type="hidden" id="Tb1Oya.updateTs" name="Tb1Oya.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Oya.updateUserId}" class="meta">更新者</label><span id="Tb1Oya.updateUserId"></span><input type="hidden" id="Tb1Oya.updateUserId" name="Tb1Oya.updateUserId" />
+          <span id="Tb1Oya.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.updateUserId" data-destDef="Tb1Oya.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1Oya.deleteF}">削除フラグ</label><span id="Tb1Oya.deleteF"></span><input type="hidden" id="Tb1Oya.deleteF" name="Tb1Oya.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1Oya.statusKb}">ステータス区分</label><span id="Tb1Oya.statusKb"></span><input type="hidden" id="Tb1Oya.statusKb" name="Tb1Oya.statusKb" />
+        </div>
+      </fieldset>
+      <fieldset>
         <legend th:text="#{Tb1Entity2.legend}">legend</legend>
         <div id="sosenId">
           <label for="Tb1Entity2.sosenId" th:text="#{Tb1Entity2.sosenId}">祖先ID</label><input type="text" id="Tb1Entity2.sosenId" name="Tb1Entity2.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
@@ -66,25 +98,25 @@
           <label for="Tb1Entity1.entity1Mei" th:text="#{Tb1Entity1.entity1Mei}">エンティティ名</label><input type="text" id="Tb1Entity1.entity1Mei" name="Tb1Entity1.entity1Mei" maxlength="60" class=" notblank" />
         </div>
         <div id="sansho1Id">
-          <label for="Tb1Entity1.sansho1Id" th:text="#{Tb1Entity1.sansho1Id}">参照１ID</label><input type="text" id="Tb1Entity1.sansho1Id" name="Tb1Entity1.sansho1Id" maxlength="10" class=" correct" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.sansho1Id" data-destDef="Tb1Entity1.sansho1Mei:SANSHO1_MEI" /><a id="Tb1Entity1.sansho1Id" th:href="@{/model/Mb1Sansho1S.html?action=Mb1Sansho1Correct.ajax}" target="dialog" class="refer correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="Tb1Entity1.sansho1Mei" class="refer correct" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.sansho1Id" data-destDef="Tb1Entity1.sansho1Mei:SANSHO1_MEI"></span>
+          <label for="Tb1Entity1.sansho1Id" th:text="#{Tb1Entity1.sansho1Id}">参照１ID</label><input type="text" id="Tb1Entity1.sansho1Id" name="Tb1Entity1.sansho1Id" maxlength="10" class=" refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.sansho1Id" data-destDef="Tb1Entity1.sansho1Mei:SANSHO1_MEI" /><a id="Tb1Entity1.sansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1.sansho1Mei" class=" refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.sansho1Id" data-destDef="Tb1Entity1.sansho1Mei:SANSHO1_MEI"></span>
         </div>
         <div id="sansho1Mei">
           <label for="Tb1Entity1.sansho1Mei" th:text="#{Tb1Entity1.sansho1Mei}">参照１名</label><input type="text" id="Tb1Entity1.sansho1Mei" name="Tb1Entity1.sansho1Mei" maxlength="60" />
         </div>
         <div id="sansho2Cd">
-          <label for="Tb1Entity1.sansho2Cd" th:text="#{Tb1Entity1.sansho2Cd}">参照２CD</label><input type="text" id="Tb1Entity1.sansho2Cd" name="Tb1Entity1.sansho2Cd" maxlength="6" class=" correct" data-json="Mb1Sansho2Search.json" data-srcDef="SANSHO2_CD:Tb1Entity1.sansho2Cd" data-destDef="Tb1Entity1.sansho2Mei:SANSHO2_MEI" /><a id="Tb1Entity1.sansho2Cd" th:href="@{/model/Mb1Sansho2S.html?action=Mb1Sansho2Correct.ajax}" target="dialog" class="refer correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="Tb1Entity1.sansho2Mei" class="refer correct" data-json="Mb1Sansho2Search.json" data-srcDef="SANSHO2_CD:Tb1Entity1.sansho2Cd" data-destDef="Tb1Entity1.sansho2Mei:SANSHO2_MEI"></span>
+          <label for="Tb1Entity1.sansho2Cd" th:text="#{Tb1Entity1.sansho2Cd}">参照２CD</label><input type="text" id="Tb1Entity1.sansho2Cd" name="Tb1Entity1.sansho2Cd" maxlength="6" class=" refer" data-json="Mb1Sansho2Search.json" data-srcDef="SANSHO2_CD:Tb1Entity1.sansho2Cd" data-destDef="Tb1Entity1.sansho2Mei:SANSHO2_MEI" /><a id="Tb1Entity1.sansho2Cd" th:href="@{/model/Mb1Sansho2S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1.sansho2Mei" class=" refer" data-json="Mb1Sansho2Search.json" data-srcDef="SANSHO2_CD:Tb1Entity1.sansho2Cd" data-destDef="Tb1Entity1.sansho2Mei:SANSHO2_MEI"></span>
         </div>
         <div id="sansho2Mei">
           <label for="Tb1Entity1.sansho2Mei" th:text="#{Tb1Entity1.sansho2Mei}">参照２名</label><input type="text" id="Tb1Entity1.sansho2Mei" name="Tb1Entity1.sansho2Mei" maxlength="60" />
         </div>
         <div id="sansho3No">
-          <label for="Tb1Entity1.sansho3No" th:text="#{Tb1Entity1.sansho3No}">参照３NO</label><input type="text" id="Tb1Entity1.sansho3No" name="Tb1Entity1.sansho3No" maxlength="10" class=" correct" data-json="Mb1Sansho3Search.json" data-srcDef="SANSHO3_NO:Tb1Entity1.sansho3No" data-destDef="Tb1Entity1.sansho3Mei:SANSHO3_MEI" /><a id="Tb1Entity1.sansho3No" th:href="@{/model/Mb1Sansho3S.html?action=Mb1Sansho3Correct.ajax}" target="dialog" class="refer correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="Tb1Entity1.sansho3Mei" class="refer correct" data-json="Mb1Sansho3Search.json" data-srcDef="SANSHO3_NO:Tb1Entity1.sansho3No" data-destDef="Tb1Entity1.sansho3Mei:SANSHO3_MEI"></span>
+          <label for="Tb1Entity1.sansho3No" th:text="#{Tb1Entity1.sansho3No}">参照３NO</label><input type="text" id="Tb1Entity1.sansho3No" name="Tb1Entity1.sansho3No" maxlength="10" class=" refer" data-json="Mb1Sansho3Search.json" data-srcDef="SANSHO3_NO:Tb1Entity1.sansho3No" data-destDef="Tb1Entity1.sansho3Mei:SANSHO3_MEI" /><a id="Tb1Entity1.sansho3No" th:href="@{/model/Mb1Sansho3S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1.sansho3Mei" class=" refer" data-json="Mb1Sansho3Search.json" data-srcDef="SANSHO3_NO:Tb1Entity1.sansho3No" data-destDef="Tb1Entity1.sansho3Mei:SANSHO3_MEI"></span>
         </div>
         <div id="sansho3Mei">
           <label for="Tb1Entity1.sansho3Mei" th:text="#{Tb1Entity1.sansho3Mei}">参照３名</label><input type="text" id="Tb1Entity1.sansho3Mei" name="Tb1Entity1.sansho3Mei" maxlength="60" />
         </div>
         <div id="betsuSansho1Id">
-          <label for="Tb1Entity1.betsuSansho1Id" th:text="#{Tb1Entity1.betsuSansho1Id}">別参照１ID</label><input type="text" id="Tb1Entity1.betsuSansho1Id" name="Tb1Entity1.betsuSansho1Id" maxlength="10" class=" correct" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.betsuSansho1Id" data-destDef="Tb1Entity1.betsuSansho1Mei:SANSHO1_MEI" /><a id="Tb1Entity1.betsuSansho1Id" th:href="@{/model/Mb1Sansho1S.html?action=Mb1Sansho1Correct.ajax}" target="dialog" class="refer correct" th:text="#{common.correct}" tabindex="-1">...</a><span id="Tb1Entity1.betsuSansho1Mei" class="refer correct" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.betsuSansho1Id" data-destDef="Tb1Entity1.betsuSansho1Mei:SANSHO1_MEI"></span>
+          <label for="Tb1Entity1.betsuSansho1Id" th:text="#{Tb1Entity1.betsuSansho1Id}">別参照１ID</label><input type="text" id="Tb1Entity1.betsuSansho1Id" name="Tb1Entity1.betsuSansho1Id" maxlength="10" class=" refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.betsuSansho1Id" data-destDef="Tb1Entity1.betsuSansho1Mei:SANSHO1_MEI" /><a id="Tb1Entity1.betsuSansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Entity1.betsuSansho1Mei" class=" refer" data-json="Mb1Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb1Entity1.betsuSansho1Id" data-destDef="Tb1Entity1.betsuSansho1Mei:SANSHO1_MEI"></span>
         </div>
         <div id="betsuSansho1Mei">
           <label for="Tb1Entity1.betsuSansho1Mei" th:text="#{Tb1Entity1.betsuSansho1Mei}">別参照１名</label><input type="text" id="Tb1Entity1.betsuSansho1Mei" name="Tb1Entity1.betsuSansho1Mei" maxlength="60" />
