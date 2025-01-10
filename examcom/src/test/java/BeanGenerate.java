@@ -6,7 +6,7 @@ import jp.co.golorp.emarf.generator.BeanGenerator;
 import jp.co.golorp.emarf.util.ResourceBundles;
 
 /**
- * @author KTC0966
+ * @author golorp
  *
  */
 public final class BeanGenerate {
