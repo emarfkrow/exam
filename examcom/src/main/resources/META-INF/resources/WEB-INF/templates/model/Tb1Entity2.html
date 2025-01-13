@@ -21,16 +21,16 @@
   <div layout:fragment="article">
     <h2 th:text="#{Tb1Entity2.h2}">h2</h2>
     <form name="Tb1Entity2RegistForm" action="Tb1Entity2Regist.ajax" class="regist">
-      <fieldset>
+      <fieldset class="parent">
         <legend th:text="#{Tb1Oya.legend}">legend</legend>
         <div id="sosenId">
-          <label th:text="#{Tb1Oya.sosenId}">祖先ID</label><span id="Tb1Oya.sosenId"></span><input type="hidden" id="Tb1Oya.sosenId" name="Tb1Oya.sosenId" />
+          <label for="Tb1Oya.sosenId" th:text="#{Tb1Oya.sosenId}">祖先ID</label><input type="text" id="Tb1Oya.sosenId" name="Tb1Oya.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="oyaBn">
-          <label th:text="#{Tb1Oya.oyaBn}">親枝番</label><span id="Tb1Oya.oyaBn"></span><input type="hidden" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" />
+          <label for="Tb1Oya.oyaBn" th:text="#{Tb1Oya.oyaBn}">親枝番</label><input type="text" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="oyaMei">
-          <label th:text="#{Tb1Oya.oyaMei}">親名</label><span id="Tb1Oya.oyaMei"></span><input type="hidden" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" />
+          <label for="Tb1Oya.oyaMei" th:text="#{Tb1Oya.oyaMei}">親名</label><input type="text" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" maxlength="60" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb1Oya.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
@@ -47,10 +47,14 @@
           <span id="Tb1Oya.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.updateUserId" data-destDef="Tb1Oya.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
-          <label th:text="#{Tb1Oya.deleteF}">削除フラグ</label><span id="Tb1Oya.deleteF"></span><input type="hidden" id="Tb1Oya.deleteF" name="Tb1Oya.deleteF" />
+          <fieldset id="Tb1Oya.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Oya.deleteF}">削除フラグ</legend>
+          </fieldset>
         </div>
         <div id="statusKb">
-          <label th:text="#{Tb1Oya.statusKb}">ステータス区分</label><span id="Tb1Oya.statusKb"></span><input type="hidden" id="Tb1Oya.statusKb" name="Tb1Oya.statusKb" />
+          <fieldset id="Tb1Oya.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Oya.statusKb}">ステータス区分</legend>
+          </fieldset>
         </div>
       </fieldset>
       <fieldset>

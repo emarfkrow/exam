@@ -16,13 +16,13 @@
   <div layout:fragment="article">
     <h2 th:text="#{MsyKbnVal.h2}">h2</h2>
     <form name="MsyKbnValRegistForm" action="MsyKbnValRegist.ajax" class="regist">
-      <fieldset>
+      <fieldset class="parent">
         <legend th:text="#{MsyKbn.legend}">legend</legend>
         <div id="kbnNm">
-          <label th:text="#{MsyKbn.kbnNm}">区分名称</label><span id="MsyKbn.kbnNm"></span><input type="hidden" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" />
+          <label for="MsyKbn.kbnNm" th:text="#{MsyKbn.kbnNm}">区分名称</label><input type="text" id="MsyKbn.kbnNm" name="MsyKbn.kbnNm" maxlength="20" class=" notblank primaryKey" />
         </div>
         <div id="kbnMei">
-          <label th:text="#{MsyKbn.kbnMei}">区分名</label><span id="MsyKbn.kbnMei"></span><input type="hidden" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" />
+          <label for="MsyKbn.kbnMei" th:text="#{MsyKbn.kbnMei}">区分名</label><input type="text" id="MsyKbn.kbnMei" name="MsyKbn.kbnMei" maxlength="60" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{MsyKbn.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyKbn.insertTs"></span><input type="hidden" id="MsyKbn.insertTs" name="MsyKbn.insertTs" />
@@ -39,10 +39,14 @@
           <span id="MsyKbn.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbn.updateUserId" data-destDef="MsyKbn.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
-          <label th:text="#{MsyKbn.deleteF}">削除フラグ</label><span id="MsyKbn.deleteF"></span><input type="hidden" id="MsyKbn.deleteF" name="MsyKbn.deleteF" />
+          <fieldset id="MsyKbn.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>
+          </fieldset>
         </div>
         <div id="statusKb">
-          <label th:text="#{MsyKbn.statusKb}">ステータス区分</label><span id="MsyKbn.statusKb"></span><input type="hidden" id="MsyKbn.statusKb" name="MsyKbn.statusKb" />
+          <fieldset id="MsyKbn.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyKbn.statusKb}">ステータス区分</legend>
+          </fieldset>
         </div>
       </fieldset>
       <fieldset>

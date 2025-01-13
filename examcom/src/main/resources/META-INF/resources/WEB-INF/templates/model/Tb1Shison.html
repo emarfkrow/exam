@@ -15,22 +15,22 @@
   <div layout:fragment="article">
     <h2 th:text="#{Tb1Shison.h2}">h2</h2>
     <form name="Tb1ShisonRegistForm" action="Tb1ShisonRegist.ajax" class="regist">
-      <fieldset>
+      <fieldset class="parent">
         <legend th:text="#{Tb1Ko.legend}">legend</legend>
         <div id="sosenId">
-          <label th:text="#{Tb1Ko.sosenId}">祖先ID</label><span id="Tb1Ko.sosenId"></span><input type="hidden" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" />
+          <label for="Tb1Ko.sosenId" th:text="#{Tb1Ko.sosenId}">祖先ID</label><input type="text" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="oyaBn">
-          <label th:text="#{Tb1Ko.oyaBn}">親枝番</label><span id="Tb1Ko.oyaBn"></span><input type="hidden" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" />
+          <label for="Tb1Ko.oyaBn" th:text="#{Tb1Ko.oyaBn}">親枝番</label><input type="text" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="entityBn">
-          <label th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><span id="Tb1Ko.entityBn"></span><input type="hidden" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" />
+          <label for="Tb1Ko.entityBn" th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="koBn">
-          <label th:text="#{Tb1Ko.koBn}">子枝番</label><span id="Tb1Ko.koBn"></span><input type="hidden" id="Tb1Ko.koBn" name="Tb1Ko.koBn" />
+          <label for="Tb1Ko.koBn" th:text="#{Tb1Ko.koBn}">子枝番</label><input type="text" id="Tb1Ko.koBn" name="Tb1Ko.koBn" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
         <div id="koMei">
-          <label th:text="#{Tb1Ko.koMei}">子名</label><span id="Tb1Ko.koMei"></span><input type="hidden" id="Tb1Ko.koMei" name="Tb1Ko.koMei" />
+          <label for="Tb1Ko.koMei" th:text="#{Tb1Ko.koMei}">子名</label><input type="text" id="Tb1Ko.koMei" name="Tb1Ko.koMei" maxlength="60" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb1Ko.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Ko.insertTs"></span><input type="hidden" id="Tb1Ko.insertTs" name="Tb1Ko.insertTs" />
@@ -47,10 +47,14 @@
           <span id="Tb1Ko.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Ko.updateUserId" data-destDef="Tb1Ko.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
-          <label th:text="#{Tb1Ko.deleteF}">削除フラグ</label><span id="Tb1Ko.deleteF"></span><input type="hidden" id="Tb1Ko.deleteF" name="Tb1Ko.deleteF" />
+          <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
+          </fieldset>
         </div>
         <div id="statusKb">
-          <label th:text="#{Tb1Ko.statusKb}">ステータス区分</label><span id="Tb1Ko.statusKb"></span><input type="hidden" id="Tb1Ko.statusKb" name="Tb1Ko.statusKb" />
+          <fieldset id="Tb1Ko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.statusKb}">ステータス区分</legend>
+          </fieldset>
         </div>
       </fieldset>
       <fieldset>
