@@ -16,7 +16,7 @@
   <div layout:fragment="article">
     <h2 th:text="#{Vb2Entity.h2}">h2</h2>
     <form name="Vb2EntityRegistForm" action="Vb2EntityRegist.ajax" class="regist">
-      <fieldset>
+      <fieldset class="view">
         <legend th:text="#{Vb2Entity.legend}">legend</legend>
         <div id="entityId">
           <label for="Vb2Entity.entityId" th:text="#{Vb2Entity.entityId}">エンティティID</label><input type="text" id="Vb2Entity.entityId" name="Vb2Entity.entityId" maxlength="10" class=" notblank refer" data-json="Tb2EntitySearch.json" data-srcDef="ENTITY_ID:Vb2Entity.entityId" data-destDef="Vb2Entity.entityMei:ENTITY_MEI" /><a id="Vb2Entity.entityId" th:href="@{/model/Tb2EntityS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Vb2Entity.entityMei" class=" refer" data-json="Tb2EntitySearch.json" data-srcDef="ENTITY_ID:Vb2Entity.entityId" data-destDef="Vb2Entity.entityMei:ENTITY_MEI"></span>
