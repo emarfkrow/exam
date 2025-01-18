@@ -14,19 +14,19 @@ PageInfo="Main",7,"A3Landscape",$FFFFFF
 Domain=ID=@INT
 DomainInfo="ID","@INT","無意味連番のユニーク識別子","_ID"
 Domain=BN=@INT
-DomainInfo="BN","@INT","上位キー単位の枝番（BranchNumber）","_BN"
+DomainInfo="BN","@INT","BranchNumber：上位キー単位の枝番","_BN"
 Domain=ON=@INT
-DomainInfo="ON","@INT","順番（OrderNumber）","_ON"
+DomainInfo="ON","@INT","OrderNumber：順番","_ON"
 Domain=NM=@VARCHAR(20)
-DomainInfo="NM","@VARCHAR(20)","名称・英名・半角20byte以内","_NM"
+DomainInfo="NM","@VARCHAR(20)","「名称」・英名・半角20byte以内","_NM"
 Domain=MEI=@VARCHAR(60)
-DomainInfo="MEI","@VARCHAR(60)","名・和名・全角60byte以内","_MEI"
+DomainInfo="MEI","@VARCHAR(60)","「名」・和名・全角20文字・60byte以内","_MEI"
 Domain=F=@CHAR(1)
 DomainInfo="F","@CHAR(1)","フラグ・「0」か「1」","_F"
 Domain=KB=@VARCHAR(2)
 DomainInfo="KB","@VARCHAR(2)","区分・「0」～「9」か「00」～「99」","_KB"
-Domain=TX=@VARCHAR(800)
-DomainInfo="TX","@VARCHAR(800)","備考など・全角800byte以内","_TX"
+Domain=TX=@VARCHAR(300)
+DomainInfo="TX","@VARCHAR(300)","備考など・全角100文字・300byte以内","_TX"
 Domain=Y=@CHAR(4)
 DomainInfo="Y","@CHAR(4)","YYYY","_Y"
 Domain=M=@CHAR(2)
@@ -47,16 +47,18 @@ Domain=HM=@TIME
 DomainInfo="HM","@TIME","時刻・00:00:00～23:59:00","_HM"
 Domain=TM=@VARCHAR(9)
 DomainInfo="TM","@VARCHAR(9)","時間・[H]MMSS（00:00:00～999:59:59）","_TM"
-Domain=QT=@DECIMAL(9,2)
-DomainInfo="QT","@DECIMAL(9,2)","数量・整数７桁・小数２桁","_QT"
-Domain=KG=@DECIMAL(11,3)
-DomainInfo="KG","@DECIMAL(11,3)","金額","_KG"
+Domain=QT=@DECIMAL(11,3)
+DomainInfo="QT","@DECIMAL(11,3)","数量・整数８桁・小数３桁","_QT"
+Domain=PR=@DECIMAL(11,2)
+DomainInfo="PR","@DECIMAL(11,2)","単価・整数９桁・小数２桁","_PR"
+Domain=AM=@DECIMAL(11,2)
+DomainInfo="AM","@DECIMAL(11,2)","金額・整数９桁・小数２桁","_AM"
 Domain=PATH=@VARCHAR(256)
 DomainInfo="PATH","@VARCHAR(256)","ファイルパス","_PATH"
-Domain=CD=@CHAR(6)
-DomainInfo="CD","@CHAR(6)","コード・固定長英数字6桁","_CD"
+Domain=CD=@CHAR(10)
+DomainInfo="CD","@CHAR(10)","コード・固定長・英数字10桁","_CD"
 Domain=NO=@CHAR(10)
-DomainInfo="NO","@CHAR(10)","番号・固定長数字10桁","_NO"
+DomainInfo="NO","@CHAR(10)","番号・固定長・数字10桁","_NO"
 LogicalView=1
 DecodeDomain=0
 ViewModePageIndividually=1
@@ -980,8 +982,8 @@ Field="日付","HIDUKE_BI","*BI","NOT NULL",,"","",$FFFFFFFF,""
 Field="時刻","JIKOKU_HM","*HM","NOT NULL",,"","",$FFFFFFFF,""
 Field="時間","JIKAN_TM","*TM","NOT NULL",,"","",$FFFFFFFF,""
 Field="数量","SURYO_QT","*QT","NOT NULL",,"","",$FFFFFFFF,""
-Field="単価","TANKA_KG","*KG","NOT NULL",,"","",$FFFFFFFF,""
-Field="税抜金額","ZEINUKI_KG","*KG","NOT NULL",,"","",$FFFFFFFF,""
+Field="単価","TANKA_PR","*PR","NOT NULL",,"","",$FFFFFFFF,""
+Field="税抜金額","ZEINUKI_AM","*AM","NOT NULL",,"","",$FFFFFFFF,""
 Field="ファイルパス","FILE_PATH","*TX","NOT NULL",,"","",$FFFFFFFF,""
 Field="任意エンティティ名称","NULL_ENTITY_NM","*NM",,,"","",$FFFFFFFF,""
 Field="任意エンティティ名","NULL_ENTITY_MEI","*MEI",,,"","",$FFFFFFFF,""
@@ -1000,12 +1002,12 @@ Field="任意日付","NULL_HIDUKE_BI","*BI",,,"","",$FFFFFFFF,""
 Field="任意時刻","NULL_JIKOKU_HM","*HM",,,"","",$FFFFFFFF,""
 Field="任意時間","NULL_JIKAN_TM","*TM",,,"","",$FFFFFFFF,""
 Field="任意数量","NULL_SURYO_QT","*QT",,,"","",$FFFFFFFF,""
-Field="任意単価","NULL_TANKA_KG","*KG",,,"","",$FFFFFFFF,""
-Field="任意税抜金額","NULL_ZEINUKI_KG","*KG",,,"","",$FFFFFFFF,""
+Field="任意単価","NULL_TANKA_PR","*PR",,,"","",$FFFFFFFF,""
+Field="任意税抜金額","NULL_ZEINUKI_AM","*AM",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241229204016
+ModifiedDateTime=20250117093557
 Position="MAIN",2900,1400
 ZOrder=25
 
@@ -1095,7 +1097,7 @@ ZOrder=29
 PName=VB2_ENTITY
 LName=エンティティ検索
 Comment=
-Query=SELECT\n    TB2_ENTITY.ENTITY_ID\n    , TB2_ENTITY.ENTITY_NM\n    , TB2_ENTITY.ENTITY_MEI\n    , TB2_ENTITY.CHECK_F\n    , TB2_ENTITY.RADIO_KB\n    , TB2_ENTITY.PULLDOWN_KB\n    , TB2_ENTITY.MEMO_TX\n    , TB2_ENTITY.NEN_Y\n    , TB2_ENTITY.TSUKI_M\n    , TB2_ENTITY.HI_D\n    , TB2_ENTITY.NENGETSU_YM\n    , TB2_ENTITY.NENGAPPI_YMD\n    , TB2_ENTITY.TIMESTAMP_TS\n    , TB2_ENTITY.NICHIJI_DT\n    , TB2_ENTITY.HIDUKE_BI\n    , TB2_ENTITY.JIKOKU_HM\n    , TB2_ENTITY.JIKAN_TM\n    , TB2_ENTITY.SURYO_QT\n    , TB2_ENTITY.TANKA_KG\n    , TB2_ENTITY.ZEINUKI_KG \nFROM\n    TB2_ENTITY\n
+Query=SELECT\n    TB2_ENTITY.ENTITY_ID\n    , TB2_ENTITY.ENTITY_NM\n    , TB2_ENTITY.ENTITY_MEI\n    , TB2_ENTITY.CHECK_F\n    , TB2_ENTITY.RADIO_KB\n    , TB2_ENTITY.PULLDOWN_KB\n    , TB2_ENTITY.MEMO_TX\n    , TB2_ENTITY.NEN_Y\n    , TB2_ENTITY.TSUKI_M\n    , TB2_ENTITY.HI_D\n    , TB2_ENTITY.NENGETSU_YM\n    , TB2_ENTITY.NENGAPPI_YMD\n    , TB2_ENTITY.TIMESTAMP_TS\n    , TB2_ENTITY.NICHIJI_DT\n    , TB2_ENTITY.HIDUKE_BI\n    , TB2_ENTITY.JIKOKU_HM\n    , TB2_ENTITY.JIKAN_TM\n    , TB2_ENTITY.SURYO_QT\n    , TB2_ENTITY.TANKA_PR\n    , TB2_ENTITY.ZEINUKI_AM \nFROM\n    TB2_ENTITY\n
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
