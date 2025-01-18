@@ -55,20 +55,20 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 区分名称参照 */
-    private String `kbnMei`;
+    private String kbnMei;
 
     /** @return 区分名称参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`KBN_MEI`")
-    public String get`kbnMei`() {
-        return this.`kbnMei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("KBN_MEI")
+    public String getKbnMei() {
+        return this.kbnMei;
     }
 
     /** @param o 区分名称参照 */
-    public void set`kbnMei`(final Object o) {
+    public void setKbnMei(final Object o) {
         if (o != null) {
-            this.`kbnMei` = o.toString();
+            this.kbnMei = o.toString();
         } else {
-            this.`kbnMei` = null;
+            this.kbnMei = null;
         }
     }
 
@@ -190,20 +190,20 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 作成者参照 */
-    private String `insertUserSei`;
+    private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
-    public String get`insertUserSei`() {
-        return this.`insertUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    public String getInsertUserSei() {
+        return this.insertUserSei;
     }
 
     /** @param o 作成者参照 */
-    public void set`insertUserSei`(final Object o) {
+    public void setInsertUserSei(final Object o) {
         if (o != null) {
-            this.`insertUserSei` = o.toString();
+            this.insertUserSei = o.toString();
         } else {
-            this.`insertUserSei` = null;
+            this.insertUserSei = null;
         }
     }
 
@@ -253,20 +253,20 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 更新者参照 */
-    private String `updateUserSei`;
+    private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
-    public String get`updateUserSei`() {
-        return this.`updateUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    public String getUpdateUserSei() {
+        return this.updateUserSei;
     }
 
     /** @param o 更新者参照 */
-    public void set`updateUserSei`(final Object o) {
+    public void setUpdateUserSei(final Object o) {
         if (o != null) {
-            this.`updateUserSei` = o.toString();
+            this.updateUserSei = o.toString();
         } else {
-            this.`updateUserSei` = null;
+            this.updateUserSei = null;
         }
     }
 

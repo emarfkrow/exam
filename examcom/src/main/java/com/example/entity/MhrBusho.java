@@ -91,20 +91,20 @@ public class MhrBusho implements IEntity {
     }
 
     /** 親部署ID参照 */
-    private String `oyaBushoMei`;
+    private String oyaBushoMei;
 
     /** @return 親部署ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`OYA_BUSHO_MEI`")
-    public String get`oyaBushoMei`() {
-        return this.`oyaBushoMei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BUSHO_MEI")
+    public String getOyaBushoMei() {
+        return this.oyaBushoMei;
     }
 
     /** @param o 親部署ID参照 */
-    public void set`oyaBushoMei`(final Object o) {
+    public void setOyaBushoMei(final Object o) {
         if (o != null) {
-            this.`oyaBushoMei` = o.toString();
+            this.oyaBushoMei = o.toString();
         } else {
-            this.`oyaBushoMei` = null;
+            this.oyaBushoMei = null;
         }
     }
 
@@ -196,20 +196,20 @@ public class MhrBusho implements IEntity {
     }
 
     /** 作成者参照 */
-    private String `insertUserSei`;
+    private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
-    public String get`insertUserSei`() {
-        return this.`insertUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    public String getInsertUserSei() {
+        return this.insertUserSei;
     }
 
     /** @param o 作成者参照 */
-    public void set`insertUserSei`(final Object o) {
+    public void setInsertUserSei(final Object o) {
         if (o != null) {
-            this.`insertUserSei` = o.toString();
+            this.insertUserSei = o.toString();
         } else {
-            this.`insertUserSei` = null;
+            this.insertUserSei = null;
         }
     }
 
@@ -259,20 +259,20 @@ public class MhrBusho implements IEntity {
     }
 
     /** 更新者参照 */
-    private String `updateUserSei`;
+    private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
-    public String get`updateUserSei`() {
-        return this.`updateUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    public String getUpdateUserSei() {
+        return this.updateUserSei;
     }
 
     /** @param o 更新者参照 */
-    public void set`updateUserSei`(final Object o) {
+    public void setUpdateUserSei(final Object o) {
         if (o != null) {
-            this.`updateUserSei` = o.toString();
+            this.updateUserSei = o.toString();
         } else {
-            this.`updateUserSei` = null;
+            this.updateUserSei = null;
         }
     }
 

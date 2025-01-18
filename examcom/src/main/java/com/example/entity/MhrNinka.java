@@ -55,20 +55,20 @@ public class MhrNinka implements IEntity {
     }
 
     /** 部署ID参照 */
-    private String `bushoMei`;
+    private String bushoMei;
 
     /** @return 部署ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`BUSHO_MEI`")
-    public String get`bushoMei`() {
-        return this.`bushoMei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_MEI")
+    public String getBushoMei() {
+        return this.bushoMei;
     }
 
     /** @param o 部署ID参照 */
-    public void set`bushoMei`(final Object o) {
+    public void setBushoMei(final Object o) {
         if (o != null) {
-            this.`bushoMei` = o.toString();
+            this.bushoMei = o.toString();
         } else {
-            this.`bushoMei` = null;
+            this.bushoMei = null;
         }
     }
 
@@ -91,20 +91,20 @@ public class MhrNinka implements IEntity {
     }
 
     /** 職位ID参照 */
-    private String `shokuiMei`;
+    private String shokuiMei;
 
     /** @return 職位ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`SHOKUI_MEI`")
-    public String get`shokuiMei`() {
-        return this.`shokuiMei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHOKUI_MEI")
+    public String getShokuiMei() {
+        return this.shokuiMei;
     }
 
     /** @param o 職位ID参照 */
-    public void set`shokuiMei`(final Object o) {
+    public void setShokuiMei(final Object o) {
         if (o != null) {
-            this.`shokuiMei` = o.toString();
+            this.shokuiMei = o.toString();
         } else {
-            this.`shokuiMei` = null;
+            this.shokuiMei = null;
         }
     }
 
@@ -232,20 +232,20 @@ public class MhrNinka implements IEntity {
     }
 
     /** 作成者参照 */
-    private String `insertUserSei`;
+    private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
-    public String get`insertUserSei`() {
-        return this.`insertUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    public String getInsertUserSei() {
+        return this.insertUserSei;
     }
 
     /** @param o 作成者参照 */
-    public void set`insertUserSei`(final Object o) {
+    public void setInsertUserSei(final Object o) {
         if (o != null) {
-            this.`insertUserSei` = o.toString();
+            this.insertUserSei = o.toString();
         } else {
-            this.`insertUserSei` = null;
+            this.insertUserSei = null;
         }
     }
 
@@ -295,20 +295,20 @@ public class MhrNinka implements IEntity {
     }
 
     /** 更新者参照 */
-    private String `updateUserSei`;
+    private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
-    public String get`updateUserSei`() {
-        return this.`updateUserSei`;
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    public String getUpdateUserSei() {
+        return this.updateUserSei;
     }
 
     /** @param o 更新者参照 */
-    public void set`updateUserSei`(final Object o) {
+    public void setUpdateUserSei(final Object o) {
         if (o != null) {
-            this.`updateUserSei` = o.toString();
+            this.updateUserSei = o.toString();
         } else {
-            this.`updateUserSei` = null;
+            this.updateUserSei = null;
         }
     }
 
