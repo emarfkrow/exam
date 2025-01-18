@@ -1,5 +1,6 @@
 package com.example.form.model.base;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -74,6 +75,24 @@ public class Tb1TenseiRegistForm implements IForm {
         this.sosenId = p;
     }
 
+    /** メモ */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String memo;
+
+    /**
+     * @return メモ
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * @param p メモ
+     */
+    public void setMemo(final String p) {
+        this.memo = p;
+    }
+
     /** 削除フラグ */
     @jakarta.validation.constraints.Size(max = 1)
     private String deleteF;
@@ -108,6 +127,24 @@ public class Tb1TenseiRegistForm implements IForm {
      */
     public void setStatusKb(final String p) {
         this.statusKb = p;
+    }
+
+    /** 転生明細 */
+    @jakarta.validation.Valid
+    private List<Tb1TenseiDetRegistForm> tb1TenseiDetGrid;
+
+    /**
+     * @return 転生明細
+     */
+    public List<Tb1TenseiDetRegistForm> getTb1TenseiDetGrid() {
+        return tb1TenseiDetGrid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb1TenseiDetGrid(final List<Tb1TenseiDetRegistForm> p) {
+        this.tb1TenseiDetGrid = p;
     }
 
     /** 関連チェック */

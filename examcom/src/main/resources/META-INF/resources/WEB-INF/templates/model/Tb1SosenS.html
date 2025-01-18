@@ -22,6 +22,8 @@
 <script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenseiDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -35,8 +37,8 @@
         <div id="sosenId">
           <label for="Tb1Sosen.sosenId" th:text="#{Tb1Sosen.sosenId}">祖先ID</label><input type="text" id="Tb1Sosen.sosenId" name="Tb1Sosen.sosenId" maxlength="10" />
         </div>
-        <div id="biko">
-          <label for="Tb1Sosen.biko" th:text="#{Tb1Sosen.biko}">備考</label><input type="text" id="Tb1Sosen.biko" name="Tb1Sosen.biko" maxlength="800" />
+        <div id="memo">
+          <label for="Tb1Sosen.memo" th:text="#{Tb1Sosen.memo}">メモ</label><input type="text" id="Tb1Sosen.memo" name="Tb1Sosen.memo" maxlength="300" />
         </div>
         <div id="deleteF">
           <fieldset id="Tb1Sosen.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

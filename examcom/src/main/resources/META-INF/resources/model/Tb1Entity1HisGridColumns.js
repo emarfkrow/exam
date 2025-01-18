@@ -13,7 +13,7 @@ $(function() {
         Column.cell('ENTITY1_MEI', Messages['Tb1Entity1HisGrid.entity1Mei'], 300, 'notblank', null),
         Column.refer('SANSHO1_ID', Messages['Tb1Entity1HisGrid.sansho1Id'], 80, '', 'SANSHO1_MEI'),
         Column.cell('SANSHO1_MEI', Messages['Tb1Entity1HisGrid.sansho1Mei'], 300, '', null),
-        Column.refer('SANSHO2_CD', Messages['Tb1Entity1HisGrid.sansho2Cd'], 48, '', 'SANSHO2_MEI'),
+        Column.refer('SANSHO2_CD', Messages['Tb1Entity1HisGrid.sansho2Cd'], 80, '', 'SANSHO2_MEI'),
         Column.cell('SANSHO2_MEI', Messages['Tb1Entity1HisGrid.sansho2Mei'], 300, '', null),
         Column.refer('SANSHO3_NO', Messages['Tb1Entity1HisGrid.sansho3No'], 80, '', 'SANSHO3_MEI'),
         Column.cell('SANSHO3_MEI', Messages['Tb1Entity1HisGrid.sansho3Mei'], 300, '', null),

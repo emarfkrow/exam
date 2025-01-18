@@ -94,7 +94,7 @@ public class MsyKbnValRegistForm implements IForm {
     }
 
     /** 取得条件 */
-    @jakarta.validation.constraints.Size(max = 800)
+    @jakarta.validation.constraints.Size(max = 300)
     private String criteria;
 
     /**

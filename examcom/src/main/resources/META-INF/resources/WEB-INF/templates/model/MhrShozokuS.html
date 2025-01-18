@@ -64,6 +64,9 @@
       <div class="buttons">
         <button type="button" id="ResetMhrShozokuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrShozoku&quot;]').click();">reset</button>
         <a th:href="@{MhrShozokuSearch.xlsx(baseMei=#{MhrShozokuS.h2})}" id="MhrShozokuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="MhrShozokuGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="MhrShozokuGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="MhrShozokuGrid.userId" th:href="@{/model/MhrUserS.html}" target="dialog" class="refer" th:text="'ユーザマスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMhrShozokuS" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMhrShozokuS" class="permit selectRows" data-action="MhrShozokuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMhrShozokuS" class="forbid selectRows" data-action="MhrShozokuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

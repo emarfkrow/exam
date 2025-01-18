@@ -135,6 +135,24 @@ public class Tb1Oya implements IEntity {
         }
     }
 
+    /** 作成者参照 */
+    private String `insertUserSei`;
+
+    /** @return 作成者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
+    public String get`insertUserSei`() {
+        return this.`insertUserSei`;
+    }
+
+    /** @param o 作成者参照 */
+    public void set`insertUserSei`(final Object o) {
+        if (o != null) {
+            this.`insertUserSei` = o.toString();
+        } else {
+            this.`insertUserSei` = null;
+        }
+    }
+
     /** 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -177,6 +195,24 @@ public class Tb1Oya implements IEntity {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;
+        }
+    }
+
+    /** 更新者参照 */
+    private String `updateUserSei`;
+
+    /** @return 更新者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
+    public String get`updateUserSei`() {
+        return this.`updateUserSei`;
+    }
+
+    /** @param o 更新者参照 */
+    public void set`updateUserSei`(final Object o) {
+        if (o != null) {
+            this.`updateUserSei` = o.toString();
+        } else {
+            this.`updateUserSei` = null;
         }
     }
 
@@ -570,7 +606,32 @@ public class Tb1Oya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
         whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT * FROM TB1_ENTITY1 WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", ENTITY_BN";
+        sql += ", ENTITY1_MEI";
+        sql += ", SANSHO1_ID";
+        sql += ", (SELECT r0.`SANSHO1_MEI` FROM MB1_SANSHO1 r0 WHERE r0.`SANSHO1_ID` = a.`SANSHO1_ID`) AS `SANSHO1_MEI`";
+        sql += ", SANSHO1_MEI";
+        sql += ", SANSHO2_CD";
+        sql += ", (SELECT r1.`SANSHO2_MEI` FROM MB1_SANSHO2 r1 WHERE r1.`SANSHO2_CD` = a.`SANSHO2_CD`) AS `SANSHO2_MEI`";
+        sql += ", SANSHO2_MEI";
+        sql += ", SANSHO3_NO";
+        sql += ", (SELECT r2.`SANSHO3_MEI` FROM MB1_SANSHO3 r2 WHERE r2.`SANSHO3_NO` = a.`SANSHO3_NO`) AS `SANSHO3_MEI`";
+        sql += ", SANSHO3_MEI";
+        sql += ", BETSU_SANSHO1_ID";
+        sql += ", (SELECT r3.`SANSHO1_MEI` FROM MB1_SANSHO1 r3 WHERE r3.`SANSHO1_ID` = a.`BETSU_SANSHO1_ID`) AS `BETSU_SANSHO1_MEI`";
+        sql += ", BETSU_SANSHO1_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r4.`USER_SEI` FROM MHR_USER r4 WHERE r4.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r5.`USER_SEI` FROM MHR_USER r5 WHERE r5.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_ENTITY1 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
         Map<String, Object> map = new HashMap<String, Object>();
@@ -616,7 +677,20 @@ public class Tb1Oya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
         whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT * FROM TB1_ENTITY2 WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", ENTITY_BN";
+        sql += ", ENTITY2_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_ENTITY2 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
         Map<String, Object> map = new HashMap<String, Object>();
@@ -662,7 +736,20 @@ public class Tb1Oya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
         whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT * FROM TB1_ENTITY3 WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", ENTITY_BN";
+        sql += ", ENTITY3_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_ENTITY3 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
         Map<String, Object> map = new HashMap<String, Object>();
@@ -708,7 +795,20 @@ public class Tb1Oya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
         whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT * FROM TB1_ENTITY4 WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", ENTITY_BN";
+        sql += ", ENTITY4_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_ENTITY4 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
         Map<String, Object> map = new HashMap<String, Object>();
@@ -754,7 +854,20 @@ public class Tb1Oya implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
         whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT * FROM TB1_ENTITY5 WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", ENTITY_BN";
+        sql += ", ENTITY5_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_ENTITY5 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
         Map<String, Object> map = new HashMap<String, Object>();

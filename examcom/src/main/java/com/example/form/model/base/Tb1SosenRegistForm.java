@@ -37,22 +37,22 @@ public class Tb1SosenRegistForm implements IForm {
         this.sosenId = p;
     }
 
-    /** 備考 */
-    @jakarta.validation.constraints.Size(max = 800)
-    private String biko;
+    /** メモ */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String memo;
 
     /**
-     * @return 備考
+     * @return メモ
      */
-    public String getBiko() {
-        return biko;
+    public String getMemo() {
+        return memo;
     }
 
     /**
-     * @param p 備考
+     * @param p メモ
      */
-    public void setBiko(final String p) {
-        this.biko = p;
+    public void setMemo(final String p) {
+        this.memo = p;
     }
 
     /** 削除フラグ */

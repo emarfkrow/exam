@@ -90,6 +90,24 @@ public class Tb1Tensei implements IEntity {
         }
     }
 
+    /** メモ */
+    private String memo;
+
+    /** @return メモ */
+    @com.fasterxml.jackson.annotation.JsonProperty("MEMO")
+    public String getMemo() {
+        return this.memo;
+    }
+
+    /** @param o メモ */
+    public void setMemo(final Object o) {
+        if (o != null) {
+            this.memo = o.toString();
+        } else {
+            this.memo = null;
+        }
+    }
+
     /** 作成タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -135,6 +153,24 @@ public class Tb1Tensei implements IEntity {
         }
     }
 
+    /** 作成者参照 */
+    private String `insertUserSei`;
+
+    /** @return 作成者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
+    public String get`insertUserSei`() {
+        return this.`insertUserSei`;
+    }
+
+    /** @param o 作成者参照 */
+    public void set`insertUserSei`(final Object o) {
+        if (o != null) {
+            this.`insertUserSei` = o.toString();
+        } else {
+            this.`insertUserSei` = null;
+        }
+    }
+
     /** 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -177,6 +213,24 @@ public class Tb1Tensei implements IEntity {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;
+        }
+    }
+
+    /** 更新者参照 */
+    private String `updateUserSei`;
+
+    /** @return 更新者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
+    public String get`updateUserSei`() {
+        return this.`updateUserSei`;
+    }
+
+    /** @param o 更新者参照 */
+    public void set`updateUserSei`(final Object o) {
+        if (o != null) {
+            this.`updateUserSei` = o.toString();
+        } else {
+            this.`updateUserSei` = null;
         }
     }
 
@@ -229,6 +283,7 @@ public class Tb1Tensei implements IEntity {
         sql += "      a.`TENSEI_ID` \n";
         sql += "    , a.`TENSEI_MEI` \n";
         sql += "    , a.`SOSEN_ID` \n";
+        sql += "    , a.`MEMO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -255,6 +310,14 @@ public class Tb1Tensei implements IEntity {
         // 転生IDの採番処理
         numbering();
 
+        // 転生明細の登録
+        if (this.tb1TenseiDets != null) {
+            for (Tb1TenseiDet tb1TenseiDet : this.tb1TenseiDets) {
+                tb1TenseiDet.setTenseiId(this.getTenseiId());
+                tb1TenseiDet.insert(now, execId);
+            }
+        }
+
         // 転生の登録
         String sql = "INSERT INTO TB1_TENSEI(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -266,6 +329,7 @@ public class Tb1Tensei implements IEntity {
         nameList.add("`TENSEI_ID` -- :tensei_id");
         nameList.add("`TENSEI_MEI` -- :tensei_mei");
         nameList.add("`SOSEN_ID` -- :sosen_id");
+        nameList.add("`MEMO` -- :memo");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -281,6 +345,7 @@ public class Tb1Tensei implements IEntity {
         valueList.add(":tensei_id");
         valueList.add(":tensei_mei");
         valueList.add(":sosen_id");
+        valueList.add(":memo");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -310,6 +375,21 @@ public class Tb1Tensei implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
+        // 転生明細の登録
+        if (this.tb1TenseiDets != null) {
+            for (Tb1TenseiDet tb1TenseiDet : this.tb1TenseiDets) {
+                if (tb1TenseiDet == null) {
+                    continue;
+                }
+                tb1TenseiDet.setTenseiId(this.tenseiId);
+                try {
+                    tb1TenseiDet.insert(now, execId);
+                } catch (Exception e) {
+                    tb1TenseiDet.update(now, execId);
+                }
+            }
+        }
+
         // 転生の登録
         String sql = "UPDATE TB1_TENSEI\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -321,6 +401,7 @@ public class Tb1Tensei implements IEntity {
         setList.add("`TENSEI_ID` = :tensei_id");
         setList.add("`TENSEI_MEI` = :tensei_mei");
         setList.add("`SOSEN_ID` = :sosen_id");
+        setList.add("`MEMO` = :memo");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -333,6 +414,13 @@ public class Tb1Tensei implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        // 転生明細の削除
+        if (this.tb1TenseiDets != null) {
+            for (Tb1TenseiDet tb1TenseiDet : this.tb1TenseiDets) {
+                tb1TenseiDet.delete();
+            }
+        }
 
         // 転生の削除
         String sql = "DELETE FROM TB1_TENSEI WHERE " + getWhere();
@@ -356,6 +444,7 @@ public class Tb1Tensei implements IEntity {
         map.put("tensei_id", this.tenseiId);
         map.put("tensei_mei", this.tenseiMei);
         map.put("sosen_id", this.sosenId);
+        map.put("memo", this.memo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
@@ -363,5 +452,60 @@ public class Tb1Tensei implements IEntity {
         map.put("update_ts", now);
         map.put("update_user_id", execId);
         return map;
+    }
+
+    /** 転生明細のリスト */
+    private List<Tb1TenseiDet> tb1TenseiDets;
+
+    /** @return 転生明細のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1TenseiDets")
+    public List<Tb1TenseiDet> getTb1TenseiDets() {
+        return this.tb1TenseiDets;
+    }
+
+    /** @param list 転生明細のリスト */
+    public void setTb1TenseiDets(final List<Tb1TenseiDet> list) {
+        this.tb1TenseiDets = list;
+    }
+
+    /** @param tb1TenseiDet */
+    public void addTb1TenseiDets(final Tb1TenseiDet tb1TenseiDet) {
+        if (this.tb1TenseiDets == null) {
+            this.tb1TenseiDets = new ArrayList<Tb1TenseiDet>();
+        }
+        this.tb1TenseiDets.add(tb1TenseiDet);
+    }
+
+    /** @return 転生明細のリスト */
+    public List<Tb1TenseiDet> referTb1TenseiDets() {
+        this.tb1TenseiDets = Tb1Tensei.referTb1TenseiDets(this.tenseiId);
+        return this.tb1TenseiDets;
+    }
+
+    /**
+     * @param param1 tenseiId
+     * @return List<Tb1TenseiDet>
+     */
+    public static List<Tb1TenseiDet> referTb1TenseiDets(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("TENSEI_ID = :tensei_id");
+        String sql = "SELECT ";
+        sql += "TENSEI_ID";
+        sql += ", TENSEI_BN";
+        sql += ", MEMO";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_TENSEI_DET a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "TENSEI_ID, TENSEI_BN";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("tensei_id", param1);
+        return Queries.select(sql, map, Tb1TenseiDet.class, null, null);
     }
 }

@@ -27,6 +27,36 @@ public class Tb1ItokoGetAction extends BaseAction {
             itokoId = postJson.get("Tb1Itoko.itokoId");
         }
         if (itokoId == null) {
+
+            //転生先になる場合は転生元から情報をコピー
+            Object sosenId = postJson.get("sosenId");
+            if (sosenId == null) {
+                sosenId = postJson.get("Tb1Itoko.sosenId");
+            }
+            if (sosenId == null) {
+                return map;
+            }
+            Object oyaBn = postJson.get("oyaBn");
+            if (oyaBn == null) {
+                oyaBn = postJson.get("Tb1Itoko.oyaBn");
+            }
+            if (oyaBn == null) {
+                return map;
+            }
+            Object entityBn = postJson.get("entityBn");
+            if (entityBn == null) {
+                entityBn = postJson.get("Tb1Itoko.entityBn");
+            }
+            if (entityBn == null) {
+                return map;
+            }
+
+            com.example.entity.Tb1Entity1 tb1Entity1 = com.example.entity.Tb1Entity1.get(sosenId, oyaBn, entityBn);
+            Tb1Itoko tb1Itoko = new Tb1Itoko();
+            tb1Itoko.setSosenId(tb1Entity1.getSosenId());
+            tb1Itoko.setOyaBn(tb1Entity1.getOyaBn());
+            tb1Itoko.setEntityBn(tb1Entity1.getEntityBn());
+
             return map;
         }
 

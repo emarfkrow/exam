@@ -62,6 +62,7 @@
       <div class="buttons">
         <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrBusho&quot;]').click();">reset</button>
         <a th:href="@{MhrBushoSearch.xlsx(baseMei=#{MhrBushoS.h2})}" id="MhrBushoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="MhrBushoGrid.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMhrBushoS" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMhrBushoS" class="permit selectRows" data-action="MhrBushoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMhrBushoS" class="forbid selectRows" data-action="MhrBushoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

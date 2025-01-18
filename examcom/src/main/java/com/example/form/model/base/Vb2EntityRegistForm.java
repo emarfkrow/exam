@@ -132,9 +132,28 @@ public class Vb2EntityRegistForm implements IForm {
         this.pulldownKb = p;
     }
 
+    /** プルダウン種別 */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 2)
+    private String pulldownSb;
+
+    /**
+     * @return プルダウン種別
+     */
+    public String getPulldownSb() {
+        return pulldownSb;
+    }
+
+    /**
+     * @param p プルダウン種別
+     */
+    public void setPulldownSb(final String p) {
+        this.pulldownSb = p;
+    }
+
     /** メモ */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 800)
+    @jakarta.validation.constraints.Size(max = 300)
     private String memoTx;
 
     /**
@@ -149,6 +168,44 @@ public class Vb2EntityRegistForm implements IForm {
      */
     public void setMemoTx(final String p) {
         this.memoTx = p;
+    }
+
+    /** １行メモ */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 300)
+    private String memo;
+
+    /**
+     * @return １行メモ
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * @param p １行メモ
+     */
+    public void setMemo(final String p) {
+        this.memo = p;
+    }
+
+    /** ファイルパス */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 300)
+    private String filePath;
+
+    /**
+     * @return ファイルパス
+     */
+    public String getFilePath() {
+        return filePath;
+    }
+
+    /**
+     * @param p ファイルパス
+     */
+    public void setFilePath(final String p) {
+        this.filePath = p;
     }
 
     /** 年 */
@@ -343,7 +400,7 @@ public class Vb2EntityRegistForm implements IForm {
 
     /** 数量 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,7}\\.?[0-9]{0,2}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String suryoQt;
 
     /**
@@ -362,40 +419,95 @@ public class Vb2EntityRegistForm implements IForm {
 
     /** 単価 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String tankaKg;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    private String tankaPr;
 
     /**
      * @return 単価
      */
-    public String getTankaKg() {
-        return tankaKg;
+    public String getTankaPr() {
+        return tankaPr;
     }
 
     /**
      * @param p 単価
      */
-    public void setTankaKg(final String p) {
-        this.tankaKg = p;
+    public void setTankaPr(final String p) {
+        this.tankaPr = p;
+    }
+
+    /** 通貨区分 */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 2)
+    private String tsukaKb;
+
+    /**
+     * @return 通貨区分
+     */
+    public String getTsukaKb() {
+        return tsukaKb;
+    }
+
+    /**
+     * @param p 通貨区分
+     */
+    public void setTsukaKb(final String p) {
+        this.tsukaKb = p;
     }
 
     /** 税抜金額 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String zeinukiKg;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    private String zeinukiAm;
 
     /**
      * @return 税抜金額
      */
-    public String getZeinukiKg() {
-        return zeinukiKg;
+    public String getZeinukiAm() {
+        return zeinukiAm;
     }
 
     /**
      * @param p 税抜金額
      */
-    public void setZeinukiKg(final String p) {
-        this.zeinukiKg = p;
+    public void setZeinukiAm(final String p) {
+        this.zeinukiAm = p;
+    }
+
+    /** 削除フラグ */
+    @jakarta.validation.constraints.Size(max = 1)
+    private String deleteF;
+
+    /**
+     * @return 削除フラグ
+     */
+    public String getDeleteF() {
+        return deleteF;
+    }
+
+    /**
+     * @param p 削除フラグ
+     */
+    public void setDeleteF(final String p) {
+        this.deleteF = p;
+    }
+
+    /** ステータス区分 */
+    @jakarta.validation.constraints.Size(max = 2)
+    private String statusKb;
+
+    /**
+     * @return ステータス区分
+     */
+    public String getStatusKb() {
+        return statusKb;
+    }
+
+    /**
+     * @param p ステータス区分
+     */
+    public void setStatusKb(final String p) {
+        this.statusKb = p;
     }
 
     /** 関連チェック */

@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenseiDetGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -28,6 +29,9 @@
         </div>
         <div id="sosenId">
           <label for="Tb1Tensei.sosenId" th:text="#{Tb1Tensei.sosenId}">祖先ID</label><input type="text" id="Tb1Tensei.sosenId" name="Tb1Tensei.sosenId" maxlength="10" />
+        </div>
+        <div id="memo">
+          <label for="Tb1Tensei.memo" th:text="#{Tb1Tensei.memo}">メモ</label><input type="text" id="Tb1Tensei.memo" name="Tb1Tensei.memo" maxlength="300" />
         </div>
         <div id="deleteF">
           <fieldset id="Tb1Tensei.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

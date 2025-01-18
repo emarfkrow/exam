@@ -31,8 +31,8 @@
         <div id="sosenId">
           <label for="Tb1Sosen.sosenId" th:text="#{Tb1Sosen.sosenId}">祖先ID</label><input type="text" id="Tb1Sosen.sosenId" name="Tb1Sosen.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
-        <div id="biko">
-          <label for="Tb1Sosen.biko" th:text="#{Tb1Sosen.biko}">備考</label><input type="text" id="Tb1Sosen.biko" name="Tb1Sosen.biko" maxlength="800" />
+        <div id="memo">
+          <label for="Tb1Sosen.memo" th:text="#{Tb1Sosen.memo}">メモ</label><input type="text" id="Tb1Sosen.memo" name="Tb1Sosen.memo" maxlength="300" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb1Sosen.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Sosen.insertTs"></span><input type="hidden" id="Tb1Sosen.insertTs" name="Tb1Sosen.insertTs" />
@@ -98,6 +98,10 @@
       <h3 th:text="#{Tb1Entity1.h3}">h3</h3>
       <a th:href="@{/model/Tb1Entity1.html}" id="Tb1Entity1" target="dialog" th:text="#{Tb1Entity1.add}" class="addChild" tabindex="-1">エンティティ１</a>
       <div id="Tb1Entity1Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity1.html}"></div>
+        <a id="Tb1Entity1Grid.sansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="'参照１マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb1Entity1Grid.sansho2Cd" th:href="@{/model/Mb1Sansho2S.html}" target="dialog" class="refer" th:text="'参照２マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb1Entity1Grid.sansho3No" th:href="@{/model/Mb1Sansho3S.html}" target="dialog" class="refer" th:text="'参照３マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb1Entity1Grid.betsuSansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="'参照１マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <h3 th:text="#{Tb1Entity2.h3}">h3</h3>
       <a th:href="@{/model/Tb1Entity2.html}" id="Tb1Entity2" target="dialog" th:text="#{Tb1Entity2.add}" class="addChild" tabindex="-1">エンティティ２</a>
       <div id="Tb1Entity2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity2.html}"></div>

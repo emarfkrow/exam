@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1TenseiDetS.title}">転生明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1TenseiDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1TenseiDetS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb1TenseiDetSearchForm" action="Tb1TenseiDetSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1TenseiDetS.legend}">legend</legend>
+        <div id="tenseiId">
+          <label for="Tb1TenseiDet.tenseiId" th:text="#{Tb1TenseiDet.tenseiId}">転生ID</label><input type="text" id="Tb1TenseiDet.tenseiId" name="Tb1TenseiDet.tenseiId" maxlength="10" data-json="Tb1TenseiSearch.json" data-srcDef="TENSEI_ID:Tb1TenseiDet.tenseiId" data-destDef="Tb1TenseiDet.tenseiMei:TENSEI_MEI" /><a id="Tb1TenseiDet.tenseiId" th:href="@{/model/Tb1TenseiS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1TenseiDet.tenseiMei" data-json="Tb1TenseiSearch.json" data-srcDef="TENSEI_ID:Tb1TenseiDet.tenseiId" data-destDef="Tb1TenseiDet.tenseiMei:TENSEI_MEI"></span>
+        </div>
+        <div id="tenseiBn">
+          <label for="Tb1TenseiDet.tenseiBn" th:text="#{Tb1TenseiDet.tenseiBn}">転生枝番</label><input type="text" id="Tb1TenseiDet.tenseiBn" name="Tb1TenseiDet.tenseiBn" maxlength="10" />
+        </div>
+        <div id="memo">
+          <label for="Tb1TenseiDet.memo" th:text="#{Tb1TenseiDet.memo}">メモ</label><input type="text" id="Tb1TenseiDet.memo" name="Tb1TenseiDet.memo" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1TenseiDet.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1TenseiDet.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1TenseiDet.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1TenseiDet.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1TenseiDet" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb1TenseiDet.html}" id="Tb1TenseiDet" class="anew" target="dialog" th:text="#{Tb1TenseiDet.add}" tabindex="-1">転生明細</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1TenseiDet" class="search" data-gridId="Tb1TenseiDetGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb1TenseiDetSRegistForm" action="Tb1TenseiDetSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1TenseiDet.h3}">h3</h3>
+      <div id="Tb1TenseiDetGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1TenseiDet.html}"></div>
+      <div id="Tb1TenseiDetPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1TenseiDetS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1TenseiDet&quot;]').click();">reset</button>
+        <a th:href="@{Tb1TenseiDetSearch.xlsx(baseMei=#{Tb1TenseiDetS.h2})}" id="Tb1TenseiDetSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="Tb1TenseiDetGrid.tenseiId" th:href="@{/model/Tb1TenseiS.html}" target="dialog" class="refer" th:text="'転生' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <button id="DeleteTb1TenseiDetS" class="delete selectRows" data-action="Tb1TenseiDetSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1TenseiDetS" class="permit selectRows" data-action="Tb1TenseiDetSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1TenseiDetS" class="forbid selectRows" data-action="Tb1TenseiDetSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1TenseiDetS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

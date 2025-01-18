@@ -44,8 +44,14 @@
             <legend th:text="#{Tb2Entity.pulldownKb}">プルダウン区分</legend>
           </fieldset>
         </div>
+        <div id="pulldownSb">
+          <label for="Tb2Entity.pulldownSb" th:text="#{Tb2Entity.pulldownSb}">プルダウン種別</label><input type="text" id="Tb2Entity.pulldownSb" name="Tb2Entity.pulldownSb" maxlength="2" />
+        </div>
         <div id="memoTx">
-          <label for="Tb2Entity.memoTx" th:text="#{Tb2Entity.memoTx}">メモ</label><input type="text" id="Tb2Entity.memoTx" name="Tb2Entity.memoTx" maxlength="800" />
+          <label for="Tb2Entity.memoTx" th:text="#{Tb2Entity.memoTx}">メモ</label><input type="text" id="Tb2Entity.memoTx" name="Tb2Entity.memoTx" maxlength="300" />
+        </div>
+        <div id="memo">
+          <label for="Tb2Entity.memo" th:text="#{Tb2Entity.memo}">１行メモ</label><input type="text" id="Tb2Entity.memo" name="Tb2Entity.memo" maxlength="300" />
         </div>
         <div id="nenY">
           <label for="Tb2Entity.nenY_1" th:text="#{Tb2Entity.nenY}">年</label><input type="text" id="Tb2Entity.nenY_1" name="Tb2Entity.nenY_1" maxlength="4" />～<input type="text" id="Tb2Entity.nenY_2" name="Tb2Entity.nenY_2" maxlength="4" />
@@ -78,76 +84,18 @@
           <label for="Tb2Entity.jikanTm_1" th:text="#{Tb2Entity.jikanTm}">時間</label><input type="text" id="Tb2Entity.jikanTm_1" name="Tb2Entity.jikanTm_1" maxlength="9" />～<input type="text" id="Tb2Entity.jikanTm_2" name="Tb2Entity.jikanTm_2" maxlength="9" />
         </div>
         <div id="suryoQt">
-          <label for="Tb2Entity.suryoQt_1" th:text="#{Tb2Entity.suryoQt}">数量</label><input type="text" id="Tb2Entity.suryoQt_1" name="Tb2Entity.suryoQt_1" maxlength="9" />～<input type="text" id="Tb2Entity.suryoQt_2" name="Tb2Entity.suryoQt_2" maxlength="9" />
+          <label for="Tb2Entity.suryoQt_1" th:text="#{Tb2Entity.suryoQt}">数量</label><input type="text" id="Tb2Entity.suryoQt_1" name="Tb2Entity.suryoQt_1" maxlength="11" />～<input type="text" id="Tb2Entity.suryoQt_2" name="Tb2Entity.suryoQt_2" maxlength="11" />
         </div>
-        <div id="tankaKg">
-          <label for="Tb2Entity.tankaKg_1" th:text="#{Tb2Entity.tankaKg}">単価</label><input type="text" id="Tb2Entity.tankaKg_1" name="Tb2Entity.tankaKg_1" maxlength="11" />～<input type="text" id="Tb2Entity.tankaKg_2" name="Tb2Entity.tankaKg_2" maxlength="11" />
+        <div id="tankaPr">
+          <label for="Tb2Entity.tankaPr" th:text="#{Tb2Entity.tankaPr}">単価</label><input type="text" id="Tb2Entity.tankaPr" name="Tb2Entity.tankaPr" maxlength="11" />
         </div>
-        <div id="zeinukiKg">
-          <label for="Tb2Entity.zeinukiKg_1" th:text="#{Tb2Entity.zeinukiKg}">税抜金額</label><input type="text" id="Tb2Entity.zeinukiKg_1" name="Tb2Entity.zeinukiKg_1" maxlength="11" />～<input type="text" id="Tb2Entity.zeinukiKg_2" name="Tb2Entity.zeinukiKg_2" maxlength="11" />
-        </div>
-        <div id="nullEntityNm">
-          <label for="Tb2Entity.nullEntityNm" th:text="#{Tb2Entity.nullEntityNm}">任意エンティティ名称</label><input type="text" id="Tb2Entity.nullEntityNm" name="Tb2Entity.nullEntityNm" maxlength="20" />
-        </div>
-        <div id="nullEntityMei">
-          <label for="Tb2Entity.nullEntityMei" th:text="#{Tb2Entity.nullEntityMei}">任意エンティティ名</label><input type="text" id="Tb2Entity.nullEntityMei" name="Tb2Entity.nullEntityMei" maxlength="60" />
-        </div>
-        <div id="nullCheckF">
-          <fieldset id="Tb2Entity.nullCheckFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:NULL_CHECK_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Entity.nullCheckF}">任意チェックフラグ</legend>
+        <div id="tsukaKb">
+          <fieldset id="Tb2Entity.tsukaKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TSUKA_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Entity.tsukaKb}">通貨区分</legend>
           </fieldset>
         </div>
-        <div id="nullRadioKb">
-          <fieldset id="Tb2Entity.nullRadioKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:NULL_RADIO_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Entity.nullRadioKb}">任意ラジオ区分</legend>
-          </fieldset>
-        </div>
-        <div id="nullPulldownKb">
-          <fieldset id="Tb2Entity.nullPulldownKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:NULL_PULLDOWN_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Entity.nullPulldownKb}">任意プルダウン区分</legend>
-          </fieldset>
-        </div>
-        <div id="nullMemoTx">
-          <label for="Tb2Entity.nullMemoTx" th:text="#{Tb2Entity.nullMemoTx}">任意メモ</label><input type="text" id="Tb2Entity.nullMemoTx" name="Tb2Entity.nullMemoTx" maxlength="800" />
-        </div>
-        <div id="nullNenY">
-          <label for="Tb2Entity.nullNenY_1" th:text="#{Tb2Entity.nullNenY}">任意年</label><input type="text" id="Tb2Entity.nullNenY_1" name="Tb2Entity.nullNenY_1" maxlength="4" />～<input type="text" id="Tb2Entity.nullNenY_2" name="Tb2Entity.nullNenY_2" maxlength="4" />
-        </div>
-        <div id="nullTsukiM">
-          <label for="Tb2Entity.nullTsukiM_1" th:text="#{Tb2Entity.nullTsukiM}">任意月</label><input type="text" id="Tb2Entity.nullTsukiM_1" name="Tb2Entity.nullTsukiM_1" maxlength="2" />～<input type="text" id="Tb2Entity.nullTsukiM_2" name="Tb2Entity.nullTsukiM_2" maxlength="2" />
-        </div>
-        <div id="nullHiD">
-          <label for="Tb2Entity.nullHiD_1" th:text="#{Tb2Entity.nullHiD}">任意日</label><input type="text" id="Tb2Entity.nullHiD_1" name="Tb2Entity.nullHiD_1" maxlength="2" />～<input type="text" id="Tb2Entity.nullHiD_2" name="Tb2Entity.nullHiD_2" maxlength="2" />
-        </div>
-        <div id="nullNengetsuYm">
-          <label for="Tb2Entity.nullNengetsuYm_1" th:text="#{Tb2Entity.nullNengetsuYm}">任意年月</label><input type="month" id="Tb2Entity.nullNengetsuYm_1" name="Tb2Entity.nullNengetsuYm_1" maxlength="6" />～<input type="month" id="Tb2Entity.nullNengetsuYm_2" name="Tb2Entity.nullNengetsuYm_2" maxlength="6" />
-        </div>
-        <div id="nullNengappiYmd">
-          <label for="Tb2Entity.nullNengappiYmd_1" th:text="#{Tb2Entity.nullNengappiYmd}">任意年月日</label><input type="text" id="Tb2Entity.nullNengappiYmd_1" name="Tb2Entity.nullNengappiYmd_1" maxlength="8" class=" datepicker" data-format="yymmdd" />～<input type="text" id="Tb2Entity.nullNengappiYmd_2" name="Tb2Entity.nullNengappiYmd_2" maxlength="8" class=" datepicker" data-format="yymmdd" />
-        </div>
-        <div id="nullTimestampTs">
-          <label for="Tb2Entity.nullTimestampTs_1" th:text="#{Tb2Entity.nullTimestampTs}">任意タイムスタンプ</label><input type="text" id="Tb2Entity.nullTimestampTs_1" name="Tb2Entity.nullTimestampTs_1" maxlength="23" />～<input type="text" id="Tb2Entity.nullTimestampTs_2" name="Tb2Entity.nullTimestampTs_2" maxlength="23" />
-        </div>
-        <div id="nullNichijiDt">
-          <label for="Tb2Entity.nullNichijiDt_1" th:text="#{Tb2Entity.nullNichijiDt}">任意日時</label><input type="datetime-local" id="Tb2Entity.nullNichijiDt_1" name="Tb2Entity.nullNichijiDt_1" maxlength="19" />～<input type="datetime-local" id="Tb2Entity.nullNichijiDt_2" name="Tb2Entity.nullNichijiDt_2" maxlength="19" />
-        </div>
-        <div id="nullHidukeBi">
-          <label for="Tb2Entity.nullHidukeBi_1" th:text="#{Tb2Entity.nullHidukeBi}">任意日付</label><input type="text" id="Tb2Entity.nullHidukeBi_1" name="Tb2Entity.nullHidukeBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="Tb2Entity.nullHidukeBi_2" name="Tb2Entity.nullHidukeBi_2" maxlength="10" class=" datepicker" />
-        </div>
-        <div id="nullJikokuHm">
-          <label for="Tb2Entity.nullJikokuHm_1" th:text="#{Tb2Entity.nullJikokuHm}">任意時刻</label><input type="time" id="Tb2Entity.nullJikokuHm_1" name="Tb2Entity.nullJikokuHm_1" maxlength="5" />～<input type="time" id="Tb2Entity.nullJikokuHm_2" name="Tb2Entity.nullJikokuHm_2" maxlength="5" />
-        </div>
-        <div id="nullJikanTm">
-          <label for="Tb2Entity.nullJikanTm_1" th:text="#{Tb2Entity.nullJikanTm}">任意時間</label><input type="text" id="Tb2Entity.nullJikanTm_1" name="Tb2Entity.nullJikanTm_1" maxlength="9" />～<input type="text" id="Tb2Entity.nullJikanTm_2" name="Tb2Entity.nullJikanTm_2" maxlength="9" />
-        </div>
-        <div id="nullSuryoQt">
-          <label for="Tb2Entity.nullSuryoQt_1" th:text="#{Tb2Entity.nullSuryoQt}">任意数量</label><input type="text" id="Tb2Entity.nullSuryoQt_1" name="Tb2Entity.nullSuryoQt_1" maxlength="9" />～<input type="text" id="Tb2Entity.nullSuryoQt_2" name="Tb2Entity.nullSuryoQt_2" maxlength="9" />
-        </div>
-        <div id="nullTankaKg">
-          <label for="Tb2Entity.nullTankaKg_1" th:text="#{Tb2Entity.nullTankaKg}">任意単価</label><input type="text" id="Tb2Entity.nullTankaKg_1" name="Tb2Entity.nullTankaKg_1" maxlength="11" />～<input type="text" id="Tb2Entity.nullTankaKg_2" name="Tb2Entity.nullTankaKg_2" maxlength="11" />
-        </div>
-        <div id="nullZeinukiKg">
-          <label for="Tb2Entity.nullZeinukiKg_1" th:text="#{Tb2Entity.nullZeinukiKg}">任意税抜金額</label><input type="text" id="Tb2Entity.nullZeinukiKg_1" name="Tb2Entity.nullZeinukiKg_1" maxlength="11" />～<input type="text" id="Tb2Entity.nullZeinukiKg_2" name="Tb2Entity.nullZeinukiKg_2" maxlength="11" />
+        <div id="zeinukiAm">
+          <label for="Tb2Entity.zeinukiAm" th:text="#{Tb2Entity.zeinukiAm}">税抜金額</label><input type="text" id="Tb2Entity.zeinukiAm" name="Tb2Entity.zeinukiAm" maxlength="11" />
         </div>
         <div id="deleteF">
           <fieldset id="Tb2Entity.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">

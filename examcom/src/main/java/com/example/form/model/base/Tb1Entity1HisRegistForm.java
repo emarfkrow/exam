@@ -146,7 +146,7 @@ public class Tb1Entity1HisRegistForm implements IForm {
     }
 
     /** 参照２CD */
-    @jakarta.validation.constraints.Size(max = 6)
+    @jakarta.validation.constraints.Size(max = 10)
     private String sansho2Cd;
 
     /**

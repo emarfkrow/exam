@@ -69,6 +69,8 @@
       <div class="buttons">
         <button type="button" id="ResetMhrNinkaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrNinka&quot;]').click();">reset</button>
         <a th:href="@{MhrNinkaSearch.xlsx(baseMei=#{MhrNinkaS.h2})}" id="MhrNinkaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="MhrNinkaGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="MhrNinkaGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMhrNinkaS" class="delete selectRows" data-action="MhrNinkaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMhrNinkaS" class="permit selectRows" data-action="MhrNinkaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMhrNinkaS" class="forbid selectRows" data-action="MhrNinkaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

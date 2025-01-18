@@ -5,7 +5,10 @@ SELECT
     , TRIM(TRAILING ' ' FROM a.`CHECK_F`) AS CHECK_F
     , a.`RADIO_KB`
     , a.`PULLDOWN_KB`
+    , a.`PULLDOWN_SB`
     , a.`MEMO_TX`
+    , a.`MEMO`
+    , a.`FILE_PATH`
     , TRIM(TRAILING ' ' FROM a.`NEN_Y`) AS NEN_Y
     , TRIM(TRAILING ' ' FROM a.`TSUKI_M`) AS TSUKI_M
     , TRIM(TRAILING ' ' FROM a.`HI_D`) AS HI_D
@@ -17,8 +20,17 @@ SELECT
     , a.`JIKOKU_HM`
     , a.`JIKAN_TM`
     , a.`SURYO_QT`
-    , a.`TANKA_KG`
-    , a.`ZEINUKI_KG`
+    , a.`TANKA_PR`
+    , a.`TSUKA_KB`
+    , a.`ZEINUKI_AM`
+    , a.`INSERT_TS` AS INSERT_TS
+    , a.`INSERT_USER_ID`
+    , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
+    , a.`UPDATE_TS` AS UPDATE_TS
+    , a.`UPDATE_USER_ID`
+    , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
 FROM
     VB2_ENTITY a 
 WHERE
@@ -29,7 +41,10 @@ WHERE
     AND CASE WHEN TRIM (a.`CHECK_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`CHECK_F`) END IN (:check_f) 
     AND TRIM (a.`RADIO_KB`) IN (:radio_kb) 
     AND TRIM (a.`PULLDOWN_KB`) IN (:pulldown_kb) 
+    AND TRIM(TRAILING ' ' FROM a.`PULLDOWN_SB`) LIKE CONCAT ('%', :pulldown_sb, '%') 
     AND TRIM(TRAILING ' ' FROM a.`MEMO_TX`) LIKE CONCAT ('%', :memo_tx, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`FILE_PATH`) LIKE CONCAT ('%', :file_path, '%') 
     AND TRIM(TRAILING ' ' FROM a.`NEN_Y`) LIKE CONCAT ('%', :nen_y, '%') 
     AND a.`NEN_Y` >= :nen_y_1 
     AND a.`NEN_Y` <= :nen_y_2 
@@ -63,12 +78,19 @@ WHERE
     AND a.`SURYO_QT` = :suryo_qt 
     AND a.`SURYO_QT` >= :suryo_qt_1 
     AND a.`SURYO_QT` <= :suryo_qt_2 
-    AND a.`TANKA_KG` = :tanka_kg 
-    AND a.`TANKA_KG` >= :tanka_kg_1 
-    AND a.`TANKA_KG` <= :tanka_kg_2 
-    AND a.`ZEINUKI_KG` = :zeinuki_kg 
-    AND a.`ZEINUKI_KG` >= :zeinuki_kg_1 
-    AND a.`ZEINUKI_KG` <= :zeinuki_kg_2 
+    AND a.`TANKA_PR` = :tanka_pr 
+    AND TRIM (a.`TSUKA_KB`) IN (:tsuka_kb) 
+    AND a.`ZEINUKI_AM` = :zeinuki_am 
+    AND a.`INSERT_TS` = :insert_ts 
+    AND a.`INSERT_TS` >= :insert_ts_1 
+    AND a.`INSERT_TS` <= :insert_ts_2 
+    AND a.`INSERT_USER_ID` = :insert_user_id 
+    AND a.`UPDATE_TS` = :update_ts 
+    AND a.`UPDATE_TS` >= :update_ts_1 
+    AND a.`UPDATE_TS` <= :update_ts_2 
+    AND a.`UPDATE_USER_ID` = :update_user_id 
+    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     1
     , 2
@@ -90,3 +112,13 @@ ORDER BY
     , 18
     , 19
     , 20
+    , 21
+    , 22
+    , 23
+    , 24
+    , 25
+    , 26
+    , 27
+    , 28
+    , 29
+    , 30

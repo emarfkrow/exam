@@ -20,7 +20,7 @@ public class Mb1Sansho2RegistForm implements IForm {
 
     /** 参照２CD */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 6)
+    @jakarta.validation.constraints.Size(max = 10)
     private String sansho2Cd;
 
     /**

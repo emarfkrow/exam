@@ -144,6 +144,24 @@ public class Vb2Entity implements IEntity {
         }
     }
 
+    /** プルダウン種別 */
+    private String pulldownSb;
+
+    /** @return プルダウン種別 */
+    @com.fasterxml.jackson.annotation.JsonProperty("PULLDOWN_SB")
+    public String getPulldownSb() {
+        return this.pulldownSb;
+    }
+
+    /** @param o プルダウン種別 */
+    public void setPulldownSb(final Object o) {
+        if (o != null) {
+            this.pulldownSb = o.toString();
+        } else {
+            this.pulldownSb = null;
+        }
+    }
+
     /** メモ */
     private String memoTx;
 
@@ -159,6 +177,42 @@ public class Vb2Entity implements IEntity {
             this.memoTx = o.toString();
         } else {
             this.memoTx = null;
+        }
+    }
+
+    /** １行メモ */
+    private String memo;
+
+    /** @return １行メモ */
+    @com.fasterxml.jackson.annotation.JsonProperty("MEMO")
+    public String getMemo() {
+        return this.memo;
+    }
+
+    /** @param o １行メモ */
+    public void setMemo(final Object o) {
+        if (o != null) {
+            this.memo = o.toString();
+        } else {
+            this.memo = null;
+        }
+    }
+
+    /** ファイルパス */
+    private String filePath;
+
+    /** @return ファイルパス */
+    @com.fasterxml.jackson.annotation.JsonProperty("FILE_PATH")
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    /** @param o ファイルパス */
+    public void setFilePath(final Object o) {
+        if (o != null) {
+            this.filePath = o.toString();
+        } else {
+            this.filePath = null;
         }
     }
 
@@ -382,38 +436,218 @@ public class Vb2Entity implements IEntity {
     }
 
     /** 単価 */
-    private java.math.BigDecimal tankaKg;
+    private java.math.BigDecimal tankaPr;
 
     /** @return 単価 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TANKA_KG")
-    public java.math.BigDecimal getTankaKg() {
-        return this.tankaKg;
+    @com.fasterxml.jackson.annotation.JsonProperty("TANKA_PR")
+    public java.math.BigDecimal getTankaPr() {
+        return this.tankaPr;
     }
 
     /** @param o 単価 */
-    public void setTankaKg(final Object o) {
+    public void setTankaPr(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.tankaKg = new java.math.BigDecimal(o.toString());
+            this.tankaPr = new java.math.BigDecimal(o.toString());
         } else {
-            this.tankaKg = null;
+            this.tankaPr = null;
+        }
+    }
+
+    /** 通貨区分 */
+    private String tsukaKb;
+
+    /** @return 通貨区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TSUKA_KB")
+    public String getTsukaKb() {
+        return this.tsukaKb;
+    }
+
+    /** @param o 通貨区分 */
+    public void setTsukaKb(final Object o) {
+        if (o != null) {
+            this.tsukaKb = o.toString();
+        } else {
+            this.tsukaKb = null;
         }
     }
 
     /** 税抜金額 */
-    private java.math.BigDecimal zeinukiKg;
+    private java.math.BigDecimal zeinukiAm;
 
     /** @return 税抜金額 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ZEINUKI_KG")
-    public java.math.BigDecimal getZeinukiKg() {
-        return this.zeinukiKg;
+    @com.fasterxml.jackson.annotation.JsonProperty("ZEINUKI_AM")
+    public java.math.BigDecimal getZeinukiAm() {
+        return this.zeinukiAm;
     }
 
     /** @param o 税抜金額 */
-    public void setZeinukiKg(final Object o) {
+    public void setZeinukiAm(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.zeinukiKg = new java.math.BigDecimal(o.toString());
+            this.zeinukiAm = new java.math.BigDecimal(o.toString());
         } else {
-            this.zeinukiKg = null;
+            this.zeinukiAm = null;
+        }
+    }
+
+    /** 作成タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime insertTs;
+
+    /** @return 作成タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    public java.time.LocalDateTime getInsertTs() {
+        return this.insertTs;
+    }
+
+    /** @param o 作成タイムスタンプ */
+    public void setInsertTs(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
+        } else {
+            this.insertTs = null;
+        }
+    }
+
+    /** 作成者 */
+    private Integer insertUserId;
+
+    /** @return 作成者 */
+    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    public Integer getInsertUserId() {
+        return this.insertUserId;
+    }
+
+    /** @param o 作成者 */
+    public void setInsertUserId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.insertUserId = Integer.valueOf(o.toString());
+        } else {
+            this.insertUserId = null;
+        }
+    }
+
+    /** 作成者参照 */
+    private String `insertUserSei`;
+
+    /** @return 作成者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
+    public String get`insertUserSei`() {
+        return this.`insertUserSei`;
+    }
+
+    /** @param o 作成者参照 */
+    public void set`insertUserSei`(final Object o) {
+        if (o != null) {
+            this.`insertUserSei` = o.toString();
+        } else {
+            this.`insertUserSei` = null;
+        }
+    }
+
+    /** 更新タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    private java.time.LocalDateTime updateTs;
+
+    /** @return 更新タイムスタンプ */
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    public java.time.LocalDateTime getUpdateTs() {
+        return this.updateTs;
+    }
+
+    /** @param o 更新タイムスタンプ */
+    public void setUpdateTs(final Object o) {
+        if (o != null && o instanceof Long) {
+            java.util.Date d = new java.util.Date((Long) o);
+            this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (o != null && o.toString().matches("^[0-9]+")) {
+            java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
+            this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
+        } else {
+            this.updateTs = null;
+        }
+    }
+
+    /** 更新者 */
+    private Integer updateUserId;
+
+    /** @return 更新者 */
+    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    public Integer getUpdateUserId() {
+        return this.updateUserId;
+    }
+
+    /** @param o 更新者 */
+    public void setUpdateUserId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.updateUserId = Integer.valueOf(o.toString());
+        } else {
+            this.updateUserId = null;
+        }
+    }
+
+    /** 更新者参照 */
+    private String `updateUserSei`;
+
+    /** @return 更新者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
+    public String get`updateUserSei`() {
+        return this.`updateUserSei`;
+    }
+
+    /** @param o 更新者参照 */
+    public void set`updateUserSei`(final Object o) {
+        if (o != null) {
+            this.`updateUserSei` = o.toString();
+        } else {
+            this.`updateUserSei` = null;
+        }
+    }
+
+    /** 削除フラグ */
+    private String deleteF = "0";
+
+    /** @return 削除フラグ */
+    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
+    public String getDeleteF() {
+        return this.deleteF;
+    }
+
+    /** @param o 削除フラグ */
+    public void setDeleteF(final Object o) {
+        if (o != null) {
+            this.deleteF = o.toString();
+        } else {
+            this.deleteF = null;
+        }
+    }
+
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
         }
     }
 
@@ -429,7 +663,10 @@ public class Vb2Entity implements IEntity {
         whereList.add("TRIM (`CHECK_F`) = TRIM (:check_f)");
         whereList.add("`RADIO_KB` = :radio_kb");
         whereList.add("`PULLDOWN_KB` = :pulldown_kb");
+        whereList.add("`PULLDOWN_SB` = :pulldown_sb");
         whereList.add("`MEMO_TX` = :memo_tx");
+        whereList.add("`MEMO` = :memo");
+        whereList.add("`FILE_PATH` = :file_path");
         whereList.add("TRIM (`NEN_Y`) = TRIM (:nen_y)");
         whereList.add("TRIM (`TSUKI_M`) = TRIM (:tsuki_m)");
         whereList.add("TRIM (`HI_D`) = TRIM (:hi_d)");
@@ -441,8 +678,15 @@ public class Vb2Entity implements IEntity {
         whereList.add("`JIKOKU_HM` = :jikoku_hm");
         whereList.add("`JIKAN_TM` = :jikan_tm");
         whereList.add("`SURYO_QT` = :suryo_qt");
-        whereList.add("`TANKA_KG` = :tanka_kg");
-        whereList.add("`ZEINUKI_KG` = :zeinuki_kg");
+        whereList.add("`TANKA_PR` = :tanka_pr");
+        whereList.add("`TSUKA_KB` = :tsuka_kb");
+        whereList.add("`ZEINUKI_AM` = :zeinuki_am");
+        whereList.add("`INSERT_TS` = :insert_ts");
+        whereList.add("`INSERT_USER_ID` = :insert_user_id");
+        whereList.add("`UPDATE_TS` = :update_ts");
+        whereList.add("`UPDATE_USER_ID` = :update_user_id");
+        whereList.add("TRIM (`DELETE_F`) = TRIM (:delete_f)");
+        whereList.add("`STATUS_KB` = :status_kb");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`ENTITY_ID` \n";
@@ -451,7 +695,10 @@ public class Vb2Entity implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`CHECK_F`) AS CHECK_F \n";
         sql += "    , a.`RADIO_KB` \n";
         sql += "    , a.`PULLDOWN_KB` \n";
+        sql += "    , a.`PULLDOWN_SB` \n";
         sql += "    , a.`MEMO_TX` \n";
+        sql += "    , a.`MEMO` \n";
+        sql += "    , a.`FILE_PATH` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`NEN_Y`) AS NEN_Y \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`TSUKI_M`) AS TSUKI_M \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`HI_D`) AS HI_D \n";
@@ -463,8 +710,15 @@ public class Vb2Entity implements IEntity {
         sql += "    , a.`JIKOKU_HM` \n";
         sql += "    , a.`JIKAN_TM` \n";
         sql += "    , a.`SURYO_QT` \n";
-        sql += "    , a.`TANKA_KG` \n";
-        sql += "    , a.`ZEINUKI_KG` \n";
+        sql += "    , a.`TANKA_PR` \n";
+        sql += "    , a.`TSUKA_KB` \n";
+        sql += "    , a.`ZEINUKI_AM` \n";
+        sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
+        sql += "    , a.`INSERT_USER_ID` \n";
+        sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
+        sql += "    , a.`UPDATE_USER_ID` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    VB2_ENTITY a \n";
         sql += "WHERE \n";
@@ -495,7 +749,10 @@ public class Vb2Entity implements IEntity {
         nameList.add("`CHECK_F` -- :check_f");
         nameList.add("`RADIO_KB` -- :radio_kb");
         nameList.add("`PULLDOWN_KB` -- :pulldown_kb");
+        nameList.add("`PULLDOWN_SB` -- :pulldown_sb");
         nameList.add("`MEMO_TX` -- :memo_tx");
+        nameList.add("`MEMO` -- :memo");
+        nameList.add("`FILE_PATH` -- :file_path");
         nameList.add("`NEN_Y` -- :nen_y");
         nameList.add("`TSUKI_M` -- :tsuki_m");
         nameList.add("`HI_D` -- :hi_d");
@@ -507,8 +764,15 @@ public class Vb2Entity implements IEntity {
         nameList.add("`JIKOKU_HM` -- :jikoku_hm");
         nameList.add("`JIKAN_TM` -- :jikan_tm");
         nameList.add("`SURYO_QT` -- :suryo_qt");
-        nameList.add("`TANKA_KG` -- :tanka_kg");
-        nameList.add("`ZEINUKI_KG` -- :zeinuki_kg");
+        nameList.add("`TANKA_PR` -- :tanka_pr");
+        nameList.add("`TSUKA_KB` -- :tsuka_kb");
+        nameList.add("`ZEINUKI_AM` -- :zeinuki_am");
+        nameList.add("`INSERT_TS` -- :insert_ts");
+        nameList.add("`INSERT_USER_ID` -- :insert_user_id");
+        nameList.add("`UPDATE_TS` -- :update_ts");
+        nameList.add("`UPDATE_USER_ID` -- :update_user_id");
+        nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -521,7 +785,10 @@ public class Vb2Entity implements IEntity {
         valueList.add(":check_f");
         valueList.add(":radio_kb");
         valueList.add(":pulldown_kb");
+        valueList.add(":pulldown_sb");
         valueList.add(":memo_tx");
+        valueList.add(":memo");
+        valueList.add(":file_path");
         valueList.add(":nen_y");
         valueList.add(":tsuki_m");
         valueList.add(":hi_d");
@@ -533,8 +800,15 @@ public class Vb2Entity implements IEntity {
         valueList.add(":jikoku_hm");
         valueList.add(":jikan_tm");
         valueList.add(":suryo_qt");
-        valueList.add(":tanka_kg");
-        valueList.add(":zeinuki_kg");
+        valueList.add(":tanka_pr");
+        valueList.add(":tsuka_kb");
+        valueList.add(":zeinuki_am");
+        valueList.add(":insert_ts");
+        valueList.add(":insert_user_id");
+        valueList.add(":update_ts");
+        valueList.add(":update_user_id");
+        valueList.add(":delete_f");
+        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -560,7 +834,10 @@ public class Vb2Entity implements IEntity {
         setList.add("`CHECK_F` = :check_f");
         setList.add("`RADIO_KB` = :radio_kb");
         setList.add("`PULLDOWN_KB` = :pulldown_kb");
+        setList.add("`PULLDOWN_SB` = :pulldown_sb");
         setList.add("`MEMO_TX` = :memo_tx");
+        setList.add("`MEMO` = :memo");
+        setList.add("`FILE_PATH` = :file_path");
         setList.add("`NEN_Y` = :nen_y");
         setList.add("`TSUKI_M` = :tsuki_m");
         setList.add("`HI_D` = :hi_d");
@@ -572,8 +849,13 @@ public class Vb2Entity implements IEntity {
         setList.add("`JIKOKU_HM` = :jikoku_hm");
         setList.add("`JIKAN_TM` = :jikan_tm");
         setList.add("`SURYO_QT` = :suryo_qt");
-        setList.add("`TANKA_KG` = :tanka_kg");
-        setList.add("`ZEINUKI_KG` = :zeinuki_kg");
+        setList.add("`TANKA_PR` = :tanka_pr");
+        setList.add("`TSUKA_KB` = :tsuka_kb");
+        setList.add("`ZEINUKI_AM` = :zeinuki_am");
+        setList.add("`UPDATE_TS` = :update_ts");
+        setList.add("`UPDATE_USER_ID` = :update_user_id");
+        setList.add("`DELETE_F` = :delete_f");
+        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -582,6 +864,13 @@ public class Vb2Entity implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        Vb2Entity vb2Entity = Vb2Entity.get();
+        try {
+            java.nio.file.Files.delete(java.nio.file.Paths.get(vb2Entity.filePath));
+        } catch (Exception e) {
+            throw new jp.co.golorp.emarf.exception.SysError(e);
+        }
 
         // VIEWの削除
         String sql = "DELETE FROM VB2_ENTITY WHERE " + getWhere();
@@ -607,7 +896,10 @@ public class Vb2Entity implements IEntity {
         map.put("check_f", this.checkF);
         map.put("radio_kb", this.radioKb);
         map.put("pulldown_kb", this.pulldownKb);
+        map.put("pulldown_sb", this.pulldownSb);
         map.put("memo_tx", this.memoTx);
+        map.put("memo", this.memo);
+        map.put("file_path", this.filePath);
         map.put("nen_y", this.nenY);
         map.put("tsuki_m", this.tsukiM);
         map.put("hi_d", this.hiD);
@@ -619,8 +911,11 @@ public class Vb2Entity implements IEntity {
         map.put("jikoku_hm", this.jikokuHm);
         map.put("jikan_tm", this.jikanTm);
         map.put("suryo_qt", this.suryoQt);
-        map.put("tanka_kg", this.tankaKg);
-        map.put("zeinuki_kg", this.zeinukiKg);
+        map.put("tanka_pr", this.tankaPr);
+        map.put("tsuka_kb", this.tsukaKb);
+        map.put("zeinuki_am", this.zeinukiAm);
+        map.put("delete_f", this.deleteF);
+        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

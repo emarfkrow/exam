@@ -131,9 +131,28 @@ public class Tb2EntityRegistForm implements IForm {
         this.pulldownKb = p;
     }
 
+    /** プルダウン種別 */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 2)
+    private String pulldownSb;
+
+    /**
+     * @return プルダウン種別
+     */
+    public String getPulldownSb() {
+        return pulldownSb;
+    }
+
+    /**
+     * @param p プルダウン種別
+     */
+    public void setPulldownSb(final String p) {
+        this.pulldownSb = p;
+    }
+
     /** メモ */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 800)
+    @jakarta.validation.constraints.Size(max = 300)
     private String memoTx;
 
     /**
@@ -148,6 +167,44 @@ public class Tb2EntityRegistForm implements IForm {
      */
     public void setMemoTx(final String p) {
         this.memoTx = p;
+    }
+
+    /** １行メモ */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 300)
+    private String memo;
+
+    /**
+     * @return １行メモ
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * @param p １行メモ
+     */
+    public void setMemo(final String p) {
+        this.memo = p;
+    }
+
+    /** ファイルパス */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 300)
+    private String filePath;
+
+    /**
+     * @return ファイルパス
+     */
+    public String getFilePath() {
+        return filePath;
+    }
+
+    /**
+     * @param p ファイルパス
+     */
+    public void setFilePath(final String p) {
+        this.filePath = p;
     }
 
     /** 年 */
@@ -342,7 +399,7 @@ public class Tb2EntityRegistForm implements IForm {
 
     /** 数量 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,7}\\.?[0-9]{0,2}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String suryoQt;
 
     /**
@@ -361,401 +418,59 @@ public class Tb2EntityRegistForm implements IForm {
 
     /** 単価 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String tankaKg;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    private String tankaPr;
 
     /**
      * @return 単価
      */
-    public String getTankaKg() {
-        return tankaKg;
+    public String getTankaPr() {
+        return tankaPr;
     }
 
     /**
      * @param p 単価
      */
-    public void setTankaKg(final String p) {
-        this.tankaKg = p;
+    public void setTankaPr(final String p) {
+        this.tankaPr = p;
+    }
+
+    /** 通貨区分 */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Size(max = 2)
+    private String tsukaKb;
+
+    /**
+     * @return 通貨区分
+     */
+    public String getTsukaKb() {
+        return tsukaKb;
+    }
+
+    /**
+     * @param p 通貨区分
+     */
+    public void setTsukaKb(final String p) {
+        this.tsukaKb = p;
     }
 
     /** 税抜金額 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String zeinukiKg;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    private String zeinukiAm;
 
     /**
      * @return 税抜金額
      */
-    public String getZeinukiKg() {
-        return zeinukiKg;
+    public String getZeinukiAm() {
+        return zeinukiAm;
     }
 
     /**
      * @param p 税抜金額
      */
-    public void setZeinukiKg(final String p) {
-        this.zeinukiKg = p;
-    }
-
-    /** ファイルパス */
-    @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 800)
-    private String filePath;
-
-    /**
-     * @return ファイルパス
-     */
-    public String getFilePath() {
-        return filePath;
-    }
-
-    /**
-     * @param p ファイルパス
-     */
-    public void setFilePath(final String p) {
-        this.filePath = p;
-    }
-
-    /** 任意エンティティ名称 */
-    @jakarta.validation.constraints.Size(max = 20)
-    private String nullEntityNm;
-
-    /**
-     * @return 任意エンティティ名称
-     */
-    public String getNullEntityNm() {
-        return nullEntityNm;
-    }
-
-    /**
-     * @param p 任意エンティティ名称
-     */
-    public void setNullEntityNm(final String p) {
-        this.nullEntityNm = p;
-    }
-
-    /** 任意エンティティ名 */
-    @jakarta.validation.constraints.Size(max = 60)
-    private String nullEntityMei;
-
-    /**
-     * @return 任意エンティティ名
-     */
-    public String getNullEntityMei() {
-        return nullEntityMei;
-    }
-
-    /**
-     * @param p 任意エンティティ名
-     */
-    public void setNullEntityMei(final String p) {
-        this.nullEntityMei = p;
-    }
-
-    /** 任意チェックフラグ */
-    @jakarta.validation.constraints.Size(max = 1)
-    private String nullCheckF;
-
-    /**
-     * @return 任意チェックフラグ
-     */
-    public String getNullCheckF() {
-        return nullCheckF;
-    }
-
-    /**
-     * @param p 任意チェックフラグ
-     */
-    public void setNullCheckF(final String p) {
-        this.nullCheckF = p;
-    }
-
-    /** 任意ラジオ区分 */
-    @jakarta.validation.constraints.Size(max = 2)
-    private String nullRadioKb;
-
-    /**
-     * @return 任意ラジオ区分
-     */
-    public String getNullRadioKb() {
-        return nullRadioKb;
-    }
-
-    /**
-     * @param p 任意ラジオ区分
-     */
-    public void setNullRadioKb(final String p) {
-        this.nullRadioKb = p;
-    }
-
-    /** 任意プルダウン区分 */
-    @jakarta.validation.constraints.Size(max = 2)
-    private String nullPulldownKb;
-
-    /**
-     * @return 任意プルダウン区分
-     */
-    public String getNullPulldownKb() {
-        return nullPulldownKb;
-    }
-
-    /**
-     * @param p 任意プルダウン区分
-     */
-    public void setNullPulldownKb(final String p) {
-        this.nullPulldownKb = p;
-    }
-
-    /** 任意メモ */
-    @jakarta.validation.constraints.Size(max = 800)
-    private String nullMemoTx;
-
-    /**
-     * @return 任意メモ
-     */
-    public String getNullMemoTx() {
-        return nullMemoTx;
-    }
-
-    /**
-     * @param p 任意メモ
-     */
-    public void setNullMemoTx(final String p) {
-        this.nullMemoTx = p;
-    }
-
-    /** 任意年 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4})?")
-    private String nullNenY;
-
-    /**
-     * @return 任意年
-     */
-    public String getNullNenY() {
-        return nullNenY;
-    }
-
-    /**
-     * @param p 任意年
-     */
-    public void setNullNenY(final String p) {
-        this.nullNenY = p;
-    }
-
-    /** 任意月 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
-    private String nullTsukiM;
-
-    /**
-     * @return 任意月
-     */
-    public String getNullTsukiM() {
-        return nullTsukiM;
-    }
-
-    /**
-     * @param p 任意月
-     */
-    public void setNullTsukiM(final String p) {
-        this.nullTsukiM = p;
-    }
-
-    /** 任意日 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
-    private String nullHiD;
-
-    /**
-     * @return 任意日
-     */
-    public String getNullHiD() {
-        return nullHiD;
-    }
-
-    /**
-     * @param p 任意日
-     */
-    public void setNullHiD(final String p) {
-        this.nullHiD = p;
-    }
-
-    /** 任意年月 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2})?")
-    private String nullNengetsuYm;
-
-    /**
-     * @return 任意年月
-     */
-    public String getNullNengetsuYm() {
-        return nullNengetsuYm;
-    }
-
-    /**
-     * @param p 任意年月
-     */
-    public void setNullNengetsuYm(final String p) {
-        this.nullNengetsuYm = p;
-    }
-
-    /** 任意年月日 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{8})?")
-    private String nullNengappiYmd;
-
-    /**
-     * @return 任意年月日
-     */
-    public String getNullNengappiYmd() {
-        return nullNengappiYmd;
-    }
-
-    /**
-     * @param p 任意年月日
-     */
-    public void setNullNengappiYmd(final String p) {
-        this.nullNengappiYmd = p;
-    }
-
-    /** 任意タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
-    private String nullTimestampTs;
-
-    /**
-     * @return 任意タイムスタンプ
-     */
-    public String getNullTimestampTs() {
-        return nullTimestampTs;
-    }
-
-    /**
-     * @param p 任意タイムスタンプ
-     */
-    public void setNullTimestampTs(final String p) {
-        this.nullTimestampTs = p;
-    }
-
-    /** 任意日時 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
-    private String nullNichijiDt;
-
-    /**
-     * @return 任意日時
-     */
-    public String getNullNichijiDt() {
-        return nullNichijiDt;
-    }
-
-    /**
-     * @param p 任意日時
-     */
-    public void setNullNichijiDt(final String p) {
-        this.nullNichijiDt = p;
-    }
-
-    /** 任意日付 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String nullHidukeBi;
-
-    /**
-     * @return 任意日付
-     */
-    public String getNullHidukeBi() {
-        return nullHidukeBi;
-    }
-
-    /**
-     * @param p 任意日付
-     */
-    public void setNullHidukeBi(final String p) {
-        this.nullHidukeBi = p;
-    }
-
-    /** 任意時刻 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,2}:[0-9]{1,2})?")
-    private String nullJikokuHm;
-
-    /**
-     * @return 任意時刻
-     */
-    public String getNullJikokuHm() {
-        return nullJikokuHm;
-    }
-
-    /**
-     * @param p 任意時刻
-     */
-    public void setNullJikokuHm(final String p) {
-        this.nullJikokuHm = p;
-    }
-
-    /** 任意時間 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,}:[0-9]{1,2})?")
-    private String nullJikanTm;
-
-    /**
-     * @return 任意時間
-     */
-    public String getNullJikanTm() {
-        return nullJikanTm;
-    }
-
-    /**
-     * @param p 任意時間
-     */
-    public void setNullJikanTm(final String p) {
-        this.nullJikanTm = p;
-    }
-
-    /** 任意数量 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,7}\\.?[0-9]{0,2}?)?")
-    private String nullSuryoQt;
-
-    /**
-     * @return 任意数量
-     */
-    public String getNullSuryoQt() {
-        return nullSuryoQt;
-    }
-
-    /**
-     * @param p 任意数量
-     */
-    public void setNullSuryoQt(final String p) {
-        this.nullSuryoQt = p;
-    }
-
-    /** 任意単価 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String nullTankaKg;
-
-    /**
-     * @return 任意単価
-     */
-    public String getNullTankaKg() {
-        return nullTankaKg;
-    }
-
-    /**
-     * @param p 任意単価
-     */
-    public void setNullTankaKg(final String p) {
-        this.nullTankaKg = p;
-    }
-
-    /** 任意税抜金額 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
-    private String nullZeinukiKg;
-
-    /**
-     * @return 任意税抜金額
-     */
-    public String getNullZeinukiKg() {
-        return nullZeinukiKg;
-    }
-
-    /**
-     * @param p 任意税抜金額
-     */
-    public void setNullZeinukiKg(final String p) {
-        this.nullZeinukiKg = p;
+    public void setZeinukiAm(final String p) {
+        this.zeinukiAm = p;
     }
 
     /** 削除フラグ */

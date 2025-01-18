@@ -2,6 +2,7 @@ SELECT
       a.`TENSEI_ID`
     , a.`TENSEI_MEI`
     , a.`SOSEN_ID`
+    , a.`MEMO`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -18,6 +19,7 @@ WHERE
     AND a.`TENSEI_ID` = :tensei_id 
     AND TRIM(TRAILING ' ' FROM a.`TENSEI_MEI`) LIKE CONCAT ('%', :tensei_mei, '%') 
     AND a.`SOSEN_ID` = :sosen_id 
+    AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

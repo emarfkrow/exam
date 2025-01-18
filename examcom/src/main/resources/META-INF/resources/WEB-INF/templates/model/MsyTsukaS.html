@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MsyTsukaS.title}">通貨マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MsyTsukaGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MsyTsukaS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="MsyTsukaSearchForm" action="MsyTsukaSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{MsyTsukaS.legend}">legend</legend>
+        <div id="tsukaKb">
+          <fieldset id="MsyTsuka.tsukaKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TSUKA_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyTsuka.tsukaKb}">通貨区分</legend>
+          </fieldset>
+        </div>
+        <div id="tekiyoBi">
+          <label for="MsyTsuka.tekiyoBi_1" th:text="#{MsyTsuka.tekiyoBi}">適用日</label><input type="text" id="MsyTsuka.tekiyoBi_1" name="MsyTsuka.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MsyTsuka.tekiyoBi_2" name="MsyTsuka.tekiyoBi_2" maxlength="10" class=" datepicker" />
+        </div>
+        <div id="tsukaRt">
+          <label for="MsyTsuka.tsukaRt" th:text="#{MsyTsuka.tsukaRt}">通貨レート</label><input type="text" id="MsyTsuka.tsukaRt" name="MsyTsuka.tsukaRt" maxlength="5" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="MsyTsuka.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyTsuka.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="MsyTsuka.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyTsuka.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMsyTsuka" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchMsyTsuka" class="search" data-gridId="MsyTsukaGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="MsyTsukaSRegistForm" action="MsyTsukaSRegist.ajax" class="regist">
+      <h3 th:text="#{MsyTsuka.h3}">h3</h3>
+      <div id="MsyTsukaGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/MsyTsuka.html}"></div>
+      <div id="MsyTsukaPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMsyTsukaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyTsuka&quot;]').click();">reset</button>
+        <a th:href="@{MsyTsukaSearch.xlsx(baseMei=#{MsyTsukaS.h2})}" id="MsyTsukaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMsyTsukaS" class="delete selectRows" data-action="MsyTsukaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTsukaS" class="permit selectRows" data-action="MsyTsukaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTsukaS" class="forbid selectRows" data-action="MsyTsukaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMsyTsukaS" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

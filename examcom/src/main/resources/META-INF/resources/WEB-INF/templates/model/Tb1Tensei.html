@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/Tb1TenseiGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1TenseiDetGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -25,6 +26,9 @@
         </div>
         <div id="sosenId">
           <label th:text="#{Tb1Tensei.sosenId}">祖先ID</label><span id="Tb1Tensei.sosenId"></span><input type="hidden" id="Tb1Tensei.sosenId" name="Tb1Tensei.sosenId" />
+        </div>
+        <div id="memo">
+          <label for="Tb1Tensei.memo" th:text="#{Tb1Tensei.memo}">メモ</label><input type="text" id="Tb1Tensei.memo" name="Tb1Tensei.memo" maxlength="300" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb1Tensei.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Tensei.insertTs"></span><input type="hidden" id="Tb1Tensei.insertTs" name="Tb1Tensei.insertTs" />
@@ -51,6 +55,10 @@
           </fieldset>
         </div>
       </fieldset>
+      <h3 th:text="#{Tb1TenseiDet.h3}">h3</h3>
+      <a th:href="@{/model/Tb1TenseiDet.html}" id="Tb1TenseiDet" target="dialog" th:text="#{Tb1TenseiDet.add}" class="addChild" tabindex="-1">転生明細</a>
+      <div id="Tb1TenseiDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1TenseiDet.html}"></div>
+        <a id="Tb1TenseiDetGrid.tenseiId" th:href="@{/model/Tb1TenseiS.html}" target="dialog" class="refer" th:text="'転生' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <div class="buttons">
         <button type="button" id="ResetTb1Tensei" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1TenseiGet.xlsx(baseMei=#{Tb1Tensei.h2})}" id="Tb1TenseiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

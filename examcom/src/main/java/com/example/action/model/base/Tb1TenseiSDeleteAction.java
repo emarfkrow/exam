@@ -42,6 +42,16 @@ public class Tb1TenseiSDeleteAction extends BaseAction {
 
             Tb1Tensei e = FormValidator.toBean(Tb1Tensei.class.getName(), gridRow);
 
+            java.util.List<com.example.entity.Tb1TenseiDet> tb1TenseiDets = e.referTb1TenseiDets();
+            if (tb1TenseiDets != null) {
+                for (com.example.entity.Tb1TenseiDet tb1TenseiDet : tb1TenseiDets) {
+
+                    if (tb1TenseiDet.delete() != 1) {
+                        throw new OptLockError("error.cant.delete");
+                    }
+                }
+            }
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

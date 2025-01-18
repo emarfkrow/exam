@@ -171,6 +171,24 @@ public class Tb1Itoko implements IEntity {
         }
     }
 
+    /** 作成者参照 */
+    private String `insertUserSei`;
+
+    /** @return 作成者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
+    public String get`insertUserSei`() {
+        return this.`insertUserSei`;
+    }
+
+    /** @param o 作成者参照 */
+    public void set`insertUserSei`(final Object o) {
+        if (o != null) {
+            this.`insertUserSei` = o.toString();
+        } else {
+            this.`insertUserSei` = null;
+        }
+    }
+
     /** 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -213,6 +231,24 @@ public class Tb1Itoko implements IEntity {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;
+        }
+    }
+
+    /** 更新者参照 */
+    private String `updateUserSei`;
+
+    /** @return 更新者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
+    public String get`updateUserSei`() {
+        return this.`updateUserSei`;
+    }
+
+    /** @param o 更新者参照 */
+    public void set`updateUserSei`(final Object o) {
+        if (o != null) {
+            this.`updateUserSei` = o.toString();
+        } else {
+            this.`updateUserSei` = null;
         }
     }
 

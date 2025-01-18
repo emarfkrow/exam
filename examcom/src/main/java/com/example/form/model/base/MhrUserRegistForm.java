@@ -76,7 +76,7 @@ public class MhrUserRegistForm implements IForm {
 
     /** メールアドレス */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 800)
+    @jakarta.validation.constraints.Size(max = 300)
     private String eMail;
 
     /**
@@ -95,7 +95,7 @@ public class MhrUserRegistForm implements IForm {
 
     /** パスワード */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 800)
+    @jakarta.validation.constraints.Size(max = 300)
     private String password;
 
     /**

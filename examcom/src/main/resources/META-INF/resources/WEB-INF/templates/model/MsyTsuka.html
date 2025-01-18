@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{MsyTsuka.title}">通貨マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/MsyTsukaGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{MsyTsuka.h2}">h2</h2>
+    <form name="MsyTsukaRegistForm" action="MsyTsukaRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{MsyTsuka.legend}">legend</legend>
+        <div id="tsukaKb">
+          <fieldset id="MsyTsuka.tsukaKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TSUKA_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" class="primaryKey">
+            <legend th:text="#{MsyTsuka.tsukaKb}">通貨区分</legend>
+          </fieldset>
+        </div>
+        <div id="tekiyoBi">
+          <label for="MsyTsuka.tekiyoBi" th:text="#{MsyTsuka.tekiyoBi}">適用日</label><input type="text" id="MsyTsuka.tekiyoBi" name="MsyTsuka.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
+        </div>
+        <div id="tsukaRt">
+          <label for="MsyTsuka.tsukaRt" th:text="#{MsyTsuka.tsukaRt}">通貨レート</label><input type="text" id="MsyTsuka.tsukaRt" name="MsyTsuka.tsukaRt" maxlength="5" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{MsyTsuka.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyTsuka.insertTs"></span><input type="hidden" id="MsyTsuka.insertTs" name="MsyTsuka.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{MsyTsuka.insertUserId}" class="meta">作成者</label><span id="MsyTsuka.insertUserId"></span><input type="hidden" id="MsyTsuka.insertUserId" name="MsyTsuka.insertUserId" />
+          <span id="MsyTsuka.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyTsuka.insertUserId" data-destDef="MsyTsuka.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{MsyTsuka.updateTs}" class="meta">更新タイムスタンプ</label><span id="MsyTsuka.updateTs"></span><input type="hidden" id="MsyTsuka.updateTs" name="MsyTsuka.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{MsyTsuka.updateUserId}" class="meta">更新者</label><span id="MsyTsuka.updateUserId"></span><input type="hidden" id="MsyTsuka.updateUserId" name="MsyTsuka.updateUserId" />
+          <span id="MsyTsuka.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyTsuka.updateUserId" data-destDef="MsyTsuka.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="MsyTsuka.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyTsuka.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="MsyTsuka.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{MsyTsuka.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="ResetMsyTsuka" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{MsyTsukaGet.xlsx(baseMei=#{MsyTsuka.h2})}" id="MsyTsukaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteMsyTsuka" class="delete" data-action="MsyTsukaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTsuka" class="permit" data-action="MsyTsukaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTsuka" class="forbid" data-action="MsyTsukaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMsyTsuka" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

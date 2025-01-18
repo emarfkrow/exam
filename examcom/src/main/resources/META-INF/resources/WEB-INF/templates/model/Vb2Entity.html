@@ -42,9 +42,18 @@
             <legend th:text="#{Vb2Entity.pulldownKb}">プルダウン区分</legend>
           </fieldset>
         </div>
+        <div id="pulldownSb">
+          <label for="Vb2Entity.pulldownSb" th:text="#{Vb2Entity.pulldownSb}">プルダウン種別</label><input type="text" id="Vb2Entity.pulldownSb" name="Vb2Entity.pulldownSb" maxlength="2" class=" notblank" />
+        </div>
         <div id="memoTx">
           <label for="Vb2Entity.memoTx" th:text="#{Vb2Entity.memoTx}">メモ</label>
           <textarea id="Vb2Entity.memoTx" name="Vb2Entity.memoTx"></textarea>
+        </div>
+        <div id="memo">
+          <label for="Vb2Entity.memo" th:text="#{Vb2Entity.memo}">１行メモ</label><input type="text" id="Vb2Entity.memo" name="Vb2Entity.memo" maxlength="300" class=" notblank" />
+        </div>
+        <div id="filePath">
+          <label for="Vb2Entity.filePath" th:text="#{Vb2Entity.filePath}">ファイルパス</label><input type="file" id="Vb2Entity.filePath" name="Vb2Entity.filePath" maxlength="300" class=" notblank" /><a id="Vb2Entity.filePath" target="blank" style="display: none;" th:text="#{common.download}">ダウンロード</a><input type="hidden" id="Vb2Entity.filePath" name="Vb2Entity.filePath" disabled />
         </div>
         <div id="nenY">
           <label for="Vb2Entity.nenY" th:text="#{Vb2Entity.nenY}">年</label><input type="text" id="Vb2Entity.nenY" name="Vb2Entity.nenY" maxlength="4" class=" notblank" />
@@ -77,13 +86,42 @@
           <label for="Vb2Entity.jikanTm" th:text="#{Vb2Entity.jikanTm}">時間</label><input type="text" id="Vb2Entity.jikanTm" name="Vb2Entity.jikanTm" maxlength="9" class=" notblank" />
         </div>
         <div id="suryoQt">
-          <label for="Vb2Entity.suryoQt" th:text="#{Vb2Entity.suryoQt}">数量</label><input type="text" id="Vb2Entity.suryoQt" name="Vb2Entity.suryoQt" maxlength="9" class=" notblank" />
+          <label for="Vb2Entity.suryoQt" th:text="#{Vb2Entity.suryoQt}">数量</label><input type="text" id="Vb2Entity.suryoQt" name="Vb2Entity.suryoQt" maxlength="11" class=" notblank" />
         </div>
-        <div id="tankaKg">
-          <label for="Vb2Entity.tankaKg" th:text="#{Vb2Entity.tankaKg}">単価</label><input type="text" id="Vb2Entity.tankaKg" name="Vb2Entity.tankaKg" maxlength="11" class=" notblank" />
+        <div id="tankaPr">
+          <label for="Vb2Entity.tankaPr" th:text="#{Vb2Entity.tankaPr}">単価</label><input type="text" id="Vb2Entity.tankaPr" name="Vb2Entity.tankaPr" maxlength="11" class=" notblank" />
         </div>
-        <div id="zeinukiKg">
-          <label for="Vb2Entity.zeinukiKg" th:text="#{Vb2Entity.zeinukiKg}">税抜金額</label><input type="text" id="Vb2Entity.zeinukiKg" name="Vb2Entity.zeinukiKg" maxlength="11" class=" notblank" />
+        <div id="tsukaKb">
+          <fieldset id="Vb2Entity.tsukaKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TSUKA_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.tsukaKb}">通貨区分</legend>
+          </fieldset>
+        </div>
+        <div id="zeinukiAm">
+          <label for="Vb2Entity.zeinukiAm" th:text="#{Vb2Entity.zeinukiAm}">税抜金額</label><input type="text" id="Vb2Entity.zeinukiAm" name="Vb2Entity.zeinukiAm" maxlength="11" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Vb2Entity.insertTs}" class="meta">作成タイムスタンプ</label><span id="Vb2Entity.insertTs"></span><input type="hidden" id="Vb2Entity.insertTs" name="Vb2Entity.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Vb2Entity.insertUserId}" class="meta">作成者</label><span id="Vb2Entity.insertUserId"></span><input type="hidden" id="Vb2Entity.insertUserId" name="Vb2Entity.insertUserId" />
+          <span id="Vb2Entity.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Vb2Entity.insertUserId" data-destDef="Vb2Entity.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Vb2Entity.updateTs}" class="meta">更新タイムスタンプ</label><span id="Vb2Entity.updateTs"></span><input type="hidden" id="Vb2Entity.updateTs" name="Vb2Entity.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Vb2Entity.updateUserId}" class="meta">更新者</label><span id="Vb2Entity.updateUserId"></span><input type="hidden" id="Vb2Entity.updateUserId" name="Vb2Entity.updateUserId" />
+          <span id="Vb2Entity.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Vb2Entity.updateUserId" data-destDef="Vb2Entity.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Vb2Entity.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Vb2Entity.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Vb2Entity.statusKb}">ステータス区分</legend>
+          </fieldset>
         </div>
       </fieldset>
       <div class="buttons">

@@ -1,6 +1,6 @@
 SELECT
       a.`SOSEN_ID`
-    , a.`BIKO`
+    , a.`MEMO`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -15,7 +15,7 @@ WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`SOSEN_ID` = :sosen_id 
-    AND TRIM(TRAILING ' ' FROM a.`BIKO`) LIKE CONCAT ('%', :biko, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

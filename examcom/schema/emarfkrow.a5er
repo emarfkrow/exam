@@ -25,6 +25,8 @@ Domain=F=@CHAR(1)
 DomainInfo="F","@CHAR(1)","フラグ・「0」か「1」","_F"
 Domain=KB=@VARCHAR(2)
 DomainInfo="KB","@VARCHAR(2)","区分・「0」～「9」か「00」～「99」","_KB"
+Domain=SB=@VARCHAR(2)
+DomainInfo="SB","@VARCHAR(2)","種別・「0」～「9」か「00」～「99」・プルダウン固定","_SB"
 Domain=TX=@VARCHAR(300)
 DomainInfo="TX","@VARCHAR(300)","備考など・全角100文字・300byte以内","_TX"
 Domain=Y=@CHAR(4)
@@ -51,6 +53,8 @@ Domain=QT=@DECIMAL(11,3)
 DomainInfo="QT","@DECIMAL(11,3)","数量・整数８桁・小数３桁","_QT"
 Domain=PR=@DECIMAL(11,2)
 DomainInfo="PR","@DECIMAL(11,2)","単価・整数９桁・小数２桁","_PR"
+Domain=RT=@DECIMAL(5,2)
+DomainInfo="RT","@DECIMAL(5,2)","率・整数３桁・小数２桁","_RT"
 Domain=AM=@DECIMAL(11,2)
 DomainInfo="AM","@DECIMAL(11,2)","金額・整数９桁・小数２桁","_AM"
 Domain=PATH=@VARCHAR(256)
@@ -78,8 +82,7 @@ ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
 GenerateDropTableStatement=1
-DropTableIfExists=0
-BackupRestoreTempTable=0
+DropTableIfExists=1
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
@@ -96,6 +99,125 @@ CreateOrder=PName
 ShowTag=1
 ShowCommonAttributes=0
 BugFixEntityWidth=0
+
+[Entity]
+PName=MSY_TAX
+LName=税マスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=2800
+Top=50
+Field="税区分","TAX_KB","*KB",,0,"","",$FFFFFFFF,""
+Field="開始日","KAISHI_BI","*BI",,1,"","",$FFFFFFFF,""
+Field="終了日","SHURYO_BI","*BI",,,"","",$FFFFFFFF,""
+Field="税率","TAX_RT","*RT",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250118132227
+Position="Main",2800,50
+ZOrder=34
+
+[Entity]
+PName=MSY_TSUKA
+LName=通貨マスタ
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=3250
+Top=50
+Field="通貨区分","TSUKA_KB","*KB",,0,"","",$FFFFFFFF,""
+Field="適用日","TEKIYO_BI","*BI",,1,"","",$FFFFFFFF,""
+Field="通貨レート","TSUKA_RT","*RT",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250118132429
+Position="Main",3250,50
+ZOrder=35
+
+[Entity]
+PName=TB1_SOSEN_DET
+LName=祖先明細
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=1150
+Top=1000
+Field="祖先ID","SOSEN_ID","*ID",,0,"","",$FFFFFFFF,""
+Field="祖先枝番","SOSEN_BN","*BN",,1,"","",$FFFFFFFF,""
+Field="メモ","MEMO","*TX",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250118134655
+Position="Main",1150,1000
+ZOrder=36
+
+[Relation]
+Entity1=TB1_SOSEN
+Entity2=TB1_SOSEN_DET
+RelationType1=1
+RelationType2=3
+Fields1=SOSEN_ID
+Fields2=SOSEN_ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3760,6240,3342,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=376
+Bar2=624
+Bar3=334
+TermPos1=R
+TermPos2=R
+ZOrder=37
+
+[Entity]
+PName=TB1_TENSEI_DET
+LName=転生明細
+Comment=
+TableInnerOption=
+TableOption=
+Page=Main
+Left=2300
+Top=1000
+Field="転生ID","TENSEI_ID","*ID",,0,"","",$FFFFFFFF,""
+Field="転生枝番","TENSEI_BN","*BN",,1,"","",$FFFFFFFF,""
+Field="メモ","MEMO","*TX",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250118134832
+Position="Main",2300,1000
+ZOrder=38
+
+[Relation]
+Entity1=TB1_TENSEI
+Entity2=TB1_TENSEI_DET
+RelationType1=1
+RelationType2=3
+Fields1=TENSEI_ID
+Fields2=TENSEI_ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3760,6240,3463,R,R,""
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=376
+Bar2=624
+Bar3=346
+TermPos1=R
+TermPos2=R
+ZOrder=39
 
 [Entity]
 PName=MHR_NINKA
@@ -481,7 +603,7 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=700
-Top=1100
+Top=1150
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="親枝番","OYA_BN","*BN","NOT NULL",1,"","",$FFFFFFFF,""
 Field="親名","OYA_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
@@ -489,7 +611,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20241217185143
-Position="MAIN",700,1100
+Position="MAIN",700,1150
 ZOrder=-42
 
 [Entity]
@@ -502,11 +624,11 @@ Page=MAIN
 Left=700
 Top=900
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
-Field="備考","BIKO","*TX",,,"","",$FFFFFFFF,""
+Field="メモ","MEMO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241226123252
+ModifiedDateTime=20250118134702
 Position="MAIN",700,900
 ZOrder=-43
 
@@ -920,7 +1042,7 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=2100
-Top=1200
+Top=1300
 Field="従妹ID","ITOKO_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="従妹名","ITOKO_MEI","*MEI",,,"","",$FFFFFFFF,""
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",,"","",$FFFFFFFF,""
@@ -930,7 +1052,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20241217185225
-Position="MAIN",2100,1200
+Position="MAIN",2100,1300
 ZOrder=21
 
 [Relation]
@@ -970,7 +1092,10 @@ Field="エンティティ名","ENTITY_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="チェックフラグ","CHECK_F","*F","NOT NULL",,"","",$FFFFFFFF,""
 Field="ラジオ区分","RADIO_KB","*KB","NOT NULL",,"","",$FFFFFFFF,""
 Field="プルダウン区分","PULLDOWN_KB","*KB","NOT NULL",,"","",$FFFFFFFF,""
+Field="プルダウン種別","PULLDOWN_SB","*SB","NOT NULL",,"","",$FFFFFFFF,""
 Field="メモ","MEMO_TX","*TX","NOT NULL",,"","",$FFFFFFFF,""
+Field="１行メモ","MEMO","*TX","NOT NULL",,"","",$FFFFFFFF,""
+Field="ファイルパス","FILE_PATH","*TX","NOT NULL",,"","",$FFFFFFFF,""
 Field="年","NEN_Y","*Y","NOT NULL",,"","",$FFFFFFFF,""
 Field="月","TSUKI_M","*M","NOT NULL",,"","",$FFFFFFFF,""
 Field="日","HI_D","*D","NOT NULL",,"","",$FFFFFFFF,""
@@ -983,31 +1108,12 @@ Field="時刻","JIKOKU_HM","*HM","NOT NULL",,"","",$FFFFFFFF,""
 Field="時間","JIKAN_TM","*TM","NOT NULL",,"","",$FFFFFFFF,""
 Field="数量","SURYO_QT","*QT","NOT NULL",,"","",$FFFFFFFF,""
 Field="単価","TANKA_PR","*PR","NOT NULL",,"","",$FFFFFFFF,""
+Field="通貨区分","TSUKA_KB","*KB","NOT NULL",,"","",$FFFFFFFF,""
 Field="税抜金額","ZEINUKI_AM","*AM","NOT NULL",,"","",$FFFFFFFF,""
-Field="ファイルパス","FILE_PATH","*TX","NOT NULL",,"","",$FFFFFFFF,""
-Field="任意エンティティ名称","NULL_ENTITY_NM","*NM",,,"","",$FFFFFFFF,""
-Field="任意エンティティ名","NULL_ENTITY_MEI","*MEI",,,"","",$FFFFFFFF,""
-Field="任意チェックフラグ","NULL_CHECK_F","*F",,,"","",$FFFFFFFF,""
-Field="任意ラジオ区分","NULL_RADIO_KB","*KB",,,"","",$FFFFFFFF,""
-Field="任意プルダウン区分","NULL_PULLDOWN_KB","*KB",,,"","",$FFFFFFFF,""
-Field="任意メモ","NULL_MEMO_TX","*TX",,,"","",$FFFFFFFF,""
-Field="任意年","NULL_NEN_Y","*Y",,,"","",$FFFFFFFF,""
-Field="任意月","NULL_TSUKI_M","*M",,,"","",$FFFFFFFF,""
-Field="任意日","NULL_HI_D","*D",,,"","",$FFFFFFFF,""
-Field="任意年月","NULL_NENGETSU_YM","*YM",,,"","",$FFFFFFFF,""
-Field="任意年月日","NULL_NENGAPPI_YMD","*YMD",,,"","",$FFFFFFFF,""
-Field="任意タイムスタンプ","NULL_TIMESTAMP_TS","*TS",,,"","",$FFFFFFFF,""
-Field="任意日時","NULL_NICHIJI_DT","*DT",,,"","",$FFFFFFFF,""
-Field="任意日付","NULL_HIDUKE_BI","*BI",,,"","",$FFFFFFFF,""
-Field="任意時刻","NULL_JIKOKU_HM","*HM",,,"","",$FFFFFFFF,""
-Field="任意時間","NULL_JIKAN_TM","*TM",,,"","",$FFFFFFFF,""
-Field="任意数量","NULL_SURYO_QT","*QT",,,"","",$FFFFFFFF,""
-Field="任意単価","NULL_TANKA_PR","*PR",,,"","",$FFFFFFFF,""
-Field="任意税抜金額","NULL_ZEINUKI_AM","*AM",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250117093557
+ModifiedDateTime=20250118134457
 Position="MAIN",2900,1400
 ZOrder=25
 
@@ -1097,7 +1203,7 @@ ZOrder=29
 PName=VB2_ENTITY
 LName=エンティティ検索
 Comment=
-Query=SELECT\n    TB2_ENTITY.ENTITY_ID\n    , TB2_ENTITY.ENTITY_NM\n    , TB2_ENTITY.ENTITY_MEI\n    , TB2_ENTITY.CHECK_F\n    , TB2_ENTITY.RADIO_KB\n    , TB2_ENTITY.PULLDOWN_KB\n    , TB2_ENTITY.MEMO_TX\n    , TB2_ENTITY.NEN_Y\n    , TB2_ENTITY.TSUKI_M\n    , TB2_ENTITY.HI_D\n    , TB2_ENTITY.NENGETSU_YM\n    , TB2_ENTITY.NENGAPPI_YMD\n    , TB2_ENTITY.TIMESTAMP_TS\n    , TB2_ENTITY.NICHIJI_DT\n    , TB2_ENTITY.HIDUKE_BI\n    , TB2_ENTITY.JIKOKU_HM\n    , TB2_ENTITY.JIKAN_TM\n    , TB2_ENTITY.SURYO_QT\n    , TB2_ENTITY.TANKA_PR\n    , TB2_ENTITY.ZEINUKI_AM \nFROM\n    TB2_ENTITY\n
+Query=SELECT\n    tb2_entity.* \nFROM\n    tb2_entity\n
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
@@ -1128,16 +1234,17 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2100
+Left=1800
 Top=900
 Field="転生ID","TENSEI_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="転生名","TENSEI_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="祖先ID","SOSEN_ID","*ID","NOT NULL",,"","",$FFFFFFFF,""
+Field="メモ","MEMO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20241226112238
-Position="MAIN",2100,900
+ModifiedDateTime=20250118134711
+Position="MAIN",1800,900
 ZOrder=32
 
 [Relation]
@@ -1149,14 +1256,14 @@ Fields1=SOSEN_ID
 Fields2=SOSEN_ID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,3403,6597,3342,R,R,""
+Position="MAIN",0,3403,6597,3159,R,R,""
 Dependence=0
 Caption=
 PName=
 LineMode=0
 Bar1=340
 Bar2=660
-Bar3=334
+Bar3=316
 TermPos1=R
 TermPos2=R
 ZOrder=33

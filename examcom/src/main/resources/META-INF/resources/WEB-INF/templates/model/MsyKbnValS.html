@@ -34,7 +34,7 @@
           <label for="MsyKbnVal.hyojiOn" th:text="#{MsyKbnVal.hyojiOn}">表示順</label><input type="text" id="MsyKbnVal.hyojiOn" name="MsyKbnVal.hyojiOn" maxlength="10" />
         </div>
         <div id="criteria">
-          <label for="MsyKbnVal.criteria" th:text="#{MsyKbnVal.criteria}">取得条件</label><input type="text" id="MsyKbnVal.criteria" name="MsyKbnVal.criteria" maxlength="800" />
+          <label for="MsyKbnVal.criteria" th:text="#{MsyKbnVal.criteria}">取得条件</label><input type="text" id="MsyKbnVal.criteria" name="MsyKbnVal.criteria" maxlength="300" />
         </div>
         <div id="deleteF">
           <fieldset id="MsyKbnVal.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -62,6 +62,7 @@
       <div class="buttons">
         <button type="button" id="ResetMsyKbnValS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbnVal&quot;]').click();">reset</button>
         <a th:href="@{MsyKbnValSearch.xlsx(baseMei=#{MsyKbnValS.h2})}" id="MsyKbnValSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="MsyKbnValGrid.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer" th:text="'区分マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMsyKbnValS" class="delete selectRows" data-action="MsyKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMsyKbnValS" class="permit selectRows" data-action="MsyKbnValSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidMsyKbnValS" class="forbid selectRows" data-action="MsyKbnValSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

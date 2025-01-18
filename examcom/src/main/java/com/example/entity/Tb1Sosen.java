@@ -54,21 +54,21 @@ public class Tb1Sosen implements IEntity {
         }
     }
 
-    /** 備考 */
-    private String biko;
+    /** メモ */
+    private String memo;
 
-    /** @return 備考 */
-    @com.fasterxml.jackson.annotation.JsonProperty("BIKO")
-    public String getBiko() {
-        return this.biko;
+    /** @return メモ */
+    @com.fasterxml.jackson.annotation.JsonProperty("MEMO")
+    public String getMemo() {
+        return this.memo;
     }
 
-    /** @param o 備考 */
-    public void setBiko(final Object o) {
+    /** @param o メモ */
+    public void setMemo(final Object o) {
         if (o != null) {
-            this.biko = o.toString();
+            this.memo = o.toString();
         } else {
-            this.biko = null;
+            this.memo = null;
         }
     }
 
@@ -117,6 +117,24 @@ public class Tb1Sosen implements IEntity {
         }
     }
 
+    /** 作成者参照 */
+    private String `insertUserSei`;
+
+    /** @return 作成者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`INSERT_USER_SEI`")
+    public String get`insertUserSei`() {
+        return this.`insertUserSei`;
+    }
+
+    /** @param o 作成者参照 */
+    public void set`insertUserSei`(final Object o) {
+        if (o != null) {
+            this.`insertUserSei` = o.toString();
+        } else {
+            this.`insertUserSei` = null;
+        }
+    }
+
     /** 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -159,6 +177,24 @@ public class Tb1Sosen implements IEntity {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;
+        }
+    }
+
+    /** 更新者参照 */
+    private String `updateUserSei`;
+
+    /** @return 更新者参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("`UPDATE_USER_SEI`")
+    public String get`updateUserSei`() {
+        return this.`updateUserSei`;
+    }
+
+    /** @param o 更新者参照 */
+    public void set`updateUserSei`(final Object o) {
+        if (o != null) {
+            this.`updateUserSei` = o.toString();
+        } else {
+            this.`updateUserSei` = null;
         }
     }
 
@@ -209,7 +245,7 @@ public class Tb1Sosen implements IEntity {
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`BIKO` \n";
+        sql += "    , a.`MEMO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -244,6 +280,18 @@ public class Tb1Sosen implements IEntity {
             }
         }
 
+        // 祖先明細の登録
+        Tb1SosenDet tb1SosenDet = new Tb1SosenDet();
+        tb1SosenDet.setSosenId(this.sosenId);
+        tb1SosenDet.setMemo(this.memo);
+        tb1SosenDet.setInsertTs(this.insertTs);
+        tb1SosenDet.setInsertUserId(this.insertUserId);
+        tb1SosenDet.setUpdateTs(this.updateTs);
+        tb1SosenDet.setUpdateUserId(this.updateUserId);
+        tb1SosenDet.setDeleteF(this.deleteF);
+        tb1SosenDet.setStatusKb(this.statusKb);
+        tb1SosenDet.insert(now, execId);
+
         // 祖先の登録
         String sql = "INSERT INTO TB1_SOSEN(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -253,7 +301,7 @@ public class Tb1Sosen implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`BIKO` -- :biko");
+        nameList.add("`MEMO` -- :memo");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -267,7 +315,7 @@ public class Tb1Sosen implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":sosen_id");
-        valueList.add(":biko");
+        valueList.add(":memo");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -312,6 +360,18 @@ public class Tb1Sosen implements IEntity {
             }
         }
 
+        // 祖先明細の登録
+        Tb1SosenDet tb1SosenDet = new Tb1SosenDet();
+        tb1SosenDet.setSosenId(this.sosenId);
+        tb1SosenDet.setMemo(this.memo);
+        tb1SosenDet.setInsertTs(this.insertTs);
+        tb1SosenDet.setInsertUserId(this.insertUserId);
+        tb1SosenDet.setUpdateTs(this.updateTs);
+        tb1SosenDet.setUpdateUserId(this.updateUserId);
+        tb1SosenDet.setDeleteF(this.deleteF);
+        tb1SosenDet.setStatusKb(this.statusKb);
+        tb1SosenDet.insert(now, execId);
+
         // 祖先の登録
         String sql = "UPDATE TB1_SOSEN\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -321,7 +381,7 @@ public class Tb1Sosen implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`BIKO` = :biko");
+        setList.add("`MEMO` = :memo");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -362,7 +422,7 @@ public class Tb1Sosen implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sosen_id", this.sosenId);
-        map.put("biko", this.biko);
+        map.put("memo", this.memo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
@@ -407,7 +467,19 @@ public class Tb1Sosen implements IEntity {
     public static List<Tb1Oya> referTb1Oyas(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("SOSEN_ID = :sosen_id");
-        String sql = "SELECT * FROM TB1_OYA WHERE " + String.join(" AND ", whereList);
+        String sql = "SELECT ";
+        sql += "SOSEN_ID";
+        sql += ", OYA_BN";
+        sql += ", OYA_MEI";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB1_OYA a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "SOSEN_ID, OYA_BN";
         Map<String, Object> map = new HashMap<String, Object>();

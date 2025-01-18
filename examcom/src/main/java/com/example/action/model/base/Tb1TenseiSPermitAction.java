@@ -43,6 +43,17 @@ public class Tb1TenseiSPermitAction extends BaseAction {
                 throw new OptLockError("error.cant.permit");
             }
 
+            java.util.List<com.example.entity.Tb1TenseiDet> tb1TenseiDets = e.referTb1TenseiDets();
+            if (tb1TenseiDets != null) {
+                for (com.example.entity.Tb1TenseiDet tb1TenseiDet : tb1TenseiDets) {
+
+                    tb1TenseiDet.setStatusKb(1);
+                    if (tb1TenseiDet.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.permit");
+                    }
+                }
+            }
+
             Tb1Tensei f = Tb1Tensei.get(tenseiId);
             f.setStatusKb(1);
             if (f.update(now, execId) != 1) {
