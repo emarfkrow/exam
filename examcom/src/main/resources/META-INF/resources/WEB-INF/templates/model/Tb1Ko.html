@@ -281,7 +281,7 @@
       <a th:href="@{/model/Tb1Shison.html}" id="Tb1Shison" target="dialog" th:text="#{Tb1Shison.add}" class="addChild" tabindex="-1">子孫</a>
       <div id="Tb1ShisonGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="4" th:data-href="@{/model/Tb1Shison.html}"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1Ko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshTb1Ko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1KoGet.xlsx(baseMei=#{Tb1Ko.h2})}" id="Tb1KoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

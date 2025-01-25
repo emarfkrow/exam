@@ -272,7 +272,9 @@ public class MsyKbn implements IEntity {
         // 区分値マスタの登録
         if (this.msyKbnVals != null) {
             for (MsyKbnVal msyKbnVal : this.msyKbnVals) {
-                msyKbnVal.setKbnNm(this.getKbnNm());
+                if (msyKbnVal != null) {
+                    msyKbnVal.setKbnNm(this.getKbnNm());
+                }
                 msyKbnVal.insert(now, execId);
             }
         }

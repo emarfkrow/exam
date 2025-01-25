@@ -115,7 +115,7 @@
       <a th:href="@{/model/Tb1Entity5.html}" id="Tb1Entity5" target="dialog" th:text="#{Tb1Entity5.add}" class="addChild" tabindex="-1">エンティティ５</a>
       <div id="Tb1Entity5Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity5.html}"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1OyaGet.xlsx(baseMei=#{Tb1Oya.h2})}" id="Tb1OyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

@@ -341,10 +341,12 @@ public class Tb1Ko implements IEntity {
         // 子孫の登録
         if (this.tb1Shisons != null) {
             for (Tb1Shison tb1Shison : this.tb1Shisons) {
-                tb1Shison.setSosenId(this.getSosenId());
-                tb1Shison.setOyaBn(this.getOyaBn());
-                tb1Shison.setEntityBn(this.getEntityBn());
-                tb1Shison.setKoBn(this.getKoBn());
+                if (tb1Shison != null) {
+                    tb1Shison.setSosenId(this.getSosenId());
+                    tb1Shison.setOyaBn(this.getOyaBn());
+                    tb1Shison.setEntityBn(this.getEntityBn());
+                    tb1Shison.setKoBn(this.getKoBn());
+                }
                 tb1Shison.insert(now, execId);
             }
         }

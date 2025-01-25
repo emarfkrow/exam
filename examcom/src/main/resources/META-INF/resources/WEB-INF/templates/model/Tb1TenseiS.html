@@ -60,6 +60,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb1TenseiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Tensei&quot;]').click();">reset</button>
         <a th:href="@{Tb1TenseiSearch.xlsx(baseMei=#{Tb1TenseiS.h2})}" id="Tb1TenseiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb1Sosen.html}" id="Tb1Sosen" target="dialog" th:text="#{Tb1Sosen.add}" class="reborn" tabindex="-1">祖先</a>
         <button id="DeleteTb1TenseiS" class="delete selectRows" data-action="Tb1TenseiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1TenseiS" class="permit selectRows" data-action="Tb1TenseiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb1TenseiS" class="forbid selectRows" data-action="Tb1TenseiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

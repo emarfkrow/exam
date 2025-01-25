@@ -16,7 +16,6 @@ FROM
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
-    AND IFNULL (a.KAISHI_BI, sysdate()) <= sysdate() 
     AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND TRIM (a.`TAX_KB`) IN (:tax_kb) 
     AND a.`KAISHI_BI` = :kaishi_bi 

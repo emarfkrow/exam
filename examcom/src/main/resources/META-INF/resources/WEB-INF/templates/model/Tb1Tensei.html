@@ -60,7 +60,7 @@
       <div id="Tb1TenseiDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1TenseiDet.html}"></div>
         <a id="Tb1TenseiDetGrid.tenseiId" th:href="@{/model/Tb1TenseiS.html}" target="dialog" class="refer" th:text="'転生' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <div class="buttons">
-        <button type="button" id="ResetTb1Tensei" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshTb1Tensei" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1TenseiGet.xlsx(baseMei=#{Tb1Tensei.h2})}" id="Tb1TenseiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

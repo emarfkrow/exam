@@ -297,8 +297,10 @@ public class Tb1Oya implements IEntity {
         // エンティティ１の登録
         if (this.tb1Entity1s != null) {
             for (Tb1Entity1 tb1Entity1 : this.tb1Entity1s) {
-                tb1Entity1.setSosenId(this.getSosenId());
-                tb1Entity1.setOyaBn(this.getOyaBn());
+                if (tb1Entity1 != null) {
+                    tb1Entity1.setSosenId(this.getSosenId());
+                    tb1Entity1.setOyaBn(this.getOyaBn());
+                }
                 tb1Entity1.insert(now, execId);
             }
         }
@@ -306,8 +308,10 @@ public class Tb1Oya implements IEntity {
         // エンティティ２の登録
         if (this.tb1Entity2s != null) {
             for (Tb1Entity2 tb1Entity2 : this.tb1Entity2s) {
-                tb1Entity2.setSosenId(this.getSosenId());
-                tb1Entity2.setOyaBn(this.getOyaBn());
+                if (tb1Entity2 != null) {
+                    tb1Entity2.setSosenId(this.getSosenId());
+                    tb1Entity2.setOyaBn(this.getOyaBn());
+                }
                 tb1Entity2.insert(now, execId);
             }
         }
@@ -315,8 +319,10 @@ public class Tb1Oya implements IEntity {
         // エンティティ３の登録
         if (this.tb1Entity3s != null) {
             for (Tb1Entity3 tb1Entity3 : this.tb1Entity3s) {
-                tb1Entity3.setSosenId(this.getSosenId());
-                tb1Entity3.setOyaBn(this.getOyaBn());
+                if (tb1Entity3 != null) {
+                    tb1Entity3.setSosenId(this.getSosenId());
+                    tb1Entity3.setOyaBn(this.getOyaBn());
+                }
                 tb1Entity3.insert(now, execId);
             }
         }
@@ -324,8 +330,10 @@ public class Tb1Oya implements IEntity {
         // エンティティ４の登録
         if (this.tb1Entity4s != null) {
             for (Tb1Entity4 tb1Entity4 : this.tb1Entity4s) {
-                tb1Entity4.setSosenId(this.getSosenId());
-                tb1Entity4.setOyaBn(this.getOyaBn());
+                if (tb1Entity4 != null) {
+                    tb1Entity4.setSosenId(this.getSosenId());
+                    tb1Entity4.setOyaBn(this.getOyaBn());
+                }
                 tb1Entity4.insert(now, execId);
             }
         }
@@ -333,8 +341,10 @@ public class Tb1Oya implements IEntity {
         // エンティティ５の登録
         if (this.tb1Entity5s != null) {
             for (Tb1Entity5 tb1Entity5 : this.tb1Entity5s) {
-                tb1Entity5.setSosenId(this.getSosenId());
-                tb1Entity5.setOyaBn(this.getOyaBn());
+                if (tb1Entity5 != null) {
+                    tb1Entity5.setSosenId(this.getSosenId());
+                    tb1Entity5.setOyaBn(this.getOyaBn());
+                }
                 tb1Entity5.insert(now, execId);
             }
         }

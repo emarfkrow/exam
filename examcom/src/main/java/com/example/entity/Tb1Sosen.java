@@ -275,7 +275,9 @@ public class Tb1Sosen implements IEntity {
         // 親の登録
         if (this.tb1Oyas != null) {
             for (Tb1Oya tb1Oya : this.tb1Oyas) {
-                tb1Oya.setSosenId(this.getSosenId());
+                if (tb1Oya != null) {
+                    tb1Oya.setSosenId(this.getSosenId());
+                }
                 tb1Oya.insert(now, execId);
             }
         }

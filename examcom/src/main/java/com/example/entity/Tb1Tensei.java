@@ -313,7 +313,9 @@ public class Tb1Tensei implements IEntity {
         // 転生明細の登録
         if (this.tb1TenseiDets != null) {
             for (Tb1TenseiDet tb1TenseiDet : this.tb1TenseiDets) {
-                tb1TenseiDet.setTenseiId(this.getTenseiId());
+                if (tb1TenseiDet != null) {
+                    tb1TenseiDet.setTenseiId(this.getTenseiId());
+                }
                 tb1TenseiDet.insert(now, execId);
             }
         }

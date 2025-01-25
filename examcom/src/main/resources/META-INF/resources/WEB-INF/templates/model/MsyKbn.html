@@ -54,7 +54,7 @@
       <div id="MsyKbnValGrid" data-selectionMode="link" data-frozenColumn="1" th:data-href="@{/model/MsyKbnVal.html}"></div>
         <a id="MsyKbnValGrid.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer" th:text="'区分マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <div class="buttons">
-        <button type="button" id="ResetMsyKbn" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshMsyKbn" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{MsyKbnGet.xlsx(baseMei=#{MsyKbn.h2})}" id="MsyKbnGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

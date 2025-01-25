@@ -195,7 +195,7 @@
       <a th:href="@{/model/Tb1TenpuFile.html}" id="Tb1TenpuFile" target="dialog" th:text="#{Tb1TenpuFile.add}" class="addChild" tabindex="-1">添付ファイル</a>
       <div id="Tb1TenpuFileGrid" data-selectionMode="link" data-frozenColumn="3" th:data-href="@{/model/Tb1TenpuFile.html}"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1Entity5" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshTb1Entity5" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1Entity5Get.xlsx(baseMei=#{Tb1Entity5.h2})}" id="Tb1Entity5Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a th:href="@{/model/Tb1Itoko.html}" id="Tb1Itoko" target="dialog" th:text="#{Tb1Itoko.add}" class="reborn" tabindex="-1">従妹</a>
       </div>

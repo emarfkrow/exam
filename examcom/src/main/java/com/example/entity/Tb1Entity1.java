@@ -471,9 +471,11 @@ public class Tb1Entity1 implements IEntity {
         // 子の登録
         if (this.tb1Kos != null) {
             for (Tb1Ko tb1Ko : this.tb1Kos) {
-                tb1Ko.setSosenId(this.getSosenId());
-                tb1Ko.setOyaBn(this.getOyaBn());
-                tb1Ko.setEntityBn(this.getEntityBn());
+                if (tb1Ko != null) {
+                    tb1Ko.setSosenId(this.getSosenId());
+                    tb1Ko.setOyaBn(this.getOyaBn());
+                    tb1Ko.setEntityBn(this.getEntityBn());
+                }
                 tb1Ko.insert(now, execId);
             }
         }
@@ -481,9 +483,11 @@ public class Tb1Entity1 implements IEntity {
         // 添付ファイルの登録
         if (this.tb1TenpuFiles != null) {
             for (Tb1TenpuFile tb1TenpuFile : this.tb1TenpuFiles) {
-                tb1TenpuFile.setSosenId(this.getSosenId());
-                tb1TenpuFile.setOyaBn(this.getOyaBn());
-                tb1TenpuFile.setEntityBn(this.getEntityBn());
+                if (tb1TenpuFile != null) {
+                    tb1TenpuFile.setSosenId(this.getSosenId());
+                    tb1TenpuFile.setOyaBn(this.getOyaBn());
+                    tb1TenpuFile.setEntityBn(this.getEntityBn());
+                }
                 tb1TenpuFile.insert(now, execId);
             }
         }

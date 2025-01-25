@@ -58,7 +58,7 @@
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" id="ResetMhrShokui" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshMhrShokui" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{MhrShokuiGet.xlsx(baseMei=#{MhrShokui.h2})}" id="MhrShokuiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

@@ -15,6 +15,7 @@ FROM
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
+    AND IFNULL (a.TEKIYO_BI, sysdate()) <= sysdate() 
     AND TRIM (a.`TSUKA_KB`) IN (:tsuka_kb) 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 

@@ -66,7 +66,7 @@
       <a th:href="@{/model/Tb1Oya.html}" id="Tb1Oya" target="dialog" th:text="#{Tb1Oya.add}" class="addChild" tabindex="-1">親</a>
       <div id="Tb1OyaGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Oya.html}"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1Sosen" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <button type="button" id="RefreshTb1Sosen" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1SosenGet.xlsx(baseMei=#{Tb1Sosen.h2})}" id="Tb1SosenGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a th:href="@{/model/Tb1Tensei.html}" id="Tb1Tensei" target="dialog" th:text="#{Tb1Tensei.add}" class="reborn" tabindex="-1">転生</a>
       </div>
