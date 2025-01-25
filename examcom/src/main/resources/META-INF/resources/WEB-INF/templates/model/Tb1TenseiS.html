@@ -55,7 +55,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb1TenseiSRegistForm" action="Tb1TenseiSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Tensei.h3}">h3</h3>
-      <div id="Tb1TenseiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb1Tensei.html}"></div>
+      <div id="Tb1TenseiGrid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb1Tensei.html}"></div>
       <div id="Tb1TenseiPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb1TenseiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Tensei&quot;]').click();">reset</button>

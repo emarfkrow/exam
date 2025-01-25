@@ -57,7 +57,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb1ItokoSRegistForm" action="Tb1ItokoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Itoko.h3}">h3</h3>
-      <div id="Tb1ItokoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb1Itoko.html}"></div>
+      <div id="Tb1ItokoGrid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb1Itoko.html}"></div>
       <div id="Tb1ItokoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb1ItokoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Itoko&quot;]').click();">reset</button>
