@@ -51,7 +51,7 @@
         <button type="reset" id="ResetMsyKbnVal" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
-        <button id="SearchMsyKbnVal" class="search" data-gridId="MsyKbnValGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMsyKbnVal" type="submit" class="search" data-gridId="MsyKbnValGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -63,12 +63,12 @@
         <button type="button" id="ResetMsyKbnValS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbnVal&quot;]').click();">reset</button>
         <a th:href="@{MsyKbnValSearch.xlsx(baseMei=#{MsyKbnValS.h2})}" id="MsyKbnValSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MsyKbnValGrid.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer" th:text="'区分マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMsyKbnValS" class="delete selectRows" data-action="MsyKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyKbnValS" class="permit selectRows" data-action="MsyKbnValSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyKbnValS" class="forbid selectRows" data-action="MsyKbnValSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMsyKbnValS" type="submit" class="delete selectRows" data-action="MsyKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyKbnValS" type="submit" class="permit selectRows" data-action="MsyKbnValSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyKbnValS" type="submit" class="forbid selectRows" data-action="MsyKbnValSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMsyKbnValS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMsyKbnValS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

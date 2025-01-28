@@ -30,11 +30,11 @@ public class MsyTaxDeleteAction extends BaseAction {
         if (taxKb == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MsyTax.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MsyTax.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             throw new OptLockError("error.cant.delete");
         }
 

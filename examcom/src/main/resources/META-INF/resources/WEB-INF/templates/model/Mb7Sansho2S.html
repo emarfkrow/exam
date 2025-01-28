@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb7Sansho2S.title}">参照２マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb7Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb7Sansho2S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Mb7Sansho2SearchForm" action="Mb7Sansho2Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Mb7Sansho2S.legend}">legend</legend>
+        <div id="sansho1Id" class="stint" style="display: none;">
+          <label th:text="#{Mb7Sansho1.sansho1Id}">参照１ID</label><span id="Mb7Sansho1.sansho1Id" class="stint"></span><input type="hidden" id="Mb7Sansho1.sansho1Id" name="Mb7Sansho1.sansho1Id" class="stint" />
+          <span id="Mb7Sansho2.sansho1Mei" class="refer" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Mb7Sansho2.sansho1Id" data-destDef="Mb7Sansho2.sansho1Mei:SANSHO1_MEI"></span>
+        </div>
+        <div id="sansho2Id">
+          <label for="Mb7Sansho2.sansho2Id" th:text="#{Mb7Sansho2.sansho2Id}">参照２ID</label><input type="text" id="Mb7Sansho2.sansho2Id" name="Mb7Sansho2.sansho2Id" maxlength="10" />
+        </div>
+        <div id="sansho2Mei">
+          <label for="Mb7Sansho2.sansho2Mei" th:text="#{Mb7Sansho2.sansho2Mei}">参照２名</label><input type="text" id="Mb7Sansho2.sansho2Mei" name="Mb7Sansho2.sansho2Mei" maxlength="60" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Mb7Sansho2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb7Sansho2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Mb7Sansho2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb7Sansho2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMb7Sansho2" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Mb7Sansho2.html}" id="Mb7Sansho2" class="anew" target="dialog" th:text="#{Mb7Sansho2.add}" tabindex="-1">参照２マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMb7Sansho2" type="submit" class="search" data-gridId="Mb7Sansho2Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Mb7Sansho2SRegistForm" action="Mb7Sansho2SRegist.ajax" class="regist">
+      <h3 th:text="#{Mb7Sansho2.h3}">h3</h3>
+      <div id="Mb7Sansho2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb7Sansho2.html}"></div>
+      <div id="Mb7Sansho2Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMb7Sansho2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb7Sansho2&quot;]').click();">reset</button>
+        <a th:href="@{Mb7Sansho2Search.xlsx(baseMei=#{Mb7Sansho2S.h2})}" id="Mb7Sansho2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMb7Sansho2S" type="submit" class="delete selectRows" data-action="Mb7Sansho2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMb7Sansho2S" type="submit" class="permit selectRows" data-action="Mb7Sansho2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMb7Sansho2S" type="submit" class="forbid selectRows" data-action="Mb7Sansho2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMb7Sansho2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

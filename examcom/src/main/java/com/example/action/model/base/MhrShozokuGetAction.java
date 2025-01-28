@@ -43,15 +43,15 @@ public class MhrShozokuGetAction extends BaseAction {
         if (userId == null) {
             return map;
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MhrShozoku.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MhrShozoku.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             return map;
         }
 
-        MhrShozoku mhrShozoku = MhrShozoku.get(bushoId, shokuiId, userId, kaishiBi);
+        MhrShozoku mhrShozoku = MhrShozoku.get(bushoId, shokuiId, userId, tekiyoBi);
         map.put("MhrShozoku", mhrShozoku);
         return map;
     }

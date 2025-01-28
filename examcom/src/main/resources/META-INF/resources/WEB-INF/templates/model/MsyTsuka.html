@@ -58,10 +58,10 @@
         <a th:href="@{MsyTsukaGet.xlsx(baseMei=#{MsyTsuka.h2})}" id="MsyTsukaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteMsyTsuka" class="delete" data-action="MsyTsukaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTsuka" class="permit" data-action="MsyTsukaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTsuka" class="forbid" data-action="MsyTsukaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistMsyTsuka" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteMsyTsuka" type="submit" class="delete" data-action="MsyTsukaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTsuka" type="submit" class="permit" data-action="MsyTsukaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTsuka" type="submit" class="forbid" data-action="MsyTsukaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMsyTsuka" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

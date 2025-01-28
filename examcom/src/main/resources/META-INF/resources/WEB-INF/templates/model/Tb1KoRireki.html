@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1KoRireki.title}">履歴</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1KoRirekiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1KoRireki.h2}">h2</h2>
+    <form name="Tb1KoRirekiRegistForm" action="Tb1KoRirekiRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1KoRireki.legend}">legend</legend>
+        <div id="oyaId">
+          <label th:text="#{Tb1KoRireki.oyaId}">親ID</label><span id="Tb1KoRireki.oyaId"></span><input type="hidden" id="Tb1KoRireki.oyaId" name="Tb1KoRireki.oyaId" />
+        </div>
+        <div id="koBn">
+          <label th:text="#{Tb1KoRireki.koBn}">子枝番</label><span id="Tb1KoRireki.koBn"></span><input type="hidden" id="Tb1KoRireki.koBn" name="Tb1KoRireki.koBn" />
+        </div>
+        <div id="rirekiBn">
+          <label th:text="#{Tb1KoRireki.rirekiBn}">履歴枝番</label><span id="Tb1KoRireki.rirekiBn"></span><input type="hidden" id="Tb1KoRireki.rirekiBn" name="Tb1KoRireki.rirekiBn" />
+        </div>
+        <div id="koInfo">
+          <label th:text="#{Tb1KoRireki.koInfo}">子情報</label><span id="Tb1KoRireki.koInfo"></span><input type="hidden" id="Tb1KoRireki.koInfo" name="Tb1KoRireki.koInfo" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1KoRireki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1KoRireki.insertTs"></span><input type="hidden" id="Tb1KoRireki.insertTs" name="Tb1KoRireki.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1KoRireki.insertUserId}" class="meta">作成者</label><span id="Tb1KoRireki.insertUserId"></span><input type="hidden" id="Tb1KoRireki.insertUserId" name="Tb1KoRireki.insertUserId" />
+          <span id="Tb1KoRireki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoRireki.insertUserId" data-destDef="Tb1KoRireki.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1KoRireki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1KoRireki.updateTs"></span><input type="hidden" id="Tb1KoRireki.updateTs" name="Tb1KoRireki.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1KoRireki.updateUserId}" class="meta">更新者</label><span id="Tb1KoRireki.updateUserId"></span><input type="hidden" id="Tb1KoRireki.updateUserId" name="Tb1KoRireki.updateUserId" />
+          <span id="Tb1KoRireki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoRireki.updateUserId" data-destDef="Tb1KoRireki.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <label th:text="#{Tb1KoRireki.deleteF}">削除フラグ</label><span id="Tb1KoRireki.deleteF"></span><input type="hidden" id="Tb1KoRireki.deleteF" name="Tb1KoRireki.deleteF" />
+        </div>
+        <div id="statusKb">
+          <label th:text="#{Tb1KoRireki.statusKb}">ステータス区分</label><span id="Tb1KoRireki.statusKb"></span><input type="hidden" id="Tb1KoRireki.statusKb" name="Tb1KoRireki.statusKb" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <a th:href="@{Tb1KoRirekiGet.xlsx(baseMei=#{Tb1KoRireki.h2})}" id="Tb1KoRirekiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

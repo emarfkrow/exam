@@ -44,17 +44,17 @@ public class MhrShozokuPermitAction extends BaseAction {
         if (userId == null) {
             throw new OptLockError("error.cant.permit");
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MhrShozoku.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MhrShozoku.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             throw new OptLockError("error.cant.permit");
         }
 
         MhrShozoku e = FormValidator.toBean(MhrShozoku.class.getName(), postJson);
 
-        MhrShozoku f = MhrShozoku.get(e.getBushoId(), e.getShokuiId(), e.getUserId(), e.getKaishiBi());
+        MhrShozoku f = MhrShozoku.get(e.getBushoId(), e.getShokuiId(), e.getUserId(), e.getTekiyoBi());
         f.setStatusKb(1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.permit");

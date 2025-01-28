@@ -90,24 +90,24 @@ public class MhrShokui implements IEntity {
         }
     }
 
-    /** 開始日 */
+    /** 適用日 */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
-    private java.time.LocalDate kaishiBi;
+    private java.time.LocalDate tekiyoBi;
 
-    /** @return 開始日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_BI")
-    public java.time.LocalDate getKaishiBi() {
-        return this.kaishiBi;
+    /** @return 適用日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TEKIYO_BI")
+    public java.time.LocalDate getTekiyoBi() {
+        return this.tekiyoBi;
     }
 
-    /** @param o 開始日 */
-    public void setKaishiBi(final Object o) {
+    /** @param o 適用日 */
+    public void setTekiyoBi(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.kaishiBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
+            this.tekiyoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
-            this.kaishiBi = null;
+            this.tekiyoBi = null;
         }
     }
 
@@ -307,7 +307,7 @@ public class MhrShokui implements IEntity {
         sql += "      a.`SHOKUI_ID` \n";
         sql += "    , a.`SHOKUI_MEI` \n";
         sql += "    , a.`SHOKUI_ON` \n";
-        sql += "    , a.`KAISHI_BI` AS KAISHI_BI \n";
+        sql += "    , a.`TEKIYO_BI` AS TEKIYO_BI \n";
         sql += "    , a.`SHURYO_BI` AS SHURYO_BI \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
@@ -346,7 +346,7 @@ public class MhrShokui implements IEntity {
         nameList.add("`SHOKUI_ID` -- :shokui_id");
         nameList.add("`SHOKUI_MEI` -- :shokui_mei");
         nameList.add("`SHOKUI_ON` -- :shokui_on");
-        nameList.add("`KAISHI_BI` -- :kaishi_bi");
+        nameList.add("`TEKIYO_BI` -- :tekiyo_bi");
         nameList.add("`SHURYO_BI` -- :shuryo_bi");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
@@ -363,7 +363,7 @@ public class MhrShokui implements IEntity {
         valueList.add(":shokui_id");
         valueList.add(":shokui_mei");
         valueList.add(":shokui_on");
-        valueList.add(":kaishi_bi");
+        valueList.add(":tekiyo_bi");
         valueList.add(":shuryo_bi");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
@@ -405,7 +405,7 @@ public class MhrShokui implements IEntity {
         setList.add("`SHOKUI_ID` = :shokui_id");
         setList.add("`SHOKUI_MEI` = :shokui_mei");
         setList.add("`SHOKUI_ON` = :shokui_on");
-        setList.add("`KAISHI_BI` = :kaishi_bi");
+        setList.add("`TEKIYO_BI` = :tekiyo_bi");
         setList.add("`SHURYO_BI` = :shuryo_bi");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
@@ -442,7 +442,7 @@ public class MhrShokui implements IEntity {
         map.put("shokui_id", this.shokuiId);
         map.put("shokui_mei", this.shokuiMei);
         map.put("shokui_on", this.shokuiOn);
-        map.put("kaishi_bi", this.kaishiBi);
+        map.put("tekiyo_bi", this.tekiyoBi);
         map.put("shuryo_bi", this.shuryoBi);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);

@@ -26,8 +26,8 @@
         <div id="shokuiOn">
           <label for="MhrShokui.shokuiOn" th:text="#{MhrShokui.shokuiOn}">職位順</label><input type="text" id="MhrShokui.shokuiOn" name="MhrShokui.shokuiOn" maxlength="10" class=" notblank" />
         </div>
-        <div id="kaishiBi">
-          <label for="MhrShokui.kaishiBi" th:text="#{MhrShokui.kaishiBi}">開始日</label><input type="text" id="MhrShokui.kaishiBi" name="MhrShokui.kaishiBi" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrShokui.tekiyoBi" th:text="#{MhrShokui.tekiyoBi}">適用日</label><input type="text" id="MhrShokui.tekiyoBi" name="MhrShokui.tekiyoBi" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrShokui.shuryoBi" th:text="#{MhrShokui.shuryoBi}">終了日</label><input type="text" id="MhrShokui.shuryoBi" name="MhrShokui.shuryoBi" maxlength="10" class=" datepicker" />
@@ -62,10 +62,10 @@
         <a th:href="@{MhrShokuiGet.xlsx(baseMei=#{MhrShokui.h2})}" id="MhrShokuiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteMhrShokui" class="delete" data-action="MhrShokuiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShokui" class="permit" data-action="MhrShokuiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShokui" class="forbid" data-action="MhrShokuiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistMhrShokui" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteMhrShokui" type="submit" class="delete" data-action="MhrShokuiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrShokui" type="submit" class="permit" data-action="MhrShokuiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShokui" type="submit" class="forbid" data-action="MhrShokuiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMhrShokui" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

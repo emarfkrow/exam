@@ -1,24 +1,59 @@
 -- Project Name : emarf
--- Date/Time    : 2025/01/18 13:56:37
+-- Date/Time    : 2025/01/28 19:45:49
 -- Author       : toshiyuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
-/*
-  << 注意！！ >>
-  BackupToTempTable, RestoreFromTempTable疑似命令が付加されています。
-  これにより、drop table, create table 後もデータが残ります。
-  この機能は一時的に $$TableName のような一時テーブルを作成します。
-  この機能は A5:SQL Mk-2でのみ有効であることに注意してください。
-*/
+-- CD参照マスタ
+drop table if exists MB4_CDSANSHO cascade;
+
+create table MB4_CDSANSHO (
+  CDSANSHO_CD CHAR(10) comment 'CD参照CD'
+  , CDSANSHO_MEI VARCHAR(60) not null comment 'CD参照名'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint MB4_CDSANSHO_PKC primary key (CDSANSHO_CD)
+) comment 'CD参照マスタ' ;
+
+-- ID参照マスタ
+drop table if exists MB4_IDSANSHO cascade;
+
+create table MB4_IDSANSHO (
+  IDSANSHO_ID INT comment 'ID参照ID'
+  , IDSANSHO_MEI VARCHAR(60) not null comment 'ID参照名'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint MB4_IDSANSHO_PKC primary key (IDSANSHO_ID)
+) comment 'ID参照マスタ' ;
+
+-- NO参照マスタ
+drop table if exists MB4_NOSANSHO cascade;
+
+create table MB4_NOSANSHO (
+  NOSANSHO_NO CHAR(10) comment 'NO参照NO'
+  , NOSANSHO_MEI VARCHAR(60) not null comment 'NO参照名'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint MB4_NOSANSHO_PKC primary key (NOSANSHO_NO)
+) comment 'NO参照マスタ' ;
 
 -- 参照１マスタ
--- * BackupToTempTable
-drop table if exists MB1_SANSHO1 cascade;
+drop table if exists MB7_SANSHO1 cascade;
 
--- * RestoreFromTempTable
-create table MB1_SANSHO1 (
-  SANSHO1_ID INT not null comment '参照１ID'
+create table MB7_SANSHO1 (
+  SANSHO1_ID INT comment '参照１ID'
   , SANSHO1_MEI VARCHAR(60) not null comment '参照１名'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -26,16 +61,14 @@ create table MB1_SANSHO1 (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MB1_SANSHO1_PKC primary key (SANSHO1_ID)
+  , constraint MB7_SANSHO1_PKC primary key (SANSHO1_ID)
 ) comment '参照１マスタ' ;
 
 -- 参照２マスタ
--- * BackupToTempTable
-drop table if exists MB1_SANSHO2 cascade;
+drop table if exists MB7_SANSHO2 cascade;
 
--- * RestoreFromTempTable
-create table MB1_SANSHO2 (
-  SANSHO2_CD CHAR(10) not null comment '参照２CD'
+create table MB7_SANSHO2 (
+  SANSHO2_ID INT comment '参照２ID'
   , SANSHO2_MEI VARCHAR(60) not null comment '参照２名'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -43,36 +76,17 @@ create table MB1_SANSHO2 (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MB1_SANSHO2_PKC primary key (SANSHO2_CD)
+  , constraint MB7_SANSHO2_PKC primary key (SANSHO2_ID)
 ) comment '参照２マスタ' ;
 
--- 参照３マスタ
--- * BackupToTempTable
-drop table if exists MB1_SANSHO3 cascade;
-
--- * RestoreFromTempTable
-create table MB1_SANSHO3 (
-  SANSHO3_NO CHAR(10) not null comment '参照３NO'
-  , SANSHO3_MEI VARCHAR(60) not null comment '参照３名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MB1_SANSHO3_PKC primary key (SANSHO3_NO)
-) comment '参照３マスタ' ;
-
 -- 部署マスタ
--- * BackupToTempTable
 drop table if exists MHR_BUSHO cascade;
 
--- * RestoreFromTempTable
 create table MHR_BUSHO (
   BUSHO_ID INT not null comment '部署ID'
   , BUSHO_MEI VARCHAR(60) not null comment '部署名'
   , OYA_BUSHO_ID INT comment '親部署ID'
-  , KAISHI_BI DATE comment '開始日'
+  , TEKIYO_BI DATE comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -84,16 +98,14 @@ create table MHR_BUSHO (
 ) comment '部署マスタ' ;
 
 -- 認可マスタ
--- * BackupToTempTable
 drop table if exists MHR_NINKA cascade;
 
--- * RestoreFromTempTable
 create table MHR_NINKA (
   BUSHO_ID INT not null comment '部署ID'
   , SHOKUI_ID INT not null comment '職位ID'
   , KINO_NM VARCHAR(20) not null comment '機能名称'
   , KENGEN_KB VARCHAR(2) not null comment '権限区分'
-  , KAISHI_BI DATE comment '開始日'
+  , TEKIYO_BI DATE comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -105,15 +117,13 @@ create table MHR_NINKA (
 ) comment '認可マスタ' ;
 
 -- 職位マスタ
--- * BackupToTempTable
 drop table if exists MHR_SHOKUI cascade;
 
--- * RestoreFromTempTable
 create table MHR_SHOKUI (
   SHOKUI_ID INT not null comment '職位ID'
   , SHOKUI_MEI VARCHAR(60) not null comment '職位名'
   , SHOKUI_ON INT not null comment '職位順'
-  , KAISHI_BI DATE comment '開始日'
+  , TEKIYO_BI DATE comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -125,15 +135,13 @@ create table MHR_SHOKUI (
 ) comment '職位マスタ' ;
 
 -- 所属マスタ
--- * BackupToTempTable
 drop table if exists MHR_SHOZOKU cascade;
 
--- * RestoreFromTempTable
 create table MHR_SHOZOKU (
   BUSHO_ID INT not null comment '部署ID'
   , SHOKUI_ID INT not null comment '職位ID'
   , USER_ID INT not null comment 'ユーザID'
-  , KAISHI_BI DATE not null comment '開始日'
+  , TEKIYO_BI DATE not null comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -141,21 +149,19 @@ create table MHR_SHOZOKU (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MHR_SHOZOKU_PKC primary key (BUSHO_ID,SHOKUI_ID,USER_ID,KAISHI_BI)
+  , constraint MHR_SHOZOKU_PKC primary key (BUSHO_ID,SHOKUI_ID,USER_ID,TEKIYO_BI)
 ) comment '所属マスタ' ;
 
 -- ユーザマスタ
--- * BackupToTempTable
 drop table if exists MHR_USER cascade;
 
--- * RestoreFromTempTable
 create table MHR_USER (
   USER_ID INT not null comment 'ユーザID'
   , USER_SEI VARCHAR(60) not null comment 'ユーザ姓'
   , USER_MEI VARCHAR(60) not null comment 'ユーザ名'
   , E_MAIL VARCHAR(300) not null comment 'メールアドレス'
   , PASSWORD VARCHAR(300) not null comment 'パスワード'
-  , KAISHI_BI DATE comment '開始日'
+  , TEKIYO_BI DATE comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -166,11 +172,26 @@ create table MHR_USER (
   , constraint MHR_USER_PKC primary key (USER_ID)
 ) comment 'ユーザマスタ' ;
 
+-- 稼働日マスタ
+drop table if exists MSY_KADOBI cascade;
+
+create table MSY_KADOBI (
+  KADO_BI DATE comment '稼働日'
+  , BUSHO_KB VARCHAR(2) comment '部署区分'
+  , KADOBI_F CHAR(1) not null comment '稼働日フラグ'
+  , MEMO VARCHAR(300) comment 'メモ'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint MSY_KADOBI_PKC primary key (KADO_BI,BUSHO_KB)
+) comment '稼働日マスタ' ;
+
 -- 区分マスタ
--- * BackupToTempTable
 drop table if exists MSY_KBN cascade;
 
--- * RestoreFromTempTable
 create table MSY_KBN (
   KBN_NM VARCHAR(20) not null comment '区分名称'
   , KBN_MEI VARCHAR(60) not null comment '区分名'
@@ -184,10 +205,8 @@ create table MSY_KBN (
 ) comment '区分マスタ' ;
 
 -- 区分値マスタ
--- * BackupToTempTable
 drop table if exists MSY_KBN_VAL cascade;
 
--- * RestoreFromTempTable
 create table MSY_KBN_VAL (
   KBN_NM VARCHAR(20) not null comment '区分名称'
   , KBN_VAL VARCHAR(2) not null comment '区分値'
@@ -204,13 +223,11 @@ create table MSY_KBN_VAL (
 ) comment '区分値マスタ' ;
 
 -- 税マスタ
--- * BackupToTempTable
 drop table if exists MSY_TAX cascade;
 
--- * RestoreFromTempTable
 create table MSY_TAX (
   TAX_KB VARCHAR(2) comment '税区分'
-  , KAISHI_BI DATE comment '開始日'
+  , TEKIYO_BI DATE comment '適用日'
   , SHURYO_BI DATE comment '終了日'
   , TAX_RT DECIMAL(5,2) comment '税率'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
@@ -219,14 +236,12 @@ create table MSY_TAX (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MSY_TAX_PKC primary key (TAX_KB,KAISHI_BI)
+  , constraint MSY_TAX_PKC primary key (TAX_KB,TEKIYO_BI)
 ) comment '税マスタ' ;
 
 -- 通貨マスタ
--- * BackupToTempTable
 drop table if exists MSY_TSUKA cascade;
 
--- * RestoreFromTempTable
 create table MSY_TSUKA (
   TSUKA_KB VARCHAR(2) comment '通貨区分'
   , TEKIYO_BI DATE comment '適用日'
@@ -240,315 +255,10 @@ create table MSY_TSUKA (
   , constraint MSY_TSUKA_PKC primary key (TSUKA_KB,TEKIYO_BI)
 ) comment '通貨マスタ' ;
 
--- エンティティ１
--- * BackupToTempTable
-drop table if exists TB1_ENTITY1 cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY1 (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , ENTITY1_MEI VARCHAR(60) not null comment 'エンティティ名'
-  , SANSHO1_ID INT comment '参照１ID'
-  , SANSHO1_MEI VARCHAR(60) comment '参照１名'
-  , SANSHO2_CD CHAR(10) comment '参照２CD'
-  , SANSHO2_MEI VARCHAR(60) comment '参照２名'
-  , SANSHO3_NO CHAR(10) comment '参照３NO'
-  , SANSHO3_MEI VARCHAR(60) comment '参照３名'
-  , BETSU_SANSHO1_ID INT comment '別参照１ID'
-  , BETSU_SANSHO1_MEI VARCHAR(60) comment '別参照１名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY1_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
-) comment 'エンティティ１' ;
-
--- エンティティ１履歴
--- * BackupToTempTable
-drop table if exists TB1_ENTITY1_HIS cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY1_HIS (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , HISTORY_BN INT not null comment '履歴枝番'
-  , ENTITY1_MEI VARCHAR(60) not null comment 'エンティティ１名'
-  , SANSHO1_ID INT comment '参照１ID'
-  , SANSHO1_MEI VARCHAR(60) comment '参照１名'
-  , SANSHO2_CD CHAR(10) comment '参照２CD'
-  , SANSHO2_MEI VARCHAR(60) comment '参照２名'
-  , SANSHO3_NO CHAR(10) comment '参照３NO'
-  , SANSHO3_MEI VARCHAR(60) comment '参照３名'
-  , BETSU_SANSHO1_ID INT comment '別参照１ID'
-  , BETSU_SANSHO1_MEI VARCHAR(60) comment '別参照１名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY1_HIS_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,HISTORY_BN)
-) comment 'エンティティ１履歴' ;
-
--- エンティティ２
--- * BackupToTempTable
-drop table if exists TB1_ENTITY2 cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY2 (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , ENTITY2_MEI VARCHAR(60) not null comment 'エンティティ２名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY2_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
-) comment 'エンティティ２' ;
-
--- エンティティ３
--- * BackupToTempTable
-drop table if exists TB1_ENTITY3 cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY3 (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , ENTITY3_MEI VARCHAR(60) not null comment 'エンティティ３名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY3_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
-) comment 'エンティティ３' ;
-
--- エンティティ４
--- * BackupToTempTable
-drop table if exists TB1_ENTITY4 cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY4 (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , ENTITY4_MEI VARCHAR(60) not null comment 'エンティティ４名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY4_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
-) comment 'エンティティ４' ;
-
--- エンティティ５
--- * BackupToTempTable
-drop table if exists TB1_ENTITY5 cascade;
-
--- * RestoreFromTempTable
-create table TB1_ENTITY5 (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , ENTITY5_MEI VARCHAR(60) not null comment 'エンティティ５名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ENTITY5_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN)
-) comment 'エンティティ５' ;
-
--- 従妹
--- * BackupToTempTable
-drop table if exists TB1_ITOKO cascade;
-
--- * RestoreFromTempTable
-create table TB1_ITOKO (
-  ITOKO_ID INT comment '従妹ID'
-  , ITOKO_MEI VARCHAR(60) comment '従妹名'
-  , SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_ITOKO_PKC primary key (ITOKO_ID)
-) comment '従妹' ;
-
--- 子
--- * BackupToTempTable
-drop table if exists TB1_KO cascade;
-
--- * RestoreFromTempTable
-create table TB1_KO (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , KO_BN INT not null comment '子枝番'
-  , KO_MEI VARCHAR(60) not null comment '子名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_KO_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,KO_BN)
-) comment '子' ;
-
--- 親
--- * BackupToTempTable
-drop table if exists TB1_OYA cascade;
-
--- * RestoreFromTempTable
-create table TB1_OYA (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , OYA_MEI VARCHAR(60) not null comment '親名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_OYA_PKC primary key (SOSEN_ID,OYA_BN)
-) comment '親' ;
-
--- 子孫
--- * BackupToTempTable
-drop table if exists TB1_SHISON cascade;
-
--- * RestoreFromTempTable
-create table TB1_SHISON (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , KO_BN INT not null comment '子枝番'
-  , SHISON_BN INT not null comment '子孫枝番'
-  , SHISON_MEI VARCHAR(60) not null comment '子孫名'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_SHISON_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,KO_BN,SHISON_BN)
-) comment '子孫' ;
-
--- 祖先
--- * BackupToTempTable
-drop table if exists TB1_SOSEN cascade;
-
--- * RestoreFromTempTable
-create table TB1_SOSEN (
-  SOSEN_ID INT not null comment '祖先ID'
-  , MEMO VARCHAR(300) comment 'メモ'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_SOSEN_PKC primary key (SOSEN_ID)
-) comment '祖先' ;
-
--- 祖先明細
--- * BackupToTempTable
-drop table if exists TB1_SOSEN_DET cascade;
-
--- * RestoreFromTempTable
-create table TB1_SOSEN_DET (
-  SOSEN_ID INT comment '祖先ID'
-  , SOSEN_BN INT comment '祖先枝番'
-  , MEMO VARCHAR(300) comment 'メモ'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_SOSEN_DET_PKC primary key (SOSEN_ID,SOSEN_BN)
-) comment '祖先明細' ;
-
--- 添付ファイル
--- * BackupToTempTable
-drop table if exists TB1_TENPU_FILE cascade;
-
--- * RestoreFromTempTable
-create table TB1_TENPU_FILE (
-  SOSEN_ID INT not null comment '祖先ID'
-  , OYA_BN INT not null comment '親枝番'
-  , ENTITY_BN INT not null comment 'エンティティ枝番'
-  , TENPU_FILE_BN INT not null comment '添付ファイル枝番'
-  , TENPU_FILE_MEI VARCHAR(60) not null comment '添付ファイル名'
-  , TENPU_FILE_PATH VARCHAR(256) not null comment '添付ファイルパス'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_TENPU_FILE_PKC primary key (SOSEN_ID,OYA_BN,ENTITY_BN,TENPU_FILE_BN)
-) comment '添付ファイル' ;
-
--- 転生
--- * BackupToTempTable
-drop table if exists TB1_TENSEI cascade;
-
--- * RestoreFromTempTable
-create table TB1_TENSEI (
-  TENSEI_ID INT comment '転生ID'
-  , TENSEI_MEI VARCHAR(60) not null comment '転生名'
-  , SOSEN_ID INT not null comment '祖先ID'
-  , MEMO VARCHAR(300) comment 'メモ'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_TENSEI_PKC primary key (TENSEI_ID)
-) comment '転生' ;
-
--- 転生明細
--- * BackupToTempTable
-drop table if exists TB1_TENSEI_DET cascade;
-
--- * RestoreFromTempTable
-create table TB1_TENSEI_DET (
-  TENSEI_ID INT comment '転生ID'
-  , TENSEI_BN INT comment '転生枝番'
-  , MEMO VARCHAR(300) comment 'メモ'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_TENSEI_DET_PKC primary key (TENSEI_ID,TENSEI_BN)
-) comment '転生明細' ;
-
 -- エンティティ
--- * BackupToTempTable
-drop table if exists TB2_ENTITY cascade;
+drop table if exists TB0_ENTITY cascade;
 
--- * RestoreFromTempTable
-create table TB2_ENTITY (
+create table TB0_ENTITY (
   ENTITY_ID INT not null comment 'エンティティID'
   , ENTITY_NM VARCHAR(20) not null comment 'エンティティ名称'
   , ENTITY_MEI VARCHAR(60) not null comment 'エンティティ名'
@@ -579,20 +289,18 @@ create table TB2_ENTITY (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_ENTITY_PKC primary key (ENTITY_ID)
+  , constraint TB0_ENTITY_PKC primary key (ENTITY_ID)
 ) comment 'エンティティ' ;
 
 -- 主キーなし
--- * BackupToTempTable
-drop table if exists TB2_NO_PK cascade;
+drop table if exists TB0_NOKEY cascade;
 
--- * RestoreFromTempTable
-create table TB2_NO_PK (
-  COLUMN_A VARCHAR(60) comment '列Ａ'
-  , COLUMN_B VARCHAR(60) comment '列Ｂ'
-  , COLUMN_C VARCHAR(60) comment '列Ｃ'
-  , COLUMN_D VARCHAR(60) comment '列Ｄ'
-  , COLUMN_E VARCHAR(60) comment '列Ｅ'
+create table TB0_NOKEY (
+  COL_A VARCHAR(60) comment '列Ａ'
+  , COL_B VARCHAR(60) comment '列Ｂ'
+  , COL_C VARCHAR(60) comment '列Ｃ'
+  , COL_D VARCHAR(60) comment '列Ｄ'
+  , COL_E VARCHAR(60) comment '列Ｅ'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
@@ -601,62 +309,270 @@ create table TB2_NO_PK (
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
 ) comment '主キーなし' ;
 
-create unique index TB2_NO_PK_IX1
-  on TB2_NO_PK(COLUMN_A);
+create unique index TB0_NOKEY_IX1
+  on TB0_NOKEY(COL_A,COL_B);
 
-create unique index TB2_NO_PK_IX2
-  on TB2_NO_PK(COLUMN_B,COLUMN_C);
+create unique index TB0_NOKEY_IX2
+  on TB0_NOKEY(COL_C);
 
--- 子孫
-drop view if exists VB1_SHISON;
+-- 子
+drop table if exists TB1_KO cascade;
 
-create view VB1_SHISON as 
-SELECT
-    'TB1_SOSEN' AS entity_name
-    , TB1_SOSEN.SOSEN_ID
-    , TB1_OYA.OYA_MEI
-    , TB1_ENTITY1.ENTITY1_MEI
-    , TB1_KO.KO_MEI
-    , TB1_SHISON.SHISON_MEI
-    , TB1_SOSEN.SOSEN_ID AS SEARCH_SOSEN_ID
-    , TB1_OYA.OYA_BN AS SEARCH_OYA_BN
-    , TB1_ENTITY1.ENTITY_BN AS SEARCH_ENTITY_BN
-    , TB1_KO.KO_BN AS SEARCH_KO_BN
-    , TB1_SHISON.SHISON_BN AS SEARCH_SHISON_BN
-    , TB1_SOSEN.INSERT_TS 
-FROM
-    TB1_SOSEN 
-    LEFT OUTER JOIN TB1_OYA 
-        ON TB1_OYA.SOSEN_ID = TB1_SOSEN.SOSEN_ID 
-    LEFT OUTER JOIN TB1_ENTITY1 
-        ON TB1_OYA.SOSEN_ID = TB1_ENTITY1.SOSEN_ID 
-        AND TB1_OYA.OYA_BN = TB1_ENTITY1.OYA_BN 
-    LEFT OUTER JOIN TB1_KO 
-        ON TB1_ENTITY1.SOSEN_ID = TB1_KO.SOSEN_ID 
-        AND TB1_ENTITY1.OYA_BN = TB1_KO.OYA_BN 
-        AND TB1_ENTITY1.ENTITY_BN = TB1_KO.ENTITY_BN 
-    LEFT OUTER JOIN TB1_SHISON 
-        ON TB1_KO.SOSEN_ID = TB1_SHISON.SOSEN_ID 
-        AND TB1_KO.OYA_BN = TB1_SHISON.OYA_BN 
-        AND TB1_KO.ENTITY_BN = TB1_SHISON.ENTITY_BN 
-        AND TB1_KO.KO_BN = TB1_SHISON.KO_BN 
-ORDER BY
-    TB1_SOSEN.SOSEN_ID
-    , TB1_OYA.OYA_BN
-    , TB1_ENTITY1.ENTITY_BN
-    , TB1_KO.KO_BN
-    , TB1_SHISON.SHISON_BN
+create table TB1_KO (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KO_INFO VARCHAR(300) comment '子情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB1_KO_PKC primary key (OYA_ID,KO_BN)
+) comment '子' ;
 
-;
+-- 履歴
+drop table if exists TB1_KO_RIREKI cascade;
 
--- エンティティ検索
-drop view if exists VB2_ENTITY;
+create table TB1_KO_RIREKI (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , RIREKI_BN INT comment '履歴枝番'
+  , KO_INFO VARCHAR(300) comment '子情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB1_KO_RIREKI_PKC primary key (OYA_ID,KO_BN,RIREKI_BN)
+) comment '履歴' ;
 
-create view VB2_ENTITY as 
-SELECT
-    tb2_entity.* 
-FROM
-    tb2_entity
+-- 孫
+drop table if exists TB1_MAGO cascade;
 
-;
+create table TB1_MAGO (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , MAGO_BN INT comment '孫枝番'
+  , MAGO_INFO VARCHAR(300) comment '孫情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB1_MAGO_PKC primary key (OYA_ID,KO_BN,MAGO_BN)
+) comment '孫' ;
+
+-- 親
+drop table if exists TB1_OYA cascade;
+
+create table TB1_OYA (
+  OYA_ID INT comment '親ID'
+  , OYA_INFO VARCHAR(300) comment '親情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB1_OYA_PKC primary key (OYA_ID)
+) comment '親' ;
+
+-- 兄弟２
+drop table if exists TB3_KYODAI2 cascade;
+
+create table TB3_KYODAI2 (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KYODAI2_INFO VARCHAR(300) comment '兄弟２情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_KYODAI2_PKC primary key (OYA_ID,KO_BN)
+) comment '兄弟２' ;
+
+-- 兄弟３
+drop table if exists TB3_KYODAI3 cascade;
+
+create table TB3_KYODAI3 (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KYODAI3_INFO VARCHAR(300) comment '兄弟３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_KYODAI3_PKC primary key (OYA_ID,KO_BN)
+) comment '兄弟３' ;
+
+-- 兄弟４
+drop table if exists TB3_KYODAI4 cascade;
+
+create table TB3_KYODAI4 (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KYODAI4_INFO VARCHAR(300) comment '兄弟４情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_KYODAI4_PKC primary key (OYA_ID,KO_BN)
+) comment '兄弟４' ;
+
+-- 兄弟５
+drop table if exists TB3_KYODAI5 cascade;
+
+create table TB3_KYODAI5 (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KYODAI5_INFO VARCHAR(300) comment '兄弟５情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_KYODAI5_PKC primary key (OYA_ID,KO_BN)
+) comment '兄弟５' ;
+
+-- 参照元
+drop table if exists TB4_SANSHOMOTO cascade;
+
+create table TB4_SANSHOMOTO (
+  SANSHOMOTO_ID INT not null comment '参照元ID'
+  , IDSANSHO_ID INT comment 'ID参照ID'
+  , IDSANSHO_MEI VARCHAR(60) comment 'ID参照名'
+  , CDSANSHO_CD CHAR(10) comment 'CD参照CD'
+  , CDSANSHO_MEI VARCHAR(60) comment 'CD参照名'
+  , NOSANSHO_NO CHAR(10) comment 'NO参照NO'
+  , NOSANSHO_MEI VARCHAR(60) comment 'NO参照名'
+  , BETSU_IDSANSHO_ID INT comment '別ID参照ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB4_SANSHOMOTO_PKC primary key (SANSHOMOTO_ID)
+) comment '参照元' ;
+
+-- 転生元
+drop table if exists TB5_TENSEIMOTO cascade;
+
+create table TB5_TENSEIMOTO (
+  TENSEIMOTO_ID INT not null comment '転生元ID'
+  , TENSEIMOTO_INFO VARCHAR(300) comment '転生元情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEIMOTO_PKC primary key (TENSEIMOTO_ID)
+) comment '転生元' ;
+
+-- 転生元明細
+drop table if exists TB5_TENSEIMOTO_DET cascade;
+
+create table TB5_TENSEIMOTO_DET (
+  TENSEIMOTO_ID INT comment '転生元ID'
+  , TENSEIMOTO_BN INT comment '転生元枝番'
+  , TENSEIMOTO_DET_INFO VARCHAR(300) comment '転生元明細情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEIMOTO_DET_PKC primary key (TENSEIMOTO_ID,TENSEIMOTO_BN)
+) comment '転生元明細' ;
+
+-- 転生先
+drop table if exists TB5_TENSEISAKI cascade;
+
+create table TB5_TENSEISAKI (
+  TENSEISAKI_ID INT comment '転生先ID'
+  , TENSEIMOTO_ID INT not null comment '転生元ID'
+  , TENSEISAKI_INFO VARCHAR(300) comment '転生先情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEISAKI_PKC primary key (TENSEISAKI_ID)
+) comment '転生先' ;
+
+-- 転生先明細
+drop table if exists TB5_TENSEISAKI_DET cascade;
+
+create table TB5_TENSEISAKI_DET (
+  TENSEISAKI_ID INT comment '転生先ID'
+  , TENSEISAKI_BN INT comment '転生先枝番'
+  , TENSEISAKI_DET_INFO VARCHAR(300) comment '転生先明細情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEISAKI_DET_PKC primary key (TENSEISAKI_ID,TENSEISAKI_BN)
+) comment '転生先明細' ;
+
+-- 集約元
+drop table if exists TB6_SHUYAKUMOTO cascade;
+
+create table TB6_SHUYAKUMOTO (
+  SHUYAKUMOTO_ID INT comment '集約元ID'
+  , SHUYAKUSAKI_ID INT comment '集約先ID'
+  , SHUYAKUMOTO_INFO VARCHAR(300) comment '集約元情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKUMOTO_PKC primary key (SHUYAKUMOTO_ID)
+) comment '集約元' ;
+
+-- 集約先
+drop table if exists TB6_SHUYAKUSAKI cascade;
+
+create table TB6_SHUYAKUSAKI (
+  SHUYAKUSAKI_ID INT comment '集約先ID'
+  , SHUYAKUSAKI_INFO VARCHAR(300) comment '集約先情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKUSAKI_PKC primary key (SHUYAKUSAKI_ID)
+) comment '集約先' ;
+
+-- 複合
+drop table if exists TB7_FUKUGO cascade;
+
+create table TB7_FUKUGO (
+  SANSHO1_ID INT comment '参照１ID'
+  , SANSHO2_ID INT comment '参照２ID'
+  , TEKIYO_BI DATE comment '適用日'
+  , FUKUGO_INFO VARCHAR(300) comment '複合情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB7_FUKUGO_PKC primary key (SANSHO1_ID,SANSHO2_ID,TEKIYO_BI)
+) comment '複合' ;
 

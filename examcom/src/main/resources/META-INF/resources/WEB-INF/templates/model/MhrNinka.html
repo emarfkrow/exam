@@ -33,8 +33,8 @@
             <legend th:text="#{MhrNinka.kengenKb}">権限区分</legend>
           </fieldset>
         </div>
-        <div id="kaishiBi">
-          <label for="MhrNinka.kaishiBi" th:text="#{MhrNinka.kaishiBi}">開始日</label><input type="text" id="MhrNinka.kaishiBi" name="MhrNinka.kaishiBi" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrNinka.tekiyoBi" th:text="#{MhrNinka.tekiyoBi}">適用日</label><input type="text" id="MhrNinka.tekiyoBi" name="MhrNinka.tekiyoBi" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrNinka.shuryoBi" th:text="#{MhrNinka.shuryoBi}">終了日</label><input type="text" id="MhrNinka.shuryoBi" name="MhrNinka.shuryoBi" maxlength="10" class=" datepicker" />
@@ -69,10 +69,10 @@
         <a th:href="@{MhrNinkaGet.xlsx(baseMei=#{MhrNinka.h2})}" id="MhrNinkaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteMhrNinka" class="delete" data-action="MhrNinkaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrNinka" class="permit" data-action="MhrNinkaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrNinka" class="forbid" data-action="MhrNinkaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistMhrNinka" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteMhrNinka" type="submit" class="delete" data-action="MhrNinkaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrNinka" type="submit" class="permit" data-action="MhrNinkaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrNinka" type="submit" class="forbid" data-action="MhrNinkaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMhrNinka" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

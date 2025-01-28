@@ -30,17 +30,17 @@ public class MsyTaxPermitAction extends BaseAction {
         if (taxKb == null) {
             throw new OptLockError("error.cant.permit");
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MsyTax.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MsyTax.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             throw new OptLockError("error.cant.permit");
         }
 
         MsyTax e = FormValidator.toBean(MsyTax.class.getName(), postJson);
 
-        MsyTax f = MsyTax.get(e.getTaxKb(), e.getKaishiBi());
+        MsyTax f = MsyTax.get(e.getTaxKb(), e.getTekiyoBi());
         f.setStatusKb(1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.permit");

@@ -25,8 +25,8 @@
             <legend th:text="#{MsyTax.taxKb}">税区分</legend>
           </fieldset>
         </div>
-        <div id="kaishiBi">
-          <label for="MsyTax.kaishiBi_1" th:text="#{MsyTax.kaishiBi}">開始日</label><input type="text" id="MsyTax.kaishiBi_1" name="MsyTax.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MsyTax.kaishiBi_2" name="MsyTax.kaishiBi_2" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MsyTax.tekiyoBi_1" th:text="#{MsyTax.tekiyoBi}">適用日</label><input type="text" id="MsyTax.tekiyoBi_1" name="MsyTax.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MsyTax.tekiyoBi_2" name="MsyTax.tekiyoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MsyTax.shuryoBi_1" th:text="#{MsyTax.shuryoBi}">終了日</label><input type="text" id="MsyTax.shuryoBi_1" name="MsyTax.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MsyTax.shuryoBi_2" name="MsyTax.shuryoBi_2" maxlength="10" class=" datepicker" />
@@ -49,7 +49,7 @@
         <button type="reset" id="ResetMsyTax" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
-        <button id="SearchMsyTax" class="search" data-gridId="MsyTaxGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMsyTax" type="submit" class="search" data-gridId="MsyTaxGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -60,12 +60,12 @@
       <div class="buttons">
         <button type="button" id="ResetMsyTaxS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyTax&quot;]').click();">reset</button>
         <a th:href="@{MsyTaxSearch.xlsx(baseMei=#{MsyTaxS.h2})}" id="MsyTaxSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMsyTaxS" class="delete selectRows" data-action="MsyTaxSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTaxS" class="permit selectRows" data-action="MsyTaxSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTaxS" class="forbid selectRows" data-action="MsyTaxSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMsyTaxS" type="submit" class="delete selectRows" data-action="MsyTaxSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTaxS" type="submit" class="permit selectRows" data-action="MsyTaxSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTaxS" type="submit" class="forbid selectRows" data-action="MsyTaxSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMsyTaxS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMsyTaxS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

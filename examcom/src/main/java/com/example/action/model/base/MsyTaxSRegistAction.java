@@ -42,7 +42,7 @@ public class MsyTaxSRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTaxKb())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getKaishiBi())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTekiyoBi())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

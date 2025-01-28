@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb3Kyodai4.title}">兄弟４</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb3Kyodai4GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb3Kyodai4.h2}">h2</h2>
+    <form name="Tb3Kyodai4RegistForm" action="Tb3Kyodai4Regist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb1Oya.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1Oya.oyaId" th:text="#{Tb1Oya.oyaId}">親ID</label><input type="text" id="Tb1Oya.oyaId" name="Tb1Oya.oyaId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="oyaInfo">
+          <label for="Tb1Oya.oyaInfo" th:text="#{Tb1Oya.oyaInfo}">親情報</label><input type="text" id="Tb1Oya.oyaInfo" name="Tb1Oya.oyaInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Oya.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Oya.insertUserId}" class="meta">作成者</label><span id="Tb1Oya.insertUserId"></span><input type="hidden" id="Tb1Oya.insertUserId" name="Tb1Oya.insertUserId" />
+          <span id="Tb1Oya.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.insertUserId" data-destDef="Tb1Oya.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Oya.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Oya.updateTs"></span><input type="hidden" id="Tb1Oya.updateTs" name="Tb1Oya.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Oya.updateUserId}" class="meta">更新者</label><span id="Tb1Oya.updateUserId"></span><input type="hidden" id="Tb1Oya.updateUserId" name="Tb1Oya.updateUserId" />
+          <span id="Tb1Oya.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.updateUserId" data-destDef="Tb1Oya.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Oya.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Oya.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Oya.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Oya.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb3Kyodai4.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb3Kyodai4.oyaId" th:text="#{Tb3Kyodai4.oyaId}">親ID</label><input type="text" id="Tb3Kyodai4.oyaId" name="Tb3Kyodai4.oyaId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="koBn">
+          <label for="Tb3Kyodai4.koBn" th:text="#{Tb3Kyodai4.koBn}">子枝番</label><input type="text" id="Tb3Kyodai4.koBn" name="Tb3Kyodai4.koBn" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="kyodai4Info">
+          <label for="Tb3Kyodai4.kyodai4Info" th:text="#{Tb3Kyodai4.kyodai4Info}">兄弟４情報</label><input type="text" id="Tb3Kyodai4.kyodai4Info" name="Tb3Kyodai4.kyodai4Info" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb3Kyodai4.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb3Kyodai4.insertTs"></span><input type="hidden" id="Tb3Kyodai4.insertTs" name="Tb3Kyodai4.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb3Kyodai4.insertUserId}" class="meta">作成者</label><span id="Tb3Kyodai4.insertUserId"></span><input type="hidden" id="Tb3Kyodai4.insertUserId" name="Tb3Kyodai4.insertUserId" />
+          <span id="Tb3Kyodai4.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3Kyodai4.insertUserId" data-destDef="Tb3Kyodai4.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb3Kyodai4.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb3Kyodai4.updateTs"></span><input type="hidden" id="Tb3Kyodai4.updateTs" name="Tb3Kyodai4.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb3Kyodai4.updateUserId}" class="meta">更新者</label><span id="Tb3Kyodai4.updateUserId"></span><input type="hidden" id="Tb3Kyodai4.updateUserId" name="Tb3Kyodai4.updateUserId" />
+          <span id="Tb3Kyodai4.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3Kyodai4.updateUserId" data-destDef="Tb3Kyodai4.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb3Kyodai4.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai4.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Kyodai4.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai4.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Ko.legend}">legend</legend>
+        <div id="koInfo">
+          <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb1Ko.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Ko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb3Kyodai2.legend}">legend</legend>
+        <div id="kyodai2Info">
+          <label for="Tb3Kyodai2.kyodai2Info" th:text="#{Tb3Kyodai2.kyodai2Info}">兄弟２情報</label><input type="text" id="Tb3Kyodai2.kyodai2Info" name="Tb3Kyodai2.kyodai2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb3Kyodai2.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb3Kyodai2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Kyodai2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb3Kyodai3.legend}">legend</legend>
+        <div id="kyodai3Info">
+          <label for="Tb3Kyodai3.kyodai3Info" th:text="#{Tb3Kyodai3.kyodai3Info}">兄弟３情報</label><input type="text" id="Tb3Kyodai3.kyodai3Info" name="Tb3Kyodai3.kyodai3Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb3Kyodai3.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb3Kyodai3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Kyodai3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb3Kyodai5.legend}">legend</legend>
+        <div id="kyodai5Info">
+          <label for="Tb3Kyodai5.kyodai5Info" th:text="#{Tb3Kyodai5.kyodai5Info}">兄弟５情報</label><input type="text" id="Tb3Kyodai5.kyodai5Info" name="Tb3Kyodai5.kyodai5Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb3Kyodai5.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb3Kyodai5.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai5.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Kyodai5.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Kyodai5.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <h3 th:text="#{Tb1Mago.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Mago.html}" id="Tb1Mago" target="dialog" th:text="#{Tb1Mago.add}" class="addChild" tabindex="-1">孫</a>
+      <div id="Tb1MagoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}"></div>
+      <div class="buttons">
+        <button type="button" id="RefreshTb3Kyodai4" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb3Kyodai4Get.xlsx(baseMei=#{Tb3Kyodai4.h2})}" id="Tb3Kyodai4Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb3Kyodai4" type="submit" class="delete" data-action="Tb3Kyodai4Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb3Kyodai4" type="submit" class="permit" data-action="Tb3Kyodai4Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb3Kyodai4" type="submit" class="forbid" data-action="Tb3Kyodai4Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb3Kyodai4" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -39,7 +39,7 @@ public class MsyTaxSDeleteAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TAX_KB"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KAISHI_BI"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TEKIYO_BI"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

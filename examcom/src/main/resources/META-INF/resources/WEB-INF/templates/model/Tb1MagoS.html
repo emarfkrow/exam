@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1MagoS.title}">孫</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1MagoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb1MagoSearchForm" action="Tb1MagoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1MagoS.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1Mago.oyaId" th:text="#{Tb1Mago.oyaId}">親ID</label><input type="text" id="Tb1Mago.oyaId" name="Tb1Mago.oyaId" maxlength="10" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1Mago.koBn" th:text="#{Tb1Mago.koBn}">子枝番</label><input type="text" id="Tb1Mago.koBn" name="Tb1Mago.koBn" maxlength="10" />
+        </div>
+        <div id="magoBn">
+          <label for="Tb1Mago.magoBn" th:text="#{Tb1Mago.magoBn}">孫枝番</label><input type="text" id="Tb1Mago.magoBn" name="Tb1Mago.magoBn" maxlength="10" />
+        </div>
+        <div id="magoInfo">
+          <label for="Tb1Mago.magoInfo" th:text="#{Tb1Mago.magoInfo}">孫情報</label><input type="text" id="Tb1Mago.magoInfo" name="Tb1Mago.magoInfo" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Mago.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Mago.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Mago.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Mago.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1Mago" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1Mago" type="submit" class="search" data-gridId="Tb1MagoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb1MagoSRegistForm" action="Tb1MagoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1Mago.h3}">h3</h3>
+      <div id="Tb1MagoGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}"></div>
+      <div id="Tb1MagoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1MagoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Mago&quot;]').click();">reset</button>
+        <a th:href="@{Tb1MagoSearch.xlsx(baseMei=#{Tb1MagoS.h2})}" id="Tb1MagoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1MagoS" type="submit" class="delete selectRows" data-action="Tb1MagoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1MagoS" type="submit" class="permit selectRows" data-action="Tb1MagoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1MagoS" type="submit" class="forbid selectRows" data-action="Tb1MagoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1MagoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

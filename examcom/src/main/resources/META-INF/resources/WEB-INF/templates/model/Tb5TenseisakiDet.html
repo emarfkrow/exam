@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb5TenseisakiDet.title}">転生先明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb5TenseisakiDetGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb5TenseisakiDet.h2}">h2</h2>
+    <form name="Tb5TenseisakiDetRegistForm" action="Tb5TenseisakiDetRegist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb5Tenseisaki.legend}">legend</legend>
+        <div id="tenseisakiId">
+          <label for="Tb5Tenseisaki.tenseisakiId" th:text="#{Tb5Tenseisaki.tenseisakiId}">転生先ID</label><input type="text" id="Tb5Tenseisaki.tenseisakiId" name="Tb5Tenseisaki.tenseisakiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="tenseimotoId">
+          <label th:text="#{Tb5Tenseisaki.tenseimotoId}">転生元ID</label><span id="Tb5Tenseisaki.tenseimotoId"></span><input type="hidden" id="Tb5Tenseisaki.tenseimotoId" name="Tb5Tenseisaki.tenseimotoId" />
+        </div>
+        <div id="tenseisakiInfo">
+          <label for="Tb5Tenseisaki.tenseisakiInfo" th:text="#{Tb5Tenseisaki.tenseisakiInfo}">転生先情報</label><input type="text" id="Tb5Tenseisaki.tenseisakiInfo" name="Tb5Tenseisaki.tenseisakiInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb5Tenseisaki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5Tenseisaki.insertTs"></span><input type="hidden" id="Tb5Tenseisaki.insertTs" name="Tb5Tenseisaki.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb5Tenseisaki.insertUserId}" class="meta">作成者</label><span id="Tb5Tenseisaki.insertUserId"></span><input type="hidden" id="Tb5Tenseisaki.insertUserId" name="Tb5Tenseisaki.insertUserId" />
+          <span id="Tb5Tenseisaki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5Tenseisaki.insertUserId" data-destDef="Tb5Tenseisaki.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb5Tenseisaki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5Tenseisaki.updateTs"></span><input type="hidden" id="Tb5Tenseisaki.updateTs" name="Tb5Tenseisaki.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb5Tenseisaki.updateUserId}" class="meta">更新者</label><span id="Tb5Tenseisaki.updateUserId"></span><input type="hidden" id="Tb5Tenseisaki.updateUserId" name="Tb5Tenseisaki.updateUserId" />
+          <span id="Tb5Tenseisaki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5Tenseisaki.updateUserId" data-destDef="Tb5Tenseisaki.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb5Tenseisaki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5Tenseisaki.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb5Tenseisaki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5Tenseisaki.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb5TenseisakiDet.legend}">legend</legend>
+        <div id="tenseisakiId">
+          <label for="Tb5TenseisakiDet.tenseisakiId" th:text="#{Tb5TenseisakiDet.tenseisakiId}">転生先ID</label><input type="text" id="Tb5TenseisakiDet.tenseisakiId" name="Tb5TenseisakiDet.tenseisakiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="tenseisakiBn">
+          <label for="Tb5TenseisakiDet.tenseisakiBn" th:text="#{Tb5TenseisakiDet.tenseisakiBn}">転生先枝番</label><input type="text" id="Tb5TenseisakiDet.tenseisakiBn" name="Tb5TenseisakiDet.tenseisakiBn" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="tenseisakiDetInfo">
+          <label for="Tb5TenseisakiDet.tenseisakiDetInfo" th:text="#{Tb5TenseisakiDet.tenseisakiDetInfo}">転生先明細情報</label><input type="text" id="Tb5TenseisakiDet.tenseisakiDetInfo" name="Tb5TenseisakiDet.tenseisakiDetInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb5TenseisakiDet.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5TenseisakiDet.insertTs"></span><input type="hidden" id="Tb5TenseisakiDet.insertTs" name="Tb5TenseisakiDet.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb5TenseisakiDet.insertUserId}" class="meta">作成者</label><span id="Tb5TenseisakiDet.insertUserId"></span><input type="hidden" id="Tb5TenseisakiDet.insertUserId" name="Tb5TenseisakiDet.insertUserId" />
+          <span id="Tb5TenseisakiDet.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseisakiDet.insertUserId" data-destDef="Tb5TenseisakiDet.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb5TenseisakiDet.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5TenseisakiDet.updateTs"></span><input type="hidden" id="Tb5TenseisakiDet.updateTs" name="Tb5TenseisakiDet.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb5TenseisakiDet.updateUserId}" class="meta">更新者</label><span id="Tb5TenseisakiDet.updateUserId"></span><input type="hidden" id="Tb5TenseisakiDet.updateUserId" name="Tb5TenseisakiDet.updateUserId" />
+          <span id="Tb5TenseisakiDet.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseisakiDet.updateUserId" data-destDef="Tb5TenseisakiDet.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb5TenseisakiDet.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseisakiDet.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb5TenseisakiDet.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseisakiDet.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb5TenseisakiDet" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb5TenseisakiDetGet.xlsx(baseMei=#{Tb5TenseisakiDet.h2})}" id="Tb5TenseisakiDetGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb5TenseisakiDet" type="submit" class="delete" data-action="Tb5TenseisakiDetDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb5TenseisakiDet" type="submit" class="permit" data-action="Tb5TenseisakiDetPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb5TenseisakiDet" type="submit" class="forbid" data-action="Tb5TenseisakiDetForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb5TenseisakiDet" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

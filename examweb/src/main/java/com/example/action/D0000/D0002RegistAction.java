@@ -4,9 +4,8 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb1Entity1;
+import com.example.entity.Tb1Ko;
 import com.example.entity.Tb1Oya;
-import com.example.entity.Tb1Sosen;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.AppError;
@@ -26,18 +25,15 @@ public class D0002RegistAction extends BaseAction {
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String id, final Map<String, Object> postJson) {
 
-        Tb1Entity1 tEntity1 = FormValidator.toBean(Tb1Entity1.class.getName(), postJson);
+        Tb1Ko tKo = FormValidator.toBean(Tb1Ko.class.getName(), postJson);
 
         //        TEntity2 tEntity2 = FormValidator.toBean(TEntity2.class.getName(), postJson);
         //        tEntity.setTEntity2(tEntity2);
 
         Tb1Oya tOya = FormValidator.toBean(Tb1Oya.class.getName(), postJson);
-        tOya.addTb1Entity1s(tEntity1);
+        tOya.addTb1Kos(tKo);
 
-        Tb1Sosen tSosen = FormValidator.toBean(Tb1Sosen.class.getName(), postJson);
-        tSosen.addTb1Oyas(tOya);
-
-        if (tSosen.insert(now, id) != 1) {
+        if (tOya.insert(now, id) != 1) {
             throw new AppError("error.cant.insert");
         }
 

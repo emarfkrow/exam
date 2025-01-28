@@ -39,13 +39,7 @@ public class Tb1KoSRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSosenId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaBn())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getEntityBn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaId())) {
                 isNew = true;
             }
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getKoBn())) {

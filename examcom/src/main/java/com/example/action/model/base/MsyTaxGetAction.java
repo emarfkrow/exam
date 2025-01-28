@@ -29,15 +29,15 @@ public class MsyTaxGetAction extends BaseAction {
         if (taxKb == null) {
             return map;
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MsyTax.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MsyTax.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             return map;
         }
 
-        MsyTax msyTax = MsyTax.get(taxKb, kaishiBi);
+        MsyTax msyTax = MsyTax.get(taxKb, tekiyoBi);
         map.put("MsyTax", msyTax);
         return map;
     }

@@ -22,8 +22,8 @@
             <legend th:text="#{MsyTax.taxKb}">税区分</legend>
           </fieldset>
         </div>
-        <div id="kaishiBi">
-          <label for="MsyTax.kaishiBi" th:text="#{MsyTax.kaishiBi}">開始日</label><input type="text" id="MsyTax.kaishiBi" name="MsyTax.kaishiBi" maxlength="10" class=" notblank primaryKey datepicker" />
+        <div id="tekiyoBi">
+          <label for="MsyTax.tekiyoBi" th:text="#{MsyTax.tekiyoBi}">適用日</label><input type="text" id="MsyTax.tekiyoBi" name="MsyTax.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MsyTax.shuryoBi" th:text="#{MsyTax.shuryoBi}">終了日</label><input type="text" id="MsyTax.shuryoBi" name="MsyTax.shuryoBi" maxlength="10" class=" datepicker" />
@@ -61,10 +61,10 @@
         <a th:href="@{MsyTaxGet.xlsx(baseMei=#{MsyTax.h2})}" id="MsyTaxGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteMsyTax" class="delete" data-action="MsyTaxDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTax" class="permit" data-action="MsyTaxPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTax" class="forbid" data-action="MsyTaxForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistMsyTax" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteMsyTax" type="submit" class="delete" data-action="MsyTaxDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTax" type="submit" class="permit" data-action="MsyTaxPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTax" type="submit" class="forbid" data-action="MsyTaxForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMsyTax" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

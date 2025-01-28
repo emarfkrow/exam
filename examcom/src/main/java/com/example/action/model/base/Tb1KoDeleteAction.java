@@ -23,25 +23,11 @@ public class Tb1KoDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sosenId = postJson.get("sosenId");
-        if (sosenId == null) {
-            sosenId = postJson.get("Tb1Ko.sosenId");
+        Object oyaId = postJson.get("oyaId");
+        if (oyaId == null) {
+            oyaId = postJson.get("Tb1Ko.oyaId");
         }
-        if (sosenId == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object oyaBn = postJson.get("oyaBn");
-        if (oyaBn == null) {
-            oyaBn = postJson.get("Tb1Ko.oyaBn");
-        }
-        if (oyaBn == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object entityBn = postJson.get("entityBn");
-        if (entityBn == null) {
-            entityBn = postJson.get("Tb1Ko.entityBn");
-        }
-        if (entityBn == null) {
+        if (oyaId == null) {
             throw new OptLockError("error.cant.delete");
         }
         Object koBn = postJson.get("koBn");
@@ -54,15 +40,7 @@ public class Tb1KoDeleteAction extends BaseAction {
 
         Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), postJson);
 
-        java.util.List<com.example.entity.Tb1Shison> tb1Shisons = e.referTb1Shisons();
-        if (tb1Shisons != null) {
-            for (com.example.entity.Tb1Shison tb1Shison : tb1Shisons) {
-
-                if (tb1Shison.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
-                }
-            }
-        }
+        // child:Tb1Mago, parents:5
 
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");

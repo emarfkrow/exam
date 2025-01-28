@@ -54,24 +54,24 @@ public class MsyTax implements IEntity {
         }
     }
 
-    /** 開始日 */
+    /** 適用日 */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
-    private java.time.LocalDate kaishiBi;
+    private java.time.LocalDate tekiyoBi;
 
-    /** @return 開始日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KAISHI_BI")
-    public java.time.LocalDate getKaishiBi() {
-        return this.kaishiBi;
+    /** @return 適用日 */
+    @com.fasterxml.jackson.annotation.JsonProperty("TEKIYO_BI")
+    public java.time.LocalDate getTekiyoBi() {
+        return this.tekiyoBi;
     }
 
-    /** @param o 開始日 */
-    public void setKaishiBi(final Object o) {
+    /** @param o 適用日 */
+    public void setTekiyoBi(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.kaishiBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
+            this.tekiyoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
-            this.kaishiBi = null;
+            this.tekiyoBi = null;
         }
     }
 
@@ -279,17 +279,17 @@ public class MsyTax implements IEntity {
     /**
      * 税マスタ照会
      * @param param1 税区分
-     * @param param2 開始日
+     * @param param2 適用日
      * @return 税マスタ
      */
     public static MsyTax get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`TAX_KB` = :tax_kb");
-        whereList.add("`KAISHI_BI` = :kaishi_bi");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`TAX_KB` \n";
-        sql += "    , a.`KAISHI_BI` AS KAISHI_BI \n";
+        sql += "    , a.`TEKIYO_BI` AS TEKIYO_BI \n";
         sql += "    , a.`SHURYO_BI` AS SHURYO_BI \n";
         sql += "    , a.`TAX_RT` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
@@ -304,7 +304,7 @@ public class MsyTax implements IEntity {
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("tax_kb", param1);
-        map.put("kaishi_bi", param2);
+        map.put("tekiyo_bi", param2);
         return Queries.get(sql, map, MsyTax.class);
     }
 
@@ -325,7 +325,7 @@ public class MsyTax implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`TAX_KB` -- :tax_kb");
-        nameList.add("`KAISHI_BI` -- :kaishi_bi");
+        nameList.add("`TEKIYO_BI` -- :tekiyo_bi");
         nameList.add("`SHURYO_BI` -- :shuryo_bi");
         nameList.add("`TAX_RT` -- :tax_rt");
         nameList.add("`INSERT_TS` -- :insert_ts");
@@ -341,7 +341,7 @@ public class MsyTax implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":tax_kb");
-        valueList.add(":kaishi_bi");
+        valueList.add(":tekiyo_bi");
         valueList.add(":shuryo_bi");
         valueList.add(":tax_rt");
         valueList.add(":insert_ts");
@@ -370,7 +370,7 @@ public class MsyTax implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`TAX_KB` = :tax_kb");
-        setList.add("`KAISHI_BI` = :kaishi_bi");
+        setList.add("`TEKIYO_BI` = :tekiyo_bi");
         setList.add("`SHURYO_BI` = :shuryo_bi");
         setList.add("`TAX_RT` = :tax_rt");
         setList.add("`UPDATE_TS` = :update_ts");
@@ -395,7 +395,7 @@ public class MsyTax implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`TAX_KB` = :tax_kb");
-        whereList.add("`KAISHI_BI` = :kaishi_bi");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         return String.join(" AND ", whereList);
     }
 
@@ -407,7 +407,7 @@ public class MsyTax implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("tax_kb", this.taxKb);
-        map.put("kaishi_bi", this.kaishiBi);
+        map.put("tekiyo_bi", this.tekiyoBi);
         map.put("shuryo_bi", this.shuryoBi);
         map.put("tax_rt", this.taxRt);
         map.put("delete_f", this.deleteF);

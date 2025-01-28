@@ -48,7 +48,7 @@ public class MhrShozokuSRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUserId())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getKaishiBi())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTekiyoBi())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

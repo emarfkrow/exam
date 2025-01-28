@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb4SanshomotoS.title}">参照元</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb4SanshomotoGridColumns.js}"></script>
+<script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb4CdsanshoGridColumns.js}"></script>
+<script th:src="@{/model/Mb4NosanshoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb4SanshomotoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb4SanshomotoSearchForm" action="Tb4SanshomotoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb4SanshomotoS.legend}">legend</legend>
+        <div id="sanshomotoId">
+          <label for="Tb4Sanshomoto.sanshomotoId" th:text="#{Tb4Sanshomoto.sanshomotoId}">参照元ID</label><input type="text" id="Tb4Sanshomoto.sanshomotoId" name="Tb4Sanshomoto.sanshomotoId" maxlength="10" />
+        </div>
+        <div id="idsanshoId">
+          <label for="Tb4Sanshomoto.idsanshoId" th:text="#{Tb4Sanshomoto.idsanshoId}">ID参照ID</label><input type="text" id="Tb4Sanshomoto.idsanshoId" name="Tb4Sanshomoto.idsanshoId" maxlength="10" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4Sanshomoto.idsanshoId" data-destDef="Tb4Sanshomoto.idsanshoMei:IDSANSHO_MEI" /><a id="Tb4Sanshomoto.idsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4Sanshomoto.idsanshoMei" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4Sanshomoto.idsanshoId" data-destDef="Tb4Sanshomoto.idsanshoMei:IDSANSHO_MEI"></span>
+        </div>
+        <div id="idsanshoMei">
+          <label for="Tb4Sanshomoto.idsanshoMei" th:text="#{Tb4Sanshomoto.idsanshoMei}">ID参照名</label><input type="text" id="Tb4Sanshomoto.idsanshoMei" name="Tb4Sanshomoto.idsanshoMei" maxlength="60" />
+        </div>
+        <div id="cdsanshoCd">
+          <label for="Tb4Sanshomoto.cdsanshoCd" th:text="#{Tb4Sanshomoto.cdsanshoCd}">CD参照CD</label><input type="text" id="Tb4Sanshomoto.cdsanshoCd" name="Tb4Sanshomoto.cdsanshoCd" maxlength="10" data-json="Mb4CdsanshoSearch.json" data-srcDef="CDSANSHO_CD:Tb4Sanshomoto.cdsanshoCd" data-destDef="Tb4Sanshomoto.cdsanshoMei:CDSANSHO_MEI" /><a id="Tb4Sanshomoto.cdsanshoCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4Sanshomoto.cdsanshoMei" data-json="Mb4CdsanshoSearch.json" data-srcDef="CDSANSHO_CD:Tb4Sanshomoto.cdsanshoCd" data-destDef="Tb4Sanshomoto.cdsanshoMei:CDSANSHO_MEI"></span>
+        </div>
+        <div id="cdsanshoMei">
+          <label for="Tb4Sanshomoto.cdsanshoMei" th:text="#{Tb4Sanshomoto.cdsanshoMei}">CD参照名</label><input type="text" id="Tb4Sanshomoto.cdsanshoMei" name="Tb4Sanshomoto.cdsanshoMei" maxlength="60" />
+        </div>
+        <div id="nosanshoNo">
+          <label for="Tb4Sanshomoto.nosanshoNo" th:text="#{Tb4Sanshomoto.nosanshoNo}">NO参照NO</label><input type="text" id="Tb4Sanshomoto.nosanshoNo" name="Tb4Sanshomoto.nosanshoNo" maxlength="10" data-json="Mb4NosanshoSearch.json" data-srcDef="NOSANSHO_NO:Tb4Sanshomoto.nosanshoNo" data-destDef="Tb4Sanshomoto.nosanshoMei:NOSANSHO_MEI" /><a id="Tb4Sanshomoto.nosanshoNo" th:href="@{/model/Mb4NosanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4Sanshomoto.nosanshoMei" data-json="Mb4NosanshoSearch.json" data-srcDef="NOSANSHO_NO:Tb4Sanshomoto.nosanshoNo" data-destDef="Tb4Sanshomoto.nosanshoMei:NOSANSHO_MEI"></span>
+        </div>
+        <div id="nosanshoMei">
+          <label for="Tb4Sanshomoto.nosanshoMei" th:text="#{Tb4Sanshomoto.nosanshoMei}">NO参照名</label><input type="text" id="Tb4Sanshomoto.nosanshoMei" name="Tb4Sanshomoto.nosanshoMei" maxlength="60" />
+        </div>
+        <div id="betsuIdsanshoId">
+          <label for="Tb4Sanshomoto.betsuIdsanshoId" th:text="#{Tb4Sanshomoto.betsuIdsanshoId}">別ID参照ID</label><input type="text" id="Tb4Sanshomoto.betsuIdsanshoId" name="Tb4Sanshomoto.betsuIdsanshoId" maxlength="10" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4Sanshomoto.betsuIdsanshoId" data-destDef="Tb4Sanshomoto.betsuIdsanshoMei:IDSANSHO_MEI" /><a id="Tb4Sanshomoto.betsuIdsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4Sanshomoto.betsuIdsanshoMei" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4Sanshomoto.betsuIdsanshoId" data-destDef="Tb4Sanshomoto.betsuIdsanshoMei:IDSANSHO_MEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb4Sanshomoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb4Sanshomoto.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb4Sanshomoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb4Sanshomoto.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb4Sanshomoto" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb4Sanshomoto.html}" id="Tb4Sanshomoto" class="anew" target="dialog" th:text="#{Tb4Sanshomoto.add}" tabindex="-1">参照元</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb4Sanshomoto" type="submit" class="search" data-gridId="Tb4SanshomotoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb4SanshomotoSRegistForm" action="Tb4SanshomotoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb4Sanshomoto.h3}">h3</h3>
+      <div id="Tb4SanshomotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb4Sanshomoto.html}"></div>
+      <div id="Tb4SanshomotoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb4SanshomotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb4Sanshomoto&quot;]').click();">reset</button>
+        <a th:href="@{Tb4SanshomotoSearch.xlsx(baseMei=#{Tb4SanshomotoS.h2})}" id="Tb4SanshomotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a id="Tb4SanshomotoGrid.idsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb4SanshomotoGrid.cdsanshoCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" class="refer" th:text="'CD参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb4SanshomotoGrid.nosanshoNo" th:href="@{/model/Mb4NosanshoS.html}" target="dialog" class="refer" th:text="'NO参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb4SanshomotoGrid.betsuIdsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <button id="DeleteTb4SanshomotoS" type="submit" class="delete selectRows" data-action="Tb4SanshomotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb4SanshomotoS" type="submit" class="permit selectRows" data-action="Tb4SanshomotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb4SanshomotoS" type="submit" class="forbid selectRows" data-action="Tb4SanshomotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb4SanshomotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

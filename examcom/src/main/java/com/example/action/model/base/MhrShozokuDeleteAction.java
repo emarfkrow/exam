@@ -44,11 +44,11 @@ public class MhrShozokuDeleteAction extends BaseAction {
         if (userId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object kaishiBi = postJson.get("kaishiBi");
-        if (kaishiBi == null) {
-            kaishiBi = postJson.get("MhrShozoku.kaishiBi");
+        Object tekiyoBi = postJson.get("tekiyoBi");
+        if (tekiyoBi == null) {
+            tekiyoBi = postJson.get("MhrShozoku.tekiyoBi");
         }
-        if (kaishiBi == null) {
+        if (tekiyoBi == null) {
             throw new OptLockError("error.cant.delete");
         }
 

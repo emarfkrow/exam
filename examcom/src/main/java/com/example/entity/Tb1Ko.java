@@ -36,57 +36,21 @@ public class Tb1Ko implements IEntity {
         }
     }
 
-    /** 祖先ID */
-    private Integer sosenId;
+    /** 親ID */
+    private Integer oyaId;
 
-    /** @return 祖先ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_ID")
-    public Integer getSosenId() {
-        return this.sosenId;
+    /** @return 親ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_ID")
+    public Integer getOyaId() {
+        return this.oyaId;
     }
 
-    /** @param o 祖先ID */
-    public void setSosenId(final Object o) {
+    /** @param o 親ID */
+    public void setOyaId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sosenId = Integer.valueOf(o.toString());
+            this.oyaId = Integer.valueOf(o.toString());
         } else {
-            this.sosenId = null;
-        }
-    }
-
-    /** 親枝番 */
-    private Integer oyaBn;
-
-    /** @return 親枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BN")
-    public Integer getOyaBn() {
-        return this.oyaBn;
-    }
-
-    /** @param o 親枝番 */
-    public void setOyaBn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.oyaBn = Integer.valueOf(o.toString());
-        } else {
-            this.oyaBn = null;
-        }
-    }
-
-    /** エンティティ枝番 */
-    private Integer entityBn;
-
-    /** @return エンティティ枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_BN")
-    public Integer getEntityBn() {
-        return this.entityBn;
-    }
-
-    /** @param o エンティティ枝番 */
-    public void setEntityBn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.entityBn = Integer.valueOf(o.toString());
-        } else {
-            this.entityBn = null;
+            this.oyaId = null;
         }
     }
 
@@ -108,21 +72,21 @@ public class Tb1Ko implements IEntity {
         }
     }
 
-    /** 子名 */
-    private String koMei;
+    /** 子情報 */
+    private String koInfo;
 
-    /** @return 子名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KO_MEI")
-    public String getKoMei() {
-        return this.koMei;
+    /** @return 子情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty("KO_INFO")
+    public String getKoInfo() {
+        return this.koInfo;
     }
 
-    /** @param o 子名 */
-    public void setKoMei(final Object o) {
+    /** @param o 子情報 */
+    public void setKoInfo(final Object o) {
         if (o != null) {
-            this.koMei = o.toString();
+            this.koInfo = o.toString();
         } else {
-            this.koMei = null;
+            this.koInfo = null;
         }
     }
 
@@ -290,25 +254,19 @@ public class Tb1Ko implements IEntity {
 
     /**
      * 子照会
-     * @param param1 祖先ID
-     * @param param2 親枝番
-     * @param param3 エンティティ枝番
-     * @param param4 子枝番
+     * @param param1 親ID
+     * @param param2 子枝番
      * @return 子
      */
-    public static Tb1Ko get(final Object param1, final Object param2, final Object param3, final Object param4) {
+    public static Tb1Ko get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`OYA_ID` = :oya_id");
         whereList.add("`KO_BN` = :ko_bn");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_BN` \n";
-        sql += "    , a.`ENTITY_BN` \n";
+        sql += "      a.`OYA_ID` \n";
         sql += "    , a.`KO_BN` \n";
-        sql += "    , a.`KO_MEI` \n";
+        sql += "    , a.`KO_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -320,10 +278,8 @@ public class Tb1Ko implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        map.put("entity_bn", param3);
-        map.put("ko_bn", param4);
+        map.put("oya_id", param1);
+        map.put("ko_bn", param2);
         return Queries.get(sql, map, Tb1Ko.class);
     }
 
@@ -338,18 +294,57 @@ public class Tb1Ko implements IEntity {
         // 子枝番の採番処理
         numbering();
 
-        // 子孫の登録
-        if (this.tb1Shisons != null) {
-            for (Tb1Shison tb1Shison : this.tb1Shisons) {
-                if (tb1Shison != null) {
-                    tb1Shison.setSosenId(this.getSosenId());
-                    tb1Shison.setOyaBn(this.getOyaBn());
-                    tb1Shison.setEntityBn(this.getEntityBn());
-                    tb1Shison.setKoBn(this.getKoBn());
+        // 孫の登録
+        if (this.tb1Magos != null) {
+            for (Tb1Mago tb1Mago : this.tb1Magos) {
+                if (tb1Mago != null) {
+                    tb1Mago.setOyaId(this.getOyaId());
+                    tb1Mago.setKoBn(this.getKoBn());
                 }
-                tb1Shison.insert(now, execId);
+                tb1Mago.insert(now, execId);
             }
         }
+
+        // 兄弟２の登録
+        if (this.tb3Kyodai2 != null) {
+            this.tb3Kyodai2.setOyaId(this.getOyaId());
+            this.tb3Kyodai2.setKoBn(this.getKoBn());
+            this.tb3Kyodai2.insert(now, execId);
+        }
+
+        // 兄弟３の登録
+        if (this.tb3Kyodai3 != null) {
+            this.tb3Kyodai3.setOyaId(this.getOyaId());
+            this.tb3Kyodai3.setKoBn(this.getKoBn());
+            this.tb3Kyodai3.insert(now, execId);
+        }
+
+        // 兄弟４の登録
+        if (this.tb3Kyodai4 != null) {
+            this.tb3Kyodai4.setOyaId(this.getOyaId());
+            this.tb3Kyodai4.setKoBn(this.getKoBn());
+            this.tb3Kyodai4.insert(now, execId);
+        }
+
+        // 兄弟５の登録
+        if (this.tb3Kyodai5 != null) {
+            this.tb3Kyodai5.setOyaId(this.getOyaId());
+            this.tb3Kyodai5.setKoBn(this.getKoBn());
+            this.tb3Kyodai5.insert(now, execId);
+        }
+
+        // 履歴の登録
+        Tb1KoRireki tb1KoRireki = new Tb1KoRireki();
+        tb1KoRireki.setOyaId(this.oyaId);
+        tb1KoRireki.setKoBn(this.koBn);
+        tb1KoRireki.setKoInfo(this.koInfo);
+        tb1KoRireki.setInsertTs(this.insertTs);
+        tb1KoRireki.setInsertUserId(this.insertUserId);
+        tb1KoRireki.setUpdateTs(this.updateTs);
+        tb1KoRireki.setUpdateUserId(this.updateUserId);
+        tb1KoRireki.setDeleteF(this.deleteF);
+        tb1KoRireki.setStatusKb(this.statusKb);
+        tb1KoRireki.insert(now, execId);
 
         // 子の登録
         String sql = "INSERT INTO TB1_KO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
@@ -359,11 +354,9 @@ public class Tb1Ko implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_BN` -- :oya_bn");
-        nameList.add("`ENTITY_BN` -- :entity_bn");
+        nameList.add("`OYA_ID` -- :oya_id");
         nameList.add("`KO_BN` -- :ko_bn");
-        nameList.add("`KO_MEI` -- :ko_mei");
+        nameList.add("`KO_INFO` -- :ko_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -376,11 +369,9 @@ public class Tb1Ko implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sosen_id");
-        valueList.add(":oya_bn");
-        valueList.add(":entity_bn");
+        valueList.add(":oya_id");
         valueList.add(":ko_bn");
-        valueList.add(":ko_mei");
+        valueList.add(":ko_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -398,13 +389,9 @@ public class Tb1Ko implements IEntity {
         String sql = "SELECT CASE WHEN MAX(e.`KO_BN`) IS NULL THEN 0 ELSE MAX(e.`KO_BN`) * 1 END + 1 AS `KO_BN` FROM TB1_KO e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`SOSEN_ID` = :sosen_id");
-        whereList.add("e.`OYA_BN` = :oya_bn");
-        whereList.add("e.`ENTITY_BN` = :entity_bn");
+        whereList.add("e.`OYA_ID` = :oya_id");
         sql += " WHERE " + String.join(" AND ", whereList);
-        map.put("sosen_id", this.sosenId);
-        map.put("oya_bn", this.oyaBn);
-        map.put("entity_bn", this.entityBn);
+        map.put("oya_id", this.oyaId);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
         Object o = mapList.get(0).get("KO_BN");
         this.setKoBn(o);
@@ -418,23 +405,78 @@ public class Tb1Ko implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 子孫の登録
-        if (this.tb1Shisons != null) {
-            for (Tb1Shison tb1Shison : this.tb1Shisons) {
-                if (tb1Shison == null) {
+        // 孫の登録
+        if (this.tb1Magos != null) {
+            for (Tb1Mago tb1Mago : this.tb1Magos) {
+                if (tb1Mago == null) {
                     continue;
                 }
-                tb1Shison.setSosenId(this.sosenId);
-                tb1Shison.setOyaBn(this.oyaBn);
-                tb1Shison.setEntityBn(this.entityBn);
-                tb1Shison.setKoBn(this.koBn);
+                tb1Mago.setOyaId(this.oyaId);
+                tb1Mago.setKoBn(this.koBn);
                 try {
-                    tb1Shison.insert(now, execId);
+                    tb1Mago.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Shison.update(now, execId);
+                    tb1Mago.update(now, execId);
                 }
             }
         }
+
+        // 兄弟２の登録
+        if (this.tb3Kyodai2 != null) {
+            tb3Kyodai2.setOyaId(this.getOyaId());
+            tb3Kyodai2.setKoBn(this.getKoBn());
+            try {
+                tb3Kyodai2.insert(now, execId);
+            } catch (Exception e) {
+                tb3Kyodai2.update(now, execId);
+            }
+        }
+
+        // 兄弟３の登録
+        if (this.tb3Kyodai3 != null) {
+            tb3Kyodai3.setOyaId(this.getOyaId());
+            tb3Kyodai3.setKoBn(this.getKoBn());
+            try {
+                tb3Kyodai3.insert(now, execId);
+            } catch (Exception e) {
+                tb3Kyodai3.update(now, execId);
+            }
+        }
+
+        // 兄弟４の登録
+        if (this.tb3Kyodai4 != null) {
+            tb3Kyodai4.setOyaId(this.getOyaId());
+            tb3Kyodai4.setKoBn(this.getKoBn());
+            try {
+                tb3Kyodai4.insert(now, execId);
+            } catch (Exception e) {
+                tb3Kyodai4.update(now, execId);
+            }
+        }
+
+        // 兄弟５の登録
+        if (this.tb3Kyodai5 != null) {
+            tb3Kyodai5.setOyaId(this.getOyaId());
+            tb3Kyodai5.setKoBn(this.getKoBn());
+            try {
+                tb3Kyodai5.insert(now, execId);
+            } catch (Exception e) {
+                tb3Kyodai5.update(now, execId);
+            }
+        }
+
+        // 履歴の登録
+        Tb1KoRireki tb1KoRireki = new Tb1KoRireki();
+        tb1KoRireki.setOyaId(this.oyaId);
+        tb1KoRireki.setKoBn(this.koBn);
+        tb1KoRireki.setKoInfo(this.koInfo);
+        tb1KoRireki.setInsertTs(this.insertTs);
+        tb1KoRireki.setInsertUserId(this.insertUserId);
+        tb1KoRireki.setUpdateTs(this.updateTs);
+        tb1KoRireki.setUpdateUserId(this.updateUserId);
+        tb1KoRireki.setDeleteF(this.deleteF);
+        tb1KoRireki.setStatusKb(this.statusKb);
+        tb1KoRireki.insert(now, execId);
 
         // 子の登録
         String sql = "UPDATE TB1_KO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
@@ -444,11 +486,9 @@ public class Tb1Ko implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_BN` = :oya_bn");
-        setList.add("`ENTITY_BN` = :entity_bn");
+        setList.add("`OYA_ID` = :oya_id");
         setList.add("`KO_BN` = :ko_bn");
-        setList.add("`KO_MEI` = :ko_mei");
+        setList.add("`KO_INFO` = :ko_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -462,11 +502,31 @@ public class Tb1Ko implements IEntity {
      */
     public int delete() {
 
-        // 子孫の削除
-        if (this.tb1Shisons != null) {
-            for (Tb1Shison tb1Shison : this.tb1Shisons) {
-                tb1Shison.delete();
+        // 孫の削除
+        if (this.tb1Magos != null) {
+            for (Tb1Mago tb1Mago : this.tb1Magos) {
+                tb1Mago.delete();
             }
+        }
+
+        // 兄弟２の削除
+        if (this.tb3Kyodai2 != null) {
+            this.tb3Kyodai2.delete();
+        }
+
+        // 兄弟３の削除
+        if (this.tb3Kyodai3 != null) {
+            this.tb3Kyodai3.delete();
+        }
+
+        // 兄弟４の削除
+        if (this.tb3Kyodai4 != null) {
+            this.tb3Kyodai4.delete();
+        }
+
+        // 兄弟５の削除
+        if (this.tb3Kyodai5 != null) {
+            this.tb3Kyodai5.delete();
         }
 
         // 子の削除
@@ -477,9 +537,7 @@ public class Tb1Ko implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
-        whereList.add("`ENTITY_BN` = :entity_bn");
+        whereList.add("`OYA_ID` = :oya_id");
         whereList.add("`KO_BN` = :ko_bn");
         return String.join(" AND ", whereList);
     }
@@ -491,11 +549,9 @@ public class Tb1Ko implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", this.sosenId);
-        map.put("oya_bn", this.oyaBn);
-        map.put("entity_bn", this.entityBn);
+        map.put("oya_id", this.oyaId);
         map.put("ko_bn", this.koBn);
-        map.put("ko_mei", this.koMei);
+        map.put("ko_info", this.koInfo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
@@ -505,54 +561,148 @@ public class Tb1Ko implements IEntity {
         return map;
     }
 
-    /** 子孫のリスト */
-    private List<Tb1Shison> tb1Shisons;
+    /** 兄弟２ */
+    private Tb3Kyodai2 tb3Kyodai2;
 
-    /** @return 子孫のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Shisons")
-    public List<Tb1Shison> getTb1Shisons() {
-        return this.tb1Shisons;
+    /** @return 兄弟２ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai2")
+    public Tb3Kyodai2 getTb3Kyodai2() {
+        return this.tb3Kyodai2;
     }
 
-    /** @param list 子孫のリスト */
-    public void setTb1Shisons(final List<Tb1Shison> list) {
-        this.tb1Shisons = list;
+    /** @param p 兄弟２ */
+    public void setTb3Kyodai2(final Tb3Kyodai2 p) {
+        this.tb3Kyodai2 = p;
     }
 
-    /** @param tb1Shison */
-    public void addTb1Shisons(final Tb1Shison tb1Shison) {
-        if (this.tb1Shisons == null) {
-            this.tb1Shisons = new ArrayList<Tb1Shison>();
+    /** @return 兄弟２ */
+    public Tb3Kyodai2 referTb3Kyodai2() {
+        if (this.tb3Kyodai2 == null) {
+            try {
+                this.tb3Kyodai2 = Tb3Kyodai2.get(this.oyaId, this.koBn);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
         }
-        this.tb1Shisons.add(tb1Shison);
+        return this.tb3Kyodai2;
     }
 
-    /** @return 子孫のリスト */
-    public List<Tb1Shison> referTb1Shisons() {
-        this.tb1Shisons = Tb1Ko.referTb1Shisons(this.sosenId, this.oyaBn, this.entityBn, this.koBn);
-        return this.tb1Shisons;
+    /** 兄弟３ */
+    private Tb3Kyodai3 tb3Kyodai3;
+
+    /** @return 兄弟３ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai3")
+    public Tb3Kyodai3 getTb3Kyodai3() {
+        return this.tb3Kyodai3;
+    }
+
+    /** @param p 兄弟３ */
+    public void setTb3Kyodai3(final Tb3Kyodai3 p) {
+        this.tb3Kyodai3 = p;
+    }
+
+    /** @return 兄弟３ */
+    public Tb3Kyodai3 referTb3Kyodai3() {
+        if (this.tb3Kyodai3 == null) {
+            try {
+                this.tb3Kyodai3 = Tb3Kyodai3.get(this.oyaId, this.koBn);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
+        }
+        return this.tb3Kyodai3;
+    }
+
+    /** 兄弟４ */
+    private Tb3Kyodai4 tb3Kyodai4;
+
+    /** @return 兄弟４ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai4")
+    public Tb3Kyodai4 getTb3Kyodai4() {
+        return this.tb3Kyodai4;
+    }
+
+    /** @param p 兄弟４ */
+    public void setTb3Kyodai4(final Tb3Kyodai4 p) {
+        this.tb3Kyodai4 = p;
+    }
+
+    /** @return 兄弟４ */
+    public Tb3Kyodai4 referTb3Kyodai4() {
+        if (this.tb3Kyodai4 == null) {
+            try {
+                this.tb3Kyodai4 = Tb3Kyodai4.get(this.oyaId, this.koBn);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
+        }
+        return this.tb3Kyodai4;
+    }
+
+    /** 兄弟５ */
+    private Tb3Kyodai5 tb3Kyodai5;
+
+    /** @return 兄弟５ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai5")
+    public Tb3Kyodai5 getTb3Kyodai5() {
+        return this.tb3Kyodai5;
+    }
+
+    /** @param p 兄弟５ */
+    public void setTb3Kyodai5(final Tb3Kyodai5 p) {
+        this.tb3Kyodai5 = p;
+    }
+
+    /** @return 兄弟５ */
+    public Tb3Kyodai5 referTb3Kyodai5() {
+        if (this.tb3Kyodai5 == null) {
+            try {
+                this.tb3Kyodai5 = Tb3Kyodai5.get(this.oyaId, this.koBn);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
+        }
+        return this.tb3Kyodai5;
+    }
+
+    /** 孫のリスト */
+    private List<Tb1Mago> tb1Magos;
+
+    /** @return 孫のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Magos")
+    public List<Tb1Mago> getTb1Magos() {
+        return this.tb1Magos;
+    }
+
+    /** @param list 孫のリスト */
+    public void setTb1Magos(final List<Tb1Mago> list) {
+        this.tb1Magos = list;
+    }
+
+    /** @param tb1Mago */
+    public void addTb1Magos(final Tb1Mago tb1Mago) {
+        if (this.tb1Magos == null) {
+            this.tb1Magos = new ArrayList<Tb1Mago>();
+        }
+        this.tb1Magos.add(tb1Mago);
+    }
+
+    /** @return 孫のリスト */
+    public List<Tb1Mago> referTb1Magos() {
+        this.tb1Magos = Tb1Ko.referTb1Magos(this.oyaId, this.koBn);
+        return this.tb1Magos;
     }
 
     /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @param param3 entityBn
-     * @param param4 koBn
-     * @return List<Tb1Shison>
+     * @param param1 oyaId
+     * @param param2 koBn
+     * @return List<Tb1Mago>
      */
-    public static List<Tb1Shison> referTb1Shisons(final Integer param1, final Integer param2, final Integer param3, final Integer param4) {
+    public static List<Tb1Mago> referTb1Magos(final Integer param1, final Integer param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
-        whereList.add("ENTITY_BN = :entity_bn");
+        whereList.add("OYA_ID = :oya_id");
         whereList.add("KO_BN = :ko_bn");
         String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
+        sql += "OYA_ID";
         sql += ", KO_BN";
-        sql += ", SHISON_BN";
-        sql += ", SHISON_MEI";
+        sql += ", MAGO_BN";
+        sql += ", MAGO_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -561,14 +711,12 @@ public class Tb1Ko implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB1_SHISON a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB1_MAGO a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN, KO_BN, SHISON_BN";
+        sql += "OYA_ID, KO_BN, MAGO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        map.put("entity_bn", param3);
-        map.put("ko_bn", param4);
-        return Queries.select(sql, map, Tb1Shison.class, null, null);
+        map.put("oya_id", param1);
+        map.put("ko_bn", param2);
+        return Queries.select(sql, map, Tb1Mago.class, null, null);
     }
 }

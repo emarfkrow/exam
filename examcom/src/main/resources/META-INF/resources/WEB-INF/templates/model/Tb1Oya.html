@@ -10,65 +10,24 @@
 </script>
 <script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity1GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho1GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho2GridColumns.js}"></script>
-<script th:src="@{/model/Mb1Sansho3GridColumns.js}"></script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
-<script th:src="@{/model/Tb1TenpuFileGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity2GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity3GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity4GridColumns.js}"></script>
-<script th:src="@{/model/Tb1Entity5GridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/Tb3Kyodai2GridColumns.js}"></script>
+<script th:src="@{/model/Tb3Kyodai3GridColumns.js}"></script>
+<script th:src="@{/model/Tb3Kyodai4GridColumns.js}"></script>
+<script th:src="@{/model/Tb3Kyodai5GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
     <h2 th:text="#{Tb1Oya.h2}">h2</h2>
     <form name="Tb1OyaRegistForm" action="Tb1OyaRegist.ajax" class="regist">
-      <fieldset class="parent">
-        <legend th:text="#{Tb1Sosen.legend}">legend</legend>
-        <div id="sosenId">
-          <label for="Tb1Sosen.sosenId" th:text="#{Tb1Sosen.sosenId}">祖先ID</label><input type="text" id="Tb1Sosen.sosenId" name="Tb1Sosen.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
-        </div>
-        <div id="memo">
-          <label for="Tb1Sosen.memo" th:text="#{Tb1Sosen.memo}">メモ</label><input type="text" id="Tb1Sosen.memo" name="Tb1Sosen.memo" maxlength="300" />
-        </div>
-        <div id="insertTs">
-          <label th:text="#{Tb1Sosen.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Sosen.insertTs"></span><input type="hidden" id="Tb1Sosen.insertTs" name="Tb1Sosen.insertTs" />
-        </div>
-        <div id="insertUserId">
-          <label th:text="#{Tb1Sosen.insertUserId}" class="meta">作成者</label><span id="Tb1Sosen.insertUserId"></span><input type="hidden" id="Tb1Sosen.insertUserId" name="Tb1Sosen.insertUserId" />
-          <span id="Tb1Sosen.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Sosen.insertUserId" data-destDef="Tb1Sosen.insertUserSei:USER_SEI"></span>
-        </div>
-        <div id="updateTs">
-          <label th:text="#{Tb1Sosen.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Sosen.updateTs"></span><input type="hidden" id="Tb1Sosen.updateTs" name="Tb1Sosen.updateTs" />
-        </div>
-        <div id="updateUserId">
-          <label th:text="#{Tb1Sosen.updateUserId}" class="meta">更新者</label><span id="Tb1Sosen.updateUserId"></span><input type="hidden" id="Tb1Sosen.updateUserId" name="Tb1Sosen.updateUserId" />
-          <span id="Tb1Sosen.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Sosen.updateUserId" data-destDef="Tb1Sosen.updateUserSei:USER_SEI"></span>
-        </div>
-        <div id="deleteF">
-          <fieldset id="Tb1Sosen.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Sosen.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Sosen.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Sosen.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
-      </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Oya.legend}">legend</legend>
-        <div id="sosenId">
-          <label for="Tb1Oya.sosenId" th:text="#{Tb1Oya.sosenId}">祖先ID</label><input type="text" id="Tb1Oya.sosenId" name="Tb1Oya.sosenId" maxlength="10" class=" notblank primaryKey numbering" />
+        <div id="oyaId">
+          <label for="Tb1Oya.oyaId" th:text="#{Tb1Oya.oyaId}">親ID</label><input type="text" id="Tb1Oya.oyaId" name="Tb1Oya.oyaId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
-        <div id="oyaBn">
-          <label for="Tb1Oya.oyaBn" th:text="#{Tb1Oya.oyaBn}">親枝番</label><input type="text" id="Tb1Oya.oyaBn" name="Tb1Oya.oyaBn" maxlength="10" class=" notblank primaryKey numbering" />
-        </div>
-        <div id="oyaMei">
-          <label for="Tb1Oya.oyaMei" th:text="#{Tb1Oya.oyaMei}">親名</label><input type="text" id="Tb1Oya.oyaMei" name="Tb1Oya.oyaMei" maxlength="60" class=" notblank" />
+        <div id="oyaInfo">
+          <label for="Tb1Oya.oyaInfo" th:text="#{Tb1Oya.oyaInfo}">親情報</label><input type="text" id="Tb1Oya.oyaInfo" name="Tb1Oya.oyaInfo" maxlength="300" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb1Oya.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
@@ -95,34 +54,30 @@
           </fieldset>
         </div>
       </fieldset>
-      <h3 th:text="#{Tb1Entity1.h3}">h3</h3>
-      <a th:href="@{/model/Tb1Entity1.html}" id="Tb1Entity1" target="dialog" th:text="#{Tb1Entity1.add}" class="addChild" tabindex="-1">エンティティ１</a>
-      <div id="Tb1Entity1Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity1.html}"></div>
-        <a id="Tb1Entity1Grid.sansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="'参照１マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <a id="Tb1Entity1Grid.sansho2Cd" th:href="@{/model/Mb1Sansho2S.html}" target="dialog" class="refer" th:text="'参照２マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <a id="Tb1Entity1Grid.sansho3No" th:href="@{/model/Mb1Sansho3S.html}" target="dialog" class="refer" th:text="'参照３マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <a id="Tb1Entity1Grid.betsuSansho1Id" th:href="@{/model/Mb1Sansho1S.html}" target="dialog" class="refer" th:text="'参照１マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-      <h3 th:text="#{Tb1Entity2.h3}">h3</h3>
-      <a th:href="@{/model/Tb1Entity2.html}" id="Tb1Entity2" target="dialog" th:text="#{Tb1Entity2.add}" class="addChild" tabindex="-1">エンティティ２</a>
-      <div id="Tb1Entity2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity2.html}"></div>
-      <h3 th:text="#{Tb1Entity3.h3}">h3</h3>
-      <a th:href="@{/model/Tb1Entity3.html}" id="Tb1Entity3" target="dialog" th:text="#{Tb1Entity3.add}" class="addChild" tabindex="-1">エンティティ３</a>
-      <div id="Tb1Entity3Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity3.html}"></div>
-      <h3 th:text="#{Tb1Entity4.h3}">h3</h3>
-      <a th:href="@{/model/Tb1Entity4.html}" id="Tb1Entity4" target="dialog" th:text="#{Tb1Entity4.add}" class="addChild" tabindex="-1">エンティティ４</a>
-      <div id="Tb1Entity4Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity4.html}"></div>
-      <h3 th:text="#{Tb1Entity5.h3}">h3</h3>
-      <a th:href="@{/model/Tb1Entity5.html}" id="Tb1Entity5" target="dialog" th:text="#{Tb1Entity5.add}" class="addChild" tabindex="-1">エンティティ５</a>
-      <div id="Tb1Entity5Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Entity5.html}"></div>
+      <h3 th:text="#{Tb1Ko.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Ko.html}" id="Tb1Ko" target="dialog" th:text="#{Tb1Ko.add}" class="addChild" tabindex="-1">子</a>
+      <div id="Tb1KoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}"></div>
+      <h3 th:text="#{Tb3Kyodai2.h3}">h3</h3>
+      <a th:href="@{/model/Tb3Kyodai2.html}" id="Tb3Kyodai2" target="dialog" th:text="#{Tb3Kyodai2.add}" class="addChild" tabindex="-1">兄弟２</a>
+      <div id="Tb3Kyodai2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai2.html}"></div>
+      <h3 th:text="#{Tb3Kyodai3.h3}">h3</h3>
+      <a th:href="@{/model/Tb3Kyodai3.html}" id="Tb3Kyodai3" target="dialog" th:text="#{Tb3Kyodai3.add}" class="addChild" tabindex="-1">兄弟３</a>
+      <div id="Tb3Kyodai3Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai3.html}"></div>
+      <h3 th:text="#{Tb3Kyodai4.h3}">h3</h3>
+      <a th:href="@{/model/Tb3Kyodai4.html}" id="Tb3Kyodai4" target="dialog" th:text="#{Tb3Kyodai4.add}" class="addChild" tabindex="-1">兄弟４</a>
+      <div id="Tb3Kyodai4Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai4.html}"></div>
+      <h3 th:text="#{Tb3Kyodai5.h3}">h3</h3>
+      <a th:href="@{/model/Tb3Kyodai5.html}" id="Tb3Kyodai5" target="dialog" th:text="#{Tb3Kyodai5.add}" class="addChild" tabindex="-1">兄弟５</a>
+      <div id="Tb3Kyodai5Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai5.html}"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1OyaGet.xlsx(baseMei=#{Tb1Oya.h2})}" id="Tb1OyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteTb1Oya" class="delete" data-action="Tb1OyaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb1Oya" class="permit" data-action="Tb1OyaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb1Oya" class="forbid" data-action="Tb1OyaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistTb1Oya" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteTb1Oya" type="submit" class="delete" data-action="Tb1OyaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1Oya" type="submit" class="permit" data-action="Tb1OyaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Oya" type="submit" class="forbid" data-action="Tb1OyaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb1Oya" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

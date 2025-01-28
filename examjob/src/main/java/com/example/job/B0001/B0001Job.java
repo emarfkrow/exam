@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.entity.Tb1Entity1;
+import com.example.entity.Tb1Ko;
 
 import jp.co.golorp.emarf.exception.AppError;
 import jp.co.golorp.emarf.job.BaseJob;
@@ -42,28 +42,27 @@ public class B0001Job extends BaseJob {
     public void running(final LocalDateTime now, final String jobId, final String[] args) {
 
         // 追加
-        Tb1Entity1 tEntity = new Tb1Entity1();
-        tEntity.setSosenId(2);
-        tEntity.setOyaBn(1);
-        tEntity.setEntityBn(1);
-        tEntity.setEntity1Mei("1");
-        if (tEntity.insert(now, jobId) != 1) {
+        Tb1Ko tKo = new Tb1Ko();
+        tKo.setOyaId(1);
+        tKo.setKoBn(1);
+        tKo.setKoInfo("子追加");
+        if (tKo.insert(now, jobId) != 1) {
             throw new AppError("error.cant.insert");
         }
 
         // 照会
-        tEntity = Tb1Entity1.get(1, 1, 1);
-        tEntity.getTb1Kos();
-        LOG.debug(tEntity.toString());
+        tKo = Tb1Ko.get(1, 1);
+        tKo.getTb1Magos();
+        LOG.debug(tKo.toString());
 
         // 更新
-        tEntity.setEntity1Mei("2");
-        if (tEntity.update(now, jobId) != 1) {
+        tKo.setKoInfo("子更新");
+        if (tKo.update(now, jobId) != 1) {
             throw new AppError("error.cant.update");
         }
 
         // 削除
-        if (tEntity.delete() != 1) {
+        if (tKo.delete() != 1) {
             throw new AppError("error.cant.delete");
         }
 

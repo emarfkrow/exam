@@ -39,10 +39,7 @@ public class Tb1OyaSRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSosenId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaBn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOyaId())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

@@ -36,8 +36,8 @@
             <legend th:text="#{MhrNinka.kengenKb}">権限区分</legend>
           </fieldset>
         </div>
-        <div id="kaishiBi">
-          <label for="MhrNinka.kaishiBi_1" th:text="#{MhrNinka.kaishiBi}">開始日</label><input type="text" id="MhrNinka.kaishiBi_1" name="MhrNinka.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrNinka.kaishiBi_2" name="MhrNinka.kaishiBi_2" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrNinka.tekiyoBi_1" th:text="#{MhrNinka.tekiyoBi}">適用日</label><input type="text" id="MhrNinka.tekiyoBi_1" name="MhrNinka.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrNinka.tekiyoBi_2" name="MhrNinka.tekiyoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrNinka.shuryoBi_1" th:text="#{MhrNinka.shuryoBi}">終了日</label><input type="text" id="MhrNinka.shuryoBi_1" name="MhrNinka.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrNinka.shuryoBi_2" name="MhrNinka.shuryoBi_2" maxlength="10" class=" datepicker" />
@@ -58,7 +58,7 @@
         <a th:href="@{/model/MhrNinka.html}" id="MhrNinka" class="anew" target="dialog" th:text="#{MhrNinka.add}" tabindex="-1">認可マスタ</a>
       </div>
       <div class="submits">
-        <button id="SearchMhrNinka" class="search" data-gridId="MhrNinkaGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMhrNinka" type="submit" class="search" data-gridId="MhrNinkaGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -71,12 +71,12 @@
         <a th:href="@{MhrNinkaSearch.xlsx(baseMei=#{MhrNinkaS.h2})}" id="MhrNinkaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MhrNinkaGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrNinkaGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMhrNinkaS" class="delete selectRows" data-action="MhrNinkaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrNinkaS" class="permit selectRows" data-action="MhrNinkaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrNinkaS" class="forbid selectRows" data-action="MhrNinkaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMhrNinkaS" type="submit" class="delete selectRows" data-action="MhrNinkaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrNinkaS" type="submit" class="permit selectRows" data-action="MhrNinkaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrNinkaS" type="submit" class="forbid selectRows" data-action="MhrNinkaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMhrNinkaS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMhrNinkaS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

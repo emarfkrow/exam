@@ -29,8 +29,8 @@
         <div id="shokuiOn">
           <label for="MhrShokui.shokuiOn" th:text="#{MhrShokui.shokuiOn}">職位順</label><input type="text" id="MhrShokui.shokuiOn" name="MhrShokui.shokuiOn" maxlength="10" />
         </div>
-        <div id="kaishiBi">
-          <label for="MhrShokui.kaishiBi_1" th:text="#{MhrShokui.kaishiBi}">開始日</label><input type="text" id="MhrShokui.kaishiBi_1" name="MhrShokui.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShokui.kaishiBi_2" name="MhrShokui.kaishiBi_2" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrShokui.tekiyoBi_1" th:text="#{MhrShokui.tekiyoBi}">適用日</label><input type="text" id="MhrShokui.tekiyoBi_1" name="MhrShokui.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShokui.tekiyoBi_2" name="MhrShokui.tekiyoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrShokui.shuryoBi_1" th:text="#{MhrShokui.shuryoBi}">終了日</label><input type="text" id="MhrShokui.shuryoBi_1" name="MhrShokui.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShokui.shuryoBi_2" name="MhrShokui.shuryoBi_2" maxlength="10" class=" datepicker" />
@@ -51,7 +51,7 @@
         <a th:href="@{/model/MhrShokui.html}" id="MhrShokui" class="anew" target="dialog" th:text="#{MhrShokui.add}" tabindex="-1">職位マスタ</a>
       </div>
       <div class="submits">
-        <button id="SearchMhrShokui" class="search" data-gridId="MhrShokuiGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMhrShokui" type="submit" class="search" data-gridId="MhrShokuiGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -62,12 +62,12 @@
       <div class="buttons">
         <button type="button" id="ResetMhrShokuiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrShokui&quot;]').click();">reset</button>
         <a th:href="@{MhrShokuiSearch.xlsx(baseMei=#{MhrShokuiS.h2})}" id="MhrShokuiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMhrShokuiS" class="delete selectRows" data-action="MhrShokuiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShokuiS" class="permit selectRows" data-action="MhrShokuiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShokuiS" class="forbid selectRows" data-action="MhrShokuiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMhrShokuiS" type="submit" class="delete selectRows" data-action="MhrShokuiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrShokuiS" type="submit" class="permit selectRows" data-action="MhrShokuiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShokuiS" type="submit" class="forbid selectRows" data-action="MhrShokuiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMhrShokuiS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMhrShokuiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

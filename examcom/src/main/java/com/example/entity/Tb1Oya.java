@@ -36,57 +36,39 @@ public class Tb1Oya implements IEntity {
         }
     }
 
-    /** 祖先ID */
-    private Integer sosenId;
+    /** 親ID */
+    private Integer oyaId;
 
-    /** @return 祖先ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SOSEN_ID")
-    public Integer getSosenId() {
-        return this.sosenId;
+    /** @return 親ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_ID")
+    public Integer getOyaId() {
+        return this.oyaId;
     }
 
-    /** @param o 祖先ID */
-    public void setSosenId(final Object o) {
+    /** @param o 親ID */
+    public void setOyaId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sosenId = Integer.valueOf(o.toString());
+            this.oyaId = Integer.valueOf(o.toString());
         } else {
-            this.sosenId = null;
+            this.oyaId = null;
         }
     }
 
-    /** 親枝番 */
-    private Integer oyaBn;
+    /** 親情報 */
+    private String oyaInfo;
 
-    /** @return 親枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BN")
-    public Integer getOyaBn() {
-        return this.oyaBn;
+    /** @return 親情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty("OYA_INFO")
+    public String getOyaInfo() {
+        return this.oyaInfo;
     }
 
-    /** @param o 親枝番 */
-    public void setOyaBn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.oyaBn = Integer.valueOf(o.toString());
-        } else {
-            this.oyaBn = null;
-        }
-    }
-
-    /** 親名 */
-    private String oyaMei;
-
-    /** @return 親名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_MEI")
-    public String getOyaMei() {
-        return this.oyaMei;
-    }
-
-    /** @param o 親名 */
-    public void setOyaMei(final Object o) {
+    /** @param o 親情報 */
+    public void setOyaInfo(final Object o) {
         if (o != null) {
-            this.oyaMei = o.toString();
+            this.oyaInfo = o.toString();
         } else {
-            this.oyaMei = null;
+            this.oyaInfo = null;
         }
     }
 
@@ -254,19 +236,16 @@ public class Tb1Oya implements IEntity {
 
     /**
      * 親照会
-     * @param param1 祖先ID
-     * @param param2 親枝番
+     * @param param1 親ID
      * @return 親
      */
-    public static Tb1Oya get(final Object param1, final Object param2) {
+    public static Tb1Oya get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`OYA_ID` = :oya_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SOSEN_ID` \n";
-        sql += "    , a.`OYA_BN` \n";
-        sql += "    , a.`OYA_MEI` \n";
+        sql += "      a.`OYA_ID` \n";
+        sql += "    , a.`OYA_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -278,8 +257,7 @@ public class Tb1Oya implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
+        map.put("oya_id", param1);
         return Queries.get(sql, map, Tb1Oya.class);
     }
 
@@ -291,61 +269,56 @@ public class Tb1Oya implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 親枝番の採番処理
+        // 親IDの採番処理
         numbering();
 
-        // エンティティ１の登録
-        if (this.tb1Entity1s != null) {
-            for (Tb1Entity1 tb1Entity1 : this.tb1Entity1s) {
-                if (tb1Entity1 != null) {
-                    tb1Entity1.setSosenId(this.getSosenId());
-                    tb1Entity1.setOyaBn(this.getOyaBn());
+        // 子の登録
+        if (this.tb1Kos != null) {
+            for (Tb1Ko tb1Ko : this.tb1Kos) {
+                if (tb1Ko != null) {
+                    tb1Ko.setOyaId(this.getOyaId());
                 }
-                tb1Entity1.insert(now, execId);
+                tb1Ko.insert(now, execId);
             }
         }
 
-        // エンティティ２の登録
-        if (this.tb1Entity2s != null) {
-            for (Tb1Entity2 tb1Entity2 : this.tb1Entity2s) {
-                if (tb1Entity2 != null) {
-                    tb1Entity2.setSosenId(this.getSosenId());
-                    tb1Entity2.setOyaBn(this.getOyaBn());
+        // 兄弟２の登録
+        if (this.tb3Kyodai2s != null) {
+            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
+                if (tb3Kyodai2 != null) {
+                    tb3Kyodai2.setOyaId(this.getOyaId());
                 }
-                tb1Entity2.insert(now, execId);
+                tb3Kyodai2.insert(now, execId);
             }
         }
 
-        // エンティティ３の登録
-        if (this.tb1Entity3s != null) {
-            for (Tb1Entity3 tb1Entity3 : this.tb1Entity3s) {
-                if (tb1Entity3 != null) {
-                    tb1Entity3.setSosenId(this.getSosenId());
-                    tb1Entity3.setOyaBn(this.getOyaBn());
+        // 兄弟３の登録
+        if (this.tb3Kyodai3s != null) {
+            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
+                if (tb3Kyodai3 != null) {
+                    tb3Kyodai3.setOyaId(this.getOyaId());
                 }
-                tb1Entity3.insert(now, execId);
+                tb3Kyodai3.insert(now, execId);
             }
         }
 
-        // エンティティ４の登録
-        if (this.tb1Entity4s != null) {
-            for (Tb1Entity4 tb1Entity4 : this.tb1Entity4s) {
-                if (tb1Entity4 != null) {
-                    tb1Entity4.setSosenId(this.getSosenId());
-                    tb1Entity4.setOyaBn(this.getOyaBn());
+        // 兄弟４の登録
+        if (this.tb3Kyodai4s != null) {
+            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
+                if (tb3Kyodai4 != null) {
+                    tb3Kyodai4.setOyaId(this.getOyaId());
                 }
-                tb1Entity4.insert(now, execId);
+                tb3Kyodai4.insert(now, execId);
             }
         }
 
-        // エンティティ５の登録
-        if (this.tb1Entity5s != null) {
-            for (Tb1Entity5 tb1Entity5 : this.tb1Entity5s) {
-                if (tb1Entity5 != null) {
-                    tb1Entity5.setSosenId(this.getSosenId());
-                    tb1Entity5.setOyaBn(this.getOyaBn());
+        // 兄弟５の登録
+        if (this.tb3Kyodai5s != null) {
+            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
+                if (tb3Kyodai5 != null) {
+                    tb3Kyodai5.setOyaId(this.getOyaId());
                 }
-                tb1Entity5.insert(now, execId);
+                tb3Kyodai5.insert(now, execId);
             }
         }
 
@@ -357,9 +330,8 @@ public class Tb1Oya implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SOSEN_ID` -- :sosen_id");
-        nameList.add("`OYA_BN` -- :oya_bn");
-        nameList.add("`OYA_MEI` -- :oya_mei");
+        nameList.add("`OYA_ID` -- :oya_id");
+        nameList.add("`OYA_INFO` -- :oya_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -372,9 +344,8 @@ public class Tb1Oya implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sosen_id");
-        valueList.add(":oya_bn");
-        valueList.add(":oya_mei");
+        valueList.add(":oya_id");
+        valueList.add(":oya_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -384,20 +355,16 @@ public class Tb1Oya implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 親枝番の採番処理 */
+    /** 親IDの採番処理 */
     private void numbering() {
-        if (this.oyaBn != null) {
+        if (this.oyaId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`OYA_BN`) IS NULL THEN 0 ELSE MAX(e.`OYA_BN`) * 1 END + 1 AS `OYA_BN` FROM TB1_OYA e";
+        String sql = "SELECT CASE WHEN MAX(e.`OYA_ID`) IS NULL THEN 0 ELSE MAX(e.`OYA_ID`) * 1 END + 1 AS `OYA_ID` FROM TB1_OYA e";
         Map<String, Object> map = new HashMap<String, Object>();
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`SOSEN_ID` = :sosen_id");
-        sql += " WHERE " + String.join(" AND ", whereList);
-        map.put("sosen_id", this.sosenId);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("OYA_BN");
-        this.setOyaBn(o);
+        Object o = mapList.get(0).get("OYA_ID");
+        this.setOyaId(o);
     }
 
     /**
@@ -408,82 +375,77 @@ public class Tb1Oya implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // エンティティ１の登録
-        if (this.tb1Entity1s != null) {
-            for (Tb1Entity1 tb1Entity1 : this.tb1Entity1s) {
-                if (tb1Entity1 == null) {
+        // 子の登録
+        if (this.tb1Kos != null) {
+            for (Tb1Ko tb1Ko : this.tb1Kos) {
+                if (tb1Ko == null) {
                     continue;
                 }
-                tb1Entity1.setSosenId(this.sosenId);
-                tb1Entity1.setOyaBn(this.oyaBn);
+                tb1Ko.setOyaId(this.oyaId);
                 try {
-                    tb1Entity1.insert(now, execId);
+                    tb1Ko.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Entity1.update(now, execId);
+                    tb1Ko.update(now, execId);
                 }
             }
         }
 
-        // エンティティ２の登録
-        if (this.tb1Entity2s != null) {
-            for (Tb1Entity2 tb1Entity2 : this.tb1Entity2s) {
-                if (tb1Entity2 == null) {
+        // 兄弟２の登録
+        if (this.tb3Kyodai2s != null) {
+            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
+                if (tb3Kyodai2 == null) {
                     continue;
                 }
-                tb1Entity2.setSosenId(this.sosenId);
-                tb1Entity2.setOyaBn(this.oyaBn);
+                tb3Kyodai2.setOyaId(this.oyaId);
                 try {
-                    tb1Entity2.insert(now, execId);
+                    tb3Kyodai2.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Entity2.update(now, execId);
+                    tb3Kyodai2.update(now, execId);
                 }
             }
         }
 
-        // エンティティ３の登録
-        if (this.tb1Entity3s != null) {
-            for (Tb1Entity3 tb1Entity3 : this.tb1Entity3s) {
-                if (tb1Entity3 == null) {
+        // 兄弟３の登録
+        if (this.tb3Kyodai3s != null) {
+            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
+                if (tb3Kyodai3 == null) {
                     continue;
                 }
-                tb1Entity3.setSosenId(this.sosenId);
-                tb1Entity3.setOyaBn(this.oyaBn);
+                tb3Kyodai3.setOyaId(this.oyaId);
                 try {
-                    tb1Entity3.insert(now, execId);
+                    tb3Kyodai3.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Entity3.update(now, execId);
+                    tb3Kyodai3.update(now, execId);
                 }
             }
         }
 
-        // エンティティ４の登録
-        if (this.tb1Entity4s != null) {
-            for (Tb1Entity4 tb1Entity4 : this.tb1Entity4s) {
-                if (tb1Entity4 == null) {
+        // 兄弟４の登録
+        if (this.tb3Kyodai4s != null) {
+            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
+                if (tb3Kyodai4 == null) {
                     continue;
                 }
-                tb1Entity4.setSosenId(this.sosenId);
-                tb1Entity4.setOyaBn(this.oyaBn);
+                tb3Kyodai4.setOyaId(this.oyaId);
                 try {
-                    tb1Entity4.insert(now, execId);
+                    tb3Kyodai4.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Entity4.update(now, execId);
+                    tb3Kyodai4.update(now, execId);
                 }
             }
         }
 
-        // エンティティ５の登録
-        if (this.tb1Entity5s != null) {
-            for (Tb1Entity5 tb1Entity5 : this.tb1Entity5s) {
-                if (tb1Entity5 == null) {
+        // 兄弟５の登録
+        if (this.tb3Kyodai5s != null) {
+            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
+                if (tb3Kyodai5 == null) {
                     continue;
                 }
-                tb1Entity5.setSosenId(this.sosenId);
-                tb1Entity5.setOyaBn(this.oyaBn);
+                tb3Kyodai5.setOyaId(this.oyaId);
                 try {
-                    tb1Entity5.insert(now, execId);
+                    tb3Kyodai5.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Entity5.update(now, execId);
+                    tb3Kyodai5.update(now, execId);
                 }
             }
         }
@@ -496,9 +458,8 @@ public class Tb1Oya implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SOSEN_ID` = :sosen_id");
-        setList.add("`OYA_BN` = :oya_bn");
-        setList.add("`OYA_MEI` = :oya_mei");
+        setList.add("`OYA_ID` = :oya_id");
+        setList.add("`OYA_INFO` = :oya_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -512,38 +473,38 @@ public class Tb1Oya implements IEntity {
      */
     public int delete() {
 
-        // エンティティ１の削除
-        if (this.tb1Entity1s != null) {
-            for (Tb1Entity1 tb1Entity1 : this.tb1Entity1s) {
-                tb1Entity1.delete();
+        // 子の削除
+        if (this.tb1Kos != null) {
+            for (Tb1Ko tb1Ko : this.tb1Kos) {
+                tb1Ko.delete();
             }
         }
 
-        // エンティティ２の削除
-        if (this.tb1Entity2s != null) {
-            for (Tb1Entity2 tb1Entity2 : this.tb1Entity2s) {
-                tb1Entity2.delete();
+        // 兄弟２の削除
+        if (this.tb3Kyodai2s != null) {
+            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
+                tb3Kyodai2.delete();
             }
         }
 
-        // エンティティ３の削除
-        if (this.tb1Entity3s != null) {
-            for (Tb1Entity3 tb1Entity3 : this.tb1Entity3s) {
-                tb1Entity3.delete();
+        // 兄弟３の削除
+        if (this.tb3Kyodai3s != null) {
+            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
+                tb3Kyodai3.delete();
             }
         }
 
-        // エンティティ４の削除
-        if (this.tb1Entity4s != null) {
-            for (Tb1Entity4 tb1Entity4 : this.tb1Entity4s) {
-                tb1Entity4.delete();
+        // 兄弟４の削除
+        if (this.tb3Kyodai4s != null) {
+            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
+                tb3Kyodai4.delete();
             }
         }
 
-        // エンティティ５の削除
-        if (this.tb1Entity5s != null) {
-            for (Tb1Entity5 tb1Entity5 : this.tb1Entity5s) {
-                tb1Entity5.delete();
+        // 兄弟５の削除
+        if (this.tb3Kyodai5s != null) {
+            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
+                tb3Kyodai5.delete();
             }
         }
 
@@ -555,8 +516,7 @@ public class Tb1Oya implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SOSEN_ID` = :sosen_id");
-        whereList.add("`OYA_BN` = :oya_bn");
+        whereList.add("`OYA_ID` = :oya_id");
         return String.join(" AND ", whereList);
     }
 
@@ -567,9 +527,8 @@ public class Tb1Oya implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", this.sosenId);
-        map.put("oya_bn", this.oyaBn);
-        map.put("oya_mei", this.oyaMei);
+        map.put("oya_id", this.oyaId);
+        map.put("oya_info", this.oyaInfo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
@@ -579,119 +538,45 @@ public class Tb1Oya implements IEntity {
         return map;
     }
 
-    /** エンティティ１のリスト */
-    private List<Tb1Entity1> tb1Entity1s;
+    /** 子のリスト */
+    private List<Tb1Ko> tb1Kos;
 
-    /** @return エンティティ１のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Entity1s")
-    public List<Tb1Entity1> getTb1Entity1s() {
-        return this.tb1Entity1s;
+    /** @return 子のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Kos")
+    public List<Tb1Ko> getTb1Kos() {
+        return this.tb1Kos;
     }
 
-    /** @param list エンティティ１のリスト */
-    public void setTb1Entity1s(final List<Tb1Entity1> list) {
-        this.tb1Entity1s = list;
+    /** @param list 子のリスト */
+    public void setTb1Kos(final List<Tb1Ko> list) {
+        this.tb1Kos = list;
     }
 
-    /** @param tb1Entity1 */
-    public void addTb1Entity1s(final Tb1Entity1 tb1Entity1) {
-        if (this.tb1Entity1s == null) {
-            this.tb1Entity1s = new ArrayList<Tb1Entity1>();
+    /** @param tb1Ko */
+    public void addTb1Kos(final Tb1Ko tb1Ko) {
+        if (this.tb1Kos == null) {
+            this.tb1Kos = new ArrayList<Tb1Ko>();
         }
-        this.tb1Entity1s.add(tb1Entity1);
+        this.tb1Kos.add(tb1Ko);
     }
 
-    /** @return エンティティ１のリスト */
-    public List<Tb1Entity1> referTb1Entity1s() {
-        this.tb1Entity1s = Tb1Oya.referTb1Entity1s(this.sosenId, this.oyaBn);
-        return this.tb1Entity1s;
+    /** @return 子のリスト */
+    public List<Tb1Ko> referTb1Kos() {
+        this.tb1Kos = Tb1Oya.referTb1Kos(this.oyaId);
+        return this.tb1Kos;
     }
 
     /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @return List<Tb1Entity1>
+     * @param param1 oyaId
+     * @return List<Tb1Ko>
      */
-    public static List<Tb1Entity1> referTb1Entity1s(final Integer param1, final Integer param2) {
+    public static List<Tb1Ko> referTb1Kos(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
+        whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
-        sql += ", ENTITY1_MEI";
-        sql += ", SANSHO1_ID";
-        sql += ", (SELECT r0.`SANSHO1_MEI` FROM MB1_SANSHO1 r0 WHERE r0.`SANSHO1_ID` = a.`SANSHO1_ID`) AS `SANSHO1_MEI`";
-        sql += ", SANSHO1_MEI";
-        sql += ", SANSHO2_CD";
-        sql += ", (SELECT r1.`SANSHO2_MEI` FROM MB1_SANSHO2 r1 WHERE r1.`SANSHO2_CD` = a.`SANSHO2_CD`) AS `SANSHO2_MEI`";
-        sql += ", SANSHO2_MEI";
-        sql += ", SANSHO3_NO";
-        sql += ", (SELECT r2.`SANSHO3_MEI` FROM MB1_SANSHO3 r2 WHERE r2.`SANSHO3_NO` = a.`SANSHO3_NO`) AS `SANSHO3_MEI`";
-        sql += ", SANSHO3_MEI";
-        sql += ", BETSU_SANSHO1_ID";
-        sql += ", (SELECT r3.`SANSHO1_MEI` FROM MB1_SANSHO1 r3 WHERE r3.`SANSHO1_ID` = a.`BETSU_SANSHO1_ID`) AS `BETSU_SANSHO1_MEI`";
-        sql += ", BETSU_SANSHO1_MEI";
-        sql += ", INSERT_TS";
-        sql += ", INSERT_USER_ID";
-        sql += ", (SELECT r4.`USER_SEI` FROM MHR_USER r4 WHERE r4.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
-        sql += ", UPDATE_TS";
-        sql += ", UPDATE_USER_ID";
-        sql += ", (SELECT r5.`USER_SEI` FROM MHR_USER r5 WHERE r5.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += ", DELETE_F";
-        sql += ", STATUS_KB";
-        sql += " FROM TB1_ENTITY1 a WHERE " + String.join(" AND ", whereList);
-        sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        return Queries.select(sql, map, Tb1Entity1.class, null, null);
-    }
-
-    /** エンティティ２のリスト */
-    private List<Tb1Entity2> tb1Entity2s;
-
-    /** @return エンティティ２のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Entity2s")
-    public List<Tb1Entity2> getTb1Entity2s() {
-        return this.tb1Entity2s;
-    }
-
-    /** @param list エンティティ２のリスト */
-    public void setTb1Entity2s(final List<Tb1Entity2> list) {
-        this.tb1Entity2s = list;
-    }
-
-    /** @param tb1Entity2 */
-    public void addTb1Entity2s(final Tb1Entity2 tb1Entity2) {
-        if (this.tb1Entity2s == null) {
-            this.tb1Entity2s = new ArrayList<Tb1Entity2>();
-        }
-        this.tb1Entity2s.add(tb1Entity2);
-    }
-
-    /** @return エンティティ２のリスト */
-    public List<Tb1Entity2> referTb1Entity2s() {
-        this.tb1Entity2s = Tb1Oya.referTb1Entity2s(this.sosenId, this.oyaBn);
-        return this.tb1Entity2s;
-    }
-
-    /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @return List<Tb1Entity2>
-     */
-    public static List<Tb1Entity2> referTb1Entity2s(final Integer param1, final Integer param2) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
-        String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
-        sql += ", ENTITY2_MEI";
+        sql += "OYA_ID";
+        sql += ", KO_BN";
+        sql += ", KO_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -700,57 +585,53 @@ public class Tb1Oya implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB1_ENTITY2 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB1_KO a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
+        sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        return Queries.select(sql, map, Tb1Entity2.class, null, null);
+        map.put("oya_id", param1);
+        return Queries.select(sql, map, Tb1Ko.class, null, null);
     }
 
-    /** エンティティ３のリスト */
-    private List<Tb1Entity3> tb1Entity3s;
+    /** 兄弟２のリスト */
+    private List<Tb3Kyodai2> tb3Kyodai2s;
 
-    /** @return エンティティ３のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Entity3s")
-    public List<Tb1Entity3> getTb1Entity3s() {
-        return this.tb1Entity3s;
+    /** @return 兄弟２のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai2s")
+    public List<Tb3Kyodai2> getTb3Kyodai2s() {
+        return this.tb3Kyodai2s;
     }
 
-    /** @param list エンティティ３のリスト */
-    public void setTb1Entity3s(final List<Tb1Entity3> list) {
-        this.tb1Entity3s = list;
+    /** @param list 兄弟２のリスト */
+    public void setTb3Kyodai2s(final List<Tb3Kyodai2> list) {
+        this.tb3Kyodai2s = list;
     }
 
-    /** @param tb1Entity3 */
-    public void addTb1Entity3s(final Tb1Entity3 tb1Entity3) {
-        if (this.tb1Entity3s == null) {
-            this.tb1Entity3s = new ArrayList<Tb1Entity3>();
+    /** @param tb3Kyodai2 */
+    public void addTb3Kyodai2s(final Tb3Kyodai2 tb3Kyodai2) {
+        if (this.tb3Kyodai2s == null) {
+            this.tb3Kyodai2s = new ArrayList<Tb3Kyodai2>();
         }
-        this.tb1Entity3s.add(tb1Entity3);
+        this.tb3Kyodai2s.add(tb3Kyodai2);
     }
 
-    /** @return エンティティ３のリスト */
-    public List<Tb1Entity3> referTb1Entity3s() {
-        this.tb1Entity3s = Tb1Oya.referTb1Entity3s(this.sosenId, this.oyaBn);
-        return this.tb1Entity3s;
+    /** @return 兄弟２のリスト */
+    public List<Tb3Kyodai2> referTb3Kyodai2s() {
+        this.tb3Kyodai2s = Tb1Oya.referTb3Kyodai2s(this.oyaId);
+        return this.tb3Kyodai2s;
     }
 
     /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @return List<Tb1Entity3>
+     * @param param1 oyaId
+     * @return List<Tb3Kyodai2>
      */
-    public static List<Tb1Entity3> referTb1Entity3s(final Integer param1, final Integer param2) {
+    public static List<Tb3Kyodai2> referTb3Kyodai2s(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
+        whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
-        sql += ", ENTITY3_MEI";
+        sql += "OYA_ID";
+        sql += ", KO_BN";
+        sql += ", KYODAI2_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -759,57 +640,53 @@ public class Tb1Oya implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB1_ENTITY3 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB3_KYODAI2 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
+        sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        return Queries.select(sql, map, Tb1Entity3.class, null, null);
+        map.put("oya_id", param1);
+        return Queries.select(sql, map, Tb3Kyodai2.class, null, null);
     }
 
-    /** エンティティ４のリスト */
-    private List<Tb1Entity4> tb1Entity4s;
+    /** 兄弟３のリスト */
+    private List<Tb3Kyodai3> tb3Kyodai3s;
 
-    /** @return エンティティ４のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Entity4s")
-    public List<Tb1Entity4> getTb1Entity4s() {
-        return this.tb1Entity4s;
+    /** @return 兄弟３のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai3s")
+    public List<Tb3Kyodai3> getTb3Kyodai3s() {
+        return this.tb3Kyodai3s;
     }
 
-    /** @param list エンティティ４のリスト */
-    public void setTb1Entity4s(final List<Tb1Entity4> list) {
-        this.tb1Entity4s = list;
+    /** @param list 兄弟３のリスト */
+    public void setTb3Kyodai3s(final List<Tb3Kyodai3> list) {
+        this.tb3Kyodai3s = list;
     }
 
-    /** @param tb1Entity4 */
-    public void addTb1Entity4s(final Tb1Entity4 tb1Entity4) {
-        if (this.tb1Entity4s == null) {
-            this.tb1Entity4s = new ArrayList<Tb1Entity4>();
+    /** @param tb3Kyodai3 */
+    public void addTb3Kyodai3s(final Tb3Kyodai3 tb3Kyodai3) {
+        if (this.tb3Kyodai3s == null) {
+            this.tb3Kyodai3s = new ArrayList<Tb3Kyodai3>();
         }
-        this.tb1Entity4s.add(tb1Entity4);
+        this.tb3Kyodai3s.add(tb3Kyodai3);
     }
 
-    /** @return エンティティ４のリスト */
-    public List<Tb1Entity4> referTb1Entity4s() {
-        this.tb1Entity4s = Tb1Oya.referTb1Entity4s(this.sosenId, this.oyaBn);
-        return this.tb1Entity4s;
+    /** @return 兄弟３のリスト */
+    public List<Tb3Kyodai3> referTb3Kyodai3s() {
+        this.tb3Kyodai3s = Tb1Oya.referTb3Kyodai3s(this.oyaId);
+        return this.tb3Kyodai3s;
     }
 
     /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @return List<Tb1Entity4>
+     * @param param1 oyaId
+     * @return List<Tb3Kyodai3>
      */
-    public static List<Tb1Entity4> referTb1Entity4s(final Integer param1, final Integer param2) {
+    public static List<Tb3Kyodai3> referTb3Kyodai3s(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
+        whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
-        sql += ", ENTITY4_MEI";
+        sql += "OYA_ID";
+        sql += ", KO_BN";
+        sql += ", KYODAI3_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -818,57 +695,53 @@ public class Tb1Oya implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB1_ENTITY4 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB3_KYODAI3 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
+        sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        return Queries.select(sql, map, Tb1Entity4.class, null, null);
+        map.put("oya_id", param1);
+        return Queries.select(sql, map, Tb3Kyodai3.class, null, null);
     }
 
-    /** エンティティ５のリスト */
-    private List<Tb1Entity5> tb1Entity5s;
+    /** 兄弟４のリスト */
+    private List<Tb3Kyodai4> tb3Kyodai4s;
 
-    /** @return エンティティ５のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Entity5s")
-    public List<Tb1Entity5> getTb1Entity5s() {
-        return this.tb1Entity5s;
+    /** @return 兄弟４のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai4s")
+    public List<Tb3Kyodai4> getTb3Kyodai4s() {
+        return this.tb3Kyodai4s;
     }
 
-    /** @param list エンティティ５のリスト */
-    public void setTb1Entity5s(final List<Tb1Entity5> list) {
-        this.tb1Entity5s = list;
+    /** @param list 兄弟４のリスト */
+    public void setTb3Kyodai4s(final List<Tb3Kyodai4> list) {
+        this.tb3Kyodai4s = list;
     }
 
-    /** @param tb1Entity5 */
-    public void addTb1Entity5s(final Tb1Entity5 tb1Entity5) {
-        if (this.tb1Entity5s == null) {
-            this.tb1Entity5s = new ArrayList<Tb1Entity5>();
+    /** @param tb3Kyodai4 */
+    public void addTb3Kyodai4s(final Tb3Kyodai4 tb3Kyodai4) {
+        if (this.tb3Kyodai4s == null) {
+            this.tb3Kyodai4s = new ArrayList<Tb3Kyodai4>();
         }
-        this.tb1Entity5s.add(tb1Entity5);
+        this.tb3Kyodai4s.add(tb3Kyodai4);
     }
 
-    /** @return エンティティ５のリスト */
-    public List<Tb1Entity5> referTb1Entity5s() {
-        this.tb1Entity5s = Tb1Oya.referTb1Entity5s(this.sosenId, this.oyaBn);
-        return this.tb1Entity5s;
+    /** @return 兄弟４のリスト */
+    public List<Tb3Kyodai4> referTb3Kyodai4s() {
+        this.tb3Kyodai4s = Tb1Oya.referTb3Kyodai4s(this.oyaId);
+        return this.tb3Kyodai4s;
     }
 
     /**
-     * @param param1 sosenId
-     * @param param2 oyaBn
-     * @return List<Tb1Entity5>
+     * @param param1 oyaId
+     * @return List<Tb3Kyodai4>
      */
-    public static List<Tb1Entity5> referTb1Entity5s(final Integer param1, final Integer param2) {
+    public static List<Tb3Kyodai4> referTb3Kyodai4s(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("SOSEN_ID = :sosen_id");
-        whereList.add("OYA_BN = :oya_bn");
+        whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
-        sql += "SOSEN_ID";
-        sql += ", OYA_BN";
-        sql += ", ENTITY_BN";
-        sql += ", ENTITY5_MEI";
+        sql += "OYA_ID";
+        sql += ", KO_BN";
+        sql += ", KYODAI4_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -877,12 +750,66 @@ public class Tb1Oya implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB1_ENTITY5 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB3_KYODAI4 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
-        sql += "SOSEN_ID, OYA_BN, ENTITY_BN";
+        sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sosen_id", param1);
-        map.put("oya_bn", param2);
-        return Queries.select(sql, map, Tb1Entity5.class, null, null);
+        map.put("oya_id", param1);
+        return Queries.select(sql, map, Tb3Kyodai4.class, null, null);
+    }
+
+    /** 兄弟５のリスト */
+    private List<Tb3Kyodai5> tb3Kyodai5s;
+
+    /** @return 兄弟５のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai5s")
+    public List<Tb3Kyodai5> getTb3Kyodai5s() {
+        return this.tb3Kyodai5s;
+    }
+
+    /** @param list 兄弟５のリスト */
+    public void setTb3Kyodai5s(final List<Tb3Kyodai5> list) {
+        this.tb3Kyodai5s = list;
+    }
+
+    /** @param tb3Kyodai5 */
+    public void addTb3Kyodai5s(final Tb3Kyodai5 tb3Kyodai5) {
+        if (this.tb3Kyodai5s == null) {
+            this.tb3Kyodai5s = new ArrayList<Tb3Kyodai5>();
+        }
+        this.tb3Kyodai5s.add(tb3Kyodai5);
+    }
+
+    /** @return 兄弟５のリスト */
+    public List<Tb3Kyodai5> referTb3Kyodai5s() {
+        this.tb3Kyodai5s = Tb1Oya.referTb3Kyodai5s(this.oyaId);
+        return this.tb3Kyodai5s;
+    }
+
+    /**
+     * @param param1 oyaId
+     * @return List<Tb3Kyodai5>
+     */
+    public static List<Tb3Kyodai5> referTb3Kyodai5s(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("OYA_ID = :oya_id");
+        String sql = "SELECT ";
+        sql += "OYA_ID";
+        sql += ", KO_BN";
+        sql += ", KYODAI5_INFO";
+        sql += ", INSERT_TS";
+        sql += ", INSERT_USER_ID";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", UPDATE_TS";
+        sql += ", UPDATE_USER_ID";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += ", DELETE_F";
+        sql += ", STATUS_KB";
+        sql += " FROM TB3_KYODAI5 a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "OYA_ID, KO_BN";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("oya_id", param1);
+        return Queries.select(sql, map, Tb3Kyodai5.class, null, null);
     }
 }

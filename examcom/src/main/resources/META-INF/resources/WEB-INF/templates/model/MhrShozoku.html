@@ -28,8 +28,8 @@
         <div id="userId">
           <label for="MhrShozoku.userId" th:text="#{MhrShozoku.userId}">ユーザID</label><input type="text" id="MhrShozoku.userId" name="MhrShozoku.userId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShozoku.userId" data-destDef="MhrShozoku.userSei:USER_SEI" /><a id="MhrShozoku.userId" th:href="@{/model/MhrUserS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrShozoku.userSei" class=" primaryKey numbering refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShozoku.userId" data-destDef="MhrShozoku.userSei:USER_SEI"></span>
         </div>
-        <div id="kaishiBi">
-          <label for="MhrShozoku.kaishiBi" th:text="#{MhrShozoku.kaishiBi}">開始日</label><input type="text" id="MhrShozoku.kaishiBi" name="MhrShozoku.kaishiBi" maxlength="10" class=" notblank primaryKey datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrShozoku.tekiyoBi" th:text="#{MhrShozoku.tekiyoBi}">適用日</label><input type="text" id="MhrShozoku.tekiyoBi" name="MhrShozoku.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrShozoku.shuryoBi" th:text="#{MhrShozoku.shuryoBi}">終了日</label><input type="text" id="MhrShozoku.shuryoBi" name="MhrShozoku.shuryoBi" maxlength="10" class=" datepicker" />
@@ -64,10 +64,10 @@
         <a th:href="@{MhrShozokuGet.xlsx(baseMei=#{MhrShozoku.h2})}" id="MhrShozokuGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteMhrShozoku" class="delete" data-action="MhrShozokuDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShozoku" class="permit" data-action="MhrShozokuPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShozoku" class="forbid" data-action="MhrShozokuForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistMhrShozoku" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteMhrShozoku" type="submit" class="delete" data-action="MhrShozokuDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrShozoku" type="submit" class="permit" data-action="MhrShozokuPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShozoku" type="submit" class="forbid" data-action="MhrShozokuForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistMhrShozoku" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

@@ -23,25 +23,11 @@ public class Tb1KoPermitAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sosenId = postJson.get("sosenId");
-        if (sosenId == null) {
-            sosenId = postJson.get("Tb1Ko.sosenId");
+        Object oyaId = postJson.get("oyaId");
+        if (oyaId == null) {
+            oyaId = postJson.get("Tb1Ko.oyaId");
         }
-        if (sosenId == null) {
-            throw new OptLockError("error.cant.permit");
-        }
-        Object oyaBn = postJson.get("oyaBn");
-        if (oyaBn == null) {
-            oyaBn = postJson.get("Tb1Ko.oyaBn");
-        }
-        if (oyaBn == null) {
-            throw new OptLockError("error.cant.permit");
-        }
-        Object entityBn = postJson.get("entityBn");
-        if (entityBn == null) {
-            entityBn = postJson.get("Tb1Ko.entityBn");
-        }
-        if (entityBn == null) {
+        if (oyaId == null) {
             throw new OptLockError("error.cant.permit");
         }
         Object koBn = postJson.get("koBn");
@@ -54,18 +40,9 @@ public class Tb1KoPermitAction extends BaseAction {
 
         Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), postJson);
 
-        java.util.List<com.example.entity.Tb1Shison> tb1Shisons = e.referTb1Shisons();
-        if (tb1Shisons != null) {
-            for (com.example.entity.Tb1Shison tb1Shison : tb1Shisons) {
+        // child:Tb1Mago, parents:5
 
-                tb1Shison.setStatusKb(1);
-                if (tb1Shison.update(now, execId) != 1) {
-                    throw new OptLockError("error.cant.permit");
-                }
-            }
-        }
-
-        Tb1Ko f = Tb1Ko.get(e.getSosenId(), e.getOyaBn(), e.getEntityBn(), e.getKoBn());
+        Tb1Ko f = Tb1Ko.get(e.getOyaId(), e.getKoBn());
         f.setStatusKb(1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.permit");

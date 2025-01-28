@@ -31,8 +31,8 @@
         <div id="userId">
           <label for="MhrShozoku.userId" th:text="#{MhrShozoku.userId}">ユーザID</label><input type="text" id="MhrShozoku.userId" name="MhrShozoku.userId" maxlength="10" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShozoku.userId" data-destDef="MhrShozoku.userSei:USER_SEI" /><a id="MhrShozoku.userId" th:href="@{/model/MhrUserS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrShozoku.userSei" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShozoku.userId" data-destDef="MhrShozoku.userSei:USER_SEI"></span>
         </div>
-        <div id="kaishiBi">
-          <label for="MhrShozoku.kaishiBi_1" th:text="#{MhrShozoku.kaishiBi}">開始日</label><input type="text" id="MhrShozoku.kaishiBi_1" name="MhrShozoku.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShozoku.kaishiBi_2" name="MhrShozoku.kaishiBi_2" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrShozoku.tekiyoBi_1" th:text="#{MhrShozoku.tekiyoBi}">適用日</label><input type="text" id="MhrShozoku.tekiyoBi_1" name="MhrShozoku.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShozoku.tekiyoBi_2" name="MhrShozoku.tekiyoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrShozoku.shuryoBi_1" th:text="#{MhrShozoku.shuryoBi}">終了日</label><input type="text" id="MhrShozoku.shuryoBi_1" name="MhrShozoku.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShozoku.shuryoBi_2" name="MhrShozoku.shuryoBi_2" maxlength="10" class=" datepicker" />
@@ -53,7 +53,7 @@
         <a th:href="@{/model/MhrShozoku.html}" id="MhrShozoku" class="anew" target="dialog" th:text="#{MhrShozoku.add}" tabindex="-1">所属マスタ</a>
       </div>
       <div class="submits">
-        <button id="SearchMhrShozoku" class="search" data-gridId="MhrShozokuGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMhrShozoku" type="submit" class="search" data-gridId="MhrShozokuGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -67,12 +67,12 @@
         <a id="MhrShozokuGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrShozokuGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrShozokuGrid.userId" th:href="@{/model/MhrUserS.html}" target="dialog" class="refer" th:text="'ユーザマスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMhrShozokuS" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShozokuS" class="permit selectRows" data-action="MhrShozokuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShozokuS" class="forbid selectRows" data-action="MhrShozokuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMhrShozokuS" type="submit" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrShozokuS" type="submit" class="permit selectRows" data-action="MhrShozokuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrShozokuS" type="submit" class="forbid selectRows" data-action="MhrShozokuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMhrShozokuS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMhrShozokuS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

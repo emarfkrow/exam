@@ -1,6 +1,6 @@
 SELECT
       a.`TAX_KB`
-    , a.`KAISHI_BI` AS KAISHI_BI
+    , a.`TEKIYO_BI` AS TEKIYO_BI
     , a.`SHURYO_BI` AS SHURYO_BI
     , a.`TAX_RT`
     , a.`INSERT_TS` AS INSERT_TS
@@ -16,9 +16,9 @@ FROM
 WHERE
     1 = 1 
     AND TRIM (a.`TAX_KB`) IN (:tax_kb) 
-    AND a.`KAISHI_BI` = :kaishi_bi 
-    AND a.`KAISHI_BI` >= :kaishi_bi_1 
-    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`TEKIYO_BI` = :tekiyo_bi 
+    AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
+    AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
     AND a.`SHURYO_BI` = :shuryo_bi 
     AND a.`SHURYO_BI` >= :shuryo_bi_1 
     AND a.`SHURYO_BI` <= :shuryo_bi_2 
@@ -34,4 +34,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`TAX_KB`, a.`KAISHI_BI`
+    a.`TAX_KB`, a.`TEKIYO_BI`

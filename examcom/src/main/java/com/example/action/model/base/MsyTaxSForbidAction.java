@@ -42,12 +42,12 @@ public class MsyTaxSForbidAction extends BaseAction {
             if (taxKb == null) {
                 throw new OptLockError("error.cant.forbid");
             }
-            Object kaishiBi = e.getKaishiBi();
-            if (kaishiBi == null) {
+            Object tekiyoBi = e.getTekiyoBi();
+            if (tekiyoBi == null) {
                 throw new OptLockError("error.cant.forbid");
             }
 
-            MsyTax f = MsyTax.get(taxKb, kaishiBi);
+            MsyTax f = MsyTax.get(taxKb, tekiyoBi);
             f.setStatusKb(-1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.forbid");

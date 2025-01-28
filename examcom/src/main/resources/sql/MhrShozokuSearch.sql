@@ -5,7 +5,7 @@ SELECT
     , (SELECT r1.`SHOKUI_MEI` FROM MHR_SHOKUI r1 WHERE r1.`SHOKUI_ID` = a.`SHOKUI_ID`) AS `SHOKUI_MEI`
     , a.`USER_ID`
     , (SELECT r2.`USER_SEI` FROM MHR_USER r2 WHERE r2.`USER_ID` = a.`USER_ID`) AS `USER_SEI`
-    , a.`KAISHI_BI` AS KAISHI_BI
+    , a.`TEKIYO_BI` AS TEKIYO_BI
     , a.`SHURYO_BI` AS SHURYO_BI
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
@@ -22,9 +22,9 @@ WHERE
     AND a.`BUSHO_ID` = :busho_id 
     AND a.`SHOKUI_ID` = :shokui_id 
     AND a.`USER_ID` = :user_id 
-    AND a.`KAISHI_BI` = :kaishi_bi 
-    AND a.`KAISHI_BI` >= :kaishi_bi_1 
-    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`TEKIYO_BI` = :tekiyo_bi 
+    AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
+    AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
     AND a.`SHURYO_BI` = :shuryo_bi 
     AND a.`SHURYO_BI` >= :shuryo_bi_1 
     AND a.`SHURYO_BI` <= :shuryo_bi_2 
@@ -39,4 +39,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`BUSHO_ID`, a.`SHOKUI_ID`, a.`USER_ID`, a.`KAISHI_BI`
+    a.`BUSHO_ID`, a.`SHOKUI_ID`, a.`USER_ID`, a.`TEKIYO_BI`

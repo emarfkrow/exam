@@ -4,7 +4,7 @@ SELECT
     , a.`USER_MEI`
     , a.`E_MAIL`
     , a.`PASSWORD`
-    , a.`KAISHI_BI` AS KAISHI_BI
+    , a.`TEKIYO_BI` AS TEKIYO_BI
     , a.`SHURYO_BI` AS SHURYO_BI
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
@@ -23,9 +23,9 @@ WHERE
     AND TRIM(TRAILING ' ' FROM a.`USER_MEI`) LIKE CONCAT ('%', :user_mei, '%') 
     AND TRIM(TRAILING ' ' FROM a.`E_MAIL`) LIKE CONCAT ('%', :e_mail, '%') 
     AND TRIM(TRAILING ' ' FROM a.`PASSWORD`) LIKE CONCAT ('%', :password, '%') 
-    AND a.`KAISHI_BI` = :kaishi_bi 
-    AND a.`KAISHI_BI` >= :kaishi_bi_1 
-    AND a.`KAISHI_BI` <= :kaishi_bi_2 
+    AND a.`TEKIYO_BI` = :tekiyo_bi 
+    AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
+    AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
     AND a.`SHURYO_BI` = :shuryo_bi 
     AND a.`SHURYO_BI` >= :shuryo_bi_1 
     AND a.`SHURYO_BI` <= :shuryo_bi_2 

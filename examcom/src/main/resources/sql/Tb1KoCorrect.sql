@@ -1,9 +1,7 @@
 SELECT
-      a.`SOSEN_ID`
-    , a.`OYA_BN`
-    , a.`ENTITY_BN`
+      a.`OYA_ID`
     , a.`KO_BN`
-    , a.`KO_MEI`
+    , a.`KO_INFO`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -17,11 +15,9 @@ FROM
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
-    AND a.`SOSEN_ID` = :sosen_id 
-    AND a.`OYA_BN` = :oya_bn 
-    AND a.`ENTITY_BN` = :entity_bn 
+    AND a.`OYA_ID` = :oya_id 
     AND a.`KO_BN` = :ko_bn 
-    AND TRIM(TRAILING ' ' FROM a.`KO_MEI`) LIKE CONCAT ('%', :ko_mei, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`KO_INFO`) LIKE CONCAT ('%', :ko_info, '%') 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
@@ -33,4 +29,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`SOSEN_ID`, a.`OYA_BN`, a.`ENTITY_BN`, a.`KO_BN`
+    a.`OYA_ID`, a.`KO_BN`

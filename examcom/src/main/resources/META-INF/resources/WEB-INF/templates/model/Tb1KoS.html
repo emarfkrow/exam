@@ -10,7 +10,7 @@
 </script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb1ShisonGridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -21,20 +21,14 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb1KoS.legend}">legend</legend>
-        <div id="sosenId">
-          <label for="Tb1Ko.sosenId" th:text="#{Tb1Ko.sosenId}">祖先ID</label><input type="text" id="Tb1Ko.sosenId" name="Tb1Ko.sosenId" maxlength="10" />
-        </div>
-        <div id="oyaBn">
-          <label for="Tb1Ko.oyaBn" th:text="#{Tb1Ko.oyaBn}">親枝番</label><input type="text" id="Tb1Ko.oyaBn" name="Tb1Ko.oyaBn" maxlength="10" />
-        </div>
-        <div id="entityBn">
-          <label for="Tb1Ko.entityBn" th:text="#{Tb1Ko.entityBn}">エンティティ枝番</label><input type="text" id="Tb1Ko.entityBn" name="Tb1Ko.entityBn" maxlength="10" />
+        <div id="oyaId">
+          <label for="Tb1Ko.oyaId" th:text="#{Tb1Ko.oyaId}">親ID</label><input type="text" id="Tb1Ko.oyaId" name="Tb1Ko.oyaId" maxlength="10" />
         </div>
         <div id="koBn">
           <label for="Tb1Ko.koBn" th:text="#{Tb1Ko.koBn}">子枝番</label><input type="text" id="Tb1Ko.koBn" name="Tb1Ko.koBn" maxlength="10" />
         </div>
-        <div id="koMei">
-          <label for="Tb1Ko.koMei" th:text="#{Tb1Ko.koMei}">子名</label><input type="text" id="Tb1Ko.koMei" name="Tb1Ko.koMei" maxlength="60" />
+        <div id="koInfo">
+          <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
         </div>
         <div id="deleteF">
           <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -51,23 +45,23 @@
         <button type="reset" id="ResetTb1Ko" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
-        <button id="SearchTb1Ko" class="search" data-gridId="Tb1KoGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchTb1Ko" type="submit" class="search" data-gridId="Tb1KoGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
     <form name="Tb1KoSRegistForm" action="Tb1KoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Ko.h3}">h3</h3>
-      <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/Tb1Ko.html}"></div>
+      <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}"></div>
       <div id="Tb1KoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb1KoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Ko&quot;]').click();">reset</button>
         <a th:href="@{Tb1KoSearch.xlsx(baseMei=#{Tb1KoS.h2})}" id="Tb1KoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1KoS" class="delete selectRows" data-action="Tb1KoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb1KoS" class="permit selectRows" data-action="Tb1KoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb1KoS" class="forbid selectRows" data-action="Tb1KoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteTb1KoS" type="submit" class="delete selectRows" data-action="Tb1KoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1KoS" type="submit" class="permit selectRows" data-action="Tb1KoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1KoS" type="submit" class="forbid selectRows" data-action="Tb1KoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb1KoS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistTb1KoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

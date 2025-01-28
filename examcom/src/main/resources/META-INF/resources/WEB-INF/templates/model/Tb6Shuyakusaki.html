@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb6Shuyakusaki.title}">集約先</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb6ShuyakusakiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb6ShuyakumotoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb6Shuyakusaki.h2}">h2</h2>
+    <form name="Tb6ShuyakusakiRegistForm" action="Tb6ShuyakusakiRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb6Shuyakusaki.legend}">legend</legend>
+        <div id="shuyakusakiId">
+          <label for="Tb6Shuyakusaki.shuyakusakiId" th:text="#{Tb6Shuyakusaki.shuyakusakiId}">集約先ID</label><input type="text" id="Tb6Shuyakusaki.shuyakusakiId" name="Tb6Shuyakusaki.shuyakusakiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="shuyakusakiInfo">
+          <label for="Tb6Shuyakusaki.shuyakusakiInfo" th:text="#{Tb6Shuyakusaki.shuyakusakiInfo}">集約先情報</label><input type="text" id="Tb6Shuyakusaki.shuyakusakiInfo" name="Tb6Shuyakusaki.shuyakusakiInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb6Shuyakusaki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6Shuyakusaki.insertTs"></span><input type="hidden" id="Tb6Shuyakusaki.insertTs" name="Tb6Shuyakusaki.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb6Shuyakusaki.insertUserId}" class="meta">作成者</label><span id="Tb6Shuyakusaki.insertUserId"></span><input type="hidden" id="Tb6Shuyakusaki.insertUserId" name="Tb6Shuyakusaki.insertUserId" />
+          <span id="Tb6Shuyakusaki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Shuyakusaki.insertUserId" data-destDef="Tb6Shuyakusaki.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb6Shuyakusaki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6Shuyakusaki.updateTs"></span><input type="hidden" id="Tb6Shuyakusaki.updateTs" name="Tb6Shuyakusaki.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb6Shuyakusaki.updateUserId}" class="meta">更新者</label><span id="Tb6Shuyakusaki.updateUserId"></span><input type="hidden" id="Tb6Shuyakusaki.updateUserId" name="Tb6Shuyakusaki.updateUserId" />
+          <span id="Tb6Shuyakusaki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Shuyakusaki.updateUserId" data-destDef="Tb6Shuyakusaki.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb6Shuyakusaki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb6Shuyakusaki.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb6Shuyakusaki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb6Shuyakusaki.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb6Shuyakusaki" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb6ShuyakusakiGet.xlsx(baseMei=#{Tb6Shuyakusaki.h2})}" id="Tb6ShuyakusakiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb6Shuyakumoto.html}" id="Tb6Shuyakumoto" target="dialog" th:text="#{Tb6Shuyakumoto.add}" class="reborner" tabindex="-1">集約元</a>
+        <div>
+          <label>集約元ID</label>
+          <span id="Tb6Shuyakumoto.shuyakumotoId"></span>
+          <input type="hidden" id="Tb6Shuyakumoto.shuyakumotoId" name="Tb6Shuyakumoto.shuyakumotoId"/>
+        </div>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb6Shuyakusaki" type="submit" class="delete" data-action="Tb6ShuyakusakiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb6Shuyakusaki" type="submit" class="permit" data-action="Tb6ShuyakusakiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb6Shuyakusaki" type="submit" class="forbid" data-action="Tb6ShuyakusakiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb6Shuyakusaki" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

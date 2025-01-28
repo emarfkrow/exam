@@ -29,8 +29,8 @@
         <div id="oyaBushoId">
           <label for="MhrBusho.oyaBushoId" th:text="#{MhrBusho.oyaBushoId}">親部署ID</label><input type="text" id="MhrBusho.oyaBushoId" name="MhrBusho.oyaBushoId" maxlength="10" data-json="MhrBushoSearch.json" data-srcDef="BUSHO_ID:MhrBusho.oyaBushoId" data-destDef="MhrBusho.oyaBushoMei:BUSHO_MEI" /><a id="MhrBusho.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="MhrBusho.oyaBushoMei" data-json="MhrBushoSearch.json" data-srcDef="BUSHO_ID:MhrBusho.oyaBushoId" data-destDef="MhrBusho.oyaBushoMei:BUSHO_MEI"></span>
         </div>
-        <div id="kaishiBi">
-          <label for="MhrBusho.kaishiBi_1" th:text="#{MhrBusho.kaishiBi}">開始日</label><input type="text" id="MhrBusho.kaishiBi_1" name="MhrBusho.kaishiBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrBusho.kaishiBi_2" name="MhrBusho.kaishiBi_2" maxlength="10" class=" datepicker" />
+        <div id="tekiyoBi">
+          <label for="MhrBusho.tekiyoBi_1" th:text="#{MhrBusho.tekiyoBi}">適用日</label><input type="text" id="MhrBusho.tekiyoBi_1" name="MhrBusho.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrBusho.tekiyoBi_2" name="MhrBusho.tekiyoBi_2" maxlength="10" class=" datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MhrBusho.shuryoBi_1" th:text="#{MhrBusho.shuryoBi}">終了日</label><input type="text" id="MhrBusho.shuryoBi_1" name="MhrBusho.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrBusho.shuryoBi_2" name="MhrBusho.shuryoBi_2" maxlength="10" class=" datepicker" />
@@ -51,7 +51,7 @@
         <a th:href="@{/model/MhrBusho.html}" id="MhrBusho" class="anew" target="dialog" th:text="#{MhrBusho.add}" tabindex="-1">部署マスタ</a>
       </div>
       <div class="submits">
-        <button id="SearchMhrBusho" class="search" data-gridId="MhrBushoGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMhrBusho" type="submit" class="search" data-gridId="MhrBushoGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -63,12 +63,12 @@
         <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrBusho&quot;]').click();">reset</button>
         <a th:href="@{MhrBushoSearch.xlsx(baseMei=#{MhrBushoS.h2})}" id="MhrBushoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MhrBushoGrid.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMhrBushoS" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrBushoS" class="permit selectRows" data-action="MhrBushoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrBushoS" class="forbid selectRows" data-action="MhrBushoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMhrBushoS" type="submit" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMhrBushoS" type="submit" class="permit selectRows" data-action="MhrBushoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMhrBushoS" type="submit" class="forbid selectRows" data-action="MhrBushoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMhrBushoS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMhrBushoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

@@ -46,7 +46,7 @@
         <button type="reset" id="ResetMsyTsuka" th:text="#{common.reset}" class="reset">reset</button>
       </div>
       <div class="submits">
-        <button id="SearchMsyTsuka" class="search" data-gridId="MsyTsukaGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchMsyTsuka" type="submit" class="search" data-gridId="MsyTsukaGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
@@ -57,12 +57,12 @@
       <div class="buttons">
         <button type="button" id="ResetMsyTsukaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyTsuka&quot;]').click();">reset</button>
         <a th:href="@{MsyTsukaSearch.xlsx(baseMei=#{MsyTsukaS.h2})}" id="MsyTsukaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMsyTsukaS" class="delete selectRows" data-action="MsyTsukaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTsukaS" class="permit selectRows" data-action="MsyTsukaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTsukaS" class="forbid selectRows" data-action="MsyTsukaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="DeleteMsyTsukaS" type="submit" class="delete selectRows" data-action="MsyTsukaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMsyTsukaS" type="submit" class="permit selectRows" data-action="MsyTsukaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMsyTsukaS" type="submit" class="forbid selectRows" data-action="MsyTsukaSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistMsyTsukaS" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistMsyTsukaS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

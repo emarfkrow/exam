@@ -19,58 +19,22 @@ public class Tb1KoRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb1KoRegistForm.class);
 
-    /** 祖先ID */
+    /** 親ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sosenId;
+    private String oyaId;
 
     /**
-     * @return 祖先ID
+     * @return 親ID
      */
-    public String getSosenId() {
-        return sosenId;
+    public String getOyaId() {
+        return oyaId;
     }
 
     /**
-     * @param p 祖先ID
+     * @param p 親ID
      */
-    public void setSosenId(final String p) {
-        this.sosenId = p;
-    }
-
-    /** 親枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String oyaBn;
-
-    /**
-     * @return 親枝番
-     */
-    public String getOyaBn() {
-        return oyaBn;
-    }
-
-    /**
-     * @param p 親枝番
-     */
-    public void setOyaBn(final String p) {
-        this.oyaBn = p;
-    }
-
-    /** エンティティ枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String entityBn;
-
-    /**
-     * @return エンティティ枝番
-     */
-    public String getEntityBn() {
-        return entityBn;
-    }
-
-    /**
-     * @param p エンティティ枝番
-     */
-    public void setEntityBn(final String p) {
-        this.entityBn = p;
+    public void setOyaId(final String p) {
+        this.oyaId = p;
     }
 
     /** 子枝番 */
@@ -91,23 +55,22 @@ public class Tb1KoRegistForm implements IForm {
         this.koBn = p;
     }
 
-    /** 子名 */
-    @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 60)
-    private String koMei;
+    /** 子情報 */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String koInfo;
 
     /**
-     * @return 子名
+     * @return 子情報
      */
-    public String getKoMei() {
-        return koMei;
+    public String getKoInfo() {
+        return koInfo;
     }
 
     /**
-     * @param p 子名
+     * @param p 子情報
      */
-    public void setKoMei(final String p) {
-        this.koMei = p;
+    public void setKoInfo(final String p) {
+        this.koInfo = p;
     }
 
     /** 削除フラグ */
@@ -146,22 +109,94 @@ public class Tb1KoRegistForm implements IForm {
         this.statusKb = p;
     }
 
-    /** 子孫 */
+    /** 兄弟２ */
     @jakarta.validation.Valid
-    private List<Tb1ShisonRegistForm> tb1ShisonGrid;
+    private Tb3Kyodai2RegistForm tb3Kyodai2RegistForm;
 
     /**
-     * @return 子孫
+     * @return Tb3Kyodai2RegistForm
      */
-    public List<Tb1ShisonRegistForm> getTb1ShisonGrid() {
-        return tb1ShisonGrid;
+    public Tb3Kyodai2RegistForm getTb3Kyodai2RegistForm() {
+        return tb3Kyodai2RegistForm;
     }
 
     /**
      * @param p
      */
-    public void setTb1ShisonGrid(final List<Tb1ShisonRegistForm> p) {
-        this.tb1ShisonGrid = p;
+    public void setTb3Kyodai2RegistForm(final Tb3Kyodai2RegistForm p) {
+        this.tb3Kyodai2RegistForm = p;
+    }
+
+    /** 兄弟３ */
+    @jakarta.validation.Valid
+    private Tb3Kyodai3RegistForm tb3Kyodai3RegistForm;
+
+    /**
+     * @return Tb3Kyodai3RegistForm
+     */
+    public Tb3Kyodai3RegistForm getTb3Kyodai3RegistForm() {
+        return tb3Kyodai3RegistForm;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb3Kyodai3RegistForm(final Tb3Kyodai3RegistForm p) {
+        this.tb3Kyodai3RegistForm = p;
+    }
+
+    /** 兄弟４ */
+    @jakarta.validation.Valid
+    private Tb3Kyodai4RegistForm tb3Kyodai4RegistForm;
+
+    /**
+     * @return Tb3Kyodai4RegistForm
+     */
+    public Tb3Kyodai4RegistForm getTb3Kyodai4RegistForm() {
+        return tb3Kyodai4RegistForm;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb3Kyodai4RegistForm(final Tb3Kyodai4RegistForm p) {
+        this.tb3Kyodai4RegistForm = p;
+    }
+
+    /** 兄弟５ */
+    @jakarta.validation.Valid
+    private Tb3Kyodai5RegistForm tb3Kyodai5RegistForm;
+
+    /**
+     * @return Tb3Kyodai5RegistForm
+     */
+    public Tb3Kyodai5RegistForm getTb3Kyodai5RegistForm() {
+        return tb3Kyodai5RegistForm;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb3Kyodai5RegistForm(final Tb3Kyodai5RegistForm p) {
+        this.tb3Kyodai5RegistForm = p;
+    }
+
+    /** 孫 */
+    @jakarta.validation.Valid
+    private List<Tb1MagoRegistForm> tb1MagoGrid;
+
+    /**
+     * @return 孫
+     */
+    public List<Tb1MagoRegistForm> getTb1MagoGrid() {
+        return tb1MagoGrid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb1MagoGrid(final List<Tb1MagoRegistForm> p) {
+        this.tb1MagoGrid = p;
     }
 
     /** 関連チェック */

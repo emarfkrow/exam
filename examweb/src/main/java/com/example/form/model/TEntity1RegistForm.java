@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.util.Messages;
  * @author toshiyuki
  *
  */
-public class TEntity1RegistForm extends com.example.form.model.base.Tb1Entity1RegistForm {
+public class TEntity1RegistForm extends com.example.form.model.base.Tb4SanshomotoRegistForm {
 
     /**
      *
@@ -18,7 +18,7 @@ public class TEntity1RegistForm extends com.example.form.model.base.Tb1Entity1Re
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess p) {
 
-        p.masterCheck(errors, "MSansho1Search", "sansho1Id", this.getSansho1Id(), Messages.get("TEntity1.sansho1Id"));
+        p.masterCheck(errors, "MSansho1Search", "sansho1Id", this.getIdsanshoId(), Messages.get("TEntity1.sansho1Id"));
     }
 
 }

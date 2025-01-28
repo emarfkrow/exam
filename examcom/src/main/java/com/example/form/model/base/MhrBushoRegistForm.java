@@ -73,22 +73,22 @@ public class MhrBushoRegistForm implements IForm {
         this.oyaBushoId = p;
     }
 
-    /** 開始日 */
+    /** 適用日 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String kaishiBi;
+    private String tekiyoBi;
 
     /**
-     * @return 開始日
+     * @return 適用日
      */
-    public String getKaishiBi() {
-        return kaishiBi;
+    public String getTekiyoBi() {
+        return tekiyoBi;
     }
 
     /**
-     * @param p 開始日
+     * @param p 適用日
      */
-    public void setKaishiBi(final String p) {
-        this.kaishiBi = p;
+    public void setTekiyoBi(final String p) {
+        this.tekiyoBi = p;
     }
 
     /** 終了日 */

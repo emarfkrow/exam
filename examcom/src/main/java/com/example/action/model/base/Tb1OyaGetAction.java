@@ -22,30 +22,20 @@ public class Tb1OyaGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object sosenId = postJson.get("sosenId");
-        if (sosenId == null) {
-            sosenId = postJson.get("Tb1Oya.sosenId");
+        Object oyaId = postJson.get("oyaId");
+        if (oyaId == null) {
+            oyaId = postJson.get("Tb1Oya.oyaId");
         }
-        if (sosenId == null) {
-            return map;
-        }
-        com.example.entity.Tb1Sosen tb1Sosen = com.example.entity.Tb1Sosen.get(sosenId);
-        map.put("Tb1Sosen", tb1Sosen);
-
-        Object oyaBn = postJson.get("oyaBn");
-        if (oyaBn == null) {
-            oyaBn = postJson.get("Tb1Oya.oyaBn");
-        }
-        if (oyaBn == null) {
+        if (oyaId == null) {
             return map;
         }
 
-        Tb1Oya tb1Oya = Tb1Oya.get(sosenId, oyaBn);
-        tb1Oya.referTb1Entity1s();
-        tb1Oya.referTb1Entity2s();
-        tb1Oya.referTb1Entity3s();
-        tb1Oya.referTb1Entity4s();
-        tb1Oya.referTb1Entity5s();
+        Tb1Oya tb1Oya = Tb1Oya.get(oyaId);
+        tb1Oya.referTb1Kos();
+        tb1Oya.referTb3Kyodai2s();
+        tb1Oya.referTb3Kyodai3s();
+        tb1Oya.referTb3Kyodai4s();
+        tb1Oya.referTb3Kyodai5s();
         map.put("Tb1Oya", tb1Oya);
         return map;
     }

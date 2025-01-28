@@ -36,13 +36,7 @@ public class Tb1KoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SOSEN_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("OYA_BN"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("ENTITY_BN"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("OYA_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KO_BN"))) {
@@ -51,15 +45,7 @@ public class Tb1KoSDeleteAction extends BaseAction {
 
             Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), gridRow);
 
-            java.util.List<com.example.entity.Tb1Shison> tb1Shisons = e.referTb1Shisons();
-            if (tb1Shisons != null) {
-                for (com.example.entity.Tb1Shison tb1Shison : tb1Shisons) {
-
-                    if (tb1Shison.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
-                    }
-                }
-            }
+            // child:Tb1Mago, parents:5
 
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");

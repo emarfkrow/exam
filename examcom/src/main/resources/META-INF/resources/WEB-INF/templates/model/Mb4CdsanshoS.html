@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb4CdsanshoS.title}">CD参照マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb4CdsanshoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb4CdsanshoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Mb4CdsanshoSearchForm" action="Mb4CdsanshoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Mb4CdsanshoS.legend}">legend</legend>
+        <div id="cdsanshoCd">
+          <label for="Mb4Cdsansho.cdsanshoCd" th:text="#{Mb4Cdsansho.cdsanshoCd}">CD参照CD</label><input type="text" id="Mb4Cdsansho.cdsanshoCd" name="Mb4Cdsansho.cdsanshoCd" maxlength="10" />
+        </div>
+        <div id="cdsanshoMei">
+          <label for="Mb4Cdsansho.cdsanshoMei" th:text="#{Mb4Cdsansho.cdsanshoMei}">CD参照名</label><input type="text" id="Mb4Cdsansho.cdsanshoMei" name="Mb4Cdsansho.cdsanshoMei" maxlength="60" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Mb4Cdsansho.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb4Cdsansho.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Mb4Cdsansho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb4Cdsansho.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMb4Cdsansho" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchMb4Cdsansho" type="submit" class="search" data-gridId="Mb4CdsanshoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Mb4CdsanshoSRegistForm" action="Mb4CdsanshoSRegist.ajax" class="regist">
+      <h3 th:text="#{Mb4Cdsansho.h3}">h3</h3>
+      <div id="Mb4CdsanshoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb4Cdsansho.html}"></div>
+      <div id="Mb4CdsanshoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMb4CdsanshoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb4Cdsansho&quot;]').click();">reset</button>
+        <a th:href="@{Mb4CdsanshoSearch.xlsx(baseMei=#{Mb4CdsanshoS.h2})}" id="Mb4CdsanshoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMb4CdsanshoS" type="submit" class="delete selectRows" data-action="Mb4CdsanshoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMb4CdsanshoS" type="submit" class="permit selectRows" data-action="Mb4CdsanshoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMb4CdsanshoS" type="submit" class="forbid selectRows" data-action="Mb4CdsanshoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMb4CdsanshoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

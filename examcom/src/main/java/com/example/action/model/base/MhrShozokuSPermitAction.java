@@ -50,12 +50,12 @@ public class MhrShozokuSPermitAction extends BaseAction {
             if (userId == null) {
                 throw new OptLockError("error.cant.permit");
             }
-            Object kaishiBi = e.getKaishiBi();
-            if (kaishiBi == null) {
+            Object tekiyoBi = e.getTekiyoBi();
+            if (tekiyoBi == null) {
                 throw new OptLockError("error.cant.permit");
             }
 
-            MhrShozoku f = MhrShozoku.get(bushoId, shokuiId, userId, kaishiBi);
+            MhrShozoku f = MhrShozoku.get(bushoId, shokuiId, userId, tekiyoBi);
             f.setStatusKb(1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.permit");

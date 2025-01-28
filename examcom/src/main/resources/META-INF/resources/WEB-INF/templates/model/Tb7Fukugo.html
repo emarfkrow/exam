@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb7Fukugo.title}">複合</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb7FukugoGridColumns.js}"></script>
+<script th:src="@{/model/Mb7Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb7Sansho2GridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb7Fukugo.h2}">h2</h2>
+    <form name="Tb7FukugoRegistForm" action="Tb7FukugoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb7Fukugo.legend}">legend</legend>
+        <div id="sansho1Id">
+          <label for="Tb7Fukugo.sansho1Id" th:text="#{Tb7Fukugo.sansho1Id}">参照１ID</label><input type="text" id="Tb7Fukugo.sansho1Id" name="Tb7Fukugo.sansho1Id" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI" /><a id="Tb7Fukugo.sansho1Id" th:href="@{/model/Mb7Sansho1S.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho1Mei" class=" primaryKey numbering refer" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI"></span>
+        </div>
+        <div id="sansho2Id">
+          <label for="Tb7Fukugo.sansho2Id" th:text="#{Tb7Fukugo.sansho2Id}">参照２ID</label><input type="text" id="Tb7Fukugo.sansho2Id" name="Tb7Fukugo.sansho2Id" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI" /><a id="Tb7Fukugo.sansho2Id" th:href="@{/model/Mb7Sansho2S.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho2Mei" class=" primaryKey numbering refer" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI"></span>
+        </div>
+        <div id="tekiyoBi">
+          <label for="Tb7Fukugo.tekiyoBi" th:text="#{Tb7Fukugo.tekiyoBi}">適用日</label><input type="text" id="Tb7Fukugo.tekiyoBi" name="Tb7Fukugo.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
+        </div>
+        <div id="fukugoInfo">
+          <label for="Tb7Fukugo.fukugoInfo" th:text="#{Tb7Fukugo.fukugoInfo}">複合情報</label><input type="text" id="Tb7Fukugo.fukugoInfo" name="Tb7Fukugo.fukugoInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb7Fukugo.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb7Fukugo.insertTs"></span><input type="hidden" id="Tb7Fukugo.insertTs" name="Tb7Fukugo.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb7Fukugo.insertUserId}" class="meta">作成者</label><span id="Tb7Fukugo.insertUserId"></span><input type="hidden" id="Tb7Fukugo.insertUserId" name="Tb7Fukugo.insertUserId" />
+          <span id="Tb7Fukugo.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb7Fukugo.insertUserId" data-destDef="Tb7Fukugo.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb7Fukugo.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb7Fukugo.updateTs"></span><input type="hidden" id="Tb7Fukugo.updateTs" name="Tb7Fukugo.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb7Fukugo.updateUserId}" class="meta">更新者</label><span id="Tb7Fukugo.updateUserId"></span><input type="hidden" id="Tb7Fukugo.updateUserId" name="Tb7Fukugo.updateUserId" />
+          <span id="Tb7Fukugo.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb7Fukugo.updateUserId" data-destDef="Tb7Fukugo.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb7Fukugo.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb7Fukugo.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb7Fukugo.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb7Fukugo.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb7Fukugo" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb7FukugoGet.xlsx(baseMei=#{Tb7Fukugo.h2})}" id="Tb7FukugoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb7Fukugo" type="submit" class="delete" data-action="Tb7FukugoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb7Fukugo" type="submit" class="permit" data-action="Tb7FukugoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb7Fukugo" type="submit" class="forbid" data-action="Tb7FukugoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb7Fukugo" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -19,59 +19,40 @@ public class Tb1OyaRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb1OyaRegistForm.class);
 
-    /** 祖先ID */
+    /** 親ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sosenId;
+    private String oyaId;
 
     /**
-     * @return 祖先ID
+     * @return 親ID
      */
-    public String getSosenId() {
-        return sosenId;
+    public String getOyaId() {
+        return oyaId;
     }
 
     /**
-     * @param p 祖先ID
+     * @param p 親ID
      */
-    public void setSosenId(final String p) {
-        this.sosenId = p;
+    public void setOyaId(final String p) {
+        this.oyaId = p;
     }
 
-    /** 親枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String oyaBn;
+    /** 親情報 */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String oyaInfo;
 
     /**
-     * @return 親枝番
+     * @return 親情報
      */
-    public String getOyaBn() {
-        return oyaBn;
-    }
-
-    /**
-     * @param p 親枝番
-     */
-    public void setOyaBn(final String p) {
-        this.oyaBn = p;
-    }
-
-    /** 親名 */
-    @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 60)
-    private String oyaMei;
-
-    /**
-     * @return 親名
-     */
-    public String getOyaMei() {
-        return oyaMei;
+    public String getOyaInfo() {
+        return oyaInfo;
     }
 
     /**
-     * @param p 親名
+     * @param p 親情報
      */
-    public void setOyaMei(final String p) {
-        this.oyaMei = p;
+    public void setOyaInfo(final String p) {
+        this.oyaInfo = p;
     }
 
     /** 削除フラグ */
@@ -110,94 +91,94 @@ public class Tb1OyaRegistForm implements IForm {
         this.statusKb = p;
     }
 
-    /** エンティティ１ */
+    /** 子 */
     @jakarta.validation.Valid
-    private List<Tb1Entity1RegistForm> tb1Entity1Grid;
+    private List<Tb1KoRegistForm> tb1KoGrid;
 
     /**
-     * @return エンティティ１
+     * @return 子
      */
-    public List<Tb1Entity1RegistForm> getTb1Entity1Grid() {
-        return tb1Entity1Grid;
+    public List<Tb1KoRegistForm> getTb1KoGrid() {
+        return tb1KoGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Entity1Grid(final List<Tb1Entity1RegistForm> p) {
-        this.tb1Entity1Grid = p;
+    public void setTb1KoGrid(final List<Tb1KoRegistForm> p) {
+        this.tb1KoGrid = p;
     }
 
-    /** エンティティ２ */
+    /** 兄弟２ */
     @jakarta.validation.Valid
-    private List<Tb1Entity2RegistForm> tb1Entity2Grid;
+    private List<Tb3Kyodai2RegistForm> tb3Kyodai2Grid;
 
     /**
-     * @return エンティティ２
+     * @return 兄弟２
      */
-    public List<Tb1Entity2RegistForm> getTb1Entity2Grid() {
-        return tb1Entity2Grid;
+    public List<Tb3Kyodai2RegistForm> getTb3Kyodai2Grid() {
+        return tb3Kyodai2Grid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Entity2Grid(final List<Tb1Entity2RegistForm> p) {
-        this.tb1Entity2Grid = p;
+    public void setTb3Kyodai2Grid(final List<Tb3Kyodai2RegistForm> p) {
+        this.tb3Kyodai2Grid = p;
     }
 
-    /** エンティティ３ */
+    /** 兄弟３ */
     @jakarta.validation.Valid
-    private List<Tb1Entity3RegistForm> tb1Entity3Grid;
+    private List<Tb3Kyodai3RegistForm> tb3Kyodai3Grid;
 
     /**
-     * @return エンティティ３
+     * @return 兄弟３
      */
-    public List<Tb1Entity3RegistForm> getTb1Entity3Grid() {
-        return tb1Entity3Grid;
+    public List<Tb3Kyodai3RegistForm> getTb3Kyodai3Grid() {
+        return tb3Kyodai3Grid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Entity3Grid(final List<Tb1Entity3RegistForm> p) {
-        this.tb1Entity3Grid = p;
+    public void setTb3Kyodai3Grid(final List<Tb3Kyodai3RegistForm> p) {
+        this.tb3Kyodai3Grid = p;
     }
 
-    /** エンティティ４ */
+    /** 兄弟４ */
     @jakarta.validation.Valid
-    private List<Tb1Entity4RegistForm> tb1Entity4Grid;
+    private List<Tb3Kyodai4RegistForm> tb3Kyodai4Grid;
 
     /**
-     * @return エンティティ４
+     * @return 兄弟４
      */
-    public List<Tb1Entity4RegistForm> getTb1Entity4Grid() {
-        return tb1Entity4Grid;
+    public List<Tb3Kyodai4RegistForm> getTb3Kyodai4Grid() {
+        return tb3Kyodai4Grid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Entity4Grid(final List<Tb1Entity4RegistForm> p) {
-        this.tb1Entity4Grid = p;
+    public void setTb3Kyodai4Grid(final List<Tb3Kyodai4RegistForm> p) {
+        this.tb3Kyodai4Grid = p;
     }
 
-    /** エンティティ５ */
+    /** 兄弟５ */
     @jakarta.validation.Valid
-    private List<Tb1Entity5RegistForm> tb1Entity5Grid;
+    private List<Tb3Kyodai5RegistForm> tb3Kyodai5Grid;
 
     /**
-     * @return エンティティ５
+     * @return 兄弟５
      */
-    public List<Tb1Entity5RegistForm> getTb1Entity5Grid() {
-        return tb1Entity5Grid;
+    public List<Tb3Kyodai5RegistForm> getTb3Kyodai5Grid() {
+        return tb3Kyodai5Grid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Entity5Grid(final List<Tb1Entity5RegistForm> p) {
-        this.tb1Entity5Grid = p;
+    public void setTb3Kyodai5Grid(final List<Tb3Kyodai5RegistForm> p) {
+        this.tb3Kyodai5Grid = p;
     }
 
     /** 関連チェック */
