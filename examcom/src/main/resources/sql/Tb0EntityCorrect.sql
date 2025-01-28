@@ -42,7 +42,7 @@ WHERE
     AND CASE WHEN TRIM (a.`CHECK_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`CHECK_F`) END IN (:check_f) 
     AND TRIM (a.`RADIO_KB`) IN (:radio_kb) 
     AND TRIM (a.`PULLDOWN_KB`) IN (:pulldown_kb) 
-    AND TRIM(TRAILING ' ' FROM a.`PULLDOWN_SB`) LIKE CONCAT ('%', :pulldown_sb, '%') 
+    AND TRIM (a.`PULLDOWN_SB`) IN (:pulldown_sb) 
     AND TRIM(TRAILING ' ' FROM a.`MEMO_TX`) LIKE CONCAT ('%', :memo_tx, '%') 
     AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
     AND TRIM(TRAILING ' ' FROM a.`FILE_PATH`) LIKE CONCAT ('%', :file_path, '%') 

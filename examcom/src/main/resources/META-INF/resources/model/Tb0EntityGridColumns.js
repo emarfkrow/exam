@@ -12,7 +12,7 @@ $(function() {
         Column.check('CHECK_F', Messages['Tb0EntityGrid.checkF'], 30, 'notblank'),
         Column.select('RADIO_KB', Messages['Tb0EntityGrid.radioKb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
         Column.select('PULLDOWN_KB', Messages['Tb0EntityGrid.pulldownKb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
-        Column.text('PULLDOWN_SB', Messages['Tb0EntityGrid.pulldownSb'], 30, 'notblank', null),
+        Column.select('PULLDOWN_SB', Messages['Tb0EntityGrid.pulldownSb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
         Column.longText('MEMO_TX', Messages['Tb0EntityGrid.memoTx'], 300, 'notblank', null),
         Column.text('MEMO', Messages['Tb0EntityGrid.memo'], 300, 'notblank', null),
         Column.link('FILE_PATH', Messages['Tb0EntityGrid.filePath'], 300, 'notblank'),

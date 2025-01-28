@@ -45,7 +45,9 @@
           </fieldset>
         </div>
         <div id="pulldownSb">
-          <label for="Tb0Entity.pulldownSb" th:text="#{Tb0Entity.pulldownSb}">プルダウン種別</label><input type="text" id="Tb0Entity.pulldownSb" name="Tb0Entity.pulldownSb" maxlength="2" />
+          <fieldset id="Tb0Entity.pulldownSbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:PULLDOWN_SB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" data-force-pulldown="1">
+            <legend th:text="#{Tb0Entity.pulldownSb}">プルダウン種別</legend>
+          </fieldset>
         </div>
         <div id="memoTx">
           <label for="Tb0Entity.memoTx" th:text="#{Tb0Entity.memoTx}">メモ</label><input type="text" id="Tb0Entity.memoTx" name="Tb0Entity.memoTx" maxlength="300" />
