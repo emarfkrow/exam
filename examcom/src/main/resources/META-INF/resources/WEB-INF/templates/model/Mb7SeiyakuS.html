@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb7SeiyakuS.title}">制約マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb7SeiyakuGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb7SeiyakuS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Mb7SeiyakuSearchForm" action="Mb7SeiyakuSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Mb7SeiyakuS.legend}">legend</legend>
+        <div id="sanshoId" class="stint" style="display: none;">
+          <label th:text="#{Mb7Sansho.sanshoId}">参照ID</label><span id="Mb7Sansho.sanshoId" class="stint"></span><input type="hidden" id="Mb7Sansho.sanshoId" name="Mb7Sansho.sanshoId" class="stint" />
+          <span id="Mb7Seiyaku.sanshoMei" class="refer" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Mb7Seiyaku.sanshoId" data-destDef="Mb7Seiyaku.sanshoMei:SANSHO_MEI"></span>
+        </div>
+        <div id="seiyakuId">
+          <label for="Mb7Seiyaku.seiyakuId" th:text="#{Mb7Seiyaku.seiyakuId}">制約ID</label><input type="text" id="Mb7Seiyaku.seiyakuId" name="Mb7Seiyaku.seiyakuId" maxlength="10" />
+        </div>
+        <div id="seiyakuMei">
+          <label for="Mb7Seiyaku.seiyakuMei" th:text="#{Mb7Seiyaku.seiyakuMei}">制約名</label><input type="text" id="Mb7Seiyaku.seiyakuMei" name="Mb7Seiyaku.seiyakuMei" maxlength="60" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Mb7Seiyaku.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb7Seiyaku.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Mb7Seiyaku.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Mb7Seiyaku.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetMb7Seiyaku" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Mb7Seiyaku.html}" id="Mb7Seiyaku" class="anew" target="dialog" th:text="#{Mb7Seiyaku.add}" tabindex="-1">制約マスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchMb7Seiyaku" type="submit" class="search" data-gridId="Mb7SeiyakuGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Mb7SeiyakuSRegistForm" action="Mb7SeiyakuSRegist.ajax" class="regist">
+      <h3 th:text="#{Mb7Seiyaku.h3}">h3</h3>
+      <div id="Mb7SeiyakuGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb7Seiyaku.html}"></div>
+      <div id="Mb7SeiyakuPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetMb7SeiyakuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb7Seiyaku&quot;]').click();">reset</button>
+        <a th:href="@{Mb7SeiyakuSearch.xlsx(baseMei=#{Mb7SeiyakuS.h2})}" id="Mb7SeiyakuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteMb7SeiyakuS" type="submit" class="delete selectRows" data-action="Mb7SeiyakuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitMb7SeiyakuS" type="submit" class="permit selectRows" data-action="Mb7SeiyakuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidMb7SeiyakuS" type="submit" class="forbid selectRows" data-action="Mb7SeiyakuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistMb7SeiyakuS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

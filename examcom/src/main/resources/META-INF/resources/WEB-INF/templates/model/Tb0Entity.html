@@ -72,7 +72,7 @@
           <label for="Tb0Entity.nengappiYmd" th:text="#{Tb0Entity.nengappiYmd}">年月日</label><input type="text" id="Tb0Entity.nengappiYmd" name="Tb0Entity.nengappiYmd" maxlength="8" class=" notblank datepicker" data-format="yymmdd" />
         </div>
         <div id="timestampTs">
-          <label for="Tb0Entity.timestampTs" th:text="#{Tb0Entity.timestampTs}">タイムスタンプ</label><input type="text" id="Tb0Entity.timestampTs" name="Tb0Entity.timestampTs" maxlength="23" class=" notblank" />
+          <label th:text="#{Tb0Entity.timestampTs}">タイムスタンプ</label><span id="Tb0Entity.timestampTs"></span><input type="hidden" id="Tb0Entity.timestampTs" name="Tb0Entity.timestampTs" />
         </div>
         <div id="nichijiDt">
           <label for="Tb0Entity.nichijiDt" th:text="#{Tb0Entity.nichijiDt}">日時</label><input type="datetime-local" id="Tb0Entity.nichijiDt" name="Tb0Entity.nichijiDt" maxlength="19" class=" notblank" />

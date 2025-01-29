@@ -9,6 +9,7 @@
 
 </script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
+<script th:src="@{/model/Mb7SanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
@@ -18,7 +19,7 @@
       <fieldset>
         <legend th:text="#{Mb4Idsansho.legend}">legend</legend>
         <div id="idsanshoId">
-          <label for="Mb4Idsansho.idsanshoId" th:text="#{Mb4Idsansho.idsanshoId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idsanshoId" name="Mb4Idsansho.idsanshoId" maxlength="10" class=" notblank primaryKey numbering" />
+          <label for="Mb4Idsansho.idsanshoId" th:text="#{Mb4Idsansho.idsanshoId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idsanshoId" name="Mb4Idsansho.idsanshoId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI" /><a id="Mb4Idsansho.idsanshoId" th:href="@{/model/Mb7SanshoS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Mb4Idsansho.idsanshoMei" class=" primaryKey numbering refer" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI"></span>
         </div>
         <div id="idsanshoMei">
           <label for="Mb4Idsansho.idsanshoMei" th:text="#{Mb4Idsansho.idsanshoMei}">ID参照名</label><input type="text" id="Mb4Idsansho.idsanshoMei" name="Mb4Idsansho.idsanshoMei" maxlength="60" class=" notblank" />

@@ -36,75 +36,75 @@ public class Tb7Fukugo implements IEntity {
         }
     }
 
-    /** 参照１ID */
-    private Integer sansho1Id;
+    /** 参照ID */
+    private Integer sanshoId;
 
-    /** @return 参照１ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO1_ID")
-    public Integer getSansho1Id() {
-        return this.sansho1Id;
+    /** @return 参照ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO_ID")
+    public Integer getSanshoId() {
+        return this.sanshoId;
     }
 
-    /** @param o 参照１ID */
-    public void setSansho1Id(final Object o) {
+    /** @param o 参照ID */
+    public void setSanshoId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sansho1Id = Integer.valueOf(o.toString());
+            this.sanshoId = Integer.valueOf(o.toString());
         } else {
-            this.sansho1Id = null;
+            this.sanshoId = null;
         }
     }
 
-    /** 参照１ID参照 */
-    private String sansho1Mei;
+    /** 参照ID参照 */
+    private String sanshoMei;
 
-    /** @return 参照１ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO1_MEI")
-    public String getSansho1Mei() {
-        return this.sansho1Mei;
+    /** @return 参照ID参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO_MEI")
+    public String getSanshoMei() {
+        return this.sanshoMei;
     }
 
-    /** @param o 参照１ID参照 */
-    public void setSansho1Mei(final Object o) {
+    /** @param o 参照ID参照 */
+    public void setSanshoMei(final Object o) {
         if (o != null) {
-            this.sansho1Mei = o.toString();
+            this.sanshoMei = o.toString();
         } else {
-            this.sansho1Mei = null;
+            this.sanshoMei = null;
         }
     }
 
-    /** 参照２ID */
-    private Integer sansho2Id;
+    /** 制約ID */
+    private Integer seiyakuId;
 
-    /** @return 参照２ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_ID")
-    public Integer getSansho2Id() {
-        return this.sansho2Id;
+    /** @return 制約ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("SEIYAKU_ID")
+    public Integer getSeiyakuId() {
+        return this.seiyakuId;
     }
 
-    /** @param o 参照２ID */
-    public void setSansho2Id(final Object o) {
+    /** @param o 制約ID */
+    public void setSeiyakuId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sansho2Id = Integer.valueOf(o.toString());
+            this.seiyakuId = Integer.valueOf(o.toString());
         } else {
-            this.sansho2Id = null;
+            this.seiyakuId = null;
         }
     }
 
-    /** 参照２ID参照 */
-    private String sansho2Mei;
+    /** 制約ID参照 */
+    private String seiyakuMei;
 
-    /** @return 参照２ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO2_MEI")
-    public String getSansho2Mei() {
-        return this.sansho2Mei;
+    /** @return 制約ID参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("SEIYAKU_MEI")
+    public String getSeiyakuMei() {
+        return this.seiyakuMei;
     }
 
-    /** @param o 参照２ID参照 */
-    public void setSansho2Mei(final Object o) {
+    /** @param o 制約ID参照 */
+    public void setSeiyakuMei(final Object o) {
         if (o != null) {
-            this.sansho2Mei = o.toString();
+            this.seiyakuMei = o.toString();
         } else {
-            this.sansho2Mei = null;
+            this.seiyakuMei = null;
         }
     }
 
@@ -311,20 +311,20 @@ public class Tb7Fukugo implements IEntity {
 
     /**
      * 複合照会
-     * @param param1 参照１ID
-     * @param param2 参照２ID
+     * @param param1 参照ID
+     * @param param2 制約ID
      * @param param3 適用日
      * @return 複合
      */
     public static Tb7Fukugo get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho_1_id");
-        whereList.add("`SANSHO2_ID` = :sansho_2_id");
+        whereList.add("`SANSHO_ID` = :sansho_id");
+        whereList.add("`SEIYAKU_ID` = :seiyaku_id");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SANSHO1_ID` \n";
-        sql += "    , a.`SANSHO2_ID` \n";
+        sql += "      a.`SANSHO_ID` \n";
+        sql += "    , a.`SEIYAKU_ID` \n";
         sql += "    , a.`TEKIYO_BI` AS TEKIYO_BI \n";
         sql += "    , a.`FUKUGO_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
@@ -338,8 +338,8 @@ public class Tb7Fukugo implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_1_id", param1);
-        map.put("sansho_2_id", param2);
+        map.put("sansho_id", param1);
+        map.put("seiyaku_id", param2);
         map.put("tekiyo_bi", param3);
         return Queries.get(sql, map, Tb7Fukugo.class);
     }
@@ -360,8 +360,8 @@ public class Tb7Fukugo implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHO1_ID` -- :sansho_1_id");
-        nameList.add("`SANSHO2_ID` -- :sansho_2_id");
+        nameList.add("`SANSHO_ID` -- :sansho_id");
+        nameList.add("`SEIYAKU_ID` -- :seiyaku_id");
         nameList.add("`TEKIYO_BI` -- :tekiyo_bi");
         nameList.add("`FUKUGO_INFO` -- :fukugo_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
@@ -376,8 +376,8 @@ public class Tb7Fukugo implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sansho_1_id");
-        valueList.add(":sansho_2_id");
+        valueList.add(":sansho_id");
+        valueList.add(":seiyaku_id");
         valueList.add(":tekiyo_bi");
         valueList.add(":fukugo_info");
         valueList.add(":insert_ts");
@@ -405,8 +405,8 @@ public class Tb7Fukugo implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHO1_ID` = :sansho_1_id");
-        setList.add("`SANSHO2_ID` = :sansho_2_id");
+        setList.add("`SANSHO_ID` = :sansho_id");
+        setList.add("`SEIYAKU_ID` = :seiyaku_id");
         setList.add("`TEKIYO_BI` = :tekiyo_bi");
         setList.add("`FUKUGO_INFO` = :fukugo_info");
         setList.add("`UPDATE_TS` = :update_ts");
@@ -430,8 +430,8 @@ public class Tb7Fukugo implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO1_ID` = :sansho_1_id");
-        whereList.add("`SANSHO2_ID` = :sansho_2_id");
+        whereList.add("`SANSHO_ID` = :sansho_id");
+        whereList.add("`SEIYAKU_ID` = :seiyaku_id");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         return String.join(" AND ", whereList);
     }
@@ -443,8 +443,8 @@ public class Tb7Fukugo implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_1_id", this.sansho1Id);
-        map.put("sansho_2_id", this.sansho2Id);
+        map.put("sansho_id", this.sanshoId);
+        map.put("seiyaku_id", this.seiyakuId);
         map.put("tekiyo_bi", this.tekiyoBi);
         map.put("fukugo_info", this.fukugoInfo);
         map.put("delete_f", this.deleteF);

@@ -9,9 +9,9 @@
 
 </script>
 <script th:src="@{/model/Tb7FukugoGridColumns.js}"></script>
-<script th:src="@{/model/Mb7Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb7SanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Mb7Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb7SeiyakuGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -22,11 +22,11 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb7FukugoS.legend}">legend</legend>
-        <div id="sansho1Id">
-          <label for="Tb7Fukugo.sansho1Id" th:text="#{Tb7Fukugo.sansho1Id}">参照１ID</label><input type="text" id="Tb7Fukugo.sansho1Id" name="Tb7Fukugo.sansho1Id" maxlength="10" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI" /><a id="Tb7Fukugo.sansho1Id" th:href="@{/model/Mb7Sansho1S.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho1Mei" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI"></span>
+        <div id="sanshoId">
+          <label for="Tb7Fukugo.sanshoId" th:text="#{Tb7Fukugo.sanshoId}">参照ID</label><input type="text" id="Tb7Fukugo.sanshoId" name="Tb7Fukugo.sanshoId" maxlength="10" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Tb7Fukugo.sanshoId" data-destDef="Tb7Fukugo.sanshoMei:SANSHO_MEI" /><a id="Tb7Fukugo.sanshoId" th:href="@{/model/Mb7SanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sanshoMei" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Tb7Fukugo.sanshoId" data-destDef="Tb7Fukugo.sanshoMei:SANSHO_MEI"></span>
         </div>
-        <div id="sansho2Id">
-          <label for="Tb7Fukugo.sansho2Id" th:text="#{Tb7Fukugo.sansho2Id}">参照２ID</label><input type="text" id="Tb7Fukugo.sansho2Id" name="Tb7Fukugo.sansho2Id" maxlength="10" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI" /><a id="Tb7Fukugo.sansho2Id" th:href="@{/model/Mb7Sansho2S.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho2Mei" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI"></span>
+        <div id="seiyakuId">
+          <label for="Tb7Fukugo.seiyakuId" th:text="#{Tb7Fukugo.seiyakuId}">制約ID</label><input type="text" id="Tb7Fukugo.seiyakuId" name="Tb7Fukugo.seiyakuId" maxlength="10" data-json="Mb7SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb7Fukugo.seiyakuId" data-destDef="Tb7Fukugo.seiyakuMei:SEIYAKU_MEI" /><a id="Tb7Fukugo.seiyakuId" th:href="@{/model/Mb7SeiyakuS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.seiyakuMei" data-json="Mb7SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb7Fukugo.seiyakuId" data-destDef="Tb7Fukugo.seiyakuMei:SEIYAKU_MEI"></span>
         </div>
         <div id="tekiyoBi">
           <label for="Tb7Fukugo.tekiyoBi_1" th:text="#{Tb7Fukugo.tekiyoBi}">適用日</label><input type="text" id="Tb7Fukugo.tekiyoBi_1" name="Tb7Fukugo.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="Tb7Fukugo.tekiyoBi_2" name="Tb7Fukugo.tekiyoBi_2" maxlength="10" class=" datepicker" />
@@ -61,8 +61,8 @@
       <div class="buttons">
         <button type="button" id="ResetTb7FukugoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb7Fukugo&quot;]').click();">reset</button>
         <a th:href="@{Tb7FukugoSearch.xlsx(baseMei=#{Tb7FukugoS.h2})}" id="Tb7FukugoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <a id="Tb7FukugoGrid.sansho1Id" th:href="@{/model/Mb7Sansho1S.html}" target="dialog" class="refer" th:text="'参照１マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <a id="Tb7FukugoGrid.sansho2Id" th:href="@{/model/Mb7Sansho2S.html?action=Mb7Sansho2Correct.ajax}" target="dialog" class="refer correct" th:text="'参照２マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb7FukugoGrid.sanshoId" th:href="@{/model/Mb7SanshoS.html}" target="dialog" class="refer" th:text="'参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb7FukugoGrid.seiyakuId" th:href="@{/model/Mb7SeiyakuS.html?action=Mb7SeiyakuCorrect.ajax}" target="dialog" class="refer correct" th:text="'制約マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteTb7FukugoS" type="submit" class="delete selectRows" data-action="Tb7FukugoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb7FukugoS" type="submit" class="permit selectRows" data-action="Tb7FukugoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb7FukugoS" type="submit" class="forbid selectRows" data-action="Tb7FukugoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>

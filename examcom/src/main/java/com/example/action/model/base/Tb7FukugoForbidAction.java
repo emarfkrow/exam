@@ -23,18 +23,18 @@ public class Tb7FukugoForbidAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sansho1Id = postJson.get("sansho1Id");
-        if (sansho1Id == null) {
-            sansho1Id = postJson.get("Tb7Fukugo.sansho1Id");
+        Object sanshoId = postJson.get("sanshoId");
+        if (sanshoId == null) {
+            sanshoId = postJson.get("Tb7Fukugo.sanshoId");
         }
-        if (sansho1Id == null) {
+        if (sanshoId == null) {
             throw new OptLockError("error.cant.forbid");
         }
-        Object sansho2Id = postJson.get("sansho2Id");
-        if (sansho2Id == null) {
-            sansho2Id = postJson.get("Tb7Fukugo.sansho2Id");
+        Object seiyakuId = postJson.get("seiyakuId");
+        if (seiyakuId == null) {
+            seiyakuId = postJson.get("Tb7Fukugo.seiyakuId");
         }
-        if (sansho2Id == null) {
+        if (seiyakuId == null) {
             throw new OptLockError("error.cant.forbid");
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
@@ -47,7 +47,7 @@ public class Tb7FukugoForbidAction extends BaseAction {
 
         Tb7Fukugo e = FormValidator.toBean(Tb7Fukugo.class.getName(), postJson);
 
-        Tb7Fukugo f = Tb7Fukugo.get(e.getSansho1Id(), e.getSansho2Id(), e.getTekiyoBi());
+        Tb7Fukugo f = Tb7Fukugo.get(e.getSanshoId(), e.getSeiyakuId(), e.getTekiyoBi());
         f.setStatusKb(-1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.forbid");

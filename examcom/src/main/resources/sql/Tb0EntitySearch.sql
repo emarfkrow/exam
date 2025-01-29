@@ -79,8 +79,12 @@ WHERE
     AND a.`SURYO_QT` >= :suryo_qt_1 
     AND a.`SURYO_QT` <= :suryo_qt_2 
     AND a.`TANKA_PR` = :tanka_pr 
+    AND a.`TANKA_PR` >= :tanka_pr_1 
+    AND a.`TANKA_PR` <= :tanka_pr_2 
     AND TRIM (a.`TSUKA_KB`) IN (:tsuka_kb) 
     AND a.`ZEINUKI_AM` = :zeinuki_am 
+    AND a.`ZEINUKI_AM` >= :zeinuki_am_1 
+    AND a.`ZEINUKI_AM` <= :zeinuki_am_2 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

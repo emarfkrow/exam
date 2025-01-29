@@ -28,10 +28,10 @@ public class Tb7FukugoRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho1Id())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSanshoId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSansho2Id())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSeiyakuId())) {
             isNew = true;
         }
         if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTekiyoBi())) {

@@ -303,7 +303,6 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** タイムスタンプ */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     private String timestampTs;
 

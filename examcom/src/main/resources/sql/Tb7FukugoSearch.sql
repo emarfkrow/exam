@@ -1,8 +1,8 @@
 SELECT
-      a.`SANSHO1_ID`
-    , (SELECT r0.`SANSHO1_MEI` FROM MB7_SANSHO1 r0 WHERE r0.`SANSHO1_ID` = a.`SANSHO1_ID`) AS `SANSHO1_MEI`
-    , a.`SANSHO2_ID`
-    , (SELECT r1.`SANSHO2_MEI` FROM MB7_SANSHO2 r1 WHERE r1.`SANSHO2_ID` = a.`SANSHO2_ID`) AS `SANSHO2_MEI`
+      a.`SANSHO_ID`
+    , (SELECT r0.`SANSHO_MEI` FROM MB7_SANSHO r0 WHERE r0.`SANSHO_ID` = a.`SANSHO_ID`) AS `SANSHO_MEI`
+    , a.`SEIYAKU_ID`
+    , (SELECT r1.`SEIYAKU_MEI` FROM MB7_SEIYAKU r1 WHERE r1.`SEIYAKU_ID` = a.`SEIYAKU_ID`) AS `SEIYAKU_MEI`
     , a.`TEKIYO_BI` AS TEKIYO_BI
     , a.`FUKUGO_INFO`
     , a.`INSERT_TS` AS INSERT_TS
@@ -17,8 +17,8 @@ FROM
     TB7_FUKUGO a 
 WHERE
     1 = 1 
-    AND a.`SANSHO1_ID` = :sansho_1_id 
-    AND a.`SANSHO2_ID` = :sansho_2_id 
+    AND a.`SANSHO_ID` = :sansho_id 
+    AND a.`SEIYAKU_ID` = :seiyaku_id 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
@@ -34,4 +34,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`SANSHO1_ID`, a.`SANSHO2_ID`, a.`TEKIYO_BI`
+    a.`SANSHO_ID`, a.`SEIYAKU_ID`, a.`TEKIYO_BI`

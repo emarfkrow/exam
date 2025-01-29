@@ -36,10 +36,10 @@ public class Tb7FukugoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO1_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO2_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SEIYAKU_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TEKIYO_BI"))) {

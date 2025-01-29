@@ -18,40 +18,40 @@ public class Tb7FukugoRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb7FukugoRegistForm.class);
 
-    /** 参照１ID */
+    /** 参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sansho1Id;
+    private String sanshoId;
 
     /**
-     * @return 参照１ID
+     * @return 参照ID
      */
-    public String getSansho1Id() {
-        return sansho1Id;
+    public String getSanshoId() {
+        return sanshoId;
     }
 
     /**
-     * @param p 参照１ID
+     * @param p 参照ID
      */
-    public void setSansho1Id(final String p) {
-        this.sansho1Id = p;
+    public void setSanshoId(final String p) {
+        this.sanshoId = p;
     }
 
-    /** 参照２ID */
+    /** 制約ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sansho2Id;
+    private String seiyakuId;
 
     /**
-     * @return 参照２ID
+     * @return 制約ID
      */
-    public String getSansho2Id() {
-        return sansho2Id;
+    public String getSeiyakuId() {
+        return seiyakuId;
     }
 
     /**
-     * @param p 参照２ID
+     * @param p 制約ID
      */
-    public void setSansho2Id(final String p) {
-        this.sansho2Id = p;
+    public void setSeiyakuId(final String p) {
+        this.seiyakuId = p;
     }
 
     /** 適用日 */

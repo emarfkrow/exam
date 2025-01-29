@@ -9,9 +9,9 @@
 
 </script>
 <script th:src="@{/model/Tb7FukugoGridColumns.js}"></script>
-<script th:src="@{/model/Mb7Sansho1GridColumns.js}"></script>
+<script th:src="@{/model/Mb7SanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Mb7Sansho2GridColumns.js}"></script>
+<script th:src="@{/model/Mb7SeiyakuGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -19,11 +19,11 @@
     <form name="Tb7FukugoRegistForm" action="Tb7FukugoRegist.ajax" class="regist">
       <fieldset>
         <legend th:text="#{Tb7Fukugo.legend}">legend</legend>
-        <div id="sansho1Id">
-          <label for="Tb7Fukugo.sansho1Id" th:text="#{Tb7Fukugo.sansho1Id}">参照１ID</label><input type="text" id="Tb7Fukugo.sansho1Id" name="Tb7Fukugo.sansho1Id" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI" /><a id="Tb7Fukugo.sansho1Id" th:href="@{/model/Mb7Sansho1S.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho1Mei" class=" primaryKey numbering refer" data-json="Mb7Sansho1Search.json" data-srcDef="SANSHO1_ID:Tb7Fukugo.sansho1Id" data-destDef="Tb7Fukugo.sansho1Mei:SANSHO1_MEI"></span>
+        <div id="sanshoId">
+          <label for="Tb7Fukugo.sanshoId" th:text="#{Tb7Fukugo.sanshoId}">参照ID</label><input type="text" id="Tb7Fukugo.sanshoId" name="Tb7Fukugo.sanshoId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Tb7Fukugo.sanshoId" data-destDef="Tb7Fukugo.sanshoMei:SANSHO_MEI" /><a id="Tb7Fukugo.sanshoId" th:href="@{/model/Mb7SanshoS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sanshoMei" class=" primaryKey numbering refer" data-json="Mb7SanshoSearch.json" data-srcDef="SANSHO_ID:Tb7Fukugo.sanshoId" data-destDef="Tb7Fukugo.sanshoMei:SANSHO_MEI"></span>
         </div>
-        <div id="sansho2Id">
-          <label for="Tb7Fukugo.sansho2Id" th:text="#{Tb7Fukugo.sansho2Id}">参照２ID</label><input type="text" id="Tb7Fukugo.sansho2Id" name="Tb7Fukugo.sansho2Id" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI" /><a id="Tb7Fukugo.sansho2Id" th:href="@{/model/Mb7Sansho2S.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.sansho2Mei" class=" primaryKey numbering refer" data-json="Mb7Sansho2Search.json" data-srcDef="SANSHO2_ID:Tb7Fukugo.sansho2Id" data-destDef="Tb7Fukugo.sansho2Mei:SANSHO2_MEI"></span>
+        <div id="seiyakuId">
+          <label for="Tb7Fukugo.seiyakuId" th:text="#{Tb7Fukugo.seiyakuId}">制約ID</label><input type="text" id="Tb7Fukugo.seiyakuId" name="Tb7Fukugo.seiyakuId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb7SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb7Fukugo.seiyakuId" data-destDef="Tb7Fukugo.seiyakuMei:SEIYAKU_MEI" /><a id="Tb7Fukugo.seiyakuId" th:href="@{/model/Mb7SeiyakuS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb7Fukugo.seiyakuMei" class=" primaryKey numbering refer" data-json="Mb7SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb7Fukugo.seiyakuId" data-destDef="Tb7Fukugo.seiyakuMei:SEIYAKU_MEI"></span>
         </div>
         <div id="tekiyoBi">
           <label for="Tb7Fukugo.tekiyoBi" th:text="#{Tb7Fukugo.tekiyoBi}">適用日</label><input type="text" id="Tb7Fukugo.tekiyoBi" name="Tb7Fukugo.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />

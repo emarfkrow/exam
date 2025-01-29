@@ -38,12 +38,12 @@ public class Tb7FukugoSPermitAction extends BaseAction {
             Tb7Fukugo e = FormValidator.toBean(Tb7Fukugo.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object sansho1Id = e.getSansho1Id();
-            if (sansho1Id == null) {
+            Object sanshoId = e.getSanshoId();
+            if (sanshoId == null) {
                 throw new OptLockError("error.cant.permit");
             }
-            Object sansho2Id = e.getSansho2Id();
-            if (sansho2Id == null) {
+            Object seiyakuId = e.getSeiyakuId();
+            if (seiyakuId == null) {
                 throw new OptLockError("error.cant.permit");
             }
             Object tekiyoBi = e.getTekiyoBi();
@@ -51,7 +51,7 @@ public class Tb7FukugoSPermitAction extends BaseAction {
                 throw new OptLockError("error.cant.permit");
             }
 
-            Tb7Fukugo f = Tb7Fukugo.get(sansho1Id, sansho2Id, tekiyoBi);
+            Tb7Fukugo f = Tb7Fukugo.get(sanshoId, seiyakuId, tekiyoBi);
             f.setStatusKb(1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.permit");

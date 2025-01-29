@@ -22,18 +22,18 @@ public class Tb7FukugoGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object sansho1Id = postJson.get("sansho1Id");
-        if (sansho1Id == null) {
-            sansho1Id = postJson.get("Tb7Fukugo.sansho1Id");
+        Object sanshoId = postJson.get("sanshoId");
+        if (sanshoId == null) {
+            sanshoId = postJson.get("Tb7Fukugo.sanshoId");
         }
-        if (sansho1Id == null) {
+        if (sanshoId == null) {
             return map;
         }
-        Object sansho2Id = postJson.get("sansho2Id");
-        if (sansho2Id == null) {
-            sansho2Id = postJson.get("Tb7Fukugo.sansho2Id");
+        Object seiyakuId = postJson.get("seiyakuId");
+        if (seiyakuId == null) {
+            seiyakuId = postJson.get("Tb7Fukugo.seiyakuId");
         }
-        if (sansho2Id == null) {
+        if (seiyakuId == null) {
             return map;
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
@@ -44,7 +44,7 @@ public class Tb7FukugoGetAction extends BaseAction {
             return map;
         }
 
-        Tb7Fukugo tb7Fukugo = Tb7Fukugo.get(sansho1Id, sansho2Id, tekiyoBi);
+        Tb7Fukugo tb7Fukugo = Tb7Fukugo.get(sanshoId, seiyakuId, tekiyoBi);
         map.put("Tb7Fukugo", tb7Fukugo);
         return map;
     }
