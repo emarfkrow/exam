@@ -382,6 +382,9 @@ public class Tb0Entity implements IEntity {
     }
 
     /** 時刻 */
+    @com.fasterxml.jackson.annotation.JsonFormat(pattern = "hh:mm")
+    @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer.class)
+    @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer.class)
     private java.time.LocalTime jikokuHm;
 
     /** @return 時刻 */
