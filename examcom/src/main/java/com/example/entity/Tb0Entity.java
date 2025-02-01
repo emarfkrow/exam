@@ -18,16 +18,12 @@ public class Tb0Entity implements IEntity {
     /** SlickGridのDataView用ID */
     private Integer id;
 
-    /**
-     * @return id
-     */
+    /** @return id */
     public final Integer getId() {
         return id;
     }
 
-    /**
-     * @param o セットする id
-     */
+    /** @param o id */
     public final void setId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.id = Integer.valueOf(o.toString());
@@ -276,6 +272,9 @@ public class Tb0Entity implements IEntity {
     /** @return 年月 */
     @com.fasterxml.jackson.annotation.JsonProperty("NENGETSU_YM")
     public String getNengetsuYm() {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(this.nengetsuYm)) {
+            return this.nengetsuYm.substring(0, 4) + "-" + this.nengetsuYm.substring(4);
+        }
         return this.nengetsuYm;
     }
 

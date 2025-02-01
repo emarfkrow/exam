@@ -18,16 +18,12 @@ public class Tb3Kyodai2 implements IEntity {
     /** SlickGridのDataView用ID */
     private Integer id;
 
-    /**
-     * @return id
-     */
+    /** @return id */
     public final Integer getId() {
         return id;
     }
 
-    /**
-     * @param o セットする id
-     */
+    /** @param o id */
     public final void setId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
             this.id = Integer.valueOf(o.toString());
