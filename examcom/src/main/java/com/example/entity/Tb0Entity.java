@@ -194,21 +194,21 @@ public class Tb0Entity implements IEntity {
         }
     }
 
-    /** ファイルパス */
-    private String filePath;
+    /** 添付ファイル */
+    private String tenpuFile;
 
-    /** @return ファイルパス */
-    @com.fasterxml.jackson.annotation.JsonProperty("FILE_PATH")
-    public String getFilePath() {
-        return this.filePath;
+    /** @return 添付ファイル */
+    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE")
+    public String getTenpuFile() {
+        return this.tenpuFile;
     }
 
-    /** @param o ファイルパス */
-    public void setFilePath(final Object o) {
+    /** @param o 添付ファイル */
+    public void setTenpuFile(final Object o) {
         if (o != null) {
-            this.filePath = o.toString();
+            this.tenpuFile = o.toString();
         } else {
-            this.filePath = null;
+            this.tenpuFile = null;
         }
     }
 
@@ -672,7 +672,7 @@ public class Tb0Entity implements IEntity {
         sql += "    , a.`PULLDOWN_SB` \n";
         sql += "    , a.`MEMO_TX` \n";
         sql += "    , a.`MEMO` \n";
-        sql += "    , a.`FILE_PATH` \n";
+        sql += "    , a.`TENPU_FILE` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`NEN_Y`) AS NEN_Y \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`TSUKI_M`) AS TSUKI_M \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`HI_D`) AS HI_D \n";
@@ -730,7 +730,7 @@ public class Tb0Entity implements IEntity {
         nameList.add("`PULLDOWN_SB` -- :pulldown_sb");
         nameList.add("`MEMO_TX` -- :memo_tx");
         nameList.add("`MEMO` -- :memo");
-        nameList.add("`FILE_PATH` -- :file_path");
+        nameList.add("`TENPU_FILE` -- :tenpu_file");
         nameList.add("`NEN_Y` -- :nen_y");
         nameList.add("`TSUKI_M` -- :tsuki_m");
         nameList.add("`HI_D` -- :hi_d");
@@ -766,7 +766,7 @@ public class Tb0Entity implements IEntity {
         valueList.add(":pulldown_sb");
         valueList.add(":memo_tx");
         valueList.add(":memo");
-        valueList.add(":file_path");
+        valueList.add(":tenpu_file");
         valueList.add(":nen_y");
         valueList.add(":tsuki_m");
         valueList.add(":hi_d");
@@ -827,7 +827,7 @@ public class Tb0Entity implements IEntity {
         setList.add("`PULLDOWN_SB` = :pulldown_sb");
         setList.add("`MEMO_TX` = :memo_tx");
         setList.add("`MEMO` = :memo");
-        setList.add("`FILE_PATH` = :file_path");
+        setList.add("`TENPU_FILE` = :tenpu_file");
         setList.add("`NEN_Y` = :nen_y");
         setList.add("`TSUKI_M` = :tsuki_m");
         setList.add("`HI_D` = :hi_d");
@@ -857,7 +857,7 @@ public class Tb0Entity implements IEntity {
 
         Tb0Entity tb0Entity = Tb0Entity.get(this.entityId);
         try {
-            java.nio.file.Files.delete(java.nio.file.Paths.get(tb0Entity.filePath));
+            java.nio.file.Files.delete(java.nio.file.Paths.get(tb0Entity.tenpuFile));
         } catch (Exception e) {
             throw new jp.co.golorp.emarf.exception.SysError(e);
         }
@@ -890,7 +890,7 @@ public class Tb0Entity implements IEntity {
         map.put("pulldown_sb", this.pulldownSb);
         map.put("memo_tx", this.memoTx);
         map.put("memo", this.memo);
-        map.put("file_path", this.filePath);
+        map.put("tenpu_file", this.tenpuFile);
         map.put("nen_y", this.nenY);
         map.put("tsuki_m", this.tsukiM);
         map.put("hi_d", this.hiD);

@@ -8,7 +8,7 @@ SELECT
     , a.`PULLDOWN_SB`
     , a.`MEMO_TX`
     , a.`MEMO`
-    , a.`FILE_PATH`
+    , a.`TENPU_FILE`
     , TRIM(TRAILING ' ' FROM a.`NEN_Y`) AS NEN_Y
     , TRIM(TRAILING ' ' FROM a.`TSUKI_M`) AS TSUKI_M
     , TRIM(TRAILING ' ' FROM a.`HI_D`) AS HI_D
@@ -44,7 +44,7 @@ WHERE
     AND TRIM (a.`PULLDOWN_SB`) IN (:pulldown_sb) 
     AND TRIM(TRAILING ' ' FROM a.`MEMO_TX`) LIKE CONCAT ('%', :memo_tx, '%') 
     AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`FILE_PATH`) LIKE CONCAT ('%', :file_path, '%') 
+    AND TRIM(TRAILING ' ' FROM a.`TENPU_FILE`) LIKE CONCAT ('%', :tenpu_file, '%') 
     AND TRIM(TRAILING ' ' FROM a.`NEN_Y`) LIKE CONCAT ('%', :nen_y, '%') 
     AND a.`NEN_Y` >= :nen_y_1 
     AND a.`NEN_Y` <= :nen_y_2 

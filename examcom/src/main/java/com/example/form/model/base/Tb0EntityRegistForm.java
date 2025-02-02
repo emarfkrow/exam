@@ -188,23 +188,23 @@ public class Tb0EntityRegistForm implements IForm {
         this.memo = p;
     }
 
-    /** ファイルパス */
+    /** 添付ファイル */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 300)
-    private String filePath;
+    private String tenpuFile;
 
     /**
-     * @return ファイルパス
+     * @return 添付ファイル
      */
-    public String getFilePath() {
-        return filePath;
+    public String getTenpuFile() {
+        return tenpuFile;
     }
 
     /**
-     * @param p ファイルパス
+     * @param p 添付ファイル
      */
-    public void setFilePath(final String p) {
-        this.filePath = p;
+    public void setTenpuFile(final String p) {
+        this.tenpuFile = p;
     }
 
     /** 年 */

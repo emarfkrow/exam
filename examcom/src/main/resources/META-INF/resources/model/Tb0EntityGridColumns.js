@@ -15,7 +15,7 @@ $(function() {
         Column.select('PULLDOWN_SB', Messages['Tb0EntityGrid.pulldownSb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
         Column.longText('MEMO_TX', Messages['Tb0EntityGrid.memoTx'], 300, 'notblank', null),
         Column.text('MEMO', Messages['Tb0EntityGrid.memo'], 300, 'notblank', null),
-        Column.link('FILE_PATH', Messages['Tb0EntityGrid.filePath'], 300, 'notblank'),
+        Column.link('TENPU_FILE', Messages['Tb0EntityGrid.tenpuFile'], 300, 'notblank'),
         Column.text('NEN_Y', Messages['Tb0EntityGrid.nenY'], 32, 'notblank', null),
         Column.text('TSUKI_M', Messages['Tb0EntityGrid.tsukiM'], 30, 'notblank', null),
         Column.text('HI_D', Messages['Tb0EntityGrid.hiD'], 30, 'notblank', null),
