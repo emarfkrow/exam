@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb5Tenseiyokushisaki1S.title}">転生抑止先１</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb5Tenseiyokushisaki1GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb5Tenseiyokushisaki1S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb5Tenseiyokushisaki1SearchForm" action="Tb5Tenseiyokushisaki1Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb5Tenseiyokushisaki1S.legend}">legend</legend>
+        <div id="tenseiyokushisaki1Id">
+          <label for="Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id" th:text="#{Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id}">転生抑止先１ID</label><input type="text" id="Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id" name="Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id" maxlength="10" />
+        </div>
+        <div id="tenseiyokushiId">
+          <label for="Tb5Tenseiyokushisaki1.tenseiyokushiId" th:text="#{Tb5Tenseiyokushisaki1.tenseiyokushiId}">転生抑止ID</label><input type="text" id="Tb5Tenseiyokushisaki1.tenseiyokushiId" name="Tb5Tenseiyokushisaki1.tenseiyokushiId" maxlength="10" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb5Tenseiyokushisaki1.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5Tenseiyokushisaki1.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb5Tenseiyokushisaki1.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5Tenseiyokushisaki1.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb5Tenseiyokushisaki1" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb5Tenseiyokushisaki1.html}" id="Tb5Tenseiyokushisaki1" class="anew" target="dialog" th:text="#{Tb5Tenseiyokushisaki1.add}" tabindex="-1">転生抑止先１</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb5Tenseiyokushisaki1" type="submit" class="search" data-gridId="Tb5Tenseiyokushisaki1Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb5Tenseiyokushisaki1SRegistForm" action="Tb5Tenseiyokushisaki1SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb5Tenseiyokushisaki1.h3}">h3</h3>
+      <div id="Tb5Tenseiyokushisaki1Grid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb5Tenseiyokushisaki1.html}"></div>
+      <div id="Tb5Tenseiyokushisaki1Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb5Tenseiyokushisaki1S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb5Tenseiyokushisaki1&quot;]').click();">reset</button>
+        <a th:href="@{Tb5Tenseiyokushisaki1Search.xlsx(baseMei=#{Tb5Tenseiyokushisaki1S.h2})}" id="Tb5Tenseiyokushisaki1Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb5Tenseiyokushisaki1S" type="submit" class="delete selectRows" data-action="Tb5Tenseiyokushisaki1SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb5Tenseiyokushisaki1S" type="submit" class="permit selectRows" data-action="Tb5Tenseiyokushisaki1SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb5Tenseiyokushisaki1S" type="submit" class="forbid selectRows" data-action="Tb5Tenseiyokushisaki1SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb5Tenseiyokushisaki1S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
