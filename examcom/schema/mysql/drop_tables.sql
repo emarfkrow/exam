@@ -4,11 +4,12 @@ UNION
 SELECT CONCAT ('DROP VIEW ', table_name, ';') AS '--' FROM information_schema.views WHERE table_schema = 'emarf' 
 */
 --
+DROP TABLE $$tb5_tenseiytokushisaki1 CASCADE;
 DROP TABLE mb4_cdsansho CASCADE;
 DROP TABLE mb4_idsansho CASCADE;
 DROP TABLE mb4_nosansho CASCADE;
-DROP TABLE mb7_sansho1 CASCADE;
-DROP TABLE mb7_sansho2 CASCADE;
+DROP TABLE mb7_sansho CASCADE;
+DROP TABLE mb7_seiyaku CASCADE;
 DROP TABLE mhr_busho CASCADE;
 DROP TABLE mhr_ninka CASCADE;
 DROP TABLE mhr_shokui CASCADE;
@@ -30,10 +31,15 @@ DROP TABLE tb3_kyodai3 CASCADE;
 DROP TABLE tb3_kyodai4 CASCADE;
 DROP TABLE tb3_kyodai5 CASCADE;
 DROP TABLE tb4_sanshomoto CASCADE;
+DROP TABLE tb5_shuyakuyokushisaki1 CASCADE;
+DROP TABLE tb5_shuyakuyokushisaki2 CASCADE;
 DROP TABLE tb5_tenseimoto CASCADE;
 DROP TABLE tb5_tenseimoto_det CASCADE;
 DROP TABLE tb5_tenseisaki CASCADE;
 DROP TABLE tb5_tenseisaki_det CASCADE;
+DROP TABLE tb5_tenseiyokushi CASCADE;
+DROP TABLE tb5_tenseiyokushisaki1 CASCADE;
+DROP TABLE tb5_tenseiyokushisaki2 CASCADE;
 DROP TABLE tb6_shuyakumoto CASCADE;
 DROP TABLE tb6_shuyakusaki CASCADE;
 DROP TABLE tb7_fukugo CASCADE;
