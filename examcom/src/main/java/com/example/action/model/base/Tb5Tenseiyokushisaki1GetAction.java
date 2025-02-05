@@ -27,20 +27,6 @@ public class Tb5Tenseiyokushisaki1GetAction extends BaseAction {
             tenseiyokushisaki1Id = postJson.get("Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id");
         }
         if (tenseiyokushisaki1Id == null) {
-
-            //転生先になる場合は転生元から情報をコピー
-            Object tenseiyokushiId = postJson.get("tenseiyokushiId");
-            if (tenseiyokushiId == null) {
-                tenseiyokushiId = postJson.get("Tb5Tenseiyokushisaki1.tenseiyokushiId");
-            }
-            if (tenseiyokushiId == null) {
-                return map;
-            }
-
-            com.example.entity.Tb5Tenseiyokushi tb5Tenseiyokushi = com.example.entity.Tb5Tenseiyokushi.get(tenseiyokushiId);
-            Tb5Tenseiyokushisaki1 tb5Tenseiyokushisaki1 = new Tb5Tenseiyokushisaki1();
-            tb5Tenseiyokushisaki1.setTenseiyokushiId(tb5Tenseiyokushi.getTenseiyokushiId());
-
             return map;
         }
 

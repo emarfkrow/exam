@@ -41,6 +41,7 @@ public class Tb6ShuyakumotoGetAction extends BaseAction {
             Tb6Shuyakumoto tb6Shuyakumoto = new Tb6Shuyakumoto();
             tb6Shuyakumoto.setShuyakusakiId(tb6Shuyakusaki.getShuyakusakiId());
 
+            map.put("Tb6Shuyakumoto", tb6Shuyakumoto);
             return map;
         }
 

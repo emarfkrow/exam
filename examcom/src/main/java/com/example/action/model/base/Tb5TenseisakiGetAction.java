@@ -48,8 +48,8 @@ public class Tb5TenseisakiGetAction extends BaseAction {
                 tb5TenseisakiDet.setId(tb5TenseimotoDet.getId());
                 tb5Tenseisaki.getTb5TenseisakiDets().add(tb5TenseisakiDet);
             }
-            map.put("Tb5Tenseisaki", tb5Tenseisaki);
 
+            map.put("Tb5Tenseisaki", tb5Tenseisaki);
             return map;
         }
 

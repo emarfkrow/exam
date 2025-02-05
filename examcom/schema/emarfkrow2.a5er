@@ -79,10 +79,8 @@ FooterLeft=
 FooterCenter=
 FooterRight=
 ShowPageoutRelation=1
-RDBMSType=6
-RDBMSTypeName=MySQL
-GenerateDropTableStatement=1
-DropTableIfExists=1
+RDBMSTypeName=Oracle Database
+BackupRestoreTempTable=0
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
@@ -248,8 +246,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1750
-Top=550
+Left=2800
+Top=50
 Field="ユーザID","USER_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="ユーザ姓","USER_SEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="ユーザ名","USER_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
@@ -261,7 +259,7 @@ EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
 ModifiedDateTime=20241220143707
-Position="MAIN",1750,550
+Position="MAIN",2800,50
 ZOrder=-12
 
 [Relation]
@@ -640,7 +638,7 @@ Fields1=USER_ID
 Fields2=USER_ID
 Cardinarity1=
 Cardinarity2=
-Position="MAIN",0,807,4560,4719,R,R,""
+Position="MAIN",0,807,4560,4437,R,R,""
 Dependence=1
 Caption=
 PName=
@@ -648,7 +646,7 @@ ModifiedDateTime=20241212114908
 LineMode=0
 Bar1=81
 Bar2=456
-Bar3=472
+Bar3=444
 TermPos1=R
 TermPos2=R
 ZOrder=10
@@ -1181,7 +1179,7 @@ LName=転生抑止
 Comment=
 TableInnerOption=
 TableOption=
-Page=Main
+Page=MAIN
 Left=2300
 Top=2200
 Field="転生抑止ID","TENSEIYOKUSHI_ID","*ID",,0,"","",$FFFFFFFF,""
@@ -1190,7 +1188,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250203194327
-Position="Main",2300,2200
+Position="MAIN",2300,2200
 ZOrder=59
 
 [Entity]
@@ -1199,7 +1197,7 @@ LName=転生抑止先１
 Comment=
 TableInnerOption=
 TableOption=
-Page=Main
+Page=MAIN
 Left=3000
 Top=2200
 Field="転生抑止先１ID","TENSEIYOKUSHISAKI1_ID","*ID",,0,"","",$FFFFFFFF,""
@@ -1208,7 +1206,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250203195800
-Position="Main",3000,2200
+Position="MAIN",3000,2200
 ZOrder=60
 
 [Entity]
@@ -1217,7 +1215,7 @@ LName=転生抑止先２
 Comment=
 TableInnerOption=
 TableOption=
-Page=Main
+Page=MAIN
 Left=3000
 Top=2350
 Field="転生抑止先２ID","TENSEIYOKUSHISAKI2_ID","*ID",,0,"","",$FFFFFFFF,""
@@ -1226,7 +1224,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250203195743
-Position="Main",3000,2350
+Position="MAIN",3000,2350
 ZOrder=61
 
 [Relation]
@@ -1272,12 +1270,12 @@ TermPos2=R
 ZOrder=63
 
 [Entity]
-PName=TB5_SHUYAKUYOKUSHISAKI1
+PName=TB6_SHUYAKUYOKUSHISAKI1
 LName=集約抑止先１
 Comment=
 TableInnerOption=
 TableOption=
-Page=Main
+Page=MAIN
 Left=3000
 Top=2500
 Field="集約抑止先１ID","SHUYAKUYOKUSHISAKI1_ID","*ID",,0,"","",$FFFFFFFF,""
@@ -1285,17 +1283,17 @@ Field="転生抑止ID","TENSEIYOKUSHI_ID","*ID",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250203195704
-Position="Main",3000,2500
+ModifiedDateTime=20250204093358
+Position="MAIN",3000,2500
 ZOrder=64
 
 [Entity]
-PName=TB5_SHUYAKUYOKUSHISAKI2
+PName=TB6_SHUYAKUYOKUSHISAKI2
 LName=集約抑止先２
 Comment=
 TableInnerOption=
 TableOption=
-Page=Main
+Page=MAIN
 Left=3000
 Top=2650
 Field="集約抑止先２ID","SHUYAKUYOKUSHISAKI2_ID","*ID",,0,"","",$FFFFFFFF,""
@@ -1303,13 +1301,13 @@ Field="転生抑止ID","TENSEIYOKUSHI_ID","*ID",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250203195717
-Position="Main",3000,2650
+ModifiedDateTime=20250204093405
+Position="MAIN",3000,2650
 ZOrder=65
 
 [Relation]
 Entity1=TB5_TENSEIYOKUSHI
-Entity2=TB5_SHUYAKUYOKUSHISAKI1
+Entity2=TB6_SHUYAKUYOKUSHISAKI1
 RelationType1=1
 RelationType2=3
 Fields1=TENSEIYOKUSHI_ID
@@ -1330,7 +1328,7 @@ ZOrder=66
 
 [Relation]
 Entity1=TB5_TENSEIYOKUSHI
-Entity2=TB5_SHUYAKUYOKUSHISAKI2
+Entity2=TB6_SHUYAKUYOKUSHISAKI2
 RelationType1=1
 RelationType2=3
 Fields1=TENSEIYOKUSHI_ID

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseiyokushi;
+import com.example.entity.Tb6Shuyakuyokushisaki1;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -12,23 +12,23 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 転生抑止登録
+ * 集約抑止先１登録
  *
  * @author emarfkrow
  */
-public class Tb5TenseiyokushiRegistAction extends BaseAction {
+public class Tb6Shuyakuyokushisaki1RegistAction extends BaseAction {
 
-    /** 転生抑止登録処理 */
+    /** 集約抑止先１登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Tb5Tenseiyokushi e = FormValidator.toBean(Tb5Tenseiyokushi.class.getName(), postJson);
+        Tb6Shuyakuyokushisaki1 e = FormValidator.toBean(Tb6Shuyakuyokushisaki1.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiyokushiId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShuyakuyokushisaki1Id())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
