@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb8HenkanSaki.title}">変換先</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb8HenkanSakiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb8HenkanSaki.h2}">h2</h2>
+    <form name="Tb8HenkanSakiRegistForm" action="Tb8HenkanSakiRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb8HenkanSaki.legend}">legend</legend>
+        <div id="henkanSakiId">
+          <label for="Tb8HenkanSaki.henkanSakiId" th:text="#{Tb8HenkanSaki.henkanSakiId}">変換先ID</label><input type="text" id="Tb8HenkanSaki.henkanSakiId" name="Tb8HenkanSaki.henkanSakiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="henkanSakiInfo">
+          <label for="Tb8HenkanSaki.henkanSakiInfo" th:text="#{Tb8HenkanSaki.henkanSakiInfo}">変換先情報</label><input type="text" id="Tb8HenkanSaki.henkanSakiInfo" name="Tb8HenkanSaki.henkanSakiInfo" maxlength="300" />
+        </div>
+        <div id="hikitsuidaInfo">
+          <label for="Tb8HenkanSaki.hikitsuidaInfo" th:text="#{Tb8HenkanSaki.hikitsuidaInfo}">引継いだ情報</label><input type="text" id="Tb8HenkanSaki.hikitsuidaInfo" name="Tb8HenkanSaki.hikitsuidaInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb8HenkanSaki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8HenkanSaki.insertTs"></span><input type="hidden" id="Tb8HenkanSaki.insertTs" name="Tb8HenkanSaki.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb8HenkanSaki.insertUserId}" class="meta">作成者</label><span id="Tb8HenkanSaki.insertUserId"></span><input type="hidden" id="Tb8HenkanSaki.insertUserId" name="Tb8HenkanSaki.insertUserId" />
+          <span id="Tb8HenkanSaki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8HenkanSaki.insertUserId" data-destDef="Tb8HenkanSaki.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb8HenkanSaki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8HenkanSaki.updateTs"></span><input type="hidden" id="Tb8HenkanSaki.updateTs" name="Tb8HenkanSaki.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb8HenkanSaki.updateUserId}" class="meta">更新者</label><span id="Tb8HenkanSaki.updateUserId"></span><input type="hidden" id="Tb8HenkanSaki.updateUserId" name="Tb8HenkanSaki.updateUserId" />
+          <span id="Tb8HenkanSaki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8HenkanSaki.updateUserId" data-destDef="Tb8HenkanSaki.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb8HenkanSaki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb8HenkanSaki.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb8HenkanSaki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb8HenkanSaki.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb8HenkanSaki" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb8HenkanSakiGet.xlsx(baseMei=#{Tb8HenkanSaki.h2})}" id="Tb8HenkanSakiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb8HenkanSaki" type="submit" class="delete" data-action="Tb8HenkanSakiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb8HenkanSaki" type="submit" class="permit" data-action="Tb8HenkanSakiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb8HenkanSaki" type="submit" class="forbid" data-action="Tb8HenkanSakiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb8HenkanSaki" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -13,63 +13,63 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakumotoRegistForm implements IForm {
+public class Tb6ShuyakuMotoRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakumotoRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakuMotoRegistForm.class);
 
     /** 集約元ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String shuyakumotoId;
+    private String shuyakuMotoId;
 
     /**
      * @return 集約元ID
      */
-    public String getShuyakumotoId() {
-        return shuyakumotoId;
+    public String getShuyakuMotoId() {
+        return shuyakuMotoId;
     }
 
     /**
      * @param p 集約元ID
      */
-    public void setShuyakumotoId(final String p) {
-        this.shuyakumotoId = p;
-    }
-
-    /** 集約先ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String shuyakusakiId;
-
-    /**
-     * @return 集約先ID
-     */
-    public String getShuyakusakiId() {
-        return shuyakusakiId;
-    }
-
-    /**
-     * @param p 集約先ID
-     */
-    public void setShuyakusakiId(final String p) {
-        this.shuyakusakiId = p;
+    public void setShuyakuMotoId(final String p) {
+        this.shuyakuMotoId = p;
     }
 
     /** 集約元情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String shuyakumotoInfo;
+    private String shuyakuMotoInfo;
 
     /**
      * @return 集約元情報
      */
-    public String getShuyakumotoInfo() {
-        return shuyakumotoInfo;
+    public String getShuyakuMotoInfo() {
+        return shuyakuMotoInfo;
     }
 
     /**
      * @param p 集約元情報
      */
-    public void setShuyakumotoInfo(final String p) {
-        this.shuyakumotoInfo = p;
+    public void setShuyakuMotoInfo(final String p) {
+        this.shuyakuMotoInfo = p;
+    }
+
+    /** 集約先ID */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String shuyakuSakiId;
+
+    /**
+     * @return 集約先ID
+     */
+    public String getShuyakuSakiId() {
+        return shuyakuSakiId;
+    }
+
+    /**
+     * @param p 集約先ID
+     */
+    public void setShuyakuSakiId(final String p) {
+        this.shuyakuSakiId = p;
     }
 
     /** 削除フラグ */

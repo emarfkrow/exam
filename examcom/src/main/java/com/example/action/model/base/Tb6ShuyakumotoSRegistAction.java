@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakumoto;
+import com.example.entity.Tb6ShuyakuMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakumotoSRegistAction extends BaseAction {
+public class Tb6ShuyakuMotoSRegistAction extends BaseAction {
 
     /** 集約元一覧登録処理 */
     @Override
@@ -28,18 +28,18 @@ public class Tb6ShuyakumotoSRegistAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakumotoGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakuMotoGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb6Shuyakumoto e = FormValidator.toBean(Tb6Shuyakumoto.class.getName(), gridRow);
+            Tb6ShuyakuMoto e = FormValidator.toBean(Tb6ShuyakuMoto.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShuyakumotoId())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShuyakuMotoId())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

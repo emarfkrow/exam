@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseisakiDet;
+import com.example.entity.Tb5TenseiSakiDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetGetAction extends BaseAction {
+public class Tb5TenseiSakiDetGetAction extends BaseAction {
 
     /** 転生先明細照会処理 */
     @Override
@@ -22,26 +22,26 @@ public class Tb5TenseisakiDetGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object tenseisakiId = postJson.get("tenseisakiId");
-        if (tenseisakiId == null) {
-            tenseisakiId = postJson.get("Tb5TenseisakiDet.tenseisakiId");
+        Object tenseiSakiId = postJson.get("tenseiSakiId");
+        if (tenseiSakiId == null) {
+            tenseiSakiId = postJson.get("Tb5TenseiSakiDet.tenseiSakiId");
         }
-        if (tenseisakiId == null) {
+        if (tenseiSakiId == null) {
             return map;
         }
-        com.example.entity.Tb5Tenseisaki tb5Tenseisaki = com.example.entity.Tb5Tenseisaki.get(tenseisakiId);
-        map.put("Tb5Tenseisaki", tb5Tenseisaki);
+        com.example.entity.Tb5TenseiSaki tb5TenseiSaki = com.example.entity.Tb5TenseiSaki.get(tenseiSakiId);
+        map.put("Tb5TenseiSaki", tb5TenseiSaki);
 
-        Object tenseisakiBn = postJson.get("tenseisakiBn");
-        if (tenseisakiBn == null) {
-            tenseisakiBn = postJson.get("Tb5TenseisakiDet.tenseisakiBn");
+        Object tenseiSakiBn = postJson.get("tenseiSakiBn");
+        if (tenseiSakiBn == null) {
+            tenseiSakiBn = postJson.get("Tb5TenseiSakiDet.tenseiSakiBn");
         }
-        if (tenseisakiBn == null) {
+        if (tenseiSakiBn == null) {
             return map;
         }
 
-        Tb5TenseisakiDet tb5TenseisakiDet = Tb5TenseisakiDet.get(tenseisakiId, tenseisakiBn);
-        map.put("Tb5TenseisakiDet", tb5TenseisakiDet);
+        Tb5TenseiSakiDet tb5TenseiSakiDet = Tb5TenseiSakiDet.get(tenseiSakiId, tenseiSakiBn);
+        map.put("Tb5TenseiSakiDet", tb5TenseiSakiDet);
         return map;
     }
 

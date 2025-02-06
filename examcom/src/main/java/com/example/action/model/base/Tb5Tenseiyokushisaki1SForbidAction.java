@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseiyokushisaki1;
+import com.example.entity.Tb5TenseiYokushiSaki1;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5Tenseiyokushisaki1SForbidAction extends BaseAction {
+public class Tb5TenseiYokushiSaki1SForbidAction extends BaseAction {
 
     /** 転生抑止先１一覧承認処理 */
     @Override
@@ -28,22 +28,22 @@ public class Tb5Tenseiyokushisaki1SForbidAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5Tenseiyokushisaki1Grid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiYokushiSaki1Grid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb5Tenseiyokushisaki1 e = FormValidator.toBean(Tb5Tenseiyokushisaki1.class.getName(), gridRow);
+            Tb5TenseiYokushiSaki1 e = FormValidator.toBean(Tb5TenseiYokushiSaki1.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object tenseiyokushisaki1Id = e.getTenseiyokushisaki1Id();
-            if (tenseiyokushisaki1Id == null) {
+            Object tenseiYokushiSaki1Id = e.getTenseiYokushiSaki1Id();
+            if (tenseiYokushiSaki1Id == null) {
                 throw new OptLockError("error.cant.forbid");
             }
 
-            Tb5Tenseiyokushisaki1 f = Tb5Tenseiyokushisaki1.get(tenseiyokushisaki1Id);
+            Tb5TenseiYokushiSaki1 f = Tb5TenseiYokushiSaki1.get(tenseiYokushiSaki1Id);
             f.setStatusKb(-1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.forbid");

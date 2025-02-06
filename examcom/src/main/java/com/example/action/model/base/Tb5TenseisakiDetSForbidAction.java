@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseisakiDet;
+import com.example.entity.Tb5TenseiSakiDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetSForbidAction extends BaseAction {
+public class Tb5TenseiSakiDetSForbidAction extends BaseAction {
 
     /** 転生先明細一覧承認処理 */
     @Override
@@ -28,26 +28,26 @@ public class Tb5TenseisakiDetSForbidAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseisakiDetGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiSakiDetGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb5TenseisakiDet e = FormValidator.toBean(Tb5TenseisakiDet.class.getName(), gridRow);
+            Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object tenseisakiId = e.getTenseisakiId();
-            if (tenseisakiId == null) {
+            Object tenseiSakiId = e.getTenseiSakiId();
+            if (tenseiSakiId == null) {
                 throw new OptLockError("error.cant.forbid");
             }
-            Object tenseisakiBn = e.getTenseisakiBn();
-            if (tenseisakiBn == null) {
+            Object tenseiSakiBn = e.getTenseiSakiBn();
+            if (tenseiSakiBn == null) {
                 throw new OptLockError("error.cant.forbid");
             }
 
-            Tb5TenseisakiDet f = Tb5TenseisakiDet.get(tenseisakiId, tenseisakiBn);
+            Tb5TenseiSakiDet f = Tb5TenseiSakiDet.get(tenseiSakiId, tenseiSakiBn);
             f.setStatusKb(-1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.forbid");

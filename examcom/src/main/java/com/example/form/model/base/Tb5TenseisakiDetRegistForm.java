@@ -13,63 +13,63 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetRegistForm implements IForm {
+public class Tb5TenseiSakiDetRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseisakiDetRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiSakiDetRegistForm.class);
 
     /** 転生先ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseisakiId;
+    private String tenseiSakiId;
 
     /**
      * @return 転生先ID
      */
-    public String getTenseisakiId() {
-        return tenseisakiId;
+    public String getTenseiSakiId() {
+        return tenseiSakiId;
     }
 
     /**
      * @param p 転生先ID
      */
-    public void setTenseisakiId(final String p) {
-        this.tenseisakiId = p;
+    public void setTenseiSakiId(final String p) {
+        this.tenseiSakiId = p;
     }
 
     /** 転生先枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseisakiBn;
+    private String tenseiSakiBn;
 
     /**
      * @return 転生先枝番
      */
-    public String getTenseisakiBn() {
-        return tenseisakiBn;
+    public String getTenseiSakiBn() {
+        return tenseiSakiBn;
     }
 
     /**
      * @param p 転生先枝番
      */
-    public void setTenseisakiBn(final String p) {
-        this.tenseisakiBn = p;
+    public void setTenseiSakiBn(final String p) {
+        this.tenseiSakiBn = p;
     }
 
     /** 転生先明細情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String tenseisakiDetInfo;
+    private String tenseiSakiDetInfo;
 
     /**
      * @return 転生先明細情報
      */
-    public String getTenseisakiDetInfo() {
-        return tenseisakiDetInfo;
+    public String getTenseiSakiDetInfo() {
+        return tenseiSakiDetInfo;
     }
 
     /**
      * @param p 転生先明細情報
      */
-    public void setTenseisakiDetInfo(final String p) {
-        this.tenseisakiDetInfo = p;
+    public void setTenseiSakiDetInfo(final String p) {
+        this.tenseiSakiDetInfo = p;
     }
 
     /** 削除フラグ */

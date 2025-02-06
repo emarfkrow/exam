@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakusaki;
+import com.example.entity.Tb6ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiSDeleteAction extends BaseAction {
+public class Tb6ShuyakuSakiSDeleteAction extends BaseAction {
 
     /** 集約先一覧削除処理 */
     @Override
@@ -28,7 +28,7 @@ public class Tb6ShuyakusakiSDeleteAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakusakiGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakuSakiGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -36,11 +36,11 @@ public class Tb6ShuyakusakiSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SHUYAKUSAKI_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SHUYAKU_SAKI_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 
-            Tb6Shuyakusaki e = FormValidator.toBean(Tb6Shuyakusaki.class.getName(), gridRow);
+            Tb6ShuyakuSaki e = FormValidator.toBean(Tb6ShuyakuSaki.class.getName(), gridRow);
 
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");

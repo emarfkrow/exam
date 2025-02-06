@@ -1,12 +1,10 @@
 -- Project Name : emarf
--- Date/Time    : 2025/01/28 19:45:49
+-- Date/Time    : 2025/02/06 9:24:36
 -- Author       : toshiyuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
 
 -- CD参照マスタ
-drop table if exists MB4_CDSANSHO cascade;
-
 create table MB4_CDSANSHO (
   CDSANSHO_CD CHAR(10) comment 'CD参照CD'
   , CDSANSHO_MEI VARCHAR(60) not null comment 'CD参照名'
@@ -20,8 +18,6 @@ create table MB4_CDSANSHO (
 ) comment 'CD参照マスタ' ;
 
 -- ID参照マスタ
-drop table if exists MB4_IDSANSHO cascade;
-
 create table MB4_IDSANSHO (
   IDSANSHO_ID INT comment 'ID参照ID'
   , IDSANSHO_MEI VARCHAR(60) not null comment 'ID参照名'
@@ -35,8 +31,6 @@ create table MB4_IDSANSHO (
 ) comment 'ID参照マスタ' ;
 
 -- NO参照マスタ
-drop table if exists MB4_NOSANSHO cascade;
-
 create table MB4_NOSANSHO (
   NOSANSHO_NO CHAR(10) comment 'NO参照NO'
   , NOSANSHO_MEI VARCHAR(60) not null comment 'NO参照名'
@@ -49,39 +43,33 @@ create table MB4_NOSANSHO (
   , constraint MB4_NOSANSHO_PKC primary key (NOSANSHO_NO)
 ) comment 'NO参照マスタ' ;
 
--- 参照１マスタ
-drop table if exists MB7_SANSHO1 cascade;
-
-create table MB7_SANSHO1 (
-  SANSHO1_ID INT comment '参照１ID'
-  , SANSHO1_MEI VARCHAR(60) not null comment '参照１名'
+-- 参照マスタ
+create table MB7_SANSHO (
+  SANSHO_ID INT comment '参照ID'
+  , SANSHO_MEI VARCHAR(60) not null comment '参照名'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MB7_SANSHO1_PKC primary key (SANSHO1_ID)
-) comment '参照１マスタ' ;
+  , constraint MB7_SANSHO_PKC primary key (SANSHO_ID)
+) comment '参照マスタ' ;
 
--- 参照２マスタ
-drop table if exists MB7_SANSHO2 cascade;
-
-create table MB7_SANSHO2 (
-  SANSHO2_ID INT comment '参照２ID'
-  , SANSHO2_MEI VARCHAR(60) not null comment '参照２名'
+-- 制約マスタ
+create table MB7_SEIYAKU (
+  SEIYAKU_ID INT comment '制約ID'
+  , SEIYAKU_MEI VARCHAR(60) not null comment '制約名'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint MB7_SANSHO2_PKC primary key (SANSHO2_ID)
-) comment '参照２マスタ' ;
+  , constraint MB7_SEIYAKU_PKC primary key (SEIYAKU_ID)
+) comment '制約マスタ' ;
 
 -- 部署マスタ
-drop table if exists MHR_BUSHO cascade;
-
 create table MHR_BUSHO (
   BUSHO_ID INT not null comment '部署ID'
   , BUSHO_MEI VARCHAR(60) not null comment '部署名'
@@ -98,8 +86,6 @@ create table MHR_BUSHO (
 ) comment '部署マスタ' ;
 
 -- 認可マスタ
-drop table if exists MHR_NINKA cascade;
-
 create table MHR_NINKA (
   BUSHO_ID INT not null comment '部署ID'
   , SHOKUI_ID INT not null comment '職位ID'
@@ -117,8 +103,6 @@ create table MHR_NINKA (
 ) comment '認可マスタ' ;
 
 -- 職位マスタ
-drop table if exists MHR_SHOKUI cascade;
-
 create table MHR_SHOKUI (
   SHOKUI_ID INT not null comment '職位ID'
   , SHOKUI_MEI VARCHAR(60) not null comment '職位名'
@@ -135,8 +119,6 @@ create table MHR_SHOKUI (
 ) comment '職位マスタ' ;
 
 -- 所属マスタ
-drop table if exists MHR_SHOZOKU cascade;
-
 create table MHR_SHOZOKU (
   BUSHO_ID INT not null comment '部署ID'
   , SHOKUI_ID INT not null comment '職位ID'
@@ -153,8 +135,6 @@ create table MHR_SHOZOKU (
 ) comment '所属マスタ' ;
 
 -- ユーザマスタ
-drop table if exists MHR_USER cascade;
-
 create table MHR_USER (
   USER_ID INT not null comment 'ユーザID'
   , USER_SEI VARCHAR(60) not null comment 'ユーザ姓'
@@ -173,8 +153,6 @@ create table MHR_USER (
 ) comment 'ユーザマスタ' ;
 
 -- 稼働日マスタ
-drop table if exists MSY_KADOBI cascade;
-
 create table MSY_KADOBI (
   KADO_BI DATE comment '稼働日'
   , BUSHO_KB VARCHAR(2) comment '部署区分'
@@ -190,8 +168,6 @@ create table MSY_KADOBI (
 ) comment '稼働日マスタ' ;
 
 -- 区分マスタ
-drop table if exists MSY_KBN cascade;
-
 create table MSY_KBN (
   KBN_NM VARCHAR(20) not null comment '区分名称'
   , KBN_MEI VARCHAR(60) not null comment '区分名'
@@ -205,8 +181,6 @@ create table MSY_KBN (
 ) comment '区分マスタ' ;
 
 -- 区分値マスタ
-drop table if exists MSY_KBN_VAL cascade;
-
 create table MSY_KBN_VAL (
   KBN_NM VARCHAR(20) not null comment '区分名称'
   , KBN_VAL VARCHAR(2) not null comment '区分値'
@@ -223,8 +197,6 @@ create table MSY_KBN_VAL (
 ) comment '区分値マスタ' ;
 
 -- 税マスタ
-drop table if exists MSY_TAX cascade;
-
 create table MSY_TAX (
   TAX_KB VARCHAR(2) comment '税区分'
   , TEKIYO_BI DATE comment '適用日'
@@ -240,8 +212,6 @@ create table MSY_TAX (
 ) comment '税マスタ' ;
 
 -- 通貨マスタ
-drop table if exists MSY_TSUKA cascade;
-
 create table MSY_TSUKA (
   TSUKA_KB VARCHAR(2) comment '通貨区分'
   , TEKIYO_BI DATE comment '適用日'
@@ -256,8 +226,6 @@ create table MSY_TSUKA (
 ) comment '通貨マスタ' ;
 
 -- エンティティ
-drop table if exists TB0_ENTITY cascade;
-
 create table TB0_ENTITY (
   ENTITY_ID INT not null comment 'エンティティID'
   , ENTITY_NM VARCHAR(20) not null comment 'エンティティ名称'
@@ -268,13 +236,13 @@ create table TB0_ENTITY (
   , PULLDOWN_SB VARCHAR(2) not null comment 'プルダウン種別'
   , MEMO_TX VARCHAR(300) not null comment 'メモ'
   , MEMO VARCHAR(300) not null comment '１行メモ'
-  , FILE_PATH VARCHAR(300) not null comment 'ファイルパス'
+  , TENPU_FILE VARCHAR(300) not null comment '添付ファイル'
   , NEN_Y CHAR(4) not null comment '年'
   , TSUKI_M CHAR(2) not null comment '月'
   , HI_D CHAR(2) not null comment '日'
   , NENGETSU_YM CHAR(6) not null comment '年月'
   , NENGAPPI_YMD CHAR(8) not null comment '年月日'
-  , TIMESTAMP_TS TIMESTAMP not null comment 'タイムスタンプ'
+  , TIMESTAMP_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment 'タイムスタンプ'
   , NICHIJI_DT DATETIME not null comment '日時'
   , HIDUKE_BI DATE not null comment '日付'
   , JIKOKU_HM TIME not null comment '時刻'
@@ -293,8 +261,6 @@ create table TB0_ENTITY (
 ) comment 'エンティティ' ;
 
 -- 主キーなし
-drop table if exists TB0_NOKEY cascade;
-
 create table TB0_NOKEY (
   COL_A VARCHAR(60) comment '列Ａ'
   , COL_B VARCHAR(60) comment '列Ｂ'
@@ -316,8 +282,6 @@ create unique index TB0_NOKEY_IX2
   on TB0_NOKEY(COL_C);
 
 -- 子
-drop table if exists TB1_KO cascade;
-
 create table TB1_KO (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -332,8 +296,6 @@ create table TB1_KO (
 ) comment '子' ;
 
 -- 履歴
-drop table if exists TB1_KO_RIREKI cascade;
-
 create table TB1_KO_RIREKI (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -349,8 +311,6 @@ create table TB1_KO_RIREKI (
 ) comment '履歴' ;
 
 -- 孫
-drop table if exists TB1_MAGO cascade;
-
 create table TB1_MAGO (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -366,8 +326,6 @@ create table TB1_MAGO (
 ) comment '孫' ;
 
 -- 親
-drop table if exists TB1_OYA cascade;
-
 create table TB1_OYA (
   OYA_ID INT comment '親ID'
   , OYA_INFO VARCHAR(300) comment '親情報'
@@ -381,8 +339,6 @@ create table TB1_OYA (
 ) comment '親' ;
 
 -- 兄弟２
-drop table if exists TB3_KYODAI2 cascade;
-
 create table TB3_KYODAI2 (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -397,8 +353,6 @@ create table TB3_KYODAI2 (
 ) comment '兄弟２' ;
 
 -- 兄弟３
-drop table if exists TB3_KYODAI3 cascade;
-
 create table TB3_KYODAI3 (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -413,8 +367,6 @@ create table TB3_KYODAI3 (
 ) comment '兄弟３' ;
 
 -- 兄弟４
-drop table if exists TB3_KYODAI4 cascade;
-
 create table TB3_KYODAI4 (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -429,8 +381,6 @@ create table TB3_KYODAI4 (
 ) comment '兄弟４' ;
 
 -- 兄弟５
-drop table if exists TB3_KYODAI5 cascade;
-
 create table TB3_KYODAI5 (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
@@ -445,10 +395,8 @@ create table TB3_KYODAI5 (
 ) comment '兄弟５' ;
 
 -- 参照元
-drop table if exists TB4_SANSHOMOTO cascade;
-
-create table TB4_SANSHOMOTO (
-  SANSHOMOTO_ID INT not null comment '参照元ID'
+create table TB4_SANSHO_MOTO (
+  SANSHO_MOTO_ID INT not null comment '参照元ID'
   , IDSANSHO_ID INT comment 'ID参照ID'
   , IDSANSHO_MEI VARCHAR(60) comment 'ID参照名'
   , CDSANSHO_CD CHAR(10) comment 'CD参照CD'
@@ -462,109 +410,173 @@ create table TB4_SANSHOMOTO (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB4_SANSHOMOTO_PKC primary key (SANSHOMOTO_ID)
+  , constraint TB4_SANSHO_MOTO_PKC primary key (SANSHO_MOTO_ID)
 ) comment '参照元' ;
 
 -- 転生元
-drop table if exists TB5_TENSEIMOTO cascade;
-
-create table TB5_TENSEIMOTO (
-  TENSEIMOTO_ID INT not null comment '転生元ID'
-  , TENSEIMOTO_INFO VARCHAR(300) comment '転生元情報'
+create table TB5_TENSEI_MOTO (
+  TENSEI_MOTO_ID INT not null comment '転生元ID'
+  , TENSEI_MOTO_INFO VARCHAR(300) comment '転生元情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB5_TENSEIMOTO_PKC primary key (TENSEIMOTO_ID)
+  , constraint TB5_TENSEI_MOTO_PKC primary key (TENSEI_MOTO_ID)
 ) comment '転生元' ;
 
 -- 転生元明細
-drop table if exists TB5_TENSEIMOTO_DET cascade;
-
-create table TB5_TENSEIMOTO_DET (
-  TENSEIMOTO_ID INT comment '転生元ID'
-  , TENSEIMOTO_BN INT comment '転生元枝番'
-  , TENSEIMOTO_DET_INFO VARCHAR(300) comment '転生元明細情報'
+create table TB5_TENSEI_MOTO_DET (
+  TENSEI_MOTO_ID INT comment '転生元ID'
+  , TENSEI_MOTO_BN INT comment '転生元枝番'
+  , TENSEI_MOTO_DET_INFO VARCHAR(300) comment '転生元明細情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB5_TENSEIMOTO_DET_PKC primary key (TENSEIMOTO_ID,TENSEIMOTO_BN)
+  , constraint TB5_TENSEI_MOTO_DET_PKC primary key (TENSEI_MOTO_ID,TENSEI_MOTO_BN)
 ) comment '転生元明細' ;
 
 -- 転生先
-drop table if exists TB5_TENSEISAKI cascade;
-
-create table TB5_TENSEISAKI (
-  TENSEISAKI_ID INT comment '転生先ID'
-  , TENSEIMOTO_ID INT not null comment '転生元ID'
-  , TENSEISAKI_INFO VARCHAR(300) comment '転生先情報'
+create table TB5_TENSEI_SAKI (
+  TENSEI_SAKI_ID INT comment '転生先ID'
+  , TENSEI_SAKI_INFO VARCHAR(300) comment '転生先情報'
+  , TENSEI_MOTO_ID INT not null comment '転生元ID'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB5_TENSEISAKI_PKC primary key (TENSEISAKI_ID)
+  , constraint TB5_TENSEI_SAKI_PKC primary key (TENSEI_SAKI_ID)
 ) comment '転生先' ;
 
 -- 転生先明細
-drop table if exists TB5_TENSEISAKI_DET cascade;
-
-create table TB5_TENSEISAKI_DET (
-  TENSEISAKI_ID INT comment '転生先ID'
-  , TENSEISAKI_BN INT comment '転生先枝番'
-  , TENSEISAKI_DET_INFO VARCHAR(300) comment '転生先明細情報'
+create table TB5_TENSEI_SAKI_DET (
+  TENSEI_SAKI_ID INT comment '転生先ID'
+  , TENSEI_SAKI_BN INT comment '転生先枝番'
+  , TENSEI_SAKI_DET_INFO VARCHAR(300) comment '転生先明細情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB5_TENSEISAKI_DET_PKC primary key (TENSEISAKI_ID,TENSEISAKI_BN)
+  , constraint TB5_TENSEI_SAKI_DET_PKC primary key (TENSEI_SAKI_ID,TENSEI_SAKI_BN)
 ) comment '転生先明細' ;
 
--- 集約元
-drop table if exists TB6_SHUYAKUMOTO cascade;
-
-create table TB6_SHUYAKUMOTO (
-  SHUYAKUMOTO_ID INT comment '集約元ID'
-  , SHUYAKUSAKI_ID INT comment '集約先ID'
-  , SHUYAKUMOTO_INFO VARCHAR(300) comment '集約元情報'
+-- 転生抑止
+create table TB5_TENSEI_YOKUSHI (
+  TENSEI_YOKUSHI_ID INT comment '転生抑止ID'
+  , TENSEI_YOKUSHI_INFO VARCHAR(300) comment '転生抑止情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB6_SHUYAKUMOTO_PKC primary key (SHUYAKUMOTO_ID)
+  , constraint TB5_TENSEI_YOKUSHI_PKC primary key (TENSEI_YOKUSHI_ID)
+) comment '転生抑止' ;
+
+-- 転生抑止先１
+create table TB5_TENSEI_YOKUSHI_SAKI1 (
+  TENSEI_YOKUSHI_SAKI1_ID INT comment '転生抑止先１ID'
+  , TENSEI_YOKUSHI_ID INT not null comment '転生抑止ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEI_YOKUSHI_SAKI1_PKC primary key (TENSEI_YOKUSHI_SAKI1_ID)
+) comment '転生抑止先１' ;
+
+-- 転生抑止先２
+create table TB5_TENSEI_YOKUSHI_SAKI2 (
+  TENSEI_YOKUSHI_SAKI2_ID INT comment '転生抑止先２ID'
+  , TENSEI_YOKUSHI_ID INT not null comment '転生抑止ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB5_TENSEI_YOKUSHI_SAKI2_PKC primary key (TENSEI_YOKUSHI_SAKI2_ID)
+) comment '転生抑止先２' ;
+
+-- 集約元
+create table TB6_SHUYAKU_MOTO (
+  SHUYAKU_MOTO_ID INT comment '集約元ID'
+  , SHUYAKU_MOTO_INFO VARCHAR(300) comment '集約元情報'
+  , SHUYAKU_SAKI_ID INT comment '集約先ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKU_MOTO_PKC primary key (SHUYAKU_MOTO_ID)
 ) comment '集約元' ;
 
 -- 集約先
-drop table if exists TB6_SHUYAKUSAKI cascade;
-
-create table TB6_SHUYAKUSAKI (
-  SHUYAKUSAKI_ID INT comment '集約先ID'
-  , SHUYAKUSAKI_INFO VARCHAR(300) comment '集約先情報'
+create table TB6_SHUYAKU_SAKI (
+  SHUYAKU_SAKI_ID INT comment '集約先ID'
+  , SHUYAKU_SAKI_INFO VARCHAR(300) comment '集約先情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB6_SHUYAKUSAKI_PKC primary key (SHUYAKUSAKI_ID)
+  , constraint TB6_SHUYAKU_SAKI_PKC primary key (SHUYAKU_SAKI_ID)
 ) comment '集約先' ;
 
--- 複合
-drop table if exists TB7_FUKUGO cascade;
+-- 集約抑止
+create table TB6_SHUYAKU_YOKUSHI (
+  SHUYAKU_YOKUSHI_ID INT comment '集約抑止ID'
+  , SHUYAKU_YOKUSHI_INFO VARCHAR(300) comment '集約抑止情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKU_YOKUSHI_PKC primary key (SHUYAKU_YOKUSHI_ID)
+) comment '集約抑止' ;
 
+-- 集約抑止元１
+create table TB6_SHUYAKU_YOKUSHI_MOTO1 (
+  SHUYAKU_YOKUSHI_MOTO1_ID INT comment '集約抑止元１ID'
+  , SHUYAKU_YOKUSHI_ID INT comment '転生抑止ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKU_YOKUSHI_MOTO1_PKC primary key (SHUYAKU_YOKUSHI_MOTO1_ID)
+) comment '集約抑止元１' ;
+
+-- 集約抑止元２
+create table TB6_SHUYAKU_YOKUSHI_MOTO2 (
+  SHUYAKU_YOKUSHI_MOTO2_ID INT comment '集約抑止元２ID'
+  , SHUYAKU_YOKUSHI_ID INT comment '集約抑止ID'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB6_SHUYAKU_YOKUSHI_MOTO2_PKC primary key (SHUYAKU_YOKUSHI_MOTO2_ID)
+) comment '集約抑止元２' ;
+
+-- 複合
 create table TB7_FUKUGO (
-  SANSHO1_ID INT comment '参照１ID'
-  , SANSHO2_ID INT comment '参照２ID'
+  SANSHO_ID INT comment '参照ID'
+  , SEIYAKU_ID INT comment '制約ID'
   , TEKIYO_BI DATE comment '適用日'
   , FUKUGO_INFO VARCHAR(300) comment '複合情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
@@ -573,6 +585,46 @@ create table TB7_FUKUGO (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB7_FUKUGO_PKC primary key (SANSHO1_ID,SANSHO2_ID,TEKIYO_BI)
+  , constraint TB7_FUKUGO_PKC primary key (SANSHO_ID,SEIYAKU_ID,TEKIYO_BI)
 ) comment '複合' ;
+
+-- 変換元
+create table TB8_HENKAN_MOTO (
+  HENKAN_MOTO_ID INT comment '変換元ID'
+  , HENKAN_MOTO_INFO VARCHAR(300) comment '変換元情報'
+  , HIKITSUGU_INFO VARCHAR(300) comment '引継ぐ情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB8_HENKAN_MOTO_PKC primary key (HENKAN_MOTO_ID)
+) comment '変換元' ;
+
+-- 変換先
+create table TB8_HENKAN_SAKI (
+  HENKAN_SAKI_ID  comment '変換先ID'
+  , HENKAN_SAKI_INFO  comment '変換先情報'
+  , HIKITSUIDA_INFO  comment '引継いだ情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB8_HENKAN_SAKI_PKC primary key (HENKAN_SAKI_ID)
+) comment '変換先' ;
+
+-- 変換ビュー
+create view VB8_HENKAN as 
+SELECT
+    'TB8_HENKAN_SAKI' AS table_name--「TB8_HENKAN_SAKI」を指定
+    , hm.HENKAN_MOTO_ID
+    , hm.HENKAN_MOTO_INFO
+    , hm.HIKITSUGU_INFO AS HIKITSUIDA_INFO--「HIKITSUGU_INFO」に別名を付ける
+FROM
+    tb8_henkan_moto hm
+
+;
 

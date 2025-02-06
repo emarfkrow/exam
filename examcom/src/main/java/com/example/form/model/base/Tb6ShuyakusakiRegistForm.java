@@ -13,45 +13,45 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiRegistForm implements IForm {
+public class Tb6ShuyakuSakiRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakusakiRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakuSakiRegistForm.class);
 
     /** 集約先ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String shuyakusakiId;
+    private String shuyakuSakiId;
 
     /**
      * @return 集約先ID
      */
-    public String getShuyakusakiId() {
-        return shuyakusakiId;
+    public String getShuyakuSakiId() {
+        return shuyakuSakiId;
     }
 
     /**
      * @param p 集約先ID
      */
-    public void setShuyakusakiId(final String p) {
-        this.shuyakusakiId = p;
+    public void setShuyakuSakiId(final String p) {
+        this.shuyakuSakiId = p;
     }
 
     /** 集約先情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String shuyakusakiInfo;
+    private String shuyakuSakiInfo;
 
     /**
      * @return 集約先情報
      */
-    public String getShuyakusakiInfo() {
-        return shuyakusakiInfo;
+    public String getShuyakuSakiInfo() {
+        return shuyakuSakiInfo;
     }
 
     /**
      * @param p 集約先情報
      */
-    public void setShuyakusakiInfo(final String p) {
-        this.shuyakusakiInfo = p;
+    public void setShuyakuSakiInfo(final String p) {
+        this.shuyakuSakiInfo = p;
     }
 
     /** 削除フラグ */

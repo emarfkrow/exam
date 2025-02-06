@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseimoto;
+import com.example.entity.Tb5TenseiMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoSPermitAction extends BaseAction {
+public class Tb5TenseiMotoSPermitAction extends BaseAction {
 
     /** 転生元一覧承認処理 */
     @Override
@@ -28,33 +28,33 @@ public class Tb5TenseimotoSPermitAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseimotoGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiMotoGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb5Tenseimoto e = FormValidator.toBean(Tb5Tenseimoto.class.getName(), gridRow);
+            Tb5TenseiMoto e = FormValidator.toBean(Tb5TenseiMoto.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object tenseimotoId = e.getTenseimotoId();
-            if (tenseimotoId == null) {
+            Object tenseiMotoId = e.getTenseiMotoId();
+            if (tenseiMotoId == null) {
                 throw new OptLockError("error.cant.permit");
             }
 
-            java.util.List<com.example.entity.Tb5TenseimotoDet> tb5TenseimotoDets = e.referTb5TenseimotoDets();
-            if (tb5TenseimotoDets != null) {
-                for (com.example.entity.Tb5TenseimotoDet tb5TenseimotoDet : tb5TenseimotoDets) {
+            java.util.List<com.example.entity.Tb5TenseiMotoDet> tb5TenseiMotoDets = e.referTb5TenseiMotoDets();
+            if (tb5TenseiMotoDets != null) {
+                for (com.example.entity.Tb5TenseiMotoDet tb5TenseiMotoDet : tb5TenseiMotoDets) {
 
-                    tb5TenseimotoDet.setStatusKb(1);
-                    if (tb5TenseimotoDet.update(now, execId) != 1) {
+                    tb5TenseiMotoDet.setStatusKb(1);
+                    if (tb5TenseiMotoDet.update(now, execId) != 1) {
                         throw new OptLockError("error.cant.permit");
                     }
                 }
             }
 
-            Tb5Tenseimoto f = Tb5Tenseimoto.get(tenseimotoId);
+            Tb5TenseiMoto f = Tb5TenseiMoto.get(tenseiMotoId);
             f.setStatusKb(1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.permit");

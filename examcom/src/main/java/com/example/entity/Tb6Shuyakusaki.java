@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.sql.Queries;
  * 集約先
  * @author emarfkrow
  */
-public class Tb6Shuyakusaki implements IEntity {
+public class Tb6ShuyakuSaki implements IEntity {
 
     /** SlickGridのDataView用ID */
     private Integer id;
@@ -33,38 +33,38 @@ public class Tb6Shuyakusaki implements IEntity {
     }
 
     /** 集約先ID */
-    private Integer shuyakusakiId;
+    private Integer shuyakuSakiId;
 
     /** @return 集約先ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHUYAKUSAKI_ID")
-    public Integer getShuyakusakiId() {
-        return this.shuyakusakiId;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHUYAKU_SAKI_ID")
+    public Integer getShuyakuSakiId() {
+        return this.shuyakuSakiId;
     }
 
     /** @param o 集約先ID */
-    public void setShuyakusakiId(final Object o) {
+    public void setShuyakuSakiId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.shuyakusakiId = Integer.valueOf(o.toString());
+            this.shuyakuSakiId = Integer.valueOf(o.toString());
         } else {
-            this.shuyakusakiId = null;
+            this.shuyakuSakiId = null;
         }
     }
 
     /** 集約先情報 */
-    private String shuyakusakiInfo;
+    private String shuyakuSakiInfo;
 
     /** @return 集約先情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHUYAKUSAKI_INFO")
-    public String getShuyakusakiInfo() {
-        return this.shuyakusakiInfo;
+    @com.fasterxml.jackson.annotation.JsonProperty("SHUYAKU_SAKI_INFO")
+    public String getShuyakuSakiInfo() {
+        return this.shuyakuSakiInfo;
     }
 
     /** @param o 集約先情報 */
-    public void setShuyakusakiInfo(final Object o) {
+    public void setShuyakuSakiInfo(final Object o) {
         if (o != null) {
-            this.shuyakusakiInfo = o.toString();
+            this.shuyakuSakiInfo = o.toString();
         } else {
-            this.shuyakusakiInfo = null;
+            this.shuyakuSakiInfo = null;
         }
     }
 
@@ -235,13 +235,13 @@ public class Tb6Shuyakusaki implements IEntity {
      * @param param1 集約先ID
      * @return 集約先
      */
-    public static Tb6Shuyakusaki get(final Object param1) {
+    public static Tb6ShuyakuSaki get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHUYAKUSAKI_ID` = :shuyakusaki_id");
+        whereList.add("`SHUYAKU_SAKI_ID` = :shuyaku_saki_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SHUYAKUSAKI_ID` \n";
-        sql += "    , a.`SHUYAKUSAKI_INFO` \n";
+        sql += "      a.`SHUYAKU_SAKI_ID` \n";
+        sql += "    , a.`SHUYAKU_SAKI_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -249,12 +249,12 @@ public class Tb6Shuyakusaki implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
         sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    TB6_SHUYAKUSAKI a \n";
+        sql += "    TB6_SHUYAKU_SAKI a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("shuyakusaki_id", param1);
-        return Queries.get(sql, map, Tb6Shuyakusaki.class);
+        map.put("shuyaku_saki_id", param1);
+        return Queries.get(sql, map, Tb6ShuyakuSaki.class);
     }
 
     /**
@@ -269,15 +269,15 @@ public class Tb6Shuyakusaki implements IEntity {
         numbering();
 
         // 集約先の登録
-        String sql = "INSERT INTO TB6_SHUYAKUSAKI(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO TB6_SHUYAKU_SAKI(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SHUYAKUSAKI_ID` -- :shuyakusaki_id");
-        nameList.add("`SHUYAKUSAKI_INFO` -- :shuyakusaki_info");
+        nameList.add("`SHUYAKU_SAKI_ID` -- :shuyaku_saki_id");
+        nameList.add("`SHUYAKU_SAKI_INFO` -- :shuyaku_saki_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -290,8 +290,8 @@ public class Tb6Shuyakusaki implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":shuyakusaki_id");
-        valueList.add(":shuyakusaki_info");
+        valueList.add(":shuyaku_saki_id");
+        valueList.add(":shuyaku_saki_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -303,14 +303,14 @@ public class Tb6Shuyakusaki implements IEntity {
 
     /** 集約先IDの採番処理 */
     private void numbering() {
-        if (this.shuyakusakiId != null) {
+        if (this.shuyakuSakiId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SHUYAKUSAKI_ID`) IS NULL THEN 0 ELSE MAX(e.`SHUYAKUSAKI_ID`) * 1 END + 1 AS `SHUYAKUSAKI_ID` FROM TB6_SHUYAKUSAKI e";
+        String sql = "SELECT CASE WHEN MAX(e.`SHUYAKU_SAKI_ID`) IS NULL THEN 0 ELSE MAX(e.`SHUYAKU_SAKI_ID`) * 1 END + 1 AS `SHUYAKU_SAKI_ID` FROM TB6_SHUYAKU_SAKI e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SHUYAKUSAKI_ID");
-        this.setShuyakusakiId(o);
+        Object o = mapList.get(0).get("SHUYAKU_SAKI_ID");
+        this.setShuyakuSakiId(o);
     }
 
     /**
@@ -322,15 +322,15 @@ public class Tb6Shuyakusaki implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 集約先の登録
-        String sql = "UPDATE TB6_SHUYAKUSAKI\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE TB6_SHUYAKU_SAKI\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SHUYAKUSAKI_ID` = :shuyakusaki_id");
-        setList.add("`SHUYAKUSAKI_INFO` = :shuyakusaki_info");
+        setList.add("`SHUYAKU_SAKI_ID` = :shuyaku_saki_id");
+        setList.add("`SHUYAKU_SAKI_INFO` = :shuyaku_saki_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -345,14 +345,14 @@ public class Tb6Shuyakusaki implements IEntity {
     public int delete() {
 
         // 集約先の削除
-        String sql = "DELETE FROM TB6_SHUYAKUSAKI WHERE " + getWhere();
+        String sql = "DELETE FROM TB6_SHUYAKU_SAKI WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHUYAKUSAKI_ID` = :shuyakusaki_id");
+        whereList.add("`SHUYAKU_SAKI_ID` = :shuyaku_saki_id");
         return String.join(" AND ", whereList);
     }
 
@@ -363,8 +363,8 @@ public class Tb6Shuyakusaki implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("shuyakusaki_id", this.shuyakusakiId);
-        map.put("shuyakusaki_info", this.shuyakusakiInfo);
+        map.put("shuyaku_saki_id", this.shuyakuSakiId);
+        map.put("shuyaku_saki_info", this.shuyakuSakiInfo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);

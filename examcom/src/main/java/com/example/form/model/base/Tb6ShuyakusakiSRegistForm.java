@@ -15,27 +15,27 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiSRegistForm implements IForm {
+public class Tb6ShuyakuSakiSRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakusakiRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb6ShuyakuSakiRegistForm.class);
 
     /** 集約先登録フォームのリスト */
     @Valid
-    private List<Tb6ShuyakusakiRegistForm> tb6ShuyakusakiGrid;
+    private List<Tb6ShuyakuSakiRegistForm> tb6ShuyakuSakiGrid;
 
     /**
      * @return 集約先登録フォームのリスト
      */
-    public List<Tb6ShuyakusakiRegistForm> getTb6ShuyakusakiGrid() {
-        return tb6ShuyakusakiGrid;
+    public List<Tb6ShuyakuSakiRegistForm> getTb6ShuyakuSakiGrid() {
+        return tb6ShuyakuSakiGrid;
     }
 
     /**
      * @param p 集約先登録フォームのリスト
      */
-    public void setTb6ShuyakusakiGrid(final List<Tb6ShuyakusakiRegistForm> p) {
-        this.tb6ShuyakusakiGrid = p;
+    public void setTb6ShuyakuSakiGrid(final List<Tb6ShuyakuSakiRegistForm> p) {
+        this.tb6ShuyakuSakiGrid = p;
     }
 
     /** 関連チェック */

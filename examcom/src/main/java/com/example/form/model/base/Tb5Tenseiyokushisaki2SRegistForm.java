@@ -15,27 +15,27 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5Tenseiyokushisaki2SRegistForm implements IForm {
+public class Tb5TenseiYokushiSaki2SRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5Tenseiyokushisaki2RegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiYokushiSaki2RegistForm.class);
 
     /** 転生抑止先２登録フォームのリスト */
     @Valid
-    private List<Tb5Tenseiyokushisaki2RegistForm> tb5Tenseiyokushisaki2Grid;
+    private List<Tb5TenseiYokushiSaki2RegistForm> tb5TenseiYokushiSaki2Grid;
 
     /**
      * @return 転生抑止先２登録フォームのリスト
      */
-    public List<Tb5Tenseiyokushisaki2RegistForm> getTb5Tenseiyokushisaki2Grid() {
-        return tb5Tenseiyokushisaki2Grid;
+    public List<Tb5TenseiYokushiSaki2RegistForm> getTb5TenseiYokushiSaki2Grid() {
+        return tb5TenseiYokushiSaki2Grid;
     }
 
     /**
      * @param p 転生抑止先２登録フォームのリスト
      */
-    public void setTb5Tenseiyokushisaki2Grid(final List<Tb5Tenseiyokushisaki2RegistForm> p) {
-        this.tb5Tenseiyokushisaki2Grid = p;
+    public void setTb5TenseiYokushiSaki2Grid(final List<Tb5TenseiYokushiSaki2RegistForm> p) {
+        this.tb5TenseiYokushiSaki2Grid = p;
     }
 
     /** 関連チェック */

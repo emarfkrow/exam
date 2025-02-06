@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Vb8HenkanS.title}">VIEW</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Vb8HenkanGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Vb8HenkanS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Vb8HenkanSearchForm" action="Vb8HenkanSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Vb8HenkanS.legend}">legend</legend>
+        <div id="tableName">
+          <label for="Vb8Henkan.tableName" th:text="#{Vb8Henkan.tableName}">table_name</label><input type="text" id="Vb8Henkan.tableName" name="Vb8Henkan.tableName" maxlength="15" />
+        </div>
+        <div id="henkanMotoId">
+          <label for="Vb8Henkan.henkanMotoId" th:text="#{Vb8Henkan.henkanMotoId}">変換元ID</label><input type="text" id="Vb8Henkan.henkanMotoId" name="Vb8Henkan.henkanMotoId" maxlength="10" />
+        </div>
+        <div id="henkanMotoInfo">
+          <label for="Vb8Henkan.henkanMotoInfo" th:text="#{Vb8Henkan.henkanMotoInfo}">変換元情報</label><input type="text" id="Vb8Henkan.henkanMotoInfo" name="Vb8Henkan.henkanMotoInfo" maxlength="300" />
+        </div>
+        <div id="hikitsuidaInfo">
+          <label for="Vb8Henkan.hikitsuidaInfo" th:text="#{Vb8Henkan.hikitsuidaInfo}">引継ぐ情報</label><input type="text" id="Vb8Henkan.hikitsuidaInfo" name="Vb8Henkan.hikitsuidaInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetVb8Henkan" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchVb8Henkan" type="submit" class="search" data-gridId="Vb8HenkanGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Vb8HenkanSRegistForm" action="Vb8HenkanSRegist.ajax" class="regist">
+      <h3 th:text="#{Vb8Henkan.h3}">h3</h3>
+      <div id="Vb8HenkanGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb8Henkan.html}"></div>
+      <div id="Vb8HenkanPager"></div>
+      <div class="buttons">
+        <a th:href="@{Vb8HenkanSearch.xlsx(baseMei=#{Vb8HenkanS.h2})}" id="Vb8HenkanSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

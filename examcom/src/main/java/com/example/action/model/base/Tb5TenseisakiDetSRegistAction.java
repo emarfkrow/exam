@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseisakiDet;
+import com.example.entity.Tb5TenseiSakiDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetSRegistAction extends BaseAction {
+public class Tb5TenseiSakiDetSRegistAction extends BaseAction {
 
     /** 転生先明細一覧登録処理 */
     @Override
@@ -28,21 +28,21 @@ public class Tb5TenseisakiDetSRegistAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseisakiDetGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiSakiDetGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb5TenseisakiDet e = FormValidator.toBean(Tb5TenseisakiDet.class.getName(), gridRow);
+            Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseisakiId())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiSakiId())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseisakiBn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiSakiBn())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

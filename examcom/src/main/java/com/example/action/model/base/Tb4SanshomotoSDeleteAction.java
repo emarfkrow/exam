@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoSDeleteAction extends BaseAction {
+public class Tb4SanshoMotoSDeleteAction extends BaseAction {
 
     /** 参照元一覧削除処理 */
     @Override
@@ -28,7 +28,7 @@ public class Tb4SanshomotoSDeleteAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb4SanshomotoGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb4SanshoMotoGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -36,11 +36,11 @@ public class Tb4SanshomotoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHOMOTO_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO_MOTO_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 
-            Tb4Sanshomoto e = FormValidator.toBean(Tb4Sanshomoto.class.getName(), gridRow);
+            Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), gridRow);
 
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");

@@ -13,63 +13,63 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoDetRegistForm implements IForm {
+public class Tb5TenseiMotoDetRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseimotoDetRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiMotoDetRegistForm.class);
 
     /** 転生元ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseimotoId;
+    private String tenseiMotoId;
 
     /**
      * @return 転生元ID
      */
-    public String getTenseimotoId() {
-        return tenseimotoId;
+    public String getTenseiMotoId() {
+        return tenseiMotoId;
     }
 
     /**
      * @param p 転生元ID
      */
-    public void setTenseimotoId(final String p) {
-        this.tenseimotoId = p;
+    public void setTenseiMotoId(final String p) {
+        this.tenseiMotoId = p;
     }
 
     /** 転生元枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseimotoBn;
+    private String tenseiMotoBn;
 
     /**
      * @return 転生元枝番
      */
-    public String getTenseimotoBn() {
-        return tenseimotoBn;
+    public String getTenseiMotoBn() {
+        return tenseiMotoBn;
     }
 
     /**
      * @param p 転生元枝番
      */
-    public void setTenseimotoBn(final String p) {
-        this.tenseimotoBn = p;
+    public void setTenseiMotoBn(final String p) {
+        this.tenseiMotoBn = p;
     }
 
     /** 転生元明細情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String tenseimotoDetInfo;
+    private String tenseiMotoDetInfo;
 
     /**
      * @return 転生元明細情報
      */
-    public String getTenseimotoDetInfo() {
-        return tenseimotoDetInfo;
+    public String getTenseiMotoDetInfo() {
+        return tenseiMotoDetInfo;
     }
 
     /**
      * @param p 転生元明細情報
      */
-    public void setTenseimotoDetInfo(final String p) {
-        this.tenseimotoDetInfo = p;
+    public void setTenseiMotoDetInfo(final String p) {
+        this.tenseiMotoDetInfo = p;
     }
 
     /** 削除フラグ */

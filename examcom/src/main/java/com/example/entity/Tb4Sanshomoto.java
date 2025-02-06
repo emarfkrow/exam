@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.sql.Queries;
  * 参照元
  * @author emarfkrow
  */
-public class Tb4Sanshomoto implements IEntity {
+public class Tb4SanshoMoto implements IEntity {
 
     /** SlickGridのDataView用ID */
     private Integer id;
@@ -33,20 +33,20 @@ public class Tb4Sanshomoto implements IEntity {
     }
 
     /** 参照元ID */
-    private Integer sanshomotoId;
+    private Integer sanshoMotoId;
 
     /** @return 参照元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHOMOTO_ID")
-    public Integer getSanshomotoId() {
-        return this.sanshomotoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO_MOTO_ID")
+    public Integer getSanshoMotoId() {
+        return this.sanshoMotoId;
     }
 
     /** @param o 参照元ID */
-    public void setSanshomotoId(final Object o) {
+    public void setSanshoMotoId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sanshomotoId = Integer.valueOf(o.toString());
+            this.sanshoMotoId = Integer.valueOf(o.toString());
         } else {
-            this.sanshomotoId = null;
+            this.sanshoMotoId = null;
         }
     }
 
@@ -361,12 +361,12 @@ public class Tb4Sanshomoto implements IEntity {
      * @param param1 参照元ID
      * @return 参照元
      */
-    public static Tb4Sanshomoto get(final Object param1) {
+    public static Tb4SanshoMoto get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHOMOTO_ID` = :sanshomoto_id");
+        whereList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SANSHOMOTO_ID` \n";
+        sql += "      a.`SANSHO_MOTO_ID` \n";
         sql += "    , a.`IDSANSHO_ID` \n";
         sql += "    , a.`IDSANSHO_MEI` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) AS CDSANSHO_CD \n";
@@ -381,12 +381,12 @@ public class Tb4Sanshomoto implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
         sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    TB4_SANSHOMOTO a \n";
+        sql += "    TB4_SANSHO_MOTO a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sanshomoto_id", param1);
-        return Queries.get(sql, map, Tb4Sanshomoto.class);
+        map.put("sansho_moto_id", param1);
+        return Queries.get(sql, map, Tb4SanshoMoto.class);
     }
 
     /**
@@ -401,14 +401,14 @@ public class Tb4Sanshomoto implements IEntity {
         numbering();
 
         // 参照元の登録
-        String sql = "INSERT INTO TB4_SANSHOMOTO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO TB4_SANSHO_MOTO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHOMOTO_ID` -- :sanshomoto_id");
+        nameList.add("`SANSHO_MOTO_ID` -- :sansho_moto_id");
         nameList.add("`IDSANSHO_ID` -- :idsansho_id");
         nameList.add("`IDSANSHO_MEI` -- :idsansho_mei");
         nameList.add("`CDSANSHO_CD` -- :cdsansho_cd");
@@ -428,7 +428,7 @@ public class Tb4Sanshomoto implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sanshomoto_id");
+        valueList.add(":sansho_moto_id");
         valueList.add(":idsansho_id");
         valueList.add(":idsansho_mei");
         valueList.add(":cdsansho_cd");
@@ -447,14 +447,14 @@ public class Tb4Sanshomoto implements IEntity {
 
     /** 参照元IDの採番処理 */
     private void numbering() {
-        if (this.sanshomotoId != null) {
+        if (this.sanshoMotoId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SANSHOMOTO_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHOMOTO_ID`) * 1 END + 1 AS `SANSHOMOTO_ID` FROM TB4_SANSHOMOTO e";
+        String sql = "SELECT CASE WHEN MAX(e.`SANSHO_MOTO_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO_MOTO_ID`) * 1 END + 1 AS `SANSHO_MOTO_ID` FROM TB4_SANSHO_MOTO e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SANSHOMOTO_ID");
-        this.setSanshomotoId(o);
+        Object o = mapList.get(0).get("SANSHO_MOTO_ID");
+        this.setSanshoMotoId(o);
     }
 
     /**
@@ -466,14 +466,14 @@ public class Tb4Sanshomoto implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 参照元の登録
-        String sql = "UPDATE TB4_SANSHOMOTO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE TB4_SANSHO_MOTO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHOMOTO_ID` = :sanshomoto_id");
+        setList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
         setList.add("`IDSANSHO_ID` = :idsansho_id");
         setList.add("`IDSANSHO_MEI` = :idsansho_mei");
         setList.add("`CDSANSHO_CD` = :cdsansho_cd");
@@ -495,14 +495,14 @@ public class Tb4Sanshomoto implements IEntity {
     public int delete() {
 
         // 参照元の削除
-        String sql = "DELETE FROM TB4_SANSHOMOTO WHERE " + getWhere();
+        String sql = "DELETE FROM TB4_SANSHO_MOTO WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHOMOTO_ID` = :sanshomoto_id");
+        whereList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
         return String.join(" AND ", whereList);
     }
 
@@ -513,7 +513,7 @@ public class Tb4Sanshomoto implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sanshomoto_id", this.sanshomotoId);
+        map.put("sansho_moto_id", this.sanshoMotoId);
         map.put("idsansho_id", this.idsanshoId);
         map.put("idsansho_mei", this.idsanshoMei);
         map.put("cdsansho_cd", this.cdsanshoCd);

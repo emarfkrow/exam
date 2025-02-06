@@ -2,15 +2,15 @@
  * 集約元グリッド定義
  */
 
-let Tb6ShuyakumotoGridColumns = [];
+let Tb6ShuyakuMotoGridColumns = [];
 
 $(function() {
-    Tb6ShuyakumotoGridColumns = [
-        Column.comma('SHUYAKUMOTO_ID', Messages['Tb6ShuyakumotoGrid.shuyakumotoId'], 80, 'primaryKey numbering', null),
-        Column.comma('SHUYAKUSAKI_ID', Messages['Tb6ShuyakumotoGrid.shuyakusakiId'], 80, '', null),
-        Column.text('SHUYAKUMOTO_INFO', Messages['Tb6ShuyakumotoGrid.shuyakumotoInfo'], 300, '', null),
-        Column.cell('UPDATE_TS', Messages['Tb6ShuyakumotoGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-        Column.check('DELETE_F', Messages['Tb6ShuyakumotoGrid.deleteF'], 30, ''),
-        Column.select('STATUS_KB', Messages['Tb6ShuyakumotoGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
+    Tb6ShuyakuMotoGridColumns = [
+        Column.comma('SHUYAKU_MOTO_ID', Messages['Tb6ShuyakuMotoGrid.shuyakuMotoId'], 80, 'primaryKey numbering', null),
+        Column.text('SHUYAKU_MOTO_INFO', Messages['Tb6ShuyakuMotoGrid.shuyakuMotoInfo'], 300, '', null),
+        Column.comma('SHUYAKU_SAKI_ID', Messages['Tb6ShuyakuMotoGrid.shuyakuSakiId'], 80, '', null),
+        Column.cell('UPDATE_TS', Messages['Tb6ShuyakuMotoGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.check('DELETE_F', Messages['Tb6ShuyakuMotoGrid.deleteF'], 30, ''),
+        Column.select('STATUS_KB', Messages['Tb6ShuyakuMotoGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
     ];
 });

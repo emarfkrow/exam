@@ -15,27 +15,27 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoSRegistForm implements IForm {
+public class Tb4SanshoMotoSRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb4SanshomotoRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb4SanshoMotoRegistForm.class);
 
     /** 参照元登録フォームのリスト */
     @Valid
-    private List<Tb4SanshomotoRegistForm> tb4SanshomotoGrid;
+    private List<Tb4SanshoMotoRegistForm> tb4SanshoMotoGrid;
 
     /**
      * @return 参照元登録フォームのリスト
      */
-    public List<Tb4SanshomotoRegistForm> getTb4SanshomotoGrid() {
-        return tb4SanshomotoGrid;
+    public List<Tb4SanshoMotoRegistForm> getTb4SanshoMotoGrid() {
+        return tb4SanshoMotoGrid;
     }
 
     /**
      * @param p 参照元登録フォームのリスト
      */
-    public void setTb4SanshomotoGrid(final List<Tb4SanshomotoRegistForm> p) {
-        this.tb4SanshomotoGrid = p;
+    public void setTb4SanshoMotoGrid(final List<Tb4SanshoMotoRegistForm> p) {
+        this.tb4SanshoMotoGrid = p;
     }
 
     /** 関連チェック */

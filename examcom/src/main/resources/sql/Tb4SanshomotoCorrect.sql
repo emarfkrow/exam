@@ -1,5 +1,5 @@
 SELECT
-      a.`SANSHOMOTO_ID`
+      a.`SANSHO_MOTO_ID`
     , a.`IDSANSHO_ID`
     , a.`IDSANSHO_MEI`
     , TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) AS CDSANSHO_CD
@@ -17,11 +17,11 @@ SELECT
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
     , a.`STATUS_KB`
 FROM
-    TB4_SANSHOMOTO a 
+    TB4_SANSHO_MOTO a 
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
-    AND a.`SANSHOMOTO_ID` = :sanshomoto_id 
+    AND a.`SANSHO_MOTO_ID` = :sansho_moto_id 
     AND a.`IDSANSHO_ID` = :idsansho_id 
     AND TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`) LIKE CONCAT ('%', :idsansho_mei, '%') 
     AND TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) LIKE CONCAT ('%', :cdsansho_cd, '%') 
@@ -40,4 +40,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`SANSHOMOTO_ID`
+    a.`SANSHO_MOTO_ID`

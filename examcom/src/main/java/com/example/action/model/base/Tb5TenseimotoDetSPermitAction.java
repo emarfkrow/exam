@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseimotoDet;
+import com.example.entity.Tb5TenseiMotoDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoDetSPermitAction extends BaseAction {
+public class Tb5TenseiMotoDetSPermitAction extends BaseAction {
 
     /** 転生元明細一覧承認処理 */
     @Override
@@ -28,26 +28,26 @@ public class Tb5TenseimotoDetSPermitAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseimotoDetGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiMotoDetGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb5TenseimotoDet e = FormValidator.toBean(Tb5TenseimotoDet.class.getName(), gridRow);
+            Tb5TenseiMotoDet e = FormValidator.toBean(Tb5TenseiMotoDet.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object tenseimotoId = e.getTenseimotoId();
-            if (tenseimotoId == null) {
+            Object tenseiMotoId = e.getTenseiMotoId();
+            if (tenseiMotoId == null) {
                 throw new OptLockError("error.cant.permit");
             }
-            Object tenseimotoBn = e.getTenseimotoBn();
-            if (tenseimotoBn == null) {
+            Object tenseiMotoBn = e.getTenseiMotoBn();
+            if (tenseiMotoBn == null) {
                 throw new OptLockError("error.cant.permit");
             }
 
-            Tb5TenseimotoDet f = Tb5TenseimotoDet.get(tenseimotoId, tenseimotoBn);
+            Tb5TenseiMotoDet f = Tb5TenseiMotoDet.get(tenseiMotoId, tenseiMotoBn);
             f.setStatusKb(1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.permit");

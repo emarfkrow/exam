@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakusaki;
+import com.example.entity.Tb6ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,22 +16,22 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiDeleteAction extends BaseAction {
+public class Tb6ShuyakuSakiDeleteAction extends BaseAction {
 
     /** 集約先削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object shuyakusakiId = postJson.get("shuyakusakiId");
-        if (shuyakusakiId == null) {
-            shuyakusakiId = postJson.get("Tb6Shuyakusaki.shuyakusakiId");
+        Object shuyakuSakiId = postJson.get("shuyakuSakiId");
+        if (shuyakuSakiId == null) {
+            shuyakuSakiId = postJson.get("Tb6ShuyakuSaki.shuyakuSakiId");
         }
-        if (shuyakusakiId == null) {
+        if (shuyakuSakiId == null) {
             throw new OptLockError("error.cant.delete");
         }
 
-        Tb6Shuyakusaki e = FormValidator.toBean(Tb6Shuyakusaki.class.getName(), postJson);
+        Tb6ShuyakuSaki e = FormValidator.toBean(Tb6ShuyakuSaki.class.getName(), postJson);
 
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");

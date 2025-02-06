@@ -2,65 +2,65 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb6Shuyakumoto.title}">集約元</title>
+<title th:text="#{Tb6ShuyakuMoto.title}">集約元</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 
 </script>
-<script th:src="@{/model/Tb6ShuyakumotoGridColumns.js}"></script>
+<script th:src="@{/model/Tb6ShuyakuMotoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb6ShuyakusakiGridColumns.js}"></script>
+<script th:src="@{/model/Tb6ShuyakuSakiGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
-    <h2 th:text="#{Tb6Shuyakumoto.h2}">h2</h2>
-    <form name="Tb6ShuyakumotoRegistForm" action="Tb6ShuyakumotoRegist.ajax" class="regist">
+    <h2 th:text="#{Tb6ShuyakuMoto.h2}">h2</h2>
+    <form name="Tb6ShuyakuMotoRegistForm" action="Tb6ShuyakuMotoRegist.ajax" class="regist">
       <fieldset>
-        <legend th:text="#{Tb6Shuyakumoto.legend}">legend</legend>
-        <div id="shuyakumotoId">
-          <label for="Tb6Shuyakumoto.shuyakumotoId" th:text="#{Tb6Shuyakumoto.shuyakumotoId}">集約元ID</label><input type="text" id="Tb6Shuyakumoto.shuyakumotoId" name="Tb6Shuyakumoto.shuyakumotoId" maxlength="10" class=" notblank primaryKey numbering" />
+        <legend th:text="#{Tb6ShuyakuMoto.legend}">legend</legend>
+        <div id="shuyakuMotoId">
+          <label for="Tb6ShuyakuMoto.shuyakuMotoId" th:text="#{Tb6ShuyakuMoto.shuyakuMotoId}">集約元ID</label><input type="text" id="Tb6ShuyakuMoto.shuyakuMotoId" name="Tb6ShuyakuMoto.shuyakuMotoId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
-        <div id="shuyakusakiId">
-          <label for="Tb6Shuyakumoto.shuyakusakiId" th:text="#{Tb6Shuyakumoto.shuyakusakiId}">集約先ID</label><input type="text" id="Tb6Shuyakumoto.shuyakusakiId" name="Tb6Shuyakumoto.shuyakusakiId" maxlength="10" />
+        <div id="shuyakuMotoInfo">
+          <label for="Tb6ShuyakuMoto.shuyakuMotoInfo" th:text="#{Tb6ShuyakuMoto.shuyakuMotoInfo}">集約元情報</label><input type="text" id="Tb6ShuyakuMoto.shuyakuMotoInfo" name="Tb6ShuyakuMoto.shuyakuMotoInfo" maxlength="300" />
         </div>
-        <div id="shuyakumotoInfo">
-          <label for="Tb6Shuyakumoto.shuyakumotoInfo" th:text="#{Tb6Shuyakumoto.shuyakumotoInfo}">集約元情報</label><input type="text" id="Tb6Shuyakumoto.shuyakumotoInfo" name="Tb6Shuyakumoto.shuyakumotoInfo" maxlength="300" />
+        <div id="shuyakuSakiId">
+          <label for="Tb6ShuyakuMoto.shuyakuSakiId" th:text="#{Tb6ShuyakuMoto.shuyakuSakiId}">集約先ID</label><input type="text" id="Tb6ShuyakuMoto.shuyakuSakiId" name="Tb6ShuyakuMoto.shuyakuSakiId" maxlength="10" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb6Shuyakumoto.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6Shuyakumoto.insertTs"></span><input type="hidden" id="Tb6Shuyakumoto.insertTs" name="Tb6Shuyakumoto.insertTs" />
+          <label th:text="#{Tb6ShuyakuMoto.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6ShuyakuMoto.insertTs"></span><input type="hidden" id="Tb6ShuyakuMoto.insertTs" name="Tb6ShuyakuMoto.insertTs" />
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb6Shuyakumoto.insertUserId}" class="meta">作成者</label><span id="Tb6Shuyakumoto.insertUserId"></span><input type="hidden" id="Tb6Shuyakumoto.insertUserId" name="Tb6Shuyakumoto.insertUserId" />
-          <span id="Tb6Shuyakumoto.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Shuyakumoto.insertUserId" data-destDef="Tb6Shuyakumoto.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb6ShuyakuMoto.insertUserId}" class="meta">作成者</label><span id="Tb6ShuyakuMoto.insertUserId"></span><input type="hidden" id="Tb6ShuyakuMoto.insertUserId" name="Tb6ShuyakuMoto.insertUserId" />
+          <span id="Tb6ShuyakuMoto.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6ShuyakuMoto.insertUserId" data-destDef="Tb6ShuyakuMoto.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb6Shuyakumoto.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6Shuyakumoto.updateTs"></span><input type="hidden" id="Tb6Shuyakumoto.updateTs" name="Tb6Shuyakumoto.updateTs" />
+          <label th:text="#{Tb6ShuyakuMoto.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6ShuyakuMoto.updateTs"></span><input type="hidden" id="Tb6ShuyakuMoto.updateTs" name="Tb6ShuyakuMoto.updateTs" />
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb6Shuyakumoto.updateUserId}" class="meta">更新者</label><span id="Tb6Shuyakumoto.updateUserId"></span><input type="hidden" id="Tb6Shuyakumoto.updateUserId" name="Tb6Shuyakumoto.updateUserId" />
-          <span id="Tb6Shuyakumoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Shuyakumoto.updateUserId" data-destDef="Tb6Shuyakumoto.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb6ShuyakuMoto.updateUserId}" class="meta">更新者</label><span id="Tb6ShuyakuMoto.updateUserId"></span><input type="hidden" id="Tb6ShuyakuMoto.updateUserId" name="Tb6ShuyakuMoto.updateUserId" />
+          <span id="Tb6ShuyakuMoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6ShuyakuMoto.updateUserId" data-destDef="Tb6ShuyakuMoto.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
-          <fieldset id="Tb6Shuyakumoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6Shuyakumoto.deleteF}">削除フラグ</legend>
+          <fieldset id="Tb6ShuyakuMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb6ShuyakuMoto.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
         <div id="statusKb">
-          <fieldset id="Tb6Shuyakumoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6Shuyakumoto.statusKb}">ステータス区分</legend>
+          <fieldset id="Tb6ShuyakuMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb6ShuyakuMoto.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" id="RefreshTb6Shuyakumoto" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{Tb6ShuyakumotoGet.xlsx(baseMei=#{Tb6Shuyakumoto.h2})}" id="Tb6ShuyakumotoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="button" id="RefreshTb6ShuyakuMoto" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb6ShuyakuMotoGet.xlsx(baseMei=#{Tb6ShuyakuMoto.h2})}" id="Tb6ShuyakuMotoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteTb6Shuyakumoto" type="submit" class="delete" data-action="Tb6ShuyakumotoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb6Shuyakumoto" type="submit" class="permit" data-action="Tb6ShuyakumotoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb6Shuyakumoto" type="submit" class="forbid" data-action="Tb6ShuyakumotoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistTb6Shuyakumoto" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteTb6ShuyakuMoto" type="submit" class="delete" data-action="Tb6ShuyakuMotoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb6ShuyakuMoto" type="submit" class="permit" data-action="Tb6ShuyakuMotoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb6ShuyakuMoto" type="submit" class="forbid" data-action="Tb6ShuyakuMotoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb6ShuyakuMoto" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

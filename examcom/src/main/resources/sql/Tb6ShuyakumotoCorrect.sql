@@ -1,7 +1,7 @@
 SELECT
-      a.`SHUYAKUMOTO_ID`
-    , a.`SHUYAKUSAKI_ID`
-    , a.`SHUYAKUMOTO_INFO`
+      a.`SHUYAKU_MOTO_ID`
+    , a.`SHUYAKU_MOTO_INFO`
+    , a.`SHUYAKU_SAKI_ID`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -11,13 +11,13 @@ SELECT
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
     , a.`STATUS_KB`
 FROM
-    TB6_SHUYAKUMOTO a 
+    TB6_SHUYAKU_MOTO a 
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
-    AND a.`SHUYAKUMOTO_ID` = :shuyakumoto_id 
-    AND a.`SHUYAKUSAKI_ID` = :shuyakusaki_id 
-    AND TRIM(TRAILING ' ' FROM a.`SHUYAKUMOTO_INFO`) LIKE CONCAT ('%', :shuyakumoto_info, '%') 
+    AND a.`SHUYAKU_MOTO_ID` = :shuyaku_moto_id 
+    AND TRIM(TRAILING ' ' FROM a.`SHUYAKU_MOTO_INFO`) LIKE CONCAT ('%', :shuyaku_moto_info, '%') 
+    AND a.`SHUYAKU_SAKI_ID` = :shuyaku_saki_id 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
@@ -29,4 +29,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`SHUYAKUMOTO_ID`
+    a.`SHUYAKU_MOTO_ID`

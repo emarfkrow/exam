@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseimotoDet;
+import com.example.entity.Tb5TenseiMotoDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoDetGetAction extends BaseAction {
+public class Tb5TenseiMotoDetGetAction extends BaseAction {
 
     /** 転生元明細照会処理 */
     @Override
@@ -22,26 +22,26 @@ public class Tb5TenseimotoDetGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object tenseimotoId = postJson.get("tenseimotoId");
-        if (tenseimotoId == null) {
-            tenseimotoId = postJson.get("Tb5TenseimotoDet.tenseimotoId");
+        Object tenseiMotoId = postJson.get("tenseiMotoId");
+        if (tenseiMotoId == null) {
+            tenseiMotoId = postJson.get("Tb5TenseiMotoDet.tenseiMotoId");
         }
-        if (tenseimotoId == null) {
+        if (tenseiMotoId == null) {
             return map;
         }
-        com.example.entity.Tb5Tenseimoto tb5Tenseimoto = com.example.entity.Tb5Tenseimoto.get(tenseimotoId);
-        map.put("Tb5Tenseimoto", tb5Tenseimoto);
+        com.example.entity.Tb5TenseiMoto tb5TenseiMoto = com.example.entity.Tb5TenseiMoto.get(tenseiMotoId);
+        map.put("Tb5TenseiMoto", tb5TenseiMoto);
 
-        Object tenseimotoBn = postJson.get("tenseimotoBn");
-        if (tenseimotoBn == null) {
-            tenseimotoBn = postJson.get("Tb5TenseimotoDet.tenseimotoBn");
+        Object tenseiMotoBn = postJson.get("tenseiMotoBn");
+        if (tenseiMotoBn == null) {
+            tenseiMotoBn = postJson.get("Tb5TenseiMotoDet.tenseiMotoBn");
         }
-        if (tenseimotoBn == null) {
+        if (tenseiMotoBn == null) {
             return map;
         }
 
-        Tb5TenseimotoDet tb5TenseimotoDet = Tb5TenseimotoDet.get(tenseimotoId, tenseimotoBn);
-        map.put("Tb5TenseimotoDet", tb5TenseimotoDet);
+        Tb5TenseiMotoDet tb5TenseiMotoDet = Tb5TenseiMotoDet.get(tenseiMotoId, tenseiMotoBn);
+        map.put("Tb5TenseiMotoDet", tb5TenseiMotoDet);
         return map;
     }
 

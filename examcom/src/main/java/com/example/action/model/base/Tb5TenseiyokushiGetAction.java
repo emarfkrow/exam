@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseiyokushi;
+import com.example.entity.Tb5TenseiYokushi;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb5TenseiyokushiGetAction extends BaseAction {
+public class Tb5TenseiYokushiGetAction extends BaseAction {
 
     /** 転生抑止照会処理 */
     @Override
@@ -22,16 +22,16 @@ public class Tb5TenseiyokushiGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object tenseiyokushiId = postJson.get("tenseiyokushiId");
-        if (tenseiyokushiId == null) {
-            tenseiyokushiId = postJson.get("Tb5Tenseiyokushi.tenseiyokushiId");
+        Object tenseiYokushiId = postJson.get("tenseiYokushiId");
+        if (tenseiYokushiId == null) {
+            tenseiYokushiId = postJson.get("Tb5TenseiYokushi.tenseiYokushiId");
         }
-        if (tenseiyokushiId == null) {
+        if (tenseiYokushiId == null) {
             return map;
         }
 
-        Tb5Tenseiyokushi tb5Tenseiyokushi = Tb5Tenseiyokushi.get(tenseiyokushiId);
-        map.put("Tb5Tenseiyokushi", tb5Tenseiyokushi);
+        Tb5TenseiYokushi tb5TenseiYokushi = Tb5TenseiYokushi.get(tenseiYokushiId);
+        map.put("Tb5TenseiYokushi", tb5TenseiYokushi);
         return map;
     }
 

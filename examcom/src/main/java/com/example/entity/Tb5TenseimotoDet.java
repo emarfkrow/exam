@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.sql.Queries;
  * 転生元明細
  * @author emarfkrow
  */
-public class Tb5TenseimotoDet implements IEntity {
+public class Tb5TenseiMotoDet implements IEntity {
 
     /** SlickGridのDataView用ID */
     private Integer id;
@@ -33,56 +33,56 @@ public class Tb5TenseimotoDet implements IEntity {
     }
 
     /** 転生元ID */
-    private Integer tenseimotoId;
+    private Integer tenseiMotoId;
 
     /** @return 転生元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENSEIMOTO_ID")
-    public Integer getTenseimotoId() {
-        return this.tenseimotoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("TENSEI_MOTO_ID")
+    public Integer getTenseiMotoId() {
+        return this.tenseiMotoId;
     }
 
     /** @param o 転生元ID */
-    public void setTenseimotoId(final Object o) {
+    public void setTenseiMotoId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.tenseimotoId = Integer.valueOf(o.toString());
+            this.tenseiMotoId = Integer.valueOf(o.toString());
         } else {
-            this.tenseimotoId = null;
+            this.tenseiMotoId = null;
         }
     }
 
     /** 転生元枝番 */
-    private Integer tenseimotoBn;
+    private Integer tenseiMotoBn;
 
     /** @return 転生元枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENSEIMOTO_BN")
-    public Integer getTenseimotoBn() {
-        return this.tenseimotoBn;
+    @com.fasterxml.jackson.annotation.JsonProperty("TENSEI_MOTO_BN")
+    public Integer getTenseiMotoBn() {
+        return this.tenseiMotoBn;
     }
 
     /** @param o 転生元枝番 */
-    public void setTenseimotoBn(final Object o) {
+    public void setTenseiMotoBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.tenseimotoBn = Integer.valueOf(o.toString());
+            this.tenseiMotoBn = Integer.valueOf(o.toString());
         } else {
-            this.tenseimotoBn = null;
+            this.tenseiMotoBn = null;
         }
     }
 
     /** 転生元明細情報 */
-    private String tenseimotoDetInfo;
+    private String tenseiMotoDetInfo;
 
     /** @return 転生元明細情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENSEIMOTO_DET_INFO")
-    public String getTenseimotoDetInfo() {
-        return this.tenseimotoDetInfo;
+    @com.fasterxml.jackson.annotation.JsonProperty("TENSEI_MOTO_DET_INFO")
+    public String getTenseiMotoDetInfo() {
+        return this.tenseiMotoDetInfo;
     }
 
     /** @param o 転生元明細情報 */
-    public void setTenseimotoDetInfo(final Object o) {
+    public void setTenseiMotoDetInfo(final Object o) {
         if (o != null) {
-            this.tenseimotoDetInfo = o.toString();
+            this.tenseiMotoDetInfo = o.toString();
         } else {
-            this.tenseimotoDetInfo = null;
+            this.tenseiMotoDetInfo = null;
         }
     }
 
@@ -254,15 +254,15 @@ public class Tb5TenseimotoDet implements IEntity {
      * @param param2 転生元枝番
      * @return 転生元明細
      */
-    public static Tb5TenseimotoDet get(final Object param1, final Object param2) {
+    public static Tb5TenseiMotoDet get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEIMOTO_ID` = :tenseimoto_id");
-        whereList.add("`TENSEIMOTO_BN` = :tenseimoto_bn");
+        whereList.add("`TENSEI_MOTO_ID` = :tensei_moto_id");
+        whereList.add("`TENSEI_MOTO_BN` = :tensei_moto_bn");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`TENSEIMOTO_ID` \n";
-        sql += "    , a.`TENSEIMOTO_BN` \n";
-        sql += "    , a.`TENSEIMOTO_DET_INFO` \n";
+        sql += "      a.`TENSEI_MOTO_ID` \n";
+        sql += "    , a.`TENSEI_MOTO_BN` \n";
+        sql += "    , a.`TENSEI_MOTO_DET_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -270,13 +270,13 @@ public class Tb5TenseimotoDet implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
         sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    TB5_TENSEIMOTO_DET a \n";
+        sql += "    TB5_TENSEI_MOTO_DET a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("tenseimoto_id", param1);
-        map.put("tenseimoto_bn", param2);
-        return Queries.get(sql, map, Tb5TenseimotoDet.class);
+        map.put("tensei_moto_id", param1);
+        map.put("tensei_moto_bn", param2);
+        return Queries.get(sql, map, Tb5TenseiMotoDet.class);
     }
 
     /**
@@ -291,16 +291,16 @@ public class Tb5TenseimotoDet implements IEntity {
         numbering();
 
         // 転生元明細の登録
-        String sql = "INSERT INTO TB5_TENSEIMOTO_DET(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        String sql = "INSERT INTO TB5_TENSEI_MOTO_DET(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`TENSEIMOTO_ID` -- :tenseimoto_id");
-        nameList.add("`TENSEIMOTO_BN` -- :tenseimoto_bn");
-        nameList.add("`TENSEIMOTO_DET_INFO` -- :tenseimoto_det_info");
+        nameList.add("`TENSEI_MOTO_ID` -- :tensei_moto_id");
+        nameList.add("`TENSEI_MOTO_BN` -- :tensei_moto_bn");
+        nameList.add("`TENSEI_MOTO_DET_INFO` -- :tensei_moto_det_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -313,9 +313,9 @@ public class Tb5TenseimotoDet implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":tenseimoto_id");
-        valueList.add(":tenseimoto_bn");
-        valueList.add(":tenseimoto_det_info");
+        valueList.add(":tensei_moto_id");
+        valueList.add(":tensei_moto_bn");
+        valueList.add(":tensei_moto_det_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -327,18 +327,18 @@ public class Tb5TenseimotoDet implements IEntity {
 
     /** 転生元枝番の採番処理 */
     private void numbering() {
-        if (this.tenseimotoBn != null) {
+        if (this.tenseiMotoBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`TENSEIMOTO_BN`) IS NULL THEN 0 ELSE MAX(e.`TENSEIMOTO_BN`) * 1 END + 1 AS `TENSEIMOTO_BN` FROM TB5_TENSEIMOTO_DET e";
+        String sql = "SELECT CASE WHEN MAX(e.`TENSEI_MOTO_BN`) IS NULL THEN 0 ELSE MAX(e.`TENSEI_MOTO_BN`) * 1 END + 1 AS `TENSEI_MOTO_BN` FROM TB5_TENSEI_MOTO_DET e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`TENSEIMOTO_ID` = :tenseimoto_id");
+        whereList.add("e.`TENSEI_MOTO_ID` = :tensei_moto_id");
         sql += " WHERE " + String.join(" AND ", whereList);
-        map.put("tenseimoto_id", this.tenseimotoId);
+        map.put("tensei_moto_id", this.tenseiMotoId);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("TENSEIMOTO_BN");
-        this.setTenseimotoBn(o);
+        Object o = mapList.get(0).get("TENSEI_MOTO_BN");
+        this.setTenseiMotoBn(o);
     }
 
     /**
@@ -350,16 +350,16 @@ public class Tb5TenseimotoDet implements IEntity {
     public int update(final LocalDateTime now, final String execId) {
 
         // 転生元明細の登録
-        String sql = "UPDATE TB5_TENSEIMOTO_DET\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        String sql = "UPDATE TB5_TENSEI_MOTO_DET\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`TENSEIMOTO_ID` = :tenseimoto_id");
-        setList.add("`TENSEIMOTO_BN` = :tenseimoto_bn");
-        setList.add("`TENSEIMOTO_DET_INFO` = :tenseimoto_det_info");
+        setList.add("`TENSEI_MOTO_ID` = :tensei_moto_id");
+        setList.add("`TENSEI_MOTO_BN` = :tensei_moto_bn");
+        setList.add("`TENSEI_MOTO_DET_INFO` = :tensei_moto_det_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -374,15 +374,15 @@ public class Tb5TenseimotoDet implements IEntity {
     public int delete() {
 
         // 転生元明細の削除
-        String sql = "DELETE FROM TB5_TENSEIMOTO_DET WHERE " + getWhere();
+        String sql = "DELETE FROM TB5_TENSEI_MOTO_DET WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEIMOTO_ID` = :tenseimoto_id");
-        whereList.add("`TENSEIMOTO_BN` = :tenseimoto_bn");
+        whereList.add("`TENSEI_MOTO_ID` = :tensei_moto_id");
+        whereList.add("`TENSEI_MOTO_BN` = :tensei_moto_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -393,9 +393,9 @@ public class Tb5TenseimotoDet implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("tenseimoto_id", this.tenseimotoId);
-        map.put("tenseimoto_bn", this.tenseimotoBn);
-        map.put("tenseimoto_det_info", this.tenseimotoDetInfo);
+        map.put("tensei_moto_id", this.tenseiMotoId);
+        map.put("tensei_moto_bn", this.tenseiMotoBn);
+        map.put("tensei_moto_det_info", this.tenseiMotoDetInfo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);

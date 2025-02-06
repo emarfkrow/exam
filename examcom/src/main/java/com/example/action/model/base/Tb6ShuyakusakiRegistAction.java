@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakusaki;
+import com.example.entity.Tb6ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,7 +16,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiRegistAction extends BaseAction {
+public class Tb6ShuyakuSakiRegistAction extends BaseAction {
 
     /** 集約先登録処理 */
     @Override
@@ -24,11 +24,11 @@ public class Tb6ShuyakusakiRegistAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Tb6Shuyakusaki e = FormValidator.toBean(Tb6Shuyakusaki.class.getName(), postJson);
+        Tb6ShuyakuSaki e = FormValidator.toBean(Tb6ShuyakuSaki.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShuyakusakiId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getShuyakuSakiId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
@@ -45,13 +45,13 @@ public class Tb6ShuyakusakiRegistAction extends BaseAction {
             }
 
             //集約の場合は、集約元に主キーを反映
-            String summaryKey = postJson.get("Tb6Shuyakumoto.shuyakumotoId").toString();
+            String summaryKey = postJson.get("Tb6ShuyakuMoto.shuyakuMotoId").toString();
             if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(summaryKey)) {
                 String[] summaryKeys = summaryKey.trim().split(",");
                 for (String pk : summaryKeys) {
-                    com.example.entity.Tb6Shuyakumoto tb6Shuyakumoto = com.example.entity.Tb6Shuyakumoto.get(pk);
-                    tb6Shuyakumoto.setShuyakusakiId(e.getShuyakusakiId());
-                    if (tb6Shuyakumoto.update(now, execId) != 1) {
+                    com.example.entity.Tb6ShuyakuMoto tb6ShuyakuMoto = com.example.entity.Tb6ShuyakuMoto.get(pk);
+                    tb6ShuyakuMoto.setShuyakuSakiId(e.getShuyakuSakiId());
+                    if (tb6ShuyakuMoto.update(now, execId) != 1) {
                         throw new OptLockError("error.cant.insert");
                     }
                 }

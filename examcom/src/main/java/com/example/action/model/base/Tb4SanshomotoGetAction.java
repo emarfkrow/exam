@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoGetAction extends BaseAction {
+public class Tb4SanshoMotoGetAction extends BaseAction {
 
     /** 参照元照会処理 */
     @Override
@@ -22,16 +22,16 @@ public class Tb4SanshomotoGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object sanshomotoId = postJson.get("sanshomotoId");
-        if (sanshomotoId == null) {
-            sanshomotoId = postJson.get("Tb4Sanshomoto.sanshomotoId");
+        Object sanshoMotoId = postJson.get("sanshoMotoId");
+        if (sanshoMotoId == null) {
+            sanshoMotoId = postJson.get("Tb4SanshoMoto.sanshoMotoId");
         }
-        if (sanshomotoId == null) {
+        if (sanshoMotoId == null) {
             return map;
         }
 
-        Tb4Sanshomoto tb4Sanshomoto = Tb4Sanshomoto.get(sanshomotoId);
-        map.put("Tb4Sanshomoto", tb4Sanshomoto);
+        Tb4SanshoMoto tb4SanshoMoto = Tb4SanshoMoto.get(sanshoMotoId);
+        map.put("Tb4SanshoMoto", tb4SanshoMoto);
         return map;
     }
 

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseisakiDet;
+import com.example.entity.Tb5TenseiSakiDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,29 +16,29 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetDeleteAction extends BaseAction {
+public class Tb5TenseiSakiDetDeleteAction extends BaseAction {
 
     /** 転生先明細削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object tenseisakiId = postJson.get("tenseisakiId");
-        if (tenseisakiId == null) {
-            tenseisakiId = postJson.get("Tb5TenseisakiDet.tenseisakiId");
+        Object tenseiSakiId = postJson.get("tenseiSakiId");
+        if (tenseiSakiId == null) {
+            tenseiSakiId = postJson.get("Tb5TenseiSakiDet.tenseiSakiId");
         }
-        if (tenseisakiId == null) {
+        if (tenseiSakiId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object tenseisakiBn = postJson.get("tenseisakiBn");
-        if (tenseisakiBn == null) {
-            tenseisakiBn = postJson.get("Tb5TenseisakiDet.tenseisakiBn");
+        Object tenseiSakiBn = postJson.get("tenseiSakiBn");
+        if (tenseiSakiBn == null) {
+            tenseiSakiBn = postJson.get("Tb5TenseiSakiDet.tenseiSakiBn");
         }
-        if (tenseisakiBn == null) {
+        if (tenseiSakiBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 
-        Tb5TenseisakiDet e = FormValidator.toBean(Tb5TenseisakiDet.class.getName(), postJson);
+        Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), postJson);
 
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");

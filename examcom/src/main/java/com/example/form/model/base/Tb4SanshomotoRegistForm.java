@@ -13,27 +13,27 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoRegistForm implements IForm {
+public class Tb4SanshoMotoRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb4SanshomotoRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb4SanshoMotoRegistForm.class);
 
     /** 参照元ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sanshomotoId;
+    private String sanshoMotoId;
 
     /**
      * @return 参照元ID
      */
-    public String getSanshomotoId() {
-        return sanshomotoId;
+    public String getSanshoMotoId() {
+        return sanshoMotoId;
     }
 
     /**
      * @param p 参照元ID
      */
-    public void setSanshomotoId(final String p) {
-        this.sanshomotoId = p;
+    public void setSanshoMotoId(final String p) {
+        this.sanshoMotoId = p;
     }
 
     /** ID参照ID */

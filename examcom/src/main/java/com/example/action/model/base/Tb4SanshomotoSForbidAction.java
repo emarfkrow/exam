@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoSForbidAction extends BaseAction {
+public class Tb4SanshoMotoSForbidAction extends BaseAction {
 
     /** 参照元一覧承認処理 */
     @Override
@@ -28,22 +28,22 @@ public class Tb4SanshomotoSForbidAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb4SanshomotoGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb4SanshoMotoGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb4Sanshomoto e = FormValidator.toBean(Tb4Sanshomoto.class.getName(), gridRow);
+            Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object sanshomotoId = e.getSanshomotoId();
-            if (sanshomotoId == null) {
+            Object sanshoMotoId = e.getSanshoMotoId();
+            if (sanshoMotoId == null) {
                 throw new OptLockError("error.cant.forbid");
             }
 
-            Tb4Sanshomoto f = Tb4Sanshomoto.get(sanshomotoId);
+            Tb4SanshoMoto f = Tb4SanshoMoto.get(sanshoMotoId);
             f.setStatusKb(-1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.forbid");

@@ -2,63 +2,63 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb5Tenseiyokushisaki2S.title}">転生抑止先２</title>
+<title th:text="#{Tb5TenseiYokushiSaki2S.title}">転生抑止先２</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 
 </script>
-<script th:src="@{/model/Tb5Tenseiyokushisaki2GridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiYokushiSaki2GridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
-    <h2 th:text="#{Tb5Tenseiyokushisaki2S.h2}">h2</h2>
+    <h2 th:text="#{Tb5TenseiYokushiSaki2S.h2}">h2</h2>
     <!-- 検索フォーム -->
-    <form name="Tb5Tenseiyokushisaki2SearchForm" action="Tb5Tenseiyokushisaki2Search.ajax" class="search">
+    <form name="Tb5TenseiYokushiSaki2SearchForm" action="Tb5TenseiYokushiSaki2Search.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
       <fieldset>
-        <legend th:text="#{Tb5Tenseiyokushisaki2S.legend}">legend</legend>
-        <div id="tenseiyokushisaki2Id">
-          <label for="Tb5Tenseiyokushisaki2.tenseiyokushisaki2Id" th:text="#{Tb5Tenseiyokushisaki2.tenseiyokushisaki2Id}">転生抑止先２ID</label><input type="text" id="Tb5Tenseiyokushisaki2.tenseiyokushisaki2Id" name="Tb5Tenseiyokushisaki2.tenseiyokushisaki2Id" maxlength="10" />
+        <legend th:text="#{Tb5TenseiYokushiSaki2S.legend}">legend</legend>
+        <div id="tenseiYokushiSaki2Id">
+          <label for="Tb5TenseiYokushiSaki2.tenseiYokushiSaki2Id" th:text="#{Tb5TenseiYokushiSaki2.tenseiYokushiSaki2Id}">転生抑止先２ID</label><input type="text" id="Tb5TenseiYokushiSaki2.tenseiYokushiSaki2Id" name="Tb5TenseiYokushiSaki2.tenseiYokushiSaki2Id" maxlength="10" />
         </div>
-        <div id="tenseiyokushiId">
-          <label for="Tb5Tenseiyokushisaki2.tenseiyokushiId" th:text="#{Tb5Tenseiyokushisaki2.tenseiyokushiId}">転生抑止ID</label><input type="text" id="Tb5Tenseiyokushisaki2.tenseiyokushiId" name="Tb5Tenseiyokushisaki2.tenseiyokushiId" maxlength="10" />
+        <div id="tenseiYokushiId">
+          <label for="Tb5TenseiYokushiSaki2.tenseiYokushiId" th:text="#{Tb5TenseiYokushiSaki2.tenseiYokushiId}">転生抑止ID</label><input type="text" id="Tb5TenseiYokushiSaki2.tenseiYokushiId" name="Tb5TenseiYokushiSaki2.tenseiYokushiId" maxlength="10" />
         </div>
         <div id="deleteF">
-          <fieldset id="Tb5Tenseiyokushisaki2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseiyokushisaki2.deleteF}">削除フラグ</legend>
+          <fieldset id="Tb5TenseiYokushiSaki2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiYokushiSaki2.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
         <div id="statusKb">
-          <fieldset id="Tb5Tenseiyokushisaki2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseiyokushisaki2.statusKb}">ステータス区分</legend>
+          <fieldset id="Tb5TenseiYokushiSaki2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiYokushiSaki2.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" id="ResetTb5Tenseiyokushisaki2" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb5Tenseiyokushisaki2.html}" id="Tb5Tenseiyokushisaki2" class="anew" target="dialog" th:text="#{Tb5Tenseiyokushisaki2.add}" tabindex="-1">転生抑止先２</a>
+        <button type="reset" id="ResetTb5TenseiYokushiSaki2" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb5TenseiYokushiSaki2.html}" id="Tb5TenseiYokushiSaki2" class="anew" target="dialog" th:text="#{Tb5TenseiYokushiSaki2.add}" tabindex="-1">転生抑止先２</a>
       </div>
       <div class="submits">
-        <button id="SearchTb5Tenseiyokushisaki2" type="submit" class="search" data-gridId="Tb5Tenseiyokushisaki2Grid" th:text="#{common.search}">submit</button>
+        <button id="SearchTb5TenseiYokushiSaki2" type="submit" class="search" data-gridId="Tb5TenseiYokushiSaki2Grid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
-    <form name="Tb5Tenseiyokushisaki2SRegistForm" action="Tb5Tenseiyokushisaki2SRegist.ajax" class="regist">
-      <h3 th:text="#{Tb5Tenseiyokushisaki2.h3}">h3</h3>
-      <div id="Tb5Tenseiyokushisaki2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb5Tenseiyokushisaki2.html}"></div>
-      <div id="Tb5Tenseiyokushisaki2Pager"></div>
+    <form name="Tb5TenseiYokushiSaki2SRegistForm" action="Tb5TenseiYokushiSaki2SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb5TenseiYokushiSaki2.h3}">h3</h3>
+      <div id="Tb5TenseiYokushiSaki2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb5TenseiYokushiSaki2.html}"></div>
+      <div id="Tb5TenseiYokushiSaki2Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb5Tenseiyokushisaki2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb5Tenseiyokushisaki2&quot;]').click();">reset</button>
-        <a th:href="@{Tb5Tenseiyokushisaki2Search.xlsx(baseMei=#{Tb5Tenseiyokushisaki2S.h2})}" id="Tb5Tenseiyokushisaki2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb5Tenseiyokushisaki2S" type="submit" class="delete selectRows" data-action="Tb5Tenseiyokushisaki2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5Tenseiyokushisaki2S" type="submit" class="permit selectRows" data-action="Tb5Tenseiyokushisaki2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5Tenseiyokushisaki2S" type="submit" class="forbid selectRows" data-action="Tb5Tenseiyokushisaki2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="button" id="ResetTb5TenseiYokushiSaki2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb5TenseiYokushiSaki2&quot;]').click();">reset</button>
+        <a th:href="@{Tb5TenseiYokushiSaki2Search.xlsx(baseMei=#{Tb5TenseiYokushiSaki2S.h2})}" id="Tb5TenseiYokushiSaki2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb5TenseiYokushiSaki2S" type="submit" class="delete selectRows" data-action="Tb5TenseiYokushiSaki2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb5TenseiYokushiSaki2S" type="submit" class="permit selectRows" data-action="Tb5TenseiYokushiSaki2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb5TenseiYokushiSaki2S" type="submit" class="forbid selectRows" data-action="Tb5TenseiYokushiSaki2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb5Tenseiyokushisaki2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistTb5TenseiYokushiSaki2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakusaki;
+import com.example.entity.Tb6ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiGetAction extends BaseAction {
+public class Tb6ShuyakuSakiGetAction extends BaseAction {
 
     /** 集約先照会処理 */
     @Override
@@ -22,16 +22,16 @@ public class Tb6ShuyakusakiGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object shuyakusakiId = postJson.get("shuyakusakiId");
-        if (shuyakusakiId == null) {
-            shuyakusakiId = postJson.get("Tb6Shuyakusaki.shuyakusakiId");
+        Object shuyakuSakiId = postJson.get("shuyakuSakiId");
+        if (shuyakuSakiId == null) {
+            shuyakuSakiId = postJson.get("Tb6ShuyakuSaki.shuyakuSakiId");
         }
-        if (shuyakusakiId == null) {
+        if (shuyakuSakiId == null) {
             return map;
         }
 
-        Tb6Shuyakusaki tb6Shuyakusaki = Tb6Shuyakusaki.get(shuyakusakiId);
-        map.put("Tb6Shuyakusaki", tb6Shuyakusaki);
+        Tb6ShuyakuSaki tb6ShuyakuSaki = Tb6ShuyakuSaki.get(shuyakuSakiId);
+        map.put("Tb6ShuyakuSaki", tb6ShuyakuSaki);
         return map;
     }
 

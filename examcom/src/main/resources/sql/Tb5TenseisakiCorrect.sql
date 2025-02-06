@@ -1,7 +1,7 @@
 SELECT
-      a.`TENSEISAKI_ID`
-    , a.`TENSEIMOTO_ID`
-    , a.`TENSEISAKI_INFO`
+      a.`TENSEI_SAKI_ID`
+    , a.`TENSEI_SAKI_INFO`
+    , a.`TENSEI_MOTO_ID`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -11,13 +11,13 @@ SELECT
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
     , a.`STATUS_KB`
 FROM
-    TB5_TENSEISAKI a 
+    TB5_TENSEI_SAKI a 
 WHERE
     1 = 1 
     AND IFNULL (a.DELETE_F, 0) != 1 
-    AND a.`TENSEISAKI_ID` = :tenseisaki_id 
-    AND a.`TENSEIMOTO_ID` = :tenseimoto_id 
-    AND TRIM(TRAILING ' ' FROM a.`TENSEISAKI_INFO`) LIKE CONCAT ('%', :tenseisaki_info, '%') 
+    AND a.`TENSEI_SAKI_ID` = :tensei_saki_id 
+    AND TRIM(TRAILING ' ' FROM a.`TENSEI_SAKI_INFO`) LIKE CONCAT ('%', :tensei_saki_info, '%') 
+    AND a.`TENSEI_MOTO_ID` = :tensei_moto_id 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
@@ -29,4 +29,4 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`TENSEISAKI_ID`
+    a.`TENSEI_SAKI_ID`

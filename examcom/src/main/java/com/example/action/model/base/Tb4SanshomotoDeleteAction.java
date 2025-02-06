@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,22 +16,22 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoDeleteAction extends BaseAction {
+public class Tb4SanshoMotoDeleteAction extends BaseAction {
 
     /** 参照元削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sanshomotoId = postJson.get("sanshomotoId");
-        if (sanshomotoId == null) {
-            sanshomotoId = postJson.get("Tb4Sanshomoto.sanshomotoId");
+        Object sanshoMotoId = postJson.get("sanshoMotoId");
+        if (sanshoMotoId == null) {
+            sanshoMotoId = postJson.get("Tb4SanshoMoto.sanshoMotoId");
         }
-        if (sanshomotoId == null) {
+        if (sanshoMotoId == null) {
             throw new OptLockError("error.cant.delete");
         }
 
-        Tb4Sanshomoto e = FormValidator.toBean(Tb4Sanshomoto.class.getName(), postJson);
+        Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), postJson);
 
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");

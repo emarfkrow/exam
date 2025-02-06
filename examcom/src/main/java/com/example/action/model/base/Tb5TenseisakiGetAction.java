@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseisaki;
+import com.example.entity.Tb5TenseiSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiGetAction extends BaseAction {
+public class Tb5TenseiSakiGetAction extends BaseAction {
 
     /** 転生先照会処理 */
     @Override
@@ -22,40 +22,40 @@ public class Tb5TenseisakiGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object tenseisakiId = postJson.get("tenseisakiId");
-        if (tenseisakiId == null) {
-            tenseisakiId = postJson.get("Tb5Tenseisaki.tenseisakiId");
+        Object tenseiSakiId = postJson.get("tenseiSakiId");
+        if (tenseiSakiId == null) {
+            tenseiSakiId = postJson.get("Tb5TenseiSaki.tenseiSakiId");
         }
-        if (tenseisakiId == null) {
+        if (tenseiSakiId == null) {
 
             //転生先になる場合は転生元から情報をコピー
-            Object tenseimotoId = postJson.get("tenseimotoId");
-            if (tenseimotoId == null) {
-                tenseimotoId = postJson.get("Tb5Tenseisaki.tenseimotoId");
+            Object tenseiMotoId = postJson.get("tenseiMotoId");
+            if (tenseiMotoId == null) {
+                tenseiMotoId = postJson.get("Tb5TenseiSaki.tenseiMotoId");
             }
-            if (tenseimotoId == null) {
+            if (tenseiMotoId == null) {
                 return map;
             }
 
-            com.example.entity.Tb5Tenseimoto tb5Tenseimoto = com.example.entity.Tb5Tenseimoto.get(tenseimotoId);
-            Tb5Tenseisaki tb5Tenseisaki = new Tb5Tenseisaki();
-            tb5Tenseisaki.setTenseimotoId(tb5Tenseimoto.getTenseimotoId());
+            com.example.entity.Tb5TenseiMoto tb5TenseiMoto = com.example.entity.Tb5TenseiMoto.get(tenseiMotoId);
+            Tb5TenseiSaki tb5TenseiSaki = new Tb5TenseiSaki();
+            tb5TenseiSaki.setTenseiMotoId(tb5TenseiMoto.getTenseiMotoId());
 
-            tb5Tenseimoto.referTb5TenseimotoDets();
-            tb5Tenseisaki.setTb5TenseisakiDets(new java.util.ArrayList<com.example.entity.Tb5TenseisakiDet>());
-            for (com.example.entity.Tb5TenseimotoDet tb5TenseimotoDet : tb5Tenseimoto.referTb5TenseimotoDets()) {
-                com.example.entity.Tb5TenseisakiDet tb5TenseisakiDet = new com.example.entity.Tb5TenseisakiDet();
-                tb5TenseisakiDet.setId(tb5TenseimotoDet.getId());
-                tb5Tenseisaki.getTb5TenseisakiDets().add(tb5TenseisakiDet);
+            tb5TenseiMoto.referTb5TenseiMotoDets();
+            tb5TenseiSaki.setTb5TenseiSakiDets(new java.util.ArrayList<com.example.entity.Tb5TenseiSakiDet>());
+            for (com.example.entity.Tb5TenseiMotoDet tb5TenseiMotoDet : tb5TenseiMoto.referTb5TenseiMotoDets()) {
+                com.example.entity.Tb5TenseiSakiDet tb5TenseiSakiDet = new com.example.entity.Tb5TenseiSakiDet();
+                tb5TenseiSakiDet.setId(tb5TenseiMotoDet.getId());
+                tb5TenseiSaki.getTb5TenseiSakiDets().add(tb5TenseiSakiDet);
             }
 
-            map.put("Tb5Tenseisaki", tb5Tenseisaki);
+            map.put("Tb5TenseiSaki", tb5TenseiSaki);
             return map;
         }
 
-        Tb5Tenseisaki tb5Tenseisaki = Tb5Tenseisaki.get(tenseisakiId);
-        tb5Tenseisaki.referTb5TenseisakiDets();
-        map.put("Tb5Tenseisaki", tb5Tenseisaki);
+        Tb5TenseiSaki tb5TenseiSaki = Tb5TenseiSaki.get(tenseiSakiId);
+        tb5TenseiSaki.referTb5TenseiSakiDets();
+        map.put("Tb5TenseiSaki", tb5TenseiSaki);
         return map;
     }
 

@@ -2,65 +2,65 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb5TenseimotoS.title}">転生元</title>
+<title th:text="#{Tb5TenseiMotoS.title}">転生元</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 
 </script>
-<script th:src="@{/model/Tb5TenseimotoGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiMotoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb5TenseimotoDetGridColumns.js}"></script>
-<script th:src="@{/model/Tb5TenseisakiDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiMotoDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiSakiDetGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
-    <h2 th:text="#{Tb5TenseimotoS.h2}">h2</h2>
+    <h2 th:text="#{Tb5TenseiMotoS.h2}">h2</h2>
     <!-- 検索フォーム -->
-    <form name="Tb5TenseimotoSearchForm" action="Tb5TenseimotoSearch.ajax" class="search">
+    <form name="Tb5TenseiMotoSearchForm" action="Tb5TenseiMotoSearch.ajax" class="search">
       <input type="hidden" name="rows" value="3" />
       <input type="hidden" name="page" value="0" />
       <fieldset>
-        <legend th:text="#{Tb5TenseimotoS.legend}">legend</legend>
-        <div id="tenseimotoId">
-          <label for="Tb5Tenseimoto.tenseimotoId" th:text="#{Tb5Tenseimoto.tenseimotoId}">転生元ID</label><input type="text" id="Tb5Tenseimoto.tenseimotoId" name="Tb5Tenseimoto.tenseimotoId" maxlength="10" />
+        <legend th:text="#{Tb5TenseiMotoS.legend}">legend</legend>
+        <div id="tenseiMotoId">
+          <label for="Tb5TenseiMoto.tenseiMotoId" th:text="#{Tb5TenseiMoto.tenseiMotoId}">転生元ID</label><input type="text" id="Tb5TenseiMoto.tenseiMotoId" name="Tb5TenseiMoto.tenseiMotoId" maxlength="10" />
         </div>
-        <div id="tenseimotoInfo">
-          <label for="Tb5Tenseimoto.tenseimotoInfo" th:text="#{Tb5Tenseimoto.tenseimotoInfo}">転生元情報</label><input type="text" id="Tb5Tenseimoto.tenseimotoInfo" name="Tb5Tenseimoto.tenseimotoInfo" maxlength="300" />
+        <div id="tenseiMotoInfo">
+          <label for="Tb5TenseiMoto.tenseiMotoInfo" th:text="#{Tb5TenseiMoto.tenseiMotoInfo}">転生元情報</label><input type="text" id="Tb5TenseiMoto.tenseiMotoInfo" name="Tb5TenseiMoto.tenseiMotoInfo" maxlength="300" />
         </div>
         <div id="deleteF">
-          <fieldset id="Tb5Tenseimoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseimoto.deleteF}">削除フラグ</legend>
+          <fieldset id="Tb5TenseiMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiMoto.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
         <div id="statusKb">
-          <fieldset id="Tb5Tenseimoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseimoto.statusKb}">ステータス区分</legend>
+          <fieldset id="Tb5TenseiMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiMoto.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="reset" id="ResetTb5Tenseimoto" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb5Tenseimoto.html}" id="Tb5Tenseimoto" class="anew" target="dialog" th:text="#{Tb5Tenseimoto.add}" tabindex="-1">転生元</a>
+        <button type="reset" id="ResetTb5TenseiMoto" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb5TenseiMoto.html}" id="Tb5TenseiMoto" class="anew" target="dialog" th:text="#{Tb5TenseiMoto.add}" tabindex="-1">転生元</a>
       </div>
       <div class="submits">
-        <button id="SearchTb5Tenseimoto" type="submit" class="search" data-gridId="Tb5TenseimotoGrid" th:text="#{common.search}">submit</button>
+        <button id="SearchTb5TenseiMoto" type="submit" class="search" data-gridId="Tb5TenseiMotoGrid" th:text="#{common.search}">submit</button>
       </div>
     </form>
     <!-- 一覧フォーム -->
-    <form name="Tb5TenseimotoSRegistForm" action="Tb5TenseimotoSRegist.ajax" class="regist">
-      <h3 th:text="#{Tb5Tenseimoto.h3}">h3</h3>
-      <div id="Tb5TenseimotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb5Tenseimoto.html}"></div>
-      <div id="Tb5TenseimotoPager"></div>
+    <form name="Tb5TenseiMotoSRegistForm" action="Tb5TenseiMotoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb5TenseiMoto.h3}">h3</h3>
+      <div id="Tb5TenseiMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb5TenseiMoto.html}"></div>
+      <div id="Tb5TenseiMotoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb5TenseimotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb5Tenseimoto&quot;]').click();">reset</button>
-        <a th:href="@{Tb5TenseimotoSearch.xlsx(baseMei=#{Tb5TenseimotoS.h2})}" id="Tb5TenseimotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb5TenseimotoS" type="submit" class="delete selectRows" data-action="Tb5TenseimotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5TenseimotoS" type="submit" class="permit selectRows" data-action="Tb5TenseimotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5TenseimotoS" type="submit" class="forbid selectRows" data-action="Tb5TenseimotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="button" id="ResetTb5TenseiMotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb5TenseiMoto&quot;]').click();">reset</button>
+        <a th:href="@{Tb5TenseiMotoSearch.xlsx(baseMei=#{Tb5TenseiMotoS.h2})}" id="Tb5TenseiMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb5TenseiMotoS" type="submit" class="delete selectRows" data-action="Tb5TenseiMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb5TenseiMotoS" type="submit" class="permit selectRows" data-action="Tb5TenseiMotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb5TenseiMotoS" type="submit" class="forbid selectRows" data-action="Tb5TenseiMotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb5TenseimotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistTb5TenseiMotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

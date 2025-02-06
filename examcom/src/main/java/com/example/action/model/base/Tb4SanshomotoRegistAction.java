@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,7 +16,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoRegistAction extends BaseAction {
+public class Tb4SanshoMotoRegistAction extends BaseAction {
 
     /** 参照元登録処理 */
     @Override
@@ -24,11 +24,11 @@ public class Tb4SanshomotoRegistAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Tb4Sanshomoto e = FormValidator.toBean(Tb4Sanshomoto.class.getName(), postJson);
+        Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSanshomotoId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSanshoMotoId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

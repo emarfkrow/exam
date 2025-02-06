@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakusaki;
+import com.example.entity.Tb6ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakusakiSForbidAction extends BaseAction {
+public class Tb6ShuyakuSakiSForbidAction extends BaseAction {
 
     /** 集約先一覧承認処理 */
     @Override
@@ -28,22 +28,22 @@ public class Tb6ShuyakusakiSForbidAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakusakiGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6ShuyakuSakiGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
                 continue;
             }
 
-            Tb6Shuyakusaki e = FormValidator.toBean(Tb6Shuyakusaki.class.getName(), gridRow);
+            Tb6ShuyakuSaki e = FormValidator.toBean(Tb6ShuyakuSaki.class.getName(), gridRow);
 
             // 主キーが不足していたらエラー
-            Object shuyakusakiId = e.getShuyakusakiId();
-            if (shuyakusakiId == null) {
+            Object shuyakuSakiId = e.getShuyakuSakiId();
+            if (shuyakuSakiId == null) {
                 throw new OptLockError("error.cant.forbid");
             }
 
-            Tb6Shuyakusaki f = Tb6Shuyakusaki.get(shuyakusakiId);
+            Tb6ShuyakuSaki f = Tb6ShuyakuSaki.get(shuyakuSakiId);
             f.setStatusKb(-1);
             if (f.update(now, execId) != 1) {
                 throw new OptLockError("error.cant.forbid");

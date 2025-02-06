@@ -14,64 +14,64 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiRegistForm implements IForm {
+public class Tb5TenseiSakiRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseisakiRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiSakiRegistForm.class);
 
     /** 転生先ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseisakiId;
+    private String tenseiSakiId;
 
     /**
      * @return 転生先ID
      */
-    public String getTenseisakiId() {
-        return tenseisakiId;
+    public String getTenseiSakiId() {
+        return tenseiSakiId;
     }
 
     /**
      * @param p 転生先ID
      */
-    public void setTenseisakiId(final String p) {
-        this.tenseisakiId = p;
-    }
-
-    /** 転生元ID */
-    @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseimotoId;
-
-    /**
-     * @return 転生元ID
-     */
-    public String getTenseimotoId() {
-        return tenseimotoId;
-    }
-
-    /**
-     * @param p 転生元ID
-     */
-    public void setTenseimotoId(final String p) {
-        this.tenseimotoId = p;
+    public void setTenseiSakiId(final String p) {
+        this.tenseiSakiId = p;
     }
 
     /** 転生先情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String tenseisakiInfo;
+    private String tenseiSakiInfo;
 
     /**
      * @return 転生先情報
      */
-    public String getTenseisakiInfo() {
-        return tenseisakiInfo;
+    public String getTenseiSakiInfo() {
+        return tenseiSakiInfo;
     }
 
     /**
      * @param p 転生先情報
      */
-    public void setTenseisakiInfo(final String p) {
-        this.tenseisakiInfo = p;
+    public void setTenseiSakiInfo(final String p) {
+        this.tenseiSakiInfo = p;
+    }
+
+    /** 転生元ID */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String tenseiMotoId;
+
+    /**
+     * @return 転生元ID
+     */
+    public String getTenseiMotoId() {
+        return tenseiMotoId;
+    }
+
+    /**
+     * @param p 転生元ID
+     */
+    public void setTenseiMotoId(final String p) {
+        this.tenseiMotoId = p;
     }
 
     /** 削除フラグ */
@@ -112,20 +112,20 @@ public class Tb5TenseisakiRegistForm implements IForm {
 
     /** 転生先明細 */
     @jakarta.validation.Valid
-    private List<Tb5TenseisakiDetRegistForm> tb5TenseisakiDetGrid;
+    private List<Tb5TenseiSakiDetRegistForm> tb5TenseiSakiDetGrid;
 
     /**
      * @return 転生先明細
      */
-    public List<Tb5TenseisakiDetRegistForm> getTb5TenseisakiDetGrid() {
-        return tb5TenseisakiDetGrid;
+    public List<Tb5TenseiSakiDetRegistForm> getTb5TenseiSakiDetGrid() {
+        return tb5TenseiSakiDetGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb5TenseisakiDetGrid(final List<Tb5TenseisakiDetRegistForm> p) {
-        this.tb5TenseisakiDetGrid = p;
+    public void setTb5TenseiSakiDetGrid(final List<Tb5TenseiSakiDetRegistForm> p) {
+        this.tb5TenseiSakiDetGrid = p;
     }
 
     /** 関連チェック */

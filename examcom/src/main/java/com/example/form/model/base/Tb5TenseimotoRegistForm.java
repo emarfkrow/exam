@@ -14,45 +14,45 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoRegistForm implements IForm {
+public class Tb5TenseiMotoRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseimotoRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiMotoRegistForm.class);
 
     /** 転生元ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseimotoId;
+    private String tenseiMotoId;
 
     /**
      * @return 転生元ID
      */
-    public String getTenseimotoId() {
-        return tenseimotoId;
+    public String getTenseiMotoId() {
+        return tenseiMotoId;
     }
 
     /**
      * @param p 転生元ID
      */
-    public void setTenseimotoId(final String p) {
-        this.tenseimotoId = p;
+    public void setTenseiMotoId(final String p) {
+        this.tenseiMotoId = p;
     }
 
     /** 転生元情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String tenseimotoInfo;
+    private String tenseiMotoInfo;
 
     /**
      * @return 転生元情報
      */
-    public String getTenseimotoInfo() {
-        return tenseimotoInfo;
+    public String getTenseiMotoInfo() {
+        return tenseiMotoInfo;
     }
 
     /**
      * @param p 転生元情報
      */
-    public void setTenseimotoInfo(final String p) {
-        this.tenseimotoInfo = p;
+    public void setTenseiMotoInfo(final String p) {
+        this.tenseiMotoInfo = p;
     }
 
     /** 削除フラグ */
@@ -93,20 +93,20 @@ public class Tb5TenseimotoRegistForm implements IForm {
 
     /** 転生元明細 */
     @jakarta.validation.Valid
-    private List<Tb5TenseimotoDetRegistForm> tb5TenseimotoDetGrid;
+    private List<Tb5TenseiMotoDetRegistForm> tb5TenseiMotoDetGrid;
 
     /**
      * @return 転生元明細
      */
-    public List<Tb5TenseimotoDetRegistForm> getTb5TenseimotoDetGrid() {
-        return tb5TenseimotoDetGrid;
+    public List<Tb5TenseiMotoDetRegistForm> getTb5TenseiMotoDetGrid() {
+        return tb5TenseiMotoDetGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb5TenseimotoDetGrid(final List<Tb5TenseimotoDetRegistForm> p) {
-        this.tb5TenseimotoDetGrid = p;
+    public void setTb5TenseiMotoDetGrid(final List<Tb5TenseiMotoDetRegistForm> p) {
+        this.tb5TenseiMotoDetGrid = p;
     }
 
     /** 関連チェック */

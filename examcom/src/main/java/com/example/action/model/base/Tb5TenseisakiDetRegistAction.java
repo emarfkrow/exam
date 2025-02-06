@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5TenseisakiDet;
+import com.example.entity.Tb5TenseiSakiDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,7 +16,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiDetRegistAction extends BaseAction {
+public class Tb5TenseiSakiDetRegistAction extends BaseAction {
 
     /** 転生先明細登録処理 */
     @Override
@@ -24,14 +24,14 @@ public class Tb5TenseisakiDetRegistAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Tb5TenseisakiDet e = FormValidator.toBean(Tb5TenseisakiDet.class.getName(), postJson);
+        Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseisakiId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiSakiId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseisakiBn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiSakiBn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

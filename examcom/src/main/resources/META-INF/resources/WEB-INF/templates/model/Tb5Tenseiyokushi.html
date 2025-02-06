@@ -2,61 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb5Tenseiyokushi.title}">転生抑止</title>
+<title th:text="#{Tb5TenseiYokushi.title}">転生抑止</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 
 </script>
-<script th:src="@{/model/Tb5TenseiyokushiGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiYokushiGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
-    <h2 th:text="#{Tb5Tenseiyokushi.h2}">h2</h2>
-    <form name="Tb5TenseiyokushiRegistForm" action="Tb5TenseiyokushiRegist.ajax" class="regist">
+    <h2 th:text="#{Tb5TenseiYokushi.h2}">h2</h2>
+    <form name="Tb5TenseiYokushiRegistForm" action="Tb5TenseiYokushiRegist.ajax" class="regist">
       <fieldset>
-        <legend th:text="#{Tb5Tenseiyokushi.legend}">legend</legend>
-        <div id="tenseiyokushiId">
-          <label for="Tb5Tenseiyokushi.tenseiyokushiId" th:text="#{Tb5Tenseiyokushi.tenseiyokushiId}">転生抑止ID</label><input type="text" id="Tb5Tenseiyokushi.tenseiyokushiId" name="Tb5Tenseiyokushi.tenseiyokushiId" maxlength="10" class=" notblank primaryKey numbering" />
+        <legend th:text="#{Tb5TenseiYokushi.legend}">legend</legend>
+        <div id="tenseiYokushiId">
+          <label for="Tb5TenseiYokushi.tenseiYokushiId" th:text="#{Tb5TenseiYokushi.tenseiYokushiId}">転生抑止ID</label><input type="text" id="Tb5TenseiYokushi.tenseiYokushiId" name="Tb5TenseiYokushi.tenseiYokushiId" maxlength="10" class=" notblank primaryKey numbering" />
         </div>
-        <div id="tenseiyokushiInfo">
-          <label for="Tb5Tenseiyokushi.tenseiyokushiInfo" th:text="#{Tb5Tenseiyokushi.tenseiyokushiInfo}">転生抑止情報</label><input type="text" id="Tb5Tenseiyokushi.tenseiyokushiInfo" name="Tb5Tenseiyokushi.tenseiyokushiInfo" maxlength="300" />
+        <div id="tenseiYokushiInfo">
+          <label for="Tb5TenseiYokushi.tenseiYokushiInfo" th:text="#{Tb5TenseiYokushi.tenseiYokushiInfo}">転生抑止情報</label><input type="text" id="Tb5TenseiYokushi.tenseiYokushiInfo" name="Tb5TenseiYokushi.tenseiYokushiInfo" maxlength="300" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb5Tenseiyokushi.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5Tenseiyokushi.insertTs"></span><input type="hidden" id="Tb5Tenseiyokushi.insertTs" name="Tb5Tenseiyokushi.insertTs" />
+          <label th:text="#{Tb5TenseiYokushi.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5TenseiYokushi.insertTs"></span><input type="hidden" id="Tb5TenseiYokushi.insertTs" name="Tb5TenseiYokushi.insertTs" />
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb5Tenseiyokushi.insertUserId}" class="meta">作成者</label><span id="Tb5Tenseiyokushi.insertUserId"></span><input type="hidden" id="Tb5Tenseiyokushi.insertUserId" name="Tb5Tenseiyokushi.insertUserId" />
-          <span id="Tb5Tenseiyokushi.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5Tenseiyokushi.insertUserId" data-destDef="Tb5Tenseiyokushi.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb5TenseiYokushi.insertUserId}" class="meta">作成者</label><span id="Tb5TenseiYokushi.insertUserId"></span><input type="hidden" id="Tb5TenseiYokushi.insertUserId" name="Tb5TenseiYokushi.insertUserId" />
+          <span id="Tb5TenseiYokushi.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiYokushi.insertUserId" data-destDef="Tb5TenseiYokushi.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb5Tenseiyokushi.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5Tenseiyokushi.updateTs"></span><input type="hidden" id="Tb5Tenseiyokushi.updateTs" name="Tb5Tenseiyokushi.updateTs" />
+          <label th:text="#{Tb5TenseiYokushi.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5TenseiYokushi.updateTs"></span><input type="hidden" id="Tb5TenseiYokushi.updateTs" name="Tb5TenseiYokushi.updateTs" />
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb5Tenseiyokushi.updateUserId}" class="meta">更新者</label><span id="Tb5Tenseiyokushi.updateUserId"></span><input type="hidden" id="Tb5Tenseiyokushi.updateUserId" name="Tb5Tenseiyokushi.updateUserId" />
-          <span id="Tb5Tenseiyokushi.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5Tenseiyokushi.updateUserId" data-destDef="Tb5Tenseiyokushi.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb5TenseiYokushi.updateUserId}" class="meta">更新者</label><span id="Tb5TenseiYokushi.updateUserId"></span><input type="hidden" id="Tb5TenseiYokushi.updateUserId" name="Tb5TenseiYokushi.updateUserId" />
+          <span id="Tb5TenseiYokushi.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiYokushi.updateUserId" data-destDef="Tb5TenseiYokushi.updateUserSei:USER_SEI"></span>
         </div>
         <div id="deleteF">
-          <fieldset id="Tb5Tenseiyokushi.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseiyokushi.deleteF}">削除フラグ</legend>
+          <fieldset id="Tb5TenseiYokushi.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiYokushi.deleteF}">削除フラグ</legend>
           </fieldset>
         </div>
         <div id="statusKb">
-          <fieldset id="Tb5Tenseiyokushi.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5Tenseiyokushi.statusKb}">ステータス区分</legend>
+          <fieldset id="Tb5TenseiYokushi.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb5TenseiYokushi.statusKb}">ステータス区分</legend>
           </fieldset>
         </div>
       </fieldset>
       <div class="buttons">
-        <button type="button" id="RefreshTb5Tenseiyokushi" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
-        <a th:href="@{Tb5TenseiyokushiGet.xlsx(baseMei=#{Tb5Tenseiyokushi.h2})}" id="Tb5TenseiyokushiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="button" id="RefreshTb5TenseiYokushi" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb5TenseiYokushiGet.xlsx(baseMei=#{Tb5TenseiYokushi.h2})}" id="Tb5TenseiYokushiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteTb5Tenseiyokushi" type="submit" class="delete" data-action="Tb5TenseiyokushiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5Tenseiyokushi" type="submit" class="permit" data-action="Tb5TenseiyokushiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5Tenseiyokushi" type="submit" class="forbid" data-action="Tb5TenseiyokushiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistTb5Tenseiyokushi" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="DeleteTb5TenseiYokushi" type="submit" class="delete" data-action="Tb5TenseiYokushiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb5TenseiYokushi" type="submit" class="permit" data-action="Tb5TenseiYokushiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb5TenseiYokushi" type="submit" class="forbid" data-action="Tb5TenseiYokushiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb5TenseiYokushi" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
   </div>

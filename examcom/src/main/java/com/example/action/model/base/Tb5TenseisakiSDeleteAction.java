@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseisaki;
+import com.example.entity.Tb5TenseiSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -17,7 +17,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseisakiSDeleteAction extends BaseAction {
+public class Tb5TenseiSakiSDeleteAction extends BaseAction {
 
     /** 転生先一覧削除処理 */
     @Override
@@ -28,7 +28,7 @@ public class Tb5TenseisakiSDeleteAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseisakiGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb5TenseiSakiGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -36,17 +36,17 @@ public class Tb5TenseisakiSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TENSEISAKI_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TENSEI_SAKI_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 
-            Tb5Tenseisaki e = FormValidator.toBean(Tb5Tenseisaki.class.getName(), gridRow);
+            Tb5TenseiSaki e = FormValidator.toBean(Tb5TenseiSaki.class.getName(), gridRow);
 
-            java.util.List<com.example.entity.Tb5TenseisakiDet> tb5TenseisakiDets = e.referTb5TenseisakiDets();
-            if (tb5TenseisakiDets != null) {
-                for (com.example.entity.Tb5TenseisakiDet tb5TenseisakiDet : tb5TenseisakiDets) {
+            java.util.List<com.example.entity.Tb5TenseiSakiDet> tb5TenseiSakiDets = e.referTb5TenseiSakiDets();
+            if (tb5TenseiSakiDets != null) {
+                for (com.example.entity.Tb5TenseiSakiDet tb5TenseiSakiDet : tb5TenseiSakiDets) {
 
-                    if (tb5TenseisakiDet.delete() != 1) {
+                    if (tb5TenseiSakiDet.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
                     }
                 }

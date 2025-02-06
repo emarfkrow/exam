@@ -13,46 +13,46 @@ import jp.co.golorp.emarf.validation.IForm;
  *
  * @author emarfkrow
  */
-public class Tb5Tenseiyokushisaki1RegistForm implements IForm {
+public class Tb5TenseiYokushiSaki1RegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5Tenseiyokushisaki1RegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiYokushiSaki1RegistForm.class);
 
     /** 転生抑止先１ID */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseiyokushisaki1Id;
+    private String tenseiYokushiSaki1Id;
 
     /**
      * @return 転生抑止先１ID
      */
-    public String getTenseiyokushisaki1Id() {
-        return tenseiyokushisaki1Id;
+    public String getTenseiYokushiSaki1Id() {
+        return tenseiYokushiSaki1Id;
     }
 
     /**
      * @param p 転生抑止先１ID
      */
-    public void setTenseiyokushisaki1Id(final String p) {
-        this.tenseiyokushisaki1Id = p;
+    public void setTenseiYokushiSaki1Id(final String p) {
+        this.tenseiYokushiSaki1Id = p;
     }
 
     /** 転生抑止ID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String tenseiyokushiId;
+    private String tenseiYokushiId;
 
     /**
      * @return 転生抑止ID
      */
-    public String getTenseiyokushiId() {
-        return tenseiyokushiId;
+    public String getTenseiYokushiId() {
+        return tenseiYokushiId;
     }
 
     /**
      * @param p 転生抑止ID
      */
-    public void setTenseiyokushiId(final String p) {
-        this.tenseiyokushiId = p;
+    public void setTenseiYokushiId(final String p) {
+        this.tenseiYokushiId = p;
     }
 
     /** 削除フラグ */

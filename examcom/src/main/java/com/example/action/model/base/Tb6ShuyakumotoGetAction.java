@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb6Shuyakumoto;
+import com.example.entity.Tb6ShuyakuMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb6ShuyakumotoGetAction extends BaseAction {
+public class Tb6ShuyakuMotoGetAction extends BaseAction {
 
     /** 集約元照会処理 */
     @Override
@@ -22,31 +22,31 @@ public class Tb6ShuyakumotoGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object shuyakumotoId = postJson.get("shuyakumotoId");
-        if (shuyakumotoId == null) {
-            shuyakumotoId = postJson.get("Tb6Shuyakumoto.shuyakumotoId");
+        Object shuyakuMotoId = postJson.get("shuyakuMotoId");
+        if (shuyakuMotoId == null) {
+            shuyakuMotoId = postJson.get("Tb6ShuyakuMoto.shuyakuMotoId");
         }
-        if (shuyakumotoId == null) {
+        if (shuyakuMotoId == null) {
 
             //転生先になる場合は転生元から情報をコピー
-            Object shuyakusakiId = postJson.get("shuyakusakiId");
-            if (shuyakusakiId == null) {
-                shuyakusakiId = postJson.get("Tb6Shuyakumoto.shuyakusakiId");
+            Object shuyakuSakiId = postJson.get("shuyakuSakiId");
+            if (shuyakuSakiId == null) {
+                shuyakuSakiId = postJson.get("Tb6ShuyakuMoto.shuyakuSakiId");
             }
-            if (shuyakusakiId == null) {
+            if (shuyakuSakiId == null) {
                 return map;
             }
 
-            com.example.entity.Tb6Shuyakusaki tb6Shuyakusaki = com.example.entity.Tb6Shuyakusaki.get(shuyakusakiId);
-            Tb6Shuyakumoto tb6Shuyakumoto = new Tb6Shuyakumoto();
-            tb6Shuyakumoto.setShuyakusakiId(tb6Shuyakusaki.getShuyakusakiId());
+            com.example.entity.Tb6ShuyakuSaki tb6ShuyakuSaki = com.example.entity.Tb6ShuyakuSaki.get(shuyakuSakiId);
+            Tb6ShuyakuMoto tb6ShuyakuMoto = new Tb6ShuyakuMoto();
+            tb6ShuyakuMoto.setShuyakuSakiId(tb6ShuyakuSaki.getShuyakuSakiId());
 
-            map.put("Tb6Shuyakumoto", tb6Shuyakumoto);
+            map.put("Tb6ShuyakuMoto", tb6ShuyakuMoto);
             return map;
         }
 
-        Tb6Shuyakumoto tb6Shuyakumoto = Tb6Shuyakumoto.get(shuyakumotoId);
-        map.put("Tb6Shuyakumoto", tb6Shuyakumoto);
+        Tb6ShuyakuMoto tb6ShuyakuMoto = Tb6ShuyakuMoto.get(shuyakuMotoId);
+        map.put("Tb6ShuyakuMoto", tb6ShuyakuMoto);
         return map;
     }
 

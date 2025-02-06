@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseiyokushisaki1;
+import com.example.entity.Tb5TenseiYokushiSaki1;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,22 +16,22 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5Tenseiyokushisaki1DeleteAction extends BaseAction {
+public class Tb5TenseiYokushiSaki1DeleteAction extends BaseAction {
 
     /** 転生抑止先１削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object tenseiyokushisaki1Id = postJson.get("tenseiyokushisaki1Id");
-        if (tenseiyokushisaki1Id == null) {
-            tenseiyokushisaki1Id = postJson.get("Tb5Tenseiyokushisaki1.tenseiyokushisaki1Id");
+        Object tenseiYokushiSaki1Id = postJson.get("tenseiYokushiSaki1Id");
+        if (tenseiYokushiSaki1Id == null) {
+            tenseiYokushiSaki1Id = postJson.get("Tb5TenseiYokushiSaki1.tenseiYokushiSaki1Id");
         }
-        if (tenseiyokushisaki1Id == null) {
+        if (tenseiYokushiSaki1Id == null) {
             throw new OptLockError("error.cant.delete");
         }
 
-        Tb5Tenseiyokushisaki1 e = FormValidator.toBean(Tb5Tenseiyokushisaki1.class.getName(), postJson);
+        Tb5TenseiYokushiSaki1 e = FormValidator.toBean(Tb5TenseiYokushiSaki1.class.getName(), postJson);
 
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseimoto;
+import com.example.entity.Tb5TenseiMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 
@@ -13,7 +13,7 @@ import jp.co.golorp.emarf.action.BaseAction;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoGetAction extends BaseAction {
+public class Tb5TenseiMotoGetAction extends BaseAction {
 
     /** 転生元照会処理 */
     @Override
@@ -22,17 +22,17 @@ public class Tb5TenseimotoGetAction extends BaseAction {
         Map<String, Object> map = new HashMap<String, Object>();
 
         // 主キーが不足していたら終了
-        Object tenseimotoId = postJson.get("tenseimotoId");
-        if (tenseimotoId == null) {
-            tenseimotoId = postJson.get("Tb5Tenseimoto.tenseimotoId");
+        Object tenseiMotoId = postJson.get("tenseiMotoId");
+        if (tenseiMotoId == null) {
+            tenseiMotoId = postJson.get("Tb5TenseiMoto.tenseiMotoId");
         }
-        if (tenseimotoId == null) {
+        if (tenseiMotoId == null) {
             return map;
         }
 
-        Tb5Tenseimoto tb5Tenseimoto = Tb5Tenseimoto.get(tenseimotoId);
-        tb5Tenseimoto.referTb5TenseimotoDets();
-        map.put("Tb5Tenseimoto", tb5Tenseimoto);
+        Tb5TenseiMoto tb5TenseiMoto = Tb5TenseiMoto.get(tenseiMotoId);
+        tb5TenseiMoto.referTb5TenseiMotoDets();
+        map.put("Tb5TenseiMoto", tb5TenseiMoto);
         return map;
     }
 

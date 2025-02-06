@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb5Tenseimoto;
+import com.example.entity.Tb5TenseiMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,7 +16,7 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb5TenseimotoRegistAction extends BaseAction {
+public class Tb5TenseiMotoRegistAction extends BaseAction {
 
     /** 転生元登録処理 */
     @Override
@@ -24,11 +24,11 @@ public class Tb5TenseimotoRegistAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        Tb5Tenseimoto e = FormValidator.toBean(Tb5Tenseimoto.class.getName(), postJson);
+        Tb5TenseiMoto e = FormValidator.toBean(Tb5TenseiMoto.class.getName(), postJson);
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseimotoId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getTenseiMotoId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

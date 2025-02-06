@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Tb4Sanshomoto;
+import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -16,24 +16,24 @@ import jp.co.golorp.emarf.validation.FormValidator;
  *
  * @author emarfkrow
  */
-public class Tb4SanshomotoPermitAction extends BaseAction {
+public class Tb4SanshoMotoPermitAction extends BaseAction {
 
     /** 参照元承認処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sanshomotoId = postJson.get("sanshomotoId");
-        if (sanshomotoId == null) {
-            sanshomotoId = postJson.get("Tb4Sanshomoto.sanshomotoId");
+        Object sanshoMotoId = postJson.get("sanshoMotoId");
+        if (sanshoMotoId == null) {
+            sanshoMotoId = postJson.get("Tb4SanshoMoto.sanshoMotoId");
         }
-        if (sanshomotoId == null) {
+        if (sanshoMotoId == null) {
             throw new OptLockError("error.cant.permit");
         }
 
-        Tb4Sanshomoto e = FormValidator.toBean(Tb4Sanshomoto.class.getName(), postJson);
+        Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), postJson);
 
-        Tb4Sanshomoto f = Tb4Sanshomoto.get(e.getSanshomotoId());
+        Tb4SanshoMoto f = Tb4SanshoMoto.get(e.getSanshoMotoId());
         f.setStatusKb(1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.permit");
