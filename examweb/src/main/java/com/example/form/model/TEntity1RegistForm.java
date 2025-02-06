@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.util.Messages;
  * @author toshiyuki
  *
  */
-public class TEntity1RegistForm extends com.example.form.model.base.Tb4SanshomotoRegistForm {
+public class TEntity1RegistForm extends com.example.form.model.base.Tb4SanshoMotoRegistForm {
 
     /**
      *
