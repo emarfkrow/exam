@@ -35,7 +35,8 @@ public class Mb7SanshoSRegistAction extends BaseAction {
                 continue;
             }
 
-            Mb7Sansho e = FormValidator.toBean(Mb7Sansho.class.getName(), gridRow);
+            String className = Mb7Sansho.class.getName();
+            Mb7Sansho e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

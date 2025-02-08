@@ -35,7 +35,8 @@ public class Tb5TenseiSakiDetSRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), gridRow);
+            String className = Tb5TenseiSakiDet.class.getName();
+            Tb5TenseiSakiDet e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

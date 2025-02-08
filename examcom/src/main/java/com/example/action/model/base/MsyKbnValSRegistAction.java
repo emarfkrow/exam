@@ -35,7 +35,8 @@ public class MsyKbnValSRegistAction extends BaseAction {
                 continue;
             }
 
-            MsyKbnVal e = FormValidator.toBean(MsyKbnVal.class.getName(), gridRow);
+            String className = MsyKbnVal.class.getName();
+            MsyKbnVal e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

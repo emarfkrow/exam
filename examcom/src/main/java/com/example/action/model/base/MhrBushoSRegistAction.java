@@ -35,7 +35,8 @@ public class MhrBushoSRegistAction extends BaseAction {
                 continue;
             }
 
-            MhrBusho e = FormValidator.toBean(MhrBusho.class.getName(), gridRow);
+            String className = MhrBusho.class.getName();
+            MhrBusho e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

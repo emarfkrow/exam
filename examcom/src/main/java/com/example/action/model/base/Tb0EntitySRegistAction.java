@@ -35,7 +35,8 @@ public class Tb0EntitySRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb0Entity e = FormValidator.toBean(Tb0Entity.class.getName(), gridRow);
+            String className = Tb0Entity.class.getName();
+            Tb0Entity e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

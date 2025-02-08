@@ -35,7 +35,8 @@ public class Tb8HenkanMotoSRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb8HenkanMoto e = FormValidator.toBean(Tb8HenkanMoto.class.getName(), gridRow);
+            String className = Tb8HenkanMoto.class.getName();
+            Tb8HenkanMoto e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

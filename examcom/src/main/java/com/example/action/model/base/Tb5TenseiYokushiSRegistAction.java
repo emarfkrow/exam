@@ -35,7 +35,8 @@ public class Tb5TenseiYokushiSRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb5TenseiYokushi e = FormValidator.toBean(Tb5TenseiYokushi.class.getName(), gridRow);
+            String className = Tb5TenseiYokushi.class.getName();
+            Tb5TenseiYokushi e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

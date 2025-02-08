@@ -35,7 +35,8 @@ public class Mb7SeiyakuSRegistAction extends BaseAction {
                 continue;
             }
 
-            Mb7Seiyaku e = FormValidator.toBean(Mb7Seiyaku.class.getName(), gridRow);
+            String className = Mb7Seiyaku.class.getName();
+            Mb7Seiyaku e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

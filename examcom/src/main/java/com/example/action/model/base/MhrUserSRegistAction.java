@@ -35,7 +35,8 @@ public class MhrUserSRegistAction extends BaseAction {
                 continue;
             }
 
-            MhrUser e = FormValidator.toBean(MhrUser.class.getName(), gridRow);
+            String className = MhrUser.class.getName();
+            MhrUser e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

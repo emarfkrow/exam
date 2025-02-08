@@ -35,7 +35,8 @@ public class MhrNinkaSRegistAction extends BaseAction {
                 continue;
             }
 
-            MhrNinka e = FormValidator.toBean(MhrNinka.class.getName(), gridRow);
+            String className = MhrNinka.class.getName();
+            MhrNinka e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

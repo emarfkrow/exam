@@ -35,7 +35,8 @@ public class Tb3Kyodai3SRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb3Kyodai3 e = FormValidator.toBean(Tb3Kyodai3.class.getName(), gridRow);
+            String className = Tb3Kyodai3.class.getName();
+            Tb3Kyodai3 e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

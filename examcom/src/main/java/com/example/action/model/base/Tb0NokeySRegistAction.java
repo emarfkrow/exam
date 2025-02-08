@@ -35,7 +35,8 @@ public class Tb0NokeySRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb0Nokey e = FormValidator.toBean(Tb0Nokey.class.getName(), gridRow);
+            String className = Tb0Nokey.class.getName();
+            Tb0Nokey e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

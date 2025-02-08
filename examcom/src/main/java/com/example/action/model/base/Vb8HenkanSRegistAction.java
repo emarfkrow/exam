@@ -35,7 +35,10 @@ public class Vb8HenkanSRegistAction extends BaseAction {
                 continue;
             }
 
-            Vb8Henkan e = FormValidator.toBean(Vb8Henkan.class.getName(), gridRow);
+            String className = Vb8Henkan.class.getName();
+            // 変換ビューの場合
+            className = "com.example.entity." + gridRow.get("TABLE_NAME").toString();
+            jp.co.golorp.emarf.entity.IEntity e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

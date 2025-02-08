@@ -35,7 +35,8 @@ public class Tb1MagoSRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb1Mago e = FormValidator.toBean(Tb1Mago.class.getName(), gridRow);
+            String className = Tb1Mago.class.getName();
+            Tb1Mago e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

@@ -35,7 +35,8 @@ public class MhrShozokuSRegistAction extends BaseAction {
                 continue;
             }
 
-            MhrShozoku e = FormValidator.toBean(MhrShozoku.class.getName(), gridRow);
+            String className = MhrShozoku.class.getName();
+            MhrShozoku e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

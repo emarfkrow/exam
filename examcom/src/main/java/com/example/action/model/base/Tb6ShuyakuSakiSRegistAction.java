@@ -35,7 +35,8 @@ public class Tb6ShuyakuSakiSRegistAction extends BaseAction {
                 continue;
             }
 
-            Tb6ShuyakuSaki e = FormValidator.toBean(Tb6ShuyakuSaki.class.getName(), gridRow);
+            String className = Tb6ShuyakuSaki.class.getName();
+            Tb6ShuyakuSaki e = FormValidator.toBean(className, gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
