@@ -1419,3 +1419,17 @@ ZOrder=74
 Page=MAIN
 Left=2950
 Top=2000
+
+[View]
+PName=VB8_ETSURAN
+LName=閲覧ビュー
+Comment=
+Query=SELECT\n    hm.henkan_moto_id\n    , hm.henkan_moto_info\n    , hm.hikitsugu_info AS hikitsuida_info      -- 「HIKITSUGU_INFO」に別名を付ける\nFROM\n    tb8_henkan_moto hm\n
+LNameByComment=1
+Color=$000000
+BkColor=$FFFFFF
+Position="Main",2950,2200
+ZOrder=75
+Page=Main
+Left=2950
+Top=2200
