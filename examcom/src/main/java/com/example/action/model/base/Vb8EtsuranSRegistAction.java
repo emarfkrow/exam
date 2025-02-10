@@ -35,8 +35,7 @@ public class Vb8EtsuranSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Vb8Etsuran.class.getName();
-            Vb8Etsuran e = FormValidator.toBean(className, gridRow);
+            Vb8Etsuran e = FormValidator.toBean(Vb8Etsuran.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

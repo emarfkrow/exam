@@ -35,8 +35,7 @@ public class MsyTaxSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = MsyTax.class.getName();
-            MsyTax e = FormValidator.toBean(className, gridRow);
+            MsyTax e = FormValidator.toBean(MsyTax.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

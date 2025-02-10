@@ -35,8 +35,7 @@ public class Mb4CdsanshoSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Mb4Cdsansho.class.getName();
-            Mb4Cdsansho e = FormValidator.toBean(className, gridRow);
+            Mb4Cdsansho e = FormValidator.toBean(Mb4Cdsansho.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

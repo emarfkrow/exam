@@ -35,8 +35,7 @@ public class MsyKadobiSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = MsyKadobi.class.getName();
-            MsyKadobi e = FormValidator.toBean(className, gridRow);
+            MsyKadobi e = FormValidator.toBean(MsyKadobi.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

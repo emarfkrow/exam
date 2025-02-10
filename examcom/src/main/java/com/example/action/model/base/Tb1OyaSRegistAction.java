@@ -35,8 +35,7 @@ public class Tb1OyaSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Tb1Oya.class.getName();
-            Tb1Oya e = FormValidator.toBean(className, gridRow);
+            Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

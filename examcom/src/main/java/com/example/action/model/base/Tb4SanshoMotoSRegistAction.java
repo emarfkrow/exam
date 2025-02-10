@@ -35,8 +35,7 @@ public class Tb4SanshoMotoSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Tb4SanshoMoto.class.getName();
-            Tb4SanshoMoto e = FormValidator.toBean(className, gridRow);
+            Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

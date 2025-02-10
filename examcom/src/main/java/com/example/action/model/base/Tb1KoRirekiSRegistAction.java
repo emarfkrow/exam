@@ -35,8 +35,7 @@ public class Tb1KoRirekiSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Tb1KoRireki.class.getName();
-            Tb1KoRireki e = FormValidator.toBean(className, gridRow);
+            Tb1KoRireki e = FormValidator.toBean(Tb1KoRireki.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

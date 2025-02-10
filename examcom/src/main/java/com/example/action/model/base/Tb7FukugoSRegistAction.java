@@ -35,8 +35,7 @@ public class Tb7FukugoSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Tb7Fukugo.class.getName();
-            Tb7Fukugo e = FormValidator.toBean(className, gridRow);
+            Tb7Fukugo e = FormValidator.toBean(Tb7Fukugo.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

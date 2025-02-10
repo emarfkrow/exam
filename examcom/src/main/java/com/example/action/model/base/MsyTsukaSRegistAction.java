@@ -35,8 +35,7 @@ public class MsyTsukaSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = MsyTsuka.class.getName();
-            MsyTsuka e = FormValidator.toBean(className, gridRow);
+            MsyTsuka e = FormValidator.toBean(MsyTsuka.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;

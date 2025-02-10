@@ -35,8 +35,7 @@ public class Vb8HenkanSRegistAction extends BaseAction {
                 continue;
             }
 
-            String className = Vb8Henkan.class.getName();
-            Vb8Henkan e = FormValidator.toBean(className, gridRow);
+            Vb8Henkan e = FormValidator.toBean(Vb8Henkan.class.getName(), gridRow);
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
