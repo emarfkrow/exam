@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Kyodai3.title}">兄弟３</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2Kyodai3GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Kyodai3.h2}">h2</h2>
+    <form name="Tb2Kyodai3RegistForm" action="Tb2Kyodai3Regist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb2Kyodai3.legend}">legend</legend>
+        <div id="kyodaiId">
+          <label for="Tb2Kyodai3.kyodaiId" th:text="#{Tb2Kyodai3.kyodaiId}">兄弟ID</label><input type="text" id="Tb2Kyodai3.kyodaiId" name="Tb2Kyodai3.kyodaiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="kyodai3Info">
+          <label for="Tb2Kyodai3.kyodai3Info" th:text="#{Tb2Kyodai3.kyodai3Info}">兄弟３情報</label><input type="text" id="Tb2Kyodai3.kyodai3Info" name="Tb2Kyodai3.kyodai3Info" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb2Kyodai3.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Kyodai3.insertTs"></span><input type="hidden" id="Tb2Kyodai3.insertTs" name="Tb2Kyodai3.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2Kyodai3.insertUserId}" class="meta">作成者</label><span id="Tb2Kyodai3.insertUserId"></span><input type="hidden" id="Tb2Kyodai3.insertUserId" name="Tb2Kyodai3.insertUserId" />
+          <span id="Tb2Kyodai3.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Kyodai3.insertUserId" data-destDef="Tb2Kyodai3.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2Kyodai3.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2Kyodai3.updateTs"></span><input type="hidden" id="Tb2Kyodai3.updateTs" name="Tb2Kyodai3.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2Kyodai3.updateUserId}" class="meta">更新者</label><span id="Tb2Kyodai3.updateUserId"></span><input type="hidden" id="Tb2Kyodai3.updateUserId" name="Tb2Kyodai3.updateUserId" />
+          <span id="Tb2Kyodai3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Kyodai3.updateUserId" data-destDef="Tb2Kyodai3.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Kyodai3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Kyodai3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Kyodai.legend}">legend</legend>
+        <div id="kyodaiInfo">
+          <label for="Tb2Kyodai.kyodaiInfo" th:text="#{Tb2Kyodai.kyodaiInfo}">兄弟情報</label><input type="text" id="Tb2Kyodai.kyodaiInfo" name="Tb2Kyodai.kyodaiInfo" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Kyodai.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Kyodai.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Kyodai.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Kyodai2.legend}">legend</legend>
+        <div id="kyodai2Info">
+          <label for="Tb2Kyodai2.kyodai2Info" th:text="#{Tb2Kyodai2.kyodai2Info}">兄弟２情報</label><input type="text" id="Tb2Kyodai2.kyodai2Info" name="Tb2Kyodai2.kyodai2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Kyodai2.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Kyodai2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Kyodai2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb2Kyodai3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb2Kyodai3Get.xlsx(baseMei=#{Tb2Kyodai3.h2})}" id="Tb2Kyodai3Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb2Kyodai3" type="submit" class="delete" data-action="Tb2Kyodai3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Kyodai3" type="submit" class="permit" data-action="Tb2Kyodai3Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Kyodai3" type="submit" class="forbid" data-action="Tb2Kyodai3Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb2Kyodai3" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

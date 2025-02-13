@@ -301,46 +301,19 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 兄弟２の登録
-        if (this.tb3Kyodai2 != null) {
-            this.tb3Kyodai2.setOyaId(this.getOyaId());
-            this.tb3Kyodai2.setKoBn(this.getKoBn());
-            this.tb3Kyodai2.insert(now, execId);
+        // 子２の登録
+        if (this.tb1Ko2 != null) {
+            this.tb1Ko2.setOyaId(this.getOyaId());
+            this.tb1Ko2.setKoBn(this.getKoBn());
+            this.tb1Ko2.insert(now, execId);
         }
 
-        // 兄弟３の登録
-        if (this.tb3Kyodai3 != null) {
-            this.tb3Kyodai3.setOyaId(this.getOyaId());
-            this.tb3Kyodai3.setKoBn(this.getKoBn());
-            this.tb3Kyodai3.insert(now, execId);
+        // 子３の登録
+        if (this.tb1Ko3 != null) {
+            this.tb1Ko3.setOyaId(this.getOyaId());
+            this.tb1Ko3.setKoBn(this.getKoBn());
+            this.tb1Ko3.insert(now, execId);
         }
-
-        // 兄弟４の登録
-        if (this.tb3Kyodai4 != null) {
-            this.tb3Kyodai4.setOyaId(this.getOyaId());
-            this.tb3Kyodai4.setKoBn(this.getKoBn());
-            this.tb3Kyodai4.insert(now, execId);
-        }
-
-        // 兄弟５の登録
-        if (this.tb3Kyodai5 != null) {
-            this.tb3Kyodai5.setOyaId(this.getOyaId());
-            this.tb3Kyodai5.setKoBn(this.getKoBn());
-            this.tb3Kyodai5.insert(now, execId);
-        }
-
-        // 履歴の登録
-        Tb1KoRireki tb1KoRireki = new Tb1KoRireki();
-        tb1KoRireki.setOyaId(this.oyaId);
-        tb1KoRireki.setKoBn(this.koBn);
-        tb1KoRireki.setKoInfo(this.koInfo);
-        tb1KoRireki.setInsertTs(this.insertTs);
-        tb1KoRireki.setInsertUserId(this.insertUserId);
-        tb1KoRireki.setUpdateTs(this.updateTs);
-        tb1KoRireki.setUpdateUserId(this.updateUserId);
-        tb1KoRireki.setDeleteF(this.deleteF);
-        tb1KoRireki.setStatusKb(this.statusKb);
-        tb1KoRireki.insert(now, execId);
 
         // 子の登録
         String sql = "INSERT INTO TB1_KO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
@@ -417,62 +390,27 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 兄弟２の登録
-        if (this.tb3Kyodai2 != null) {
-            tb3Kyodai2.setOyaId(this.getOyaId());
-            tb3Kyodai2.setKoBn(this.getKoBn());
+        // 子２の登録
+        if (this.tb1Ko2 != null) {
+            tb1Ko2.setOyaId(this.getOyaId());
+            tb1Ko2.setKoBn(this.getKoBn());
             try {
-                tb3Kyodai2.insert(now, execId);
+                tb1Ko2.insert(now, execId);
             } catch (Exception e) {
-                tb3Kyodai2.update(now, execId);
+                tb1Ko2.update(now, execId);
             }
         }
 
-        // 兄弟３の登録
-        if (this.tb3Kyodai3 != null) {
-            tb3Kyodai3.setOyaId(this.getOyaId());
-            tb3Kyodai3.setKoBn(this.getKoBn());
+        // 子３の登録
+        if (this.tb1Ko3 != null) {
+            tb1Ko3.setOyaId(this.getOyaId());
+            tb1Ko3.setKoBn(this.getKoBn());
             try {
-                tb3Kyodai3.insert(now, execId);
+                tb1Ko3.insert(now, execId);
             } catch (Exception e) {
-                tb3Kyodai3.update(now, execId);
+                tb1Ko3.update(now, execId);
             }
         }
-
-        // 兄弟４の登録
-        if (this.tb3Kyodai4 != null) {
-            tb3Kyodai4.setOyaId(this.getOyaId());
-            tb3Kyodai4.setKoBn(this.getKoBn());
-            try {
-                tb3Kyodai4.insert(now, execId);
-            } catch (Exception e) {
-                tb3Kyodai4.update(now, execId);
-            }
-        }
-
-        // 兄弟５の登録
-        if (this.tb3Kyodai5 != null) {
-            tb3Kyodai5.setOyaId(this.getOyaId());
-            tb3Kyodai5.setKoBn(this.getKoBn());
-            try {
-                tb3Kyodai5.insert(now, execId);
-            } catch (Exception e) {
-                tb3Kyodai5.update(now, execId);
-            }
-        }
-
-        // 履歴の登録
-        Tb1KoRireki tb1KoRireki = new Tb1KoRireki();
-        tb1KoRireki.setOyaId(this.oyaId);
-        tb1KoRireki.setKoBn(this.koBn);
-        tb1KoRireki.setKoInfo(this.koInfo);
-        tb1KoRireki.setInsertTs(this.insertTs);
-        tb1KoRireki.setInsertUserId(this.insertUserId);
-        tb1KoRireki.setUpdateTs(this.updateTs);
-        tb1KoRireki.setUpdateUserId(this.updateUserId);
-        tb1KoRireki.setDeleteF(this.deleteF);
-        tb1KoRireki.setStatusKb(this.statusKb);
-        tb1KoRireki.insert(now, execId);
 
         // 子の登録
         String sql = "UPDATE TB1_KO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
@@ -505,24 +443,14 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 兄弟２の削除
-        if (this.tb3Kyodai2 != null) {
-            this.tb3Kyodai2.delete();
+        // 子２の削除
+        if (this.tb1Ko2 != null) {
+            this.tb1Ko2.delete();
         }
 
-        // 兄弟３の削除
-        if (this.tb3Kyodai3 != null) {
-            this.tb3Kyodai3.delete();
-        }
-
-        // 兄弟４の削除
-        if (this.tb3Kyodai4 != null) {
-            this.tb3Kyodai4.delete();
-        }
-
-        // 兄弟５の削除
-        if (this.tb3Kyodai5 != null) {
-            this.tb3Kyodai5.delete();
+        // 子３の削除
+        if (this.tb1Ko3 != null) {
+            this.tb1Ko3.delete();
         }
 
         // 子の削除
@@ -557,104 +485,54 @@ public class Tb1Ko implements IEntity {
         return map;
     }
 
-    /** 兄弟２ */
-    private Tb3Kyodai2 tb3Kyodai2;
+    /** 子２ */
+    private Tb1Ko2 tb1Ko2;
 
-    /** @return 兄弟２ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai2")
-    public Tb3Kyodai2 getTb3Kyodai2() {
-        return this.tb3Kyodai2;
+    /** @return 子２ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko2")
+    public Tb1Ko2 getTb1Ko2() {
+        return this.tb1Ko2;
     }
 
-    /** @param p 兄弟２ */
-    public void setTb3Kyodai2(final Tb3Kyodai2 p) {
-        this.tb3Kyodai2 = p;
+    /** @param p 子２ */
+    public void setTb1Ko2(final Tb1Ko2 p) {
+        this.tb1Ko2 = p;
     }
 
-    /** @return 兄弟２ */
-    public Tb3Kyodai2 referTb3Kyodai2() {
-        if (this.tb3Kyodai2 == null) {
+    /** @return 子２ */
+    public Tb1Ko2 referTb1Ko2() {
+        if (this.tb1Ko2 == null) {
             try {
-                this.tb3Kyodai2 = Tb3Kyodai2.get(this.oyaId, this.koBn);
+                this.tb1Ko2 = Tb1Ko2.get(this.oyaId, this.koBn);
             } catch (jp.co.golorp.emarf.exception.NoDataError e) {
             }
         }
-        return this.tb3Kyodai2;
+        return this.tb1Ko2;
     }
 
-    /** 兄弟３ */
-    private Tb3Kyodai3 tb3Kyodai3;
+    /** 子３ */
+    private Tb1Ko3 tb1Ko3;
 
-    /** @return 兄弟３ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai3")
-    public Tb3Kyodai3 getTb3Kyodai3() {
-        return this.tb3Kyodai3;
+    /** @return 子３ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko3")
+    public Tb1Ko3 getTb1Ko3() {
+        return this.tb1Ko3;
     }
 
-    /** @param p 兄弟３ */
-    public void setTb3Kyodai3(final Tb3Kyodai3 p) {
-        this.tb3Kyodai3 = p;
+    /** @param p 子３ */
+    public void setTb1Ko3(final Tb1Ko3 p) {
+        this.tb1Ko3 = p;
     }
 
-    /** @return 兄弟３ */
-    public Tb3Kyodai3 referTb3Kyodai3() {
-        if (this.tb3Kyodai3 == null) {
+    /** @return 子３ */
+    public Tb1Ko3 referTb1Ko3() {
+        if (this.tb1Ko3 == null) {
             try {
-                this.tb3Kyodai3 = Tb3Kyodai3.get(this.oyaId, this.koBn);
+                this.tb1Ko3 = Tb1Ko3.get(this.oyaId, this.koBn);
             } catch (jp.co.golorp.emarf.exception.NoDataError e) {
             }
         }
-        return this.tb3Kyodai3;
-    }
-
-    /** 兄弟４ */
-    private Tb3Kyodai4 tb3Kyodai4;
-
-    /** @return 兄弟４ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai4")
-    public Tb3Kyodai4 getTb3Kyodai4() {
-        return this.tb3Kyodai4;
-    }
-
-    /** @param p 兄弟４ */
-    public void setTb3Kyodai4(final Tb3Kyodai4 p) {
-        this.tb3Kyodai4 = p;
-    }
-
-    /** @return 兄弟４ */
-    public Tb3Kyodai4 referTb3Kyodai4() {
-        if (this.tb3Kyodai4 == null) {
-            try {
-                this.tb3Kyodai4 = Tb3Kyodai4.get(this.oyaId, this.koBn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tb3Kyodai4;
-    }
-
-    /** 兄弟５ */
-    private Tb3Kyodai5 tb3Kyodai5;
-
-    /** @return 兄弟５ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai5")
-    public Tb3Kyodai5 getTb3Kyodai5() {
-        return this.tb3Kyodai5;
-    }
-
-    /** @param p 兄弟５ */
-    public void setTb3Kyodai5(final Tb3Kyodai5 p) {
-        this.tb3Kyodai5 = p;
-    }
-
-    /** @return 兄弟５ */
-    public Tb3Kyodai5 referTb3Kyodai5() {
-        if (this.tb3Kyodai5 == null) {
-            try {
-                this.tb3Kyodai5 = Tb3Kyodai5.get(this.oyaId, this.koBn);
-            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
-            }
-        }
-        return this.tb3Kyodai5;
+        return this.tb1Ko3;
     }
 
     /** 孫のリスト */

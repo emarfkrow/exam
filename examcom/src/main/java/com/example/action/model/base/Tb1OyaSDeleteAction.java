@@ -46,7 +46,7 @@ public class Tb1OyaSDeleteAction extends BaseAction {
             if (tb1Kos != null) {
                 for (com.example.entity.Tb1Ko tb1Ko : tb1Kos) {
 
-                    // child:Tb1Mago, parents:5
+                    // child:Tb1Mago, parents:2
 
                     if (tb1Ko.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
@@ -54,49 +54,11 @@ public class Tb1OyaSDeleteAction extends BaseAction {
                 }
             }
 
-            java.util.List<com.example.entity.Tb3Kyodai2> tb3Kyodai2s = e.referTb3Kyodai2s();
-            if (tb3Kyodai2s != null) {
-                for (com.example.entity.Tb3Kyodai2 tb3Kyodai2 : tb3Kyodai2s) {
+            java.util.List<com.example.entity.Tb1Ko2> tb1Ko2s = e.referTb1Ko2s();
+            if (tb1Ko2s != null) {
+                for (com.example.entity.Tb1Ko2 tb1Ko2 : tb1Ko2s) {
 
-                    // child:Tb1Mago, parents:5
-
-                    if (tb3Kyodai2.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
-                    }
-                }
-            }
-
-            java.util.List<com.example.entity.Tb3Kyodai3> tb3Kyodai3s = e.referTb3Kyodai3s();
-            if (tb3Kyodai3s != null) {
-                for (com.example.entity.Tb3Kyodai3 tb3Kyodai3 : tb3Kyodai3s) {
-
-                    // child:Tb1Mago, parents:5
-
-                    if (tb3Kyodai3.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
-                    }
-                }
-            }
-
-            java.util.List<com.example.entity.Tb3Kyodai4> tb3Kyodai4s = e.referTb3Kyodai4s();
-            if (tb3Kyodai4s != null) {
-                for (com.example.entity.Tb3Kyodai4 tb3Kyodai4 : tb3Kyodai4s) {
-
-                    // child:Tb1Mago, parents:5
-
-                    if (tb3Kyodai4.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
-                    }
-                }
-            }
-
-            java.util.List<com.example.entity.Tb3Kyodai5> tb3Kyodai5s = e.referTb3Kyodai5s();
-            if (tb3Kyodai5s != null) {
-                for (com.example.entity.Tb3Kyodai5 tb3Kyodai5 : tb3Kyodai5s) {
-
-                    // child:Tb1Mago, parents:5
-
-                    if (tb3Kyodai5.delete() != 1) {
+                    if (tb1Ko2.delete() != 1) {
                         throw new OptLockError("error.cant.delete");
                     }
                 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb3Rireki.title}">履歴</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb3RirekiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb3Rireki.h2}">h2</h2>
+    <form name="Tb3RirekiRegistForm" action="Tb3RirekiRegist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb3RirekiMoto.legend}">legend</legend>
+        <div id="rirekiMotoId">
+          <label for="Tb3RirekiMoto.rirekiMotoId" th:text="#{Tb3RirekiMoto.rirekiMotoId}">履歴元ID</label><input type="text" id="Tb3RirekiMoto.rirekiMotoId" name="Tb3RirekiMoto.rirekiMotoId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="rirekiMotoInfo">
+          <label for="Tb3RirekiMoto.rirekiMotoInfo" th:text="#{Tb3RirekiMoto.rirekiMotoInfo}">履歴元情報</label><input type="text" id="Tb3RirekiMoto.rirekiMotoInfo" name="Tb3RirekiMoto.rirekiMotoInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb3RirekiMoto.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb3RirekiMoto.insertTs"></span><input type="hidden" id="Tb3RirekiMoto.insertTs" name="Tb3RirekiMoto.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb3RirekiMoto.insertUserId}" class="meta">作成者</label><span id="Tb3RirekiMoto.insertUserId"></span><input type="hidden" id="Tb3RirekiMoto.insertUserId" name="Tb3RirekiMoto.insertUserId" />
+          <span id="Tb3RirekiMoto.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3RirekiMoto.insertUserId" data-destDef="Tb3RirekiMoto.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb3RirekiMoto.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb3RirekiMoto.updateTs"></span><input type="hidden" id="Tb3RirekiMoto.updateTs" name="Tb3RirekiMoto.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb3RirekiMoto.updateUserId}" class="meta">更新者</label><span id="Tb3RirekiMoto.updateUserId"></span><input type="hidden" id="Tb3RirekiMoto.updateUserId" name="Tb3RirekiMoto.updateUserId" />
+          <span id="Tb3RirekiMoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3RirekiMoto.updateUserId" data-destDef="Tb3RirekiMoto.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb3RirekiMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3RirekiMoto.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3RirekiMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3RirekiMoto.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb3Rireki.legend}">legend</legend>
+        <div id="rirekiMotoId">
+          <label for="Tb3Rireki.rirekiMotoId" th:text="#{Tb3Rireki.rirekiMotoId}">履歴元ID</label><input type="text" id="Tb3Rireki.rirekiMotoId" name="Tb3Rireki.rirekiMotoId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="rirekiBn">
+          <label for="Tb3Rireki.rirekiBn" th:text="#{Tb3Rireki.rirekiBn}">履歴枝番</label><input type="text" id="Tb3Rireki.rirekiBn" name="Tb3Rireki.rirekiBn" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="rirekiMotoInfo">
+          <label for="Tb3Rireki.rirekiMotoInfo" th:text="#{Tb3Rireki.rirekiMotoInfo}">履歴元情報</label><input type="text" id="Tb3Rireki.rirekiMotoInfo" name="Tb3Rireki.rirekiMotoInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb3Rireki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb3Rireki.insertTs"></span><input type="hidden" id="Tb3Rireki.insertTs" name="Tb3Rireki.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb3Rireki.insertUserId}" class="meta">作成者</label><span id="Tb3Rireki.insertUserId"></span><input type="hidden" id="Tb3Rireki.insertUserId" name="Tb3Rireki.insertUserId" />
+          <span id="Tb3Rireki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3Rireki.insertUserId" data-destDef="Tb3Rireki.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb3Rireki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb3Rireki.updateTs"></span><input type="hidden" id="Tb3Rireki.updateTs" name="Tb3Rireki.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb3Rireki.updateUserId}" class="meta">更新者</label><span id="Tb3Rireki.updateUserId"></span><input type="hidden" id="Tb3Rireki.updateUserId" name="Tb3Rireki.updateUserId" />
+          <span id="Tb3Rireki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3Rireki.updateUserId" data-destDef="Tb3Rireki.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb3Rireki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Rireki.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Rireki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Rireki.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb3Rireki" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb3RirekiGet.xlsx(baseMei=#{Tb3Rireki.h2})}" id="Tb3RirekiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb3Rireki" type="submit" class="delete" data-action="Tb3RirekiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb3Rireki" type="submit" class="permit" data-action="Tb3RirekiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb3Rireki" type="submit" class="forbid" data-action="Tb3RirekiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb3Rireki" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

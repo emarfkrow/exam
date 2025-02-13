@@ -45,7 +45,7 @@ public class Tb1KoSDeleteAction extends BaseAction {
 
             Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), gridRow);
 
-            // child:Tb1Mago, parents:5
+            // child:Tb1Mago, parents:2
 
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");

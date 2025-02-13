@@ -12,10 +12,7 @@
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
-<script th:src="@{/model/Tb3Kyodai2GridColumns.js}"></script>
-<script th:src="@{/model/Tb3Kyodai3GridColumns.js}"></script>
-<script th:src="@{/model/Tb3Kyodai4GridColumns.js}"></script>
-<script th:src="@{/model/Tb3Kyodai5GridColumns.js}"></script>
+<script th:src="@{/model/Tb1Ko2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -57,18 +54,9 @@
       <h3 th:text="#{Tb1Ko.h3}">h3</h3>
       <a th:href="@{/model/Tb1Ko.html}" id="Tb1Ko" target="dialog" th:text="#{Tb1Ko.add}" class="addChild" tabindex="-1">子</a>
       <div id="Tb1KoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}"></div>
-      <h3 th:text="#{Tb3Kyodai2.h3}">h3</h3>
-      <a th:href="@{/model/Tb3Kyodai2.html}" id="Tb3Kyodai2" target="dialog" th:text="#{Tb3Kyodai2.add}" class="addChild" tabindex="-1">兄弟２</a>
-      <div id="Tb3Kyodai2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai2.html}"></div>
-      <h3 th:text="#{Tb3Kyodai3.h3}">h3</h3>
-      <a th:href="@{/model/Tb3Kyodai3.html}" id="Tb3Kyodai3" target="dialog" th:text="#{Tb3Kyodai3.add}" class="addChild" tabindex="-1">兄弟３</a>
-      <div id="Tb3Kyodai3Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai3.html}"></div>
-      <h3 th:text="#{Tb3Kyodai4.h3}">h3</h3>
-      <a th:href="@{/model/Tb3Kyodai4.html}" id="Tb3Kyodai4" target="dialog" th:text="#{Tb3Kyodai4.add}" class="addChild" tabindex="-1">兄弟４</a>
-      <div id="Tb3Kyodai4Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai4.html}"></div>
-      <h3 th:text="#{Tb3Kyodai5.h3}">h3</h3>
-      <a th:href="@{/model/Tb3Kyodai5.html}" id="Tb3Kyodai5" target="dialog" th:text="#{Tb3Kyodai5.add}" class="addChild" tabindex="-1">兄弟５</a>
-      <div id="Tb3Kyodai5Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb3Kyodai5.html}"></div>
+      <h3 th:text="#{Tb1Ko2.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Ko2.html}" id="Tb1Ko2" target="dialog" th:text="#{Tb1Ko2.add}" class="addChild" tabindex="-1">子２</a>
+      <div id="Tb1Ko2Grid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko2.html}"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1OyaGet.xlsx(baseMei=#{Tb1Oya.h2})}" id="Tb1OyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

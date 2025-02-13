@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Chonan2S.title}">長男２</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2Chonan2GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Chonan2S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb2Chonan2SearchForm" action="Tb2Chonan2Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb2Chonan2S.legend}">legend</legend>
+        <div id="chonanId">
+          <label for="Tb2Chonan2.chonanId" th:text="#{Tb2Chonan2.chonanId}">長男ID</label><input type="text" id="Tb2Chonan2.chonanId" name="Tb2Chonan2.chonanId" maxlength="10" />
+        </div>
+        <div id="chonan2Info">
+          <label for="Tb2Chonan2.chonan2Info" th:text="#{Tb2Chonan2.chonan2Info}">長男２情報</label><input type="text" id="Tb2Chonan2.chonan2Info" name="Tb2Chonan2.chonan2Info" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Chonan2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Chonan2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb2Chonan2" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb2Chonan2.html}" id="Tb2Chonan2" class="anew" target="dialog" th:text="#{Tb2Chonan2.add}" tabindex="-1">長男２</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb2Chonan2" type="submit" class="search" data-gridId="Tb2Chonan2Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb2Chonan2SRegistForm" action="Tb2Chonan2SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb2Chonan2.h3}">h3</h3>
+      <div id="Tb2Chonan2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Chonan2.html}"></div>
+      <div id="Tb2Chonan2Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb2Chonan2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Chonan2&quot;]').click();">reset</button>
+        <a th:href="@{Tb2Chonan2Search.xlsx(baseMei=#{Tb2Chonan2S.h2})}" id="Tb2Chonan2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb2Chonan2S" type="submit" class="delete selectRows" data-action="Tb2Chonan2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Chonan2S" type="submit" class="permit selectRows" data-action="Tb2Chonan2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Chonan2S" type="submit" class="forbid selectRows" data-action="Tb2Chonan2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2Chonan2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

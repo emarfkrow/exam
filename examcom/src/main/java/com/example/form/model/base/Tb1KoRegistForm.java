@@ -109,76 +109,40 @@ public class Tb1KoRegistForm implements IForm {
         this.statusKb = p;
     }
 
-    /** 兄弟２ */
+    /** 子２ */
     @jakarta.validation.Valid
-    private Tb3Kyodai2RegistForm tb3Kyodai2RegistForm;
+    private Tb1Ko2RegistForm tb1Ko2RegistForm;
 
     /**
-     * @return Tb3Kyodai2RegistForm
+     * @return Tb1Ko2RegistForm
      */
-    public Tb3Kyodai2RegistForm getTb3Kyodai2RegistForm() {
-        return tb3Kyodai2RegistForm;
+    public Tb1Ko2RegistForm getTb1Ko2RegistForm() {
+        return tb1Ko2RegistForm;
     }
 
     /**
      * @param p
      */
-    public void setTb3Kyodai2RegistForm(final Tb3Kyodai2RegistForm p) {
-        this.tb3Kyodai2RegistForm = p;
+    public void setTb1Ko2RegistForm(final Tb1Ko2RegistForm p) {
+        this.tb1Ko2RegistForm = p;
     }
 
-    /** 兄弟３ */
+    /** 子３ */
     @jakarta.validation.Valid
-    private Tb3Kyodai3RegistForm tb3Kyodai3RegistForm;
+    private Tb1Ko3RegistForm tb1Ko3RegistForm;
 
     /**
-     * @return Tb3Kyodai3RegistForm
+     * @return Tb1Ko3RegistForm
      */
-    public Tb3Kyodai3RegistForm getTb3Kyodai3RegistForm() {
-        return tb3Kyodai3RegistForm;
+    public Tb1Ko3RegistForm getTb1Ko3RegistForm() {
+        return tb1Ko3RegistForm;
     }
 
     /**
      * @param p
      */
-    public void setTb3Kyodai3RegistForm(final Tb3Kyodai3RegistForm p) {
-        this.tb3Kyodai3RegistForm = p;
-    }
-
-    /** 兄弟４ */
-    @jakarta.validation.Valid
-    private Tb3Kyodai4RegistForm tb3Kyodai4RegistForm;
-
-    /**
-     * @return Tb3Kyodai4RegistForm
-     */
-    public Tb3Kyodai4RegistForm getTb3Kyodai4RegistForm() {
-        return tb3Kyodai4RegistForm;
-    }
-
-    /**
-     * @param p
-     */
-    public void setTb3Kyodai4RegistForm(final Tb3Kyodai4RegistForm p) {
-        this.tb3Kyodai4RegistForm = p;
-    }
-
-    /** 兄弟５ */
-    @jakarta.validation.Valid
-    private Tb3Kyodai5RegistForm tb3Kyodai5RegistForm;
-
-    /**
-     * @return Tb3Kyodai5RegistForm
-     */
-    public Tb3Kyodai5RegistForm getTb3Kyodai5RegistForm() {
-        return tb3Kyodai5RegistForm;
-    }
-
-    /**
-     * @param p
-     */
-    public void setTb3Kyodai5RegistForm(final Tb3Kyodai5RegistForm p) {
-        this.tb3Kyodai5RegistForm = p;
+    public void setTb1Ko3RegistForm(final Tb1Ko3RegistForm p) {
+        this.tb1Ko3RegistForm = p;
     }
 
     /** 孫 */

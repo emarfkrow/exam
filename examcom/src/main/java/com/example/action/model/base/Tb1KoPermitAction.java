@@ -40,7 +40,7 @@ public class Tb1KoPermitAction extends BaseAction {
 
         Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), postJson);
 
-        // child:Tb1Mago, parents:5
+        // child:Tb1Mago, parents:2
 
         Tb1Ko f = Tb1Ko.get(e.getOyaId(), e.getKoBn());
         f.setStatusKb(1);

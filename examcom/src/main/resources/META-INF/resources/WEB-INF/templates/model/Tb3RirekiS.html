@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb3RirekiS.title}">履歴</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb3RirekiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb3RirekiS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb3RirekiSearchForm" action="Tb3RirekiSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb3RirekiS.legend}">legend</legend>
+        <div id="rirekiMotoId">
+          <label for="Tb3Rireki.rirekiMotoId" th:text="#{Tb3Rireki.rirekiMotoId}">履歴元ID</label><input type="text" id="Tb3Rireki.rirekiMotoId" name="Tb3Rireki.rirekiMotoId" maxlength="10" />
+        </div>
+        <div id="rirekiBn">
+          <label for="Tb3Rireki.rirekiBn" th:text="#{Tb3Rireki.rirekiBn}">履歴枝番</label><input type="text" id="Tb3Rireki.rirekiBn" name="Tb3Rireki.rirekiBn" maxlength="10" />
+        </div>
+        <div id="rirekiMotoInfo">
+          <label for="Tb3Rireki.rirekiMotoInfo" th:text="#{Tb3Rireki.rirekiMotoInfo}">履歴元情報</label><input type="text" id="Tb3Rireki.rirekiMotoInfo" name="Tb3Rireki.rirekiMotoInfo" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb3Rireki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Rireki.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3Rireki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3Rireki.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb3Rireki" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb3Rireki" type="submit" class="search" data-gridId="Tb3RirekiGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb3RirekiSRegistForm" action="Tb3RirekiSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb3Rireki.h3}">h3</h3>
+      <div id="Tb3RirekiGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb3Rireki.html}"></div>
+      <div id="Tb3RirekiPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb3RirekiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb3Rireki&quot;]').click();">reset</button>
+        <a th:href="@{Tb3RirekiSearch.xlsx(baseMei=#{Tb3RirekiS.h2})}" id="Tb3RirekiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb3RirekiS" type="submit" class="delete selectRows" data-action="Tb3RirekiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb3RirekiS" type="submit" class="permit selectRows" data-action="Tb3RirekiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb3RirekiS" type="submit" class="forbid selectRows" data-action="Tb3RirekiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb3RirekiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

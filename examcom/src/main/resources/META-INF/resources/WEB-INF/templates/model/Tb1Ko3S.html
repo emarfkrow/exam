@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1Ko3S.title}">子３</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1Ko3GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1Ko3S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb1Ko3SearchForm" action="Tb1Ko3Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb1Ko3S.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1Ko3.oyaId" th:text="#{Tb1Ko3.oyaId}">親ID</label><input type="text" id="Tb1Ko3.oyaId" name="Tb1Ko3.oyaId" maxlength="10" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1Ko3.koBn" th:text="#{Tb1Ko3.koBn}">子枝番</label><input type="text" id="Tb1Ko3.koBn" name="Tb1Ko3.koBn" maxlength="10" />
+        </div>
+        <div id="ko3Info">
+          <label for="Tb1Ko3.ko3Info" th:text="#{Tb1Ko3.ko3Info}">子３情報</label><input type="text" id="Tb1Ko3.ko3Info" name="Tb1Ko3.ko3Info" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb1Ko3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb1Ko3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb1Ko3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb1Ko3" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb1Ko3" type="submit" class="search" data-gridId="Tb1Ko3Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb1Ko3SRegistForm" action="Tb1Ko3SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb1Ko3.h3}">h3</h3>
+      <div id="Tb1Ko3Grid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko3.html}"></div>
+      <div id="Tb1Ko3Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb1Ko3S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Ko3&quot;]').click();">reset</button>
+        <a th:href="@{Tb1Ko3Search.xlsx(baseMei=#{Tb1Ko3S.h2})}" id="Tb1Ko3Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb1Ko3S" type="submit" class="delete selectRows" data-action="Tb1Ko3SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb1Ko3S" type="submit" class="permit selectRows" data-action="Tb1Ko3SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb1Ko3S" type="submit" class="forbid selectRows" data-action="Tb1Ko3SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb1Ko3S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -47,7 +47,7 @@ public class Tb1KoSPermitAction extends BaseAction {
                 throw new OptLockError("error.cant.permit");
             }
 
-            // child:Tb1Mago, parents:5
+            // child:Tb1Mago, parents:2
 
             Tb1Ko f = Tb1Ko.get(oyaId, koBn);
             f.setStatusKb(1);

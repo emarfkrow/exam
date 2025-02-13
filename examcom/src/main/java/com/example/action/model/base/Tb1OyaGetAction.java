@@ -32,10 +32,7 @@ public class Tb1OyaGetAction extends BaseAction {
 
         Tb1Oya tb1Oya = Tb1Oya.get(oyaId);
         tb1Oya.referTb1Kos();
-        tb1Oya.referTb3Kyodai2s();
-        tb1Oya.referTb3Kyodai3s();
-        tb1Oya.referTb3Kyodai4s();
-        tb1Oya.referTb3Kyodai5s();
+        tb1Oya.referTb1Ko2s();
         map.put("Tb1Oya", tb1Oya);
         return map;
     }

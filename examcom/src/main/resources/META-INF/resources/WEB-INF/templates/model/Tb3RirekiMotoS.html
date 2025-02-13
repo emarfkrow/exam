@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb3RirekiMotoS.title}">履歴元</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb3RirekiMotoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb3RirekiGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb3RirekiMotoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb3RirekiMotoSearchForm" action="Tb3RirekiMotoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb3RirekiMotoS.legend}">legend</legend>
+        <div id="rirekiMotoId">
+          <label for="Tb3RirekiMoto.rirekiMotoId" th:text="#{Tb3RirekiMoto.rirekiMotoId}">履歴元ID</label><input type="text" id="Tb3RirekiMoto.rirekiMotoId" name="Tb3RirekiMoto.rirekiMotoId" maxlength="10" />
+        </div>
+        <div id="rirekiMotoInfo">
+          <label for="Tb3RirekiMoto.rirekiMotoInfo" th:text="#{Tb3RirekiMoto.rirekiMotoInfo}">履歴元情報</label><input type="text" id="Tb3RirekiMoto.rirekiMotoInfo" name="Tb3RirekiMoto.rirekiMotoInfo" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb3RirekiMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3RirekiMoto.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb3RirekiMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb3RirekiMoto.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb3RirekiMoto" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb3RirekiMoto.html}" id="Tb3RirekiMoto" class="anew" target="dialog" th:text="#{Tb3RirekiMoto.add}" tabindex="-1">履歴元</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb3RirekiMoto" type="submit" class="search" data-gridId="Tb3RirekiMotoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb3RirekiMotoSRegistForm" action="Tb3RirekiMotoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb3RirekiMoto.h3}">h3</h3>
+      <div id="Tb3RirekiMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb3RirekiMoto.html}"></div>
+      <div id="Tb3RirekiMotoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb3RirekiMotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb3RirekiMoto&quot;]').click();">reset</button>
+        <a th:href="@{Tb3RirekiMotoSearch.xlsx(baseMei=#{Tb3RirekiMotoS.h2})}" id="Tb3RirekiMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb3RirekiMotoS" type="submit" class="delete selectRows" data-action="Tb3RirekiMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb3RirekiMotoS" type="submit" class="permit selectRows" data-action="Tb3RirekiMotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb3RirekiMotoS" type="submit" class="forbid selectRows" data-action="Tb3RirekiMotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb3RirekiMotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

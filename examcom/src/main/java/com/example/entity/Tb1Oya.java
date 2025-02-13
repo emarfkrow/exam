@@ -278,43 +278,13 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 兄弟２の登録
-        if (this.tb3Kyodai2s != null) {
-            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
-                if (tb3Kyodai2 != null) {
-                    tb3Kyodai2.setOyaId(this.getOyaId());
+        // 子２の登録
+        if (this.tb1Ko2s != null) {
+            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
+                if (tb1Ko2 != null) {
+                    tb1Ko2.setOyaId(this.getOyaId());
                 }
-                tb3Kyodai2.insert(now, execId);
-            }
-        }
-
-        // 兄弟３の登録
-        if (this.tb3Kyodai3s != null) {
-            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
-                if (tb3Kyodai3 != null) {
-                    tb3Kyodai3.setOyaId(this.getOyaId());
-                }
-                tb3Kyodai3.insert(now, execId);
-            }
-        }
-
-        // 兄弟４の登録
-        if (this.tb3Kyodai4s != null) {
-            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
-                if (tb3Kyodai4 != null) {
-                    tb3Kyodai4.setOyaId(this.getOyaId());
-                }
-                tb3Kyodai4.insert(now, execId);
-            }
-        }
-
-        // 兄弟５の登録
-        if (this.tb3Kyodai5s != null) {
-            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
-                if (tb3Kyodai5 != null) {
-                    tb3Kyodai5.setOyaId(this.getOyaId());
-                }
-                tb3Kyodai5.insert(now, execId);
+                tb1Ko2.insert(now, execId);
             }
         }
 
@@ -386,62 +356,17 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 兄弟２の登録
-        if (this.tb3Kyodai2s != null) {
-            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
-                if (tb3Kyodai2 == null) {
+        // 子２の登録
+        if (this.tb1Ko2s != null) {
+            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
+                if (tb1Ko2 == null) {
                     continue;
                 }
-                tb3Kyodai2.setOyaId(this.oyaId);
+                tb1Ko2.setOyaId(this.oyaId);
                 try {
-                    tb3Kyodai2.insert(now, execId);
+                    tb1Ko2.insert(now, execId);
                 } catch (Exception e) {
-                    tb3Kyodai2.update(now, execId);
-                }
-            }
-        }
-
-        // 兄弟３の登録
-        if (this.tb3Kyodai3s != null) {
-            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
-                if (tb3Kyodai3 == null) {
-                    continue;
-                }
-                tb3Kyodai3.setOyaId(this.oyaId);
-                try {
-                    tb3Kyodai3.insert(now, execId);
-                } catch (Exception e) {
-                    tb3Kyodai3.update(now, execId);
-                }
-            }
-        }
-
-        // 兄弟４の登録
-        if (this.tb3Kyodai4s != null) {
-            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
-                if (tb3Kyodai4 == null) {
-                    continue;
-                }
-                tb3Kyodai4.setOyaId(this.oyaId);
-                try {
-                    tb3Kyodai4.insert(now, execId);
-                } catch (Exception e) {
-                    tb3Kyodai4.update(now, execId);
-                }
-            }
-        }
-
-        // 兄弟５の登録
-        if (this.tb3Kyodai5s != null) {
-            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
-                if (tb3Kyodai5 == null) {
-                    continue;
-                }
-                tb3Kyodai5.setOyaId(this.oyaId);
-                try {
-                    tb3Kyodai5.insert(now, execId);
-                } catch (Exception e) {
-                    tb3Kyodai5.update(now, execId);
+                    tb1Ko2.update(now, execId);
                 }
             }
         }
@@ -476,31 +401,10 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 兄弟２の削除
-        if (this.tb3Kyodai2s != null) {
-            for (Tb3Kyodai2 tb3Kyodai2 : this.tb3Kyodai2s) {
-                tb3Kyodai2.delete();
-            }
-        }
-
-        // 兄弟３の削除
-        if (this.tb3Kyodai3s != null) {
-            for (Tb3Kyodai3 tb3Kyodai3 : this.tb3Kyodai3s) {
-                tb3Kyodai3.delete();
-            }
-        }
-
-        // 兄弟４の削除
-        if (this.tb3Kyodai4s != null) {
-            for (Tb3Kyodai4 tb3Kyodai4 : this.tb3Kyodai4s) {
-                tb3Kyodai4.delete();
-            }
-        }
-
-        // 兄弟５の削除
-        if (this.tb3Kyodai5s != null) {
-            for (Tb3Kyodai5 tb3Kyodai5 : this.tb3Kyodai5s) {
-                tb3Kyodai5.delete();
+        // 子２の削除
+        if (this.tb1Ko2s != null) {
+            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
+                tb1Ko2.delete();
             }
         }
 
@@ -589,45 +493,45 @@ public class Tb1Oya implements IEntity {
         return Queries.select(sql, map, Tb1Ko.class, null, null);
     }
 
-    /** 兄弟２のリスト */
-    private List<Tb3Kyodai2> tb3Kyodai2s;
+    /** 子２のリスト */
+    private List<Tb1Ko2> tb1Ko2s;
 
-    /** @return 兄弟２のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai2s")
-    public List<Tb3Kyodai2> getTb3Kyodai2s() {
-        return this.tb3Kyodai2s;
+    /** @return 子２のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko2s")
+    public List<Tb1Ko2> getTb1Ko2s() {
+        return this.tb1Ko2s;
     }
 
-    /** @param list 兄弟２のリスト */
-    public void setTb3Kyodai2s(final List<Tb3Kyodai2> list) {
-        this.tb3Kyodai2s = list;
+    /** @param list 子２のリスト */
+    public void setTb1Ko2s(final List<Tb1Ko2> list) {
+        this.tb1Ko2s = list;
     }
 
-    /** @param tb3Kyodai2 */
-    public void addTb3Kyodai2s(final Tb3Kyodai2 tb3Kyodai2) {
-        if (this.tb3Kyodai2s == null) {
-            this.tb3Kyodai2s = new ArrayList<Tb3Kyodai2>();
+    /** @param tb1Ko2 */
+    public void addTb1Ko2s(final Tb1Ko2 tb1Ko2) {
+        if (this.tb1Ko2s == null) {
+            this.tb1Ko2s = new ArrayList<Tb1Ko2>();
         }
-        this.tb3Kyodai2s.add(tb3Kyodai2);
+        this.tb1Ko2s.add(tb1Ko2);
     }
 
-    /** @return 兄弟２のリスト */
-    public List<Tb3Kyodai2> referTb3Kyodai2s() {
-        this.tb3Kyodai2s = Tb1Oya.referTb3Kyodai2s(this.oyaId);
-        return this.tb3Kyodai2s;
+    /** @return 子２のリスト */
+    public List<Tb1Ko2> referTb1Ko2s() {
+        this.tb1Ko2s = Tb1Oya.referTb1Ko2s(this.oyaId);
+        return this.tb1Ko2s;
     }
 
     /**
      * @param param1 oyaId
-     * @return List<Tb3Kyodai2>
+     * @return List<Tb1Ko2>
      */
-    public static List<Tb3Kyodai2> referTb3Kyodai2s(final Integer param1) {
+    public static List<Tb1Ko2> referTb1Ko2s(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
         sql += "OYA_ID";
         sql += ", KO_BN";
-        sql += ", KYODAI2_INFO";
+        sql += ", KO2_INFO";
         sql += ", INSERT_TS";
         sql += ", INSERT_USER_ID";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
@@ -636,176 +540,11 @@ public class Tb1Oya implements IEntity {
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
         sql += ", DELETE_F";
         sql += ", STATUS_KB";
-        sql += " FROM TB3_KYODAI2 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB1_KO2 a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb3Kyodai2.class, null, null);
-    }
-
-    /** 兄弟３のリスト */
-    private List<Tb3Kyodai3> tb3Kyodai3s;
-
-    /** @return 兄弟３のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai3s")
-    public List<Tb3Kyodai3> getTb3Kyodai3s() {
-        return this.tb3Kyodai3s;
-    }
-
-    /** @param list 兄弟３のリスト */
-    public void setTb3Kyodai3s(final List<Tb3Kyodai3> list) {
-        this.tb3Kyodai3s = list;
-    }
-
-    /** @param tb3Kyodai3 */
-    public void addTb3Kyodai3s(final Tb3Kyodai3 tb3Kyodai3) {
-        if (this.tb3Kyodai3s == null) {
-            this.tb3Kyodai3s = new ArrayList<Tb3Kyodai3>();
-        }
-        this.tb3Kyodai3s.add(tb3Kyodai3);
-    }
-
-    /** @return 兄弟３のリスト */
-    public List<Tb3Kyodai3> referTb3Kyodai3s() {
-        this.tb3Kyodai3s = Tb1Oya.referTb3Kyodai3s(this.oyaId);
-        return this.tb3Kyodai3s;
-    }
-
-    /**
-     * @param param1 oyaId
-     * @return List<Tb3Kyodai3>
-     */
-    public static List<Tb3Kyodai3> referTb3Kyodai3s(final Integer param1) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("OYA_ID = :oya_id");
-        String sql = "SELECT ";
-        sql += "OYA_ID";
-        sql += ", KO_BN";
-        sql += ", KYODAI3_INFO";
-        sql += ", INSERT_TS";
-        sql += ", INSERT_USER_ID";
-        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
-        sql += ", UPDATE_TS";
-        sql += ", UPDATE_USER_ID";
-        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += ", DELETE_F";
-        sql += ", STATUS_KB";
-        sql += " FROM TB3_KYODAI3 a WHERE " + String.join(" AND ", whereList);
-        sql += " ORDER BY ";
-        sql += "OYA_ID, KO_BN";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb3Kyodai3.class, null, null);
-    }
-
-    /** 兄弟４のリスト */
-    private List<Tb3Kyodai4> tb3Kyodai4s;
-
-    /** @return 兄弟４のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai4s")
-    public List<Tb3Kyodai4> getTb3Kyodai4s() {
-        return this.tb3Kyodai4s;
-    }
-
-    /** @param list 兄弟４のリスト */
-    public void setTb3Kyodai4s(final List<Tb3Kyodai4> list) {
-        this.tb3Kyodai4s = list;
-    }
-
-    /** @param tb3Kyodai4 */
-    public void addTb3Kyodai4s(final Tb3Kyodai4 tb3Kyodai4) {
-        if (this.tb3Kyodai4s == null) {
-            this.tb3Kyodai4s = new ArrayList<Tb3Kyodai4>();
-        }
-        this.tb3Kyodai4s.add(tb3Kyodai4);
-    }
-
-    /** @return 兄弟４のリスト */
-    public List<Tb3Kyodai4> referTb3Kyodai4s() {
-        this.tb3Kyodai4s = Tb1Oya.referTb3Kyodai4s(this.oyaId);
-        return this.tb3Kyodai4s;
-    }
-
-    /**
-     * @param param1 oyaId
-     * @return List<Tb3Kyodai4>
-     */
-    public static List<Tb3Kyodai4> referTb3Kyodai4s(final Integer param1) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("OYA_ID = :oya_id");
-        String sql = "SELECT ";
-        sql += "OYA_ID";
-        sql += ", KO_BN";
-        sql += ", KYODAI4_INFO";
-        sql += ", INSERT_TS";
-        sql += ", INSERT_USER_ID";
-        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
-        sql += ", UPDATE_TS";
-        sql += ", UPDATE_USER_ID";
-        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += ", DELETE_F";
-        sql += ", STATUS_KB";
-        sql += " FROM TB3_KYODAI4 a WHERE " + String.join(" AND ", whereList);
-        sql += " ORDER BY ";
-        sql += "OYA_ID, KO_BN";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb3Kyodai4.class, null, null);
-    }
-
-    /** 兄弟５のリスト */
-    private List<Tb3Kyodai5> tb3Kyodai5s;
-
-    /** @return 兄弟５のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Kyodai5s")
-    public List<Tb3Kyodai5> getTb3Kyodai5s() {
-        return this.tb3Kyodai5s;
-    }
-
-    /** @param list 兄弟５のリスト */
-    public void setTb3Kyodai5s(final List<Tb3Kyodai5> list) {
-        this.tb3Kyodai5s = list;
-    }
-
-    /** @param tb3Kyodai5 */
-    public void addTb3Kyodai5s(final Tb3Kyodai5 tb3Kyodai5) {
-        if (this.tb3Kyodai5s == null) {
-            this.tb3Kyodai5s = new ArrayList<Tb3Kyodai5>();
-        }
-        this.tb3Kyodai5s.add(tb3Kyodai5);
-    }
-
-    /** @return 兄弟５のリスト */
-    public List<Tb3Kyodai5> referTb3Kyodai5s() {
-        this.tb3Kyodai5s = Tb1Oya.referTb3Kyodai5s(this.oyaId);
-        return this.tb3Kyodai5s;
-    }
-
-    /**
-     * @param param1 oyaId
-     * @return List<Tb3Kyodai5>
-     */
-    public static List<Tb3Kyodai5> referTb3Kyodai5s(final Integer param1) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("OYA_ID = :oya_id");
-        String sql = "SELECT ";
-        sql += "OYA_ID";
-        sql += ", KO_BN";
-        sql += ", KYODAI5_INFO";
-        sql += ", INSERT_TS";
-        sql += ", INSERT_USER_ID";
-        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
-        sql += ", UPDATE_TS";
-        sql += ", UPDATE_USER_ID";
-        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += ", DELETE_F";
-        sql += ", STATUS_KB";
-        sql += " FROM TB3_KYODAI5 a WHERE " + String.join(" AND ", whereList);
-        sql += " ORDER BY ";
-        sql += "OYA_ID, KO_BN";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb3Kyodai5.class, null, null);
+        return Queries.select(sql, map, Tb1Ko2.class, null, null);
     }
 }

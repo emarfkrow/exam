@@ -39,17 +39,8 @@ public class Tb1MagoGetAction extends BaseAction {
         com.example.entity.Tb1Ko tb1Ko = com.example.entity.Tb1Ko.get(oyaId, koBn);
         map.put("Tb1Ko", tb1Ko);
 
-        com.example.entity.Tb3Kyodai2 tb3Kyodai2 = com.example.entity.Tb3Kyodai2.get(oyaId, koBn);
-        map.put("Tb3Kyodai2", tb3Kyodai2);
-
-        com.example.entity.Tb3Kyodai3 tb3Kyodai3 = com.example.entity.Tb3Kyodai3.get(oyaId, koBn);
-        map.put("Tb3Kyodai3", tb3Kyodai3);
-
-        com.example.entity.Tb3Kyodai4 tb3Kyodai4 = com.example.entity.Tb3Kyodai4.get(oyaId, koBn);
-        map.put("Tb3Kyodai4", tb3Kyodai4);
-
-        com.example.entity.Tb3Kyodai5 tb3Kyodai5 = com.example.entity.Tb3Kyodai5.get(oyaId, koBn);
-        map.put("Tb3Kyodai5", tb3Kyodai5);
+        com.example.entity.Tb1Ko3 tb1Ko3 = com.example.entity.Tb1Ko3.get(oyaId, koBn);
+        map.put("Tb1Ko3", tb1Ko3);
 
         Object magoBn = postJson.get("magoBn");
         if (magoBn == null) {

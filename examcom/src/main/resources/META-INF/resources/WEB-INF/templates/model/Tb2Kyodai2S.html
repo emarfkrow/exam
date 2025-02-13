@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Kyodai2S.title}">兄弟２</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2Kyodai2GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Kyodai2S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb2Kyodai2SearchForm" action="Tb2Kyodai2Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb2Kyodai2S.legend}">legend</legend>
+        <div id="kyodaiId">
+          <label for="Tb2Kyodai2.kyodaiId" th:text="#{Tb2Kyodai2.kyodaiId}">兄弟ID</label><input type="text" id="Tb2Kyodai2.kyodaiId" name="Tb2Kyodai2.kyodaiId" maxlength="10" />
+        </div>
+        <div id="kyodai2Info">
+          <label for="Tb2Kyodai2.kyodai2Info" th:text="#{Tb2Kyodai2.kyodai2Info}">兄弟２情報</label><input type="text" id="Tb2Kyodai2.kyodai2Info" name="Tb2Kyodai2.kyodai2Info" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Kyodai2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Kyodai2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Kyodai2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb2Kyodai2" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb2Kyodai2.html}" id="Tb2Kyodai2" class="anew" target="dialog" th:text="#{Tb2Kyodai2.add}" tabindex="-1">兄弟２</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb2Kyodai2" type="submit" class="search" data-gridId="Tb2Kyodai2Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb2Kyodai2SRegistForm" action="Tb2Kyodai2SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb2Kyodai2.h3}">h3</h3>
+      <div id="Tb2Kyodai2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Kyodai2.html}"></div>
+      <div id="Tb2Kyodai2Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb2Kyodai2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Kyodai2&quot;]').click();">reset</button>
+        <a th:href="@{Tb2Kyodai2Search.xlsx(baseMei=#{Tb2Kyodai2S.h2})}" id="Tb2Kyodai2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb2Kyodai2S" type="submit" class="delete selectRows" data-action="Tb2Kyodai2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Kyodai2S" type="submit" class="permit selectRows" data-action="Tb2Kyodai2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Kyodai2S" type="submit" class="forbid selectRows" data-action="Tb2Kyodai2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2Kyodai2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

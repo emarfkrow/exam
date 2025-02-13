@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Chonan.title}">長男</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2ChonanGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Chonan.h2}">h2</h2>
+    <form name="Tb2ChonanRegistForm" action="Tb2ChonanRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb2Chonan.legend}">legend</legend>
+        <div id="chonanId">
+          <label for="Tb2Chonan.chonanId" th:text="#{Tb2Chonan.chonanId}">長男ID</label><input type="text" id="Tb2Chonan.chonanId" name="Tb2Chonan.chonanId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="chonanInfo">
+          <label for="Tb2Chonan.chonanInfo" th:text="#{Tb2Chonan.chonanInfo}">長男情報</label><input type="text" id="Tb2Chonan.chonanInfo" name="Tb2Chonan.chonanInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb2Chonan.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Chonan.insertTs"></span><input type="hidden" id="Tb2Chonan.insertTs" name="Tb2Chonan.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2Chonan.insertUserId}" class="meta">作成者</label><span id="Tb2Chonan.insertUserId"></span><input type="hidden" id="Tb2Chonan.insertUserId" name="Tb2Chonan.insertUserId" />
+          <span id="Tb2Chonan.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Chonan.insertUserId" data-destDef="Tb2Chonan.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2Chonan.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2Chonan.updateTs"></span><input type="hidden" id="Tb2Chonan.updateTs" name="Tb2Chonan.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2Chonan.updateUserId}" class="meta">更新者</label><span id="Tb2Chonan.updateUserId"></span><input type="hidden" id="Tb2Chonan.updateUserId" name="Tb2Chonan.updateUserId" />
+          <span id="Tb2Chonan.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Chonan.updateUserId" data-destDef="Tb2Chonan.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Chonan.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Chonan.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Chonan2.legend}">legend</legend>
+        <div id="chonan2Info">
+          <label for="Tb2Chonan2.chonan2Info" th:text="#{Tb2Chonan2.chonan2Info}">長男２情報</label><input type="text" id="Tb2Chonan2.chonan2Info" name="Tb2Chonan2.chonan2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Chonan2.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Chonan2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Chonan2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Chonan3.legend}">legend</legend>
+        <div id="chonan3Info">
+          <label for="Tb2Chonan3.chonan3Info" th:text="#{Tb2Chonan3.chonan3Info}">長男３情報</label><input type="text" id="Tb2Chonan3.chonan3Info" name="Tb2Chonan3.chonan3Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Chonan3.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Chonan3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Chonan3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Chonan3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb2Chonan" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb2ChonanGet.xlsx(baseMei=#{Tb2Chonan.h2})}" id="Tb2ChonanGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb2Chonan" type="submit" class="delete" data-action="Tb2ChonanDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Chonan" type="submit" class="permit" data-action="Tb2ChonanPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Chonan" type="submit" class="forbid" data-action="Tb2ChonanForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb2Chonan" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

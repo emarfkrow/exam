@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Koji3.title}">孤児３</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2Koji3GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Koji3.h2}">h2</h2>
+    <form name="Tb2Koji3RegistForm" action="Tb2Koji3Regist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb2Koji3.legend}">legend</legend>
+        <div id="kojiId">
+          <label for="Tb2Koji3.kojiId" th:text="#{Tb2Koji3.kojiId}">孤児ID</label><input type="text" id="Tb2Koji3.kojiId" name="Tb2Koji3.kojiId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="koji3Info">
+          <label for="Tb2Koji3.koji3Info" th:text="#{Tb2Koji3.koji3Info}">孤児３情報</label><input type="text" id="Tb2Koji3.koji3Info" name="Tb2Koji3.koji3Info" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb2Koji3.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Koji3.insertTs"></span><input type="hidden" id="Tb2Koji3.insertTs" name="Tb2Koji3.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2Koji3.insertUserId}" class="meta">作成者</label><span id="Tb2Koji3.insertUserId"></span><input type="hidden" id="Tb2Koji3.insertUserId" name="Tb2Koji3.insertUserId" />
+          <span id="Tb2Koji3.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Koji3.insertUserId" data-destDef="Tb2Koji3.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2Koji3.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2Koji3.updateTs"></span><input type="hidden" id="Tb2Koji3.updateTs" name="Tb2Koji3.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2Koji3.updateUserId}" class="meta">更新者</label><span id="Tb2Koji3.updateUserId"></span><input type="hidden" id="Tb2Koji3.updateUserId" name="Tb2Koji3.updateUserId" />
+          <span id="Tb2Koji3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Koji3.updateUserId" data-destDef="Tb2Koji3.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Koji3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Koji3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Koji3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Koji3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Koji2.legend}">legend</legend>
+        <div id="koji2Info">
+          <label for="Tb2Koji2.koji2Info" th:text="#{Tb2Koji2.koji2Info}">孤児２情報</label><input type="text" id="Tb2Koji2.koji2Info" name="Tb2Koji2.koji2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Koji2.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Koji2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Koji2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Koji2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Koji2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb2Koji3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb2Koji3Get.xlsx(baseMei=#{Tb2Koji3.h2})}" id="Tb2Koji3Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb2Koji3" type="submit" class="delete" data-action="Tb2Koji3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Koji3" type="submit" class="permit" data-action="Tb2Koji3Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Koji3" type="submit" class="forbid" data-action="Tb2Koji3Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb2Koji3" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

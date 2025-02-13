@@ -109,76 +109,22 @@ public class Tb1OyaRegistForm implements IForm {
         this.tb1KoGrid = p;
     }
 
-    /** 兄弟２ */
+    /** 子２ */
     @jakarta.validation.Valid
-    private List<Tb3Kyodai2RegistForm> tb3Kyodai2Grid;
+    private List<Tb1Ko2RegistForm> tb1Ko2Grid;
 
     /**
-     * @return 兄弟２
+     * @return 子２
      */
-    public List<Tb3Kyodai2RegistForm> getTb3Kyodai2Grid() {
-        return tb3Kyodai2Grid;
+    public List<Tb1Ko2RegistForm> getTb1Ko2Grid() {
+        return tb1Ko2Grid;
     }
 
     /**
      * @param p
      */
-    public void setTb3Kyodai2Grid(final List<Tb3Kyodai2RegistForm> p) {
-        this.tb3Kyodai2Grid = p;
-    }
-
-    /** 兄弟３ */
-    @jakarta.validation.Valid
-    private List<Tb3Kyodai3RegistForm> tb3Kyodai3Grid;
-
-    /**
-     * @return 兄弟３
-     */
-    public List<Tb3Kyodai3RegistForm> getTb3Kyodai3Grid() {
-        return tb3Kyodai3Grid;
-    }
-
-    /**
-     * @param p
-     */
-    public void setTb3Kyodai3Grid(final List<Tb3Kyodai3RegistForm> p) {
-        this.tb3Kyodai3Grid = p;
-    }
-
-    /** 兄弟４ */
-    @jakarta.validation.Valid
-    private List<Tb3Kyodai4RegistForm> tb3Kyodai4Grid;
-
-    /**
-     * @return 兄弟４
-     */
-    public List<Tb3Kyodai4RegistForm> getTb3Kyodai4Grid() {
-        return tb3Kyodai4Grid;
-    }
-
-    /**
-     * @param p
-     */
-    public void setTb3Kyodai4Grid(final List<Tb3Kyodai4RegistForm> p) {
-        this.tb3Kyodai4Grid = p;
-    }
-
-    /** 兄弟５ */
-    @jakarta.validation.Valid
-    private List<Tb3Kyodai5RegistForm> tb3Kyodai5Grid;
-
-    /**
-     * @return 兄弟５
-     */
-    public List<Tb3Kyodai5RegistForm> getTb3Kyodai5Grid() {
-        return tb3Kyodai5Grid;
-    }
-
-    /**
-     * @param p
-     */
-    public void setTb3Kyodai5Grid(final List<Tb3Kyodai5RegistForm> p) {
-        this.tb3Kyodai5Grid = p;
+    public void setTb1Ko2Grid(final List<Tb1Ko2RegistForm> p) {
+        this.tb1Ko2Grid = p;
     }
 
     /** 関連チェック */
