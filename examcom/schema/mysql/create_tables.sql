@@ -1,5 +1,5 @@
 -- Project Name : emarf
--- Date/Time    : 2025/02/06 9:24:36
+-- Date/Time    : 2025/02/13 19:42:09
 -- Author       : toshiyuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -295,20 +295,33 @@ create table TB1_KO (
   , constraint TB1_KO_PKC primary key (OYA_ID,KO_BN)
 ) comment '子' ;
 
--- 履歴
-create table TB1_KO_RIREKI (
+-- 子２
+create table TB1_KO2 (
   OYA_ID INT comment '親ID'
   , KO_BN INT comment '子枝番'
-  , RIREKI_BN INT comment '履歴枝番'
-  , KO_INFO VARCHAR(300) comment '子情報'
+  , KO2_INFO VARCHAR(300) comment '子２情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB1_KO_RIREKI_PKC primary key (OYA_ID,KO_BN,RIREKI_BN)
-) comment '履歴' ;
+  , constraint TB1_KO2_PKC primary key (OYA_ID,KO_BN)
+) comment '子２' ;
+
+-- 子３
+create table TB1_KO3 (
+  OYA_ID INT comment '親ID'
+  , KO_BN INT comment '子枝番'
+  , KO3_INFO VARCHAR(300) comment '子３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB1_KO3_PKC primary key (OYA_ID,KO_BN)
+) comment '子３' ;
 
 -- 孫
 create table TB1_MAGO (
@@ -338,10 +351,100 @@ create table TB1_OYA (
   , constraint TB1_OYA_PKC primary key (OYA_ID)
 ) comment '親' ;
 
+-- 長男
+create table TB2_CHONAN (
+  CHONAN_ID INT comment '長男ID'
+  , CHONAN_INFO VARCHAR(300) comment '長男情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_CHONAN_PKC primary key (CHONAN_ID)
+) comment '長男' ;
+
+-- 長男２
+create table TB2_CHONAN2 (
+  CHONAN_ID INT not null comment '長男ID'
+  , CHONAN2_INFO VARCHAR(300) comment '長男２情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_CHONAN2_PKC primary key (CHONAN_ID)
+) comment '長男２' ;
+
+-- 長男３
+create table TB2_CHONAN3 (
+  CHONAN_ID INT not null comment '長男ID'
+  , CHONAN3_INFO VARCHAR(300) comment '長男３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_CHONAN3_PKC primary key (CHONAN_ID)
+) comment '長男３' ;
+
+-- 孤児
+create table TB2_KOJI (
+  KOJI_ID INT comment '孤児ID'
+  , KOJI_INFO VARCHAR(300) comment '孤児情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_KOJI_PKC primary key (KOJI_ID)
+) comment '孤児' ;
+
+-- 孤児２
+create table TB2_KOJI2 (
+  KOJI_ID INT comment '孤児ID'
+  , KOJI2_INFO VARCHAR(300) comment '孤児２情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_KOJI2_PKC primary key (KOJI_ID)
+) comment '孤児２' ;
+
+-- 孤児３
+create table TB2_KOJI3 (
+  KOJI_ID INT comment '孤児ID'
+  , KOJI3_INFO VARCHAR(300) comment '孤児３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_KOJI3_PKC primary key (KOJI_ID)
+) comment '孤児３' ;
+
+-- 兄弟
+create table TB2_KYODAI (
+  KYODAI_ID INT comment '兄弟ID'
+  , KYODAI_INFO VARCHAR(300) comment '兄弟情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_KYODAI_PKC primary key (KYODAI_ID)
+) comment '兄弟' ;
+
 -- 兄弟２
-create table TB3_KYODAI2 (
-  OYA_ID INT comment '親ID'
-  , KO_BN INT comment '子枝番'
+create table TB2_KYODAI2 (
+  KYODAI_ID INT comment '兄弟ID'
   , KYODAI2_INFO VARCHAR(300) comment '兄弟２情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -349,13 +452,12 @@ create table TB3_KYODAI2 (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB3_KYODAI2_PKC primary key (OYA_ID,KO_BN)
+  , constraint TB2_KYODAI2_PKC primary key (KYODAI_ID)
 ) comment '兄弟２' ;
 
 -- 兄弟３
-create table TB3_KYODAI3 (
-  OYA_ID INT comment '親ID'
-  , KO_BN INT comment '子枝番'
+create table TB2_KYODAI3 (
+  KYODAI_ID INT comment '兄弟ID'
   , KYODAI3_INFO VARCHAR(300) comment '兄弟３情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
@@ -363,36 +465,74 @@ create table TB3_KYODAI3 (
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB3_KYODAI3_PKC primary key (OYA_ID,KO_BN)
+  , constraint TB2_KYODAI3_PKC primary key (KYODAI_ID)
 ) comment '兄弟３' ;
 
--- 兄弟４
-create table TB3_KYODAI4 (
-  OYA_ID INT comment '親ID'
-  , KO_BN INT comment '子枝番'
-  , KYODAI4_INFO VARCHAR(300) comment '兄弟４情報'
+-- 末弟
+create table TB2_MATTEI (
+  MATTEI_ID INT comment '末弟ID'
+  , MATTEI_INFO VARCHAR(300) comment '末弟情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB3_KYODAI4_PKC primary key (OYA_ID,KO_BN)
-) comment '兄弟４' ;
+  , constraint TB2_MATTEI_PKC primary key (MATTEI_ID)
+) comment '末弟' ;
 
--- 兄弟５
-create table TB3_KYODAI5 (
-  OYA_ID INT comment '親ID'
-  , KO_BN INT comment '子枝番'
-  , KYODAI5_INFO VARCHAR(300) comment '兄弟５情報'
+-- 末弟２
+create table TB2_MATTEI2 (
+  MATTEI_ID INT comment '末弟ID'
+  , MATTEI2_INFO VARCHAR(300) comment '末弟２情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB3_KYODAI5_PKC primary key (OYA_ID,KO_BN)
-) comment '兄弟５' ;
+  , constraint TB2_MATTEI2_PKC primary key (MATTEI_ID)
+) comment '末弟２' ;
+
+-- 末弟３
+create table TB2_MATTEI3 (
+  MATTEI_ID INT comment '末弟ID'
+  , MATTEI3_INFO VARCHAR(300) comment '末弟３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_MATTEI3_PKC primary key (MATTEI_ID)
+) comment '末弟３' ;
+
+-- 履歴
+create table TB3_RIREKI (
+  RIREKI_MOTO_ID INT comment '履歴元ID'
+  , RIREKI_BN INT comment '履歴枝番'
+  , RIREKI_MOTO_INFO VARCHAR(300) comment '履歴元情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_RIREKI_PKC primary key (RIREKI_MOTO_ID,RIREKI_BN)
+) comment '履歴' ;
+
+-- 履歴元
+create table TB3_RIREKI_MOTO (
+  RIREKI_MOTO_ID INT comment '履歴元ID'
+  , RIREKI_MOTO_INFO VARCHAR(300) comment '履歴元情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB3_RIREKI_MOTO_PKC primary key (RIREKI_MOTO_ID)
+) comment '履歴元' ;
 
 -- 参照元
 create table TB4_SANSHO_MOTO (
@@ -604,9 +744,9 @@ create table TB8_HENKAN_MOTO (
 
 -- 変換先
 create table TB8_HENKAN_SAKI (
-  HENKAN_SAKI_ID  comment '変換先ID'
-  , HENKAN_SAKI_INFO  comment '変換先情報'
-  , HIKITSUIDA_INFO  comment '引継いだ情報'
+  HENKAN_SAKI_ID INT comment '変換先ID'
+  , HENKAN_SAKI_INFO VARCHAR(300) comment '変換先情報'
+  , HIKITSUIDA_INFO VARCHAR(300) comment '引継いだ情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
@@ -616,13 +756,24 @@ create table TB8_HENKAN_SAKI (
   , constraint TB8_HENKAN_SAKI_PKC primary key (HENKAN_SAKI_ID)
 ) comment '変換先' ;
 
+-- 閲覧ビュー
+create view VB8_ETSURAN as 
+SELECT
+    hm.henkan_moto_id
+    , hm.henkan_moto_info
+    , hm.hikitsugu_info AS hikitsuida_info      -- 「HIKITSUGU_INFO」に別名を付ける
+FROM
+    tb8_henkan_moto hm
+
+;
+
 -- 変換ビュー
 create view VB8_HENKAN as 
 SELECT
-    'TB8_HENKAN_SAKI' AS table_name--「TB8_HENKAN_SAKI」を指定
-    , hm.HENKAN_MOTO_ID
-    , hm.HENKAN_MOTO_INFO
-    , hm.HIKITSUGU_INFO AS HIKITSUIDA_INFO--「HIKITSUGU_INFO」に別名を付ける
+    'TB8_HENKAN_SAKI' AS table_name             -- 「TB8_HENKAN_SAKI」を指定
+    , hm.henkan_moto_id
+    , hm.henkan_moto_info
+    , hm.hikitsugu_info AS hikitsuida_info      -- 「HIKITSUGU_INFO」に別名を付ける
 FROM
     tb8_henkan_moto hm
 
