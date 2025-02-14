@@ -32,7 +32,6 @@ public class Tb2KojiDeleteAction extends BaseAction {
         }
 
         Tb2Koji e = FormValidator.toBean(Tb2Koji.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

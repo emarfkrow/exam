@@ -46,7 +46,6 @@ public class MhrNinkaDeleteAction extends BaseAction {
         }
 
         MhrNinka e = FormValidator.toBean(MhrNinka.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

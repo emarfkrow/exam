@@ -32,7 +32,6 @@ public class Tb2Mattei2DeleteAction extends BaseAction {
         }
 
         Tb2Mattei2 e = FormValidator.toBean(Tb2Mattei2.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

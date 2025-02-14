@@ -32,7 +32,6 @@ public class MhrUserDeleteAction extends BaseAction {
         }
 
         MhrUser e = FormValidator.toBean(MhrUser.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

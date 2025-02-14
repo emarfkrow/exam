@@ -39,11 +39,13 @@ public class Tb1OyaDeleteAction extends BaseAction {
 
                 // child:Tb1Mago, parents:2
 
+
                 if (tb1Ko.delete() != 1) {
                     throw new OptLockError("error.cant.delete");
                 }
             }
         }
+
 
         java.util.List<com.example.entity.Tb1Ko2> tb1Ko2s = e.referTb1Ko2s();
         if (tb1Ko2s != null) {

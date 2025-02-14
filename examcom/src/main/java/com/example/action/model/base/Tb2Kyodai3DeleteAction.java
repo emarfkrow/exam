@@ -32,7 +32,6 @@ public class Tb2Kyodai3DeleteAction extends BaseAction {
         }
 
         Tb2Kyodai3 e = FormValidator.toBean(Tb2Kyodai3.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

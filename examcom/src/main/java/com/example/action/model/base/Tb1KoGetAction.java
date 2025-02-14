@@ -29,9 +29,9 @@ public class Tb1KoGetAction extends BaseAction {
         if (oyaId == null) {
             return map;
         }
+        // 親モデルの取得
         com.example.entity.Tb1Oya tb1Oya = com.example.entity.Tb1Oya.get(oyaId);
         map.put("Tb1Oya", tb1Oya);
-
         Object koBn = postJson.get("koBn");
         if (koBn == null) {
             koBn = postJson.get("Tb1Ko.koBn");

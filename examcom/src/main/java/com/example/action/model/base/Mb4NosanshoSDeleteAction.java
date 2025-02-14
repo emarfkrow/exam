@@ -41,7 +41,6 @@ public class Mb4NosanshoSDeleteAction extends BaseAction {
             }
 
             Mb4Nosansho e = FormValidator.toBean(Mb4Nosansho.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

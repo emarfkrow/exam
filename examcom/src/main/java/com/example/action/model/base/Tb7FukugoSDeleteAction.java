@@ -47,7 +47,6 @@ public class Tb7FukugoSDeleteAction extends BaseAction {
             }
 
             Tb7Fukugo e = FormValidator.toBean(Tb7Fukugo.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

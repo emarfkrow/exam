@@ -47,7 +47,6 @@ public class MhrNinkaSDeleteAction extends BaseAction {
             }
 
             MhrNinka e = FormValidator.toBean(MhrNinka.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

@@ -41,7 +41,6 @@ public class Tb4SanshoMotoSDeleteAction extends BaseAction {
             }
 
             Tb4SanshoMoto e = FormValidator.toBean(Tb4SanshoMoto.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

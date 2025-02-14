@@ -29,9 +29,9 @@ public class Tb3RirekiGetAction extends BaseAction {
         if (rirekiMotoId == null) {
             return map;
         }
+        // 親モデルの取得
         com.example.entity.Tb3RirekiMoto tb3RirekiMoto = com.example.entity.Tb3RirekiMoto.get(rirekiMotoId);
         map.put("Tb3RirekiMoto", tb3RirekiMoto);
-
         Object rirekiBn = postJson.get("rirekiBn");
         if (rirekiBn == null) {
             rirekiBn = postJson.get("Tb3Rireki.rirekiBn");

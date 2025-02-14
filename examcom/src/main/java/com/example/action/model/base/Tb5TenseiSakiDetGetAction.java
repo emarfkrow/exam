@@ -29,9 +29,9 @@ public class Tb5TenseiSakiDetGetAction extends BaseAction {
         if (tenseiSakiId == null) {
             return map;
         }
+        // 親モデルの取得
         com.example.entity.Tb5TenseiSaki tb5TenseiSaki = com.example.entity.Tb5TenseiSaki.get(tenseiSakiId);
         map.put("Tb5TenseiSaki", tb5TenseiSaki);
-
         Object tenseiSakiBn = postJson.get("tenseiSakiBn");
         if (tenseiSakiBn == null) {
             tenseiSakiBn = postJson.get("Tb5TenseiSakiDet.tenseiSakiBn");

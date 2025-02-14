@@ -32,7 +32,6 @@ public class Tb6ShuyakuYokushiDeleteAction extends BaseAction {
         }
 
         Tb6ShuyakuYokushi e = FormValidator.toBean(Tb6ShuyakuYokushi.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

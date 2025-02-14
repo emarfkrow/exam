@@ -32,7 +32,6 @@ public class Mb4IdsanshoDeleteAction extends BaseAction {
         }
 
         Mb4Idsansho e = FormValidator.toBean(Mb4Idsansho.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

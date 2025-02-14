@@ -44,7 +44,6 @@ public class Tb3RirekiSDeleteAction extends BaseAction {
             }
 
             Tb3Rireki e = FormValidator.toBean(Tb3Rireki.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

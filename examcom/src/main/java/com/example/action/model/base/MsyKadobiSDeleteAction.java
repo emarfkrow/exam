@@ -44,7 +44,6 @@ public class MsyKadobiSDeleteAction extends BaseAction {
             }
 
             MsyKadobi e = FormValidator.toBean(MsyKadobi.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

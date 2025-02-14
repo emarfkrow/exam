@@ -41,7 +41,6 @@ public class Tb6ShuyakuYokushiMoto2SDeleteAction extends BaseAction {
             }
 
             Tb6ShuyakuYokushiMoto2 e = FormValidator.toBean(Tb6ShuyakuYokushiMoto2.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

@@ -39,7 +39,6 @@ public class MsyTsukaDeleteAction extends BaseAction {
         }
 
         MsyTsuka e = FormValidator.toBean(MsyTsuka.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

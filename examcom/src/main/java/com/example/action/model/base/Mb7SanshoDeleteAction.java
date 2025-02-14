@@ -32,7 +32,6 @@ public class Mb7SanshoDeleteAction extends BaseAction {
         }
 
         Mb7Sansho e = FormValidator.toBean(Mb7Sansho.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

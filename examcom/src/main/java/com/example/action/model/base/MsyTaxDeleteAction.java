@@ -39,7 +39,6 @@ public class MsyTaxDeleteAction extends BaseAction {
         }
 
         MsyTax e = FormValidator.toBean(MsyTax.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

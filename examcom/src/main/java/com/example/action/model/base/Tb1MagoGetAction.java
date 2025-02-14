@@ -36,12 +36,11 @@ public class Tb1MagoGetAction extends BaseAction {
         if (koBn == null) {
             return map;
         }
+        // 親モデルの取得
         com.example.entity.Tb1Ko tb1Ko = com.example.entity.Tb1Ko.get(oyaId, koBn);
         map.put("Tb1Ko", tb1Ko);
-
         com.example.entity.Tb1Ko3 tb1Ko3 = com.example.entity.Tb1Ko3.get(oyaId, koBn);
         map.put("Tb1Ko3", tb1Ko3);
-
         Object magoBn = postJson.get("magoBn");
         if (magoBn == null) {
             magoBn = postJson.get("Tb1Mago.magoBn");

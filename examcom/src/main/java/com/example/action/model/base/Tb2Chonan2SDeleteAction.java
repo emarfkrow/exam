@@ -41,7 +41,6 @@ public class Tb2Chonan2SDeleteAction extends BaseAction {
             }
 
             Tb2Chonan2 e = FormValidator.toBean(Tb2Chonan2.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

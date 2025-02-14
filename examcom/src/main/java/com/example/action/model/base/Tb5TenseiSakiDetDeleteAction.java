@@ -39,7 +39,6 @@ public class Tb5TenseiSakiDetDeleteAction extends BaseAction {
         }
 
         Tb5TenseiSakiDet e = FormValidator.toBean(Tb5TenseiSakiDet.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

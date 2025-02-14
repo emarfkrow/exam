@@ -29,9 +29,9 @@ public class Tb5TenseiMotoDetGetAction extends BaseAction {
         if (tenseiMotoId == null) {
             return map;
         }
+        // 親モデルの取得
         com.example.entity.Tb5TenseiMoto tb5TenseiMoto = com.example.entity.Tb5TenseiMoto.get(tenseiMotoId);
         map.put("Tb5TenseiMoto", tb5TenseiMoto);
-
         Object tenseiMotoBn = postJson.get("tenseiMotoBn");
         if (tenseiMotoBn == null) {
             tenseiMotoBn = postJson.get("Tb5TenseiMotoDet.tenseiMotoBn");

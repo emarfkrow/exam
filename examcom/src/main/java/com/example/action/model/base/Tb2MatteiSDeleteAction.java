@@ -41,7 +41,6 @@ public class Tb2MatteiSDeleteAction extends BaseAction {
             }
 
             Tb2Mattei e = FormValidator.toBean(Tb2Mattei.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

@@ -32,7 +32,6 @@ public class Tb8HenkanMotoDeleteAction extends BaseAction {
         }
 
         Tb8HenkanMoto e = FormValidator.toBean(Tb8HenkanMoto.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

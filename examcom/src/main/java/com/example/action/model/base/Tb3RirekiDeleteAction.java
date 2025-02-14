@@ -39,7 +39,6 @@ public class Tb3RirekiDeleteAction extends BaseAction {
         }
 
         Tb3Rireki e = FormValidator.toBean(Tb3Rireki.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

@@ -41,7 +41,6 @@ public class Tb2KojiSDeleteAction extends BaseAction {
             }
 
             Tb2Koji e = FormValidator.toBean(Tb2Koji.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

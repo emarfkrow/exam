@@ -47,7 +47,6 @@ public class Tb1MagoSDeleteAction extends BaseAction {
             }
 
             Tb1Mago e = FormValidator.toBean(Tb1Mago.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

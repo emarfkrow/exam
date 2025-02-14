@@ -41,7 +41,6 @@ public class Tb5TenseiYokushiSDeleteAction extends BaseAction {
             }
 
             Tb5TenseiYokushi e = FormValidator.toBean(Tb5TenseiYokushi.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

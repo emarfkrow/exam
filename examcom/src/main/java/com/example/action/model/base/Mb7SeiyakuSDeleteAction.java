@@ -41,7 +41,6 @@ public class Mb7SeiyakuSDeleteAction extends BaseAction {
             }
 
             Mb7Seiyaku e = FormValidator.toBean(Mb7Seiyaku.class.getName(), gridRow);
-
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

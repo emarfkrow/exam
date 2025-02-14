@@ -39,7 +39,6 @@ public class MsyKadobiDeleteAction extends BaseAction {
         }
 
         MsyKadobi e = FormValidator.toBean(MsyKadobi.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

@@ -32,7 +32,6 @@ public class Tb0EntityDeleteAction extends BaseAction {
         }
 
         Tb0Entity e = FormValidator.toBean(Tb0Entity.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

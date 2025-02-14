@@ -32,7 +32,6 @@ public class Tb2ChonanDeleteAction extends BaseAction {
         }
 
         Tb2Chonan e = FormValidator.toBean(Tb2Chonan.class.getName(), postJson);
-
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }
