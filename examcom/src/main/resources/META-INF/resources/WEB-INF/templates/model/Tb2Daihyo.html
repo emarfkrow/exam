@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Daihyo.title}">代表</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2DaihyoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Daihyo.h2}">h2</h2>
+    <form name="Tb2DaihyoRegistForm" action="Tb2DaihyoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb2Daihyo.legend}">legend</legend>
+        <div id="daihyoId">
+          <label for="Tb2Daihyo.daihyoId" th:text="#{Tb2Daihyo.daihyoId}">代表ID</label><input type="text" id="Tb2Daihyo.daihyoId" name="Tb2Daihyo.daihyoId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="daihyoInfo">
+          <label for="Tb2Daihyo.daihyoInfo" th:text="#{Tb2Daihyo.daihyoInfo}">代表情報</label><input type="text" id="Tb2Daihyo.daihyoInfo" name="Tb2Daihyo.daihyoInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb2Daihyo.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Daihyo.insertTs"></span><input type="hidden" id="Tb2Daihyo.insertTs" name="Tb2Daihyo.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb2Daihyo.insertUserId}" class="meta">作成者</label><span id="Tb2Daihyo.insertUserId"></span><input type="hidden" id="Tb2Daihyo.insertUserId" name="Tb2Daihyo.insertUserId" />
+          <span id="Tb2Daihyo.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Daihyo.insertUserId" data-destDef="Tb2Daihyo.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb2Daihyo.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb2Daihyo.updateTs"></span><input type="hidden" id="Tb2Daihyo.updateTs" name="Tb2Daihyo.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb2Daihyo.updateUserId}" class="meta">更新者</label><span id="Tb2Daihyo.updateUserId"></span><input type="hidden" id="Tb2Daihyo.updateUserId" name="Tb2Daihyo.updateUserId" />
+          <span id="Tb2Daihyo.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Daihyo.updateUserId" data-destDef="Tb2Daihyo.updateUserSei:USER_SEI"></span>
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Daihyo.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Daihyo.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Daihyo2.legend}">legend</legend>
+        <div id="daihyo2Info">
+          <label for="Tb2Daihyo2.daihyo2Info" th:text="#{Tb2Daihyo2.daihyo2Info}">代表２情報</label><input type="text" id="Tb2Daihyo2.daihyo2Info" name="Tb2Daihyo2.daihyo2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Daihyo2.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Daihyo2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo2.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Daihyo2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo2.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Daihyo3.legend}">legend</legend>
+        <div id="daihyo3Info">
+          <label for="Tb2Daihyo3.daihyo3Info" th:text="#{Tb2Daihyo3.daihyo3Info}">代表３情報</label><input type="text" id="Tb2Daihyo3.daihyo3Info" name="Tb2Daihyo3.daihyo3Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Daihyo3.updateTs" />
+        <div id="deleteF">
+          <fieldset id="Tb2Daihyo3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Daihyo3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb2Daihyo" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb2DaihyoGet.xlsx(baseMei=#{Tb2Daihyo.h2})}" id="Tb2DaihyoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb2Daihyo" type="submit" class="delete" data-action="Tb2DaihyoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Daihyo" type="submit" class="permit" data-action="Tb2DaihyoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Daihyo" type="submit" class="forbid" data-action="Tb2DaihyoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button id="RegistTb2Daihyo" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

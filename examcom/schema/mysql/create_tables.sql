@@ -1,5 +1,5 @@
 -- Project Name : emarf
--- Date/Time    : 2025/02/13 19:42:09
+-- Date/Time    : 2025/02/15 12:11:01
 -- Author       : toshiyuki
 -- RDBMS Type   : MySQL
 -- Application  : A5:SQL Mk-2
@@ -351,6 +351,45 @@ create table TB1_OYA (
   , constraint TB1_OYA_PKC primary key (OYA_ID)
 ) comment '親' ;
 
+-- 兄弟
+create table TB2_BROS (
+  BROS_ID INT comment '兄弟ID'
+  , BROS_INFO VARCHAR(300) comment '兄弟情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_BROS_PKC primary key (BROS_ID)
+) comment '兄弟' ;
+
+-- 兄弟２
+create table TB2_BROS2 (
+  BROS_ID INT comment '兄弟ID'
+  , BROS2_INFO VARCHAR(300) comment '兄弟２情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_BROS2_PKC primary key (BROS_ID)
+) comment '兄弟２' ;
+
+-- 兄弟３
+create table TB2_BROS3 (
+  BROS_ID INT comment '兄弟ID'
+  , BROS3_INFO VARCHAR(300) comment '兄弟３情報'
+  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
+  , INSERT_USER_ID INT not null comment '作成者'
+  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
+  , UPDATE_USER_ID INT not null comment '更新者'
+  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
+  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
+  , constraint TB2_BROS3_PKC primary key (BROS_ID)
+) comment '兄弟３' ;
+
 -- 長男
 create table TB2_CHONAN (
   CHONAN_ID INT comment '長男ID'
@@ -390,83 +429,44 @@ create table TB2_CHONAN3 (
   , constraint TB2_CHONAN3_PKC primary key (CHONAN_ID)
 ) comment '長男３' ;
 
--- 孤児
-create table TB2_KOJI (
-  KOJI_ID INT comment '孤児ID'
-  , KOJI_INFO VARCHAR(300) comment '孤児情報'
+-- 代表
+create table TB2_DAIHYO (
+  DAIHYO_ID INT comment '代表ID'
+  , DAIHYO_INFO VARCHAR(300) comment '代表情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KOJI_PKC primary key (KOJI_ID)
-) comment '孤児' ;
+  , constraint TB2_DAIHYO_PKC primary key (DAIHYO_ID)
+) comment '代表' ;
 
--- 孤児２
-create table TB2_KOJI2 (
-  KOJI_ID INT comment '孤児ID'
-  , KOJI2_INFO VARCHAR(300) comment '孤児２情報'
+-- 代表２
+create table TB2_DAIHYO2 (
+  DAIHYO_ID INT not null comment '代表ID'
+  , DAIHYO2_INFO VARCHAR(300) comment '代表２情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KOJI2_PKC primary key (KOJI_ID)
-) comment '孤児２' ;
+  , constraint TB2_DAIHYO2_PKC primary key (DAIHYO_ID)
+) comment '代表２' ;
 
--- 孤児３
-create table TB2_KOJI3 (
-  KOJI_ID INT comment '孤児ID'
-  , KOJI3_INFO VARCHAR(300) comment '孤児３情報'
+-- 代表３
+create table TB2_DAIHYO3 (
+  DAIHYO_ID INT not null comment '代表ID'
+  , DAIHYO3_INFO VARCHAR(300) comment '代表３情報'
   , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
   , INSERT_USER_ID INT not null comment '作成者'
   , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
   , UPDATE_USER_ID INT not null comment '更新者'
   , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
   , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KOJI3_PKC primary key (KOJI_ID)
-) comment '孤児３' ;
-
--- 兄弟
-create table TB2_KYODAI (
-  KYODAI_ID INT comment '兄弟ID'
-  , KYODAI_INFO VARCHAR(300) comment '兄弟情報'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KYODAI_PKC primary key (KYODAI_ID)
-) comment '兄弟' ;
-
--- 兄弟２
-create table TB2_KYODAI2 (
-  KYODAI_ID INT comment '兄弟ID'
-  , KYODAI2_INFO VARCHAR(300) comment '兄弟２情報'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KYODAI2_PKC primary key (KYODAI_ID)
-) comment '兄弟２' ;
-
--- 兄弟３
-create table TB2_KYODAI3 (
-  KYODAI_ID INT comment '兄弟ID'
-  , KYODAI3_INFO VARCHAR(300) comment '兄弟３情報'
-  , INSERT_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '作成タイムスタンプ'
-  , INSERT_USER_ID INT not null comment '作成者'
-  , UPDATE_TS TIMESTAMP default CURRENT_TIMESTAMP not null comment '更新タイムスタンプ'
-  , UPDATE_USER_ID INT not null comment '更新者'
-  , DELETE_F CHAR(1) default 0 comment '削除フラグ:必須チェックにかかるのでNOTNULLにしない'
-  , STATUS_KB VARCHAR(2) default 0 comment 'ステータス区分:必須チェックにかかるのでNOTNULLにしない'
-  , constraint TB2_KYODAI3_PKC primary key (KYODAI_ID)
-) comment '兄弟３' ;
+  , constraint TB2_DAIHYO3_PKC primary key (DAIHYO_ID)
+) comment '代表３' ;
 
 -- 末弟
 create table TB2_MATTEI (

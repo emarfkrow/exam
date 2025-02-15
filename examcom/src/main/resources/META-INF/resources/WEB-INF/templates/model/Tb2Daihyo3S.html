@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2Daihyo3S.title}">代表３</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2Daihyo3GridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2Daihyo3S.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb2Daihyo3SearchForm" action="Tb2Daihyo3Search.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb2Daihyo3S.legend}">legend</legend>
+        <div id="daihyoId">
+          <label for="Tb2Daihyo3.daihyoId" th:text="#{Tb2Daihyo3.daihyoId}">代表ID</label><input type="text" id="Tb2Daihyo3.daihyoId" name="Tb2Daihyo3.daihyoId" maxlength="10" />
+        </div>
+        <div id="daihyo3Info">
+          <label for="Tb2Daihyo3.daihyo3Info" th:text="#{Tb2Daihyo3.daihyo3Info}">代表３情報</label><input type="text" id="Tb2Daihyo3.daihyo3Info" name="Tb2Daihyo3.daihyo3Info" maxlength="300" />
+        </div>
+        <div id="deleteF">
+          <fieldset id="Tb2Daihyo3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo3.deleteF}">削除フラグ</legend>
+          </fieldset>
+        </div>
+        <div id="statusKb">
+          <fieldset id="Tb2Daihyo3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
+            <legend th:text="#{Tb2Daihyo3.statusKb}">ステータス区分</legend>
+          </fieldset>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb2Daihyo3" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb2Daihyo3.html}" id="Tb2Daihyo3" class="anew" target="dialog" th:text="#{Tb2Daihyo3.add}" tabindex="-1">代表３</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb2Daihyo3" type="submit" class="search" data-gridId="Tb2Daihyo3Grid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb2Daihyo3SRegistForm" action="Tb2Daihyo3SRegist.ajax" class="regist">
+      <h3 th:text="#{Tb2Daihyo3.h3}">h3</h3>
+      <div id="Tb2Daihyo3Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Daihyo3.html}"></div>
+      <div id="Tb2Daihyo3Pager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb2Daihyo3S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Daihyo3&quot;]').click();">reset</button>
+        <a th:href="@{Tb2Daihyo3Search.xlsx(baseMei=#{Tb2Daihyo3S.h2})}" id="Tb2Daihyo3Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button id="DeleteTb2Daihyo3S" type="submit" class="delete selectRows" data-action="Tb2Daihyo3SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="PermitTb2Daihyo3S" type="submit" class="permit selectRows" data-action="Tb2Daihyo3SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
+        <button id="ForbidTb2Daihyo3S" type="submit" class="forbid selectRows" data-action="Tb2Daihyo3SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2Daihyo3S" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
