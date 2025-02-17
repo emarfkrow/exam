@@ -54,7 +54,7 @@
       <div id="Tb8HenkanMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb8HenkanMoto.html}"></div>
       <div id="Tb8HenkanMotoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb8HenkanMotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb8HenkanMoto&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb8HenkanMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb8HenkanMoto');">reset</button>
         <a th:href="@{Tb8HenkanMotoSearch.xlsx(baseMei=#{Tb8HenkanMotoS.h2})}" id="Tb8HenkanMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb8HenkanMotoS" type="submit" class="delete selectRows" data-action="Tb8HenkanMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb8HenkanMotoS" type="submit" class="permit selectRows" data-action="Tb8HenkanMotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

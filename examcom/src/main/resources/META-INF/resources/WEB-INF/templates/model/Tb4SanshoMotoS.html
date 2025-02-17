@@ -73,7 +73,7 @@
       <div id="Tb4SanshoMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb4SanshoMoto.html}"></div>
       <div id="Tb4SanshoMotoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb4SanshoMotoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb4SanshoMoto&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb4SanshoMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb4SanshoMoto');">reset</button>
         <a th:href="@{Tb4SanshoMotoSearch.xlsx(baseMei=#{Tb4SanshoMotoS.h2})}" id="Tb4SanshoMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="Tb4SanshoMotoGrid.idsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.cdsanshoCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" class="refer" th:text="'CD参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>

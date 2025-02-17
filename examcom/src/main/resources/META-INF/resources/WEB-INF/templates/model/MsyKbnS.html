@@ -51,7 +51,7 @@
       <div id="MsyKbnGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MsyKbn.html}"></div>
       <div id="MsyKbnPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbn&quot;]').click();">reset</button>
+        <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKbn');">reset</button>
         <a th:href="@{MsyKbnSearch.xlsx(baseMei=#{MsyKbnS.h2})}" id="MsyKbnSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMsyKbnS" type="submit" class="delete selectRows" data-action="MsyKbnSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMsyKbnS" type="submit" class="permit selectRows" data-action="MsyKbnSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

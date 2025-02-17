@@ -54,7 +54,7 @@
       <div id="Tb1Ko3Grid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko3.html}"></div>
       <div id="Tb1Ko3Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1Ko3S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Ko3&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb1Ko3S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Ko3');">reset</button>
         <a th:href="@{Tb1Ko3Search.xlsx(baseMei=#{Tb1Ko3S.h2})}" id="Tb1Ko3Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb1Ko3S" type="submit" class="delete selectRows" data-action="Tb1Ko3SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1Ko3S" type="submit" class="permit selectRows" data-action="Tb1Ko3SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

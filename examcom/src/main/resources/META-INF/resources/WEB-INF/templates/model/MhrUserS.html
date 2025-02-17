@@ -65,7 +65,7 @@
       <div id="MhrUserGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MhrUser.html}"></div>
       <div id="MhrUserPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMhrUserS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrUser&quot;]').click();">reset</button>
+        <button type="button" id="ResetMhrUserS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrUser');">reset</button>
         <a th:href="@{MhrUserSearch.xlsx(baseMei=#{MhrUserS.h2})}" id="MhrUserSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMhrUserS" type="submit" class="delete selectRows" data-action="MhrUserSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMhrUserS" type="submit" class="permit selectRows" data-action="MhrUserSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

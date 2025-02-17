@@ -56,7 +56,7 @@
       <div id="Tb1MagoGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}"></div>
       <div id="Tb1MagoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1MagoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Mago&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb1MagoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Mago');">reset</button>
         <a th:href="@{Tb1MagoSearch.xlsx(baseMei=#{Tb1MagoS.h2})}" id="Tb1MagoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb1MagoS" type="submit" class="delete selectRows" data-action="Tb1MagoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1MagoS" type="submit" class="permit selectRows" data-action="Tb1MagoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

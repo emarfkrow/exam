@@ -60,7 +60,7 @@
       <div id="MhrBushoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MhrBusho.html}"></div>
       <div id="MhrBushoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrBusho&quot;]').click();">reset</button>
+        <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrBusho');">reset</button>
         <a th:href="@{MhrBushoSearch.xlsx(baseMei=#{MhrBushoS.h2})}" id="MhrBushoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MhrBushoGrid.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMhrBushoS" type="submit" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>

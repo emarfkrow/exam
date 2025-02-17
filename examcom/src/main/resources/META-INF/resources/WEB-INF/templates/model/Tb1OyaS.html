@@ -54,7 +54,7 @@
       <div id="Tb1OyaGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb1Oya.html}"></div>
       <div id="Tb1OyaPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1OyaS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb1Oya&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb1OyaS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Oya');">reset</button>
         <a th:href="@{Tb1OyaSearch.xlsx(baseMei=#{Tb1OyaS.h2})}" id="Tb1OyaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb1OyaS" type="submit" class="delete selectRows" data-action="Tb1OyaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb1OyaS" type="submit" class="permit selectRows" data-action="Tb1OyaSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

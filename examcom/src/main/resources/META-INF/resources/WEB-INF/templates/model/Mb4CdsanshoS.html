@@ -50,7 +50,7 @@
       <div id="Mb4CdsanshoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb4Cdsansho.html}"></div>
       <div id="Mb4CdsanshoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMb4CdsanshoS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb4Cdsansho&quot;]').click();">reset</button>
+        <button type="button" id="ResetMb4CdsanshoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Mb4Cdsansho');">reset</button>
         <a th:href="@{Mb4CdsanshoSearch.xlsx(baseMei=#{Mb4CdsanshoS.h2})}" id="Mb4CdsanshoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMb4CdsanshoS" type="submit" class="delete selectRows" data-action="Mb4CdsanshoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMb4CdsanshoS" type="submit" class="permit selectRows" data-action="Mb4CdsanshoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

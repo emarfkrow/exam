@@ -59,7 +59,7 @@
       <div id="Tb0NokeyGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb0Nokey.html}"></div>
       <div id="Tb0NokeyPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb0NokeyS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb0Nokey&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb0NokeyS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb0Nokey');">reset</button>
         <a th:href="@{Tb0NokeySearch.xlsx(baseMei=#{Tb0NokeyS.h2})}" id="Tb0NokeySearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb0NokeyS" type="submit" class="delete selectRows" data-action="Tb0NokeySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb0NokeyS" type="submit" class="permit selectRows" data-action="Tb0NokeySPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

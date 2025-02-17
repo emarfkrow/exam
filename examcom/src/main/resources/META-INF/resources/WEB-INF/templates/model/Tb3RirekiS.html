@@ -53,7 +53,7 @@
       <div id="Tb3RirekiGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb3Rireki.html}"></div>
       <div id="Tb3RirekiPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb3RirekiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb3Rireki&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb3RirekiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb3Rireki');">reset</button>
         <a th:href="@{Tb3RirekiSearch.xlsx(baseMei=#{Tb3RirekiS.h2})}" id="Tb3RirekiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb3RirekiS" type="submit" class="delete selectRows" data-action="Tb3RirekiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb3RirekiS" type="submit" class="permit selectRows" data-action="Tb3RirekiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

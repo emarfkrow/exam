@@ -60,7 +60,7 @@
       <div id="MsyKbnValGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/MsyKbnVal.html}"></div>
       <div id="MsyKbnValPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyKbnValS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMsyKbnVal&quot;]').click();">reset</button>
+        <button type="button" id="ResetMsyKbnValS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKbnVal');">reset</button>
         <a th:href="@{MsyKbnValSearch.xlsx(baseMei=#{MsyKbnValS.h2})}" id="MsyKbnValSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MsyKbnValGrid.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer" th:text="'区分マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button id="DeleteMsyKbnValS" type="submit" class="delete selectRows" data-action="MsyKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>

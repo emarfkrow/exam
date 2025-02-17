@@ -52,7 +52,7 @@
       <div id="Tb6ShuyakuSakiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb6ShuyakuSaki.html}"></div>
       <div id="Tb6ShuyakuSakiPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb6ShuyakuSakiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb6ShuyakuSaki&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb6ShuyakuSakiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6ShuyakuSaki');">reset</button>
         <a th:href="@{Tb6ShuyakuSakiSearch.xlsx(baseMei=#{Tb6ShuyakuSakiS.h2})}" id="Tb6ShuyakuSakiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb6ShuyakuSakiS" type="submit" class="delete selectRows" data-action="Tb6ShuyakuSakiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb6ShuyakuSakiS" type="submit" class="permit selectRows" data-action="Tb6ShuyakuSakiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

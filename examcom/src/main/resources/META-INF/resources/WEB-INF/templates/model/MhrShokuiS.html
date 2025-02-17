@@ -60,7 +60,7 @@
       <div id="MhrShokuiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/MhrShokui.html}"></div>
       <div id="MhrShokuiPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMhrShokuiS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrShokui&quot;]').click();">reset</button>
+        <button type="button" id="ResetMhrShokuiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrShokui');">reset</button>
         <a th:href="@{MhrShokuiSearch.xlsx(baseMei=#{MhrShokuiS.h2})}" id="MhrShokuiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMhrShokuiS" type="submit" class="delete selectRows" data-action="MhrShokuiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMhrShokuiS" type="submit" class="permit selectRows" data-action="MhrShokuiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

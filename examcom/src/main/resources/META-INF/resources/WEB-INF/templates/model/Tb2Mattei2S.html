@@ -51,7 +51,7 @@
       <div id="Tb2Mattei2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Mattei2.html}"></div>
       <div id="Tb2Mattei2Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb2Mattei2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Mattei2&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb2Mattei2S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb2Mattei2');">reset</button>
         <a th:href="@{Tb2Mattei2Search.xlsx(baseMei=#{Tb2Mattei2S.h2})}" id="Tb2Mattei2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb2Mattei2S" type="submit" class="delete selectRows" data-action="Tb2Mattei2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb2Mattei2S" type="submit" class="permit selectRows" data-action="Tb2Mattei2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

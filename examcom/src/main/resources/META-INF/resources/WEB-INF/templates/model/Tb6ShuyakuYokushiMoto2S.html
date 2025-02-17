@@ -51,7 +51,7 @@
       <div id="Tb6ShuyakuYokushiMoto2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb6ShuyakuYokushiMoto2.html}"></div>
       <div id="Tb6ShuyakuYokushiMoto2Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb6ShuyakuYokushiMoto2S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb6ShuyakuYokushiMoto2&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb6ShuyakuYokushiMoto2S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6ShuyakuYokushiMoto2');">reset</button>
         <a th:href="@{Tb6ShuyakuYokushiMoto2Search.xlsx(baseMei=#{Tb6ShuyakuYokushiMoto2S.h2})}" id="Tb6ShuyakuYokushiMoto2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb6ShuyakuYokushiMoto2S" type="submit" class="delete selectRows" data-action="Tb6ShuyakuYokushiMoto2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb6ShuyakuYokushiMoto2S" type="submit" class="permit selectRows" data-action="Tb6ShuyakuYokushiMoto2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

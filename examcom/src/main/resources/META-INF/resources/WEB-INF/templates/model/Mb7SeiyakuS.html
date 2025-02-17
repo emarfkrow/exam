@@ -55,7 +55,7 @@
       <div id="Mb7SeiyakuGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb7Seiyaku.html}"></div>
       <div id="Mb7SeiyakuPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMb7SeiyakuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMb7Seiyaku&quot;]').click();">reset</button>
+        <button type="button" id="ResetMb7SeiyakuS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Mb7Seiyaku');">reset</button>
         <a th:href="@{Mb7SeiyakuSearch.xlsx(baseMei=#{Mb7SeiyakuS.h2})}" id="Mb7SeiyakuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteMb7SeiyakuS" type="submit" class="delete selectRows" data-action="Mb7SeiyakuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitMb7SeiyakuS" type="submit" class="permit selectRows" data-action="Mb7SeiyakuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

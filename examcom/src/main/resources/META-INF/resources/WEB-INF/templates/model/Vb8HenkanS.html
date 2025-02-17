@@ -45,7 +45,7 @@
       <div id="Vb8HenkanGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb8Henkan.html}"></div>
       <div id="Vb8HenkanPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetVb8HenkanS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchVb8Henkan&quot;]').click();">reset</button>
+        <button type="button" id="ResetVb8HenkanS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Vb8Henkan');">reset</button>
         <a th:href="@{Vb8HenkanSearch.xlsx(baseMei=#{Vb8HenkanS.h2})}" id="Vb8HenkanSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

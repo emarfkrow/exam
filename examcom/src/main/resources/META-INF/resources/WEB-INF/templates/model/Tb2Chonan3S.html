@@ -51,7 +51,7 @@
       <div id="Tb2Chonan3Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Chonan3.html}"></div>
       <div id="Tb2Chonan3Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb2Chonan3S" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb2Chonan3&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb2Chonan3S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb2Chonan3');">reset</button>
         <a th:href="@{Tb2Chonan3Search.xlsx(baseMei=#{Tb2Chonan3S.h2})}" id="Tb2Chonan3Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb2Chonan3S" type="submit" class="delete selectRows" data-action="Tb2Chonan3SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb2Chonan3S" type="submit" class="permit selectRows" data-action="Tb2Chonan3SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>

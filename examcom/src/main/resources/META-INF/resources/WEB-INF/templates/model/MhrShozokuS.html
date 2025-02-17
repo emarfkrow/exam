@@ -62,7 +62,7 @@
       <div id="MhrShozokuGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/MhrShozoku.html}"></div>
       <div id="MhrShozokuPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMhrShozokuS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchMhrShozoku&quot;]').click();">reset</button>
+        <button type="button" id="ResetMhrShozokuS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrShozoku');">reset</button>
         <a th:href="@{MhrShozokuSearch.xlsx(baseMei=#{MhrShozokuS.h2})}" id="MhrShozokuSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MhrShozokuGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrShozokuGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>

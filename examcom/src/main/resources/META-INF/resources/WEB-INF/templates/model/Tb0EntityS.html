@@ -121,7 +121,7 @@
       <div id="Tb0EntityGrid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb0Entity.html}"></div>
       <div id="Tb0EntityPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb0EntityS" th:text="#{common.reset}" class="reset" onClick="$('[id=&quot;SearchTb0Entity&quot;]').click();">reset</button>
+        <button type="button" id="ResetTb0EntityS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb0Entity');">reset</button>
         <a th:href="@{Tb0EntitySearch.xlsx(baseMei=#{Tb0EntityS.h2})}" id="Tb0EntitySearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <button id="DeleteTb0EntityS" type="submit" class="delete selectRows" data-action="Tb0EntitySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb0EntityS" type="submit" class="permit selectRows" data-action="Tb0EntitySPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
