@@ -20,6 +20,7 @@ public class Mb4NosanshoRegistForm implements IForm {
 
     /** NO参照NO */
     @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
     @jakarta.validation.constraints.Size(max = 10)
     private String nosanshoNo;
 

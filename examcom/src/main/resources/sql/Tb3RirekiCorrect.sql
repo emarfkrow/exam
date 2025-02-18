@@ -29,4 +29,5 @@ WHERE
     AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
-    a.`RIREKI_MOTO_ID`, a.`RIREKI_BN`
+    a.`RIREKI_MOTO_ID`
+    , a.`RIREKI_BN`

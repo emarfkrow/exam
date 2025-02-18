@@ -73,6 +73,7 @@ public class Tb4SanshoMotoRegistForm implements IForm {
     }
 
     /** CD参照CD */
+    @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]*)?")
     @jakarta.validation.constraints.Size(max = 10)
     private String cdsanshoCd;
 
@@ -109,6 +110,7 @@ public class Tb4SanshoMotoRegistForm implements IForm {
     }
 
     /** NO参照NO */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
     @jakarta.validation.constraints.Size(max = 10)
     private String nosanshoNo;
 

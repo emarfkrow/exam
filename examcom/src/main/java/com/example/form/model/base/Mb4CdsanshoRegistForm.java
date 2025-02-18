@@ -20,6 +20,7 @@ public class Mb4CdsanshoRegistForm implements IForm {
 
     /** CD参照CD */
     @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]*)?")
     @jakarta.validation.constraints.Size(max = 10)
     private String cdsanshoCd;
 
