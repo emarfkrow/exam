@@ -51,17 +51,13 @@
     <!-- 一覧フォーム -->
     <form name="Tb1KoSRegistForm" action="Tb1KoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb1Ko.h3}">h3</h3>
-      <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}"></div>
+      <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="1" data-editable="false" th:data-href="@{/model/Tb1Ko.html}"></div>
       <div id="Tb1KoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb1KoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Ko');">reset</button>
         <a th:href="@{Tb1KoSearch.xlsx(baseMei=#{Tb1KoS.h2})}" id="Tb1KoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1KoS" type="submit" class="delete selectRows" data-action="Tb1KoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb1KoS" type="submit" class="permit selectRows" data-action="Tb1KoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb1KoS" type="submit" class="forbid selectRows" data-action="Tb1KoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb1KoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

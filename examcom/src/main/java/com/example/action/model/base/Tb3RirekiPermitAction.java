@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 履歴承認
+ * 履歴元承認
  *
  * @author emarfkrow
  */
 public class Tb3RirekiPermitAction extends BaseAction {
 
-    /** 履歴承認処理 */
+    /** 履歴元承認処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -30,17 +30,10 @@ public class Tb3RirekiPermitAction extends BaseAction {
         if (rirekiMotoId == null) {
             throw new OptLockError("error.cant.permit");
         }
-        Object rirekiBn = postJson.get("rirekiBn");
-        if (rirekiBn == null) {
-            rirekiBn = postJson.get("Tb3Rireki.rirekiBn");
-        }
-        if (rirekiBn == null) {
-            throw new OptLockError("error.cant.permit");
-        }
 
         Tb3Rireki e = FormValidator.toBean(Tb3Rireki.class.getName(), postJson);
 
-        Tb3Rireki f = Tb3Rireki.get(e.getRirekiMotoId(), e.getRirekiBn());
+        Tb3Rireki f = Tb3Rireki.get(e.getRirekiMotoId());
         f.setStatusKb(1);
         if (f.update(now, execId) != 1) {
             throw new OptLockError("error.cant.permit");

@@ -1,5 +1,6 @@
 SELECT
       a.`RIREKI_MOTO_ID`
+    , a.`RIREKI_BN`
     , a.`RIREKI_MOTO_INFO`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
@@ -10,10 +11,11 @@ SELECT
     , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
     , a.`STATUS_KB`
 FROM
-    TB3_RIREKI_MOTO a 
+    TB3_RIREKI_SAKI a 
 WHERE
     1 = 1 
     AND a.`RIREKI_MOTO_ID` = :rireki_moto_id 
+    AND a.`RIREKI_BN` = :rireki_bn 
     AND TRIM(TRAILING ' ' FROM a.`RIREKI_MOTO_INFO`) LIKE CONCAT ('%', :rireki_moto_info, '%') 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
@@ -27,3 +29,4 @@ WHERE
     AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`RIREKI_MOTO_ID`
+    , a.`RIREKI_BN`

@@ -9,13 +9,13 @@ import com.example.entity.Tb3Rireki;
 import jp.co.golorp.emarf.action.BaseAction;
 
 /**
- * 履歴照会
+ * 履歴元照会
  *
  * @author emarfkrow
  */
 public class Tb3RirekiGetAction extends BaseAction {
 
-    /** 履歴照会処理 */
+    /** 履歴元照会処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -29,18 +29,8 @@ public class Tb3RirekiGetAction extends BaseAction {
         if (rirekiMotoId == null) {
             return map;
         }
-        // 親モデルの取得
-        com.example.entity.Tb3RirekiMoto tb3RirekiMoto = com.example.entity.Tb3RirekiMoto.get(rirekiMotoId);
-        map.put("Tb3RirekiMoto", tb3RirekiMoto);
-        Object rirekiBn = postJson.get("rirekiBn");
-        if (rirekiBn == null) {
-            rirekiBn = postJson.get("Tb3Rireki.rirekiBn");
-        }
-        if (rirekiBn == null) {
-            return map;
-        }
 
-        Tb3Rireki tb3Rireki = Tb3Rireki.get(rirekiMotoId, rirekiBn);
+        Tb3Rireki tb3Rireki = Tb3Rireki.get(rirekiMotoId);
         map.put("Tb3Rireki", tb3Rireki);
         return map;
     }

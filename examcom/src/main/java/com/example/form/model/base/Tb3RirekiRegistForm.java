@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * 履歴登録フォーム
+ * 履歴元登録フォーム
  *
  * @author emarfkrow
  */
@@ -34,24 +34,6 @@ public class Tb3RirekiRegistForm implements IForm {
      */
     public void setRirekiMotoId(final String p) {
         this.rirekiMotoId = p;
-    }
-
-    /** 履歴枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String rirekiBn;
-
-    /**
-     * @return 履歴枝番
-     */
-    public String getRirekiBn() {
-        return rirekiBn;
-    }
-
-    /**
-     * @param p 履歴枝番
-     */
-    public void setRirekiBn(final String p) {
-        this.rirekiBn = p;
     }
 
     /** 履歴元情報 */

@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 履歴一覧削除
+ * 履歴元一覧削除
  *
  * @author emarfkrow
  */
 public class Tb3RirekiSDeleteAction extends BaseAction {
 
-    /** 履歴一覧削除処理 */
+    /** 履歴元一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -37,9 +37,6 @@ public class Tb3RirekiSDeleteAction extends BaseAction {
 
             // 主キーが不足していたらエラー
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("RIREKI_MOTO_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("RIREKI_BN"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

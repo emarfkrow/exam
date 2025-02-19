@@ -10,10 +10,10 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 履歴元
+ * 履歴先
  * @author emarfkrow
  */
-public class Tb3RirekiMoto implements IEntity {
+public class Tb3RirekiSaki implements IEntity {
 
     /** SlickGridのDataView用ID */
     private Integer id;
@@ -47,6 +47,24 @@ public class Tb3RirekiMoto implements IEntity {
             this.rirekiMotoId = Integer.valueOf(o.toString());
         } else {
             this.rirekiMotoId = null;
+        }
+    }
+
+    /** 履歴枝番 */
+    private Integer rirekiBn;
+
+    /** @return 履歴枝番 */
+    @com.fasterxml.jackson.annotation.JsonProperty("RIREKI_BN")
+    public Integer getRirekiBn() {
+        return this.rirekiBn;
+    }
+
+    /** @param o 履歴枝番 */
+    public void setRirekiBn(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.rirekiBn = Integer.valueOf(o.toString());
+        } else {
+            this.rirekiBn = null;
         }
     }
 
@@ -231,16 +249,19 @@ public class Tb3RirekiMoto implements IEntity {
     }
 
     /**
-     * 履歴元照会
+     * 履歴先照会
      * @param param1 履歴元ID
-     * @return 履歴元
+     * @param param2 履歴枝番
+     * @return 履歴先
      */
-    public static Tb3RirekiMoto get(final Object param1) {
+    public static Tb3RirekiSaki get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_BN` = :rireki_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`RIREKI_MOTO_ID` \n";
+        sql += "    , a.`RIREKI_BN` \n";
         sql += "    , a.`RIREKI_MOTO_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
@@ -249,37 +270,28 @@ public class Tb3RirekiMoto implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
         sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
-        sql += "    TB3_RIREKI_MOTO a \n";
+        sql += "    TB3_RIREKI_SAKI a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("rireki_moto_id", param1);
-        return Queries.get(sql, map, Tb3RirekiMoto.class);
+        map.put("rireki_bn", param2);
+        return Queries.get(sql, map, Tb3RirekiSaki.class);
     }
 
     /**
-     * 履歴元追加
+     * 履歴先追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 履歴元IDの採番処理
+        // 履歴枝番の採番処理
         numbering();
 
-        // 履歴の登録
-        if (this.tb3Rirekis != null) {
-            for (Tb3Rireki tb3Rireki : this.tb3Rirekis) {
-                if (tb3Rireki != null) {
-                    tb3Rireki.setRirekiMotoId(this.getRirekiMotoId());
-                }
-                tb3Rireki.insert(now, execId);
-            }
-        }
-
-        // 履歴元の登録
-        String sql = "INSERT INTO TB3_RIREKI_MOTO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
+        // 履歴先の登録
+        String sql = "INSERT INTO TB3_RIREKI_SAKI(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -287,6 +299,7 @@ public class Tb3RirekiMoto implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`RIREKI_MOTO_ID` -- :rireki_moto_id");
+        nameList.add("`RIREKI_BN` -- :rireki_bn");
         nameList.add("`RIREKI_MOTO_INFO` -- :rireki_moto_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
@@ -301,6 +314,7 @@ public class Tb3RirekiMoto implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":rireki_moto_id");
+        valueList.add(":rireki_bn");
         valueList.add(":rireki_moto_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
@@ -311,43 +325,32 @@ public class Tb3RirekiMoto implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 履歴元IDの採番処理 */
+    /** 履歴枝番の採番処理 */
     private void numbering() {
-        if (this.rirekiMotoId != null) {
+        if (this.rirekiBn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`RIREKI_MOTO_ID`) IS NULL THEN 0 ELSE MAX(e.`RIREKI_MOTO_ID`) * 1 END + 1 AS `RIREKI_MOTO_ID` FROM TB3_RIREKI_MOTO e";
+        String sql = "SELECT CASE WHEN MAX(e.`RIREKI_BN`) IS NULL THEN 0 ELSE MAX(e.`RIREKI_BN`) * 1 END + 1 AS `RIREKI_BN` FROM TB3_RIREKI_SAKI e";
         Map<String, Object> map = new HashMap<String, Object>();
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("e.`RIREKI_MOTO_ID` = :rireki_moto_id");
+        sql += " WHERE " + String.join(" AND ", whereList);
+        map.put("rireki_moto_id", this.rirekiMotoId);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("RIREKI_MOTO_ID");
-        this.setRirekiMotoId(o);
+        Object o = mapList.get(0).get("RIREKI_BN");
+        this.setRirekiBn(o);
     }
 
     /**
-     * 履歴元更新
+     * 履歴先更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 履歴の登録
-        if (this.tb3Rirekis != null) {
-            for (Tb3Rireki tb3Rireki : this.tb3Rirekis) {
-                if (tb3Rireki == null) {
-                    continue;
-                }
-                tb3Rireki.setRirekiMotoId(this.rirekiMotoId);
-                try {
-                    tb3Rireki.insert(now, execId);
-                } catch (Exception e) {
-                    tb3Rireki.update(now, execId);
-                }
-            }
-        }
-
-        // 履歴元の登録
-        String sql = "UPDATE TB3_RIREKI_MOTO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
+        // 履歴先の登録
+        String sql = "UPDATE TB3_RIREKI_SAKI\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
 
@@ -355,6 +358,7 @@ public class Tb3RirekiMoto implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        setList.add("`RIREKI_BN` = :rireki_bn");
         setList.add("`RIREKI_MOTO_INFO` = :rireki_moto_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
@@ -364,20 +368,13 @@ public class Tb3RirekiMoto implements IEntity {
     }
 
     /**
-     * 履歴元削除
+     * 履歴先削除
      * @return 削除件数
      */
     public int delete() {
 
-        // 履歴の削除
-        if (this.tb3Rirekis != null) {
-            for (Tb3Rireki tb3Rireki : this.tb3Rirekis) {
-                tb3Rireki.delete();
-            }
-        }
-
-        // 履歴元の削除
-        String sql = "DELETE FROM TB3_RIREKI_MOTO WHERE " + getWhere();
+        // 履歴先の削除
+        String sql = "DELETE FROM TB3_RIREKI_SAKI WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
 
@@ -385,6 +382,7 @@ public class Tb3RirekiMoto implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_BN` = :rireki_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -396,6 +394,7 @@ public class Tb3RirekiMoto implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("rireki_moto_id", this.rirekiMotoId);
+        map.put("rireki_bn", this.rirekiBn);
         map.put("rireki_moto_info", this.rirekiMotoInfo);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
@@ -404,60 +403,5 @@ public class Tb3RirekiMoto implements IEntity {
         map.put("update_ts", now);
         map.put("update_user_id", execId);
         return map;
-    }
-
-    /** 履歴のリスト */
-    private List<Tb3Rireki> tb3Rirekis;
-
-    /** @return 履歴のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb3Rirekis")
-    public List<Tb3Rireki> getTb3Rirekis() {
-        return this.tb3Rirekis;
-    }
-
-    /** @param list 履歴のリスト */
-    public void setTb3Rirekis(final List<Tb3Rireki> list) {
-        this.tb3Rirekis = list;
-    }
-
-    /** @param tb3Rireki */
-    public void addTb3Rirekis(final Tb3Rireki tb3Rireki) {
-        if (this.tb3Rirekis == null) {
-            this.tb3Rirekis = new ArrayList<Tb3Rireki>();
-        }
-        this.tb3Rirekis.add(tb3Rireki);
-    }
-
-    /** @return 履歴のリスト */
-    public List<Tb3Rireki> referTb3Rirekis() {
-        this.tb3Rirekis = Tb3RirekiMoto.referTb3Rirekis(this.rirekiMotoId);
-        return this.tb3Rirekis;
-    }
-
-    /**
-     * @param param1 rirekiMotoId
-     * @return List<Tb3Rireki>
-     */
-    public static List<Tb3Rireki> referTb3Rirekis(final Integer param1) {
-        List<String> whereList = new ArrayList<String>();
-        whereList.add("RIREKI_MOTO_ID = :rireki_moto_id");
-        String sql = "SELECT ";
-        sql += "`RIREKI_MOTO_ID`";
-        sql += ", `RIREKI_BN`";
-        sql += ", `RIREKI_MOTO_INFO`";
-        sql += ", `INSERT_TS` AS INSERT_TS";
-        sql += ", `INSERT_USER_ID`";
-        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
-        sql += ", `UPDATE_TS` AS UPDATE_TS";
-        sql += ", `UPDATE_USER_ID`";
-        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += ", `DELETE_F`";
-        sql += ", `STATUS_KB`";
-        sql += " FROM TB3_RIREKI a WHERE " + String.join(" AND ", whereList);
-        sql += " ORDER BY ";
-        sql += "RIREKI_MOTO_ID, RIREKI_BN";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("rireki_moto_id", param1);
-        return Queries.select(sql, map, Tb3Rireki.class, null, null);
     }
 }

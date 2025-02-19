@@ -50,17 +50,13 @@
     <!-- 一覧フォーム -->
     <form name="Tb5TenseiMotoSRegistForm" action="Tb5TenseiMotoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb5TenseiMoto.h3}">h3</h3>
-      <div id="Tb5TenseiMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb5TenseiMoto.html}"></div>
+      <div id="Tb5TenseiMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiMoto.html}"></div>
       <div id="Tb5TenseiMotoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb5TenseiMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb5TenseiMoto');">reset</button>
         <a th:href="@{Tb5TenseiMotoSearch.xlsx(baseMei=#{Tb5TenseiMotoS.h2})}" id="Tb5TenseiMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb5TenseiMotoS" type="submit" class="delete selectRows" data-action="Tb5TenseiMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5TenseiMotoS" type="submit" class="permit selectRows" data-action="Tb5TenseiMotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5TenseiMotoS" type="submit" class="forbid selectRows" data-action="Tb5TenseiMotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb5TenseiMotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>

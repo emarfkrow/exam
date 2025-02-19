@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 履歴削除
+ * 履歴元削除
  *
  * @author emarfkrow
  */
 public class Tb3RirekiDeleteAction extends BaseAction {
 
-    /** 履歴削除処理 */
+    /** 履歴元削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -28,13 +28,6 @@ public class Tb3RirekiDeleteAction extends BaseAction {
             rirekiMotoId = postJson.get("Tb3Rireki.rirekiMotoId");
         }
         if (rirekiMotoId == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object rirekiBn = postJson.get("rirekiBn");
-        if (rirekiBn == null) {
-            rirekiBn = postJson.get("Tb3Rireki.rirekiBn");
-        }
-        if (rirekiBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

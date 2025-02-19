@@ -81,6 +81,8 @@ FooterRight=
 ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
+GenerateDropTableStatement=1
+DropTableIfExists=0
 BackupRestoreTempTable=0
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
@@ -1723,7 +1725,7 @@ TermPos2=R
 ZOrder=95
 
 [Entity]
-PName=TB3_RIREKI_MOTO
+PName=TB3_RIREKI
 LName=履歴元
 Comment=
 TableInnerOption=
@@ -1736,13 +1738,13 @@ Field="履歴元情報","RIREKI_MOTO_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250212105905
+ModifiedDateTime=20250219195602
 Position="MAIN",600,2250
 ZOrder=96
 
 [Entity]
-PName=TB3_RIREKI
-LName=履歴
+PName=TB3_RIREKI_SAKI
+LName=履歴先
 Comment=
 TableInnerOption=
 TableOption=
@@ -1755,13 +1757,13 @@ Field="履歴元情報","RIREKI_MOTO_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250212105953
+ModifiedDateTime=20250219195553
 Position="MAIN",1150,2250
 ZOrder=98
 
 [Relation]
-Entity1=TB3_RIREKI_MOTO
-Entity2=TB3_RIREKI
+Entity1=TB3_RIREKI
+Entity2=TB3_RIREKI_SAKI
 RelationType1=1
 RelationType2=3
 Fields1=RIREKI_MOTO_ID

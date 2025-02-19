@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 履歴一覧登録
+ * 履歴元一覧登録
  *
  * @author emarfkrow
  */
 public class Tb3RirekiSRegistAction extends BaseAction {
 
-    /** 履歴一覧登録処理 */
+    /** 履歴元一覧登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -40,9 +40,6 @@ public class Tb3RirekiSRegistAction extends BaseAction {
             // 主キーが不足していたらINSERT
             boolean isNew = false;
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRirekiMotoId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRirekiBn())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

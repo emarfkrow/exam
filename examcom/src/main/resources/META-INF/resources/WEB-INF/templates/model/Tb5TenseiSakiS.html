@@ -52,17 +52,13 @@
     <!-- 一覧フォーム -->
     <form name="Tb5TenseiSakiSRegistForm" action="Tb5TenseiSakiSRegist.ajax" class="regist">
       <h3 th:text="#{Tb5TenseiSaki.h3}">h3</h3>
-      <div id="Tb5TenseiSakiGrid" data-selectionMode="checkbox" data-frozenColumn="0" th:data-href="@{/model/Tb5TenseiSaki.html}"></div>
+      <div id="Tb5TenseiSakiGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiSaki.html}"></div>
       <div id="Tb5TenseiSakiPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb5TenseiSakiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb5TenseiSaki');">reset</button>
         <a th:href="@{Tb5TenseiSakiSearch.xlsx(baseMei=#{Tb5TenseiSakiS.h2})}" id="Tb5TenseiSakiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb5TenseiSakiS" type="submit" class="delete selectRows" data-action="Tb5TenseiSakiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5TenseiSakiS" type="submit" class="permit selectRows" data-action="Tb5TenseiSakiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5TenseiSakiS" type="submit" class="forbid selectRows" data-action="Tb5TenseiSakiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb5TenseiSakiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
       </div>
     </form>
   </div>
