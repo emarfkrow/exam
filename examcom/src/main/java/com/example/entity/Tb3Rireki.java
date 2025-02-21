@@ -230,6 +230,21 @@ public class Tb3Rireki implements IEntity {
         }
     }
 
+    /** henkoRiyu */
+    private String henkoRiyu;
+
+    /** @return henkoRiyu */
+    public String getHenkoRiyu() {
+        return this.henkoRiyu;
+    }
+
+    /** @param o henkoRiyu */
+    public void setHenkoRiyu(final Object o) {
+        if (o != null) {
+            this.henkoRiyu = o.toString();
+        }
+    }
+
     /**
      * 履歴元照会
      * @param param1 履歴元ID
@@ -278,6 +293,7 @@ public class Tb3Rireki implements IEntity {
         tb3RirekiSaki.setUpdateUserId(this.updateUserId);
         tb3RirekiSaki.setDeleteF(this.deleteF);
         tb3RirekiSaki.setStatusKb(this.statusKb);
+        tb3RirekiSaki.setHenkoRiyu(this.henkoRiyu);
         tb3RirekiSaki.insert(now, execId);
 
         // 履歴元の登録
@@ -343,6 +359,7 @@ public class Tb3Rireki implements IEntity {
         tb3RirekiSaki.setUpdateUserId(this.updateUserId);
         tb3RirekiSaki.setDeleteF(this.deleteF);
         tb3RirekiSaki.setStatusKb(this.statusKb);
+        tb3RirekiSaki.setHenkoRiyu(this.henkoRiyu);
         tb3RirekiSaki.insert(now, execId);
 
         // 履歴元の登録

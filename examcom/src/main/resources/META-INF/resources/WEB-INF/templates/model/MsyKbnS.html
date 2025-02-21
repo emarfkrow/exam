@@ -40,6 +40,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMsyKbn" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MsyKbn.html}" target="dialog" id="MsyKbn" class="anew" th:text="#{MsyKbn.add}" tabindex="-1">区分マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMsyKbn" type="submit" class="search" data-gridId="MsyKbnGrid" th:text="#{common.search}">submit</button>
@@ -48,7 +49,7 @@
     <!-- 一覧フォーム -->
     <form name="MsyKbnSRegistForm" action="MsyKbnSRegist.ajax" class="regist">
       <h3 th:text="#{MsyKbn.h3}">h3</h3>
-      <div id="MsyKbnGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/MsyKbn.html}"></div>
+      <div id="MsyKbnGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/MsyKbn.html}"></div>
       <div id="MsyKbnPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKbn');">reset</button>

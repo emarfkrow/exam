@@ -41,7 +41,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb5TenseiMoto" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb5TenseiMoto.html}" id="Tb5TenseiMoto" class="anew" target="dialog" th:text="#{Tb5TenseiMoto.add}" tabindex="-1">転生元</a>
+        <a th:href="@{/model/Tb5TenseiMoto.html}" target="dialog" id="Tb5TenseiMoto" class="anew" th:text="#{Tb5TenseiMoto.add}" tabindex="-1">転生元</a>
       </div>
       <div class="submits">
         <button id="SearchTb5TenseiMoto" type="submit" class="search" data-gridId="Tb5TenseiMotoGrid" th:text="#{common.search}">submit</button>
@@ -50,7 +50,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb5TenseiMotoSRegistForm" action="Tb5TenseiMotoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb5TenseiMoto.h3}">h3</h3>
-      <div id="Tb5TenseiMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiMoto.html}"></div>
+      <div id="Tb5TenseiMotoGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiMoto.html}"></div>
       <div id="Tb5TenseiMotoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb5TenseiMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb5TenseiMoto');">reset</button>

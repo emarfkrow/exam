@@ -86,6 +86,24 @@ public class Tb3RirekiSaki implements IEntity {
         }
     }
 
+    /** 変更理由 */
+    private String henkoRiyu;
+
+    /** @return 変更理由 */
+    @com.fasterxml.jackson.annotation.JsonProperty("HENKO_RIYU")
+    public String getHenkoRiyu() {
+        return this.henkoRiyu;
+    }
+
+    /** @param o 変更理由 */
+    public void setHenkoRiyu(final Object o) {
+        if (o != null) {
+            this.henkoRiyu = o.toString();
+        } else {
+            this.henkoRiyu = null;
+        }
+    }
+
     /** 作成タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -263,6 +281,7 @@ public class Tb3RirekiSaki implements IEntity {
         sql += "      a.`RIREKI_MOTO_ID` \n";
         sql += "    , a.`RIREKI_BN` \n";
         sql += "    , a.`RIREKI_MOTO_INFO` \n";
+        sql += "    , a.`HENKO_RIYU` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -301,6 +320,7 @@ public class Tb3RirekiSaki implements IEntity {
         nameList.add("`RIREKI_MOTO_ID` -- :rireki_moto_id");
         nameList.add("`RIREKI_BN` -- :rireki_bn");
         nameList.add("`RIREKI_MOTO_INFO` -- :rireki_moto_info");
+        nameList.add("`HENKO_RIYU` -- :henko_riyu");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -316,6 +336,7 @@ public class Tb3RirekiSaki implements IEntity {
         valueList.add(":rireki_moto_id");
         valueList.add(":rireki_bn");
         valueList.add(":rireki_moto_info");
+        valueList.add(":henko_riyu");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -360,6 +381,7 @@ public class Tb3RirekiSaki implements IEntity {
         setList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
         setList.add("`RIREKI_BN` = :rireki_bn");
         setList.add("`RIREKI_MOTO_INFO` = :rireki_moto_info");
+        setList.add("`HENKO_RIYU` = :henko_riyu");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
@@ -396,6 +418,7 @@ public class Tb3RirekiSaki implements IEntity {
         map.put("rireki_moto_id", this.rirekiMotoId);
         map.put("rireki_bn", this.rirekiBn);
         map.put("rireki_moto_info", this.rirekiMotoInfo);
+        map.put("henko_riyu", this.henkoRiyu);
         map.put("delete_f", this.deleteF);
         map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);

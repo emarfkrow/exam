@@ -39,7 +39,7 @@
     <!-- 一覧フォーム -->
     <form name="Vb8EtsuranSRegistForm" action="Vb8EtsuranSRegist.ajax" class="regist">
       <h3 th:text="#{Vb8Etsuran.h3}">h3</h3>
-      <div id="Vb8EtsuranGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb8Etsuran.html}"></div>
+      <div id="Vb8EtsuranGrid" data-selectionMode="checkbox" data-frozenColumn="-1" data-editable="false" th:data-href="@{/model/Vb8Etsuran.html}"></div>
       <div id="Vb8EtsuranPager"></div>
       <div class="buttons">
         <a th:href="@{Vb8EtsuranSearch.xlsx(baseMei=#{Vb8EtsuranS.h2})}" id="Vb8EtsuranSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

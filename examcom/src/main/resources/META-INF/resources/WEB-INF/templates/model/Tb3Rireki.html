@@ -56,7 +56,7 @@
         <button id="DeleteTb3Rireki" type="submit" class="delete" data-action="Tb3RirekiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb3Rireki" type="submit" class="permit" data-action="Tb3RirekiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb3Rireki" type="submit" class="forbid" data-action="Tb3RirekiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
-        <button id="RegistTb3Rireki" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+        <button id="RegistTb3Rireki" type="submit" class="regist" th:text="#{common.regist}" onclick="if (!Base.historyReason(this)) { return false; }">登録</button>
       </div>
     </form>
   </div>

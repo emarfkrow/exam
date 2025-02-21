@@ -83,7 +83,6 @@ RDBMSType=6
 RDBMSTypeName=MySQL
 GenerateDropTableStatement=1
 DropTableIfExists=0
-BackupRestoreTempTable=0
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
@@ -356,14 +355,14 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=600
-Top=2400
+Top=2450
 Field="ID参照ID","IDSANSHO_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="ID参照名","IDSANSHO_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
 ModifiedDateTime=20250128120450
-Position="MAIN",600,2400
+Position="MAIN",600,2450
 ZOrder=-32
 
 [Entity]
@@ -413,7 +412,7 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=1150
-Top=2400
+Top=2450
 Field="参照元ID","SANSHO_MOTO_ID","*ID","NOT NULL",0,"","",$FFFFFFFF,""
 Field="ID参照ID","IDSANSHO_ID","*ID",,,"","",$FFFFFFFF,""
 Field="ID参照名","IDSANSHO_MEI","*MEI",,,"","",$FFFFFFFF,""
@@ -426,7 +425,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250206082918
-Position="MAIN",1150,2400
+Position="MAIN",1150,2450
 ZOrder=-40
 
 [Entity]
@@ -473,14 +472,14 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=1800
-Top=2400
+Top=2450
 Field="CD参照CD","CDSANSHO_CD","*CD",,0,"","",$FFFFFFFF,""
 Field="CD参照名","CDSANSHO_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
 ModifiedDateTime=20250128120504
-Position="MAIN",1800,2400
+Position="MAIN",1800,2450
 ZOrder=0
 
 [Relation]
@@ -729,14 +728,14 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=1800
-Top=2550
+Top=2600
 Field="NO参照NO","NOSANSHO_NO","*NO",,0,"","",$FFFFFFFF,""
 Field="NO参照名","NOSANSHO_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
 ModifiedDateTime=20250128120517
-Position="MAIN",1800,2550
+Position="MAIN",1800,2600
 ZOrder=16
 
 [Relation]
@@ -1754,10 +1753,11 @@ Top=2250
 Field="履歴元ID","RIREKI_MOTO_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="履歴枝番","RIREKI_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="履歴元情報","RIREKI_MOTO_INFO","*TX",,,"","",$FFFFFFFF,""
+Field="変更理由","HENKO_RIYU","*TX","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250219195553
+ModifiedDateTime=20250221213424
 Position="MAIN",1150,2250
 ZOrder=98
 

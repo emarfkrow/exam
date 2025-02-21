@@ -19,9 +19,6 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Vb8HenkanS.legend}">legend</legend>
-        <div id="tableName">
-          <label for="Vb8Henkan.tableName" th:text="#{Vb8Henkan.tableName}">table_name</label><input type="text" id="Vb8Henkan.tableName" name="Vb8Henkan.tableName" maxlength="15" />
-        </div>
         <div id="henkanMotoId">
           <label for="Vb8Henkan.henkanMotoId" th:text="#{Vb8Henkan.henkanMotoId}">変換元ID</label><input type="text" id="Vb8Henkan.henkanMotoId" name="Vb8Henkan.henkanMotoId" maxlength="10" />
         </div>
@@ -42,7 +39,7 @@
     <!-- 一覧フォーム -->
     <form name="Vb8HenkanSRegistForm" action="Vb8HenkanSRegist.ajax" class="regist">
       <h3 th:text="#{Vb8Henkan.h3}">h3</h3>
-      <div id="Vb8HenkanGrid" data-selectionMode="checkbox" data-frozenColumn="-1" th:data-href="@{/model/Vb8Henkan.html}"></div>
+      <div id="Vb8HenkanGrid" data-selectionMode="checkbox" data-frozenColumn="-1" data-editable="false" th:data-href="@{/model/Vb8Henkan.html}"></div>
       <div id="Vb8HenkanPager"></div>
       <div class="buttons">
         <button type="button" id="ResetVb8HenkanS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Vb8Henkan');">reset</button>

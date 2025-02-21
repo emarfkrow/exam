@@ -21,7 +21,7 @@ $(function() {
         Column.text('HI_D', Messages['Tb0EntityGrid.hiD'], 30, 'notblank', null),
         Column.month('NENGETSU_YM', Messages['Tb0EntityGrid.nengetsuYm'], 48, 'notblank', null),
         Column.date8('NENGAPPI_YMD', Messages['Tb0EntityGrid.nengappiYmd'], 64, 'notblank', null),
-        Column.text('TIMESTAMP_TS', Messages['Tb0EntityGrid.timestampTs'], 184, 'notblank', Slick.Formatters.Extends.Timestamp),
+        Column.cell('TIMESTAMP_TS', Messages['Tb0EntityGrid.timestampTs'], 184, 'notblank', Slick.Formatters.Extends.Timestamp),
         Column.dateTime('NICHIJI_DT', Messages['Tb0EntityGrid.nichijiDt'], 152, 'notblank'),
         Column.date('HIDUKE_BI', Messages['Tb0EntityGrid.hidukeBi'], 80, 'notblank', Slick.Formatters.Extends.Date),
         Column.time('JIKOKU_HM', Messages['Tb0EntityGrid.jikokuHm'], 40, 'notblank', null),
