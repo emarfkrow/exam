@@ -58,7 +58,7 @@
         <button id="ForbidTb3RirekiS" type="submit" class="forbid selectRows" data-action="Tb3RirekiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
       </div>
       <div class="submits">
-        <button id="RegistTb3RirekiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+        <button id="RegistTb3RirekiS" type="submit" class="regist" th:text="#{common.regist}" onclick="if (!Base.historyReason(this)) { return false; }">submit</button>
       </div>
     </form>
   </div>
