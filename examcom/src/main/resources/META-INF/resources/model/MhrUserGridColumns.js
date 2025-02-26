@@ -6,7 +6,7 @@ let MhrUserGridColumns = [];
 
 $(function() {
     MhrUserGridColumns = [
-        Column.comma('USER_ID', Messages['MhrUserGrid.userId'], 80, 'primaryKey numbering', null),
+        Column.text('USER_ID', Messages['MhrUserGrid.userId'], 80, 'primaryKey numbering', null),
         Column.text('USER_SEI', Messages['MhrUserGrid.userSei'], 300, 'notblank', null),
         Column.text('USER_MEI', Messages['MhrUserGrid.userMei'], 300, 'notblank', null),
         Column.text('E_MAIL', Messages['MhrUserGrid.eMail'], 300, 'notblank', null),

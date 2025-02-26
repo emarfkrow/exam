@@ -6,7 +6,7 @@ let Tb4SanshoMotoGridColumns = [];
 
 $(function() {
     Tb4SanshoMotoGridColumns = [
-        Column.comma('SANSHO_MOTO_ID', Messages['Tb4SanshoMotoGrid.sanshoMotoId'], 80, 'primaryKey numbering', null),
+        Column.text('SANSHO_MOTO_ID', Messages['Tb4SanshoMotoGrid.sanshoMotoId'], 80, 'primaryKey numbering', null),
         Column.refer('IDSANSHO_ID', Messages['Tb4SanshoMotoGrid.idsanshoId'], 80, '', 'IDSANSHO_MEI'),
         Column.text('IDSANSHO_MEI', Messages['Tb4SanshoMotoGrid.idsanshoMei'], 300, '', null),
         Column.refer('CDSANSHO_CD', Messages['Tb4SanshoMotoGrid.cdsanshoCd'], 80, '', 'CDSANSHO_MEI'),

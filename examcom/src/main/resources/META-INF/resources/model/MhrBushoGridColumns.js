@@ -6,7 +6,7 @@ let MhrBushoGridColumns = [];
 
 $(function() {
     MhrBushoGridColumns = [
-        Column.comma('BUSHO_ID', Messages['MhrBushoGrid.bushoId'], 80, 'primaryKey numbering', null),
+        Column.text('BUSHO_ID', Messages['MhrBushoGrid.bushoId'], 80, 'primaryKey numbering', null),
         Column.text('BUSHO_MEI', Messages['MhrBushoGrid.bushoMei'], 300, 'notblank', null),
         Column.refer('OYA_BUSHO_ID', Messages['MhrBushoGrid.oyaBushoId'], 80, '', 'OYA_BUSHO_MEI'),
         Column.date('TEKIYO_BI', Messages['MhrBushoGrid.tekiyoBi'], 80, '', Slick.Formatters.Extends.Date),

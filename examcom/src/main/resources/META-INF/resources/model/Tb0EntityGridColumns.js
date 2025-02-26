@@ -6,7 +6,7 @@ let Tb0EntityGridColumns = [];
 
 $(function() {
     Tb0EntityGridColumns = [
-        Column.comma('ENTITY_ID', Messages['Tb0EntityGrid.entityId'], 80, 'primaryKey numbering', null),
+        Column.text('ENTITY_ID', Messages['Tb0EntityGrid.entityId'], 80, 'primaryKey numbering', null),
         Column.text('ENTITY_NM', Messages['Tb0EntityGrid.entityNm'], 160, 'notblank', null),
         Column.text('ENTITY_MEI', Messages['Tb0EntityGrid.entityMei'], 300, 'notblank', null),
         Column.check('CHECK_F', Messages['Tb0EntityGrid.checkF'], 30, 'notblank'),
