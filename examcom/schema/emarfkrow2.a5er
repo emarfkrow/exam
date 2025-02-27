@@ -849,13 +849,13 @@ Page=MAIN
 Left=2050
 Top=50
 Field="稼働日","KADO_BI","*BI",,0,"","",$FFFFFFFF,""
-Field="部署区分","BUSHO_KB","*KB",,1,"","",$FFFFFFFF,""
+Field="部署ID","BUSHO_ID","*ID",,1,"","",$FFFFFFFF,""
 Field="稼働日フラグ","KADOBI_F","*F","NOT NULL",,"","",$FFFFFFFF,""
 Field="メモ","MEMO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=Gradation
 Color=$000000
 BkColor=$C0DCC0
-ModifiedDateTime=20250123162435
+ModifiedDateTime=20250227210301
 Position="MAIN",2050,50
 ZOrder=40
 
