@@ -47,6 +47,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMsyTax" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/MsyTax.html}" target="dialog" id="MsyTax" class="anew" th:text="#{MsyTax.add}" tabindex="-1">税マスタ</a>
       </div>
       <div class="submits">
         <button id="SearchMsyTax" type="submit" class="search" data-gridId="MsyTaxGrid" th:text="#{common.search}">submit</button>
@@ -55,7 +56,7 @@
     <!-- 一覧フォーム -->
     <form name="MsyTaxSRegistForm" action="MsyTaxSRegist.ajax" class="regist">
       <h3 th:text="#{MsyTax.h3}">h3</h3>
-      <div id="MsyTaxGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/MsyTax.html}"></div>
+      <div id="MsyTaxGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/MsyTax.html}"></div>
       <div id="MsyTaxPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMsyTaxS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyTax');">reset</button>

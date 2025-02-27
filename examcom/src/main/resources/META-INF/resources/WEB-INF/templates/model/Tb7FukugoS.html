@@ -56,7 +56,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb7FukugoSRegistForm" action="Tb7FukugoSRegist.ajax" class="regist">
       <h3 th:text="#{Tb7Fukugo.h3}">h3</h3>
-      <div id="Tb7FukugoGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/Tb7Fukugo.html}"></div>
+      <div id="Tb7FukugoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb7Fukugo.html}"></div>
       <div id="Tb7FukugoPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb7FukugoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb7Fukugo');">reset</button>

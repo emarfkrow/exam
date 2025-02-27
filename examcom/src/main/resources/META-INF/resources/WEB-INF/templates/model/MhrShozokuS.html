@@ -59,7 +59,7 @@
     <!-- 一覧フォーム -->
     <form name="MhrShozokuSRegistForm" action="MhrShozokuSRegist.ajax" class="regist">
       <h3 th:text="#{MhrShozoku.h3}">h3</h3>
-      <div id="MhrShozokuGrid" data-selectionMode="checkbox" data-frozenColumn="3" th:data-href="@{/model/MhrShozoku.html}"></div>
+      <div id="MhrShozokuGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="3" th:data-href="@{/model/MhrShozoku.html}"></div>
       <div id="MhrShozokuPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMhrShozokuS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrShozoku');">reset</button>

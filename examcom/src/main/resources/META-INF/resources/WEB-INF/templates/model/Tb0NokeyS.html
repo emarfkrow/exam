@@ -48,6 +48,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb0Nokey" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb0Nokey.html}" target="dialog" id="Tb0Nokey" class="anew" th:text="#{Tb0Nokey.add}" tabindex="-1">主キーなし</a>
       </div>
       <div class="submits">
         <button id="SearchTb0Nokey" type="submit" class="search" data-gridId="Tb0NokeyGrid" th:text="#{common.search}">submit</button>
@@ -56,7 +57,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb0NokeySRegistForm" action="Tb0NokeySRegist.ajax" class="regist">
       <h3 th:text="#{Tb0Nokey.h3}">h3</h3>
-      <div id="Tb0NokeyGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb0Nokey.html}"></div>
+      <div id="Tb0NokeyGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb0Nokey.html}"></div>
       <div id="Tb0NokeyPager"></div>
       <div class="buttons">
         <button type="button" id="ResetTb0NokeyS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb0Nokey');">reset</button>

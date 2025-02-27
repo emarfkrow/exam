@@ -64,7 +64,7 @@
     <!-- 一覧フォーム -->
     <form name="MhrNinkaSRegistForm" action="MhrNinkaSRegist.ajax" class="regist">
       <h3 th:text="#{MhrNinka.h3}">h3</h3>
-      <div id="MhrNinkaGrid" data-selectionMode="checkbox" data-frozenColumn="2" th:data-href="@{/model/MhrNinka.html}"></div>
+      <div id="MhrNinkaGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/MhrNinka.html}"></div>
       <div id="MhrNinkaPager"></div>
       <div class="buttons">
         <button type="button" id="ResetMhrNinkaS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrNinka');">reset</button>
