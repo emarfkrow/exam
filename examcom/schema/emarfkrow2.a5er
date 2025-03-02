@@ -1,7 +1,7 @@
-﻿# A5:ER FORMAT:18
+﻿# A5:ER FORMAT:19
 # A5:ER ENCODING:UTF8
 # A5:ER Mk-1 Copyright © 2007 m.matsubara
-# A5:SQL Mk-2 Version 2.19.2 Copyright © 1997 - 2024 m.matsubara
+# A5:SQL Mk-2 Version 2.20.2 Copyright © 1997 - 2025 m.matsubara
 #  https://a5m2.mmatsubara.com
 
 [Manager]
@@ -87,8 +87,6 @@ CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
 CommonField="更新タイムスタンプ","UPDATE_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="更新者","UPDATE_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
-CommonField="削除フラグ","DELETE_F","*F",,,"0","必須チェックにかかるのでNOTNULLにしない",$FFFFFFFF
-CommonField="ステータス区分","STATUS_KB","*KB",,,"0","必須チェックにかかるのでNOTNULLにしない",$FFFFFFFF
 DefaultPkName=%0:s_PKC
 DefaultPkIndexName=%0:s_PKI
 DefaultIndexName=%0:s_IX%1:d
@@ -705,7 +703,7 @@ TableInnerOption=
 TableOption=
 Page=MAIN
 Left=50
-Top=1300
+Top=1350
 Field="列Ａ","COL_A","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｂ","COL_B","*MEI",,,"","",$FFFFFFFF,""
 Field="列Ｃ","COL_C","*MEI",,,"","",$FFFFFFFF,""
@@ -717,7 +715,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250128095326
-Position="MAIN",50,1300
+Position="MAIN",50,1350
 ZOrder=15
 
 [Entity]
@@ -792,10 +790,12 @@ Field="数量","SURYO_QT","*QT","NOT NULL",,"","",$FFFFFFFF,""
 Field="単価","TANKA_PR","*PR","NOT NULL",,"","",$FFFFFFFF,""
 Field="通貨区分","TSUKA_KB","*KB","NOT NULL",,"","",$FFFFFFFF,""
 Field="税抜金額","ZEINUKI_AM","*AM","NOT NULL",,"","",$FFFFFFFF,""
+Field="削除フラグ","DELETE_F","*F",,,"0","必須チェックにかかるのでNOTNULLにしない",$FFFFFFFF,""
+Field="ステータス区分","STATUS_KB","*KB",,,"0","必須チェックにかかるのでNOTNULLにしない",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
-ModifiedDateTime=20250202114532
+ModifiedDateTime=20250302164710
 Position="MAIN",50,500
 ZOrder=25
 
