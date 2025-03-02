@@ -35,16 +35,6 @@
         <div id="shuryoBi">
           <label for="MhrBusho.shuryoBi_1" th:text="#{MhrBusho.shuryoBi}">終了日</label><input type="text" id="MhrBusho.shuryoBi_1" name="MhrBusho.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrBusho.shuryoBi_2" name="MhrBusho.shuryoBi_2" maxlength="10" class=" datepicker" />
         </div>
-        <div id="deleteF">
-          <fieldset id="MhrBusho.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrBusho.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MhrBusho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrBusho.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrBusho" th:text="#{common.reset}" class="reset">reset</button>
@@ -63,9 +53,7 @@
         <button type="button" id="ResetMhrBushoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrBusho');">reset</button>
         <a th:href="@{MhrBushoSearch.xlsx(baseMei=#{MhrBushoS.h2})}" id="MhrBushoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MhrBushoGrid.oyaBushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMhrBushoS" type="submit" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrBushoS" type="submit" class="permit selectRows" data-action="MhrBushoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrBushoS" type="submit" class="forbid selectRows" data-action="MhrBushoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteMhrBushoS" class="delete selectRows" data-action="MhrBushoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMhrBushoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

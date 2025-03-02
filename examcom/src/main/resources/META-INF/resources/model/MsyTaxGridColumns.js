@@ -11,7 +11,5 @@ $(function() {
         Column.date('SHURYO_BI', Messages['MsyTaxGrid.shuryoBi'], 80, '', Slick.Formatters.Extends.Date),
         Column.dec2('TAX_RT', Messages['MsyTaxGrid.taxRt'], 40, '', null),
         Column.cell('UPDATE_TS', Messages['MsyTaxGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-        Column.check('DELETE_F', Messages['MsyTaxGrid.deleteF'], 30, ''),
-        Column.select('STATUS_KB', Messages['MsyTaxGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
     ];
 });

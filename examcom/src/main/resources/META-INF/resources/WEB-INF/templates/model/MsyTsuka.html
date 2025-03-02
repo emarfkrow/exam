@@ -42,16 +42,6 @@
           <label th:text="#{MsyTsuka.updateUserId}" class="meta">更新者</label><span id="MsyTsuka.updateUserId"></span><input type="hidden" id="MsyTsuka.updateUserId" name="MsyTsuka.updateUserId" />
           <span id="MsyTsuka.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyTsuka.updateUserId" data-destDef="MsyTsuka.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MsyTsuka.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyTsuka.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MsyTsuka.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyTsuka.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMsyTsuka" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -59,8 +49,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMsyTsuka" type="submit" class="delete" data-action="MsyTsukaDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTsuka" type="submit" class="permit" data-action="MsyTsukaPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTsuka" type="submit" class="forbid" data-action="MsyTsukaForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyTsuka" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

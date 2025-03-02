@@ -41,16 +41,6 @@
           <label th:text="#{Tb1Ko3.updateUserId}" class="meta">更新者</label><span id="Tb1Ko3.updateUserId"></span><input type="hidden" id="Tb1Ko3.updateUserId" name="Tb1Ko3.updateUserId" />
           <span id="Tb1Ko3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Ko3.updateUserId" data-destDef="Tb1Ko3.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb1Ko3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko3.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Ko3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko3.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Ko.legend}">legend</legend>
@@ -58,16 +48,6 @@
           <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
         </div>
         <input type="hidden" name="Tb1Ko.updateTs" />
-        <div id="deleteF">
-          <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Ko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb1Ko2.legend}">legend</legend>
@@ -75,16 +55,6 @@
           <label for="Tb1Ko2.ko2Info" th:text="#{Tb1Ko2.ko2Info}">子２情報</label><input type="text" id="Tb1Ko2.ko2Info" name="Tb1Ko2.ko2Info" maxlength="300" />
         </div>
         <input type="hidden" name="Tb1Ko2.updateTs" />
-        <div id="deleteF">
-          <fieldset id="Tb1Ko2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko2.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Ko2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko2.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <h3 th:text="#{Tb1Mago.h3}">h3</h3>
       <a th:href="@{/model/Tb1Mago.html}" id="Tb1Mago" target="dialog" th:text="#{Tb1Mago.add}" class="addChild" tabindex="-1">孫</a>
@@ -95,8 +65,6 @@
       </div>
       <div class="submits">
         <button id="DeleteTb1Ko3" type="submit" class="delete" data-action="Tb1Ko3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb1Ko3" type="submit" class="permit" data-action="Tb1Ko3Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb1Ko3" type="submit" class="forbid" data-action="Tb1Ko3Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb1Ko3" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

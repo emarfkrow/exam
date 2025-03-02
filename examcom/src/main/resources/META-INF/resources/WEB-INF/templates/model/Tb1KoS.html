@@ -30,16 +30,6 @@
         <div id="koInfo">
           <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb1Ko.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Ko.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb1Ko" th:text="#{common.reset}" class="reset">reset</button>

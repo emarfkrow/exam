@@ -37,23 +37,23 @@ public class MsyKadobiRegistForm implements IForm {
         this.kadoBi = p;
     }
 
-    /** 部署区分 */
+    /** 部署ID */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 2)
-    private String bushoKb;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String bushoId;
 
     /**
-     * @return 部署区分
+     * @return 部署ID
      */
-    public String getBushoKb() {
-        return bushoKb;
+    public String getBushoId() {
+        return bushoId;
     }
 
     /**
-     * @param p 部署区分
+     * @param p 部署ID
      */
-    public void setBushoKb(final String p) {
-        this.bushoKb = p;
+    public void setBushoId(final String p) {
+        this.bushoId = p;
     }
 
     /** 稼働日フラグ */
@@ -91,42 +91,6 @@ public class MsyKadobiRegistForm implements IForm {
      */
     public void setMemo(final String p) {
         this.memo = p;
-    }
-
-    /** 削除フラグ */
-    @jakarta.validation.constraints.Size(max = 1)
-    private String deleteF;
-
-    /**
-     * @return 削除フラグ
-     */
-    public String getDeleteF() {
-        return deleteF;
-    }
-
-    /**
-     * @param p 削除フラグ
-     */
-    public void setDeleteF(final String p) {
-        this.deleteF = p;
-    }
-
-    /** ステータス区分 */
-    @jakarta.validation.constraints.Size(max = 2)
-    private String statusKb;
-
-    /**
-     * @return ステータス区分
-     */
-    public String getStatusKb() {
-        return statusKb;
-    }
-
-    /**
-     * @param p ステータス区分
-     */
-    public void setStatusKb(final String p) {
-        this.statusKb = p;
     }
 
     /** 関連チェック */

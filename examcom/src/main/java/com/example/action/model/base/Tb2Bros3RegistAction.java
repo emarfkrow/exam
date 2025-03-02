@@ -36,8 +36,6 @@ public class Tb2Bros3RegistAction extends BaseAction {
             isNew = true;
         }
 
-        e.setStatusKb(0);
-
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {

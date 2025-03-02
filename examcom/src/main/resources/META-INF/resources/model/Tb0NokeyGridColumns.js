@@ -12,7 +12,5 @@ $(function() {
         Column.text('COL_D', Messages['Tb0NokeyGrid.colD'], 300, '', null),
         Column.text('COL_E', Messages['Tb0NokeyGrid.colE'], 300, '', null),
         Column.cell('UPDATE_TS', Messages['Tb0NokeyGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
-        Column.check('DELETE_F', Messages['Tb0NokeyGrid.deleteF'], 30, ''),
-        Column.select('STATUS_KB', Messages['Tb0NokeyGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
     ];
 });

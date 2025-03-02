@@ -110,10 +110,10 @@ public class Vb8Henkan implements IEntity {
      */
     public static Vb8Henkan get() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`table_name` = :table_name");
-        whereList.add("`henkan_moto_id` = :henkan_moto_id");
-        whereList.add("`henkan_moto_info` = :henkan_moto_info");
-        whereList.add("`hikitsuida_info` = :hikitsuida_info");
+        whereList.add("`table_name` = ::table_name");
+        whereList.add("`henkan_moto_id` = ::henkan_moto_id");
+        whereList.add("`henkan_moto_info` = ::henkan_moto_info");
+        whereList.add("`hikitsuida_info` = ::hikitsuida_info");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`table_name` \n";

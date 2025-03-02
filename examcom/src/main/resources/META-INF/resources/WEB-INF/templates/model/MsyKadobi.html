@@ -9,6 +9,7 @@
 
 </script>
 <script th:src="@{/model/MsyKadobiGridColumns.js}"></script>
+<script th:src="@{/model/MhrBushoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
@@ -20,10 +21,8 @@
         <div id="kadoBi">
           <label for="MsyKadobi.kadoBi" th:text="#{MsyKadobi.kadoBi}">稼働日</label><input type="text" id="MsyKadobi.kadoBi" name="MsyKadobi.kadoBi" maxlength="10" class=" notblank primaryKey datepicker" />
         </div>
-        <div id="bushoKb">
-          <fieldset id="MsyKadobi.bushoKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:BUSHO_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" class="primaryKey">
-            <legend th:text="#{MsyKadobi.bushoKb}">部署区分</legend>
-          </fieldset>
+        <div id="bushoId">
+          <label for="MsyKadobi.bushoId" th:text="#{MsyKadobi.bushoId}">部署ID</label><input type="text" id="MsyKadobi.bushoId" name="MsyKadobi.bushoId" maxlength="10" class=" notblank primaryKey refer" data-json="MhrBushoSearch.json" data-srcDef="BUSHO_ID:MsyKadobi.bushoId" data-destDef="MsyKadobi.bushoMei:BUSHO_MEI" /><a id="MsyKadobi.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class=" primaryKey refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="MsyKadobi.bushoMei" class=" primaryKey refer" data-json="MhrBushoSearch.json" data-srcDef="BUSHO_ID:MsyKadobi.bushoId" data-destDef="MsyKadobi.bushoMei:BUSHO_MEI"></span>
         </div>
         <div id="kadobiF">
           <fieldset id="MsyKadobi.kadobiFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:KADOBI_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -47,16 +46,6 @@
           <label th:text="#{MsyKadobi.updateUserId}" class="meta">更新者</label><span id="MsyKadobi.updateUserId"></span><input type="hidden" id="MsyKadobi.updateUserId" name="MsyKadobi.updateUserId" />
           <span id="MsyKadobi.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKadobi.updateUserId" data-destDef="MsyKadobi.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MsyKadobi.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKadobi.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MsyKadobi.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKadobi.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMsyKadobi" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -64,8 +53,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMsyKadobi" type="submit" class="delete" data-action="MsyKadobiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyKadobi" type="submit" class="permit" data-action="MsyKadobiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyKadobi" type="submit" class="forbid" data-action="MsyKadobiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyKadobi" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

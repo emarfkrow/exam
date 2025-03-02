@@ -7,13 +7,10 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
-    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
-    , a.`STATUS_KB`
 FROM
     MB4_IDSANSHO a 
 WHERE
     1 = 1 
-    AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`IDSANSHO_ID` = :idsansho_id 
     AND TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`) LIKE CONCAT ('%', :idsansho_mei, '%') 
     AND a.`INSERT_TS` = :insert_ts 
@@ -24,7 +21,5 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
-    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
-    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`IDSANSHO_ID`

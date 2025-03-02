@@ -8,13 +8,10 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
-    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
-    , a.`STATUS_KB`
 FROM
     TB5_TENSEI_SAKI_DET a 
 WHERE
     1 = 1 
-    AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`TENSEI_SAKI_ID` = :tensei_saki_id 
     AND a.`TENSEI_SAKI_BN` = :tensei_saki_bn 
     AND TRIM(TRAILING ' ' FROM a.`TENSEI_SAKI_DET_INFO`) LIKE CONCAT ('%', :tensei_saki_det_info, '%') 
@@ -26,8 +23,6 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
-    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
-    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`TENSEI_SAKI_ID`
     , a.`TENSEI_SAKI_BN`

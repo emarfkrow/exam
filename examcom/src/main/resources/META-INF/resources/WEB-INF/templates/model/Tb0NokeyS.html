@@ -35,16 +35,6 @@
         <div id="colE">
           <label for="Tb0Nokey.colE" th:text="#{Tb0Nokey.colE}">列Ｅ</label><input type="text" id="Tb0Nokey.colE" name="Tb0Nokey.colE" maxlength="60" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb0Nokey.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb0Nokey.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb0Nokey.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb0Nokey.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb0Nokey" th:text="#{common.reset}" class="reset">reset</button>
@@ -62,9 +52,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb0NokeyS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb0Nokey');">reset</button>
         <a th:href="@{Tb0NokeySearch.xlsx(baseMei=#{Tb0NokeyS.h2})}" id="Tb0NokeySearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb0NokeyS" type="submit" class="delete selectRows" data-action="Tb0NokeySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb0NokeyS" type="submit" class="permit selectRows" data-action="Tb0NokeySPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb0NokeyS" type="submit" class="forbid selectRows" data-action="Tb0NokeySForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb0NokeyS" class="delete selectRows" data-action="Tb0NokeySDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb0NokeyS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

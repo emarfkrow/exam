@@ -26,16 +26,6 @@
         <div id="chonanInfo">
           <label for="Tb2Chonan.chonanInfo" th:text="#{Tb2Chonan.chonanInfo}">長男情報</label><input type="text" id="Tb2Chonan.chonanInfo" name="Tb2Chonan.chonanInfo" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb2Chonan.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Chonan.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb2Chonan.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Chonan.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb2Chonan" th:text="#{common.reset}" class="reset">reset</button>
@@ -53,9 +43,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb2ChonanS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb2Chonan');">reset</button>
         <a th:href="@{Tb2ChonanSearch.xlsx(baseMei=#{Tb2ChonanS.h2})}" id="Tb2ChonanSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb2ChonanS" type="submit" class="delete selectRows" data-action="Tb2ChonanSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb2ChonanS" type="submit" class="permit selectRows" data-action="Tb2ChonanSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb2ChonanS" type="submit" class="forbid selectRows" data-action="Tb2ChonanSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb2ChonanS" class="delete selectRows" data-action="Tb2ChonanSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb2ChonanS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

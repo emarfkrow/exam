@@ -45,16 +45,6 @@
           <label th:text="#{MsyTax.updateUserId}" class="meta">更新者</label><span id="MsyTax.updateUserId"></span><input type="hidden" id="MsyTax.updateUserId" name="MsyTax.updateUserId" />
           <span id="MsyTax.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyTax.updateUserId" data-destDef="MsyTax.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MsyTax.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyTax.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MsyTax.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyTax.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMsyTax" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -62,8 +52,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMsyTax" type="submit" class="delete" data-action="MsyTaxDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyTax" type="submit" class="permit" data-action="MsyTaxPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyTax" type="submit" class="forbid" data-action="MsyTaxForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyTax" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

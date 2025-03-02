@@ -37,16 +37,6 @@
           <label th:text="#{Mb7Sansho.updateUserId}" class="meta">更新者</label><span id="Mb7Sansho.updateUserId"></span><input type="hidden" id="Mb7Sansho.updateUserId" name="Mb7Sansho.updateUserId" />
           <span id="Mb7Sansho.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb7Sansho.updateUserId" data-destDef="Mb7Sansho.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Mb7Sansho.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Mb7Sansho.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Mb7Sansho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Mb7Sansho.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMb7Sansho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -54,8 +44,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMb7Sansho" type="submit" class="delete" data-action="Mb7SanshoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMb7Sansho" type="submit" class="permit" data-action="Mb7SanshoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMb7Sansho" type="submit" class="forbid" data-action="Mb7SanshoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMb7Sansho" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

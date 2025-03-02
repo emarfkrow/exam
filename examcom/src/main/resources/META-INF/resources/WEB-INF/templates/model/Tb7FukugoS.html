@@ -34,16 +34,6 @@
         <div id="fukugoInfo">
           <label for="Tb7Fukugo.fukugoInfo" th:text="#{Tb7Fukugo.fukugoInfo}">複合情報</label><input type="text" id="Tb7Fukugo.fukugoInfo" name="Tb7Fukugo.fukugoInfo" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb7Fukugo.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb7Fukugo.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb7Fukugo.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb7Fukugo.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb7Fukugo" th:text="#{common.reset}" class="reset">reset</button>
@@ -63,9 +53,7 @@
         <a th:href="@{Tb7FukugoSearch.xlsx(baseMei=#{Tb7FukugoS.h2})}" id="Tb7FukugoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="Tb7FukugoGrid.sanshoId" th:href="@{/model/Mb7SanshoS.html}" target="dialog" class="refer" th:text="'参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb7FukugoGrid.seiyakuId" th:href="@{/model/Mb7SeiyakuS.html?action=Mb7SeiyakuCorrect.ajax}" target="dialog" class="refer correct" th:text="'制約マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteTb7FukugoS" type="submit" class="delete selectRows" data-action="Tb7FukugoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb7FukugoS" type="submit" class="permit selectRows" data-action="Tb7FukugoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb7FukugoS" type="submit" class="forbid selectRows" data-action="Tb7FukugoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb7FukugoS" class="delete selectRows" data-action="Tb7FukugoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb7FukugoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

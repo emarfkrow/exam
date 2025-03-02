@@ -29,15 +29,15 @@ public class MsyKadobiGetAction extends BaseAction {
         if (kadoBi == null) {
             return map;
         }
-        Object bushoKb = postJson.get("bushoKb");
-        if (bushoKb == null) {
-            bushoKb = postJson.get("MsyKadobi.bushoKb");
+        Object bushoId = postJson.get("bushoId");
+        if (bushoId == null) {
+            bushoId = postJson.get("MsyKadobi.bushoId");
         }
-        if (bushoKb == null) {
+        if (bushoId == null) {
             return map;
         }
 
-        MsyKadobi msyKadobi = MsyKadobi.get(kadoBi, bushoKb);
+        MsyKadobi msyKadobi = MsyKadobi.get(kadoBi, bushoId);
         map.put("MsyKadobi", msyKadobi);
         return map;
     }

@@ -41,16 +41,6 @@
           <label th:text="#{Tb6ShuyakuMoto.updateUserId}" class="meta">更新者</label><span id="Tb6ShuyakuMoto.updateUserId"></span><input type="hidden" id="Tb6ShuyakuMoto.updateUserId" name="Tb6ShuyakuMoto.updateUserId" />
           <span id="Tb6ShuyakuMoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6ShuyakuMoto.updateUserId" data-destDef="Tb6ShuyakuMoto.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb6ShuyakuMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6ShuyakuMoto.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb6ShuyakuMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6ShuyakuMoto.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshTb6ShuyakuMoto" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -58,8 +48,6 @@
       </div>
       <div class="submits">
         <button id="DeleteTb6ShuyakuMoto" type="submit" class="delete" data-action="Tb6ShuyakuMotoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb6ShuyakuMoto" type="submit" class="permit" data-action="Tb6ShuyakuMotoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb6ShuyakuMoto" type="submit" class="forbid" data-action="Tb6ShuyakuMotoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb6ShuyakuMoto" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

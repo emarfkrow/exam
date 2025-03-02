@@ -9,8 +9,6 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
-    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
-    , a.`STATUS_KB`
 FROM
     TB3_RIREKI_SAKI a 
 WHERE
@@ -27,8 +25,6 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
-    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
-    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`RIREKI_MOTO_ID`
     , a.`RIREKI_BN`

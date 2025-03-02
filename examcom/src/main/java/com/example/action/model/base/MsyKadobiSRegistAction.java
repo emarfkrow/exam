@@ -42,15 +42,13 @@ public class MsyKadobiSRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getKadoBi())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getBushoKb())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getBushoId())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
                 isNew = true;
             }
-
-            e.setStatusKb(0);
 
             if (isNew) {
 

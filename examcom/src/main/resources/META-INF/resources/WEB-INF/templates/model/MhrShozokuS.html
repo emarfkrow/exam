@@ -37,16 +37,6 @@
         <div id="shuryoBi">
           <label for="MhrShozoku.shuryoBi_1" th:text="#{MhrShozoku.shuryoBi}">終了日</label><input type="text" id="MhrShozoku.shuryoBi_1" name="MhrShozoku.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrShozoku.shuryoBi_2" name="MhrShozoku.shuryoBi_2" maxlength="10" class=" datepicker" />
         </div>
-        <div id="deleteF">
-          <fieldset id="MhrShozoku.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrShozoku.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MhrShozoku.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrShozoku.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrShozoku" th:text="#{common.reset}" class="reset">reset</button>
@@ -67,9 +57,7 @@
         <a id="MhrShozokuGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrShozokuGrid.shokuiId" th:href="@{/model/MhrShokuiS.html}" target="dialog" class="refer" th:text="'職位マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="MhrShozokuGrid.userId" th:href="@{/model/MhrUserS.html}" target="dialog" class="refer" th:text="'ユーザマスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteMhrShozokuS" type="submit" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShozokuS" type="submit" class="permit selectRows" data-action="MhrShozokuSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShozokuS" type="submit" class="forbid selectRows" data-action="MhrShozokuSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteMhrShozokuS" class="delete selectRows" data-action="MhrShozokuSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMhrShozokuS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

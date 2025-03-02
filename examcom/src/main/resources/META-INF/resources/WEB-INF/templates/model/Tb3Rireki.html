@@ -37,16 +37,6 @@
           <label th:text="#{Tb3Rireki.updateUserId}" class="meta">更新者</label><span id="Tb3Rireki.updateUserId"></span><input type="hidden" id="Tb3Rireki.updateUserId" name="Tb3Rireki.updateUserId" />
           <span id="Tb3Rireki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3Rireki.updateUserId" data-destDef="Tb3Rireki.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb3Rireki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb3Rireki.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb3Rireki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb3Rireki.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshTb3Rireki" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -54,8 +44,6 @@
       </div>
       <div class="submits">
         <button id="DeleteTb3Rireki" type="submit" class="delete" data-action="Tb3RirekiDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb3Rireki" type="submit" class="permit" data-action="Tb3RirekiPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb3Rireki" type="submit" class="forbid" data-action="Tb3RirekiForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb3Rireki" type="submit" class="regist" th:text="#{common.regist}" onclick="if (!Base.historyReason(this)) { return false; }">登録</button>
       </div>
     </form>

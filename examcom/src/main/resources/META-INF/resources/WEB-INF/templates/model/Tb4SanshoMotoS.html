@@ -48,16 +48,6 @@
         <div id="betsuIdsanshoId">
           <label for="Tb4SanshoMoto.betsuIdsanshoId" th:text="#{Tb4SanshoMoto.betsuIdsanshoId}">別ID参照ID</label><input type="text" id="Tb4SanshoMoto.betsuIdsanshoId" name="Tb4SanshoMoto.betsuIdsanshoId" maxlength="10" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4SanshoMoto.betsuIdsanshoId" data-destDef="Tb4SanshoMoto.betsuIdsanshoMei:IDSANSHO_MEI" /><a id="Tb4SanshoMoto.betsuIdsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto.betsuIdsanshoMei" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4SanshoMoto.betsuIdsanshoId" data-destDef="Tb4SanshoMoto.betsuIdsanshoMei:IDSANSHO_MEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb4SanshoMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb4SanshoMoto.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb4SanshoMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb4SanshoMoto.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb4SanshoMoto" th:text="#{common.reset}" class="reset">reset</button>
@@ -79,9 +69,7 @@
         <a id="Tb4SanshoMotoGrid.cdsanshoCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" class="refer" th:text="'CD参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.nosanshoNo" th:href="@{/model/Mb4NosanshoS.html}" target="dialog" class="refer" th:text="'NO参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.betsuIdsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button id="DeleteTb4SanshoMotoS" type="submit" class="delete selectRows" data-action="Tb4SanshoMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb4SanshoMotoS" type="submit" class="permit selectRows" data-action="Tb4SanshoMotoSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb4SanshoMotoS" type="submit" class="forbid selectRows" data-action="Tb4SanshoMotoSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb4SanshoMotoS" class="delete selectRows" data-action="Tb4SanshoMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb4SanshoMotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

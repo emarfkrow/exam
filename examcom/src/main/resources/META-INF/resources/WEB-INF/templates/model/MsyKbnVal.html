@@ -38,16 +38,6 @@
           <label th:text="#{MsyKbn.updateUserId}" class="meta">更新者</label><span id="MsyKbn.updateUserId"></span><input type="hidden" id="MsyKbn.updateUserId" name="MsyKbn.updateUserId" />
           <span id="MsyKbn.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbn.updateUserId" data-destDef="MsyKbn.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MsyKbn.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKbn.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MsyKbn.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKbn.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{MsyKbnVal.legend}">legend</legend>
@@ -80,16 +70,6 @@
           <label th:text="#{MsyKbnVal.updateUserId}" class="meta">更新者</label><span id="MsyKbnVal.updateUserId"></span><input type="hidden" id="MsyKbnVal.updateUserId" name="MsyKbnVal.updateUserId" />
           <span id="MsyKbnVal.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MsyKbnVal.updateUserId" data-destDef="MsyKbnVal.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MsyKbnVal.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKbnVal.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MsyKbnVal.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MsyKbnVal.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMsyKbnVal" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -97,8 +77,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMsyKbnVal" type="submit" class="delete" data-action="MsyKbnValDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMsyKbnVal" type="submit" class="permit" data-action="MsyKbnValPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMsyKbnVal" type="submit" class="forbid" data-action="MsyKbnValForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMsyKbnVal" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

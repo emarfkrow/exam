@@ -55,42 +55,6 @@ public class Tb5TenseiMotoRegistForm implements IForm {
         this.tenseiMotoInfo = p;
     }
 
-    /** 削除フラグ */
-    @jakarta.validation.constraints.Size(max = 1)
-    private String deleteF;
-
-    /**
-     * @return 削除フラグ
-     */
-    public String getDeleteF() {
-        return deleteF;
-    }
-
-    /**
-     * @param p 削除フラグ
-     */
-    public void setDeleteF(final String p) {
-        this.deleteF = p;
-    }
-
-    /** ステータス区分 */
-    @jakarta.validation.constraints.Size(max = 2)
-    private String statusKb;
-
-    /**
-     * @return ステータス区分
-     */
-    public String getStatusKb() {
-        return statusKb;
-    }
-
-    /**
-     * @param p ステータス区分
-     */
-    public void setStatusKb(final String p) {
-        this.statusKb = p;
-    }
-
     /** 転生元明細 */
     @jakarta.validation.Valid
     private List<Tb5TenseiMotoDetRegistForm> tb5TenseiMotoDetGrid;

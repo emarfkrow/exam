@@ -491,6 +491,42 @@ public class Tb0Entity implements IEntity {
         }
     }
 
+    /** 削除フラグ */
+    private String deleteF = "0";
+
+    /** @return 削除フラグ */
+    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
+    public String getDeleteF() {
+        return this.deleteF;
+    }
+
+    /** @param o 削除フラグ */
+    public void setDeleteF(final Object o) {
+        if (o != null) {
+            this.deleteF = o.toString();
+        } else {
+            this.deleteF = null;
+        }
+    }
+
+    /** ステータス区分 */
+    private String statusKb;
+
+    /** @return ステータス区分 */
+    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    public String getStatusKb() {
+        return this.statusKb;
+    }
+
+    /** @param o ステータス区分 */
+    public void setStatusKb(final Object o) {
+        if (o != null) {
+            this.statusKb = o.toString();
+        } else {
+            this.statusKb = null;
+        }
+    }
+
     /** 作成タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
@@ -617,42 +653,6 @@ public class Tb0Entity implements IEntity {
         }
     }
 
-    /** 削除フラグ */
-    private String deleteF = "0";
-
-    /** @return 削除フラグ */
-    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
-    public String getDeleteF() {
-        return this.deleteF;
-    }
-
-    /** @param o 削除フラグ */
-    public void setDeleteF(final Object o) {
-        if (o != null) {
-            this.deleteF = o.toString();
-        } else {
-            this.deleteF = null;
-        }
-    }
-
-    /** ステータス区分 */
-    private String statusKb;
-
-    /** @return ステータス区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
-    public String getStatusKb() {
-        return this.statusKb;
-    }
-
-    /** @param o ステータス区分 */
-    public void setStatusKb(final Object o) {
-        if (o != null) {
-            this.statusKb = o.toString();
-        } else {
-            this.statusKb = null;
-        }
-    }
-
     /**
      * エンティティ照会
      * @param param1 エンティティID
@@ -660,7 +660,7 @@ public class Tb0Entity implements IEntity {
      */
     public static Tb0Entity get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`ENTITY_ID` = :entity_id");
+        whereList.add("`ENTITY_ID` = ::entity_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`ENTITY_ID` \n";
@@ -687,12 +687,12 @@ public class Tb0Entity implements IEntity {
         sql += "    , a.`TANKA_PR` \n";
         sql += "    , a.`TSUKA_KB` \n";
         sql += "    , a.`ZEINUKI_AM` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
+        sql += "    , a.`STATUS_KB` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_USER_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    TB0_ENTITY a \n";
         sql += "WHERE \n";
@@ -745,12 +745,12 @@ public class Tb0Entity implements IEntity {
         nameList.add("`TANKA_PR` -- :tanka_pr");
         nameList.add("`TSUKA_KB` -- :tsuka_kb");
         nameList.add("`ZEINUKI_AM` -- :zeinuki_am");
+        nameList.add("`DELETE_F` -- :delete_f");
+        nameList.add("`STATUS_KB` -- :status_kb");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_USER_ID` -- :update_user_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -781,12 +781,12 @@ public class Tb0Entity implements IEntity {
         valueList.add(":tanka_pr");
         valueList.add(":tsuka_kb");
         valueList.add(":zeinuki_am");
+        valueList.add(":delete_f");
+        valueList.add(":status_kb");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
         valueList.add(":update_user_id");
-        valueList.add(":delete_f");
-        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -842,10 +842,10 @@ public class Tb0Entity implements IEntity {
         setList.add("`TANKA_PR` = :tanka_pr");
         setList.add("`TSUKA_KB` = :tsuka_kb");
         setList.add("`ZEINUKI_AM` = :zeinuki_am");
-        setList.add("`UPDATE_TS` = :update_ts");
-        setList.add("`UPDATE_USER_ID` = :update_user_id");
         setList.add("`DELETE_F` = :delete_f");
         setList.add("`STATUS_KB` = :status_kb");
+        setList.add("`UPDATE_TS` = :update_ts");
+        setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
     }
 
@@ -870,7 +870,7 @@ public class Tb0Entity implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`ENTITY_ID` = :entity_id");
+        whereList.add("`ENTITY_ID` = ::entity_id");
         return String.join(" AND ", whereList);
     }
 

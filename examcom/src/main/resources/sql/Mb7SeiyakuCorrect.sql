@@ -7,13 +7,10 @@ SELECT
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
-    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
-    , a.`STATUS_KB`
 FROM
     MB7_SEIYAKU a 
 WHERE
     1 = 1 
-    AND IFNULL (a.DELETE_F, 0) != 1 
     AND a.`SEIYAKU_ID` = :seiyaku_id 
     AND TRIM(TRAILING ' ' FROM a.`SEIYAKU_MEI`) LIKE CONCAT ('%', :seiyaku_mei, '%') 
     AND a.`INSERT_TS` = :insert_ts 
@@ -24,8 +21,6 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
-    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
-    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
     AND EXISTS ( 
         SELECT
               * 
@@ -33,7 +28,6 @@ WHERE
             TB7_FUKUGO p 
         WHERE
             1 = 1 
-            AND IFNULL (p.DELETE_F, 0) != 1 
             AND IFNULL (p.TEKIYO_BI, sysdate()) <= sysdate() 
             AND p.SANSHO_ID = :sansho_id 
             AND p.SEIYAKU_ID = a.SEIYAKU_ID 

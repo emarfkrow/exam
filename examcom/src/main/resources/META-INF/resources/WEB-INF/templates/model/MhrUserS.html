@@ -40,16 +40,6 @@
         <div id="shuryoBi">
           <label for="MhrUser.shuryoBi_1" th:text="#{MhrUser.shuryoBi}">終了日</label><input type="text" id="MhrUser.shuryoBi_1" name="MhrUser.shuryoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="MhrUser.shuryoBi_2" name="MhrUser.shuryoBi_2" maxlength="10" class=" datepicker" />
         </div>
-        <div id="deleteF">
-          <fieldset id="MhrUser.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrUser.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MhrUser.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrUser.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetMhrUser" th:text="#{common.reset}" class="reset">reset</button>
@@ -67,9 +57,7 @@
       <div class="buttons">
         <button type="button" id="ResetMhrUserS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MhrUser');">reset</button>
         <a th:href="@{MhrUserSearch.xlsx(baseMei=#{MhrUserS.h2})}" id="MhrUserSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteMhrUserS" type="submit" class="delete selectRows" data-action="MhrUserSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrUserS" type="submit" class="permit selectRows" data-action="MhrUserSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrUserS" type="submit" class="forbid selectRows" data-action="MhrUserSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteMhrUserS" class="delete selectRows" data-action="MhrUserSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMhrUserS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

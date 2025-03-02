@@ -30,8 +30,8 @@ $(function() {
         Column.dec2('TANKA_PR', Messages['Tb0EntityGrid.tankaPr'], 88, 'notblank', null),
         Column.select('TSUKA_KB', Messages['Tb0EntityGrid.tsukaKb'], 30, 'notblank', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
         Column.dec2('ZEINUKI_AM', Messages['Tb0EntityGrid.zeinukiAm'], 88, 'notblank', null),
-        Column.cell('UPDATE_TS', Messages['Tb0EntityGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
         Column.check('DELETE_F', Messages['Tb0EntityGrid.deleteF'], 30, ''),
         Column.select('STATUS_KB', Messages['Tb0EntityGrid.statusKb'], 30, '', { json: 'MsyKbnValSearch.json', paramkey: 'KBN_NM', value: 'KBN_VAL', label: 'KBN_VAL_MEI' }),
+        Column.cell('UPDATE_TS', Messages['Tb0EntityGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     ];
 });

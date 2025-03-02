@@ -53,21 +53,39 @@ public class MsyKadobi implements IEntity {
         }
     }
 
-    /** 部署区分 */
-    private String bushoKb;
+    /** 部署ID */
+    private Integer bushoId;
 
-    /** @return 部署区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_KB")
-    public String getBushoKb() {
-        return this.bushoKb;
+    /** @return 部署ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_ID")
+    public Integer getBushoId() {
+        return this.bushoId;
     }
 
-    /** @param o 部署区分 */
-    public void setBushoKb(final Object o) {
-        if (o != null) {
-            this.bushoKb = o.toString();
+    /** @param o 部署ID */
+    public void setBushoId(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.bushoId = Integer.valueOf(o.toString());
         } else {
-            this.bushoKb = null;
+            this.bushoId = null;
+        }
+    }
+
+    /** 部署ID参照 */
+    private String bushoMei;
+
+    /** @return 部署ID参照 */
+    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_MEI")
+    public String getBushoMei() {
+        return this.bushoMei;
+    }
+
+    /** @param o 部署ID参照 */
+    public void setBushoMei(final Object o) {
+        if (o != null) {
+            this.bushoMei = o.toString();
+        } else {
+            this.bushoMei = null;
         }
     }
 
@@ -233,71 +251,33 @@ public class MsyKadobi implements IEntity {
         }
     }
 
-    /** 削除フラグ */
-    private String deleteF = "0";
-
-    /** @return 削除フラグ */
-    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
-    public String getDeleteF() {
-        return this.deleteF;
-    }
-
-    /** @param o 削除フラグ */
-    public void setDeleteF(final Object o) {
-        if (o != null) {
-            this.deleteF = o.toString();
-        } else {
-            this.deleteF = null;
-        }
-    }
-
-    /** ステータス区分 */
-    private String statusKb;
-
-    /** @return ステータス区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
-    public String getStatusKb() {
-        return this.statusKb;
-    }
-
-    /** @param o ステータス区分 */
-    public void setStatusKb(final Object o) {
-        if (o != null) {
-            this.statusKb = o.toString();
-        } else {
-            this.statusKb = null;
-        }
-    }
-
     /**
      * 稼働日マスタ照会
      * @param param1 稼働日
-     * @param param2 部署区分
+     * @param param2 部署ID
      * @return 稼働日マスタ
      */
     public static MsyKadobi get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KADO_BI` = :kado_bi");
-        whereList.add("`BUSHO_KB` = :busho_kb");
+        whereList.add("`KADO_BI` = ::kado_bi");
+        whereList.add("`BUSHO_ID` = ::busho_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`KADO_BI` AS KADO_BI \n";
-        sql += "    , a.`BUSHO_KB` \n";
+        sql += "    , a.`BUSHO_ID` \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`KADOBI_F`) AS KADOBI_F \n";
         sql += "    , a.`MEMO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_USER_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    MSY_KADOBI a \n";
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("kado_bi", param1);
-        map.put("busho_kb", param2);
+        map.put("busho_id", param2);
         return Queries.get(sql, map, MsyKadobi.class);
     }
 
@@ -318,15 +298,13 @@ public class MsyKadobi implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`KADO_BI` -- :kado_bi");
-        nameList.add("`BUSHO_KB` -- :busho_kb");
+        nameList.add("`BUSHO_ID` -- :busho_id");
         nameList.add("`KADOBI_F` -- :kadobi_f");
         nameList.add("`MEMO` -- :memo");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_USER_ID` -- :update_user_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -334,15 +312,13 @@ public class MsyKadobi implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":kado_bi");
-        valueList.add(":busho_kb");
+        valueList.add(":busho_id");
         valueList.add(":kadobi_f");
         valueList.add(":memo");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
         valueList.add(":update_user_id");
-        valueList.add(":delete_f");
-        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -363,13 +339,11 @@ public class MsyKadobi implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`KADO_BI` = :kado_bi");
-        setList.add("`BUSHO_KB` = :busho_kb");
+        setList.add("`BUSHO_ID` = :busho_id");
         setList.add("`KADOBI_F` = :kadobi_f");
         setList.add("`MEMO` = :memo");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -387,8 +361,8 @@ public class MsyKadobi implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KADO_BI` = :kado_bi");
-        whereList.add("`BUSHO_KB` = :busho_kb");
+        whereList.add("`KADO_BI` = ::kado_bi");
+        whereList.add("`BUSHO_ID` = ::busho_id");
         return String.join(" AND ", whereList);
     }
 
@@ -400,11 +374,9 @@ public class MsyKadobi implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("kado_bi", this.kadoBi);
-        map.put("busho_kb", this.bushoKb);
+        map.put("busho_id", this.bushoId);
         map.put("kadobi_f", this.kadobiF);
         map.put("memo", this.memo);
-        map.put("delete_f", this.deleteF);
-        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

@@ -23,14 +23,14 @@ SELECT
     , a.`TANKA_PR`
     , a.`TSUKA_KB`
     , a.`ZEINUKI_AM`
+    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
+    , a.`STATUS_KB`
     , a.`INSERT_TS` AS INSERT_TS
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
     , a.`UPDATE_TS` AS UPDATE_TS
     , a.`UPDATE_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
-    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F
-    , a.`STATUS_KB`
 FROM
     TB0_ENTITY a 
 WHERE
@@ -38,10 +38,10 @@ WHERE
     AND a.`ENTITY_ID` = :entity_id 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_NM`) LIKE CONCAT ('%', :entity_nm, '%') 
     AND TRIM(TRAILING ' ' FROM a.`ENTITY_MEI`) LIKE CONCAT ('%', :entity_mei, '%') 
-    AND CASE WHEN TRIM (a.`CHECK_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`CHECK_F`) END IN (:check_f) 
-    AND TRIM (a.`RADIO_KB`) IN (:radio_kb) 
-    AND TRIM (a.`PULLDOWN_KB`) IN (:pulldown_kb) 
-    AND TRIM (a.`PULLDOWN_SB`) IN (:pulldown_sb) 
+    AND CASE WHEN TRIM(TRAILING ' ' FROM a.`CHECK_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`CHECK_F`) END IN (:check_f) 
+    AND TRIM(TRAILING ' ' FROM a.`RADIO_KB`) IN (:radio_kb) 
+    AND TRIM(TRAILING ' ' FROM a.`PULLDOWN_KB`) IN (:pulldown_kb) 
+    AND TRIM(TRAILING ' ' FROM a.`PULLDOWN_SB`) IN (:pulldown_sb) 
     AND TRIM(TRAILING ' ' FROM a.`MEMO_TX`) LIKE CONCAT ('%', :memo_tx, '%') 
     AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
     AND TRIM(TRAILING ' ' FROM a.`TENPU_FILE`) LIKE CONCAT ('%', :tenpu_file, '%') 
@@ -81,10 +81,12 @@ WHERE
     AND a.`TANKA_PR` = :tanka_pr 
     AND a.`TANKA_PR` >= :tanka_pr_1 
     AND a.`TANKA_PR` <= :tanka_pr_2 
-    AND TRIM (a.`TSUKA_KB`) IN (:tsuka_kb) 
+    AND TRIM(TRAILING ' ' FROM a.`TSUKA_KB`) IN (:tsuka_kb) 
     AND a.`ZEINUKI_AM` = :zeinuki_am 
     AND a.`ZEINUKI_AM` >= :zeinuki_am_1 
     AND a.`ZEINUKI_AM` <= :zeinuki_am_2 
+    AND CASE WHEN TRIM(TRAILING ' ' FROM a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
+    AND TRIM(TRAILING ' ' FROM a.`STATUS_KB`) IN (:status_kb) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
@@ -93,7 +95,5 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
-    AND CASE WHEN TRIM (a.`DELETE_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`DELETE_F`) END IN (:delete_f) 
-    AND TRIM (a.`STATUS_KB`) IN (:status_kb) 
 ORDER BY
     a.`ENTITY_ID`

@@ -37,16 +37,6 @@
           <label th:text="#{Tb2Bros3.updateUserId}" class="meta">更新者</label><span id="Tb2Bros3.updateUserId"></span><input type="hidden" id="Tb2Bros3.updateUserId" name="Tb2Bros3.updateUserId" />
           <span id="Tb2Bros3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Bros3.updateUserId" data-destDef="Tb2Bros3.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb2Bros3.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros3.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb2Bros3.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros3.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb2Bros.legend}">legend</legend>
@@ -54,16 +44,6 @@
           <label for="Tb2Bros.brosInfo" th:text="#{Tb2Bros.brosInfo}">兄弟情報</label><input type="text" id="Tb2Bros.brosInfo" name="Tb2Bros.brosInfo" maxlength="300" />
         </div>
         <input type="hidden" name="Tb2Bros.updateTs" />
-        <div id="deleteF">
-          <fieldset id="Tb2Bros.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb2Bros.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb2Bros2.legend}">legend</legend>
@@ -71,16 +51,6 @@
           <label for="Tb2Bros2.bros2Info" th:text="#{Tb2Bros2.bros2Info}">兄弟２情報</label><input type="text" id="Tb2Bros2.bros2Info" name="Tb2Bros2.bros2Info" maxlength="300" />
         </div>
         <input type="hidden" name="Tb2Bros2.updateTs" />
-        <div id="deleteF">
-          <fieldset id="Tb2Bros2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros2.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb2Bros2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb2Bros2.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshTb2Bros3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -88,8 +58,6 @@
       </div>
       <div class="submits">
         <button id="DeleteTb2Bros3" type="submit" class="delete" data-action="Tb2Bros3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb2Bros3" type="submit" class="permit" data-action="Tb2Bros3Permit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb2Bros3" type="submit" class="forbid" data-action="Tb2Bros3Forbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb2Bros3" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

@@ -26,16 +26,6 @@
         <div id="rirekiMotoInfo">
           <label for="Tb3Rireki.rirekiMotoInfo" th:text="#{Tb3Rireki.rirekiMotoInfo}">履歴元情報</label><input type="text" id="Tb3Rireki.rirekiMotoInfo" name="Tb3Rireki.rirekiMotoInfo" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb3Rireki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb3Rireki.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb3Rireki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb3Rireki.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb3Rireki" th:text="#{common.reset}" class="reset">reset</button>
@@ -53,9 +43,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb3RirekiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb3Rireki');">reset</button>
         <a th:href="@{Tb3RirekiSearch.xlsx(baseMei=#{Tb3RirekiS.h2})}" id="Tb3RirekiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb3RirekiS" type="submit" class="delete selectRows" data-action="Tb3RirekiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb3RirekiS" type="submit" class="permit selectRows" data-action="Tb3RirekiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb3RirekiS" type="submit" class="forbid selectRows" data-action="Tb3RirekiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb3RirekiS" class="delete selectRows" data-action="Tb3RirekiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb3RirekiS" type="submit" class="regist" th:text="#{common.regist}" onclick="if (!Base.historyReason(this)) { return false; }">submit</button>

@@ -54,42 +54,6 @@ public class Tb6ShuyakuYokushiRegistForm implements IForm {
         this.shuyakuYokushiInfo = p;
     }
 
-    /** 削除フラグ */
-    @jakarta.validation.constraints.Size(max = 1)
-    private String deleteF;
-
-    /**
-     * @return 削除フラグ
-     */
-    public String getDeleteF() {
-        return deleteF;
-    }
-
-    /**
-     * @param p 削除フラグ
-     */
-    public void setDeleteF(final String p) {
-        this.deleteF = p;
-    }
-
-    /** ステータス区分 */
-    @jakarta.validation.constraints.Size(max = 2)
-    private String statusKb;
-
-    /**
-     * @return ステータス区分
-     */
-    public String getStatusKb() {
-        return statusKb;
-    }
-
-    /**
-     * @param p ステータス区分
-     */
-    public void setStatusKb(final String p) {
-        this.statusKb = p;
-    }
-
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {

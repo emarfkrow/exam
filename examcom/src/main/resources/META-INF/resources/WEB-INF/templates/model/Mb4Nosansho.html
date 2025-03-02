@@ -37,16 +37,6 @@
           <label th:text="#{Mb4Nosansho.updateUserId}" class="meta">更新者</label><span id="Mb4Nosansho.updateUserId"></span><input type="hidden" id="Mb4Nosansho.updateUserId" name="Mb4Nosansho.updateUserId" />
           <span id="Mb4Nosansho.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb4Nosansho.updateUserId" data-destDef="Mb4Nosansho.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Mb4Nosansho.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Mb4Nosansho.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Mb4Nosansho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Mb4Nosansho.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMb4Nosansho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -54,8 +44,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMb4Nosansho" type="submit" class="delete" data-action="Mb4NosanshoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMb4Nosansho" type="submit" class="permit" data-action="Mb4NosanshoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMb4Nosansho" type="submit" class="forbid" data-action="Mb4NosanshoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMb4Nosansho" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

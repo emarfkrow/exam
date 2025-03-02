@@ -30,11 +30,11 @@ public class MsyKadobiDeleteAction extends BaseAction {
         if (kadoBi == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object bushoKb = postJson.get("bushoKb");
-        if (bushoKb == null) {
-            bushoKb = postJson.get("MsyKadobi.bushoKb");
+        Object bushoId = postJson.get("bushoId");
+        if (bushoId == null) {
+            bushoId = postJson.get("MsyKadobi.bushoId");
         }
-        if (bushoKb == null) {
+        if (bushoId == null) {
             throw new OptLockError("error.cant.delete");
         }
 

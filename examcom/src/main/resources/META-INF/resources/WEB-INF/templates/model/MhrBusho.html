@@ -46,16 +46,6 @@
           <label th:text="#{MhrBusho.updateUserId}" class="meta">更新者</label><span id="MhrBusho.updateUserId"></span><input type="hidden" id="MhrBusho.updateUserId" name="MhrBusho.updateUserId" />
           <span id="MhrBusho.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrBusho.updateUserId" data-destDef="MhrBusho.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MhrBusho.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrBusho.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MhrBusho.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrBusho.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMhrBusho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -63,8 +53,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMhrBusho" type="submit" class="delete" data-action="MhrBushoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrBusho" type="submit" class="permit" data-action="MhrBushoPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrBusho" type="submit" class="forbid" data-action="MhrBushoForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrBusho" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

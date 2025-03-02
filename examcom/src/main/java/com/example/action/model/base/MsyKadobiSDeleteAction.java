@@ -39,7 +39,7 @@ public class MsyKadobiSDeleteAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KADO_BI"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("BUSHO_KB"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("BUSHO_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

@@ -43,12 +43,6 @@
           <label th:text="#{Tb3RirekiSaki.updateUserId}" class="meta">更新者</label><span id="Tb3RirekiSaki.updateUserId"></span><input type="hidden" id="Tb3RirekiSaki.updateUserId" name="Tb3RirekiSaki.updateUserId" />
           <span id="Tb3RirekiSaki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb3RirekiSaki.updateUserId" data-destDef="Tb3RirekiSaki.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <label th:text="#{Tb3RirekiSaki.deleteF}">削除フラグ</label><span id="Tb3RirekiSaki.deleteF"></span><input type="hidden" id="Tb3RirekiSaki.deleteF" name="Tb3RirekiSaki.deleteF" />
-        </div>
-        <div id="statusKb">
-          <label th:text="#{Tb3RirekiSaki.statusKb}">ステータス区分</label><span id="Tb3RirekiSaki.statusKb"></span><input type="hidden" id="Tb3RirekiSaki.statusKb" name="Tb3RirekiSaki.statusKb" />
-        </div>
       </fieldset>
       <div class="buttons">
         <a th:href="@{Tb3RirekiSakiGet.xlsx(baseMei=#{Tb3RirekiSaki.h2})}" id="Tb3RirekiSakiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

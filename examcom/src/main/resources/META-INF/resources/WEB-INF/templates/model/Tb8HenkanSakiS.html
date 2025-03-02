@@ -29,16 +29,6 @@
         <div id="hikitsuidaInfo">
           <label for="Tb8HenkanSaki.hikitsuidaInfo" th:text="#{Tb8HenkanSaki.hikitsuidaInfo}">引継いだ情報</label><input type="text" id="Tb8HenkanSaki.hikitsuidaInfo" name="Tb8HenkanSaki.hikitsuidaInfo" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb8HenkanSaki.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb8HenkanSaki.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb8HenkanSaki.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb8HenkanSaki.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb8HenkanSaki" th:text="#{common.reset}" class="reset">reset</button>
@@ -56,9 +46,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb8HenkanSakiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb8HenkanSaki');">reset</button>
         <a th:href="@{Tb8HenkanSakiSearch.xlsx(baseMei=#{Tb8HenkanSakiS.h2})}" id="Tb8HenkanSakiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb8HenkanSakiS" type="submit" class="delete selectRows" data-action="Tb8HenkanSakiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb8HenkanSakiS" type="submit" class="permit selectRows" data-action="Tb8HenkanSakiSPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb8HenkanSakiS" type="submit" class="forbid selectRows" data-action="Tb8HenkanSakiSForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb8HenkanSakiS" class="delete selectRows" data-action="Tb8HenkanSakiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb8HenkanSakiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

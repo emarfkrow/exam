@@ -26,16 +26,6 @@
         <div id="shuyakuYokushiId">
           <label for="Tb6ShuyakuYokushiMoto1.shuyakuYokushiId" th:text="#{Tb6ShuyakuYokushiMoto1.shuyakuYokushiId}">転生抑止ID</label><input type="text" id="Tb6ShuyakuYokushiMoto1.shuyakuYokushiId" name="Tb6ShuyakuYokushiMoto1.shuyakuYokushiId" maxlength="10" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb6ShuyakuYokushiMoto1.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6ShuyakuYokushiMoto1.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb6ShuyakuYokushiMoto1.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb6ShuyakuYokushiMoto1.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb6ShuyakuYokushiMoto1" th:text="#{common.reset}" class="reset">reset</button>
@@ -53,9 +43,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb6ShuyakuYokushiMoto1S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6ShuyakuYokushiMoto1');">reset</button>
         <a th:href="@{Tb6ShuyakuYokushiMoto1Search.xlsx(baseMei=#{Tb6ShuyakuYokushiMoto1S.h2})}" id="Tb6ShuyakuYokushiMoto1Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb6ShuyakuYokushiMoto1S" type="submit" class="delete selectRows" data-action="Tb6ShuyakuYokushiMoto1SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb6ShuyakuYokushiMoto1S" type="submit" class="permit selectRows" data-action="Tb6ShuyakuYokushiMoto1SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb6ShuyakuYokushiMoto1S" type="submit" class="forbid selectRows" data-action="Tb6ShuyakuYokushiMoto1SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb6ShuyakuYokushiMoto1S" class="delete selectRows" data-action="Tb6ShuyakuYokushiMoto1SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb6ShuyakuYokushiMoto1S" type="submit" class="regist" th:text="#{common.regist}">submit</button>

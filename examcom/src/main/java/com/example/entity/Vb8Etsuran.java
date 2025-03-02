@@ -92,9 +92,9 @@ public class Vb8Etsuran implements IEntity {
      */
     public static Vb8Etsuran get() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`henkan_moto_id` = :henkan_moto_id");
-        whereList.add("`henkan_moto_info` = :henkan_moto_info");
-        whereList.add("`hikitsuida_info` = :hikitsuida_info");
+        whereList.add("`henkan_moto_id` = ::henkan_moto_id");
+        whereList.add("`henkan_moto_info` = ::henkan_moto_info");
+        whereList.add("`hikitsuida_info` = ::hikitsuida_info");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`henkan_moto_id` \n";

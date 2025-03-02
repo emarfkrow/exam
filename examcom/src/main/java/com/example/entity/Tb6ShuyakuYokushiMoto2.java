@@ -194,42 +194,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         }
     }
 
-    /** 削除フラグ */
-    private String deleteF = "0";
-
-    /** @return 削除フラグ */
-    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
-    public String getDeleteF() {
-        return this.deleteF;
-    }
-
-    /** @param o 削除フラグ */
-    public void setDeleteF(final Object o) {
-        if (o != null) {
-            this.deleteF = o.toString();
-        } else {
-            this.deleteF = null;
-        }
-    }
-
-    /** ステータス区分 */
-    private String statusKb;
-
-    /** @return ステータス区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
-    public String getStatusKb() {
-        return this.statusKb;
-    }
-
-    /** @param o ステータス区分 */
-    public void setStatusKb(final Object o) {
-        if (o != null) {
-            this.statusKb = o.toString();
-        } else {
-            this.statusKb = null;
-        }
-    }
-
     /**
      * 集約抑止元２照会
      * @param param1 集約抑止元２ID
@@ -237,7 +201,7 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
      */
     public static Tb6ShuyakuYokushiMoto2 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHUYAKU_YOKUSHI_MOTO2_ID` = :shuyaku_yokushi_moto_2_id");
+        whereList.add("`SHUYAKU_YOKUSHI_MOTO2_ID` = ::shuyaku_yokushi_moto_2_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`SHUYAKU_YOKUSHI_MOTO2_ID` \n";
@@ -246,8 +210,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
         sql += "    , a.`UPDATE_USER_ID` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`DELETE_F`) AS DELETE_F \n";
-        sql += "    , a.`STATUS_KB` \n";
         sql += "FROM \n";
         sql += "    TB6_SHUYAKU_YOKUSHI_MOTO2 a \n";
         sql += "WHERE \n";
@@ -282,8 +244,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
         nameList.add("`UPDATE_USER_ID` -- :update_user_id");
-        nameList.add("`DELETE_F` -- :delete_f");
-        nameList.add("`STATUS_KB` -- :status_kb");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -296,8 +256,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
         valueList.add(":update_user_id");
-        valueList.add(":delete_f");
-        valueList.add(":status_kb");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -333,8 +291,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         setList.add("`SHUYAKU_YOKUSHI_ID` = :shuyaku_yokushi_id");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
-        setList.add("`DELETE_F` = :delete_f");
-        setList.add("`STATUS_KB` = :status_kb");
         return String.join("\r\n    , ", setList);
     }
 
@@ -352,7 +308,7 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHUYAKU_YOKUSHI_MOTO2_ID` = :shuyaku_yokushi_moto_2_id");
+        whereList.add("`SHUYAKU_YOKUSHI_MOTO2_ID` = ::shuyaku_yokushi_moto_2_id");
         return String.join(" AND ", whereList);
     }
 
@@ -365,8 +321,6 @@ public class Tb6ShuyakuYokushiMoto2 implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("shuyaku_yokushi_moto_2_id", this.shuyakuYokushiMoto2Id);
         map.put("shuyaku_yokushi_id", this.shuyakuYokushiId);
-        map.put("delete_f", this.deleteF);
-        map.put("status_kb", this.statusKb);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

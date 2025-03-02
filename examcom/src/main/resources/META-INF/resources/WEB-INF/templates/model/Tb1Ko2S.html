@@ -29,16 +29,6 @@
         <div id="ko2Info">
           <label for="Tb1Ko2.ko2Info" th:text="#{Tb1Ko2.ko2Info}">子２情報</label><input type="text" id="Tb1Ko2.ko2Info" name="Tb1Ko2.ko2Info" maxlength="300" />
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb1Ko2.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko2.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb1Ko2.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb1Ko2.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb1Ko2" th:text="#{common.reset}" class="reset">reset</button>
@@ -55,9 +45,7 @@
       <div class="buttons">
         <button type="button" id="ResetTb1Ko2S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Ko2');">reset</button>
         <a th:href="@{Tb1Ko2Search.xlsx(baseMei=#{Tb1Ko2S.h2})}" id="Tb1Ko2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button id="DeleteTb1Ko2S" type="submit" class="delete selectRows" data-action="Tb1Ko2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb1Ko2S" type="submit" class="permit selectRows" data-action="Tb1Ko2SPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb1Ko2S" type="submit" class="forbid selectRows" data-action="Tb1Ko2SForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
+        <button type="submit" id="DeleteTb1Ko2S" class="delete selectRows" data-action="Tb1Ko2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb1Ko2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>

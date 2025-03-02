@@ -48,16 +48,6 @@
           <label th:text="#{MhrShozoku.updateUserId}" class="meta">更新者</label><span id="MhrShozoku.updateUserId"></span><input type="hidden" id="MhrShozoku.updateUserId" name="MhrShozoku.updateUserId" />
           <span id="MhrShozoku.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:MhrShozoku.updateUserId" data-destDef="MhrShozoku.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="MhrShozoku.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrShozoku.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="MhrShozoku.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{MhrShozoku.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshMhrShozoku" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -65,8 +55,6 @@
       </div>
       <div class="submits">
         <button id="DeleteMhrShozoku" type="submit" class="delete" data-action="MhrShozokuDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitMhrShozoku" type="submit" class="permit" data-action="MhrShozokuPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidMhrShozoku" type="submit" class="forbid" data-action="MhrShozokuForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistMhrShozoku" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>

@@ -37,16 +37,6 @@
           <label th:text="#{Tb5TenseiMoto.updateUserId}" class="meta">更新者</label><span id="Tb5TenseiMoto.updateUserId"></span><input type="hidden" id="Tb5TenseiMoto.updateUserId" name="Tb5TenseiMoto.updateUserId" />
           <span id="Tb5TenseiMoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiMoto.updateUserId" data-destDef="Tb5TenseiMoto.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb5TenseiMoto.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5TenseiMoto.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb5TenseiMoto.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5TenseiMoto.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <fieldset>
         <legend th:text="#{Tb5TenseiMotoDet.legend}">legend</legend>
@@ -73,16 +63,6 @@
           <label th:text="#{Tb5TenseiMotoDet.updateUserId}" class="meta">更新者</label><span id="Tb5TenseiMotoDet.updateUserId"></span><input type="hidden" id="Tb5TenseiMotoDet.updateUserId" name="Tb5TenseiMotoDet.updateUserId" />
           <span id="Tb5TenseiMotoDet.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiMotoDet.updateUserId" data-destDef="Tb5TenseiMotoDet.updateUserSei:USER_SEI"></span>
         </div>
-        <div id="deleteF">
-          <fieldset id="Tb5TenseiMotoDet.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5TenseiMotoDet.deleteF}">削除フラグ</legend>
-          </fieldset>
-        </div>
-        <div id="statusKb">
-          <fieldset id="Tb5TenseiMotoDet.statusKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:STATUS_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
-            <legend th:text="#{Tb5TenseiMotoDet.statusKb}">ステータス区分</legend>
-          </fieldset>
-        </div>
       </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshTb5TenseiMotoDet" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
@@ -90,8 +70,6 @@
       </div>
       <div class="submits">
         <button id="DeleteTb5TenseiMotoDet" type="submit" class="delete" data-action="Tb5TenseiMotoDetDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
-        <button id="PermitTb5TenseiMotoDet" type="submit" class="permit" data-action="Tb5TenseiMotoDetPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
-        <button id="ForbidTb5TenseiMotoDet" type="submit" class="forbid" data-action="Tb5TenseiMotoDetForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb5TenseiMotoDet" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
     </form>
