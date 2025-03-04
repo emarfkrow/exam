@@ -201,7 +201,7 @@ public class Mb4Idsansho implements IEntity {
      */
     public static Mb4Idsansho get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`IDSANSHO_ID` = ::idsansho_id");
+        whereList.add("`IDSANSHO_ID` = :idsansho_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`IDSANSHO_ID` \n";
@@ -308,7 +308,7 @@ public class Mb4Idsansho implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`IDSANSHO_ID` = ::idsansho_id");
+        whereList.add("`IDSANSHO_ID` = :idsansho_id");
         return String.join(" AND ", whereList);
     }
 

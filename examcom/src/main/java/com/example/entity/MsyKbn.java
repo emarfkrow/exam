@@ -201,7 +201,7 @@ public class MsyKbn implements IEntity {
      */
     public static MsyKbn get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KBN_NM` = ::kbn_nm");
+        whereList.add("`KBN_NM` = :kbn_nm");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`KBN_NM` \n";
@@ -325,7 +325,7 @@ public class MsyKbn implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KBN_NM` = ::kbn_nm");
+        whereList.add("`KBN_NM` = :kbn_nm");
         return String.join(" AND ", whereList);
     }
 

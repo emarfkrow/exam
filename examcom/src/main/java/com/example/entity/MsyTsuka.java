@@ -223,8 +223,8 @@ public class MsyTsuka implements IEntity {
      */
     public static MsyTsuka get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TSUKA_KB` = ::tsuka_kb");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`TSUKA_KB` = :tsuka_kb");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`TSUKA_KB` \n";
@@ -321,8 +321,8 @@ public class MsyTsuka implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TSUKA_KB` = ::tsuka_kb");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`TSUKA_KB` = :tsuka_kb");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         return String.join(" AND ", whereList);
     }
 

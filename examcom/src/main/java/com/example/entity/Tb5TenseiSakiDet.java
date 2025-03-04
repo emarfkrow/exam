@@ -220,8 +220,8 @@ public class Tb5TenseiSakiDet implements IEntity {
      */
     public static Tb5TenseiSakiDet get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEI_SAKI_ID` = ::tensei_saki_id");
-        whereList.add("`TENSEI_SAKI_BN` = ::tensei_saki_bn");
+        whereList.add("`TENSEI_SAKI_ID` = :tensei_saki_id");
+        whereList.add("`TENSEI_SAKI_BN` = :tensei_saki_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`TENSEI_SAKI_ID` \n";
@@ -337,8 +337,8 @@ public class Tb5TenseiSakiDet implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEI_SAKI_ID` = ::tensei_saki_id");
-        whereList.add("`TENSEI_SAKI_BN` = ::tensei_saki_bn");
+        whereList.add("`TENSEI_SAKI_ID` = :tensei_saki_id");
+        whereList.add("`TENSEI_SAKI_BN` = :tensei_saki_bn");
         return String.join(" AND ", whereList);
     }
 

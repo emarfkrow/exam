@@ -261,7 +261,7 @@ public class MhrShokui implements IEntity {
      */
     public static MhrShokui get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`SHOKUI_ID` \n";
@@ -380,7 +380,7 @@ public class MhrShokui implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
         return String.join(" AND ", whereList);
     }
 

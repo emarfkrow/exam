@@ -660,7 +660,7 @@ public class Tb0Entity implements IEntity {
      */
     public static Tb0Entity get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`ENTITY_ID` = ::entity_id");
+        whereList.add("`ENTITY_ID` = :entity_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`ENTITY_ID` \n";
@@ -870,7 +870,7 @@ public class Tb0Entity implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`ENTITY_ID` = ::entity_id");
+        whereList.add("`ENTITY_ID` = :entity_id");
         return String.join(" AND ", whereList);
     }
 

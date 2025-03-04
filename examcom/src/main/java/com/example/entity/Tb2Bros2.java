@@ -201,7 +201,7 @@ public class Tb2Bros2 implements IEntity {
      */
     public static Tb2Bros2 get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BROS_ID` = ::bros_id");
+        whereList.add("`BROS_ID` = :bros_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`BROS_ID` \n";
@@ -350,7 +350,7 @@ public class Tb2Bros2 implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BROS_ID` = ::bros_id");
+        whereList.add("`BROS_ID` = :bros_id");
         return String.join(" AND ", whereList);
     }
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb7ShuyakuMoto.title}">集約元</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb7ShuyakuMotoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb7ShuyakuSakiGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb7ShuyakuMoto.h2}">h2</h2>
+    <form name="Tb7ShuyakuMotoRegistForm" action="Tb7ShuyakuMotoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb7ShuyakuMoto.legend}">legend</legend>
+        <div id="shuyakuMotoId">
+          <label for="Tb7ShuyakuMoto.shuyakuMotoId" th:text="#{Tb7ShuyakuMoto.shuyakuMotoId}">集約元ID</label><input type="text" id="Tb7ShuyakuMoto.shuyakuMotoId" name="Tb7ShuyakuMoto.shuyakuMotoId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="shuyakuMotoInfo">
+          <label for="Tb7ShuyakuMoto.shuyakuMotoInfo" th:text="#{Tb7ShuyakuMoto.shuyakuMotoInfo}">集約元情報</label><input type="text" id="Tb7ShuyakuMoto.shuyakuMotoInfo" name="Tb7ShuyakuMoto.shuyakuMotoInfo" maxlength="300" />
+        </div>
+        <div id="shuyakuSakiId">
+          <label th:text="#{Tb7ShuyakuMoto.shuyakuSakiId}">集約先ID</label><span id="Tb7ShuyakuMoto.shuyakuSakiId" class="summary"></span><input type="hidden" id="Tb7ShuyakuMoto.shuyakuSakiId" name="Tb7ShuyakuMoto.shuyakuSakiId" class="summary" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb7ShuyakuMoto.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb7ShuyakuMoto.insertTs"></span><input type="hidden" id="Tb7ShuyakuMoto.insertTs" name="Tb7ShuyakuMoto.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb7ShuyakuMoto.insertUserId}" class="meta">作成者</label><span id="Tb7ShuyakuMoto.insertUserId"></span><input type="hidden" id="Tb7ShuyakuMoto.insertUserId" name="Tb7ShuyakuMoto.insertUserId" />
+          <span id="Tb7ShuyakuMoto.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb7ShuyakuMoto.insertUserId" data-destDef="Tb7ShuyakuMoto.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb7ShuyakuMoto.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb7ShuyakuMoto.updateTs"></span><input type="hidden" id="Tb7ShuyakuMoto.updateTs" name="Tb7ShuyakuMoto.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb7ShuyakuMoto.updateUserId}" class="meta">更新者</label><span id="Tb7ShuyakuMoto.updateUserId"></span><input type="hidden" id="Tb7ShuyakuMoto.updateUserId" name="Tb7ShuyakuMoto.updateUserId" />
+          <span id="Tb7ShuyakuMoto.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb7ShuyakuMoto.updateUserId" data-destDef="Tb7ShuyakuMoto.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb7ShuyakuMoto" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb7ShuyakuMotoGet.xlsx(baseMei=#{Tb7ShuyakuMoto.h2})}" id="Tb7ShuyakuMotoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb7ShuyakuMoto" type="submit" class="delete" data-action="Tb7ShuyakuMotoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb7ShuyakuMoto" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

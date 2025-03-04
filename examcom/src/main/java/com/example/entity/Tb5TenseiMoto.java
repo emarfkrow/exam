@@ -201,7 +201,7 @@ public class Tb5TenseiMoto implements IEntity {
      */
     public static Tb5TenseiMoto get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEI_MOTO_ID` = ::tensei_moto_id");
+        whereList.add("`TENSEI_MOTO_ID` = :tensei_moto_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`TENSEI_MOTO_ID` \n";
@@ -340,7 +340,7 @@ public class Tb5TenseiMoto implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TENSEI_MOTO_ID` = ::tensei_moto_id");
+        whereList.add("`TENSEI_MOTO_ID` = :tensei_moto_id");
         return String.join(" AND ", whereList);
     }
 

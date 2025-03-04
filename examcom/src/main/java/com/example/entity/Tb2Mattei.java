@@ -201,7 +201,7 @@ public class Tb2Mattei implements IEntity {
      */
     public static Tb2Mattei get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`MATTEI_ID` = ::mattei_id");
+        whereList.add("`MATTEI_ID` = :mattei_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`MATTEI_ID` \n";
@@ -308,7 +308,7 @@ public class Tb2Mattei implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`MATTEI_ID` = ::mattei_id");
+        whereList.add("`MATTEI_ID` = :mattei_id");
         return String.join(" AND ", whereList);
     }
 

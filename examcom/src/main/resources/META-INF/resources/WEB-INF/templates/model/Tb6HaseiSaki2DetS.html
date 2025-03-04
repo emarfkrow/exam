@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb6HaseiSaki2DetS.title}">派生先２明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb6HaseiSaki2DetGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb6HaseiSaki2DetS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb6HaseiSaki2DetSearchForm" action="Tb6HaseiSaki2DetSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb6HaseiSaki2DetS.legend}">legend</legend>
+        <div id="haseiSaki2Id">
+          <label for="Tb6HaseiSaki2Det.haseiSaki2Id" th:text="#{Tb6HaseiSaki2Det.haseiSaki2Id}">派生先２ID</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2Id" name="Tb6HaseiSaki2Det.haseiSaki2Id" maxlength="10" />
+        </div>
+        <div id="haseiSaki2Bn">
+          <label for="Tb6HaseiSaki2Det.haseiSaki2Bn" th:text="#{Tb6HaseiSaki2Det.haseiSaki2Bn}">派生先２枝番</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2Bn" name="Tb6HaseiSaki2Det.haseiSaki2Bn" maxlength="10" />
+        </div>
+        <div id="haseiSaki2DetInfo">
+          <label for="Tb6HaseiSaki2Det.haseiSaki2DetInfo" th:text="#{Tb6HaseiSaki2Det.haseiSaki2DetInfo}">派生先２明細情報</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2DetInfo" name="Tb6HaseiSaki2Det.haseiSaki2DetInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb6HaseiSaki2Det" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb6HaseiSaki2Det" type="submit" class="search" data-gridId="Tb6HaseiSaki2DetGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb6HaseiSaki2DetSRegistForm" action="Tb6HaseiSaki2DetSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb6HaseiSaki2Det.h3}">h3</h3>
+      <div id="Tb6HaseiSaki2DetGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb6HaseiSaki2Det.html}"></div>
+      <div id="Tb6HaseiSaki2DetPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb6HaseiSaki2DetS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6HaseiSaki2Det');">reset</button>
+        <a th:href="@{Tb6HaseiSaki2DetSearch.xlsx(baseMei=#{Tb6HaseiSaki2DetS.h2})}" id="Tb6HaseiSaki2DetSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb6HaseiSaki2DetS" class="delete selectRows" data-action="Tb6HaseiSaki2DetSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb6HaseiSaki2DetS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

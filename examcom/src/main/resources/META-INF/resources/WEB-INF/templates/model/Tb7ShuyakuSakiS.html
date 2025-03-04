@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb7ShuyakuSakiS.title}">集約先</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb7ShuyakuSakiGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb7ShuyakuMotoGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb7ShuyakuSakiS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb7ShuyakuSakiSearchForm" action="Tb7ShuyakuSakiSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb7ShuyakuSakiS.legend}">legend</legend>
+        <div id="shuyakuSakiId">
+          <label for="Tb7ShuyakuSaki.shuyakuSakiId" th:text="#{Tb7ShuyakuSaki.shuyakuSakiId}">集約先ID</label><input type="text" id="Tb7ShuyakuSaki.shuyakuSakiId" name="Tb7ShuyakuSaki.shuyakuSakiId" maxlength="10" />
+        </div>
+        <div id="shuyakuSakiInfo">
+          <label for="Tb7ShuyakuSaki.shuyakuSakiInfo" th:text="#{Tb7ShuyakuSaki.shuyakuSakiInfo}">集約先情報</label><input type="text" id="Tb7ShuyakuSaki.shuyakuSakiInfo" name="Tb7ShuyakuSaki.shuyakuSakiInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb7ShuyakuSaki" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb7ShuyakuSaki.html}" target="dialog" id="Tb7ShuyakuSaki" class="anew" th:text="#{Tb7ShuyakuSaki.add}" tabindex="-1">集約先</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb7ShuyakuSaki" type="submit" class="search" data-gridId="Tb7ShuyakuSakiGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb7ShuyakuSakiSRegistForm" action="Tb7ShuyakuSakiSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb7ShuyakuSaki.h3}">h3</h3>
+      <div id="Tb7ShuyakuSakiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb7ShuyakuSaki.html}"></div>
+      <div id="Tb7ShuyakuSakiPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb7ShuyakuSakiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb7ShuyakuSaki');">reset</button>
+        <a th:href="@{Tb7ShuyakuSakiSearch.xlsx(baseMei=#{Tb7ShuyakuSakiS.h2})}" id="Tb7ShuyakuSakiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb7ShuyakuSakiS" class="delete selectRows" data-action="Tb7ShuyakuSakiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb7ShuyakuSakiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

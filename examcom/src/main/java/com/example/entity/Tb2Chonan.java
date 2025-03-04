@@ -201,7 +201,7 @@ public class Tb2Chonan implements IEntity {
      */
     public static Tb2Chonan get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`CHONAN_ID` = ::chonan_id");
+        whereList.add("`CHONAN_ID` = :chonan_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`CHONAN_ID` \n";
@@ -350,7 +350,7 @@ public class Tb2Chonan implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`CHONAN_ID` = ::chonan_id");
+        whereList.add("`CHONAN_ID` = :chonan_id");
         return String.join(" AND ", whereList);
     }
 

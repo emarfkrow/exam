@@ -317,9 +317,9 @@ public class MhrNinka implements IEntity {
      */
     public static MhrNinka get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
-        whereList.add("`KINO_NM` = ::kino_nm");
+        whereList.add("`BUSHO_ID` = :busho_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
+        whereList.add("`KINO_NM` = :kino_nm");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`BUSHO_ID` \n";
@@ -429,9 +429,9 @@ public class MhrNinka implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
-        whereList.add("`KINO_NM` = ::kino_nm");
+        whereList.add("`BUSHO_ID` = :busho_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
+        whereList.add("`KINO_NM` = :kino_nm");
         return String.join(" AND ", whereList);
     }
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb8Sansho.title}">参照マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb8SanshoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb8Sansho.h2}">h2</h2>
+    <form name="Mb8SanshoRegistForm" action="Mb8SanshoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Mb8Sansho.legend}">legend</legend>
+        <div id="sanshoId">
+          <label for="Mb8Sansho.sanshoId" th:text="#{Mb8Sansho.sanshoId}">参照ID</label><input type="text" id="Mb8Sansho.sanshoId" name="Mb8Sansho.sanshoId" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="sanshoMei">
+          <label for="Mb8Sansho.sanshoMei" th:text="#{Mb8Sansho.sanshoMei}">参照名</label><input type="text" id="Mb8Sansho.sanshoMei" name="Mb8Sansho.sanshoMei" maxlength="60" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Mb8Sansho.insertTs}" class="meta">作成タイムスタンプ</label><span id="Mb8Sansho.insertTs"></span><input type="hidden" id="Mb8Sansho.insertTs" name="Mb8Sansho.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Mb8Sansho.insertUserId}" class="meta">作成者</label><span id="Mb8Sansho.insertUserId"></span><input type="hidden" id="Mb8Sansho.insertUserId" name="Mb8Sansho.insertUserId" />
+          <span id="Mb8Sansho.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Sansho.insertUserId" data-destDef="Mb8Sansho.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Mb8Sansho.updateTs}" class="meta">更新タイムスタンプ</label><span id="Mb8Sansho.updateTs"></span><input type="hidden" id="Mb8Sansho.updateTs" name="Mb8Sansho.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Mb8Sansho.updateUserId}" class="meta">更新者</label><span id="Mb8Sansho.updateUserId"></span><input type="hidden" id="Mb8Sansho.updateUserId" name="Mb8Sansho.updateUserId" />
+          <span id="Mb8Sansho.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Sansho.updateUserId" data-destDef="Mb8Sansho.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshMb8Sansho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Mb8SanshoGet.xlsx(baseMei=#{Mb8Sansho.h2})}" id="Mb8SanshoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteMb8Sansho" type="submit" class="delete" data-action="Mb8SanshoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistMb8Sansho" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

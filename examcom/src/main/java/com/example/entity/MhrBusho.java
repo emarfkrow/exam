@@ -279,7 +279,7 @@ public class MhrBusho implements IEntity {
      */
     public static MhrBusho get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
+        whereList.add("`BUSHO_ID` = :busho_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`BUSHO_ID` \n";
@@ -398,7 +398,7 @@ public class MhrBusho implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
+        whereList.add("`BUSHO_ID` = :busho_id");
         return String.join(" AND ", whereList);
     }
 

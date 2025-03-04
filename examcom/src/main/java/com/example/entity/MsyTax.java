@@ -244,8 +244,8 @@ public class MsyTax implements IEntity {
      */
     public static MsyTax get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TAX_KB` = ::tax_kb");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`TAX_KB` = :tax_kb");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`TAX_KB` \n";
@@ -346,8 +346,8 @@ public class MsyTax implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`TAX_KB` = ::tax_kb");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`TAX_KB` = :tax_kb");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         return String.join(" AND ", whereList);
     }
 

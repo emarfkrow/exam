@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb8Fukugo.title}">複合</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb8FukugoGridColumns.js}"></script>
+<script th:src="@{/model/Mb8SanshoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb8SeiyakuGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb8Fukugo.h2}">h2</h2>
+    <form name="Tb8FukugoRegistForm" action="Tb8FukugoRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb8Fukugo.legend}">legend</legend>
+        <div id="sanshoId">
+          <label for="Tb8Fukugo.sanshoId" th:text="#{Tb8Fukugo.sanshoId}">参照ID</label><input type="text" id="Tb8Fukugo.sanshoId" name="Tb8Fukugo.sanshoId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Tb8Fukugo.sanshoId" data-destDef="Tb8Fukugo.sanshoMei:SANSHO_MEI" /><a id="Tb8Fukugo.sanshoId" th:href="@{/model/Mb8SanshoS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Fukugo.sanshoMei" class=" primaryKey numbering refer" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Tb8Fukugo.sanshoId" data-destDef="Tb8Fukugo.sanshoMei:SANSHO_MEI"></span>
+        </div>
+        <div id="seiyakuId">
+          <label for="Tb8Fukugo.seiyakuId" th:text="#{Tb8Fukugo.seiyakuId}">制約ID</label><input type="text" id="Tb8Fukugo.seiyakuId" name="Tb8Fukugo.seiyakuId" maxlength="10" class=" notblank primaryKey numbering refer" data-json="Mb8SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb8Fukugo.seiyakuId" data-destDef="Tb8Fukugo.seiyakuMei:SEIYAKU_MEI" /><a id="Tb8Fukugo.seiyakuId" th:href="@{/model/Mb8SeiyakuS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Fukugo.seiyakuMei" class=" primaryKey numbering refer" data-json="Mb8SeiyakuSearch.json" data-srcDef="SEIYAKU_ID:Tb8Fukugo.seiyakuId" data-destDef="Tb8Fukugo.seiyakuMei:SEIYAKU_MEI"></span>
+        </div>
+        <div id="tekiyoBi">
+          <label for="Tb8Fukugo.tekiyoBi" th:text="#{Tb8Fukugo.tekiyoBi}">適用日</label><input type="text" id="Tb8Fukugo.tekiyoBi" name="Tb8Fukugo.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
+        </div>
+        <div id="fukugoInfo">
+          <label for="Tb8Fukugo.fukugoInfo" th:text="#{Tb8Fukugo.fukugoInfo}">複合情報</label><input type="text" id="Tb8Fukugo.fukugoInfo" name="Tb8Fukugo.fukugoInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb8Fukugo.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8Fukugo.insertTs"></span><input type="hidden" id="Tb8Fukugo.insertTs" name="Tb8Fukugo.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb8Fukugo.insertUserId}" class="meta">作成者</label><span id="Tb8Fukugo.insertUserId"></span><input type="hidden" id="Tb8Fukugo.insertUserId" name="Tb8Fukugo.insertUserId" />
+          <span id="Tb8Fukugo.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Fukugo.insertUserId" data-destDef="Tb8Fukugo.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb8Fukugo.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8Fukugo.updateTs"></span><input type="hidden" id="Tb8Fukugo.updateTs" name="Tb8Fukugo.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb8Fukugo.updateUserId}" class="meta">更新者</label><span id="Tb8Fukugo.updateUserId"></span><input type="hidden" id="Tb8Fukugo.updateUserId" name="Tb8Fukugo.updateUserId" />
+          <span id="Tb8Fukugo.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Fukugo.updateUserId" data-destDef="Tb8Fukugo.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb8Fukugo" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb8FukugoGet.xlsx(baseMei=#{Tb8Fukugo.h2})}" id="Tb8FukugoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb8Fukugo" type="submit" class="delete" data-action="Tb8FukugoDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb8Fukugo" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

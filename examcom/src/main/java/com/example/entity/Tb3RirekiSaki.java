@@ -238,8 +238,8 @@ public class Tb3RirekiSaki implements IEntity {
      */
     public static Tb3RirekiSaki get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`RIREKI_MOTO_ID` = ::rireki_moto_id");
-        whereList.add("`RIREKI_BN` = ::rireki_bn");
+        whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_BN` = :rireki_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`RIREKI_MOTO_ID` \n";
@@ -359,8 +359,8 @@ public class Tb3RirekiSaki implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`RIREKI_MOTO_ID` = ::rireki_moto_id");
-        whereList.add("`RIREKI_BN` = ::rireki_bn");
+        whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_BN` = :rireki_bn");
         return String.join(" AND ", whereList);
     }
 

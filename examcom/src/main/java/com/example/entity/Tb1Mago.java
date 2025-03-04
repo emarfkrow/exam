@@ -239,9 +239,9 @@ public class Tb1Mago implements IEntity {
      */
     public static Tb1Mago get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`OYA_ID` = ::oya_id");
-        whereList.add("`KO_BN` = ::ko_bn");
-        whereList.add("`MAGO_BN` = ::mago_bn");
+        whereList.add("`OYA_ID` = :oya_id");
+        whereList.add("`KO_BN` = :ko_bn");
+        whereList.add("`MAGO_BN` = :mago_bn");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`OYA_ID` \n";
@@ -364,9 +364,9 @@ public class Tb1Mago implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`OYA_ID` = ::oya_id");
-        whereList.add("`KO_BN` = ::ko_bn");
-        whereList.add("`MAGO_BN` = ::mago_bn");
+        whereList.add("`OYA_ID` = :oya_id");
+        whereList.add("`KO_BN` = :ko_bn");
+        whereList.add("`MAGO_BN` = :mago_bn");
         return String.join(" AND ", whereList);
     }
 

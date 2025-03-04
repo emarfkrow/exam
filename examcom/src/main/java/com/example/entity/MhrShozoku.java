@@ -318,10 +318,10 @@ public class MhrShozoku implements IEntity {
      */
     public static MhrShozoku get(final Object param1, final Object param2, final Object param3, final Object param4) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
-        whereList.add("`USER_ID` = ::user_id");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`BUSHO_ID` = :busho_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
+        whereList.add("`USER_ID` = :user_id");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`BUSHO_ID` \n";
@@ -428,10 +428,10 @@ public class MhrShozoku implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`BUSHO_ID` = ::busho_id");
-        whereList.add("`SHOKUI_ID` = ::shokui_id");
-        whereList.add("`USER_ID` = ::user_id");
-        whereList.add("`TEKIYO_BI` = ::tekiyo_bi");
+        whereList.add("`BUSHO_ID` = :busho_id");
+        whereList.add("`SHOKUI_ID` = :shokui_id");
+        whereList.add("`USER_ID` = :user_id");
+        whereList.add("`TEKIYO_BI` = :tekiyo_bi");
         return String.join(" AND ", whereList);
     }
 

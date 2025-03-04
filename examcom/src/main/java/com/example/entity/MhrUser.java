@@ -297,7 +297,7 @@ public class MhrUser implements IEntity {
      */
     public static MhrUser get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`USER_ID` = ::user_id");
+        whereList.add("`USER_ID` = :user_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`USER_ID` \n";
@@ -424,7 +424,7 @@ public class MhrUser implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`USER_ID` = ::user_id");
+        whereList.add("`USER_ID` = :user_id");
         return String.join(" AND ", whereList);
     }
 

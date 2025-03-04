@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb6HaseiMotoS.title}">派生元</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb6HaseiMotoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb6HaseiMotoDetGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb6HaseiMotoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb6HaseiMotoSearchForm" action="Tb6HaseiMotoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb6HaseiMotoS.legend}">legend</legend>
+        <div id="haseiMotoId">
+          <label for="Tb6HaseiMoto.haseiMotoId" th:text="#{Tb6HaseiMoto.haseiMotoId}">派生元ID</label><input type="text" id="Tb6HaseiMoto.haseiMotoId" name="Tb6HaseiMoto.haseiMotoId" maxlength="10" />
+        </div>
+        <div id="haseiMotoInfo">
+          <label for="Tb6HaseiMoto.haseiMotoInfo" th:text="#{Tb6HaseiMoto.haseiMotoInfo}">派生元情報</label><input type="text" id="Tb6HaseiMoto.haseiMotoInfo" name="Tb6HaseiMoto.haseiMotoInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb6HaseiMoto" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb6HaseiMoto.html}" target="dialog" id="Tb6HaseiMoto" class="anew" th:text="#{Tb6HaseiMoto.add}" tabindex="-1">派生元</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb6HaseiMoto" type="submit" class="search" data-gridId="Tb6HaseiMotoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb6HaseiMotoSRegistForm" action="Tb6HaseiMotoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb6HaseiMoto.h3}">h3</h3>
+      <div id="Tb6HaseiMotoGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb6HaseiMoto.html}"></div>
+      <div id="Tb6HaseiMotoPager"></div>
+      <div class="buttons">
+        <button type="button" id="ResetTb6HaseiMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6HaseiMoto');">reset</button>
+        <a th:href="@{Tb6HaseiMotoSearch.xlsx(baseMei=#{Tb6HaseiMotoS.h2})}" id="Tb6HaseiMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

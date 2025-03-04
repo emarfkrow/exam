@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb6HaseiSaki1Det.title}">派生先１明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb6HaseiSaki1DetGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb6HaseiSaki1Det.h2}">h2</h2>
+    <form name="Tb6HaseiSaki1DetRegistForm" action="Tb6HaseiSaki1DetRegist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb6HaseiSaki1.legend}">legend</legend>
+        <div id="haseiSaki1Id">
+          <label th:text="#{Tb6HaseiSaki1.haseiSaki1Id}">派生先１ID</label><span id="Tb6HaseiSaki1.haseiSaki1Id" class="derivee"></span><input type="hidden" id="Tb6HaseiSaki1.haseiSaki1Id" name="Tb6HaseiSaki1.haseiSaki1Id" class="derivee" />
+        </div>
+        <div id="haseiMotoId">
+          <label th:text="#{Tb6HaseiSaki1.haseiMotoId}">派生元ID</label><span id="Tb6HaseiSaki1.haseiMotoId" class="derivee"></span><input type="hidden" id="Tb6HaseiSaki1.haseiMotoId" name="Tb6HaseiSaki1.haseiMotoId" class="derivee" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb6HaseiSaki1.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6HaseiSaki1.insertTs"></span><input type="hidden" id="Tb6HaseiSaki1.insertTs" name="Tb6HaseiSaki1.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb6HaseiSaki1.insertUserId}" class="meta">作成者</label><span id="Tb6HaseiSaki1.insertUserId"></span><input type="hidden" id="Tb6HaseiSaki1.insertUserId" name="Tb6HaseiSaki1.insertUserId" />
+          <span id="Tb6HaseiSaki1.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6HaseiSaki1.insertUserId" data-destDef="Tb6HaseiSaki1.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb6HaseiSaki1.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6HaseiSaki1.updateTs"></span><input type="hidden" id="Tb6HaseiSaki1.updateTs" name="Tb6HaseiSaki1.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb6HaseiSaki1.updateUserId}" class="meta">更新者</label><span id="Tb6HaseiSaki1.updateUserId"></span><input type="hidden" id="Tb6HaseiSaki1.updateUserId" name="Tb6HaseiSaki1.updateUserId" />
+          <span id="Tb6HaseiSaki1.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6HaseiSaki1.updateUserId" data-destDef="Tb6HaseiSaki1.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb6HaseiSaki1Det.legend}">legend</legend>
+        <div id="haseiSaki1Id">
+          <label for="Tb6HaseiSaki1Det.haseiSaki1Id" th:text="#{Tb6HaseiSaki1Det.haseiSaki1Id}">派生先１ID</label><input type="text" id="Tb6HaseiSaki1Det.haseiSaki1Id" name="Tb6HaseiSaki1Det.haseiSaki1Id" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="haseiSaki1Bn">
+          <label for="Tb6HaseiSaki1Det.haseiSaki1Bn" th:text="#{Tb6HaseiSaki1Det.haseiSaki1Bn}">派生先１枝番</label><input type="text" id="Tb6HaseiSaki1Det.haseiSaki1Bn" name="Tb6HaseiSaki1Det.haseiSaki1Bn" maxlength="10" class=" notblank primaryKey numbering" />
+        </div>
+        <div id="haseiSaki1DetInfo">
+          <label for="Tb6HaseiSaki1Det.haseiSaki1DetInfo" th:text="#{Tb6HaseiSaki1Det.haseiSaki1DetInfo}">派生先１明細情報</label><input type="text" id="Tb6HaseiSaki1Det.haseiSaki1DetInfo" name="Tb6HaseiSaki1Det.haseiSaki1DetInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb6HaseiSaki1Det.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6HaseiSaki1Det.insertTs"></span><input type="hidden" id="Tb6HaseiSaki1Det.insertTs" name="Tb6HaseiSaki1Det.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb6HaseiSaki1Det.insertUserId}" class="meta">作成者</label><span id="Tb6HaseiSaki1Det.insertUserId"></span><input type="hidden" id="Tb6HaseiSaki1Det.insertUserId" name="Tb6HaseiSaki1Det.insertUserId" />
+          <span id="Tb6HaseiSaki1Det.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6HaseiSaki1Det.insertUserId" data-destDef="Tb6HaseiSaki1Det.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb6HaseiSaki1Det.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6HaseiSaki1Det.updateTs"></span><input type="hidden" id="Tb6HaseiSaki1Det.updateTs" name="Tb6HaseiSaki1Det.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb6HaseiSaki1Det.updateUserId}" class="meta">更新者</label><span id="Tb6HaseiSaki1Det.updateUserId"></span><input type="hidden" id="Tb6HaseiSaki1Det.updateUserId" name="Tb6HaseiSaki1Det.updateUserId" />
+          <span id="Tb6HaseiSaki1Det.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6HaseiSaki1Det.updateUserId" data-destDef="Tb6HaseiSaki1Det.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb6HaseiSaki1Det" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb6HaseiSaki1DetGet.xlsx(baseMei=#{Tb6HaseiSaki1Det.h2})}" id="Tb6HaseiSaki1DetGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb6HaseiSaki1Det" type="submit" class="delete" data-action="Tb6HaseiSaki1DetDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb6HaseiSaki1Det" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

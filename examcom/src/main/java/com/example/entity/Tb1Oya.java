@@ -201,7 +201,7 @@ public class Tb1Oya implements IEntity {
      */
     public static Tb1Oya get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`OYA_ID` = ::oya_id");
+        whereList.add("`OYA_ID` = :oya_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`OYA_ID` \n";
@@ -372,7 +372,7 @@ public class Tb1Oya implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`OYA_ID` = ::oya_id");
+        whereList.add("`OYA_ID` = :oya_id");
         return String.join(" AND ", whereList);
     }
 

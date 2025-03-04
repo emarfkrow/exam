@@ -256,8 +256,8 @@ public class Tb0Nokey implements IEntity {
      */
     public static Tb0Nokey get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`COL_A` = ::col_a");
-        whereList.add("`COL_B` = ::col_b");
+        whereList.add("`COL_A` = :col_a");
+        whereList.add("`COL_B` = :col_b");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`COL_A` \n";
@@ -362,8 +362,8 @@ public class Tb0Nokey implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`COL_A` = ::col_a");
-        whereList.add("`COL_B` = ::col_b");
+        whereList.add("`COL_A` = :col_a");
+        whereList.add("`COL_B` = :col_b");
         return String.join(" AND ", whereList);
     }
 

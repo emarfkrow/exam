@@ -259,8 +259,8 @@ public class MsyKadobi implements IEntity {
      */
     public static MsyKadobi get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KADO_BI` = ::kado_bi");
-        whereList.add("`BUSHO_ID` = ::busho_id");
+        whereList.add("`KADO_BI` = :kado_bi");
+        whereList.add("`BUSHO_ID` = :busho_id");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`KADO_BI` AS KADO_BI \n";
@@ -361,8 +361,8 @@ public class MsyKadobi implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KADO_BI` = ::kado_bi");
-        whereList.add("`BUSHO_ID` = ::busho_id");
+        whereList.add("`KADO_BI` = :kado_bi");
+        whereList.add("`BUSHO_ID` = :busho_id");
         return String.join(" AND ", whereList);
     }
 
