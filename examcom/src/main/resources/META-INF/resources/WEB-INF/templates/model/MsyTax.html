@@ -18,12 +18,12 @@
       <fieldset>
         <legend th:text="#{MsyTax.legend}">legend</legend>
         <div id="taxKb">
-          <fieldset id="MsyTax.taxKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TAX_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" class="primaryKey">
+          <fieldset id="MsyTax.taxKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TAX_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" class=" primaryKey">
             <legend th:text="#{MsyTax.taxKb}">税区分</legend>
           </fieldset>
         </div>
         <div id="tekiyoBi">
-          <label for="MsyTax.tekiyoBi" th:text="#{MsyTax.tekiyoBi}">適用日</label><input type="text" id="MsyTax.tekiyoBi" name="MsyTax.tekiyoBi" maxlength="10" class=" notblank primaryKey datepicker" />
+          <label for="MsyTax.tekiyoBi" th:text="#{MsyTax.tekiyoBi}">適用日</label><input type="text" id="MsyTax.tekiyoBi" name="MsyTax.tekiyoBi" maxlength="10" class=" primaryKey notblank datepicker" />
         </div>
         <div id="shuryoBi">
           <label for="MsyTax.shuryoBi" th:text="#{MsyTax.shuryoBi}">終了日</label><input type="text" id="MsyTax.shuryoBi" name="MsyTax.shuryoBi" maxlength="10" class=" datepicker" />

@@ -22,7 +22,7 @@
       <fieldset>
         <legend th:text="#{Tb4SanshoMoto.legend}">legend</legend>
         <div id="sanshoMotoId">
-          <label for="Tb4SanshoMoto.sanshoMotoId" th:text="#{Tb4SanshoMoto.sanshoMotoId}">参照元ID</label><input type="text" id="Tb4SanshoMoto.sanshoMotoId" name="Tb4SanshoMoto.sanshoMotoId" maxlength="10" class=" notblank primaryKey numbering" />
+          <label for="Tb4SanshoMoto.sanshoMotoId" th:text="#{Tb4SanshoMoto.sanshoMotoId}">参照元ID</label><input type="text" id="Tb4SanshoMoto.sanshoMotoId" name="Tb4SanshoMoto.sanshoMotoId" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
         <div id="idsanshoId">
           <label for="Tb4SanshoMoto.idsanshoId" th:text="#{Tb4SanshoMoto.idsanshoId}">ID参照ID</label><input type="text" id="Tb4SanshoMoto.idsanshoId" name="Tb4SanshoMoto.idsanshoId" maxlength="10" class=" refer" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4SanshoMoto.idsanshoId" data-destDef="Tb4SanshoMoto.idsanshoMei:IDSANSHO_MEI" /><a id="Tb4SanshoMoto.idsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto.idsanshoMei" class=" refer" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDSANSHO_ID:Tb4SanshoMoto.idsanshoId" data-destDef="Tb4SanshoMoto.idsanshoMei:IDSANSHO_MEI"></span>
