@@ -19,7 +19,6 @@ public class MsyKbnValRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MsyKbnValRegistForm.class);
 
     /** 区分名称 */
-    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 20)
     private String kbnNm;
 
