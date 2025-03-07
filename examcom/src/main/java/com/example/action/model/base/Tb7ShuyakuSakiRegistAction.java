@@ -48,6 +48,10 @@ public class Tb7ShuyakuSakiRegistAction extends BaseAction {
                 String[] summaryKeys = summaryKey.trim().split(",");
                 for (String pk : summaryKeys) {
                     com.example.entity.Tb7ShuyakuMoto tb7ShuyakuMoto = com.example.entity.Tb7ShuyakuMoto.get(pk);
+                    //集約済みならエラー
+                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(tb7ShuyakuMoto.getShuyakuSakiId())) {
+                        throw new OptLockError("error.already.summary");
+                    }
                     tb7ShuyakuMoto.setShuyakuSakiId(e.getShuyakuSakiId());
                     if (tb7ShuyakuMoto.update(now, execId) != 1) {
                         throw new OptLockError("error.cant.insert");

@@ -28,7 +28,7 @@ public class Tb7ShuyakuMotoGetAction extends BaseAction {
         }
         if (shuyakuMotoId == null) {
 
-            //転生先になる場合は転生元から情報をコピー
+            //集約先になる場合は集約元から情報をコピー
             Object shuyakuSakiId = postJson.get("shuyakuSakiId");
             if (shuyakuSakiId == null) {
                 shuyakuSakiId = postJson.get("Tb7ShuyakuMoto.shuyakuSakiId");
