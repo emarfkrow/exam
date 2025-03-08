@@ -6,6 +6,7 @@ import jp.co.golorp.emarf.generator.BeanGenerator;
 import jp.co.golorp.emarf.util.ResourceBundles;
 
 /**
+ * examcom
  * @author golorp
  *
  */
