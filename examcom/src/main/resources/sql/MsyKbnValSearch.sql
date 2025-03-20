@@ -15,11 +15,11 @@ FROM
     MSY_KBN_VAL a 
 WHERE
     1 = 1 
-    AND :kbn_nm LIKE CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`)) 
-    AND TRIM(TRAILING ' ' FROM a.`KBN_VAL`) LIKE CONCAT ('%', :kbn_val, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`KBN_VAL_MEI`) LIKE CONCAT ('%', :kbn_val_mei, '%') 
+    AND UPPER (:kbn_nm) LIKE UPPER (CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`))) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_VAL`)) LIKE UPPER (CONCAT ('%', :kbn_val, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_VAL_MEI`)) LIKE UPPER (CONCAT ('%', :kbn_val_mei, '%')) 
     AND a.`HYOJI_ON` = :hyoji_on 
-    AND TRIM(TRAILING ' ' FROM a.`CRITERIA`) LIKE CONCAT ('%', :criteria, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CRITERIA`)) LIKE UPPER (CONCAT ('%', :criteria, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

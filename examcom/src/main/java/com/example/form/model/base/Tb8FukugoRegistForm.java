@@ -19,7 +19,7 @@ public class Tb8FukugoRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb8FukugoRegistForm.class);
 
     /** 参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sanshoId;
 
     /**
@@ -37,7 +37,8 @@ public class Tb8FukugoRegistForm implements IForm {
     }
 
     /** 制約ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String seiyakuId;
 
     /**

@@ -19,7 +19,7 @@ public class Tb7ShuyakuSakiRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb7ShuyakuSakiRegistForm.class);
 
     /** 集約先ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shuyakuSakiId;
 
     /**

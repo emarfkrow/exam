@@ -21,19 +21,27 @@ public class MsyKadobiGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object kadoBi = postJson.get("kadoBi");
         if (kadoBi == null) {
             kadoBi = postJson.get("MsyKadobi.kadoBi");
         }
         if (kadoBi == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object bushoId = postJson.get("bushoId");
         if (bushoId == null) {
             bushoId = postJson.get("MsyKadobi.bushoId");
         }
         if (bushoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

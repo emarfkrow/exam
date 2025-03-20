@@ -21,12 +21,19 @@ public class Tb5TenseiMotoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object tenseiMotoId = postJson.get("tenseiMotoId");
         if (tenseiMotoId == null) {
             tenseiMotoId = postJson.get("Tb5TenseiMoto.tenseiMotoId");
         }
         if (tenseiMotoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

@@ -19,7 +19,7 @@ public class Tb7ShuyakuYokushiMoto1RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb7ShuyakuYokushiMoto1RegistForm.class);
 
     /** 集約抑止元１ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shuyakuYokushiMoto1Id;
 
     /**
@@ -37,7 +37,7 @@ public class Tb7ShuyakuYokushiMoto1RegistForm implements IForm {
     }
 
     /** 転生抑止ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shuyakuYokushiId;
 
     /**

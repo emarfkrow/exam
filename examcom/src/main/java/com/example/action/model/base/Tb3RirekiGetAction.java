@@ -21,12 +21,19 @@ public class Tb3RirekiGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object rirekiMotoId = postJson.get("rirekiMotoId");
         if (rirekiMotoId == null) {
             rirekiMotoId = postJson.get("Tb3Rireki.rirekiMotoId");
         }
         if (rirekiMotoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

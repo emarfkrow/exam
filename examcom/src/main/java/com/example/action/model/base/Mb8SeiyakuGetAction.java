@@ -21,12 +21,19 @@ public class Mb8SeiyakuGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object seiyakuId = postJson.get("seiyakuId");
         if (seiyakuId == null) {
             seiyakuId = postJson.get("Mb8Seiyaku.seiyakuId");
         }
         if (seiyakuId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

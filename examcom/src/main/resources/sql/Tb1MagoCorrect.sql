@@ -16,7 +16,7 @@ WHERE
     AND a.`OYA_ID` = :oya_id 
     AND a.`KO_BN` = :ko_bn 
     AND a.`MAGO_BN` = :mago_bn 
-    AND TRIM(TRAILING ' ' FROM a.`MAGO_INFO`) LIKE CONCAT ('%', :mago_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`MAGO_INFO`)) LIKE UPPER (CONCAT ('%', :mago_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

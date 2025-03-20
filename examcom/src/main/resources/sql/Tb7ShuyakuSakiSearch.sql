@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`SHUYAKU_SAKI_ID` = :shuyaku_saki_id 
-    AND TRIM(TRAILING ' ' FROM a.`SHUYAKU_SAKI_INFO`) LIKE CONCAT ('%', :shuyaku_saki_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`SHUYAKU_SAKI_INFO`)) LIKE UPPER (CONCAT ('%', :shuyaku_saki_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`OYA_ID` = :oya_id 
-    AND TRIM(TRAILING ' ' FROM a.`OYA_INFO`) LIKE CONCAT ('%', :oya_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`OYA_INFO`)) LIKE UPPER (CONCAT ('%', :oya_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

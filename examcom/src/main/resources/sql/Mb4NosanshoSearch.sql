@@ -11,8 +11,8 @@ FROM
     MB4_NOSANSHO a 
 WHERE
     1 = 1 
-    AND TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`) LIKE CONCAT ('%', :nosansho_no, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`NOSANSHO_MEI`) LIKE CONCAT ('%', :nosansho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`)) LIKE UPPER (CONCAT ('%', :nosansho_no, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`NOSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :nosansho_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

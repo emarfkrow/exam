@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`SEIYAKU_ID` = :seiyaku_id 
-    AND TRIM(TRAILING ' ' FROM a.`SEIYAKU_MEI`) LIKE CONCAT ('%', :seiyaku_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`SEIYAKU_MEI`)) LIKE UPPER (CONCAT ('%', :seiyaku_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

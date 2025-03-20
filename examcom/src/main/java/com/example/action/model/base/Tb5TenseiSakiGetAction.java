@@ -21,7 +21,9 @@ public class Tb5TenseiSakiGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object tenseiSakiId = postJson.get("tenseiSakiId");
         if (tenseiSakiId == null) {
             tenseiSakiId = postJson.get("Tb5TenseiSaki.tenseiSakiId");
@@ -50,6 +52,11 @@ public class Tb5TenseiSakiGetAction extends BaseAction {
             }
 
             map.put("Tb5TenseiSaki", tb5TenseiSaki);
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

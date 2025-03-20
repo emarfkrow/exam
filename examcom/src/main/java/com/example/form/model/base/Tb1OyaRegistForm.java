@@ -20,7 +20,7 @@ public class Tb1OyaRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb1OyaRegistForm.class);
 
     /** 親ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaId;
 
     /**

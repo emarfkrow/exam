@@ -21,12 +21,19 @@ public class MhrBushoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object bushoId = postJson.get("bushoId");
         if (bushoId == null) {
             bushoId = postJson.get("MhrBusho.bushoId");
         }
         if (bushoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

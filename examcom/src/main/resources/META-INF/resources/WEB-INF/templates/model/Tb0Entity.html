@@ -130,7 +130,6 @@
         <a th:href="@{Tb0EntityGet.xlsx(baseMei=#{Tb0Entity.h2})}" id="Tb0EntityGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">
-        <button id="DeleteTb0Entity" type="submit" class="delete" data-action="Tb0EntityDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="PermitTb0Entity" type="submit" class="permit" data-action="Tb0EntityPermit.ajax" th:text="#{common.permit}" tabindex="-1">承認</button>
         <button id="ForbidTb0Entity" type="submit" class="forbid" data-action="Tb0EntityForbid.ajax" th:text="#{common.forbid}" tabindex="-1">否認</button>
         <button id="RegistTb0Entity" type="submit" class="regist" th:text="#{common.regist}">登録</button>

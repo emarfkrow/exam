@@ -19,7 +19,7 @@ public class Tb1Ko2RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb1Ko2RegistForm.class);
 
     /** 親ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaId;
 
     /**
@@ -37,7 +37,7 @@ public class Tb1Ko2RegistForm implements IForm {
     }
 
     /** 子枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String koBn;
 
     /**

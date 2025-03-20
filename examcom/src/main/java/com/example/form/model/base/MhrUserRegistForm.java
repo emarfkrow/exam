@@ -19,7 +19,7 @@ public class MhrUserRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MhrUserRegistForm.class);
 
     /** ユーザID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String userId;
 
     /**

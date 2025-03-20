@@ -20,7 +20,7 @@ WHERE
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
-    AND TRIM(TRAILING ' ' FROM a.`FUKUGO_INFO`) LIKE CONCAT ('%', :fukugo_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`FUKUGO_INFO`)) LIKE UPPER (CONCAT ('%', :fukugo_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

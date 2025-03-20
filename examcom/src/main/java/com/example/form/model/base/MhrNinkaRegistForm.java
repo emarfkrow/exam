@@ -19,7 +19,7 @@ public class MhrNinkaRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(MhrNinkaRegistForm.class);
 
     /** 部署ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String bushoId;
 
     /**
@@ -37,7 +37,7 @@ public class MhrNinkaRegistForm implements IForm {
     }
 
     /** 職位ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String shokuiId;
 
     /**

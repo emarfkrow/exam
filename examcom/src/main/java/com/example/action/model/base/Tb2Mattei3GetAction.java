@@ -21,12 +21,19 @@ public class Tb2Mattei3GetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object matteiId = postJson.get("matteiId");
         if (matteiId == null) {
             matteiId = postJson.get("Tb2Mattei3.matteiId");
         }
         if (matteiId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

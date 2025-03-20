@@ -16,7 +16,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`BUSHO_ID` = :busho_id 
-    AND TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`) LIKE CONCAT ('%', :busho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`)) LIKE UPPER (CONCAT ('%', :busho_mei, '%')) 
     AND a.`OYA_BUSHO_ID` = :oya_busho_id 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 

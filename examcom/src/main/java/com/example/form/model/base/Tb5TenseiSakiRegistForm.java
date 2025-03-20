@@ -20,7 +20,7 @@ public class Tb5TenseiSakiRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiSakiRegistForm.class);
 
     /** 転生先ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String tenseiSakiId;
 
     /**
@@ -57,7 +57,7 @@ public class Tb5TenseiSakiRegistForm implements IForm {
 
     /** 転生元ID */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String tenseiMotoId;
 
     /**

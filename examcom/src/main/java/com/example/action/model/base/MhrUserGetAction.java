@@ -21,12 +21,19 @@ public class MhrUserGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object userId = postJson.get("userId");
         if (userId == null) {
             userId = postJson.get("MhrUser.userId");
         }
         if (userId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

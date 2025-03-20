@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`DAIHYO_ID` = :daihyo_id 
-    AND TRIM(TRAILING ' ' FROM a.`DAIHYO_INFO`) LIKE CONCAT ('%', :daihyo_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`DAIHYO_INFO`)) LIKE UPPER (CONCAT ('%', :daihyo_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

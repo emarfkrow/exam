@@ -21,12 +21,19 @@ public class Mb4IdsanshoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object idsanshoId = postJson.get("idsanshoId");
         if (idsanshoId == null) {
             idsanshoId = postJson.get("Mb4Idsansho.idsanshoId");
         }
         if (idsanshoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

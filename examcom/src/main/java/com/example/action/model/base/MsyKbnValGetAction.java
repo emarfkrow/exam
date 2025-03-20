@@ -21,22 +21,31 @@ public class MsyKbnValGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object kbnNm = postJson.get("kbnNm");
         if (kbnNm == null) {
             kbnNm = postJson.get("MsyKbnVal.kbnNm");
         }
         if (kbnNm == null) {
-            return map;
+            isAllKey = false;
         }
-        // 親モデルの取得
-        com.example.entity.MsyKbn msyKbn = com.example.entity.MsyKbn.get(kbnNm);
-        map.put("MsyKbn", msyKbn);
+
         Object kbnVal = postJson.get("kbnVal");
         if (kbnVal == null) {
             kbnVal = postJson.get("MsyKbnVal.kbnVal");
         }
         if (kbnVal == null) {
+            isAllKey = false;
+        }
+
+        // 親モデルの取得
+        com.example.entity.MsyKbn msyKbn = com.example.entity.MsyKbn.get(kbnNm);
+        map.put("MsyKbn", msyKbn);
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

@@ -20,11 +20,11 @@ WHERE
     1 = 1 
     AND a.`SANSHO_MOTO_ID` = :sansho_moto_id 
     AND a.`IDSANSHO_ID` = :idsansho_id 
-    AND TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`) LIKE CONCAT ('%', :idsansho_mei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) LIKE CONCAT ('%', :cdsansho_cd, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`CDSANSHO_MEI`) LIKE CONCAT ('%', :cdsansho_mei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`) LIKE CONCAT ('%', :nosansho_no, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`NOSANSHO_MEI`) LIKE CONCAT ('%', :nosansho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :idsansho_mei, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`)) LIKE UPPER (CONCAT ('%', :cdsansho_cd, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CDSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :cdsansho_mei, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`)) LIKE UPPER (CONCAT ('%', :nosansho_no, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`NOSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :nosansho_mei, '%')) 
     AND a.`BETSU_IDSANSHO_ID` = :betsu_idsansho_id 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 

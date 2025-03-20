@@ -42,7 +42,6 @@
       <div class="buttons">
         <button type="button" id="RefreshTb7ShuyakuSaki" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb7ShuyakuSakiGet.xlsx(baseMei=#{Tb7ShuyakuSaki.h2})}" id="Tb7ShuyakuSakiGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <a th:href="@{/model/Tb7ShuyakuMoto.html}" id="Tb7ShuyakuMoto" target="dialog" th:text="#{Tb7ShuyakuMoto.add}" class="reborner" tabindex="-1">集約元</a>
         <div>
           <label>集約元ID</label>
           <span id="Tb7ShuyakuMoto.shuyakuMotoId"></span>

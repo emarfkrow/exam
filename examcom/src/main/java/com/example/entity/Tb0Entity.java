@@ -849,24 +849,6 @@ public class Tb0Entity implements IEntity {
         return String.join("\r\n    , ", setList);
     }
 
-    /**
-     * エンティティ削除
-     * @return 削除件数
-     */
-    public int delete() {
-
-        Tb0Entity tb0Entity = Tb0Entity.get(this.entityId);
-        try {
-            java.nio.file.Files.delete(java.nio.file.Paths.get(tb0Entity.tenpuFile));
-        } catch (Exception e) {
-            throw new jp.co.golorp.emarf.exception.SysError(e);
-        }
-
-        // エンティティの削除
-        String sql = "DELETE FROM TB0_ENTITY WHERE " + getWhere();
-        return Queries.regist(sql, toMap(null, null));
-    }
-
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();

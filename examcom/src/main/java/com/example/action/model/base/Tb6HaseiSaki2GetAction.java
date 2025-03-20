@@ -21,12 +21,19 @@ public class Tb6HaseiSaki2GetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object haseiSaki2Id = postJson.get("haseiSaki2Id");
         if (haseiSaki2Id == null) {
             haseiSaki2Id = postJson.get("Tb6HaseiSaki2.haseiSaki2Id");
         }
         if (haseiSaki2Id == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

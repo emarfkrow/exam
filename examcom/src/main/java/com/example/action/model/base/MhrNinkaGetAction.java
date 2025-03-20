@@ -21,26 +21,35 @@ public class MhrNinkaGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object bushoId = postJson.get("bushoId");
         if (bushoId == null) {
             bushoId = postJson.get("MhrNinka.bushoId");
         }
         if (bushoId == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object shokuiId = postJson.get("shokuiId");
         if (shokuiId == null) {
             shokuiId = postJson.get("MhrNinka.shokuiId");
         }
         if (shokuiId == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object kinoNm = postJson.get("kinoNm");
         if (kinoNm == null) {
             kinoNm = postJson.get("MhrNinka.kinoNm");
         }
         if (kinoNm == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

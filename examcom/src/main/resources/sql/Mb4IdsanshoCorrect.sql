@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`IDSANSHO_ID` = :idsansho_id 
-    AND TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`) LIKE CONCAT ('%', :idsansho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`IDSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :idsansho_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

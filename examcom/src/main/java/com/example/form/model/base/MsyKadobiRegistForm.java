@@ -39,7 +39,7 @@ public class MsyKadobiRegistForm implements IForm {
 
     /** 部署ID */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String bushoId;
 
     /**

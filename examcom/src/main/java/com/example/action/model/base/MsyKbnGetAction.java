@@ -21,12 +21,19 @@ public class MsyKbnGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object kbnNm = postJson.get("kbnNm");
         if (kbnNm == null) {
             kbnNm = postJson.get("MsyKbn.kbnNm");
         }
         if (kbnNm == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

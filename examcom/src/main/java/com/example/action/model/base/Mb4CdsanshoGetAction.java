@@ -21,12 +21,19 @@ public class Mb4CdsanshoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object cdsanshoCd = postJson.get("cdsanshoCd");
         if (cdsanshoCd == null) {
             cdsanshoCd = postJson.get("Mb4Cdsansho.cdsanshoCd");
         }
         if (cdsanshoCd == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

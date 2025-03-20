@@ -21,31 +21,41 @@ public class Tb1MagoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object oyaId = postJson.get("oyaId");
         if (oyaId == null) {
             oyaId = postJson.get("Tb1Mago.oyaId");
         }
         if (oyaId == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object koBn = postJson.get("koBn");
         if (koBn == null) {
             koBn = postJson.get("Tb1Mago.koBn");
         }
         if (koBn == null) {
-            return map;
+            isAllKey = false;
         }
-        // 親モデルの取得
-        com.example.entity.Tb1Ko tb1Ko = com.example.entity.Tb1Ko.get(oyaId, koBn);
-        map.put("Tb1Ko", tb1Ko);
-        com.example.entity.Tb1Ko3 tb1Ko3 = com.example.entity.Tb1Ko3.get(oyaId, koBn);
-        map.put("Tb1Ko3", tb1Ko3);
+
         Object magoBn = postJson.get("magoBn");
         if (magoBn == null) {
             magoBn = postJson.get("Tb1Mago.magoBn");
         }
         if (magoBn == null) {
+            isAllKey = false;
+        }
+
+        // 親モデルの取得
+        com.example.entity.Tb1Ko tb1Ko = com.example.entity.Tb1Ko.get(oyaId, koBn);
+        map.put("Tb1Ko", tb1Ko);
+        com.example.entity.Tb1Ko3 tb1Ko3 = com.example.entity.Tb1Ko3.get(oyaId, koBn);
+        map.put("Tb1Ko3", tb1Ko3);
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

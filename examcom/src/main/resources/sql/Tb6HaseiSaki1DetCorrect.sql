@@ -14,7 +14,7 @@ WHERE
     1 = 1 
     AND a.`HASEI_SAKI1_ID` = :hasei_saki_1_id 
     AND a.`HASEI_SAKI1_BN` = :hasei_saki_1_bn 
-    AND TRIM(TRAILING ' ' FROM a.`HASEI_SAKI1_DET_INFO`) LIKE CONCAT ('%', :hasei_saki_1_det_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`HASEI_SAKI1_DET_INFO`)) LIKE UPPER (CONCAT ('%', :hasei_saki_1_det_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

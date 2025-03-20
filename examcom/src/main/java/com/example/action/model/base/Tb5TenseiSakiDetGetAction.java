@@ -21,22 +21,31 @@ public class Tb5TenseiSakiDetGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object tenseiSakiId = postJson.get("tenseiSakiId");
         if (tenseiSakiId == null) {
             tenseiSakiId = postJson.get("Tb5TenseiSakiDet.tenseiSakiId");
         }
         if (tenseiSakiId == null) {
-            return map;
+            isAllKey = false;
         }
-        // 親モデルの取得
-        com.example.entity.Tb5TenseiSaki tb5TenseiSaki = com.example.entity.Tb5TenseiSaki.get(tenseiSakiId);
-        map.put("Tb5TenseiSaki", tb5TenseiSaki);
+
         Object tenseiSakiBn = postJson.get("tenseiSakiBn");
         if (tenseiSakiBn == null) {
             tenseiSakiBn = postJson.get("Tb5TenseiSakiDet.tenseiSakiBn");
         }
         if (tenseiSakiBn == null) {
+            isAllKey = false;
+        }
+
+        // 親モデルの取得
+        com.example.entity.Tb5TenseiSaki tb5TenseiSaki = com.example.entity.Tb5TenseiSaki.get(tenseiSakiId);
+        map.put("Tb5TenseiSaki", tb5TenseiSaki);
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

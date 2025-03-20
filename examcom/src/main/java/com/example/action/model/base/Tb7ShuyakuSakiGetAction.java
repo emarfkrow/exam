@@ -21,12 +21,19 @@ public class Tb7ShuyakuSakiGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object shuyakuSakiId = postJson.get("shuyakuSakiId");
         if (shuyakuSakiId == null) {
             shuyakuSakiId = postJson.get("Tb7ShuyakuSaki.shuyakuSakiId");
         }
         if (shuyakuSakiId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

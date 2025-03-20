@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`MATTEI_ID` = :mattei_id 
-    AND TRIM(TRAILING ' ' FROM a.`MATTEI2_INFO`) LIKE CONCAT ('%', :mattei_2_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`MATTEI2_INFO`)) LIKE UPPER (CONCAT ('%', :mattei_2_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

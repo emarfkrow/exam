@@ -15,7 +15,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`SHOKUI_ID` = :shokui_id 
-    AND TRIM(TRAILING ' ' FROM a.`SHOKUI_MEI`) LIKE CONCAT ('%', :shokui_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`SHOKUI_MEI`)) LIKE UPPER (CONCAT ('%', :shokui_mei, '%')) 
     AND a.`SHOKUI_ON` = :shokui_on 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 

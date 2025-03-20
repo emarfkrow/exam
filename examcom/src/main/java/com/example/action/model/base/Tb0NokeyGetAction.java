@@ -21,19 +21,27 @@ public class Tb0NokeyGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object colA = postJson.get("colA");
         if (colA == null) {
             colA = postJson.get("Tb0Nokey.colA");
         }
         if (colA == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object colB = postJson.get("colB");
         if (colB == null) {
             colB = postJson.get("Tb0Nokey.colB");
         }
         if (colB == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

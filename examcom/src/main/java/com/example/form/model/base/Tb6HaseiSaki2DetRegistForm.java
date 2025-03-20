@@ -19,7 +19,7 @@ public class Tb6HaseiSaki2DetRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb6HaseiSaki2DetRegistForm.class);
 
     /** 派生先２ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String haseiSaki2Id;
 
     /**
@@ -37,7 +37,7 @@ public class Tb6HaseiSaki2DetRegistForm implements IForm {
     }
 
     /** 派生先２枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String haseiSaki2Bn;
 
     /**

@@ -21,12 +21,19 @@ public class Tb2Bros2GetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object brosId = postJson.get("brosId");
         if (brosId == null) {
             brosId = postJson.get("Tb2Bros2.brosId");
         }
         if (brosId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

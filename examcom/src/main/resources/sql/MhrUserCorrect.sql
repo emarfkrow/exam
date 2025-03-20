@@ -19,10 +19,10 @@ WHERE
     AND IFNULL (a.TEKIYO_BI, sysdate()) <= sysdate() 
     AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`USER_ID` = :user_id 
-    AND TRIM(TRAILING ' ' FROM a.`USER_SEI`) LIKE CONCAT ('%', :user_sei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`USER_MEI`) LIKE CONCAT ('%', :user_mei, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`E_MAIL`) LIKE CONCAT ('%', :e_mail, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`PASSWORD`) LIKE CONCAT ('%', :password, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`USER_SEI`)) LIKE UPPER (CONCAT ('%', :user_sei, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`USER_MEI`)) LIKE UPPER (CONCAT ('%', :user_mei, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`E_MAIL`)) LIKE UPPER (CONCAT ('%', :e_mail, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`PASSWORD`)) LIKE UPPER (CONCAT ('%', :password, '%')) 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 

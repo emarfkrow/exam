@@ -21,12 +21,19 @@ public class Tb1OyaGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object oyaId = postJson.get("oyaId");
         if (oyaId == null) {
             oyaId = postJson.get("Tb1Oya.oyaId");
         }
         if (oyaId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

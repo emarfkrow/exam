@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`RIREKI_MOTO_ID` = :rireki_moto_id 
-    AND TRIM(TRAILING ' ' FROM a.`RIREKI_MOTO_INFO`) LIKE CONCAT ('%', :rireki_moto_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`RIREKI_MOTO_INFO`)) LIKE UPPER (CONCAT ('%', :rireki_moto_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

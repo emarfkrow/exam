@@ -21,12 +21,19 @@ public class Tb9HenkanMotoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object henkanMotoId = postJson.get("henkanMotoId");
         if (henkanMotoId == null) {
             henkanMotoId = postJson.get("Tb9HenkanMoto.henkanMotoId");
         }
         if (henkanMotoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

@@ -21,7 +21,9 @@ public class Tb7ShuyakuMotoGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object shuyakuMotoId = postJson.get("shuyakuMotoId");
         if (shuyakuMotoId == null) {
             shuyakuMotoId = postJson.get("Tb7ShuyakuMoto.shuyakuMotoId");
@@ -42,6 +44,11 @@ public class Tb7ShuyakuMotoGetAction extends BaseAction {
             tb7ShuyakuMoto.setShuyakuSakiId(tb7ShuyakuSaki.getShuyakuSakiId());
 
             map.put("Tb7ShuyakuMoto", tb7ShuyakuMoto);
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

@@ -14,13 +14,13 @@ FROM
     TB0_NOKEY a 
 WHERE
     1 = 1 
-    AND TRIM(TRAILING ' ' FROM a.`COL_A`) LIKE CONCAT ('%', :col_a, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`COL_B`) LIKE CONCAT ('%', :col_b, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`COL_C`) LIKE CONCAT ('%', :col_c, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`COL_D`) LIKE CONCAT ('%', :col_d, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_A`)) LIKE UPPER (CONCAT ('%', :col_a, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_B`)) LIKE UPPER (CONCAT ('%', :col_b, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_C`)) LIKE UPPER (CONCAT ('%', :col_c, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_D`)) LIKE UPPER (CONCAT ('%', :col_d, '%')) 
     AND a.`COL_D` >= :col_d_1 
     AND a.`COL_D` <= :col_d_2 
-    AND TRIM(TRAILING ' ' FROM a.`COL_E`) LIKE CONCAT ('%', :col_e, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_E`)) LIKE UPPER (CONCAT ('%', :col_e, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

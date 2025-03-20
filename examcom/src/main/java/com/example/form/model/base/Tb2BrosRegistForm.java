@@ -19,7 +19,7 @@ public class Tb2BrosRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb2BrosRegistForm.class);
 
     /** 兄弟ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String brosId;
 
     /**

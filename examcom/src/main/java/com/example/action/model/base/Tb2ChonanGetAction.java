@@ -21,12 +21,19 @@ public class Tb2ChonanGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object chonanId = postJson.get("chonanId");
         if (chonanId == null) {
             chonanId = postJson.get("Tb2Chonan.chonanId");
         }
         if (chonanId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

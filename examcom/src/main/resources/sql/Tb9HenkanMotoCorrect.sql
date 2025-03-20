@@ -13,8 +13,8 @@ FROM
 WHERE
     1 = 1 
     AND a.`HENKAN_MOTO_ID` = :henkan_moto_id 
-    AND TRIM(TRAILING ' ' FROM a.`HENKAN_MOTO_INFO`) LIKE CONCAT ('%', :henkan_moto_info, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`HIKITSUGU_INFO`) LIKE CONCAT ('%', :hikitsugu_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`HENKAN_MOTO_INFO`)) LIKE UPPER (CONCAT ('%', :henkan_moto_info, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`HIKITSUGU_INFO`)) LIKE UPPER (CONCAT ('%', :hikitsugu_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

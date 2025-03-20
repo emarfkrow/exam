@@ -19,7 +19,7 @@ WHERE
     AND a.`KADO_BI` <= :kado_bi_2 
     AND a.`BUSHO_ID` = :busho_id 
     AND CASE WHEN TRIM(TRAILING ' ' FROM a.`KADOBI_F`) IS NULL THEN '0' ELSE TO_CHAR (a.`KADOBI_F`) END IN (:kadobi_f) 
-    AND TRIM(TRAILING ' ' FROM a.`MEMO`) LIKE CONCAT ('%', :memo, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`MEMO`)) LIKE UPPER (CONCAT ('%', :memo, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

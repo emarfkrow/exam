@@ -21,12 +21,19 @@ public class Tb2Daihyo3GetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object daihyoId = postJson.get("daihyoId");
         if (daihyoId == null) {
             daihyoId = postJson.get("Tb2Daihyo3.daihyoId");
         }
         if (daihyoId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

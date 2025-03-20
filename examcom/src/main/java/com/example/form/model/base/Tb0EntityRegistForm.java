@@ -19,7 +19,7 @@ public class Tb0EntityRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb0EntityRegistForm.class);
 
     /** エンティティID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String entityId;
 
     /**
@@ -404,7 +404,7 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** 数量 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,8}\\.?[0-9]{0,3}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String suryoQt;
 
     /**
@@ -423,7 +423,7 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** 単価 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,9}\\.?[0-9]{0,2}?)?")
     private String tankaPr;
 
     /**
@@ -461,7 +461,7 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** 税抜金額 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,9}\\.?[0-9]{0,2}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,9}\\.?[0-9]{0,2}?)?")
     private String zeinukiAm;
 
     /**

@@ -19,7 +19,7 @@ public class Tb5TenseiMotoDetRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb5TenseiMotoDetRegistForm.class);
 
     /** 転生元ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String tenseiMotoId;
 
     /**
@@ -37,7 +37,7 @@ public class Tb5TenseiMotoDetRegistForm implements IForm {
     }
 
     /** 転生元枝番 */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String tenseiMotoBn;
 
     /**

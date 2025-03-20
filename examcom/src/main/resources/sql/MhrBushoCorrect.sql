@@ -18,7 +18,7 @@ WHERE
     AND IFNULL (a.TEKIYO_BI, sysdate()) <= sysdate() 
     AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`BUSHO_ID` = :busho_id 
-    AND TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`) LIKE CONCAT ('%', :busho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`BUSHO_MEI`)) LIKE UPPER (CONCAT ('%', :busho_mei, '%')) 
     AND a.`OYA_BUSHO_ID` = :oya_busho_id 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 

@@ -14,7 +14,7 @@ WHERE
     1 = 1 
     AND a.`HASEI_MOTO_ID` = :hasei_moto_id 
     AND a.`HASEI_MOTO_BN` = :hasei_moto_bn 
-    AND TRIM(TRAILING ' ' FROM a.`HASEI_MOTO_DET_INFO`) LIKE CONCAT ('%', :hasei_moto_det_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`HASEI_MOTO_DET_INFO`)) LIKE UPPER (CONCAT ('%', :hasei_moto_det_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

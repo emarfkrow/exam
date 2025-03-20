@@ -21,19 +21,27 @@ public class MsyTsukaGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object tsukaKb = postJson.get("tsukaKb");
         if (tsukaKb == null) {
             tsukaKb = postJson.get("MsyTsuka.tsukaKb");
         }
         if (tsukaKb == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("MsyTsuka.tekiyoBi");
         }
         if (tekiyoBi == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

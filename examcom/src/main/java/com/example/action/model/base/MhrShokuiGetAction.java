@@ -21,12 +21,19 @@ public class MhrShokuiGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object shokuiId = postJson.get("shokuiId");
         if (shokuiId == null) {
             shokuiId = postJson.get("MhrShokui.shokuiId");
         }
         if (shokuiId == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

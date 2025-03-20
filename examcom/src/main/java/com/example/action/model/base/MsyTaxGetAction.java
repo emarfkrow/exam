@@ -21,19 +21,27 @@ public class MsyTaxGetAction extends BaseAction {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
-        // 主キーが不足していたら終了
+        // 主キーのチェック
+        boolean isAllKey = true;
+
         Object taxKb = postJson.get("taxKb");
         if (taxKb == null) {
             taxKb = postJson.get("MsyTax.taxKb");
         }
         if (taxKb == null) {
-            return map;
+            isAllKey = false;
         }
+
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("MsyTax.tekiyoBi");
         }
         if (tekiyoBi == null) {
+            isAllKey = false;
+        }
+
+        // 主キーが不足していたら終了
+        if (!isAllKey) {
             return map;
         }
 

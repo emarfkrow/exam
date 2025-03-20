@@ -19,7 +19,7 @@ public class Tb4SanshoMotoRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb4SanshoMotoRegistForm.class);
 
     /** 参照元ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sanshoMotoId;
 
     /**
@@ -37,7 +37,7 @@ public class Tb4SanshoMotoRegistForm implements IForm {
     }
 
     /** ID参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String idsanshoId;
 
     /**
@@ -147,7 +147,7 @@ public class Tb4SanshoMotoRegistForm implements IForm {
     }
 
     /** 別ID参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String betsuIdsanshoId;
 
     /**

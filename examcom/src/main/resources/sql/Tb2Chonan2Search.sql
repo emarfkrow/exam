@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`CHONAN_ID` = :chonan_id 
-    AND TRIM(TRAILING ' ' FROM a.`CHONAN2_INFO`) LIKE CONCAT ('%', :chonan_2_info, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CHONAN2_INFO`)) LIKE UPPER (CONCAT ('%', :chonan_2_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

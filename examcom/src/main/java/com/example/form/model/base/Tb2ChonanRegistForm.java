@@ -19,7 +19,7 @@ public class Tb2ChonanRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb2ChonanRegistForm.class);
 
     /** 長男ID */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String chonanId;
 
     /**

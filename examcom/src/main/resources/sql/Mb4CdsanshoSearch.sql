@@ -11,8 +11,8 @@ FROM
     MB4_CDSANSHO a 
 WHERE
     1 = 1 
-    AND TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) LIKE CONCAT ('%', :cdsansho_cd, '%') 
-    AND TRIM(TRAILING ' ' FROM a.`CDSANSHO_MEI`) LIKE CONCAT ('%', :cdsansho_mei, '%') 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`)) LIKE UPPER (CONCAT ('%', :cdsansho_cd, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CDSANSHO_MEI`)) LIKE UPPER (CONCAT ('%', :cdsansho_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
