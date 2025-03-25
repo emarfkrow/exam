@@ -42,7 +42,7 @@ public class Tb7ShuyakuSakiRegistAction extends BaseAction {
                 throw new OptLockError("error.cant.insert");
             }
 
-            //集約の場合は、集約元に主キーを反映
+            //集約先に該当する場合は、集約元に主キーを反映
             String summaryKey = postJson.get("Tb7ShuyakuMoto.shuyakuMotoId").toString();
             if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(summaryKey)) {
                 String[] summaryKeys = summaryKey.trim().split(",");

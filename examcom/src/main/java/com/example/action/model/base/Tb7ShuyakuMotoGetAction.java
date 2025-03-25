@@ -29,21 +29,6 @@ public class Tb7ShuyakuMotoGetAction extends BaseAction {
             shuyakuMotoId = postJson.get("Tb7ShuyakuMoto.shuyakuMotoId");
         }
         if (shuyakuMotoId == null) {
-
-            //集約先になる場合は集約元から情報をコピー
-            Object shuyakuSakiId = postJson.get("shuyakuSakiId");
-            if (shuyakuSakiId == null) {
-                shuyakuSakiId = postJson.get("Tb7ShuyakuMoto.shuyakuSakiId");
-            }
-            if (shuyakuSakiId == null) {
-                return map;
-            }
-
-            com.example.entity.Tb7ShuyakuSaki tb7ShuyakuSaki = com.example.entity.Tb7ShuyakuSaki.get(shuyakuSakiId);
-            Tb7ShuyakuMoto tb7ShuyakuMoto = new Tb7ShuyakuMoto();
-            tb7ShuyakuMoto.setShuyakuSakiId(tb7ShuyakuSaki.getShuyakuSakiId());
-
-            map.put("Tb7ShuyakuMoto", tb7ShuyakuMoto);
             isAllKey = false;
         }
 
