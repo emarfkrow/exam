@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb8Fukugo;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 複合照会
@@ -53,8 +54,15 @@ public class Tb8FukugoGetAction extends BaseAction {
             return map;
         }
 
-        Tb8Fukugo tb8Fukugo = Tb8Fukugo.get(sanshoId, seiyakuId, tekiyoBi);
-        map.put("Tb8Fukugo", tb8Fukugo);
+        try {
+            Tb8Fukugo tb8Fukugo = Tb8Fukugo.get(sanshoId, seiyakuId, tekiyoBi);
+            map.put("Tb8Fukugo", tb8Fukugo);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

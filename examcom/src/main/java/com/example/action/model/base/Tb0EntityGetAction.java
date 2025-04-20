@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb0Entity;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * エンティティ照会
@@ -37,8 +38,15 @@ public class Tb0EntityGetAction extends BaseAction {
             return map;
         }
 
-        Tb0Entity tb0Entity = Tb0Entity.get(entityId);
-        map.put("Tb0Entity", tb0Entity);
+        try {
+            Tb0Entity tb0Entity = Tb0Entity.get(entityId);
+            map.put("Tb0Entity", tb0Entity);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

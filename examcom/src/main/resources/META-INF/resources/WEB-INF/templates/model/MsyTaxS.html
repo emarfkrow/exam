@@ -49,9 +49,9 @@
       <div id="MsyTaxGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/MsyTax.html}"></div>
       <div id="MsyTaxPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyTaxS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyTax');">reset</button>
+        <button type="button" class="reset" id="ResetMsyTaxS" th:text="#{common.reset}" onClick="Base.listReset('MsyTax');">reset</button>
         <a th:href="@{MsyTaxSearch.xlsx(baseMei=#{MsyTaxS.h2})}" id="MsyTaxSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button type="submit" id="DeleteMsyTaxS" class="delete selectRows" data-action="MsyTaxSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteMsyTaxS" data-action="MsyTaxSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMsyTaxS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

@@ -10,7 +10,10 @@
 </script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Ko2GridColumns.js}"></script>
 <script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Ko3GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -44,7 +47,7 @@
       <div id="Tb1KoGrid" data-selectionMode="checkbox" data-frozenColumn="1" data-editable="false" th:data-href="@{/model/Tb1Ko.html}"></div>
       <div id="Tb1KoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1KoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Ko');">reset</button>
+        <button type="button" class="reset" id="ResetTb1KoS" th:text="#{common.reset}" onClick="Base.listReset('Tb1Ko');">reset</button>
         <a th:href="@{Tb1KoSearch.xlsx(baseMei=#{Tb1KoS.h2})}" id="Tb1KoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

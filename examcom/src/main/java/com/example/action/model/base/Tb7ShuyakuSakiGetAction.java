@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb7ShuyakuSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 集約先照会
@@ -37,8 +38,15 @@ public class Tb7ShuyakuSakiGetAction extends BaseAction {
             return map;
         }
 
-        Tb7ShuyakuSaki tb7ShuyakuSaki = Tb7ShuyakuSaki.get(shuyakuSakiId);
-        map.put("Tb7ShuyakuSaki", tb7ShuyakuSaki);
+        try {
+            Tb7ShuyakuSaki tb7ShuyakuSaki = Tb7ShuyakuSaki.get(shuyakuSakiId);
+            map.put("Tb7ShuyakuSaki", tb7ShuyakuSaki);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

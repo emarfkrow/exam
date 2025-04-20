@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb6HaseiSaki2Det;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 派生先２明細照会
@@ -49,8 +50,15 @@ public class Tb6HaseiSaki2DetGetAction extends BaseAction {
             return map;
         }
 
-        Tb6HaseiSaki2Det tb6HaseiSaki2Det = Tb6HaseiSaki2Det.get(haseiSaki2Id, haseiSaki2Bn);
-        map.put("Tb6HaseiSaki2Det", tb6HaseiSaki2Det);
+        try {
+            Tb6HaseiSaki2Det tb6HaseiSaki2Det = Tb6HaseiSaki2Det.get(haseiSaki2Id, haseiSaki2Bn);
+            map.put("Tb6HaseiSaki2Det", tb6HaseiSaki2Det);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

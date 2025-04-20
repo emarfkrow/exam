@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MhrShozoku;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 所属マスタ照会
@@ -61,8 +62,15 @@ public class MhrShozokuGetAction extends BaseAction {
             return map;
         }
 
-        MhrShozoku mhrShozoku = MhrShozoku.get(bushoId, shokuiId, userId, tekiyoBi);
-        map.put("MhrShozoku", mhrShozoku);
+        try {
+            MhrShozoku mhrShozoku = MhrShozoku.get(bushoId, shokuiId, userId, tekiyoBi);
+            map.put("MhrShozoku", mhrShozoku);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

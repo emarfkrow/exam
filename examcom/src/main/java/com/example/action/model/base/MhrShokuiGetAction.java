@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MhrShokui;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 職位マスタ照会
@@ -37,8 +38,15 @@ public class MhrShokuiGetAction extends BaseAction {
             return map;
         }
 
-        MhrShokui mhrShokui = MhrShokui.get(shokuiId);
-        map.put("MhrShokui", mhrShokui);
+        try {
+            MhrShokui mhrShokui = MhrShokui.get(shokuiId);
+            map.put("MhrShokui", mhrShokui);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

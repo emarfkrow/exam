@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb2Daihyo2;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 代表２照会
@@ -37,10 +38,17 @@ public class Tb2Daihyo2GetAction extends BaseAction {
             return map;
         }
 
-        Tb2Daihyo2 tb2Daihyo2 = Tb2Daihyo2.get(daihyoId);
-        tb2Daihyo2.referTb2Daihyo();
-        tb2Daihyo2.referTb2Daihyo3();
-        map.put("Tb2Daihyo2", tb2Daihyo2);
+        try {
+            Tb2Daihyo2 tb2Daihyo2 = Tb2Daihyo2.get(daihyoId);
+            tb2Daihyo2.referTb2Daihyo();
+            tb2Daihyo2.referTb2Daihyo3();
+            map.put("Tb2Daihyo2", tb2Daihyo2);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

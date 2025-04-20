@@ -51,10 +51,10 @@
       <div id="MsyKbnValGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/MsyKbnVal.html}"></div>
       <div id="MsyKbnValPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyKbnValS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKbnVal');">reset</button>
+        <button type="button" class="reset" id="ResetMsyKbnValS" th:text="#{common.reset}" onClick="Base.listReset('MsyKbnVal');">reset</button>
         <a th:href="@{MsyKbnValSearch.xlsx(baseMei=#{MsyKbnValS.h2})}" id="MsyKbnValSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MsyKbnValGrid.kbnNm" th:href="@{/model/MsyKbnS.html}" target="dialog" class="refer" th:text="'区分マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button type="submit" id="DeleteMsyKbnValS" class="delete selectRows" data-action="MsyKbnValSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteMsyKbnValS" data-action="MsyKbnValSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMsyKbnValS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

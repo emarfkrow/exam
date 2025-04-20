@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MsyKadobi;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 稼働日マスタ照会
@@ -45,8 +46,15 @@ public class MsyKadobiGetAction extends BaseAction {
             return map;
         }
 
-        MsyKadobi msyKadobi = MsyKadobi.get(kadoBi, bushoId);
-        map.put("MsyKadobi", msyKadobi);
+        try {
+            MsyKadobi msyKadobi = MsyKadobi.get(kadoBi, bushoId);
+            map.put("MsyKadobi", msyKadobi);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

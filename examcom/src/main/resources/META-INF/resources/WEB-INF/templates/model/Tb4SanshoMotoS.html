@@ -63,13 +63,13 @@
       <div id="Tb4SanshoMotoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb4SanshoMoto.html}"></div>
       <div id="Tb4SanshoMotoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb4SanshoMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb4SanshoMoto');">reset</button>
+        <button type="button" class="reset" id="ResetTb4SanshoMotoS" th:text="#{common.reset}" onClick="Base.listReset('Tb4SanshoMoto');">reset</button>
         <a th:href="@{Tb4SanshoMotoSearch.xlsx(baseMei=#{Tb4SanshoMotoS.h2})}" id="Tb4SanshoMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="Tb4SanshoMotoGrid.idsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.cdsanshoCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" class="refer" th:text="'CD参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.nosanshoNo" th:href="@{/model/Mb4NosanshoS.html}" target="dialog" class="refer" th:text="'NO参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.betsuIdsanshoId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button type="submit" id="DeleteTb4SanshoMotoS" class="delete selectRows" data-action="Tb4SanshoMotoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteTb4SanshoMotoS" data-action="Tb4SanshoMotoSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb4SanshoMotoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

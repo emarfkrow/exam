@@ -41,9 +41,9 @@
       <div id="Mb4CdsanshoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Mb4Cdsansho.html}"></div>
       <div id="Mb4CdsanshoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMb4CdsanshoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Mb4Cdsansho');">reset</button>
+        <button type="button" class="reset" id="ResetMb4CdsanshoS" th:text="#{common.reset}" onClick="Base.listReset('Mb4Cdsansho');">reset</button>
         <a th:href="@{Mb4CdsanshoSearch.xlsx(baseMei=#{Mb4CdsanshoS.h2})}" id="Mb4CdsanshoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button type="submit" id="DeleteMb4CdsanshoS" class="delete selectRows" data-action="Mb4CdsanshoSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteMb4CdsanshoS" data-action="Mb4CdsanshoSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMb4CdsanshoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

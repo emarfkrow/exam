@@ -50,10 +50,10 @@
       <div id="MsyKadobiGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/MsyKadobi.html}"></div>
       <div id="MsyKadobiPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyKadobiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKadobi');">reset</button>
+        <button type="button" class="reset" id="ResetMsyKadobiS" th:text="#{common.reset}" onClick="Base.listReset('MsyKadobi');">reset</button>
         <a th:href="@{MsyKadobiSearch.xlsx(baseMei=#{MsyKadobiS.h2})}" id="MsyKadobiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a id="MsyKadobiGrid.bushoId" th:href="@{/model/MhrBushoS.html}" target="dialog" class="refer" th:text="'部署マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <button type="submit" id="DeleteMsyKadobiS" class="delete selectRows" data-action="MsyKadobiSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteMsyKadobiS" data-action="MsyKadobiSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMsyKadobiS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

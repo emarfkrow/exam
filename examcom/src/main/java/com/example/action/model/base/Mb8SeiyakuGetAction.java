@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Mb8Seiyaku;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 制約マスタ照会
@@ -37,8 +38,15 @@ public class Mb8SeiyakuGetAction extends BaseAction {
             return map;
         }
 
-        Mb8Seiyaku mb8Seiyaku = Mb8Seiyaku.get(seiyakuId);
-        map.put("Mb8Seiyaku", mb8Seiyaku);
+        try {
+            Mb8Seiyaku mb8Seiyaku = Mb8Seiyaku.get(seiyakuId);
+            map.put("Mb8Seiyaku", mb8Seiyaku);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

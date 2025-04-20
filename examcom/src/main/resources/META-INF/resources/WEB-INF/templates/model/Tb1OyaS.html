@@ -12,6 +12,7 @@
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1Ko3GridColumns.js}"></script>
 <script th:src="@{/model/Tb1Ko2GridColumns.js}"></script>
 </head>
 <body>
@@ -44,7 +45,7 @@
       <div id="Tb1OyaGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb1Oya.html}"></div>
       <div id="Tb1OyaPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb1OyaS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb1Oya');">reset</button>
+        <button type="button" class="reset" id="ResetTb1OyaS" th:text="#{common.reset}" onClick="Base.listReset('Tb1Oya');">reset</button>
         <a th:href="@{Tb1OyaSearch.xlsx(baseMei=#{Tb1OyaS.h2})}" id="Tb1OyaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

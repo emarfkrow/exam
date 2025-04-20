@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb1Mago;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 孫照会
@@ -59,8 +60,15 @@ public class Tb1MagoGetAction extends BaseAction {
             return map;
         }
 
-        Tb1Mago tb1Mago = Tb1Mago.get(oyaId, koBn, magoBn);
-        map.put("Tb1Mago", tb1Mago);
+        try {
+            Tb1Mago tb1Mago = Tb1Mago.get(oyaId, koBn, magoBn);
+            map.put("Tb1Mago", tb1Mago);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

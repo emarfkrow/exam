@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Mb4Cdsansho;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * CD参照マスタ照会
@@ -37,8 +38,15 @@ public class Mb4CdsanshoGetAction extends BaseAction {
             return map;
         }
 
-        Mb4Cdsansho mb4Cdsansho = Mb4Cdsansho.get(cdsanshoCd);
-        map.put("Mb4Cdsansho", mb4Cdsansho);
+        try {
+            Mb4Cdsansho mb4Cdsansho = Mb4Cdsansho.get(cdsanshoCd);
+            map.put("Mb4Cdsansho", mb4Cdsansho);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

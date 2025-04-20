@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MhrBusho;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 部署マスタ照会
@@ -37,8 +38,15 @@ public class MhrBushoGetAction extends BaseAction {
             return map;
         }
 
-        MhrBusho mhrBusho = MhrBusho.get(bushoId);
-        map.put("MhrBusho", mhrBusho);
+        try {
+            MhrBusho mhrBusho = MhrBusho.get(bushoId);
+            map.put("MhrBusho", mhrBusho);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

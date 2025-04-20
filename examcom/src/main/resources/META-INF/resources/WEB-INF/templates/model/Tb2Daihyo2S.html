@@ -41,9 +41,9 @@
       <div id="Tb2Daihyo2Grid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Daihyo2.html}"></div>
       <div id="Tb2Daihyo2Pager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb2Daihyo2S" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb2Daihyo2');">reset</button>
+        <button type="button" class="reset" id="ResetTb2Daihyo2S" th:text="#{common.reset}" onClick="Base.listReset('Tb2Daihyo2');">reset</button>
         <a th:href="@{Tb2Daihyo2Search.xlsx(baseMei=#{Tb2Daihyo2S.h2})}" id="Tb2Daihyo2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button type="submit" id="DeleteTb2Daihyo2S" class="delete selectRows" data-action="Tb2Daihyo2SDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteTb2Daihyo2S" data-action="Tb2Daihyo2SDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistTb2Daihyo2S" type="submit" class="regist" th:text="#{common.regist}">submit</button>

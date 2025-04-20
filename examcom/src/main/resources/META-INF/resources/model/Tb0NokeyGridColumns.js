@@ -11,6 +11,6 @@ $(function() {
         Column.text('COL_C', Messages['Tb0NokeyGrid.colC'], 300, 'uniqueKey', null),
         Column.text('COL_D', Messages['Tb0NokeyGrid.colD'], 300, '', null),
         Column.text('COL_E', Messages['Tb0NokeyGrid.colE'], 300, '', null),
-        Column.cell('UPDATE_TS', Messages['Tb0NokeyGrid.updateTs'], 184, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['Tb0NokeyGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     ];
 });

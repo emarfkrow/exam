@@ -42,7 +42,7 @@
       <div id="MsyKbnGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/MsyKbn.html}"></div>
       <div id="MsyKbnPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyKbnS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyKbn');">reset</button>
+        <button type="button" class="reset" id="ResetMsyKbnS" th:text="#{common.reset}" onClick="Base.listReset('MsyKbn');">reset</button>
         <a th:href="@{MsyKbnSearch.xlsx(baseMei=#{MsyKbnS.h2})}" id="MsyKbnSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

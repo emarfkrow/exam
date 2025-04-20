@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MsyKbn;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 区分マスタ照会
@@ -37,9 +38,16 @@ public class MsyKbnGetAction extends BaseAction {
             return map;
         }
 
-        MsyKbn msyKbn = MsyKbn.get(kbnNm);
-        msyKbn.referMsyKbnVals();
-        map.put("MsyKbn", msyKbn);
+        try {
+            MsyKbn msyKbn = MsyKbn.get(kbnNm);
+            msyKbn.referMsyKbnVals();
+            map.put("MsyKbn", msyKbn);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

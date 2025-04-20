@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb3Rireki;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 履歴元照会
@@ -37,8 +38,15 @@ public class Tb3RirekiGetAction extends BaseAction {
             return map;
         }
 
-        Tb3Rireki tb3Rireki = Tb3Rireki.get(rirekiMotoId);
-        map.put("Tb3Rireki", tb3Rireki);
+        try {
+            Tb3Rireki tb3Rireki = Tb3Rireki.get(rirekiMotoId);
+            map.put("Tb3Rireki", tb3Rireki);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

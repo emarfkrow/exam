@@ -46,9 +46,9 @@
       <div id="MsyTsukaGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/MsyTsuka.html}"></div>
       <div id="MsyTsukaPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetMsyTsukaS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('MsyTsuka');">reset</button>
+        <button type="button" class="reset" id="ResetMsyTsukaS" th:text="#{common.reset}" onClick="Base.listReset('MsyTsuka');">reset</button>
         <a th:href="@{MsyTsukaSearch.xlsx(baseMei=#{MsyTsukaS.h2})}" id="MsyTsukaSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <button type="submit" id="DeleteMsyTsukaS" class="delete selectRows" data-action="MsyTsukaSDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button type="submit" id="DeleteMsyTsukaS" data-action="MsyTsukaSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
         <button id="RegistMsyTsukaS" type="submit" class="regist" th:text="#{common.regist}">submit</button>

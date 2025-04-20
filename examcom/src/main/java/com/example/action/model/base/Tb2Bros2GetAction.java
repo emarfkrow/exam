@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb2Bros2;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 兄弟２照会
@@ -37,10 +38,17 @@ public class Tb2Bros2GetAction extends BaseAction {
             return map;
         }
 
-        Tb2Bros2 tb2Bros2 = Tb2Bros2.get(brosId);
-        tb2Bros2.referTb2Bros();
-        tb2Bros2.referTb2Bros3();
-        map.put("Tb2Bros2", tb2Bros2);
+        try {
+            Tb2Bros2 tb2Bros2 = Tb2Bros2.get(brosId);
+            tb2Bros2.referTb2Bros();
+            tb2Bros2.referTb2Bros3();
+            map.put("Tb2Bros2", tb2Bros2);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

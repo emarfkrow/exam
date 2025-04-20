@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb5TenseiMotoDet;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 転生元明細照会
@@ -49,8 +50,15 @@ public class Tb5TenseiMotoDetGetAction extends BaseAction {
             return map;
         }
 
-        Tb5TenseiMotoDet tb5TenseiMotoDet = Tb5TenseiMotoDet.get(tenseiMotoId, tenseiMotoBn);
-        map.put("Tb5TenseiMotoDet", tb5TenseiMotoDet);
+        try {
+            Tb5TenseiMotoDet tb5TenseiMotoDet = Tb5TenseiMotoDet.get(tenseiMotoId, tenseiMotoBn);
+            map.put("Tb5TenseiMotoDet", tb5TenseiMotoDet);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MhrNinka;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 認可マスタ照会
@@ -53,8 +54,15 @@ public class MhrNinkaGetAction extends BaseAction {
             return map;
         }
 
-        MhrNinka mhrNinka = MhrNinka.get(bushoId, shokuiId, kinoNm);
-        map.put("MhrNinka", mhrNinka);
+        try {
+            MhrNinka mhrNinka = MhrNinka.get(bushoId, shokuiId, kinoNm);
+            map.put("MhrNinka", mhrNinka);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb0Nokey;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 主キーなし照会
@@ -45,8 +46,15 @@ public class Tb0NokeyGetAction extends BaseAction {
             return map;
         }
 
-        Tb0Nokey tb0Nokey = Tb0Nokey.get(colA, colB);
-        map.put("Tb0Nokey", tb0Nokey);
+        try {
+            Tb0Nokey tb0Nokey = Tb0Nokey.get(colA, colB);
+            map.put("Tb0Nokey", tb0Nokey);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb4SanshoMoto;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 参照元照会
@@ -37,8 +38,15 @@ public class Tb4SanshoMotoGetAction extends BaseAction {
             return map;
         }
 
-        Tb4SanshoMoto tb4SanshoMoto = Tb4SanshoMoto.get(sanshoMotoId);
-        map.put("Tb4SanshoMoto", tb4SanshoMoto);
+        try {
+            Tb4SanshoMoto tb4SanshoMoto = Tb4SanshoMoto.get(sanshoMotoId);
+            map.put("Tb4SanshoMoto", tb4SanshoMoto);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

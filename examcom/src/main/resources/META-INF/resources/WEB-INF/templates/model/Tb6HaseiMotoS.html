@@ -42,7 +42,7 @@
       <div id="Tb6HaseiMotoGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb6HaseiMoto.html}"></div>
       <div id="Tb6HaseiMotoPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb6HaseiMotoS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb6HaseiMoto');">reset</button>
+        <button type="button" class="reset" id="ResetTb6HaseiMotoS" th:text="#{common.reset}" onClick="Base.listReset('Tb6HaseiMoto');">reset</button>
         <a th:href="@{Tb6HaseiMotoSearch.xlsx(baseMei=#{Tb6HaseiMotoS.h2})}" id="Tb6HaseiMotoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

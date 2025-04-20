@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MsyTsuka;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 通貨マスタ照会
@@ -45,8 +46,15 @@ public class MsyTsukaGetAction extends BaseAction {
             return map;
         }
 
-        MsyTsuka msyTsuka = MsyTsuka.get(tsukaKb, tekiyoBi);
-        map.put("MsyTsuka", msyTsuka);
+        try {
+            MsyTsuka msyTsuka = MsyTsuka.get(tsukaKb, tekiyoBi);
+            map.put("MsyTsuka", msyTsuka);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

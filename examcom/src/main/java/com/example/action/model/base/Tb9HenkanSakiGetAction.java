@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb9HenkanSaki;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 変換先照会
@@ -37,8 +38,15 @@ public class Tb9HenkanSakiGetAction extends BaseAction {
             return map;
         }
 
-        Tb9HenkanSaki tb9HenkanSaki = Tb9HenkanSaki.get(henkanSakiId);
-        map.put("Tb9HenkanSaki", tb9HenkanSaki);
+        try {
+            Tb9HenkanSaki tb9HenkanSaki = Tb9HenkanSaki.get(henkanSakiId);
+            map.put("Tb9HenkanSaki", tb9HenkanSaki);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.Tb2Chonan3;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 長男３照会
@@ -37,8 +38,15 @@ public class Tb2Chonan3GetAction extends BaseAction {
             return map;
         }
 
-        Tb2Chonan3 tb2Chonan3 = Tb2Chonan3.get(chonanId);
-        map.put("Tb2Chonan3", tb2Chonan3);
+        try {
+            Tb2Chonan3 tb2Chonan3 = Tb2Chonan3.get(chonanId);
+            map.put("Tb2Chonan3", tb2Chonan3);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 

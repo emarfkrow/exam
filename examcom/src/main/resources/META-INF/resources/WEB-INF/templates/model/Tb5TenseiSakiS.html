@@ -44,7 +44,7 @@
       <div id="Tb5TenseiSakiGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiSaki.html}"></div>
       <div id="Tb5TenseiSakiPager"></div>
       <div class="buttons">
-        <button type="button" id="ResetTb5TenseiSakiS" th:text="#{common.reset}" class="reset" onClick="Base.listReset('Tb5TenseiSaki');">reset</button>
+        <button type="button" class="reset" id="ResetTb5TenseiSakiS" th:text="#{common.reset}" onClick="Base.listReset('Tb5TenseiSaki');">reset</button>
         <a th:href="@{Tb5TenseiSakiSearch.xlsx(baseMei=#{Tb5TenseiSakiS.h2})}" id="Tb5TenseiSakiSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
       </div>
       <div class="submits">

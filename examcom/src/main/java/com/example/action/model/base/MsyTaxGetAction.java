@@ -7,6 +7,7 @@ import java.util.Map;
 import com.example.entity.MsyTax;
 
 import jp.co.golorp.emarf.action.BaseAction;
+import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
  * 税マスタ照会
@@ -45,8 +46,15 @@ public class MsyTaxGetAction extends BaseAction {
             return map;
         }
 
-        MsyTax msyTax = MsyTax.get(taxKb, tekiyoBi);
-        map.put("MsyTax", msyTax);
+        try {
+            MsyTax msyTax = MsyTax.get(taxKb, tekiyoBi);
+            map.put("MsyTax", msyTax);
+        } catch (NoDataError e) {
+            if (!postJson.get("IsSilent").equals("true")) {
+                throw e;
+            }
+        }
+
         return map;
     }
 
