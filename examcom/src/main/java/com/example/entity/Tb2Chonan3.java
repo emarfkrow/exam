@@ -230,6 +230,12 @@ public class Tb2Chonan3 implements IEntity {
         // 長男IDの採番処理
         numbering();
 
+        // 長男２の登録
+        if (this.tb2Chonan2 != null) {
+            this.tb2Chonan2.setChonanId(this.getChonanId());
+            this.tb2Chonan2.insert(now, execId);
+        }
+
         // 長男３の登録
         String sql = "INSERT INTO TB2_CHONAN3(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -279,6 +285,16 @@ public class Tb2Chonan3 implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
+        // 長男２の登録
+        if (this.tb2Chonan2 != null) {
+            tb2Chonan2.setChonanId(this.getChonanId());
+            try {
+                tb2Chonan2.insert(now, execId);
+            } catch (Exception e) {
+                tb2Chonan2.update(now, execId);
+            }
+        }
+
         // 長男３の登録
         String sql = "UPDATE TB2_CHONAN3\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -299,6 +315,11 @@ public class Tb2Chonan3 implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        // 長男２の削除
+        if (this.tb2Chonan2 != null) {
+            this.tb2Chonan2.delete();
+        }
 
         // 長男３の削除
         String sql = "DELETE FROM TB2_CHONAN3 WHERE " + getWhere();
@@ -326,5 +347,30 @@ public class Tb2Chonan3 implements IEntity {
         map.put("update_ts", now);
         map.put("update_user_id", execId);
         return map;
+    }
+
+    /** 長男２ */
+    private Tb2Chonan2 tb2Chonan2;
+
+    /** @return 長男２ */
+    @com.fasterxml.jackson.annotation.JsonProperty("Tb2Chonan2")
+    public Tb2Chonan2 getTb2Chonan2() {
+        return this.tb2Chonan2;
+    }
+
+    /** @param p 長男２ */
+    public void setTb2Chonan2(final Tb2Chonan2 p) {
+        this.tb2Chonan2 = p;
+    }
+
+    /** @return 長男２ */
+    public Tb2Chonan2 referTb2Chonan2() {
+        if (this.tb2Chonan2 == null) {
+            try {
+                this.tb2Chonan2 = Tb2Chonan2.get(this.chonanId);
+            } catch (jp.co.golorp.emarf.exception.NoDataError e) {
+            }
+        }
+        return this.tb2Chonan2;
     }
 }

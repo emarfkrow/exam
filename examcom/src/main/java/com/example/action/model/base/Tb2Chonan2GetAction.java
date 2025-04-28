@@ -40,6 +40,7 @@ public class Tb2Chonan2GetAction extends BaseAction {
 
         try {
             Tb2Chonan2 tb2Chonan2 = Tb2Chonan2.get(chonanId);
+            tb2Chonan2.referTb2Chonan3();
             map.put("Tb2Chonan2", tb2Chonan2);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

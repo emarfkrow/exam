@@ -54,6 +54,24 @@ public class Tb2Chonan2RegistForm implements IForm {
         this.chonan2Info = p;
     }
 
+    /** 長男３ */
+    @jakarta.validation.Valid
+    private Tb2Chonan3RegistForm tb2Chonan3RegistForm;
+
+    /**
+     * @return Tb2Chonan3RegistForm
+     */
+    public Tb2Chonan3RegistForm getTb2Chonan3RegistForm() {
+        return tb2Chonan3RegistForm;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb2Chonan3RegistForm(final Tb2Chonan3RegistForm p) {
+        this.tb2Chonan3RegistForm = p;
+    }
+
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {

@@ -38,6 +38,13 @@
           <span id="Tb2Chonan3.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb2Chonan3.updateUserId" data-destDef="Tb2Chonan3.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb2Chonan2.legend}">legend</legend>
+        <div id="chonan2Info">
+          <label for="Tb2Chonan2.chonan2Info" th:text="#{Tb2Chonan2.chonan2Info}">長男２情報</label><input type="text" id="Tb2Chonan2.chonan2Info" name="Tb2Chonan2.chonan2Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb2Chonan2.updateTs" />
+      </fieldset>
       <div class="buttons">
         <button type="button" id="RefreshTb2Chonan3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb2Chonan3Get.xlsx(baseMei=#{Tb2Chonan3.h2})}" id="Tb2Chonan3Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
