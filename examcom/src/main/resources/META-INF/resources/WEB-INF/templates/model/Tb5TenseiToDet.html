@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb5TenseiToDet.title}">転生先明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb5TenseiToDetGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiToGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb5TenseiToDet.h2}">h2</h2>
+    <form name="Tb5TenseiToDetRegistForm" action="Tb5TenseiToDetRegist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb5TenseiTo.legend}">legend</legend>
+        <div id="tenseiToId">
+          <label for="Tb5TenseiTo.tenseiToId" th:text="#{Tb5TenseiTo.tenseiToId}">転生先ID</label><input type="text" id="Tb5TenseiTo.tenseiToId" name="Tb5TenseiTo.tenseiToId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="tenseiId">
+          <label th:text="#{Tb5TenseiTo.tenseiId}">転生ID</label><span id="Tb5TenseiTo.tenseiId" class="rebornee"></span><input type="hidden" id="Tb5TenseiTo.tenseiId" name="Tb5TenseiTo.tenseiId" class="rebornee" />
+        </div>
+        <div id="tenseiInfo">
+          <label for="Tb5TenseiTo.tenseiInfo" th:text="#{Tb5TenseiTo.tenseiInfo}">転生情報</label><input type="text" id="Tb5TenseiTo.tenseiInfo" name="Tb5TenseiTo.tenseiInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb5TenseiTo.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5TenseiTo.insertTs"></span><input type="hidden" id="Tb5TenseiTo.insertTs" name="Tb5TenseiTo.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb5TenseiTo.insertUserId}" class="meta">作成者</label><span id="Tb5TenseiTo.insertUserId"></span><input type="hidden" id="Tb5TenseiTo.insertUserId" name="Tb5TenseiTo.insertUserId" />
+          <span id="Tb5TenseiTo.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiTo.insertUserId" data-destDef="Tb5TenseiTo.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb5TenseiTo.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5TenseiTo.updateTs"></span><input type="hidden" id="Tb5TenseiTo.updateTs" name="Tb5TenseiTo.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb5TenseiTo.updateUserId}" class="meta">更新者</label><span id="Tb5TenseiTo.updateUserId"></span><input type="hidden" id="Tb5TenseiTo.updateUserId" name="Tb5TenseiTo.updateUserId" />
+          <span id="Tb5TenseiTo.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiTo.updateUserId" data-destDef="Tb5TenseiTo.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb5TenseiToDet.legend}">legend</legend>
+        <div id="tenseiToId">
+          <label for="Tb5TenseiToDet.tenseiToId" th:text="#{Tb5TenseiToDet.tenseiToId}">転生先ID</label><input type="text" id="Tb5TenseiToDet.tenseiToId" name="Tb5TenseiToDet.tenseiToId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="tenseiToBn">
+          <label for="Tb5TenseiToDet.tenseiToBn" th:text="#{Tb5TenseiToDet.tenseiToBn}">転生先枝番</label><input type="text" id="Tb5TenseiToDet.tenseiToBn" name="Tb5TenseiToDet.tenseiToBn" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="tenseiDetInfo">
+          <label for="Tb5TenseiToDet.tenseiDetInfo" th:text="#{Tb5TenseiToDet.tenseiDetInfo}">転生明細情報</label><input type="text" id="Tb5TenseiToDet.tenseiDetInfo" name="Tb5TenseiToDet.tenseiDetInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb5TenseiToDet.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb5TenseiToDet.insertTs"></span><input type="hidden" id="Tb5TenseiToDet.insertTs" name="Tb5TenseiToDet.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb5TenseiToDet.insertUserId}" class="meta">作成者</label><span id="Tb5TenseiToDet.insertUserId"></span><input type="hidden" id="Tb5TenseiToDet.insertUserId" name="Tb5TenseiToDet.insertUserId" />
+          <span id="Tb5TenseiToDet.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiToDet.insertUserId" data-destDef="Tb5TenseiToDet.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb5TenseiToDet.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb5TenseiToDet.updateTs"></span><input type="hidden" id="Tb5TenseiToDet.updateTs" name="Tb5TenseiToDet.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb5TenseiToDet.updateUserId}" class="meta">更新者</label><span id="Tb5TenseiToDet.updateUserId"></span><input type="hidden" id="Tb5TenseiToDet.updateUserId" name="Tb5TenseiToDet.updateUserId" />
+          <span id="Tb5TenseiToDet.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb5TenseiToDet.updateUserId" data-destDef="Tb5TenseiToDet.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb5TenseiToDet" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb5TenseiToDetGet.xlsx(baseMei=#{Tb5TenseiToDet.h2})}" id="Tb5TenseiToDetGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb5TenseiToDet" type="submit" class="delete" data-action="Tb5TenseiToDetDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb5TenseiToDet" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

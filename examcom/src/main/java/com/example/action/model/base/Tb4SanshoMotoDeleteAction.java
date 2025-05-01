@@ -23,11 +23,11 @@ public class Tb4SanshoMotoDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object sanshoMotoId = postJson.get("sanshoMotoId");
-        if (sanshoMotoId == null) {
-            sanshoMotoId = postJson.get("Tb4SanshoMoto.sanshoMotoId");
+        Object refId = postJson.get("refId");
+        if (refId == null) {
+            refId = postJson.get("Tb4SanshoMoto.refId");
         }
-        if (sanshoMotoId == null) {
+        if (refId == null) {
             throw new OptLockError("error.cant.delete");
         }
 

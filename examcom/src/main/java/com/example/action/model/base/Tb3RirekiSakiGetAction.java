@@ -25,11 +25,11 @@ public class Tb3RirekiSakiGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object rirekiMotoId = postJson.get("rirekiMotoId");
-        if (rirekiMotoId == null) {
-            rirekiMotoId = postJson.get("Tb3RirekiSaki.rirekiMotoId");
+        Object rirekiId = postJson.get("rirekiId");
+        if (rirekiId == null) {
+            rirekiId = postJson.get("Tb3RirekiSaki.rirekiId");
         }
-        if (rirekiMotoId == null) {
+        if (rirekiId == null) {
             isAllKey = false;
         }
 
@@ -47,7 +47,7 @@ public class Tb3RirekiSakiGetAction extends BaseAction {
         }
 
         try {
-            Tb3RirekiSaki tb3RirekiSaki = Tb3RirekiSaki.get(rirekiMotoId, rirekiBn);
+            Tb3RirekiSaki tb3RirekiSaki = Tb3RirekiSaki.get(rirekiId, rirekiBn);
             map.put("Tb3RirekiSaki", tb3RirekiSaki);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

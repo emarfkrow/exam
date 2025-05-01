@@ -22,39 +22,39 @@ public class Mb4NosanshoRegistForm implements IForm {
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
     @jakarta.validation.constraints.Size(max = 10)
-    private String nosanshoNo;
+    private String norefNo;
 
     /**
      * @return NO参照NO
      */
-    public String getNosanshoNo() {
-        return nosanshoNo;
+    public String getNorefNo() {
+        return norefNo;
     }
 
     /**
      * @param p NO参照NO
      */
-    public void setNosanshoNo(final String p) {
-        this.nosanshoNo = p;
+    public void setNorefNo(final String p) {
+        this.norefNo = p;
     }
 
     /** NO参照名 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
-    private String nosanshoMei;
+    private String norefMei;
 
     /**
      * @return NO参照名
      */
-    public String getNosanshoMei() {
-        return nosanshoMei;
+    public String getNorefMei() {
+        return norefMei;
     }
 
     /**
      * @param p NO参照名
      */
-    public void setNosanshoMei(final String p) {
-        this.nosanshoMei = p;
+    public void setNorefMei(final String p) {
+        this.norefMei = p;
     }
 
     /** 関連チェック */

@@ -1,6 +1,6 @@
 SELECT
-      a.`RIREKI_MOTO_ID`
-    , a.`RIREKI_MOTO_INFO`
+      a.`RIREKI_ID`
+    , a.`RIREKI_INFO`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -11,8 +11,8 @@ FROM
     TB3_RIREKI a 
 WHERE
     1 = 1 
-    AND a.`RIREKI_MOTO_ID` = :rireki_moto_id 
-    AND UPPER (TRIM(TRAILING ' ' FROM a.`RIREKI_MOTO_INFO`)) LIKE UPPER (CONCAT ('%', :rireki_moto_info, '%')) 
+    AND a.`RIREKI_ID` = :rireki_id 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`RIREKI_INFO`)) LIKE UPPER (CONCAT ('%', :rireki_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 
@@ -22,4 +22,4 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
 ORDER BY
-    a.`RIREKI_MOTO_ID`
+    a.`RIREKI_ID`

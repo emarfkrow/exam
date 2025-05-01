@@ -20,56 +20,56 @@ public class Tb6HaseiSaki2DetRegistForm implements IForm {
 
     /** 派生先２ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String haseiSaki2Id;
+    private String haseiTo2Id;
 
     /**
      * @return 派生先２ID
      */
-    public String getHaseiSaki2Id() {
-        return haseiSaki2Id;
+    public String getHaseiTo2Id() {
+        return haseiTo2Id;
     }
 
     /**
      * @param p 派生先２ID
      */
-    public void setHaseiSaki2Id(final String p) {
-        this.haseiSaki2Id = p;
+    public void setHaseiTo2Id(final String p) {
+        this.haseiTo2Id = p;
     }
 
     /** 派生先２枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String haseiSaki2Bn;
+    private String haseiTo2Bn;
 
     /**
      * @return 派生先２枝番
      */
-    public String getHaseiSaki2Bn() {
-        return haseiSaki2Bn;
+    public String getHaseiTo2Bn() {
+        return haseiTo2Bn;
     }
 
     /**
      * @param p 派生先２枝番
      */
-    public void setHaseiSaki2Bn(final String p) {
-        this.haseiSaki2Bn = p;
+    public void setHaseiTo2Bn(final String p) {
+        this.haseiTo2Bn = p;
     }
 
     /** 派生先２明細情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String haseiSaki2DetInfo;
+    private String haseiDetInfo;
 
     /**
      * @return 派生先２明細情報
      */
-    public String getHaseiSaki2DetInfo() {
-        return haseiSaki2DetInfo;
+    public String getHaseiDetInfo() {
+        return haseiDetInfo;
     }
 
     /**
      * @param p 派生先２明細情報
      */
-    public void setHaseiSaki2DetInfo(final String p) {
-        this.haseiSaki2DetInfo = p;
+    public void setHaseiDetInfo(final String p) {
+        this.haseiDetInfo = p;
     }
 
     /** 関連チェック */

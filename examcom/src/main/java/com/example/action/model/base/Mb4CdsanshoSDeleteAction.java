@@ -36,7 +36,7 @@ public class Mb4CdsanshoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("CDSANSHO_CD"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("CDREF_CD"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

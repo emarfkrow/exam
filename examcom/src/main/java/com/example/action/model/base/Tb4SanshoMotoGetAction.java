@@ -25,11 +25,11 @@ public class Tb4SanshoMotoGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object sanshoMotoId = postJson.get("sanshoMotoId");
-        if (sanshoMotoId == null) {
-            sanshoMotoId = postJson.get("Tb4SanshoMoto.sanshoMotoId");
+        Object refId = postJson.get("refId");
+        if (refId == null) {
+            refId = postJson.get("Tb4SanshoMoto.refId");
         }
-        if (sanshoMotoId == null) {
+        if (refId == null) {
             isAllKey = false;
         }
 
@@ -39,7 +39,7 @@ public class Tb4SanshoMotoGetAction extends BaseAction {
         }
 
         try {
-            Tb4SanshoMoto tb4SanshoMoto = Tb4SanshoMoto.get(sanshoMotoId);
+            Tb4SanshoMoto tb4SanshoMoto = Tb4SanshoMoto.get(refId);
             map.put("Tb4SanshoMoto", tb4SanshoMoto);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

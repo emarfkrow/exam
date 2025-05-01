@@ -18,40 +18,40 @@ public class Tb3RirekiRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb3RirekiRegistForm.class);
 
-    /** 履歴元ID */
+    /** 履歴ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String rirekiMotoId;
+    private String rirekiId;
 
     /**
-     * @return 履歴元ID
+     * @return 履歴ID
      */
-    public String getRirekiMotoId() {
-        return rirekiMotoId;
+    public String getRirekiId() {
+        return rirekiId;
     }
 
     /**
-     * @param p 履歴元ID
+     * @param p 履歴ID
      */
-    public void setRirekiMotoId(final String p) {
-        this.rirekiMotoId = p;
+    public void setRirekiId(final String p) {
+        this.rirekiId = p;
     }
 
-    /** 履歴元情報 */
+    /** 履歴情報 */
     @jakarta.validation.constraints.Size(max = 300)
-    private String rirekiMotoInfo;
+    private String rirekiInfo;
 
     /**
-     * @return 履歴元情報
+     * @return 履歴情報
      */
-    public String getRirekiMotoInfo() {
-        return rirekiMotoInfo;
+    public String getRirekiInfo() {
+        return rirekiInfo;
     }
 
     /**
-     * @param p 履歴元情報
+     * @param p 履歴情報
      */
-    public void setRirekiMotoInfo(final String p) {
-        this.rirekiMotoInfo = p;
+    public void setRirekiInfo(final String p) {
+        this.rirekiInfo = p;
     }
 
     /** 関連チェック */

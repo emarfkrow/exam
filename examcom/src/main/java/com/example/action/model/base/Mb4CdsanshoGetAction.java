@@ -25,11 +25,11 @@ public class Mb4CdsanshoGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object cdsanshoCd = postJson.get("cdsanshoCd");
-        if (cdsanshoCd == null) {
-            cdsanshoCd = postJson.get("Mb4Cdsansho.cdsanshoCd");
+        Object cdrefCd = postJson.get("cdrefCd");
+        if (cdrefCd == null) {
+            cdrefCd = postJson.get("Mb4Cdsansho.cdrefCd");
         }
-        if (cdsanshoCd == null) {
+        if (cdrefCd == null) {
             isAllKey = false;
         }
 
@@ -39,7 +39,7 @@ public class Mb4CdsanshoGetAction extends BaseAction {
         }
 
         try {
-            Mb4Cdsansho mb4Cdsansho = Mb4Cdsansho.get(cdsanshoCd);
+            Mb4Cdsansho mb4Cdsansho = Mb4Cdsansho.get(cdrefCd);
             map.put("Mb4Cdsansho", mb4Cdsansho);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

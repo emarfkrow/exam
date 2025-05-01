@@ -36,7 +36,7 @@ public class Tb4SanshoMotoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SANSHO_MOTO_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("REF_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

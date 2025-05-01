@@ -36,7 +36,7 @@ public class Mb4IdsanshoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDSANSHO_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDREF_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

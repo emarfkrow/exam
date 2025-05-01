@@ -36,7 +36,7 @@ public class Tb3RirekiSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("RIREKI_MOTO_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("RIREKI_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

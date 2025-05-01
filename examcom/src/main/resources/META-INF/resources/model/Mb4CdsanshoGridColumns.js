@@ -6,8 +6,8 @@ let Mb4CdsanshoGridColumns = [];
 
 $(function() {
     Mb4CdsanshoGridColumns = [
-        Column.text('CDSANSHO_CD', Messages['Mb4CdsanshoGrid.cdsanshoCd'], 90, 'primaryKey', null),
-        Column.text('CDSANSHO_MEI', Messages['Mb4CdsanshoGrid.cdsanshoMei'], 300, 'notblank', null),
+        Column.text('CDREF_CD', Messages['Mb4CdsanshoGrid.cdrefCd'], 90, 'primaryKey', null),
+        Column.text('CDREF_MEI', Messages['Mb4CdsanshoGrid.cdrefMei'], 300, 'notblank', null),
         Column.cell('UPDATE_TS', Messages['Mb4CdsanshoGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     ];
 });

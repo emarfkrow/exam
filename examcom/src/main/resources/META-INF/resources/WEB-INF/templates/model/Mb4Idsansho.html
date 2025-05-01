@@ -9,7 +9,6 @@
 
 </script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
-<script th:src="@{/model/Mb8SanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
@@ -18,11 +17,11 @@
     <form name="Mb4IdsanshoRegistForm" action="Mb4IdsanshoRegist.ajax" class="regist">
       <fieldset>
         <legend th:text="#{Mb4Idsansho.legend}">legend</legend>
-        <div id="idsanshoId">
-          <label for="Mb4Idsansho.idsanshoId" th:text="#{Mb4Idsansho.idsanshoId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idsanshoId" name="Mb4Idsansho.idsanshoId" maxlength="10" class=" primaryKey numbering refer notblank" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI" /><a id="Mb4Idsansho.idsanshoId" th:href="@{/model/Mb8SanshoS.html}" target="dialog" class=" primaryKey numbering refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Mb4Idsansho.idsanshoMei" class=" primaryKey numbering refer" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI"></span>
+        <div id="idrefId">
+          <label for="Mb4Idsansho.idrefId" th:text="#{Mb4Idsansho.idrefId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idrefId" name="Mb4Idsansho.idrefId" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
-        <div id="idsanshoMei">
-          <label for="Mb4Idsansho.idsanshoMei" th:text="#{Mb4Idsansho.idsanshoMei}">ID参照名</label><input type="text" id="Mb4Idsansho.idsanshoMei" name="Mb4Idsansho.idsanshoMei" maxlength="60" class=" notblank" />
+        <div id="idrefMei">
+          <label for="Mb4Idsansho.idrefMei" th:text="#{Mb4Idsansho.idrefMei}">ID参照名</label><input type="text" id="Mb4Idsansho.idrefMei" name="Mb4Idsansho.idrefMei" maxlength="60" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{Mb4Idsansho.insertTs}" class="meta">作成タイムスタンプ</label><span id="Mb4Idsansho.insertTs"></span><input type="hidden" id="Mb4Idsansho.insertTs" name="Mb4Idsansho.insertTs" />

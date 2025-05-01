@@ -20,148 +20,148 @@ public class Tb4SanshoMotoRegistForm implements IForm {
 
     /** 参照元ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sanshoMotoId;
+    private String refId;
 
     /**
      * @return 参照元ID
      */
-    public String getSanshoMotoId() {
-        return sanshoMotoId;
+    public String getRefId() {
+        return refId;
     }
 
     /**
      * @param p 参照元ID
      */
-    public void setSanshoMotoId(final String p) {
-        this.sanshoMotoId = p;
+    public void setRefId(final String p) {
+        this.refId = p;
     }
 
     /** ID参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String idsanshoId;
+    private String idrefId;
 
     /**
      * @return ID参照ID
      */
-    public String getIdsanshoId() {
-        return idsanshoId;
+    public String getIdrefId() {
+        return idrefId;
     }
 
     /**
      * @param p ID参照ID
      */
-    public void setIdsanshoId(final String p) {
-        this.idsanshoId = p;
+    public void setIdrefId(final String p) {
+        this.idrefId = p;
     }
 
     /** ID参照名 */
     @jakarta.validation.constraints.Size(max = 60)
-    private String idsanshoMei;
+    private String idrefMei;
 
     /**
      * @return ID参照名
      */
-    public String getIdsanshoMei() {
-        return idsanshoMei;
+    public String getIdrefMei() {
+        return idrefMei;
     }
 
     /**
      * @param p ID参照名
      */
-    public void setIdsanshoMei(final String p) {
-        this.idsanshoMei = p;
+    public void setIdrefMei(final String p) {
+        this.idrefMei = p;
     }
 
     /** CD参照CD */
     @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]*)?")
     @jakarta.validation.constraints.Size(max = 10)
-    private String cdsanshoCd;
+    private String cdrefCd;
 
     /**
      * @return CD参照CD
      */
-    public String getCdsanshoCd() {
-        return cdsanshoCd;
+    public String getCdrefCd() {
+        return cdrefCd;
     }
 
     /**
      * @param p CD参照CD
      */
-    public void setCdsanshoCd(final String p) {
-        this.cdsanshoCd = p;
+    public void setCdrefCd(final String p) {
+        this.cdrefCd = p;
     }
 
     /** CD参照名 */
     @jakarta.validation.constraints.Size(max = 60)
-    private String cdsanshoMei;
+    private String cdrefMei;
 
     /**
      * @return CD参照名
      */
-    public String getCdsanshoMei() {
-        return cdsanshoMei;
+    public String getCdrefMei() {
+        return cdrefMei;
     }
 
     /**
      * @param p CD参照名
      */
-    public void setCdsanshoMei(final String p) {
-        this.cdsanshoMei = p;
+    public void setCdrefMei(final String p) {
+        this.cdrefMei = p;
     }
 
     /** NO参照NO */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
     @jakarta.validation.constraints.Size(max = 10)
-    private String nosanshoNo;
+    private String norefNo;
 
     /**
      * @return NO参照NO
      */
-    public String getNosanshoNo() {
-        return nosanshoNo;
+    public String getNorefNo() {
+        return norefNo;
     }
 
     /**
      * @param p NO参照NO
      */
-    public void setNosanshoNo(final String p) {
-        this.nosanshoNo = p;
+    public void setNorefNo(final String p) {
+        this.norefNo = p;
     }
 
     /** NO参照名 */
     @jakarta.validation.constraints.Size(max = 60)
-    private String nosanshoMei;
+    private String norefMei;
 
     /**
      * @return NO参照名
      */
-    public String getNosanshoMei() {
-        return nosanshoMei;
+    public String getNorefMei() {
+        return norefMei;
     }
 
     /**
      * @param p NO参照名
      */
-    public void setNosanshoMei(final String p) {
-        this.nosanshoMei = p;
+    public void setNorefMei(final String p) {
+        this.norefMei = p;
     }
 
     /** 別ID参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String betsuIdsanshoId;
+    private String betsuIdrefId;
 
     /**
      * @return 別ID参照ID
      */
-    public String getBetsuIdsanshoId() {
-        return betsuIdsanshoId;
+    public String getBetsuIdrefId() {
+        return betsuIdrefId;
     }
 
     /**
      * @param p 別ID参照ID
      */
-    public void setBetsuIdsanshoId(final String p) {
-        this.betsuIdsanshoId = p;
+    public void setBetsuIdrefId(final String p) {
+        this.betsuIdrefId = p;
     }
 
     /** 関連チェック */

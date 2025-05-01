@@ -23,11 +23,11 @@ public class Mb4NosanshoDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object nosanshoNo = postJson.get("nosanshoNo");
-        if (nosanshoNo == null) {
-            nosanshoNo = postJson.get("Mb4Nosansho.nosanshoNo");
+        Object norefNo = postJson.get("norefNo");
+        if (norefNo == null) {
+            norefNo = postJson.get("Mb4Nosansho.norefNo");
         }
-        if (nosanshoNo == null) {
+        if (norefNo == null) {
             throw new OptLockError("error.cant.delete");
         }
 

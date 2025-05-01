@@ -22,39 +22,39 @@ public class Mb4CdsanshoRegistForm implements IForm {
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]*)?")
     @jakarta.validation.constraints.Size(max = 10)
-    private String cdsanshoCd;
+    private String cdrefCd;
 
     /**
      * @return CD参照CD
      */
-    public String getCdsanshoCd() {
-        return cdsanshoCd;
+    public String getCdrefCd() {
+        return cdrefCd;
     }
 
     /**
      * @param p CD参照CD
      */
-    public void setCdsanshoCd(final String p) {
-        this.cdsanshoCd = p;
+    public void setCdrefCd(final String p) {
+        this.cdrefCd = p;
     }
 
     /** CD参照名 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
-    private String cdsanshoMei;
+    private String cdrefMei;
 
     /**
      * @return CD参照名
      */
-    public String getCdsanshoMei() {
-        return cdsanshoMei;
+    public String getCdrefMei() {
+        return cdrefMei;
     }
 
     /**
      * @param p CD参照名
      */
-    public void setCdsanshoMei(final String p) {
-        this.cdsanshoMei = p;
+    public void setCdrefMei(final String p) {
+        this.cdrefMei = p;
     }
 
     /** 関連チェック */

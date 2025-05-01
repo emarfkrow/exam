@@ -9,7 +9,6 @@
 
 </script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
-<script th:src="@{/model/Mb8SanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 </head>
 <body>
@@ -21,11 +20,11 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Mb4IdsanshoS.legend}">legend</legend>
-        <div id="idsanshoId">
-          <label for="Mb4Idsansho.idsanshoId" th:text="#{Mb4Idsansho.idsanshoId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idsanshoId" name="Mb4Idsansho.idsanshoId" maxlength="10" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI" /><a id="Mb4Idsansho.idsanshoId" th:href="@{/model/Mb8SanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Mb4Idsansho.idsanshoMei" data-json="Mb8SanshoSearch.json" data-srcDef="SANSHO_ID:Mb4Idsansho.idsanshoId" data-destDef="Mb4Idsansho.idsanshoMei:SANSHO_MEI"></span>
+        <div id="idrefId">
+          <label for="Mb4Idsansho.idrefId" th:text="#{Mb4Idsansho.idrefId}">ID参照ID</label><input type="text" id="Mb4Idsansho.idrefId" name="Mb4Idsansho.idrefId" maxlength="10" />
         </div>
-        <div id="idsanshoMei">
-          <label for="Mb4Idsansho.idsanshoMei" th:text="#{Mb4Idsansho.idsanshoMei}">ID参照名</label><input type="text" id="Mb4Idsansho.idsanshoMei" name="Mb4Idsansho.idsanshoMei" maxlength="60" />
+        <div id="idrefMei">
+          <label for="Mb4Idsansho.idrefMei" th:text="#{Mb4Idsansho.idrefMei}">ID参照名</label><input type="text" id="Mb4Idsansho.idrefMei" name="Mb4Idsansho.idrefMei" maxlength="60" />
         </div>
       </fieldset>
       <div class="buttons">
@@ -44,7 +43,6 @@
       <div class="buttons">
         <button type="button" class="reset" id="ResetMb4IdsanshoS" th:text="#{common.reset}" onClick="Base.listReset('Mb4Idsansho');">reset</button>
         <a th:href="@{Mb4IdsanshoSearch.xlsx(baseMei=#{Mb4IdsanshoS.h2})}" id="Mb4IdsanshoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <a id="Mb4IdsanshoGrid.idsanshoId" th:href="@{/model/Mb8SanshoS.html}" target="dialog" class="refer" th:text="'参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button type="submit" id="DeleteMb4IdsanshoS" data-action="Mb4IdsanshoSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

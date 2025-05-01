@@ -23,11 +23,11 @@ public class Tb3RirekiDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object rirekiMotoId = postJson.get("rirekiMotoId");
-        if (rirekiMotoId == null) {
-            rirekiMotoId = postJson.get("Tb3Rireki.rirekiMotoId");
+        Object rirekiId = postJson.get("rirekiId");
+        if (rirekiId == null) {
+            rirekiId = postJson.get("Tb3Rireki.rirekiId");
         }
-        if (rirekiMotoId == null) {
+        if (rirekiId == null) {
             throw new OptLockError("error.cant.delete");
         }
 

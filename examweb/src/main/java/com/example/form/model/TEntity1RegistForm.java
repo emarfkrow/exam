@@ -18,7 +18,7 @@ public class TEntity1RegistForm extends com.example.form.model.base.Tb4SanshoMot
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess p) {
 
-        p.masterCheck(errors, "MSansho1Search", "sansho1Id", this.getIdsanshoId(), Messages.get("TEntity1.sansho1Id"));
+        p.masterCheck(errors, "MSansho1Search", "sansho1Id", this.getIdrefId(), Messages.get("TEntity1.IdrefId"));
     }
 
 }

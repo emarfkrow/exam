@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb5TenseiDetS.title}">転生明細</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb5TenseiDetGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiToDetGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb5TenseiDetS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb5TenseiDetSearchForm" action="Tb5TenseiDetSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb5TenseiDetS.legend}">legend</legend>
+        <div id="tenseiId">
+          <label for="Tb5TenseiDet.tenseiId" th:text="#{Tb5TenseiDet.tenseiId}">転生ID</label><input type="text" id="Tb5TenseiDet.tenseiId" name="Tb5TenseiDet.tenseiId" maxlength="10" />
+        </div>
+        <div id="tenseiBn">
+          <label for="Tb5TenseiDet.tenseiBn" th:text="#{Tb5TenseiDet.tenseiBn}">転生枝番</label><input type="text" id="Tb5TenseiDet.tenseiBn" name="Tb5TenseiDet.tenseiBn" maxlength="10" />
+        </div>
+        <div id="tenseiDetInfo">
+          <label for="Tb5TenseiDet.tenseiDetInfo" th:text="#{Tb5TenseiDet.tenseiDetInfo}">転生明細情報</label><input type="text" id="Tb5TenseiDet.tenseiDetInfo" name="Tb5TenseiDet.tenseiDetInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb5TenseiDet" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb5TenseiDet" type="submit" class="search" data-gridId="Tb5TenseiDetGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb5TenseiDetSRegistForm" action="Tb5TenseiDetSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb5TenseiDet.h3}">h3</h3>
+      <div id="Tb5TenseiDetGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb5TenseiDet.html}"></div>
+      <div id="Tb5TenseiDetPager"></div>
+      <div class="buttons">
+        <button type="button" class="reset" id="ResetTb5TenseiDetS" th:text="#{common.reset}" onClick="Base.listReset('Tb5TenseiDet');">reset</button>
+        <a th:href="@{Tb5TenseiDetSearch.xlsx(baseMei=#{Tb5TenseiDetS.h2})}" id="Tb5TenseiDetSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb5TenseiDetS" data-action="Tb5TenseiDetSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb5TenseiDetS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

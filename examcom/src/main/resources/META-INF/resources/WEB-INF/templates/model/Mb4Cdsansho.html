@@ -17,11 +17,11 @@
     <form name="Mb4CdsanshoRegistForm" action="Mb4CdsanshoRegist.ajax" class="regist">
       <fieldset>
         <legend th:text="#{Mb4Cdsansho.legend}">legend</legend>
-        <div id="cdsanshoCd">
-          <label for="Mb4Cdsansho.cdsanshoCd" th:text="#{Mb4Cdsansho.cdsanshoCd}">CD参照CD</label><input type="text" id="Mb4Cdsansho.cdsanshoCd" name="Mb4Cdsansho.cdsanshoCd" maxlength="10" class=" primaryKey notblank" />
+        <div id="cdrefCd">
+          <label for="Mb4Cdsansho.cdrefCd" th:text="#{Mb4Cdsansho.cdrefCd}">CD参照CD</label><input type="text" id="Mb4Cdsansho.cdrefCd" name="Mb4Cdsansho.cdrefCd" maxlength="10" class=" primaryKey notblank" />
         </div>
-        <div id="cdsanshoMei">
-          <label for="Mb4Cdsansho.cdsanshoMei" th:text="#{Mb4Cdsansho.cdsanshoMei}">CD参照名</label><input type="text" id="Mb4Cdsansho.cdsanshoMei" name="Mb4Cdsansho.cdsanshoMei" maxlength="60" class=" notblank" />
+        <div id="cdrefMei">
+          <label for="Mb4Cdsansho.cdrefMei" th:text="#{Mb4Cdsansho.cdrefMei}">CD参照名</label><input type="text" id="Mb4Cdsansho.cdrefMei" name="Mb4Cdsansho.cdrefMei" maxlength="60" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{Mb4Cdsansho.insertTs}" class="meta">作成タイムスタンプ</label><span id="Mb4Cdsansho.insertTs"></span><input type="hidden" id="Mb4Cdsansho.insertTs" name="Mb4Cdsansho.insertTs" />

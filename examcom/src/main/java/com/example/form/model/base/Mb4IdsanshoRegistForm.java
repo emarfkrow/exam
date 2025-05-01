@@ -20,39 +20,39 @@ public class Mb4IdsanshoRegistForm implements IForm {
 
     /** ID参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String idsanshoId;
+    private String idrefId;
 
     /**
      * @return ID参照ID
      */
-    public String getIdsanshoId() {
-        return idsanshoId;
+    public String getIdrefId() {
+        return idrefId;
     }
 
     /**
      * @param p ID参照ID
      */
-    public void setIdsanshoId(final String p) {
-        this.idsanshoId = p;
+    public void setIdrefId(final String p) {
+        this.idrefId = p;
     }
 
     /** ID参照名 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 60)
-    private String idsanshoMei;
+    private String idrefMei;
 
     /**
      * @return ID参照名
      */
-    public String getIdsanshoMei() {
-        return idsanshoMei;
+    public String getIdrefMei() {
+        return idrefMei;
     }
 
     /**
      * @param p ID参照名
      */
-    public void setIdsanshoMei(final String p) {
-        this.idsanshoMei = p;
+    public void setIdrefMei(final String p) {
+        this.idrefMei = p;
     }
 
     /** 関連チェック */

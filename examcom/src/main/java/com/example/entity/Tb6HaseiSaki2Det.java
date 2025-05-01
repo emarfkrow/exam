@@ -33,56 +33,56 @@ public class Tb6HaseiSaki2Det implements IEntity {
     }
 
     /** 派生先２ID */
-    private Integer haseiSaki2Id;
+    private Integer haseiTo2Id;
 
     /** @return 派生先２ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_SAKI2_ID")
-    public Integer getHaseiSaki2Id() {
-        return this.haseiSaki2Id;
+    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_TO2_ID")
+    public Integer getHaseiTo2Id() {
+        return this.haseiTo2Id;
     }
 
     /** @param o 派生先２ID */
-    public void setHaseiSaki2Id(final Object o) {
+    public void setHaseiTo2Id(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.haseiSaki2Id = Integer.valueOf(o.toString());
+            this.haseiTo2Id = Integer.valueOf(o.toString());
         } else {
-            this.haseiSaki2Id = null;
+            this.haseiTo2Id = null;
         }
     }
 
     /** 派生先２枝番 */
-    private Integer haseiSaki2Bn;
+    private Integer haseiTo2Bn;
 
     /** @return 派生先２枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_SAKI2_BN")
-    public Integer getHaseiSaki2Bn() {
-        return this.haseiSaki2Bn;
+    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_TO2_BN")
+    public Integer getHaseiTo2Bn() {
+        return this.haseiTo2Bn;
     }
 
     /** @param o 派生先２枝番 */
-    public void setHaseiSaki2Bn(final Object o) {
+    public void setHaseiTo2Bn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.haseiSaki2Bn = Integer.valueOf(o.toString());
+            this.haseiTo2Bn = Integer.valueOf(o.toString());
         } else {
-            this.haseiSaki2Bn = null;
+            this.haseiTo2Bn = null;
         }
     }
 
     /** 派生先２明細情報 */
-    private String haseiSaki2DetInfo;
+    private String haseiDetInfo;
 
     /** @return 派生先２明細情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_SAKI2_DET_INFO")
-    public String getHaseiSaki2DetInfo() {
-        return this.haseiSaki2DetInfo;
+    @com.fasterxml.jackson.annotation.JsonProperty("HASEI_DET_INFO")
+    public String getHaseiDetInfo() {
+        return this.haseiDetInfo;
     }
 
     /** @param o 派生先２明細情報 */
-    public void setHaseiSaki2DetInfo(final Object o) {
+    public void setHaseiDetInfo(final Object o) {
         if (o != null) {
-            this.haseiSaki2DetInfo = o.toString();
+            this.haseiDetInfo = o.toString();
         } else {
-            this.haseiSaki2DetInfo = null;
+            this.haseiDetInfo = null;
         }
     }
 
@@ -220,13 +220,13 @@ public class Tb6HaseiSaki2Det implements IEntity {
      */
     public static Tb6HaseiSaki2Det get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`HASEI_SAKI2_ID` = :hasei_saki_2_id");
-        whereList.add("`HASEI_SAKI2_BN` = :hasei_saki_2_bn");
+        whereList.add("`HASEI_TO2_ID` = :hasei_to_2_id");
+        whereList.add("`HASEI_TO2_BN` = :hasei_to_2_bn");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`HASEI_SAKI2_ID` \n";
-        sql += "    , a.`HASEI_SAKI2_BN` \n";
-        sql += "    , a.`HASEI_SAKI2_DET_INFO` \n";
+        sql += "      a.`HASEI_TO2_ID` \n";
+        sql += "    , a.`HASEI_TO2_BN` \n";
+        sql += "    , a.`HASEI_DET_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -236,8 +236,8 @@ public class Tb6HaseiSaki2Det implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("hasei_saki_2_id", param1);
-        map.put("hasei_saki_2_bn", param2);
+        map.put("hasei_to_2_id", param1);
+        map.put("hasei_to_2_bn", param2);
         return Queries.get(sql, map, Tb6HaseiSaki2Det.class);
     }
 
@@ -260,9 +260,9 @@ public class Tb6HaseiSaki2Det implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`HASEI_SAKI2_ID` -- :hasei_saki_2_id");
-        nameList.add("`HASEI_SAKI2_BN` -- :hasei_saki_2_bn");
-        nameList.add("`HASEI_SAKI2_DET_INFO` -- :hasei_saki_2_det_info");
+        nameList.add("`HASEI_TO2_ID` -- :hasei_to_2_id");
+        nameList.add("`HASEI_TO2_BN` -- :hasei_to_2_bn");
+        nameList.add("`HASEI_DET_INFO` -- :hasei_det_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -273,9 +273,9 @@ public class Tb6HaseiSaki2Det implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":hasei_saki_2_id");
-        valueList.add(":hasei_saki_2_bn");
-        valueList.add(":hasei_saki_2_det_info");
+        valueList.add(":hasei_to_2_id");
+        valueList.add(":hasei_to_2_bn");
+        valueList.add(":hasei_det_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -285,18 +285,18 @@ public class Tb6HaseiSaki2Det implements IEntity {
 
     /** 派生先２枝番の採番処理 */
     private void numbering() {
-        if (this.haseiSaki2Bn != null) {
+        if (this.haseiTo2Bn != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`HASEI_SAKI2_BN`) IS NULL THEN 0 ELSE MAX(e.`HASEI_SAKI2_BN`) * 1 END + 1 AS `HASEI_SAKI2_BN` FROM TB6_HASEI_SAKI2_DET e";
+        String sql = "SELECT CASE WHEN MAX(e.`HASEI_TO2_BN`) IS NULL THEN 0 ELSE MAX(e.`HASEI_TO2_BN`) * 1 END + 1 AS `HASEI_TO2_BN` FROM TB6_HASEI_SAKI2_DET e";
         Map<String, Object> map = new HashMap<String, Object>();
         List<String> whereList = new ArrayList<String>();
-        whereList.add("e.`HASEI_SAKI2_ID` = :hasei_saki_2_id");
+        whereList.add("e.`HASEI_TO2_ID` = :hasei_to_2_id");
         sql += " WHERE " + String.join(" AND ", whereList);
-        map.put("hasei_saki_2_id", this.haseiSaki2Id);
+        map.put("hasei_to_2_id", this.haseiTo2Id);
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("HASEI_SAKI2_BN");
-        this.setHaseiSaki2Bn(o);
+        Object o = mapList.get(0).get("HASEI_TO2_BN");
+        this.setHaseiTo2Bn(o);
     }
 
     /**
@@ -315,9 +315,9 @@ public class Tb6HaseiSaki2Det implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`HASEI_SAKI2_ID` = :hasei_saki_2_id");
-        setList.add("`HASEI_SAKI2_BN` = :hasei_saki_2_bn");
-        setList.add("`HASEI_SAKI2_DET_INFO` = :hasei_saki_2_det_info");
+        setList.add("`HASEI_TO2_ID` = :hasei_to_2_id");
+        setList.add("`HASEI_TO2_BN` = :hasei_to_2_bn");
+        setList.add("`HASEI_DET_INFO` = :hasei_det_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -337,8 +337,8 @@ public class Tb6HaseiSaki2Det implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`HASEI_SAKI2_ID` = :hasei_saki_2_id");
-        whereList.add("`HASEI_SAKI2_BN` = :hasei_saki_2_bn");
+        whereList.add("`HASEI_TO2_ID` = :hasei_to_2_id");
+        whereList.add("`HASEI_TO2_BN` = :hasei_to_2_bn");
         return String.join(" AND ", whereList);
     }
 
@@ -349,9 +349,9 @@ public class Tb6HaseiSaki2Det implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("hasei_saki_2_id", this.haseiSaki2Id);
-        map.put("hasei_saki_2_bn", this.haseiSaki2Bn);
-        map.put("hasei_saki_2_det_info", this.haseiSaki2DetInfo);
+        map.put("hasei_to_2_id", this.haseiTo2Id);
+        map.put("hasei_to_2_bn", this.haseiTo2Bn);
+        map.put("hasei_det_info", this.haseiDetInfo);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

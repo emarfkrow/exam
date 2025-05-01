@@ -33,38 +33,38 @@ public class Mb4Nosansho implements IEntity {
     }
 
     /** NO参照NO */
-    private String nosanshoNo;
+    private String norefNo;
 
     /** @return NO参照NO */
-    @com.fasterxml.jackson.annotation.JsonProperty("NOSANSHO_NO")
-    public String getNosanshoNo() {
-        return this.nosanshoNo;
+    @com.fasterxml.jackson.annotation.JsonProperty("NOREF_NO")
+    public String getNorefNo() {
+        return this.norefNo;
     }
 
     /** @param o NO参照NO */
-    public void setNosanshoNo(final Object o) {
+    public void setNorefNo(final Object o) {
         if (o != null) {
-            this.nosanshoNo = o.toString();
+            this.norefNo = o.toString();
         } else {
-            this.nosanshoNo = null;
+            this.norefNo = null;
         }
     }
 
     /** NO参照名 */
-    private String nosanshoMei;
+    private String norefMei;
 
     /** @return NO参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NOSANSHO_MEI")
-    public String getNosanshoMei() {
-        return this.nosanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("NOREF_MEI")
+    public String getNorefMei() {
+        return this.norefMei;
     }
 
     /** @param o NO参照名 */
-    public void setNosanshoMei(final Object o) {
+    public void setNorefMei(final Object o) {
         if (o != null) {
-            this.nosanshoMei = o.toString();
+            this.norefMei = o.toString();
         } else {
-            this.nosanshoMei = null;
+            this.norefMei = null;
         }
     }
 
@@ -201,11 +201,11 @@ public class Mb4Nosansho implements IEntity {
      */
     public static Mb4Nosansho get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM(TRAILING ' ' FROM `NOSANSHO_NO`) = TRIM(TRAILING ' ' FROM :nosansho_no)");
+        whereList.add("TRIM(TRAILING ' ' FROM `NOREF_NO`) = TRIM(TRAILING ' ' FROM :noref_no)");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`) AS NOSANSHO_NO \n";
-        sql += "    , a.`NOSANSHO_MEI` \n";
+        sql += "      TRIM(TRAILING ' ' FROM a.`NOREF_NO`) AS NOREF_NO \n";
+        sql += "    , a.`NOREF_MEI` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -215,7 +215,7 @@ public class Mb4Nosansho implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("nosansho_no", param1);
+        map.put("noref_no", param1);
         return Queries.get(sql, map, Mb4Nosansho.class);
     }
 
@@ -235,8 +235,8 @@ public class Mb4Nosansho implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`NOSANSHO_NO` -- :nosansho_no");
-        nameList.add("`NOSANSHO_MEI` -- :nosansho_mei");
+        nameList.add("`NOREF_NO` -- :noref_no");
+        nameList.add("`NOREF_MEI` -- :noref_mei");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -247,8 +247,8 @@ public class Mb4Nosansho implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":nosansho_no");
-        valueList.add(":nosansho_mei");
+        valueList.add(":noref_no");
+        valueList.add(":noref_mei");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -272,8 +272,8 @@ public class Mb4Nosansho implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`NOSANSHO_NO` = :nosansho_no");
-        setList.add("`NOSANSHO_MEI` = :nosansho_mei");
+        setList.add("`NOREF_NO` = :noref_no");
+        setList.add("`NOREF_MEI` = :noref_mei");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -293,7 +293,7 @@ public class Mb4Nosansho implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM(TRAILING ' ' FROM `NOSANSHO_NO`) = TRIM(TRAILING ' ' FROM :nosansho_no)");
+        whereList.add("TRIM(TRAILING ' ' FROM `NOREF_NO`) = TRIM(TRAILING ' ' FROM :noref_no)");
         return String.join(" AND ", whereList);
     }
 
@@ -304,8 +304,8 @@ public class Mb4Nosansho implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("nosansho_no", this.nosanshoNo);
-        map.put("nosansho_mei", this.nosanshoMei);
+        map.put("noref_no", this.norefNo);
+        map.put("noref_mei", this.norefMei);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

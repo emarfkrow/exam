@@ -28,7 +28,7 @@ public class Mb4CdsanshoRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getCdsanshoCd())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getCdrefCd())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

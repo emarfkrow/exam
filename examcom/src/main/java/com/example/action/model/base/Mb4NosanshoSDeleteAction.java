@@ -36,7 +36,7 @@ public class Mb4NosanshoSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("NOSANSHO_NO"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("NOREF_NO"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

@@ -23,18 +23,18 @@ public class Tb6HaseiSaki2DetDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object haseiSaki2Id = postJson.get("haseiSaki2Id");
-        if (haseiSaki2Id == null) {
-            haseiSaki2Id = postJson.get("Tb6HaseiSaki2Det.haseiSaki2Id");
+        Object haseiTo2Id = postJson.get("haseiTo2Id");
+        if (haseiTo2Id == null) {
+            haseiTo2Id = postJson.get("Tb6HaseiSaki2Det.haseiTo2Id");
         }
-        if (haseiSaki2Id == null) {
+        if (haseiTo2Id == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object haseiSaki2Bn = postJson.get("haseiSaki2Bn");
-        if (haseiSaki2Bn == null) {
-            haseiSaki2Bn = postJson.get("Tb6HaseiSaki2Det.haseiSaki2Bn");
+        Object haseiTo2Bn = postJson.get("haseiTo2Bn");
+        if (haseiTo2Bn == null) {
+            haseiTo2Bn = postJson.get("Tb6HaseiSaki2Det.haseiTo2Bn");
         }
-        if (haseiSaki2Bn == null) {
+        if (haseiTo2Bn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

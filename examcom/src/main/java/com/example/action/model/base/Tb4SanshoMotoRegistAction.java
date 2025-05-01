@@ -28,7 +28,7 @@ public class Tb4SanshoMotoRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSanshoMotoId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRefId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

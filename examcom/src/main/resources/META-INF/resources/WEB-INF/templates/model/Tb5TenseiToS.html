@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb5TenseiToS.title}">転生先</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb5TenseiToGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb5TenseiToDetGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb5TenseiToS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb5TenseiToSearchForm" action="Tb5TenseiToSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb5TenseiToS.legend}">legend</legend>
+        <div id="tenseiToId">
+          <label for="Tb5TenseiTo.tenseiToId" th:text="#{Tb5TenseiTo.tenseiToId}">転生先ID</label><input type="text" id="Tb5TenseiTo.tenseiToId" name="Tb5TenseiTo.tenseiToId" maxlength="10" />
+        </div>
+        <div id="tenseiId">
+          <label for="Tb5TenseiTo.tenseiId" th:text="#{Tb5TenseiTo.tenseiId}">転生ID</label><input type="text" id="Tb5TenseiTo.tenseiId" name="Tb5TenseiTo.tenseiId" maxlength="10" />
+        </div>
+        <div id="tenseiInfo">
+          <label for="Tb5TenseiTo.tenseiInfo" th:text="#{Tb5TenseiTo.tenseiInfo}">転生情報</label><input type="text" id="Tb5TenseiTo.tenseiInfo" name="Tb5TenseiTo.tenseiInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb5TenseiTo" th:text="#{common.reset}" class="reset">reset</button>
+      </div>
+      <div class="submits">
+        <button id="SearchTb5TenseiTo" type="submit" class="search" data-gridId="Tb5TenseiToGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb5TenseiToSRegistForm" action="Tb5TenseiToSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb5TenseiTo.h3}">h3</h3>
+      <div id="Tb5TenseiToGrid" data-selectionMode="checkbox" data-frozenColumn="0" data-editable="false" th:data-href="@{/model/Tb5TenseiTo.html}"></div>
+      <div id="Tb5TenseiToPager"></div>
+      <div class="buttons">
+        <button type="button" class="reset" id="ResetTb5TenseiToS" th:text="#{common.reset}" onClick="Base.listReset('Tb5TenseiTo');">reset</button>
+        <a th:href="@{Tb5TenseiToSearch.xlsx(baseMei=#{Tb5TenseiToS.h2})}" id="Tb5TenseiToSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

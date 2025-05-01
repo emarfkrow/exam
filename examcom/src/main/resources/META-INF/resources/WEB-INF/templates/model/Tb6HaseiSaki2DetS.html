@@ -10,7 +10,7 @@
 </script>
 <script th:src="@{/model/Tb6HaseiSaki2DetGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb6HaseiSaki2GridColumns.js}"></script>
+<script th:src="@{/model/Tb6HaseiTo2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -21,14 +21,14 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb6HaseiSaki2DetS.legend}">legend</legend>
-        <div id="haseiSaki2Id">
-          <label for="Tb6HaseiSaki2Det.haseiSaki2Id" th:text="#{Tb6HaseiSaki2Det.haseiSaki2Id}">派生先２ID</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2Id" name="Tb6HaseiSaki2Det.haseiSaki2Id" maxlength="10" />
+        <div id="haseiTo2Id">
+          <label for="Tb6HaseiSaki2Det.haseiTo2Id" th:text="#{Tb6HaseiSaki2Det.haseiTo2Id}">派生先２ID</label><input type="text" id="Tb6HaseiSaki2Det.haseiTo2Id" name="Tb6HaseiSaki2Det.haseiTo2Id" maxlength="10" />
         </div>
-        <div id="haseiSaki2Bn">
-          <label for="Tb6HaseiSaki2Det.haseiSaki2Bn" th:text="#{Tb6HaseiSaki2Det.haseiSaki2Bn}">派生先２枝番</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2Bn" name="Tb6HaseiSaki2Det.haseiSaki2Bn" maxlength="10" />
+        <div id="haseiTo2Bn">
+          <label for="Tb6HaseiSaki2Det.haseiTo2Bn" th:text="#{Tb6HaseiSaki2Det.haseiTo2Bn}">派生先２枝番</label><input type="text" id="Tb6HaseiSaki2Det.haseiTo2Bn" name="Tb6HaseiSaki2Det.haseiTo2Bn" maxlength="10" />
         </div>
-        <div id="haseiSaki2DetInfo">
-          <label for="Tb6HaseiSaki2Det.haseiSaki2DetInfo" th:text="#{Tb6HaseiSaki2Det.haseiSaki2DetInfo}">派生先２明細情報</label><input type="text" id="Tb6HaseiSaki2Det.haseiSaki2DetInfo" name="Tb6HaseiSaki2Det.haseiSaki2DetInfo" maxlength="300" />
+        <div id="haseiDetInfo">
+          <label for="Tb6HaseiSaki2Det.haseiDetInfo" th:text="#{Tb6HaseiSaki2Det.haseiDetInfo}">派生先２明細情報</label><input type="text" id="Tb6HaseiSaki2Det.haseiDetInfo" name="Tb6HaseiSaki2Det.haseiDetInfo" maxlength="300" />
         </div>
       </fieldset>
       <div class="buttons">

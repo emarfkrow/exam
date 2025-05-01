@@ -33,38 +33,38 @@ public class Mb4Cdsansho implements IEntity {
     }
 
     /** CD参照CD */
-    private String cdsanshoCd;
+    private String cdrefCd;
 
     /** @return CD参照CD */
-    @com.fasterxml.jackson.annotation.JsonProperty("CDSANSHO_CD")
-    public String getCdsanshoCd() {
-        return this.cdsanshoCd;
+    @com.fasterxml.jackson.annotation.JsonProperty("CDREF_CD")
+    public String getCdrefCd() {
+        return this.cdrefCd;
     }
 
     /** @param o CD参照CD */
-    public void setCdsanshoCd(final Object o) {
+    public void setCdrefCd(final Object o) {
         if (o != null) {
-            this.cdsanshoCd = o.toString();
+            this.cdrefCd = o.toString();
         } else {
-            this.cdsanshoCd = null;
+            this.cdrefCd = null;
         }
     }
 
     /** CD参照名 */
-    private String cdsanshoMei;
+    private String cdrefMei;
 
     /** @return CD参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("CDSANSHO_MEI")
-    public String getCdsanshoMei() {
-        return this.cdsanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("CDREF_MEI")
+    public String getCdrefMei() {
+        return this.cdrefMei;
     }
 
     /** @param o CD参照名 */
-    public void setCdsanshoMei(final Object o) {
+    public void setCdrefMei(final Object o) {
         if (o != null) {
-            this.cdsanshoMei = o.toString();
+            this.cdrefMei = o.toString();
         } else {
-            this.cdsanshoMei = null;
+            this.cdrefMei = null;
         }
     }
 
@@ -201,11 +201,11 @@ public class Mb4Cdsansho implements IEntity {
      */
     public static Mb4Cdsansho get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM(TRAILING ' ' FROM `CDSANSHO_CD`) = TRIM(TRAILING ' ' FROM :cdsansho_cd)");
+        whereList.add("TRIM(TRAILING ' ' FROM `CDREF_CD`) = TRIM(TRAILING ' ' FROM :cdref_cd)");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) AS CDSANSHO_CD \n";
-        sql += "    , a.`CDSANSHO_MEI` \n";
+        sql += "      TRIM(TRAILING ' ' FROM a.`CDREF_CD`) AS CDREF_CD \n";
+        sql += "    , a.`CDREF_MEI` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -215,7 +215,7 @@ public class Mb4Cdsansho implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("cdsansho_cd", param1);
+        map.put("cdref_cd", param1);
         return Queries.get(sql, map, Mb4Cdsansho.class);
     }
 
@@ -235,8 +235,8 @@ public class Mb4Cdsansho implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`CDSANSHO_CD` -- :cdsansho_cd");
-        nameList.add("`CDSANSHO_MEI` -- :cdsansho_mei");
+        nameList.add("`CDREF_CD` -- :cdref_cd");
+        nameList.add("`CDREF_MEI` -- :cdref_mei");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -247,8 +247,8 @@ public class Mb4Cdsansho implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":cdsansho_cd");
-        valueList.add(":cdsansho_mei");
+        valueList.add(":cdref_cd");
+        valueList.add(":cdref_mei");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -272,8 +272,8 @@ public class Mb4Cdsansho implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`CDSANSHO_CD` = :cdsansho_cd");
-        setList.add("`CDSANSHO_MEI` = :cdsansho_mei");
+        setList.add("`CDREF_CD` = :cdref_cd");
+        setList.add("`CDREF_MEI` = :cdref_mei");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -293,7 +293,7 @@ public class Mb4Cdsansho implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("TRIM(TRAILING ' ' FROM `CDSANSHO_CD`) = TRIM(TRAILING ' ' FROM :cdsansho_cd)");
+        whereList.add("TRIM(TRAILING ' ' FROM `CDREF_CD`) = TRIM(TRAILING ' ' FROM :cdref_cd)");
         return String.join(" AND ", whereList);
     }
 
@@ -304,8 +304,8 @@ public class Mb4Cdsansho implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("cdsansho_cd", this.cdsanshoCd);
-        map.put("cdsansho_mei", this.cdsanshoMei);
+        map.put("cdref_cd", this.cdrefCd);
+        map.put("cdref_mei", this.cdrefMei);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

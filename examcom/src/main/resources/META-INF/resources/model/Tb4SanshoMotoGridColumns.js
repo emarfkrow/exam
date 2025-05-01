@@ -6,14 +6,14 @@ let Tb4SanshoMotoGridColumns = [];
 
 $(function() {
     Tb4SanshoMotoGridColumns = [
-        Column.text('SANSHO_MOTO_ID', Messages['Tb4SanshoMotoGrid.sanshoMotoId'], 90, 'primaryKey numbering', null),
-        Column.refer('IDSANSHO_ID', Messages['Tb4SanshoMotoGrid.idsanshoId'], 90, '', 'IDSANSHO_MEI'),
-        Column.text('IDSANSHO_MEI', Messages['Tb4SanshoMotoGrid.idsanshoMei'], 300, '', null),
-        Column.refer('CDSANSHO_CD', Messages['Tb4SanshoMotoGrid.cdsanshoCd'], 90, '', 'CDSANSHO_MEI'),
-        Column.text('CDSANSHO_MEI', Messages['Tb4SanshoMotoGrid.cdsanshoMei'], 300, '', null),
-        Column.refer('NOSANSHO_NO', Messages['Tb4SanshoMotoGrid.nosanshoNo'], 90, '', 'NOSANSHO_MEI'),
-        Column.text('NOSANSHO_MEI', Messages['Tb4SanshoMotoGrid.nosanshoMei'], 300, '', null),
-        Column.refer('BETSU_IDSANSHO_ID', Messages['Tb4SanshoMotoGrid.betsuIdsanshoId'], 90, '', 'BETSU_IDSANSHO_MEI'),
+        Column.text('REF_ID', Messages['Tb4SanshoMotoGrid.refId'], 90, 'primaryKey numbering', null),
+        Column.refer('IDREF_ID', Messages['Tb4SanshoMotoGrid.idrefId'], 90, '', 'IDREF_MEI'),
+        Column.text('IDREF_MEI', Messages['Tb4SanshoMotoGrid.idrefMei'], 300, '', null),
+        Column.refer('CDREF_CD', Messages['Tb4SanshoMotoGrid.cdrefCd'], 90, '', 'CDREF_MEI'),
+        Column.text('CDREF_MEI', Messages['Tb4SanshoMotoGrid.cdrefMei'], 300, '', null),
+        Column.refer('NOREF_NO', Messages['Tb4SanshoMotoGrid.norefNo'], 90, '', 'NOREF_MEI'),
+        Column.text('NOREF_MEI', Messages['Tb4SanshoMotoGrid.norefMei'], 300, '', null),
+        Column.refer('BETSU_IDREF_ID', Messages['Tb4SanshoMotoGrid.betsuIdrefId'], 90, '', 'BETSU_IDREF_MEI'),
         Column.cell('UPDATE_TS', Messages['Tb4SanshoMotoGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
     ];
 });

@@ -33,38 +33,38 @@ public class Mb4Idsansho implements IEntity {
     }
 
     /** ID参照ID */
-    private Integer idsanshoId;
+    private Integer idrefId;
 
     /** @return ID参照ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("IDSANSHO_ID")
-    public Integer getIdsanshoId() {
-        return this.idsanshoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("IDREF_ID")
+    public Integer getIdrefId() {
+        return this.idrefId;
     }
 
     /** @param o ID参照ID */
-    public void setIdsanshoId(final Object o) {
+    public void setIdrefId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.idsanshoId = Integer.valueOf(o.toString());
+            this.idrefId = Integer.valueOf(o.toString());
         } else {
-            this.idsanshoId = null;
+            this.idrefId = null;
         }
     }
 
     /** ID参照名 */
-    private String idsanshoMei;
+    private String idrefMei;
 
     /** @return ID参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("IDSANSHO_MEI")
-    public String getIdsanshoMei() {
-        return this.idsanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("IDREF_MEI")
+    public String getIdrefMei() {
+        return this.idrefMei;
     }
 
     /** @param o ID参照名 */
-    public void setIdsanshoMei(final Object o) {
+    public void setIdrefMei(final Object o) {
         if (o != null) {
-            this.idsanshoMei = o.toString();
+            this.idrefMei = o.toString();
         } else {
-            this.idsanshoMei = null;
+            this.idrefMei = null;
         }
     }
 
@@ -201,11 +201,11 @@ public class Mb4Idsansho implements IEntity {
      */
     public static Mb4Idsansho get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`IDSANSHO_ID` = :idsansho_id");
+        whereList.add("`IDREF_ID` = :idref_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`IDSANSHO_ID` \n";
-        sql += "    , a.`IDSANSHO_MEI` \n";
+        sql += "      a.`IDREF_ID` \n";
+        sql += "    , a.`IDREF_MEI` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -215,7 +215,7 @@ public class Mb4Idsansho implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("idsansho_id", param1);
+        map.put("idref_id", param1);
         return Queries.get(sql, map, Mb4Idsansho.class);
     }
 
@@ -238,8 +238,8 @@ public class Mb4Idsansho implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`IDSANSHO_ID` -- :idsansho_id");
-        nameList.add("`IDSANSHO_MEI` -- :idsansho_mei");
+        nameList.add("`IDREF_ID` -- :idref_id");
+        nameList.add("`IDREF_MEI` -- :idref_mei");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -250,8 +250,8 @@ public class Mb4Idsansho implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":idsansho_id");
-        valueList.add(":idsansho_mei");
+        valueList.add(":idref_id");
+        valueList.add(":idref_mei");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -261,14 +261,14 @@ public class Mb4Idsansho implements IEntity {
 
     /** ID参照IDの採番処理 */
     private void numbering() {
-        if (this.idsanshoId != null) {
+        if (this.idrefId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`IDSANSHO_ID`) IS NULL THEN 0 ELSE MAX(e.`IDSANSHO_ID`) * 1 END + 1 AS `IDSANSHO_ID` FROM MB4_IDSANSHO e";
+        String sql = "SELECT CASE WHEN MAX(e.`IDREF_ID`) IS NULL THEN 0 ELSE MAX(e.`IDREF_ID`) * 1 END + 1 AS `IDREF_ID` FROM MB4_IDSANSHO e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("IDSANSHO_ID");
-        this.setIdsanshoId(o);
+        Object o = mapList.get(0).get("IDREF_ID");
+        this.setIdrefId(o);
     }
 
     /**
@@ -287,8 +287,8 @@ public class Mb4Idsansho implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`IDSANSHO_ID` = :idsansho_id");
-        setList.add("`IDSANSHO_MEI` = :idsansho_mei");
+        setList.add("`IDREF_ID` = :idref_id");
+        setList.add("`IDREF_MEI` = :idref_mei");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -308,7 +308,7 @@ public class Mb4Idsansho implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`IDSANSHO_ID` = :idsansho_id");
+        whereList.add("`IDREF_ID` = :idref_id");
         return String.join(" AND ", whereList);
     }
 
@@ -319,8 +319,8 @@ public class Mb4Idsansho implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("idsansho_id", this.idsanshoId);
-        map.put("idsansho_mei", this.idsanshoMei);
+        map.put("idref_id", this.idrefId);
+        map.put("idref_mei", this.idrefMei);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

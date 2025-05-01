@@ -32,39 +32,39 @@ public class Tb3Rireki implements IEntity {
         }
     }
 
-    /** 履歴元ID */
-    private Integer rirekiMotoId;
+    /** 履歴ID */
+    private Integer rirekiId;
 
-    /** @return 履歴元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("RIREKI_MOTO_ID")
-    public Integer getRirekiMotoId() {
-        return this.rirekiMotoId;
+    /** @return 履歴ID */
+    @com.fasterxml.jackson.annotation.JsonProperty("RIREKI_ID")
+    public Integer getRirekiId() {
+        return this.rirekiId;
     }
 
-    /** @param o 履歴元ID */
-    public void setRirekiMotoId(final Object o) {
+    /** @param o 履歴ID */
+    public void setRirekiId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.rirekiMotoId = Integer.valueOf(o.toString());
+            this.rirekiId = Integer.valueOf(o.toString());
         } else {
-            this.rirekiMotoId = null;
+            this.rirekiId = null;
         }
     }
 
-    /** 履歴元情報 */
-    private String rirekiMotoInfo;
+    /** 履歴情報 */
+    private String rirekiInfo;
 
-    /** @return 履歴元情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("RIREKI_MOTO_INFO")
-    public String getRirekiMotoInfo() {
-        return this.rirekiMotoInfo;
+    /** @return 履歴情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty("RIREKI_INFO")
+    public String getRirekiInfo() {
+        return this.rirekiInfo;
     }
 
-    /** @param o 履歴元情報 */
-    public void setRirekiMotoInfo(final Object o) {
+    /** @param o 履歴情報 */
+    public void setRirekiInfo(final Object o) {
         if (o != null) {
-            this.rirekiMotoInfo = o.toString();
+            this.rirekiInfo = o.toString();
         } else {
-            this.rirekiMotoInfo = null;
+            this.rirekiInfo = null;
         }
     }
 
@@ -211,16 +211,16 @@ public class Tb3Rireki implements IEntity {
 
     /**
      * 履歴元照会
-     * @param param1 履歴元ID
+     * @param param1 履歴ID
      * @return 履歴元
      */
     public static Tb3Rireki get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_ID` = :rireki_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`RIREKI_MOTO_ID` \n";
-        sql += "    , a.`RIREKI_MOTO_INFO` \n";
+        sql += "      a.`RIREKI_ID` \n";
+        sql += "    , a.`RIREKI_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -230,7 +230,7 @@ public class Tb3Rireki implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("rireki_moto_id", param1);
+        map.put("rireki_id", param1);
         return Queries.get(sql, map, Tb3Rireki.class);
     }
 
@@ -242,13 +242,13 @@ public class Tb3Rireki implements IEntity {
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 履歴元IDの採番処理
+        // 履歴IDの採番処理
         numbering();
 
         // 履歴先の登録
         Tb3RirekiSaki tb3RirekiSaki = new Tb3RirekiSaki();
-        tb3RirekiSaki.setRirekiMotoId(this.rirekiMotoId);
-        tb3RirekiSaki.setRirekiMotoInfo(this.rirekiMotoInfo);
+        tb3RirekiSaki.setRirekiId(this.rirekiId);
+        tb3RirekiSaki.setRirekiInfo(this.rirekiInfo);
         tb3RirekiSaki.setInsertTs(this.insertTs);
         tb3RirekiSaki.setInsertUserId(this.insertUserId);
         tb3RirekiSaki.setUpdateTs(this.updateTs);
@@ -264,8 +264,8 @@ public class Tb3Rireki implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`RIREKI_MOTO_ID` -- :rireki_moto_id");
-        nameList.add("`RIREKI_MOTO_INFO` -- :rireki_moto_info");
+        nameList.add("`RIREKI_ID` -- :rireki_id");
+        nameList.add("`RIREKI_INFO` -- :rireki_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -276,8 +276,8 @@ public class Tb3Rireki implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":rireki_moto_id");
-        valueList.add(":rireki_moto_info");
+        valueList.add(":rireki_id");
+        valueList.add(":rireki_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -285,16 +285,16 @@ public class Tb3Rireki implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 履歴元IDの採番処理 */
+    /** 履歴IDの採番処理 */
     private void numbering() {
-        if (this.rirekiMotoId != null) {
+        if (this.rirekiId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`RIREKI_MOTO_ID`) IS NULL THEN 0 ELSE MAX(e.`RIREKI_MOTO_ID`) * 1 END + 1 AS `RIREKI_MOTO_ID` FROM TB3_RIREKI e";
+        String sql = "SELECT CASE WHEN MAX(e.`RIREKI_ID`) IS NULL THEN 0 ELSE MAX(e.`RIREKI_ID`) * 1 END + 1 AS `RIREKI_ID` FROM TB3_RIREKI e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("RIREKI_MOTO_ID");
-        this.setRirekiMotoId(o);
+        Object o = mapList.get(0).get("RIREKI_ID");
+        this.setRirekiId(o);
     }
 
     /**
@@ -307,8 +307,8 @@ public class Tb3Rireki implements IEntity {
 
         // 履歴先の登録
         Tb3RirekiSaki tb3RirekiSaki = new Tb3RirekiSaki();
-        tb3RirekiSaki.setRirekiMotoId(this.rirekiMotoId);
-        tb3RirekiSaki.setRirekiMotoInfo(this.rirekiMotoInfo);
+        tb3RirekiSaki.setRirekiId(this.rirekiId);
+        tb3RirekiSaki.setRirekiInfo(this.rirekiInfo);
         tb3RirekiSaki.setInsertTs(this.insertTs);
         tb3RirekiSaki.setInsertUserId(this.insertUserId);
         tb3RirekiSaki.setUpdateTs(this.updateTs);
@@ -324,8 +324,8 @@ public class Tb3Rireki implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
-        setList.add("`RIREKI_MOTO_INFO` = :rireki_moto_info");
+        setList.add("`RIREKI_ID` = :rireki_id");
+        setList.add("`RIREKI_INFO` = :rireki_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -345,7 +345,7 @@ public class Tb3Rireki implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`RIREKI_MOTO_ID` = :rireki_moto_id");
+        whereList.add("`RIREKI_ID` = :rireki_id");
         return String.join(" AND ", whereList);
     }
 
@@ -356,8 +356,8 @@ public class Tb3Rireki implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("rireki_moto_id", this.rirekiMotoId);
-        map.put("rireki_moto_info", this.rirekiMotoInfo);
+        map.put("rireki_id", this.rirekiId);
+        map.put("rireki_info", this.rirekiInfo);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

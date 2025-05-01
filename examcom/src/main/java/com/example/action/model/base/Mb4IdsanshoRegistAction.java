@@ -28,7 +28,7 @@ public class Mb4IdsanshoRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdsanshoId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdrefId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

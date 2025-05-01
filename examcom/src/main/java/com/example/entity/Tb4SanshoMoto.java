@@ -33,164 +33,164 @@ public class Tb4SanshoMoto implements IEntity {
     }
 
     /** 参照元ID */
-    private Integer sanshoMotoId;
+    private Integer refId;
 
     /** @return 参照元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("SANSHO_MOTO_ID")
-    public Integer getSanshoMotoId() {
-        return this.sanshoMotoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("REF_ID")
+    public Integer getRefId() {
+        return this.refId;
     }
 
     /** @param o 参照元ID */
-    public void setSanshoMotoId(final Object o) {
+    public void setRefId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.sanshoMotoId = Integer.valueOf(o.toString());
+            this.refId = Integer.valueOf(o.toString());
         } else {
-            this.sanshoMotoId = null;
+            this.refId = null;
         }
     }
 
     /** ID参照ID */
-    private Integer idsanshoId;
+    private Integer idrefId;
 
     /** @return ID参照ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("IDSANSHO_ID")
-    public Integer getIdsanshoId() {
-        return this.idsanshoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("IDREF_ID")
+    public Integer getIdrefId() {
+        return this.idrefId;
     }
 
     /** @param o ID参照ID */
-    public void setIdsanshoId(final Object o) {
+    public void setIdrefId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.idsanshoId = Integer.valueOf(o.toString());
+            this.idrefId = Integer.valueOf(o.toString());
         } else {
-            this.idsanshoId = null;
+            this.idrefId = null;
         }
     }
 
     /** ID参照名 */
-    private String idsanshoMei;
+    private String idrefMei;
 
     /** @return ID参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("IDSANSHO_MEI")
-    public String getIdsanshoMei() {
-        return this.idsanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("IDREF_MEI")
+    public String getIdrefMei() {
+        return this.idrefMei;
     }
 
     /** @param o ID参照名 */
-    public void setIdsanshoMei(final Object o) {
+    public void setIdrefMei(final Object o) {
         if (o != null) {
-            this.idsanshoMei = o.toString();
+            this.idrefMei = o.toString();
         } else {
-            this.idsanshoMei = null;
+            this.idrefMei = null;
         }
     }
 
     /** CD参照CD */
-    private String cdsanshoCd;
+    private String cdrefCd;
 
     /** @return CD参照CD */
-    @com.fasterxml.jackson.annotation.JsonProperty("CDSANSHO_CD")
-    public String getCdsanshoCd() {
-        return this.cdsanshoCd;
+    @com.fasterxml.jackson.annotation.JsonProperty("CDREF_CD")
+    public String getCdrefCd() {
+        return this.cdrefCd;
     }
 
     /** @param o CD参照CD */
-    public void setCdsanshoCd(final Object o) {
+    public void setCdrefCd(final Object o) {
         if (o != null) {
-            this.cdsanshoCd = o.toString();
+            this.cdrefCd = o.toString();
         } else {
-            this.cdsanshoCd = null;
+            this.cdrefCd = null;
         }
     }
 
     /** CD参照名 */
-    private String cdsanshoMei;
+    private String cdrefMei;
 
     /** @return CD参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("CDSANSHO_MEI")
-    public String getCdsanshoMei() {
-        return this.cdsanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("CDREF_MEI")
+    public String getCdrefMei() {
+        return this.cdrefMei;
     }
 
     /** @param o CD参照名 */
-    public void setCdsanshoMei(final Object o) {
+    public void setCdrefMei(final Object o) {
         if (o != null) {
-            this.cdsanshoMei = o.toString();
+            this.cdrefMei = o.toString();
         } else {
-            this.cdsanshoMei = null;
+            this.cdrefMei = null;
         }
     }
 
     /** NO参照NO */
-    private String nosanshoNo;
+    private String norefNo;
 
     /** @return NO参照NO */
-    @com.fasterxml.jackson.annotation.JsonProperty("NOSANSHO_NO")
-    public String getNosanshoNo() {
-        return this.nosanshoNo;
+    @com.fasterxml.jackson.annotation.JsonProperty("NOREF_NO")
+    public String getNorefNo() {
+        return this.norefNo;
     }
 
     /** @param o NO参照NO */
-    public void setNosanshoNo(final Object o) {
+    public void setNorefNo(final Object o) {
         if (o != null) {
-            this.nosanshoNo = o.toString();
+            this.norefNo = o.toString();
         } else {
-            this.nosanshoNo = null;
+            this.norefNo = null;
         }
     }
 
     /** NO参照名 */
-    private String nosanshoMei;
+    private String norefMei;
 
     /** @return NO参照名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NOSANSHO_MEI")
-    public String getNosanshoMei() {
-        return this.nosanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("NOREF_MEI")
+    public String getNorefMei() {
+        return this.norefMei;
     }
 
     /** @param o NO参照名 */
-    public void setNosanshoMei(final Object o) {
+    public void setNorefMei(final Object o) {
         if (o != null) {
-            this.nosanshoMei = o.toString();
+            this.norefMei = o.toString();
         } else {
-            this.nosanshoMei = null;
+            this.norefMei = null;
         }
     }
 
     /** 別ID参照ID */
-    private Integer betsuIdsanshoId;
+    private Integer betsuIdrefId;
 
     /** @return 別ID参照ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_IDSANSHO_ID")
-    public Integer getBetsuIdsanshoId() {
-        return this.betsuIdsanshoId;
+    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_IDREF_ID")
+    public Integer getBetsuIdrefId() {
+        return this.betsuIdrefId;
     }
 
     /** @param o 別ID参照ID */
-    public void setBetsuIdsanshoId(final Object o) {
+    public void setBetsuIdrefId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.betsuIdsanshoId = Integer.valueOf(o.toString());
+            this.betsuIdrefId = Integer.valueOf(o.toString());
         } else {
-            this.betsuIdsanshoId = null;
+            this.betsuIdrefId = null;
         }
     }
 
     /** 別ID参照ID参照 */
-    private String betsuIdsanshoMei;
+    private String betsuIdrefMei;
 
     /** @return 別ID参照ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_IDSANSHO_MEI")
-    public String getBetsuIdsanshoMei() {
-        return this.betsuIdsanshoMei;
+    @com.fasterxml.jackson.annotation.JsonProperty("BETSU_IDREF_MEI")
+    public String getBetsuIdrefMei() {
+        return this.betsuIdrefMei;
     }
 
     /** @param o 別ID参照ID参照 */
-    public void setBetsuIdsanshoMei(final Object o) {
+    public void setBetsuIdrefMei(final Object o) {
         if (o != null) {
-            this.betsuIdsanshoMei = o.toString();
+            this.betsuIdrefMei = o.toString();
         } else {
-            this.betsuIdsanshoMei = null;
+            this.betsuIdrefMei = null;
         }
     }
 
@@ -327,17 +327,17 @@ public class Tb4SanshoMoto implements IEntity {
      */
     public static Tb4SanshoMoto get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
+        whereList.add("`REF_ID` = :ref_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`SANSHO_MOTO_ID` \n";
-        sql += "    , a.`IDSANSHO_ID` \n";
-        sql += "    , a.`IDSANSHO_MEI` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`CDSANSHO_CD`) AS CDSANSHO_CD \n";
-        sql += "    , a.`CDSANSHO_MEI` \n";
-        sql += "    , TRIM(TRAILING ' ' FROM a.`NOSANSHO_NO`) AS NOSANSHO_NO \n";
-        sql += "    , a.`NOSANSHO_MEI` \n";
-        sql += "    , a.`BETSU_IDSANSHO_ID` \n";
+        sql += "      a.`REF_ID` \n";
+        sql += "    , a.`IDREF_ID` \n";
+        sql += "    , a.`IDREF_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`CDREF_CD`) AS CDREF_CD \n";
+        sql += "    , a.`CDREF_MEI` \n";
+        sql += "    , TRIM(TRAILING ' ' FROM a.`NOREF_NO`) AS NOREF_NO \n";
+        sql += "    , a.`NOREF_MEI` \n";
+        sql += "    , a.`BETSU_IDREF_ID` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -347,7 +347,7 @@ public class Tb4SanshoMoto implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_moto_id", param1);
+        map.put("ref_id", param1);
         return Queries.get(sql, map, Tb4SanshoMoto.class);
     }
 
@@ -370,14 +370,14 @@ public class Tb4SanshoMoto implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`SANSHO_MOTO_ID` -- :sansho_moto_id");
-        nameList.add("`IDSANSHO_ID` -- :idsansho_id");
-        nameList.add("`IDSANSHO_MEI` -- :idsansho_mei");
-        nameList.add("`CDSANSHO_CD` -- :cdsansho_cd");
-        nameList.add("`CDSANSHO_MEI` -- :cdsansho_mei");
-        nameList.add("`NOSANSHO_NO` -- :nosansho_no");
-        nameList.add("`NOSANSHO_MEI` -- :nosansho_mei");
-        nameList.add("`BETSU_IDSANSHO_ID` -- :betsu_idsansho_id");
+        nameList.add("`REF_ID` -- :ref_id");
+        nameList.add("`IDREF_ID` -- :idref_id");
+        nameList.add("`IDREF_MEI` -- :idref_mei");
+        nameList.add("`CDREF_CD` -- :cdref_cd");
+        nameList.add("`CDREF_MEI` -- :cdref_mei");
+        nameList.add("`NOREF_NO` -- :noref_no");
+        nameList.add("`NOREF_MEI` -- :noref_mei");
+        nameList.add("`BETSU_IDREF_ID` -- :betsu_idref_id");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -388,14 +388,14 @@ public class Tb4SanshoMoto implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":sansho_moto_id");
-        valueList.add(":idsansho_id");
-        valueList.add(":idsansho_mei");
-        valueList.add(":cdsansho_cd");
-        valueList.add(":cdsansho_mei");
-        valueList.add(":nosansho_no");
-        valueList.add(":nosansho_mei");
-        valueList.add(":betsu_idsansho_id");
+        valueList.add(":ref_id");
+        valueList.add(":idref_id");
+        valueList.add(":idref_mei");
+        valueList.add(":cdref_cd");
+        valueList.add(":cdref_mei");
+        valueList.add(":noref_no");
+        valueList.add(":noref_mei");
+        valueList.add(":betsu_idref_id");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -405,14 +405,14 @@ public class Tb4SanshoMoto implements IEntity {
 
     /** 参照元IDの採番処理 */
     private void numbering() {
-        if (this.sanshoMotoId != null) {
+        if (this.refId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`SANSHO_MOTO_ID`) IS NULL THEN 0 ELSE MAX(e.`SANSHO_MOTO_ID`) * 1 END + 1 AS `SANSHO_MOTO_ID` FROM TB4_SANSHO_MOTO e";
+        String sql = "SELECT CASE WHEN MAX(e.`REF_ID`) IS NULL THEN 0 ELSE MAX(e.`REF_ID`) * 1 END + 1 AS `REF_ID` FROM TB4_SANSHO_MOTO e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("SANSHO_MOTO_ID");
-        this.setSanshoMotoId(o);
+        Object o = mapList.get(0).get("REF_ID");
+        this.setRefId(o);
     }
 
     /**
@@ -431,14 +431,14 @@ public class Tb4SanshoMoto implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
-        setList.add("`IDSANSHO_ID` = :idsansho_id");
-        setList.add("`IDSANSHO_MEI` = :idsansho_mei");
-        setList.add("`CDSANSHO_CD` = :cdsansho_cd");
-        setList.add("`CDSANSHO_MEI` = :cdsansho_mei");
-        setList.add("`NOSANSHO_NO` = :nosansho_no");
-        setList.add("`NOSANSHO_MEI` = :nosansho_mei");
-        setList.add("`BETSU_IDSANSHO_ID` = :betsu_idsansho_id");
+        setList.add("`REF_ID` = :ref_id");
+        setList.add("`IDREF_ID` = :idref_id");
+        setList.add("`IDREF_MEI` = :idref_mei");
+        setList.add("`CDREF_CD` = :cdref_cd");
+        setList.add("`CDREF_MEI` = :cdref_mei");
+        setList.add("`NOREF_NO` = :noref_no");
+        setList.add("`NOREF_MEI` = :noref_mei");
+        setList.add("`BETSU_IDREF_ID` = :betsu_idref_id");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -458,7 +458,7 @@ public class Tb4SanshoMoto implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`SANSHO_MOTO_ID` = :sansho_moto_id");
+        whereList.add("`REF_ID` = :ref_id");
         return String.join(" AND ", whereList);
     }
 
@@ -469,14 +469,14 @@ public class Tb4SanshoMoto implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("sansho_moto_id", this.sanshoMotoId);
-        map.put("idsansho_id", this.idsanshoId);
-        map.put("idsansho_mei", this.idsanshoMei);
-        map.put("cdsansho_cd", this.cdsanshoCd);
-        map.put("cdsansho_mei", this.cdsanshoMei);
-        map.put("nosansho_no", this.nosanshoNo);
-        map.put("nosansho_mei", this.nosanshoMei);
-        map.put("betsu_idsansho_id", this.betsuIdsanshoId);
+        map.put("ref_id", this.refId);
+        map.put("idref_id", this.idrefId);
+        map.put("idref_mei", this.idrefMei);
+        map.put("cdref_cd", this.cdrefCd);
+        map.put("cdref_mei", this.cdrefMei);
+        map.put("noref_no", this.norefNo);
+        map.put("noref_mei", this.norefMei);
+        map.put("betsu_idref_id", this.betsuIdrefId);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

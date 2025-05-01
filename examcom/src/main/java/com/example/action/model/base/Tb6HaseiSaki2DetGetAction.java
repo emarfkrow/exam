@@ -25,25 +25,25 @@ public class Tb6HaseiSaki2DetGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object haseiSaki2Id = postJson.get("haseiSaki2Id");
-        if (haseiSaki2Id == null) {
-            haseiSaki2Id = postJson.get("Tb6HaseiSaki2Det.haseiSaki2Id");
+        Object haseiTo2Id = postJson.get("haseiTo2Id");
+        if (haseiTo2Id == null) {
+            haseiTo2Id = postJson.get("Tb6HaseiSaki2Det.haseiTo2Id");
         }
-        if (haseiSaki2Id == null) {
+        if (haseiTo2Id == null) {
             isAllKey = false;
         }
 
-        Object haseiSaki2Bn = postJson.get("haseiSaki2Bn");
-        if (haseiSaki2Bn == null) {
-            haseiSaki2Bn = postJson.get("Tb6HaseiSaki2Det.haseiSaki2Bn");
+        Object haseiTo2Bn = postJson.get("haseiTo2Bn");
+        if (haseiTo2Bn == null) {
+            haseiTo2Bn = postJson.get("Tb6HaseiSaki2Det.haseiTo2Bn");
         }
-        if (haseiSaki2Bn == null) {
+        if (haseiTo2Bn == null) {
             isAllKey = false;
         }
 
         // 親モデルの取得
-        com.example.entity.Tb6HaseiSaki2 tb6HaseiSaki2 = com.example.entity.Tb6HaseiSaki2.get(haseiSaki2Id);
-        map.put("Tb6HaseiSaki2", tb6HaseiSaki2);
+        com.example.entity.Tb6HaseiTo2 tb6HaseiTo2 = com.example.entity.Tb6HaseiTo2.get(haseiTo2Id);
+        map.put("Tb6HaseiTo2", tb6HaseiTo2);
 
         // 主キーが不足していたら終了
         if (!isAllKey) {
@@ -51,7 +51,7 @@ public class Tb6HaseiSaki2DetGetAction extends BaseAction {
         }
 
         try {
-            Tb6HaseiSaki2Det tb6HaseiSaki2Det = Tb6HaseiSaki2Det.get(haseiSaki2Id, haseiSaki2Bn);
+            Tb6HaseiSaki2Det tb6HaseiSaki2Det = Tb6HaseiSaki2Det.get(haseiTo2Id, haseiTo2Bn);
             map.put("Tb6HaseiSaki2Det", tb6HaseiSaki2Det);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

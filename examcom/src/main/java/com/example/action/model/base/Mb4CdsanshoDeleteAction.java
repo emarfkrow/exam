@@ -23,11 +23,11 @@ public class Mb4CdsanshoDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object cdsanshoCd = postJson.get("cdsanshoCd");
-        if (cdsanshoCd == null) {
-            cdsanshoCd = postJson.get("Mb4Cdsansho.cdsanshoCd");
+        Object cdrefCd = postJson.get("cdrefCd");
+        if (cdrefCd == null) {
+            cdrefCd = postJson.get("Mb4Cdsansho.cdrefCd");
         }
-        if (cdsanshoCd == null) {
+        if (cdrefCd == null) {
             throw new OptLockError("error.cant.delete");
         }
 

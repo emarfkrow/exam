@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb2SatogoS.title}">里子</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb2SatogoGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb2SatogoS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb2SatogoSearchForm" action="Tb2SatogoSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb2SatogoS.legend}">legend</legend>
+        <div id="satogoId">
+          <label for="Tb2Satogo.satogoId" th:text="#{Tb2Satogo.satogoId}">里子ID</label><input type="text" id="Tb2Satogo.satogoId" name="Tb2Satogo.satogoId" maxlength="10" />
+        </div>
+        <div id="satogoInfo">
+          <label for="Tb2Satogo.satogoInfo" th:text="#{Tb2Satogo.satogoInfo}">里子情報</label><input type="text" id="Tb2Satogo.satogoInfo" name="Tb2Satogo.satogoInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb2Satogo" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb2Satogo.html}" target="dialog" id="Tb2Satogo" class="anew" th:text="#{Tb2Satogo.add}" tabindex="-1">里子</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb2Satogo" type="submit" class="search" data-gridId="Tb2SatogoGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb2SatogoSRegistForm" action="Tb2SatogoSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb2Satogo.h3}">h3</h3>
+      <div id="Tb2SatogoGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb2Satogo.html}"></div>
+      <div id="Tb2SatogoPager"></div>
+      <div class="buttons">
+        <button type="button" class="reset" id="ResetTb2SatogoS" th:text="#{common.reset}" onClick="Base.listReset('Tb2Satogo');">reset</button>
+        <a th:href="@{Tb2SatogoSearch.xlsx(baseMei=#{Tb2SatogoS.h2})}" id="Tb2SatogoSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb2SatogoS" data-action="Tb2SatogoSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb2SatogoS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
