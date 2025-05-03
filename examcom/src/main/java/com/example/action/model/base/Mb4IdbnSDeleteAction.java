@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.Mb4Idsansho;
+import com.example.entity.Mb4Idbn;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * ID参照マスタ一覧削除
+ * IDBN参照マスタ一覧削除
  *
  * @author emarfkrow
  */
-public class Mb4IdsanshoSDeleteAction extends BaseAction {
+public class Mb4IdbnSDeleteAction extends BaseAction {
 
-    /** ID参照マスタ一覧削除処理 */
+    /** IDBN参照マスタ一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -28,7 +28,7 @@ public class Mb4IdsanshoSDeleteAction extends BaseAction {
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Mb4IdsanshoGrid");
+        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Mb4IdbnGrid");
         for (Map<String, Object> gridRow : gridData) {
 
             if (gridRow.isEmpty()) {
@@ -39,19 +39,11 @@ public class Mb4IdsanshoSDeleteAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDREF_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
-
-            Mb4Idsansho e = FormValidator.toBean(Mb4Idsansho.class.getName(), gridRow);
-
-            java.util.List<com.example.entity.Mb4Idbn> mb4Idbns = e.referMb4Idbns();
-            if (mb4Idbns != null) {
-                for (com.example.entity.Mb4Idbn mb4Idbn : mb4Idbns) {
-
-                    if (mb4Idbn.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
-                    }
-                }
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDBN_BN"))) {
+                throw new OptLockError("error.cant.delete");
             }
 
+            Mb4Idbn e = FormValidator.toBean(Mb4Idbn.class.getName(), gridRow);
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

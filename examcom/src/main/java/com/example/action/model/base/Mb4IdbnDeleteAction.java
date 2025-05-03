@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.entity.Mb4Idsansho;
+import com.example.entity.Mb4Idbn;
 
 import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.OptLockError;
@@ -12,37 +12,33 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * ID参照マスタ削除
+ * IDBN参照マスタ削除
  *
  * @author emarfkrow
  */
-public class Mb4IdsanshoDeleteAction extends BaseAction {
+public class Mb4IdbnDeleteAction extends BaseAction {
 
-    /** ID参照マスタ削除処理 */
+    /** IDBN参照マスタ削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
         Object idrefId = postJson.get("idrefId");
         if (idrefId == null) {
-            idrefId = postJson.get("Mb4Idsansho.idrefId");
+            idrefId = postJson.get("Mb4Idbn.idrefId");
         }
         if (idrefId == null) {
             throw new OptLockError("error.cant.delete");
         }
-
-        Mb4Idsansho e = FormValidator.toBean(Mb4Idsansho.class.getName(), postJson);
-
-        java.util.List<com.example.entity.Mb4Idbn> mb4Idbns = e.referMb4Idbns();
-        if (mb4Idbns != null) {
-            for (com.example.entity.Mb4Idbn mb4Idbn : mb4Idbns) {
-
-                if (mb4Idbn.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
-                }
-            }
+        Object idbnBn = postJson.get("idbnBn");
+        if (idbnBn == null) {
+            idbnBn = postJson.get("Mb4Idbn.idbnBn");
+        }
+        if (idbnBn == null) {
+            throw new OptLockError("error.cant.delete");
         }
 
+        Mb4Idbn e = FormValidator.toBean(Mb4Idbn.class.getName(), postJson);
         if (e.delete() != 1) {
             throw new OptLockError("error.cant.delete");
         }

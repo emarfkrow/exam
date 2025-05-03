@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb4IdbnGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -38,6 +39,10 @@
           <span id="Mb4Idsansho.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb4Idsansho.updateUserId" data-destDef="Mb4Idsansho.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
+      <h3 th:text="#{Mb4Idbn.h3}">h3</h3>
+      <a th:href="@{/model/Mb4Idbn.html}" id="Mb4Idbn" target="dialog" th:text="#{Mb4Idbn.add}" class="addChild" tabindex="-1">IDBN参照マスタ</a>
+      <div id="Mb4IdbnGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Mb4Idbn.html}"></div>
+        <a id="Mb4IdbnGrid.idrefId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <div class="buttons">
         <button type="button" id="RefreshMb4Idsansho" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Mb4IdsanshoGet.xlsx(baseMei=#{Mb4Idsansho.h2})}" id="Mb4IdsanshoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

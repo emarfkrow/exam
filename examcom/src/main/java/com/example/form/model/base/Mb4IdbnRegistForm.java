@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -10,14 +9,14 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * ID参照マスタ登録フォーム
+ * IDBN参照マスタ登録フォーム
  *
  * @author emarfkrow
  */
-public class Mb4IdsanshoRegistForm implements IForm {
+public class Mb4IdbnRegistForm implements IForm {
 
     /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Mb4IdsanshoRegistForm.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Mb4IdbnRegistForm.class);
 
     /** ID参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
@@ -37,41 +36,42 @@ public class Mb4IdsanshoRegistForm implements IForm {
         this.idrefId = p;
     }
 
-    /** ID参照名 */
+    /** IDBN連番 */
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String idbnBn;
+
+    /**
+     * @return IDBN連番
+     */
+    public String getIdbnBn() {
+        return idbnBn;
+    }
+
+    /**
+     * @param p IDBN連番
+     */
+    public void setIdbnBn(final String p) {
+        this.idbnBn = p;
+    }
+
+    /** IDBNNO */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 60)
-    private String idrefMei;
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
+    @jakarta.validation.constraints.Size(max = 10)
+    private String idbnNo;
 
     /**
-     * @return ID参照名
+     * @return IDBNNO
      */
-    public String getIdrefMei() {
-        return idrefMei;
+    public String getIdbnNo() {
+        return idbnNo;
     }
 
     /**
-     * @param p ID参照名
+     * @param p IDBNNO
      */
-    public void setIdrefMei(final String p) {
-        this.idrefMei = p;
-    }
-
-    /** IDBN参照マスタ */
-    @jakarta.validation.Valid
-    private List<Mb4IdbnRegistForm> mb4IdbnGrid;
-
-    /**
-     * @return IDBN参照マスタ
-     */
-    public List<Mb4IdbnRegistForm> getMb4IdbnGrid() {
-        return mb4IdbnGrid;
-    }
-
-    /**
-     * @param p
-     */
-    public void setMb4IdbnGrid(final List<Mb4IdbnRegistForm> p) {
-        this.mb4IdbnGrid = p;
+    public void setIdbnNo(final String p) {
+        this.idbnNo = p;
     }
 
     /** 関連チェック */

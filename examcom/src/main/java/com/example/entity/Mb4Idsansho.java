@@ -230,6 +230,16 @@ public class Mb4Idsansho implements IEntity {
         // ID参照IDの採番処理
         numbering();
 
+        // IDBN参照マスタの登録
+        if (this.mb4Idbns != null) {
+            for (Mb4Idbn mb4Idbn : this.mb4Idbns) {
+                if (mb4Idbn != null) {
+                    mb4Idbn.setIdrefId(this.getIdrefId());
+                }
+                mb4Idbn.insert(now, execId);
+            }
+        }
+
         // ID参照マスタの登録
         String sql = "INSERT INTO MB4_IDSANSHO(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -279,6 +289,21 @@ public class Mb4Idsansho implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
+        // IDBN参照マスタの登録
+        if (this.mb4Idbns != null) {
+            for (Mb4Idbn mb4Idbn : this.mb4Idbns) {
+                if (mb4Idbn == null) {
+                    continue;
+                }
+                mb4Idbn.setIdrefId(this.idrefId);
+                try {
+                    mb4Idbn.insert(now, execId);
+                } catch (Exception e) {
+                    mb4Idbn.update(now, execId);
+                }
+            }
+        }
+
         // ID参照マスタの登録
         String sql = "UPDATE MB4_IDSANSHO\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -299,6 +324,13 @@ public class Mb4Idsansho implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        // IDBN参照マスタの削除
+        if (this.mb4Idbns != null) {
+            for (Mb4Idbn mb4Idbn : this.mb4Idbns) {
+                mb4Idbn.delete();
+            }
+        }
 
         // ID参照マスタの削除
         String sql = "DELETE FROM MB4_IDSANSHO WHERE " + getWhere();
@@ -326,5 +358,58 @@ public class Mb4Idsansho implements IEntity {
         map.put("update_ts", now);
         map.put("update_user_id", execId);
         return map;
+    }
+
+    /** IDBN参照マスタのリスト */
+    private List<Mb4Idbn> mb4Idbns;
+
+    /** @return IDBN参照マスタのリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty("Mb4Idbns")
+    public List<Mb4Idbn> getMb4Idbns() {
+        return this.mb4Idbns;
+    }
+
+    /** @param list IDBN参照マスタのリスト */
+    public void setMb4Idbns(final List<Mb4Idbn> list) {
+        this.mb4Idbns = list;
+    }
+
+    /** @param mb4Idbn */
+    public void addMb4Idbns(final Mb4Idbn mb4Idbn) {
+        if (this.mb4Idbns == null) {
+            this.mb4Idbns = new ArrayList<Mb4Idbn>();
+        }
+        this.mb4Idbns.add(mb4Idbn);
+    }
+
+    /** @return IDBN参照マスタのリスト */
+    public List<Mb4Idbn> referMb4Idbns() {
+        this.mb4Idbns = Mb4Idsansho.referMb4Idbns(this.idrefId);
+        return this.mb4Idbns;
+    }
+
+    /**
+     * @param param1 idrefId
+     * @return List<Mb4Idbn>
+     */
+    public static List<Mb4Idbn> referMb4Idbns(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("IDREF_ID = :idref_id");
+        String sql = "SELECT ";
+        sql += "`IDREF_ID`";
+        sql += ", `IDBN_BN`";
+        sql += ", `IDBN_NO`";
+        sql += ", `INSERT_TS` AS INSERT_TS";
+        sql += ", `INSERT_USER_ID`";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", `UPDATE_TS` AS UPDATE_TS";
+        sql += ", `UPDATE_USER_ID`";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += " FROM MB4_IDBN a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "IDREF_ID, IDBN_BN";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("idref_id", param1);
+        return Queries.select(sql, map, Mb4Idbn.class, null, null);
     }
 }

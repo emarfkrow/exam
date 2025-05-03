@@ -8,6 +8,8 @@ SELECT
     , a.`NOREF_MEI`
     , a.`BETSU_IDREF_ID`
     , (SELECT r0.`IDREF_MEI` FROM MB4_IDSANSHO r0 WHERE r0.`IDREF_ID` = a.`BETSU_IDREF_ID`) AS `BETSU_IDREF_MEI`
+    , a.`IDBN_BN`
+    , TRIM(TRAILING ' ' FROM a.`IDBN_NO`) AS `IDBN_NO`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -26,6 +28,8 @@ WHERE
     AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_NO`)) LIKE UPPER (CONCAT ('%', :noref_no, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_MEI`)) LIKE UPPER (CONCAT ('%', :noref_mei, '%')) 
     AND a.`BETSU_IDREF_ID` = :betsu_idref_id 
+    AND a.`IDBN_BN` = :idbn_bn 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`IDBN_NO`)) LIKE UPPER (CONCAT ('%', :idbn_no, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

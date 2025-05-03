@@ -11,6 +11,7 @@
 <script th:src="@{/model/Tb4SanshoMotoGridColumns.js}"></script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb4IdbnGridColumns.js}"></script>
 <script th:src="@{/model/Mb4CdsanshoGridColumns.js}"></script>
 <script th:src="@{/model/Mb4NosanshoGridColumns.js}"></script>
 </head>
@@ -47,6 +48,12 @@
         <div id="betsuIdrefId">
           <label for="Tb4SanshoMoto.betsuIdrefId" th:text="#{Tb4SanshoMoto.betsuIdrefId}">別ID参照ID</label><input type="text" id="Tb4SanshoMoto.betsuIdrefId" name="Tb4SanshoMoto.betsuIdrefId" maxlength="10" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDREF_ID:Tb4SanshoMoto.betsuIdrefId" data-destDef="Tb4SanshoMoto.betsuIdrefMei:IDREF_MEI" /><a id="Tb4SanshoMoto.betsuIdrefId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto.betsuIdrefMei" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDREF_ID:Tb4SanshoMoto.betsuIdrefId" data-destDef="Tb4SanshoMoto.betsuIdrefMei:IDREF_MEI"></span>
         </div>
+        <div id="idbnBn">
+          <label for="Tb4SanshoMoto.idbnBn" th:text="#{Tb4SanshoMoto.idbnBn}">IDBN連番</label><input type="text" id="Tb4SanshoMoto.idbnBn" name="Tb4SanshoMoto.idbnBn" maxlength="10" /><a id="Tb4SanshoMoto.idbnBn" th:href="@{/model/Mb4IdbnS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto."></span>
+        </div>
+        <div id="idbnNo">
+          <label for="Tb4SanshoMoto.idbnNo" th:text="#{Tb4SanshoMoto.idbnNo}">IDBNNO</label><input type="text" id="Tb4SanshoMoto.idbnNo" name="Tb4SanshoMoto.idbnNo" maxlength="10" />
+        </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb4SanshoMoto" th:text="#{common.reset}" class="reset">reset</button>
@@ -68,6 +75,7 @@
         <a id="Tb4SanshoMotoGrid.cdrefCd" th:href="@{/model/Mb4CdsanshoS.html}" target="dialog" class="refer" th:text="'CD参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.norefNo" th:href="@{/model/Mb4NosanshoS.html}" target="dialog" class="refer" th:text="'NO参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <a id="Tb4SanshoMotoGrid.betsuIdrefId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class="refer" th:text="'ID参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb4SanshoMotoGrid.idbnBn" th:href="@{/model/Mb4IdbnS.html}" target="dialog" class="refer" th:text="'IDBN参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button type="submit" id="DeleteTb4SanshoMotoS" data-action="Tb4SanshoMotoSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

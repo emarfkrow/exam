@@ -164,6 +164,43 @@ public class Tb4SanshoMotoRegistForm implements IForm {
         this.betsuIdrefId = p;
     }
 
+    /** IDBN連番 */
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String idbnBn;
+
+    /**
+     * @return IDBN連番
+     */
+    public String getIdbnBn() {
+        return idbnBn;
+    }
+
+    /**
+     * @param p IDBN連番
+     */
+    public void setIdbnBn(final String p) {
+        this.idbnBn = p;
+    }
+
+    /** IDBNNO */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
+    @jakarta.validation.constraints.Size(max = 10)
+    private String idbnNo;
+
+    /**
+     * @return IDBNNO
+     */
+    public String getIdbnNo() {
+        return idbnNo;
+    }
+
+    /**
+     * @param p IDBNNO
+     */
+    public void setIdbnNo(final String p) {
+        this.idbnNo = p;
+    }
+
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {

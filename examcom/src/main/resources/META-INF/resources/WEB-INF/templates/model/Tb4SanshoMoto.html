@@ -11,6 +11,7 @@
 <script th:src="@{/model/Tb4SanshoMotoGridColumns.js}"></script>
 <script th:src="@{/model/Mb4IdsanshoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Mb4IdbnGridColumns.js}"></script>
 <script th:src="@{/model/Mb4CdsanshoGridColumns.js}"></script>
 <script th:src="@{/model/Mb4NosanshoGridColumns.js}"></script>
 </head>
@@ -43,6 +44,12 @@
         </div>
         <div id="betsuIdrefId">
           <label for="Tb4SanshoMoto.betsuIdrefId" th:text="#{Tb4SanshoMoto.betsuIdrefId}">別ID参照ID</label><input type="text" id="Tb4SanshoMoto.betsuIdrefId" name="Tb4SanshoMoto.betsuIdrefId" maxlength="10" class=" refer" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDREF_ID:Tb4SanshoMoto.betsuIdrefId" data-destDef="Tb4SanshoMoto.betsuIdrefMei:IDREF_MEI" /><a id="Tb4SanshoMoto.betsuIdrefId" th:href="@{/model/Mb4IdsanshoS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto.betsuIdrefMei" class=" refer" data-json="Mb4IdsanshoSearch.json" data-srcDef="IDREF_ID:Tb4SanshoMoto.betsuIdrefId" data-destDef="Tb4SanshoMoto.betsuIdrefMei:IDREF_MEI"></span>
+        </div>
+        <div id="idbnBn">
+          <label for="Tb4SanshoMoto.idbnBn" th:text="#{Tb4SanshoMoto.idbnBn}">IDBN連番</label><input type="text" id="Tb4SanshoMoto.idbnBn" name="Tb4SanshoMoto.idbnBn" maxlength="10" class=" refer" /><a id="Tb4SanshoMoto.idbnBn" th:href="@{/model/Mb4IdbnS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb4SanshoMoto." class=" refer"></span>
+        </div>
+        <div id="idbnNo">
+          <label for="Tb4SanshoMoto.idbnNo" th:text="#{Tb4SanshoMoto.idbnNo}">IDBNNO</label><input type="text" id="Tb4SanshoMoto.idbnNo" name="Tb4SanshoMoto.idbnNo" maxlength="10" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb4SanshoMoto.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb4SanshoMoto.insertTs"></span><input type="hidden" id="Tb4SanshoMoto.insertTs" name="Tb4SanshoMoto.insertTs" />
