@@ -58,7 +58,7 @@ public class LoginAction extends LoginActionBase {
             Map<String, String> authzInfo = new HashMap<String, String>();
 
             //現在有効な全ての所属情報を取得
-            String mShozokuSql = this.loadSqlFile("MhrShozokuSearch");
+            String mShozokuSql = this.loadSqlFile("MhrUserPosSearch");
             Map<String, Object> mShozokuParam = new HashMap<String, Object>();
             mShozokuParam.put("userId", userId);
             mShozokuParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
@@ -70,7 +70,7 @@ public class LoginAction extends LoginActionBase {
                 for (MhrShozoku mShozoku : mShozokus) {
 
                     //全ての認可情報を取得
-                    String mNinkaSql = this.loadSqlFile("MhrNinkaSearch");
+                    String mNinkaSql = this.loadSqlFile("MhrShokuiNinkaSearch");
                     Map<String, Object> mNinkaParam = new HashMap<String, Object>();
                     mNinkaParam.put("bushoId", mShozoku.getBushoId());
                     mNinkaParam.put("shokuiId", mShozoku.getShokuiId());
