@@ -73,22 +73,22 @@ public class Tb1OyaRegistForm implements IForm {
         this.tb1KoGrid = p;
     }
 
-    /** 子２ */
+    /** 子なし */
     @jakarta.validation.Valid
-    private List<Tb1Ko2RegistForm> tb1Ko2Grid;
+    private List<Tb1KoDinksRegistForm> tb1KoDinksGrid;
 
     /**
-     * @return 子２
+     * @return 子なし
      */
-    public List<Tb1Ko2RegistForm> getTb1Ko2Grid() {
-        return tb1Ko2Grid;
+    public List<Tb1KoDinksRegistForm> getTb1KoDinksGrid() {
+        return tb1KoDinksGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb1Ko2Grid(final List<Tb1Ko2RegistForm> p) {
-        this.tb1Ko2Grid = p;
+    public void setTb1KoDinksGrid(final List<Tb1KoDinksRegistForm> p) {
+        this.tb1KoDinksGrid = p;
     }
 
     /** 関連チェック */

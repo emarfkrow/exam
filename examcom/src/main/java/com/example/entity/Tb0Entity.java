@@ -19,6 +19,7 @@ public class Tb0Entity implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Tb0Entity implements IEntity {
     private Integer entityId;
 
     /** @return エンティティID */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "ENTITY_ID", index = 2)
     public Integer getEntityId() {
         return this.entityId;
     }
@@ -54,7 +55,7 @@ public class Tb0Entity implements IEntity {
     private String entityNm;
 
     /** @return エンティティ名称 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_NM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "ENTITY_NM", index = 3)
     public String getEntityNm() {
         return this.entityNm;
     }
@@ -72,7 +73,7 @@ public class Tb0Entity implements IEntity {
     private String entityMei;
 
     /** @return エンティティ名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ENTITY_MEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "ENTITY_MEI", index = 4)
     public String getEntityMei() {
         return this.entityMei;
     }
@@ -90,7 +91,7 @@ public class Tb0Entity implements IEntity {
     private String checkF = "0";
 
     /** @return チェックフラグ */
-    @com.fasterxml.jackson.annotation.JsonProperty("CHECK_F")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "CHECK_F", index = 5)
     public String getCheckF() {
         return this.checkF;
     }
@@ -108,7 +109,7 @@ public class Tb0Entity implements IEntity {
     private String radioKb;
 
     /** @return ラジオ区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("RADIO_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "RADIO_KB", index = 6)
     public String getRadioKb() {
         return this.radioKb;
     }
@@ -126,7 +127,7 @@ public class Tb0Entity implements IEntity {
     private String pulldownKb;
 
     /** @return プルダウン区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("PULLDOWN_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "PULLDOWN_KB", index = 7)
     public String getPulldownKb() {
         return this.pulldownKb;
     }
@@ -144,7 +145,7 @@ public class Tb0Entity implements IEntity {
     private String pulldownSb;
 
     /** @return プルダウン種別 */
-    @com.fasterxml.jackson.annotation.JsonProperty("PULLDOWN_SB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "PULLDOWN_SB", index = 8)
     public String getPulldownSb() {
         return this.pulldownSb;
     }
@@ -162,7 +163,7 @@ public class Tb0Entity implements IEntity {
     private String memoTx;
 
     /** @return メモ */
-    @com.fasterxml.jackson.annotation.JsonProperty("MEMO_TX")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "MEMO_TX", index = 9)
     public String getMemoTx() {
         return this.memoTx;
     }
@@ -180,7 +181,7 @@ public class Tb0Entity implements IEntity {
     private String memo;
 
     /** @return １行メモ */
-    @com.fasterxml.jackson.annotation.JsonProperty("MEMO")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "MEMO", index = 10)
     public String getMemo() {
         return this.memo;
     }
@@ -198,7 +199,7 @@ public class Tb0Entity implements IEntity {
     private String tenpuFile;
 
     /** @return 添付ファイル */
-    @com.fasterxml.jackson.annotation.JsonProperty("TENPU_FILE")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TENPU_FILE", index = 11)
     public String getTenpuFile() {
         return this.tenpuFile;
     }
@@ -216,7 +217,7 @@ public class Tb0Entity implements IEntity {
     private String nenY;
 
     /** @return 年 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NEN_Y")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "NEN_Y", index = 12)
     public String getNenY() {
         return this.nenY;
     }
@@ -234,7 +235,7 @@ public class Tb0Entity implements IEntity {
     private String tsukiM;
 
     /** @return 月 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TSUKI_M")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TSUKI_M", index = 13)
     public String getTsukiM() {
         return this.tsukiM;
     }
@@ -252,7 +253,7 @@ public class Tb0Entity implements IEntity {
     private String hiD;
 
     /** @return 日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("HI_D")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "HI_D", index = 14)
     public String getHiD() {
         return this.hiD;
     }
@@ -270,7 +271,7 @@ public class Tb0Entity implements IEntity {
     private String nengetsuYm;
 
     /** @return 年月 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NENGETSU_YM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "NENGETSU_YM", index = 15)
     public String getNengetsuYm() {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(this.nengetsuYm)) {
             return this.nengetsuYm.substring(0, 4) + "-" + this.nengetsuYm.substring(4);
@@ -291,7 +292,7 @@ public class Tb0Entity implements IEntity {
     private String nengappiYmd;
 
     /** @return 年月日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NENGAPPI_YMD")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "NENGAPPI_YMD", index = 16)
     public String getNengappiYmd() {
         return this.nengappiYmd;
     }
@@ -312,7 +313,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalDateTime timestampTs;
 
     /** @return タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("TIMESTAMP_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TIMESTAMP_TS", index = 17)
     public java.time.LocalDateTime getTimestampTs() {
         return this.timestampTs;
     }
@@ -339,7 +340,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalDateTime nichijiDt;
 
     /** @return 日時 */
-    @com.fasterxml.jackson.annotation.JsonProperty("NICHIJI_DT")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "NICHIJI_DT", index = 18)
     public java.time.LocalDateTime getNichijiDt() {
         return this.nichijiDt;
     }
@@ -366,7 +367,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalDate hidukeBi;
 
     /** @return 日付 */
-    @com.fasterxml.jackson.annotation.JsonProperty("HIDUKE_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "HIDUKE_BI", index = 19)
     public java.time.LocalDate getHidukeBi() {
         return this.hidukeBi;
     }
@@ -387,7 +388,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalTime jikokuHm;
 
     /** @return 時刻 */
-    @com.fasterxml.jackson.annotation.JsonProperty("JIKOKU_HM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "JIKOKU_HM", index = 20)
     public java.time.LocalTime getJikokuHm() {
         return this.jikokuHm;
     }
@@ -405,7 +406,7 @@ public class Tb0Entity implements IEntity {
     private String jikanTm;
 
     /** @return 時間 */
-    @com.fasterxml.jackson.annotation.JsonProperty("JIKAN_TM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "JIKAN_TM", index = 21)
     public String getJikanTm() {
         return this.jikanTm;
     }
@@ -423,7 +424,7 @@ public class Tb0Entity implements IEntity {
     private java.math.BigDecimal suryoQt;
 
     /** @return 数量 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SURYO_QT")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SURYO_QT", index = 22)
     public java.math.BigDecimal getSuryoQt() {
         return this.suryoQt;
     }
@@ -441,7 +442,7 @@ public class Tb0Entity implements IEntity {
     private java.math.BigDecimal tankaPr;
 
     /** @return 単価 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TANKA_PR")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TANKA_PR", index = 23)
     public java.math.BigDecimal getTankaPr() {
         return this.tankaPr;
     }
@@ -459,7 +460,7 @@ public class Tb0Entity implements IEntity {
     private String tsukaKb;
 
     /** @return 通貨区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TSUKA_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TSUKA_KB", index = 24)
     public String getTsukaKb() {
         return this.tsukaKb;
     }
@@ -477,7 +478,7 @@ public class Tb0Entity implements IEntity {
     private java.math.BigDecimal zeinukiAm;
 
     /** @return 税抜金額 */
-    @com.fasterxml.jackson.annotation.JsonProperty("ZEINUKI_AM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "ZEINUKI_AM", index = 25)
     public java.math.BigDecimal getZeinukiAm() {
         return this.zeinukiAm;
     }
@@ -495,7 +496,7 @@ public class Tb0Entity implements IEntity {
     private String deleteF = "0";
 
     /** @return 削除フラグ */
-    @com.fasterxml.jackson.annotation.JsonProperty("DELETE_F")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "DELETE_F", index = 26)
     public String getDeleteF() {
         return this.deleteF;
     }
@@ -513,7 +514,7 @@ public class Tb0Entity implements IEntity {
     private String statusKb;
 
     /** @return ステータス区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("STATUS_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "STATUS_KB", index = 27)
     public String getStatusKb() {
         return this.statusKb;
     }
@@ -534,7 +535,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 28)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -558,7 +559,7 @@ public class Tb0Entity implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 29)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -576,7 +577,7 @@ public class Tb0Entity implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 30)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -597,7 +598,7 @@ public class Tb0Entity implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 31)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -621,7 +622,7 @@ public class Tb0Entity implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 32)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -639,7 +640,7 @@ public class Tb0Entity implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 33)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

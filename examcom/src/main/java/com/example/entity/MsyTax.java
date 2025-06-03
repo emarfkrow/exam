@@ -19,6 +19,7 @@ public class MsyTax implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class MsyTax implements IEntity {
     private String taxKb;
 
     /** @return 税区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TAX_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TAX_KB", index = 2)
     public String getTaxKb() {
         return this.taxKb;
     }
@@ -57,7 +58,7 @@ public class MsyTax implements IEntity {
     private java.time.LocalDate tekiyoBi;
 
     /** @return 適用日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEKIYO_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TEKIYO_BI", index = 3)
     public java.time.LocalDate getTekiyoBi() {
         return this.tekiyoBi;
     }
@@ -78,7 +79,7 @@ public class MsyTax implements IEntity {
     private java.time.LocalDate shuryoBi;
 
     /** @return 終了日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SHURYO_BI", index = 4)
     public java.time.LocalDate getShuryoBi() {
         return this.shuryoBi;
     }
@@ -96,7 +97,7 @@ public class MsyTax implements IEntity {
     private java.math.BigDecimal taxRt;
 
     /** @return 税率 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TAX_RT")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TAX_RT", index = 5)
     public java.math.BigDecimal getTaxRt() {
         return this.taxRt;
     }
@@ -117,7 +118,7 @@ public class MsyTax implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 6)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -141,7 +142,7 @@ public class MsyTax implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 7)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -159,7 +160,7 @@ public class MsyTax implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 8)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -180,7 +181,7 @@ public class MsyTax implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 9)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -204,7 +205,7 @@ public class MsyTax implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 10)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -222,7 +223,7 @@ public class MsyTax implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 11)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

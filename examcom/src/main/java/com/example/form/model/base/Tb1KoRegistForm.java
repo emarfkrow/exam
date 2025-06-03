@@ -73,40 +73,40 @@ public class Tb1KoRegistForm implements IForm {
         this.koInfo = p;
     }
 
-    /** 子２ */
+    /** 子なし */
     @jakarta.validation.Valid
-    private Tb1Ko2RegistForm tb1Ko2RegistForm;
+    private Tb1KoDinksRegistForm tb1KoDinksRegistForm;
 
     /**
-     * @return Tb1Ko2RegistForm
+     * @return Tb1KoDinksRegistForm
      */
-    public Tb1Ko2RegistForm getTb1Ko2RegistForm() {
-        return tb1Ko2RegistForm;
+    public Tb1KoDinksRegistForm getTb1KoDinksRegistForm() {
+        return tb1KoDinksRegistForm;
     }
 
     /**
      * @param p
      */
-    public void setTb1Ko2RegistForm(final Tb1Ko2RegistForm p) {
-        this.tb1Ko2RegistForm = p;
+    public void setTb1KoDinksRegistForm(final Tb1KoDinksRegistForm p) {
+        this.tb1KoDinksRegistForm = p;
     }
 
-    /** 子３ */
+    /** 孤児 */
     @jakarta.validation.Valid
-    private Tb1Ko3RegistForm tb1Ko3RegistForm;
+    private Tb1KoOrphansRegistForm tb1KoOrphansRegistForm;
 
     /**
-     * @return Tb1Ko3RegistForm
+     * @return Tb1KoOrphansRegistForm
      */
-    public Tb1Ko3RegistForm getTb1Ko3RegistForm() {
-        return tb1Ko3RegistForm;
+    public Tb1KoOrphansRegistForm getTb1KoOrphansRegistForm() {
+        return tb1KoOrphansRegistForm;
     }
 
     /**
      * @param p
      */
-    public void setTb1Ko3RegistForm(final Tb1Ko3RegistForm p) {
-        this.tb1Ko3RegistForm = p;
+    public void setTb1KoOrphansRegistForm(final Tb1KoOrphansRegistForm p) {
+        this.tb1KoOrphansRegistForm = p;
     }
 
     /** 孫 */

@@ -19,6 +19,7 @@ public class Tb0Nokey implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Tb0Nokey implements IEntity {
     private String colA;
 
     /** @return 列Ａ */
-    @com.fasterxml.jackson.annotation.JsonProperty("COL_A")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "COL_A", index = 2)
     public String getColA() {
         return this.colA;
     }
@@ -54,7 +55,7 @@ public class Tb0Nokey implements IEntity {
     private String colB;
 
     /** @return 列Ｂ */
-    @com.fasterxml.jackson.annotation.JsonProperty("COL_B")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "COL_B", index = 3)
     public String getColB() {
         return this.colB;
     }
@@ -72,7 +73,7 @@ public class Tb0Nokey implements IEntity {
     private String colC;
 
     /** @return 列Ｃ */
-    @com.fasterxml.jackson.annotation.JsonProperty("COL_C")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "COL_C", index = 4)
     public String getColC() {
         return this.colC;
     }
@@ -90,7 +91,7 @@ public class Tb0Nokey implements IEntity {
     private String colD;
 
     /** @return 列Ｄ */
-    @com.fasterxml.jackson.annotation.JsonProperty("COL_D")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "COL_D", index = 5)
     public String getColD() {
         return this.colD;
     }
@@ -108,7 +109,7 @@ public class Tb0Nokey implements IEntity {
     private String colE;
 
     /** @return 列Ｅ */
-    @com.fasterxml.jackson.annotation.JsonProperty("COL_E")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "COL_E", index = 6)
     public String getColE() {
         return this.colE;
     }
@@ -129,7 +130,7 @@ public class Tb0Nokey implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 7)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -153,7 +154,7 @@ public class Tb0Nokey implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 8)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -171,7 +172,7 @@ public class Tb0Nokey implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 9)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -192,7 +193,7 @@ public class Tb0Nokey implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 10)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -216,7 +217,7 @@ public class Tb0Nokey implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 11)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -234,7 +235,7 @@ public class Tb0Nokey implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 12)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

@@ -29,7 +29,7 @@
           <label for="MsyTax.shuryoBi" th:text="#{MsyTax.shuryoBi}">終了日</label><input type="text" id="MsyTax.shuryoBi" name="MsyTax.shuryoBi" maxlength="10" class=" datepicker" />
         </div>
         <div id="taxRt">
-          <label for="MsyTax.taxRt" th:text="#{MsyTax.taxRt}">税率</label><input type="text" id="MsyTax.taxRt" name="MsyTax.taxRt" maxlength="5" />
+          <label for="MsyTax.taxRt" th:text="#{MsyTax.taxRt}">税率</label><input type="text" id="MsyTax.taxRt" name="MsyTax.taxRt" maxlength="5" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{MsyTax.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyTax.insertTs"></span><input type="hidden" id="MsyTax.insertTs" name="MsyTax.insertTs" />

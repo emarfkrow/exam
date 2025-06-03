@@ -52,8 +52,8 @@ public class Tb1KoGetAction extends BaseAction {
 
         try {
             Tb1Ko tb1Ko = Tb1Ko.get(oyaId, koBn);
-            tb1Ko.referTb1Ko2();
-            tb1Ko.referTb1Ko3();
+            tb1Ko.referTb1KoDinks();
+            tb1Ko.referTb1KoOrphans();
             tb1Ko.referTb1Magos();
             map.put("Tb1Ko", tb1Ko);
         } catch (NoDataError e) {

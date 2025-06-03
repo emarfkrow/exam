@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.entity.MhrNinka;
-import com.example.entity.MhrShozoku;
+import com.example.entity.MhrShokuiNinka;
 import com.example.entity.MhrUser;
+import com.example.entity.MhrUserPos;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jp.co.golorp.emarf.action.base.LoginActionBase;
@@ -63,11 +63,11 @@ public class LoginAction extends LoginActionBase {
             mShozokuParam.put("userId", userId);
             mShozokuParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
             mShozokuParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
-            List<MhrShozoku> mShozokus = Queries.select(mShozokuSql, mShozokuParam, MhrShozoku.class, null, null);
+            List<MhrUserPos> mShozokus = Queries.select(mShozokuSql, mShozokuParam, MhrUserPos.class, null, null);
 
             //所属情報でループ
             if (mShozokus != null) {
-                for (MhrShozoku mShozoku : mShozokus) {
+                for (MhrUserPos mShozoku : mShozokus) {
 
                     //全ての認可情報を取得
                     String mNinkaSql = this.loadSqlFile("MhrShokuiNinkaSearch");
@@ -76,11 +76,11 @@ public class LoginAction extends LoginActionBase {
                     mNinkaParam.put("shokuiId", mShozoku.getShokuiId());
                     mNinkaParam.put("kaishiYmd2", DateTimeUtil.format("yyyy-MM-dd"));
                     mNinkaParam.put("shuryoYmd1", DateTimeUtil.format("yyyy-MM-dd"));
-                    List<MhrNinka> mNinkas = Queries.select(mNinkaSql, mNinkaParam, MhrNinka.class, null, null);
+                    List<MhrShokuiNinka> mNinkas = Queries.select(mNinkaSql, mNinkaParam, MhrShokuiNinka.class, null, null);
 
                     //認可情報でループ
                     if (mNinkas != null) {
-                        for (MhrNinka mNinka : mNinkas) {
+                        for (MhrShokuiNinka mNinka : mNinkas) {
 
                             //機能ごとに、最大の権限を取得
                             if (!authzInfo.containsKey(mNinka.getKinoNm())) {

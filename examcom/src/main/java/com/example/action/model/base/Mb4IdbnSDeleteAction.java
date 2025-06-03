@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * IDBN参照マスタ一覧削除
+ * ID-BNマスタ一覧削除
  *
  * @author emarfkrow
  */
 public class Mb4IdbnSDeleteAction extends BaseAction {
 
-    /** IDBN参照マスタ一覧削除処理 */
+    /** ID-BNマスタ一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -36,10 +36,10 @@ public class Mb4IdbnSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDREF_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("REF_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("IDBN_BN"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("REF_BN"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

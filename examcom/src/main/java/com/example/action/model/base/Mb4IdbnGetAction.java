@@ -10,13 +10,13 @@ import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
- * IDBN参照マスタ照会
+ * ID-BNマスタ照会
  *
  * @author emarfkrow
  */
 public class Mb4IdbnGetAction extends BaseAction {
 
-    /** IDBN参照マスタ照会処理 */
+    /** ID-BNマスタ照会処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -25,25 +25,21 @@ public class Mb4IdbnGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object idrefId = postJson.get("idrefId");
-        if (idrefId == null) {
-            idrefId = postJson.get("Mb4Idbn.idrefId");
+        Object refId = postJson.get("refId");
+        if (refId == null) {
+            refId = postJson.get("Mb4Idbn.refId");
         }
-        if (idrefId == null) {
+        if (refId == null) {
             isAllKey = false;
         }
 
-        Object idbnBn = postJson.get("idbnBn");
-        if (idbnBn == null) {
-            idbnBn = postJson.get("Mb4Idbn.idbnBn");
+        Object refBn = postJson.get("refBn");
+        if (refBn == null) {
+            refBn = postJson.get("Mb4Idbn.refBn");
         }
-        if (idbnBn == null) {
+        if (refBn == null) {
             isAllKey = false;
         }
-
-        // 親モデルの取得
-        com.example.entity.Mb4Idsansho mb4Idsansho = com.example.entity.Mb4Idsansho.get(idrefId);
-        map.put("Mb4Idsansho", mb4Idsansho);
 
         // 主キーが不足していたら終了
         if (!isAllKey) {
@@ -51,7 +47,7 @@ public class Mb4IdbnGetAction extends BaseAction {
         }
 
         try {
-            Mb4Idbn mb4Idbn = Mb4Idbn.get(idrefId, idbnBn);
+            Mb4Idbn mb4Idbn = Mb4Idbn.get(refId, refBn);
             map.put("Mb4Idbn", mb4Idbn);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

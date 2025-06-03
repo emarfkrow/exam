@@ -56,22 +56,42 @@ public class MsyTsukaRegistForm implements IForm {
         this.tekiyoBi = p;
     }
 
-    /** 通貨レート */
+    /** 販売レート */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,3}\\.?[0-9]{0,2}?)?")
-    private String tsukaRt;
+    private String tts;
 
     /**
-     * @return 通貨レート
+     * @return 販売レート
      */
-    public String getTsukaRt() {
-        return tsukaRt;
+    public String getTts() {
+        return tts;
     }
 
     /**
-     * @param p 通貨レート
+     * @param p 販売レート
      */
-    public void setTsukaRt(final String p) {
-        this.tsukaRt = p;
+    public void setTts(final String p) {
+        this.tts = p;
+    }
+
+    /** 買取レート */
+    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,3}\\.?[0-9]{0,2}?)?")
+    private String ttb;
+
+    /**
+     * @return 買取レート
+     */
+    public String getTtb() {
+        return ttb;
+    }
+
+    /**
+     * @param p 買取レート
+     */
+    public void setTtb(final String p) {
+        this.ttb = p;
     }
 
     /** 関連チェック */

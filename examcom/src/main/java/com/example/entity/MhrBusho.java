@@ -19,6 +19,7 @@ public class MhrBusho implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class MhrBusho implements IEntity {
     private Integer bushoId;
 
     /** @return 部署ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "BUSHO_ID", index = 2)
     public Integer getBushoId() {
         return this.bushoId;
     }
@@ -54,7 +55,7 @@ public class MhrBusho implements IEntity {
     private String bushoMei;
 
     /** @return 部署名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("BUSHO_MEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "BUSHO_MEI", index = 3)
     public String getBushoMei() {
         return this.bushoMei;
     }
@@ -72,7 +73,7 @@ public class MhrBusho implements IEntity {
     private Integer oyaBushoId;
 
     /** @return 親部署ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BUSHO_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_BUSHO_ID", index = 4)
     public Integer getOyaBushoId() {
         return this.oyaBushoId;
     }
@@ -90,7 +91,7 @@ public class MhrBusho implements IEntity {
     private String oyaBushoMei;
 
     /** @return 親部署ID参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_BUSHO_MEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_BUSHO_MEI", index = 5)
     public String getOyaBushoMei() {
         return this.oyaBushoMei;
     }
@@ -111,7 +112,7 @@ public class MhrBusho implements IEntity {
     private java.time.LocalDate tekiyoBi;
 
     /** @return 適用日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEKIYO_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TEKIYO_BI", index = 6)
     public java.time.LocalDate getTekiyoBi() {
         return this.tekiyoBi;
     }
@@ -132,7 +133,7 @@ public class MhrBusho implements IEntity {
     private java.time.LocalDate shuryoBi;
 
     /** @return 終了日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("SHURYO_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SHURYO_BI", index = 7)
     public java.time.LocalDate getShuryoBi() {
         return this.shuryoBi;
     }
@@ -153,7 +154,7 @@ public class MhrBusho implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 8)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -177,7 +178,7 @@ public class MhrBusho implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 9)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -195,7 +196,7 @@ public class MhrBusho implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 10)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -216,7 +217,7 @@ public class MhrBusho implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 11)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -240,7 +241,7 @@ public class MhrBusho implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 12)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -258,7 +259,7 @@ public class MhrBusho implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 13)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

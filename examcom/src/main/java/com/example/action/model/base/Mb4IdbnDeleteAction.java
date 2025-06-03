@@ -12,29 +12,29 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * IDBN参照マスタ削除
+ * ID-BNマスタ削除
  *
  * @author emarfkrow
  */
 public class Mb4IdbnDeleteAction extends BaseAction {
 
-    /** IDBN参照マスタ削除処理 */
+    /** ID-BNマスタ削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object idrefId = postJson.get("idrefId");
-        if (idrefId == null) {
-            idrefId = postJson.get("Mb4Idbn.idrefId");
+        Object refId = postJson.get("refId");
+        if (refId == null) {
+            refId = postJson.get("Mb4Idbn.refId");
         }
-        if (idrefId == null) {
+        if (refId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object idbnBn = postJson.get("idbnBn");
-        if (idbnBn == null) {
-            idbnBn = postJson.get("Mb4Idbn.idbnBn");
+        Object refBn = postJson.get("refBn");
+        if (refBn == null) {
+            refBn = postJson.get("Mb4Idbn.refBn");
         }
-        if (idbnBn == null) {
+        if (refBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

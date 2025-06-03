@@ -19,6 +19,7 @@ public class Vb9Henkan implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Vb9Henkan implements IEntity {
     private String tableName;
 
     /** @return table_name */
-    @com.fasterxml.jackson.annotation.JsonProperty("table_name")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "table_name", index = 2)
     public String getTableName() {
         return this.tableName;
     }
@@ -51,56 +52,38 @@ public class Vb9Henkan implements IEntity {
     }
 
     /** 変換元ID */
-    private Integer henkanMotoId;
+    private Integer srcId;
 
     /** @return 変換元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("henkan_moto_id")
-    public Integer getHenkanMotoId() {
-        return this.henkanMotoId;
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "src_id", index = 3)
+    public Integer getSrcId() {
+        return this.srcId;
     }
 
     /** @param o 変換元ID */
-    public void setHenkanMotoId(final Object o) {
+    public void setSrcId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.henkanMotoId = Integer.valueOf(o.toString());
+            this.srcId = Integer.valueOf(o.toString());
         } else {
-            this.henkanMotoId = null;
+            this.srcId = null;
         }
     }
 
     /** 変換元情報 */
-    private String henkanMotoInfo;
+    private String destInfo;
 
     /** @return 変換元情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("henkan_moto_info")
-    public String getHenkanMotoInfo() {
-        return this.henkanMotoInfo;
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "dest_info", index = 4)
+    public String getDestInfo() {
+        return this.destInfo;
     }
 
     /** @param o 変換元情報 */
-    public void setHenkanMotoInfo(final Object o) {
+    public void setDestInfo(final Object o) {
         if (o != null) {
-            this.henkanMotoInfo = o.toString();
+            this.destInfo = o.toString();
         } else {
-            this.henkanMotoInfo = null;
-        }
-    }
-
-    /** 引継ぐ情報 */
-    private String hikitsuidaInfo;
-
-    /** @return 引継ぐ情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("hikitsuida_info")
-    public String getHikitsuidaInfo() {
-        return this.hikitsuidaInfo;
-    }
-
-    /** @param o 引継ぐ情報 */
-    public void setHikitsuidaInfo(final Object o) {
-        if (o != null) {
-            this.hikitsuidaInfo = o.toString();
-        } else {
-            this.hikitsuidaInfo = null;
+            this.destInfo = null;
         }
     }
 
@@ -111,15 +94,13 @@ public class Vb9Henkan implements IEntity {
     public static Vb9Henkan get() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`table_name` = :table_name");
-        whereList.add("`henkan_moto_id` = :henkan_moto_id");
-        whereList.add("`henkan_moto_info` = :henkan_moto_info");
-        whereList.add("`hikitsuida_info` = :hikitsuida_info");
+        whereList.add("`src_id` = :src_id");
+        whereList.add("`dest_info` = :dest_info");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`table_name` \n";
-        sql += "    , a.`henkan_moto_id` \n";
-        sql += "    , a.`henkan_moto_info` \n";
-        sql += "    , a.`hikitsuida_info` \n";
+        sql += "    , a.`src_id` \n";
+        sql += "    , a.`dest_info` \n";
         sql += "FROM \n";
         sql += "    VB9_HENKAN a \n";
         sql += "WHERE \n";
@@ -145,9 +126,8 @@ public class Vb9Henkan implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`table_name` -- :table_name");
-        nameList.add("`henkan_moto_id` -- :henkan_moto_id");
-        nameList.add("`henkan_moto_info` -- :henkan_moto_info");
-        nameList.add("`hikitsuida_info` -- :hikitsuida_info");
+        nameList.add("`src_id` -- :src_id");
+        nameList.add("`dest_info` -- :dest_info");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -155,9 +135,8 @@ public class Vb9Henkan implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":table_name");
-        valueList.add(":henkan_moto_id");
-        valueList.add(":henkan_moto_info");
-        valueList.add(":hikitsuida_info");
+        valueList.add(":src_id");
+        valueList.add(":dest_info");
         return String.join("\r\n    , ", valueList);
     }
 
@@ -178,9 +157,8 @@ public class Vb9Henkan implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`table_name` = :table_name");
-        setList.add("`henkan_moto_id` = :henkan_moto_id");
-        setList.add("`henkan_moto_info` = :henkan_moto_info");
-        setList.add("`hikitsuida_info` = :hikitsuida_info");
+        setList.add("`src_id` = :src_id");
+        setList.add("`dest_info` = :dest_info");
         return String.join("\r\n    , ", setList);
     }
 
@@ -209,9 +187,8 @@ public class Vb9Henkan implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("table_name", this.tableName);
-        map.put("henkan_moto_id", this.henkanMotoId);
-        map.put("henkan_moto_info", this.henkanMotoInfo);
-        map.put("hikitsuida_info", this.hikitsuidaInfo);
+        map.put("src_id", this.srcId);
+        map.put("dest_info", this.destInfo);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

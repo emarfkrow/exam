@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb8Refer.title}">参照マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb8ReferGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb8Refer.h2}">h2</h2>
+    <form name="Mb8ReferRegistForm" action="Mb8ReferRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Mb8Refer.legend}">legend</legend>
+        <div id="referId">
+          <label for="Mb8Refer.referId" th:text="#{Mb8Refer.referId}">参照ID</label><input type="text" id="Mb8Refer.referId" name="Mb8Refer.referId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="referMei">
+          <label for="Mb8Refer.referMei" th:text="#{Mb8Refer.referMei}">参照名</label><input type="text" id="Mb8Refer.referMei" name="Mb8Refer.referMei" maxlength="60" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Mb8Refer.insertTs}" class="meta">作成タイムスタンプ</label><span id="Mb8Refer.insertTs"></span><input type="hidden" id="Mb8Refer.insertTs" name="Mb8Refer.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Mb8Refer.insertUserId}" class="meta">作成者</label><span id="Mb8Refer.insertUserId"></span><input type="hidden" id="Mb8Refer.insertUserId" name="Mb8Refer.insertUserId" />
+          <span id="Mb8Refer.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Refer.insertUserId" data-destDef="Mb8Refer.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Mb8Refer.updateTs}" class="meta">更新タイムスタンプ</label><span id="Mb8Refer.updateTs"></span><input type="hidden" id="Mb8Refer.updateTs" name="Mb8Refer.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Mb8Refer.updateUserId}" class="meta">更新者</label><span id="Mb8Refer.updateUserId"></span><input type="hidden" id="Mb8Refer.updateUserId" name="Mb8Refer.updateUserId" />
+          <span id="Mb8Refer.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Refer.updateUserId" data-destDef="Mb8Refer.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshMb8Refer" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Mb8ReferGet.xlsx(baseMei=#{Mb8Refer.h2})}" id="Mb8ReferGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteMb8Refer" type="submit" class="delete" data-action="Mb8ReferDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistMb8Refer" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

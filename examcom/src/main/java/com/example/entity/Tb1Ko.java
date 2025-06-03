@@ -19,6 +19,7 @@ public class Tb1Ko implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Tb1Ko implements IEntity {
     private Integer oyaId;
 
     /** @return 親ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_ID", index = 2)
     public Integer getOyaId() {
         return this.oyaId;
     }
@@ -54,7 +55,7 @@ public class Tb1Ko implements IEntity {
     private Integer koBn;
 
     /** @return 子枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KO_BN")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KO_BN", index = 3)
     public Integer getKoBn() {
         return this.koBn;
     }
@@ -72,7 +73,7 @@ public class Tb1Ko implements IEntity {
     private String koInfo;
 
     /** @return 子情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KO_INFO")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KO_INFO", index = 4)
     public String getKoInfo() {
         return this.koInfo;
     }
@@ -93,7 +94,7 @@ public class Tb1Ko implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 5)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -117,7 +118,7 @@ public class Tb1Ko implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 6)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -135,7 +136,7 @@ public class Tb1Ko implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 7)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -156,7 +157,7 @@ public class Tb1Ko implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 8)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -180,7 +181,7 @@ public class Tb1Ko implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 9)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -198,7 +199,7 @@ public class Tb1Ko implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 10)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }
@@ -263,18 +264,18 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 子２の登録
-        if (this.tb1Ko2 != null) {
-            this.tb1Ko2.setOyaId(this.getOyaId());
-            this.tb1Ko2.setKoBn(this.getKoBn());
-            this.tb1Ko2.insert(now, execId);
+        // 子なしの登録
+        if (this.tb1KoDinks != null) {
+            this.tb1KoDinks.setOyaId(this.getOyaId());
+            this.tb1KoDinks.setKoBn(this.getKoBn());
+            this.tb1KoDinks.insert(now, execId);
         }
 
-        // 子３の登録
-        if (this.tb1Ko3 != null) {
-            this.tb1Ko3.setOyaId(this.getOyaId());
-            this.tb1Ko3.setKoBn(this.getKoBn());
-            this.tb1Ko3.insert(now, execId);
+        // 孤児の登録
+        if (this.tb1KoOrphans != null) {
+            this.tb1KoOrphans.setOyaId(this.getOyaId());
+            this.tb1KoOrphans.setKoBn(this.getKoBn());
+            this.tb1KoOrphans.insert(now, execId);
         }
 
         // 子の登録
@@ -348,25 +349,25 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 子２の登録
-        if (this.tb1Ko2 != null) {
-            tb1Ko2.setOyaId(this.getOyaId());
-            tb1Ko2.setKoBn(this.getKoBn());
+        // 子なしの登録
+        if (this.tb1KoDinks != null) {
+            tb1KoDinks.setOyaId(this.getOyaId());
+            tb1KoDinks.setKoBn(this.getKoBn());
             try {
-                tb1Ko2.insert(now, execId);
+                tb1KoDinks.insert(now, execId);
             } catch (Exception e) {
-                tb1Ko2.update(now, execId);
+                tb1KoDinks.update(now, execId);
             }
         }
 
-        // 子３の登録
-        if (this.tb1Ko3 != null) {
-            tb1Ko3.setOyaId(this.getOyaId());
-            tb1Ko3.setKoBn(this.getKoBn());
+        // 孤児の登録
+        if (this.tb1KoOrphans != null) {
+            tb1KoOrphans.setOyaId(this.getOyaId());
+            tb1KoOrphans.setKoBn(this.getKoBn());
             try {
-                tb1Ko3.insert(now, execId);
+                tb1KoOrphans.insert(now, execId);
             } catch (Exception e) {
-                tb1Ko3.update(now, execId);
+                tb1KoOrphans.update(now, execId);
             }
         }
 
@@ -399,14 +400,14 @@ public class Tb1Ko implements IEntity {
             }
         }
 
-        // 子２の削除
-        if (this.tb1Ko2 != null) {
-            this.tb1Ko2.delete();
+        // 子なしの削除
+        if (this.tb1KoDinks != null) {
+            this.tb1KoDinks.delete();
         }
 
-        // 子３の削除
-        if (this.tb1Ko3 != null) {
-            this.tb1Ko3.delete();
+        // 孤児の削除
+        if (this.tb1KoOrphans != null) {
+            this.tb1KoOrphans.delete();
         }
 
         // 子の削除
@@ -439,61 +440,61 @@ public class Tb1Ko implements IEntity {
         return map;
     }
 
-    /** 子２ */
-    private Tb1Ko2 tb1Ko2;
+    /** 子なし */
+    private Tb1KoDinks tb1KoDinks;
 
-    /** @return 子２ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko2")
-    public Tb1Ko2 getTb1Ko2() {
-        return this.tb1Ko2;
+    /** @return 子なし */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb1KoDinks", index = 11)
+    public Tb1KoDinks getTb1KoDinks() {
+        return this.tb1KoDinks;
     }
 
-    /** @param p 子２ */
-    public void setTb1Ko2(final Tb1Ko2 p) {
-        this.tb1Ko2 = p;
+    /** @param p 子なし */
+    public void setTb1KoDinks(final Tb1KoDinks p) {
+        this.tb1KoDinks = p;
     }
 
-    /** @return 子２ */
-    public Tb1Ko2 referTb1Ko2() {
-        if (this.tb1Ko2 == null) {
+    /** @return 子なし */
+    public Tb1KoDinks referTb1KoDinks() {
+        if (this.tb1KoDinks == null) {
             try {
-                this.tb1Ko2 = Tb1Ko2.get(this.oyaId, this.koBn);
+                this.tb1KoDinks = Tb1KoDinks.get(this.oyaId, this.koBn);
             } catch (jp.co.golorp.emarf.exception.NoDataError e) {
             }
         }
-        return this.tb1Ko2;
+        return this.tb1KoDinks;
     }
 
-    /** 子３ */
-    private Tb1Ko3 tb1Ko3;
+    /** 孤児 */
+    private Tb1KoOrphans tb1KoOrphans;
 
-    /** @return 子３ */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko3")
-    public Tb1Ko3 getTb1Ko3() {
-        return this.tb1Ko3;
+    /** @return 孤児 */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb1KoOrphans", index = 12)
+    public Tb1KoOrphans getTb1KoOrphans() {
+        return this.tb1KoOrphans;
     }
 
-    /** @param p 子３ */
-    public void setTb1Ko3(final Tb1Ko3 p) {
-        this.tb1Ko3 = p;
+    /** @param p 孤児 */
+    public void setTb1KoOrphans(final Tb1KoOrphans p) {
+        this.tb1KoOrphans = p;
     }
 
-    /** @return 子３ */
-    public Tb1Ko3 referTb1Ko3() {
-        if (this.tb1Ko3 == null) {
+    /** @return 孤児 */
+    public Tb1KoOrphans referTb1KoOrphans() {
+        if (this.tb1KoOrphans == null) {
             try {
-                this.tb1Ko3 = Tb1Ko3.get(this.oyaId, this.koBn);
+                this.tb1KoOrphans = Tb1KoOrphans.get(this.oyaId, this.koBn);
             } catch (jp.co.golorp.emarf.exception.NoDataError e) {
             }
         }
-        return this.tb1Ko3;
+        return this.tb1KoOrphans;
     }
 
     /** 孫のリスト */
     private List<Tb1Mago> tb1Magos;
 
     /** @return 孫のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Magos")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb1Magos", index = 13)
     public List<Tb1Mago> getTb1Magos() {
         return this.tb1Magos;
     }

@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * IDBN参照マスタ登録
+ * ID-BNマスタ登録
  *
  * @author emarfkrow
  */
 public class Mb4IdbnRegistAction extends BaseAction {
 
-    /** IDBN参照マスタ登録処理 */
+    /** ID-BNマスタ登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -28,10 +28,10 @@ public class Mb4IdbnRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdrefId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRefId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdbnBn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRefBn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

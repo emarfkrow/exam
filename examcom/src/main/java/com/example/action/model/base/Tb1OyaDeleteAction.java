@@ -47,11 +47,11 @@ public class Tb1OyaDeleteAction extends BaseAction {
         }
 
 
-        java.util.List<com.example.entity.Tb1Ko2> tb1Ko2s = e.referTb1Ko2s();
-        if (tb1Ko2s != null) {
-            for (com.example.entity.Tb1Ko2 tb1Ko2 : tb1Ko2s) {
+        java.util.List<com.example.entity.Tb1KoDinks> tb1KoDinkss = e.referTb1KoDinkss();
+        if (tb1KoDinkss != null) {
+            for (com.example.entity.Tb1KoDinks tb1KoDinks : tb1KoDinkss) {
 
-                if (tb1Ko2.delete() != 1) {
+                if (tb1KoDinks.delete() != 1) {
                     throw new OptLockError("error.cant.delete");
                 }
             }

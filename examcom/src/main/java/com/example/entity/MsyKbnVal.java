@@ -19,6 +19,7 @@ public class MsyKbnVal implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class MsyKbnVal implements IEntity {
     private String kbnNm;
 
     /** @return 区分名称 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KBN_NM")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KBN_NM", index = 2)
     public String getKbnNm() {
         return this.kbnNm;
     }
@@ -54,7 +55,7 @@ public class MsyKbnVal implements IEntity {
     private String kbnMei;
 
     /** @return 区分名称参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KBN_MEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KBN_MEI", index = 3)
     public String getKbnMei() {
         return this.kbnMei;
     }
@@ -72,7 +73,7 @@ public class MsyKbnVal implements IEntity {
     private String kbnVal;
 
     /** @return 区分値 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KBN_VAL")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KBN_VAL", index = 4)
     public String getKbnVal() {
         return this.kbnVal;
     }
@@ -90,7 +91,7 @@ public class MsyKbnVal implements IEntity {
     private String kbnValMei;
 
     /** @return 区分値名 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KBN_VAL_MEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KBN_VAL_MEI", index = 5)
     public String getKbnValMei() {
         return this.kbnValMei;
     }
@@ -108,7 +109,7 @@ public class MsyKbnVal implements IEntity {
     private Integer hyojiOn;
 
     /** @return 表示順 */
-    @com.fasterxml.jackson.annotation.JsonProperty("HYOJI_ON")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "HYOJI_ON", index = 6)
     public Integer getHyojiOn() {
         return this.hyojiOn;
     }
@@ -126,7 +127,7 @@ public class MsyKbnVal implements IEntity {
     private String criteria;
 
     /** @return 取得条件 */
-    @com.fasterxml.jackson.annotation.JsonProperty("CRITERIA")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "CRITERIA", index = 7)
     public String getCriteria() {
         return this.criteria;
     }
@@ -147,7 +148,7 @@ public class MsyKbnVal implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 8)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -171,7 +172,7 @@ public class MsyKbnVal implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 9)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -189,7 +190,7 @@ public class MsyKbnVal implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 10)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -210,7 +211,7 @@ public class MsyKbnVal implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 11)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -234,7 +235,7 @@ public class MsyKbnVal implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 12)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -252,7 +253,7 @@ public class MsyKbnVal implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 13)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

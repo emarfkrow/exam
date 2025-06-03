@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Mb8Stint.title}">制約マスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Mb8StintGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Mb8Stint.h2}">h2</h2>
+    <form name="Mb8StintRegistForm" action="Mb8StintRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Mb8Stint.legend}">legend</legend>
+        <div id="stintId">
+          <label for="Mb8Stint.stintId" th:text="#{Mb8Stint.stintId}">制約ID</label><input type="text" id="Mb8Stint.stintId" name="Mb8Stint.stintId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="stintMei">
+          <label for="Mb8Stint.stintMei" th:text="#{Mb8Stint.stintMei}">制約名</label><input type="text" id="Mb8Stint.stintMei" name="Mb8Stint.stintMei" maxlength="60" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Mb8Stint.insertTs}" class="meta">作成タイムスタンプ</label><span id="Mb8Stint.insertTs"></span><input type="hidden" id="Mb8Stint.insertTs" name="Mb8Stint.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Mb8Stint.insertUserId}" class="meta">作成者</label><span id="Mb8Stint.insertUserId"></span><input type="hidden" id="Mb8Stint.insertUserId" name="Mb8Stint.insertUserId" />
+          <span id="Mb8Stint.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Stint.insertUserId" data-destDef="Mb8Stint.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Mb8Stint.updateTs}" class="meta">更新タイムスタンプ</label><span id="Mb8Stint.updateTs"></span><input type="hidden" id="Mb8Stint.updateTs" name="Mb8Stint.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Mb8Stint.updateUserId}" class="meta">更新者</label><span id="Mb8Stint.updateUserId"></span><input type="hidden" id="Mb8Stint.updateUserId" name="Mb8Stint.updateUserId" />
+          <span id="Mb8Stint.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Mb8Stint.updateUserId" data-destDef="Mb8Stint.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshMb8Stint" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Mb8StintGet.xlsx(baseMei=#{Mb8Stint.h2})}" id="Mb8StintGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteMb8Stint" type="submit" class="delete" data-action="Mb8StintDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistMb8Stint" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

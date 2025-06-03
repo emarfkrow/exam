@@ -19,6 +19,7 @@ public class Tb1Oya implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Tb1Oya implements IEntity {
     private Integer oyaId;
 
     /** @return 親ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_ID", index = 2)
     public Integer getOyaId() {
         return this.oyaId;
     }
@@ -54,7 +55,7 @@ public class Tb1Oya implements IEntity {
     private String oyaInfo;
 
     /** @return 親情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_INFO")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_INFO", index = 3)
     public String getOyaInfo() {
         return this.oyaInfo;
     }
@@ -75,7 +76,7 @@ public class Tb1Oya implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 4)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -99,7 +100,7 @@ public class Tb1Oya implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 5)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -117,7 +118,7 @@ public class Tb1Oya implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 6)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -138,7 +139,7 @@ public class Tb1Oya implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 7)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -162,7 +163,7 @@ public class Tb1Oya implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 8)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -180,7 +181,7 @@ public class Tb1Oya implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 9)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }
@@ -240,13 +241,13 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 子２の登録
-        if (this.tb1Ko2s != null) {
-            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
-                if (tb1Ko2 != null) {
-                    tb1Ko2.setOyaId(this.getOyaId());
+        // 子なしの登録
+        if (this.tb1KoDinkss != null) {
+            for (Tb1KoDinks tb1KoDinks : this.tb1KoDinkss) {
+                if (tb1KoDinks != null) {
+                    tb1KoDinks.setOyaId(this.getOyaId());
                 }
-                tb1Ko2.insert(now, execId);
+                tb1KoDinks.insert(now, execId);
             }
         }
 
@@ -314,17 +315,17 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 子２の登録
-        if (this.tb1Ko2s != null) {
-            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
-                if (tb1Ko2 == null) {
+        // 子なしの登録
+        if (this.tb1KoDinkss != null) {
+            for (Tb1KoDinks tb1KoDinks : this.tb1KoDinkss) {
+                if (tb1KoDinks == null) {
                     continue;
                 }
-                tb1Ko2.setOyaId(this.oyaId);
+                tb1KoDinks.setOyaId(this.oyaId);
                 try {
-                    tb1Ko2.insert(now, execId);
+                    tb1KoDinks.insert(now, execId);
                 } catch (Exception e) {
-                    tb1Ko2.update(now, execId);
+                    tb1KoDinks.update(now, execId);
                 }
             }
         }
@@ -357,10 +358,10 @@ public class Tb1Oya implements IEntity {
             }
         }
 
-        // 子２の削除
-        if (this.tb1Ko2s != null) {
-            for (Tb1Ko2 tb1Ko2 : this.tb1Ko2s) {
-                tb1Ko2.delete();
+        // 子なしの削除
+        if (this.tb1KoDinkss != null) {
+            for (Tb1KoDinks tb1KoDinks : this.tb1KoDinkss) {
+                tb1KoDinks.delete();
             }
         }
 
@@ -396,7 +397,7 @@ public class Tb1Oya implements IEntity {
     private List<Tb1Ko> tb1Kos;
 
     /** @return 子のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Kos")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb1Kos", index = 10)
     public List<Tb1Ko> getTb1Kos() {
         return this.tb1Kos;
     }
@@ -445,56 +446,56 @@ public class Tb1Oya implements IEntity {
         return Queries.select(sql, map, Tb1Ko.class, null, null);
     }
 
-    /** 子２のリスト */
-    private List<Tb1Ko2> tb1Ko2s;
+    /** 子なしのリスト */
+    private List<Tb1KoDinks> tb1KoDinkss;
 
-    /** @return 子２のリスト */
-    @com.fasterxml.jackson.annotation.JsonProperty("Tb1Ko2s")
-    public List<Tb1Ko2> getTb1Ko2s() {
-        return this.tb1Ko2s;
+    /** @return 子なしのリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb1KoDinkss", index = 11)
+    public List<Tb1KoDinks> getTb1KoDinkss() {
+        return this.tb1KoDinkss;
     }
 
-    /** @param list 子２のリスト */
-    public void setTb1Ko2s(final List<Tb1Ko2> list) {
-        this.tb1Ko2s = list;
+    /** @param list 子なしのリスト */
+    public void setTb1KoDinkss(final List<Tb1KoDinks> list) {
+        this.tb1KoDinkss = list;
     }
 
-    /** @param tb1Ko2 */
-    public void addTb1Ko2s(final Tb1Ko2 tb1Ko2) {
-        if (this.tb1Ko2s == null) {
-            this.tb1Ko2s = new ArrayList<Tb1Ko2>();
+    /** @param tb1KoDinks */
+    public void addTb1KoDinkss(final Tb1KoDinks tb1KoDinks) {
+        if (this.tb1KoDinkss == null) {
+            this.tb1KoDinkss = new ArrayList<Tb1KoDinks>();
         }
-        this.tb1Ko2s.add(tb1Ko2);
+        this.tb1KoDinkss.add(tb1KoDinks);
     }
 
-    /** @return 子２のリスト */
-    public List<Tb1Ko2> referTb1Ko2s() {
-        this.tb1Ko2s = Tb1Oya.referTb1Ko2s(this.oyaId);
-        return this.tb1Ko2s;
+    /** @return 子なしのリスト */
+    public List<Tb1KoDinks> referTb1KoDinkss() {
+        this.tb1KoDinkss = Tb1Oya.referTb1KoDinkss(this.oyaId);
+        return this.tb1KoDinkss;
     }
 
     /**
      * @param param1 oyaId
-     * @return List<Tb1Ko2>
+     * @return List<Tb1KoDinks>
      */
-    public static List<Tb1Ko2> referTb1Ko2s(final Integer param1) {
+    public static List<Tb1KoDinks> referTb1KoDinkss(final Integer param1) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("OYA_ID = :oya_id");
         String sql = "SELECT ";
         sql += "`OYA_ID`";
         sql += ", `KO_BN`";
-        sql += ", `KO2_INFO`";
+        sql += ", `DINKS_INFO`";
         sql += ", `INSERT_TS` AS INSERT_TS";
         sql += ", `INSERT_USER_ID`";
         sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
         sql += ", `UPDATE_TS` AS UPDATE_TS";
         sql += ", `UPDATE_USER_ID`";
         sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
-        sql += " FROM TB1_KO2 a WHERE " + String.join(" AND ", whereList);
+        sql += " FROM TB1_KO_DINKS a WHERE " + String.join(" AND ", whereList);
         sql += " ORDER BY ";
         sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb1Ko2.class, null, null);
+        return Queries.select(sql, map, Tb1KoDinks.class, null, null);
     }
 }

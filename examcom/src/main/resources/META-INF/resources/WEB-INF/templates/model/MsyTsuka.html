@@ -25,8 +25,11 @@
         <div id="tekiyoBi">
           <label for="MsyTsuka.tekiyoBi" th:text="#{MsyTsuka.tekiyoBi}">適用日</label><input type="text" id="MsyTsuka.tekiyoBi" name="MsyTsuka.tekiyoBi" maxlength="10" class=" primaryKey notblank datepicker" />
         </div>
-        <div id="tsukaRt">
-          <label for="MsyTsuka.tsukaRt" th:text="#{MsyTsuka.tsukaRt}">通貨レート</label><input type="text" id="MsyTsuka.tsukaRt" name="MsyTsuka.tsukaRt" maxlength="5" />
+        <div id="tts">
+          <label for="MsyTsuka.tts" th:text="#{MsyTsuka.tts}">販売レート</label><input type="text" id="MsyTsuka.tts" name="MsyTsuka.tts" maxlength="5" class=" notblank" />
+        </div>
+        <div id="ttb">
+          <label for="MsyTsuka.ttb" th:text="#{MsyTsuka.ttb}">買取レート</label><input type="text" id="MsyTsuka.ttb" name="MsyTsuka.ttb" maxlength="5" class=" notblank" />
         </div>
         <div id="insertTs">
           <label th:text="#{MsyTsuka.insertTs}" class="meta">作成タイムスタンプ</label><span id="MsyTsuka.insertTs"></span><input type="hidden" id="MsyTsuka.insertTs" name="MsyTsuka.insertTs" />

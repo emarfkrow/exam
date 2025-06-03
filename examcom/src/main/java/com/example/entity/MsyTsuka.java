@@ -19,6 +19,7 @@ public class MsyTsuka implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class MsyTsuka implements IEntity {
     private String tsukaKb;
 
     /** @return 通貨区分 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TSUKA_KB")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TSUKA_KB", index = 2)
     public String getTsukaKb() {
         return this.tsukaKb;
     }
@@ -57,7 +58,7 @@ public class MsyTsuka implements IEntity {
     private java.time.LocalDate tekiyoBi;
 
     /** @return 適用日 */
-    @com.fasterxml.jackson.annotation.JsonProperty("TEKIYO_BI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TEKIYO_BI", index = 3)
     public java.time.LocalDate getTekiyoBi() {
         return this.tekiyoBi;
     }
@@ -71,21 +72,39 @@ public class MsyTsuka implements IEntity {
         }
     }
 
-    /** 通貨レート */
-    private java.math.BigDecimal tsukaRt;
+    /** 販売レート */
+    private java.math.BigDecimal tts;
 
-    /** @return 通貨レート */
-    @com.fasterxml.jackson.annotation.JsonProperty("TSUKA_RT")
-    public java.math.BigDecimal getTsukaRt() {
-        return this.tsukaRt;
+    /** @return 販売レート */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TTS", index = 4)
+    public java.math.BigDecimal getTts() {
+        return this.tts;
     }
 
-    /** @param o 通貨レート */
-    public void setTsukaRt(final Object o) {
+    /** @param o 販売レート */
+    public void setTts(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.tsukaRt = new java.math.BigDecimal(o.toString());
+            this.tts = new java.math.BigDecimal(o.toString());
         } else {
-            this.tsukaRt = null;
+            this.tts = null;
+        }
+    }
+
+    /** 買取レート */
+    private java.math.BigDecimal ttb;
+
+    /** @return 買取レート */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TTB", index = 5)
+    public java.math.BigDecimal getTtb() {
+        return this.ttb;
+    }
+
+    /** @param o 買取レート */
+    public void setTtb(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+            this.ttb = new java.math.BigDecimal(o.toString());
+        } else {
+            this.ttb = null;
         }
     }
 
@@ -96,7 +115,7 @@ public class MsyTsuka implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 6)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -120,7 +139,7 @@ public class MsyTsuka implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 7)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -138,7 +157,7 @@ public class MsyTsuka implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 8)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -159,7 +178,7 @@ public class MsyTsuka implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 9)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -183,7 +202,7 @@ public class MsyTsuka implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 10)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -201,7 +220,7 @@ public class MsyTsuka implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 11)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }
@@ -229,7 +248,8 @@ public class MsyTsuka implements IEntity {
         sql += "SELECT \n";
         sql += "      a.`TSUKA_KB` \n";
         sql += "    , a.`TEKIYO_BI` AS TEKIYO_BI \n";
-        sql += "    , a.`TSUKA_RT` \n";
+        sql += "    , a.`TTS` \n";
+        sql += "    , a.`TTB` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -262,7 +282,8 @@ public class MsyTsuka implements IEntity {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`TSUKA_KB` -- :tsuka_kb");
         nameList.add("`TEKIYO_BI` -- :tekiyo_bi");
-        nameList.add("`TSUKA_RT` -- :tsuka_rt");
+        nameList.add("`TTS` -- :tts");
+        nameList.add("`TTB` -- :ttb");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -275,7 +296,8 @@ public class MsyTsuka implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":tsuka_kb");
         valueList.add(":tekiyo_bi");
-        valueList.add(":tsuka_rt");
+        valueList.add(":tts");
+        valueList.add(":ttb");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -301,7 +323,8 @@ public class MsyTsuka implements IEntity {
         List<String> setList = new ArrayList<String>();
         setList.add("`TSUKA_KB` = :tsuka_kb");
         setList.add("`TEKIYO_BI` = :tekiyo_bi");
-        setList.add("`TSUKA_RT` = :tsuka_rt");
+        setList.add("`TTS` = :tts");
+        setList.add("`TTB` = :ttb");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -335,7 +358,8 @@ public class MsyTsuka implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("tsuka_kb", this.tsukaKb);
         map.put("tekiyo_bi", this.tekiyoBi);
-        map.put("tsuka_rt", this.tsukaRt);
+        map.put("tts", this.tts);
+        map.put("ttb", this.ttb);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

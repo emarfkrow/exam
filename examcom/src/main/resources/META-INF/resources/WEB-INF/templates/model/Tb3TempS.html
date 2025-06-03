@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb3TempS.title}">当初</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb3TempGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb3TempS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb3TempSearchForm" action="Tb3TempSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb3TempS.legend}">legend</legend>
+        <div id="tempId">
+          <label for="Tb3Temp.tempId" th:text="#{Tb3Temp.tempId}">当初ID</label><input type="text" id="Tb3Temp.tempId" name="Tb3Temp.tempId" maxlength="10" />
+        </div>
+        <div id="tempInfo">
+          <label for="Tb3Temp.tempInfo" th:text="#{Tb3Temp.tempInfo}">当初情報</label><input type="text" id="Tb3Temp.tempInfo" name="Tb3Temp.tempInfo" maxlength="300" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb3Temp" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb3Temp.html}" target="dialog" id="Tb3Temp" class="anew" th:text="#{Tb3Temp.add}" tabindex="-1">当初</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb3Temp" type="submit" class="search" data-gridId="Tb3TempGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb3TempSRegistForm" action="Tb3TempSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb3Temp.h3}">h3</h3>
+      <div id="Tb3TempGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb3Temp.html}"></div>
+      <div id="Tb3TempPager"></div>
+      <div class="buttons">
+        <button type="button" class="reset" id="ResetTb3TempS" th:text="#{common.reset}" onClick="Base.listReset('Tb3Temp');">reset</button>
+        <a th:href="@{Tb3TempSearch.xlsx(baseMei=#{Tb3TempS.h2})}" id="Tb3TempSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb3TempS" data-action="Tb3TempSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb3TempS" type="submit" class="regist" th:text="#{common.regist}" onclick="if (!Base.historyReason(this)) { return false; }">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * IDBN参照マスタ登録フォーム
+ * ID-BNマスタ登録フォーム
  *
  * @author emarfkrow
  */
@@ -18,40 +18,40 @@ public class Mb4IdbnRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Mb4IdbnRegistForm.class);
 
-    /** ID参照ID */
+    /** 参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String idrefId;
+    private String refId;
 
     /**
-     * @return ID参照ID
+     * @return 参照ID
      */
-    public String getIdrefId() {
-        return idrefId;
+    public String getRefId() {
+        return refId;
     }
 
     /**
-     * @param p ID参照ID
+     * @param p 参照ID
      */
-    public void setIdrefId(final String p) {
-        this.idrefId = p;
+    public void setRefId(final String p) {
+        this.refId = p;
     }
 
-    /** IDBN連番 */
+    /** ID連番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String idbnBn;
+    private String refBn;
 
     /**
-     * @return IDBN連番
+     * @return ID連番
      */
-    public String getIdbnBn() {
-        return idbnBn;
+    public String getRefBn() {
+        return refBn;
     }
 
     /**
-     * @param p IDBN連番
+     * @param p ID連番
      */
-    public void setIdbnBn(final String p) {
-        this.idbnBn = p;
+    public void setRefBn(final String p) {
+        this.refBn = p;
     }
 
     /** IDBNNO */

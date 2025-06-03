@@ -19,6 +19,7 @@ public class Tb1Mago implements IEntity {
     private Integer id;
 
     /** @return id */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "id", index = 1)
     public final Integer getId() {
         return id;
     }
@@ -36,7 +37,7 @@ public class Tb1Mago implements IEntity {
     private Integer oyaId;
 
     /** @return 親ID */
-    @com.fasterxml.jackson.annotation.JsonProperty("OYA_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_ID", index = 2)
     public Integer getOyaId() {
         return this.oyaId;
     }
@@ -54,7 +55,7 @@ public class Tb1Mago implements IEntity {
     private Integer koBn;
 
     /** @return 子枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("KO_BN")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "KO_BN", index = 3)
     public Integer getKoBn() {
         return this.koBn;
     }
@@ -72,7 +73,7 @@ public class Tb1Mago implements IEntity {
     private Integer magoBn;
 
     /** @return 孫枝番 */
-    @com.fasterxml.jackson.annotation.JsonProperty("MAGO_BN")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "MAGO_BN", index = 4)
     public Integer getMagoBn() {
         return this.magoBn;
     }
@@ -90,7 +91,7 @@ public class Tb1Mago implements IEntity {
     private String magoInfo;
 
     /** @return 孫情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty("MAGO_INFO")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "MAGO_INFO", index = 5)
     public String getMagoInfo() {
         return this.magoInfo;
     }
@@ -111,7 +112,7 @@ public class Tb1Mago implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 6)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -135,7 +136,7 @@ public class Tb1Mago implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 7)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -153,7 +154,7 @@ public class Tb1Mago implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("INSERT_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 8)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -174,7 +175,7 @@ public class Tb1Mago implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_TS")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 9)
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
@@ -198,7 +199,7 @@ public class Tb1Mago implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_ID")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 10)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -216,7 +217,7 @@ public class Tb1Mago implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty("UPDATE_USER_SEI")
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 11)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1KoOrphans.title}">孤児</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1KoOrphansGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoDinksGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1KoOrphans.h2}">h2</h2>
+    <form name="Tb1KoOrphansRegistForm" action="Tb1KoOrphansRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb1KoOrphans.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1KoOrphans.oyaId" th:text="#{Tb1KoOrphans.oyaId}">親ID</label><input type="text" id="Tb1KoOrphans.oyaId" name="Tb1KoOrphans.oyaId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1KoOrphans.koBn" th:text="#{Tb1KoOrphans.koBn}">子枝番</label><input type="text" id="Tb1KoOrphans.koBn" name="Tb1KoOrphans.koBn" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="ko3Info">
+          <label for="Tb1KoOrphans.ko3Info" th:text="#{Tb1KoOrphans.ko3Info}">子３情報</label><input type="text" id="Tb1KoOrphans.ko3Info" name="Tb1KoOrphans.ko3Info" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1KoOrphans.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1KoOrphans.insertTs"></span><input type="hidden" id="Tb1KoOrphans.insertTs" name="Tb1KoOrphans.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1KoOrphans.insertUserId}" class="meta">作成者</label><span id="Tb1KoOrphans.insertUserId"></span><input type="hidden" id="Tb1KoOrphans.insertUserId" name="Tb1KoOrphans.insertUserId" />
+          <span id="Tb1KoOrphans.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoOrphans.insertUserId" data-destDef="Tb1KoOrphans.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1KoOrphans.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1KoOrphans.updateTs"></span><input type="hidden" id="Tb1KoOrphans.updateTs" name="Tb1KoOrphans.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1KoOrphans.updateUserId}" class="meta">更新者</label><span id="Tb1KoOrphans.updateUserId"></span><input type="hidden" id="Tb1KoOrphans.updateUserId" name="Tb1KoOrphans.updateUserId" />
+          <span id="Tb1KoOrphans.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoOrphans.updateUserId" data-destDef="Tb1KoOrphans.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Ko.legend}">legend</legend>
+        <div id="koInfo">
+          <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb1Ko.updateTs" />
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1KoDinks.legend}">legend</legend>
+        <div id="dinksInfo">
+          <label for="Tb1KoDinks.dinksInfo" th:text="#{Tb1KoDinks.dinksInfo}">子なし情報</label><input type="text" id="Tb1KoDinks.dinksInfo" name="Tb1KoDinks.dinksInfo" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb1KoDinks.updateTs" />
+      </fieldset>
+      <h3 th:text="#{Tb1Mago.h3}">h3</h3>
+      <a th:href="@{/model/Tb1Mago.html}" id="Tb1Mago" target="dialog" th:text="#{Tb1Mago.add}" class="addChild" tabindex="-1">孫</a>
+      <div id="Tb1MagoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}"></div>
+      <div class="buttons">
+        <button type="button" id="RefreshTb1KoOrphans" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1KoOrphansGet.xlsx(baseMei=#{Tb1KoOrphans.h2})}" id="Tb1KoOrphansGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb1KoOrphans" type="submit" class="delete" data-action="Tb1KoOrphansDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb1KoOrphans" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -11,7 +11,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * IDBN参照マスタ一覧登録フォーム
+ * ID-BNマスタ一覧登録フォーム
  *
  * @author emarfkrow
  */
@@ -20,19 +20,19 @@ public class Mb4IdbnSRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Mb4IdbnRegistForm.class);
 
-    /** IDBN参照マスタ登録フォームのリスト */
+    /** ID-BNマスタ登録フォームのリスト */
     @Valid
     private List<Mb4IdbnRegistForm> mb4IdbnGrid;
 
     /**
-     * @return IDBN参照マスタ登録フォームのリスト
+     * @return ID-BNマスタ登録フォームのリスト
      */
     public List<Mb4IdbnRegistForm> getMb4IdbnGrid() {
         return mb4IdbnGrid;
     }
 
     /**
-     * @param p IDBN参照マスタ登録フォームのリスト
+     * @param p ID-BNマスタ登録フォームのリスト
      */
     public void setMb4IdbnGrid(final List<Mb4IdbnRegistForm> p) {
         this.mb4IdbnGrid = p;

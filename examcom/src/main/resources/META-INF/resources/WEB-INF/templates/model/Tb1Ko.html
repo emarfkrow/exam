@@ -11,9 +11,9 @@
 <script th:src="@{/model/Tb1KoGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Ko2GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoDinksGridColumns.js}"></script>
 <script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
-<script th:src="@{/model/Tb1Ko3GridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoOrphansGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -69,18 +69,18 @@
         </div>
       </fieldset>
       <fieldset>
-        <legend th:text="#{Tb1Ko2.legend}">legend</legend>
-        <div id="ko2Info">
-          <label for="Tb1Ko2.ko2Info" th:text="#{Tb1Ko2.ko2Info}">子２情報</label><input type="text" id="Tb1Ko2.ko2Info" name="Tb1Ko2.ko2Info" maxlength="300" />
+        <legend th:text="#{Tb1KoDinks.legend}">legend</legend>
+        <div id="dinksInfo">
+          <label for="Tb1KoDinks.dinksInfo" th:text="#{Tb1KoDinks.dinksInfo}">子なし情報</label><input type="text" id="Tb1KoDinks.dinksInfo" name="Tb1KoDinks.dinksInfo" maxlength="300" />
         </div>
-        <input type="hidden" name="Tb1Ko2.updateTs" />
+        <input type="hidden" name="Tb1KoDinks.updateTs" />
       </fieldset>
       <fieldset>
-        <legend th:text="#{Tb1Ko3.legend}">legend</legend>
+        <legend th:text="#{Tb1KoOrphans.legend}">legend</legend>
         <div id="ko3Info">
-          <label for="Tb1Ko3.ko3Info" th:text="#{Tb1Ko3.ko3Info}">子３情報</label><input type="text" id="Tb1Ko3.ko3Info" name="Tb1Ko3.ko3Info" maxlength="300" />
+          <label for="Tb1KoOrphans.ko3Info" th:text="#{Tb1KoOrphans.ko3Info}">子３情報</label><input type="text" id="Tb1KoOrphans.ko3Info" name="Tb1KoOrphans.ko3Info" maxlength="300" />
         </div>
-        <input type="hidden" name="Tb1Ko3.updateTs" />
+        <input type="hidden" name="Tb1KoOrphans.updateTs" />
       </fieldset>
       <h3 th:text="#{Tb1Mago.h3}">h3</h3>
       <a th:href="@{/model/Tb1Mago.html}" id="Tb1Mago" target="dialog" th:text="#{Tb1Mago.add}" class="addChild" tabindex="-1">孫</a>

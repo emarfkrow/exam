@@ -75,6 +75,7 @@ public class MsyTaxRegistForm implements IForm {
     }
 
     /** 税率 */
+    @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,3}\\.?[0-9]{0,2}?)?")
     private String taxRt;
 

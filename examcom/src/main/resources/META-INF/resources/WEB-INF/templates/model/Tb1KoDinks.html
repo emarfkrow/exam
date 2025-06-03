@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb1KoDinks.title}">子なし</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb1KoDinksGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb1OyaGridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1MagoGridColumns.js}"></script>
+<script th:src="@{/model/Tb1KoOrphansGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb1KoDinks.h2}">h2</h2>
+    <form name="Tb1KoDinksRegistForm" action="Tb1KoDinksRegist.ajax" class="regist">
+      <fieldset class="parent">
+        <legend th:text="#{Tb1Oya.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1Oya.oyaId" th:text="#{Tb1Oya.oyaId}">親ID</label><input type="text" id="Tb1Oya.oyaId" name="Tb1Oya.oyaId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="oyaInfo">
+          <label for="Tb1Oya.oyaInfo" th:text="#{Tb1Oya.oyaInfo}">親情報</label><input type="text" id="Tb1Oya.oyaInfo" name="Tb1Oya.oyaInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1Oya.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Oya.insertTs"></span><input type="hidden" id="Tb1Oya.insertTs" name="Tb1Oya.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1Oya.insertUserId}" class="meta">作成者</label><span id="Tb1Oya.insertUserId"></span><input type="hidden" id="Tb1Oya.insertUserId" name="Tb1Oya.insertUserId" />
+          <span id="Tb1Oya.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.insertUserId" data-destDef="Tb1Oya.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1Oya.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Oya.updateTs"></span><input type="hidden" id="Tb1Oya.updateTs" name="Tb1Oya.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1Oya.updateUserId}" class="meta">更新者</label><span id="Tb1Oya.updateUserId"></span><input type="hidden" id="Tb1Oya.updateUserId" name="Tb1Oya.updateUserId" />
+          <span id="Tb1Oya.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Oya.updateUserId" data-destDef="Tb1Oya.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1KoDinks.legend}">legend</legend>
+        <div id="oyaId">
+          <label for="Tb1KoDinks.oyaId" th:text="#{Tb1KoDinks.oyaId}">親ID</label><input type="text" id="Tb1KoDinks.oyaId" name="Tb1KoDinks.oyaId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="koBn">
+          <label for="Tb1KoDinks.koBn" th:text="#{Tb1KoDinks.koBn}">子枝番</label><input type="text" id="Tb1KoDinks.koBn" name="Tb1KoDinks.koBn" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="dinksInfo">
+          <label for="Tb1KoDinks.dinksInfo" th:text="#{Tb1KoDinks.dinksInfo}">子なし情報</label><input type="text" id="Tb1KoDinks.dinksInfo" name="Tb1KoDinks.dinksInfo" maxlength="300" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb1KoDinks.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1KoDinks.insertTs"></span><input type="hidden" id="Tb1KoDinks.insertTs" name="Tb1KoDinks.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb1KoDinks.insertUserId}" class="meta">作成者</label><span id="Tb1KoDinks.insertUserId"></span><input type="hidden" id="Tb1KoDinks.insertUserId" name="Tb1KoDinks.insertUserId" />
+          <span id="Tb1KoDinks.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoDinks.insertUserId" data-destDef="Tb1KoDinks.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb1KoDinks.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1KoDinks.updateTs"></span><input type="hidden" id="Tb1KoDinks.updateTs" name="Tb1KoDinks.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb1KoDinks.updateUserId}" class="meta">更新者</label><span id="Tb1KoDinks.updateUserId"></span><input type="hidden" id="Tb1KoDinks.updateUserId" name="Tb1KoDinks.updateUserId" />
+          <span id="Tb1KoDinks.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1KoDinks.updateUserId" data-destDef="Tb1KoDinks.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1Ko.legend}">legend</legend>
+        <div id="koInfo">
+          <label for="Tb1Ko.koInfo" th:text="#{Tb1Ko.koInfo}">子情報</label><input type="text" id="Tb1Ko.koInfo" name="Tb1Ko.koInfo" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb1Ko.updateTs" />
+      </fieldset>
+      <fieldset>
+        <legend th:text="#{Tb1KoOrphans.legend}">legend</legend>
+        <div id="ko3Info">
+          <label for="Tb1KoOrphans.ko3Info" th:text="#{Tb1KoOrphans.ko3Info}">子３情報</label><input type="text" id="Tb1KoOrphans.ko3Info" name="Tb1KoOrphans.ko3Info" maxlength="300" />
+        </div>
+        <input type="hidden" name="Tb1KoOrphans.updateTs" />
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb1KoDinks" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb1KoDinksGet.xlsx(baseMei=#{Tb1KoDinks.h2})}" id="Tb1KoDinksGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb1KoDinks" type="submit" class="delete" data-action="Tb1KoDinksDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb1KoDinks" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
