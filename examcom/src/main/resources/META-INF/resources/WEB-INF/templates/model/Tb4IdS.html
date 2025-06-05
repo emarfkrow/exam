@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb4IdS.title}">IDマスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb4IdGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb4IdS.h2}">h2</h2>
+    <!-- 検索フォーム -->
+    <form name="Tb4IdSearchForm" action="Tb4IdSearch.ajax" class="search">
+      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="page" value="0" />
+      <fieldset>
+        <legend th:text="#{Tb4IdS.legend}">legend</legend>
+        <div id="idrefId">
+          <label for="Tb4Id.idrefId" th:text="#{Tb4Id.idrefId}">参照ID</label><input type="text" id="Tb4Id.idrefId" name="Tb4Id.idrefId" maxlength="10" />
+        </div>
+        <div id="idrefMei">
+          <label for="Tb4Id.idrefMei" th:text="#{Tb4Id.idrefMei}">参照ID名</label><input type="text" id="Tb4Id.idrefMei" name="Tb4Id.idrefMei" maxlength="60" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="reset" id="ResetTb4Id" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb4Id.html}" target="dialog" id="Tb4Id" class="anew" th:text="#{Tb4Id.add}" tabindex="-1">IDマスタ</a>
+      </div>
+      <div class="submits">
+        <button id="SearchTb4Id" type="submit" class="search" data-gridId="Tb4IdGrid" th:text="#{common.search}">submit</button>
+      </div>
+    </form>
+    <!-- 一覧フォーム -->
+    <form name="Tb4IdSRegistForm" action="Tb4IdSRegist.ajax" class="regist">
+      <h3 th:text="#{Tb4Id.h3}">h3</h3>
+      <div id="Tb4IdGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="0" th:data-href="@{/model/Tb4Id.html}"></div>
+      <div id="Tb4IdPager"></div>
+      <div class="buttons">
+        <button type="button" class="reset" id="ResetTb4IdS" th:text="#{common.reset}" onClick="Base.listReset('Tb4Id');">reset</button>
+        <a th:href="@{Tb4IdSearch.xlsx(baseMei=#{Tb4IdS.h2})}" id="Tb4IdSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <button type="submit" id="DeleteTb4IdS" data-action="Tb4IdSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
+      </div>
+      <div class="submits">
+        <button id="RegistTb4IdS" type="submit" class="regist" th:text="#{common.regist}">submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

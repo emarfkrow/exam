@@ -42,6 +42,9 @@ public class Tb0NokeySDeleteAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_B"))) {
                 throw new OptLockError("error.cant.delete");
             }
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_C"))) {
+                throw new OptLockError("error.cant.delete");
+            }
 
             Tb0Nokey e = FormValidator.toBean(Tb0Nokey.class.getName(), gridRow);
             if (e.delete() != 1) {

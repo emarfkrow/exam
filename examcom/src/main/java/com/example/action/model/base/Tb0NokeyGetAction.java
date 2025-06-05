@@ -41,13 +41,21 @@ public class Tb0NokeyGetAction extends BaseAction {
             isAllKey = false;
         }
 
+        Object colC = postJson.get("colC");
+        if (colC == null) {
+            colC = postJson.get("Tb0Nokey.colC");
+        }
+        if (colC == null) {
+            isAllKey = false;
+        }
+
         // 主キーが不足していたら終了
         if (!isAllKey) {
             return map;
         }
 
         try {
-            Tb0Nokey tb0Nokey = Tb0Nokey.get(colA, colB);
+            Tb0Nokey tb0Nokey = Tb0Nokey.get(colA, colB, colC);
             map.put("Tb0Nokey", tb0Nokey);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

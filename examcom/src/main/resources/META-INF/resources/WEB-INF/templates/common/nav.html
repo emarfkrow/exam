@@ -3,22 +3,6 @@
 <body>
   <div class="nav" layout:fragment="nav" th:if="${#ctx.session != null && #ctx.session.get('AUTHN_KEY') != null}">
     <dl>
-      <dt id="MB4" th:text="#{nav.dt.MB4}">MB4</dt>
-      <dd>
-        <ul>
-          <li><a id="Mb4Cd" th:href="@{/model/Mb4CdS.html}" th:text="#{nav.Mb4CdS}" class="table">CDマスタ</a></li>
-          <li><a id="Mb4Id" th:href="@{/model/Mb4IdS.html}" th:text="#{nav.Mb4IdS}" class="table">IDマスタ</a></li>
-          <li><a id="Mb4Idbn" th:href="@{/model/Mb4IdbnS.html}" th:text="#{nav.Mb4IdbnS}" class="table">ID-BNマスタ</a></li>
-          <li><a id="Mb4No" th:href="@{/model/Mb4NoS.html}" th:text="#{nav.Mb4NoS}" class="table">NOマスタ</a></li>
-        </ul>
-      </dd>
-      <dt id="MB8" th:text="#{nav.dt.MB8}">MB8</dt>
-      <dd>
-        <ul>
-          <li><a id="Mb8Refer" th:href="@{/model/Mb8ReferS.html}" th:text="#{nav.Mb8ReferS}" class="table">参照マスタ</a></li>
-          <li><a id="Mb8Stint" th:href="@{/model/Mb8StintS.html}" th:text="#{nav.Mb8StintS}" class="table">制約マスタ</a></li>
-        </ul>
-      </dd>
       <dt id="MHR" th:text="#{nav.dt.MHR}">MHR</dt>
       <dd>
         <ul>
@@ -71,6 +55,10 @@
       <dt id="TB4" th:text="#{nav.dt.TB4}">TB4</dt>
       <dd>
         <ul>
+          <li><a id="Tb4Cd" th:href="@{/model/Tb4CdS.html}" th:text="#{nav.Tb4CdS}" class="table">CDマスタ</a></li>
+          <li><a id="Tb4Id" th:href="@{/model/Tb4IdS.html}" th:text="#{nav.Tb4IdS}" class="table">IDマスタ</a></li>
+          <li><a id="Tb4Idbn" th:href="@{/model/Tb4IdbnS.html}" th:text="#{nav.Tb4IdbnS}" class="table">ID-BNマスタ</a></li>
+          <li><a id="Tb4No" th:href="@{/model/Tb4NoS.html}" th:text="#{nav.Tb4NoS}" class="table">NOマスタ</a></li>
           <li><a id="Tb4Saiki" th:href="@{/model/Tb4SaikiS.html}" th:text="#{nav.Tb4SaikiS}" class="table">再帰</a></li>
         </ul>
       </dd>
@@ -103,19 +91,16 @@
       <dd>
         <ul>
           <li><a id="Tb8Combo" th:href="@{/model/Tb8ComboS.html}" th:text="#{nav.Tb8ComboS}" class="table">複合</a></li>
+          <li><a id="Tb8Refer" th:href="@{/model/Tb8ReferS.html}" th:text="#{nav.Tb8ReferS}" class="table">参照マスタ</a></li>
+          <li><a id="Tb8Stint" th:href="@{/model/Tb8StintS.html}" th:text="#{nav.Tb8StintS}" class="table">制約マスタ</a></li>
         </ul>
       </dd>
       <dt id="TB9" th:text="#{nav.dt.TB9}">TB9</dt>
       <dd>
         <ul>
           <li><a id="Tb9Dest" th:href="@{/model/Tb9DestS.html}" th:text="#{nav.Tb9DestS}" class="table">変換先</a></li>
+          <li><a id="Tb9Henkan" th:href="@{/model/Tb9HenkanS.html}" th:text="#{nav.Tb9HenkanS}" class="view">VIEW</a></li>
           <li><a id="Tb9Src" th:href="@{/model/Tb9SrcS.html}" th:text="#{nav.Tb9SrcS}" class="table">変換元</a></li>
-        </ul>
-      </dd>
-      <dt id="VB9" th:text="#{nav.dt.VB9}">VB9</dt>
-      <dd>
-        <ul>
-          <li><a id="Vb9Henkan" th:href="@{/model/Vb9HenkanS.html}" th:text="#{nav.Vb9HenkanS}" class="view">VIEW</a></li>
         </ul>
       </dd>
     </dl>

@@ -253,12 +253,14 @@ public class Tb0Nokey implements IEntity {
      * 主キーなし照会
      * @param param1 列Ａ
      * @param param2 列Ｂ
+     * @param param3 列Ｃ
      * @return 主キーなし
      */
-    public static Tb0Nokey get(final Object param1, final Object param2) {
+    public static Tb0Nokey get(final Object param1, final Object param2, final Object param3) {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`COL_A` = :col_a");
         whereList.add("`COL_B` = :col_b");
+        whereList.add("`COL_C` = :col_c");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`COL_A` \n";
@@ -277,6 +279,7 @@ public class Tb0Nokey implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("col_a", param1);
         map.put("col_b", param2);
+        map.put("col_c", param3);
         return Queries.get(sql, map, Tb0Nokey.class);
     }
 
@@ -365,6 +368,7 @@ public class Tb0Nokey implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`COL_A` = :col_a");
         whereList.add("`COL_B` = :col_b");
+        whereList.add("`COL_C` = :col_c");
         return String.join(" AND ", whereList);
     }
 

@@ -98,10 +98,10 @@ public class Tb8ComboRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 参照ID のマスタチェック
-        baseProcess.masterCheck(errors, "Mb8ReferSearch", "referId", this.getReferId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.referId"));
+        baseProcess.masterCheck(errors, "Tb8ReferSearch", "referId", this.getReferId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.referId"));
 
         // 制約ID のマスタチェック
-        baseProcess.masterCheck(errors, "Mb8StintSearch", "stintId", this.getStintId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.stintId"));
+        baseProcess.masterCheck(errors, "Tb8StintSearch", "stintId", this.getStintId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.stintId"));
     }
 
 }

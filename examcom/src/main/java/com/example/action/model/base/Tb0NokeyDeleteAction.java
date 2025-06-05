@@ -37,6 +37,13 @@ public class Tb0NokeyDeleteAction extends BaseAction {
         if (colB == null) {
             throw new OptLockError("error.cant.delete");
         }
+        Object colC = postJson.get("colC");
+        if (colC == null) {
+            colC = postJson.get("Tb0Nokey.colC");
+        }
+        if (colC == null) {
+            throw new OptLockError("error.cant.delete");
+        }
 
         Tb0Nokey e = FormValidator.toBean(Tb0Nokey.class.getName(), postJson);
         if (e.delete() != 1) {

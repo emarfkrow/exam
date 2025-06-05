@@ -45,6 +45,9 @@ public class Tb0NokeySRegistAction extends BaseAction {
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColB())) {
                 isNew = true;
             }
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColC())) {
+                isNew = true;
+            }
             // 楽観ロック値がなくてもINSERT
             if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
                 isNew = true;

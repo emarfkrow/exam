@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb4Idbn.title}">ID-BNマスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb4IdbnGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb4Idbn.h2}">h2</h2>
+    <form name="Tb4IdbnRegistForm" action="Tb4IdbnRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb4Idbn.legend}">legend</legend>
+        <div id="refId">
+          <label for="Tb4Idbn.refId" th:text="#{Tb4Idbn.refId}">参照ID</label><input type="text" id="Tb4Idbn.refId" name="Tb4Idbn.refId" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="refBn">
+          <label for="Tb4Idbn.refBn" th:text="#{Tb4Idbn.refBn}">ID連番</label><input type="text" id="Tb4Idbn.refBn" name="Tb4Idbn.refBn" maxlength="10" class=" primaryKey numbering notblank" />
+        </div>
+        <div id="idbnNo">
+          <label for="Tb4Idbn.idbnNo" th:text="#{Tb4Idbn.idbnNo}">IDBNNO</label><input type="text" id="Tb4Idbn.idbnNo" name="Tb4Idbn.idbnNo" maxlength="10" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb4Idbn.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb4Idbn.insertTs"></span><input type="hidden" id="Tb4Idbn.insertTs" name="Tb4Idbn.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb4Idbn.insertUserId}" class="meta">作成者</label><span id="Tb4Idbn.insertUserId"></span><input type="hidden" id="Tb4Idbn.insertUserId" name="Tb4Idbn.insertUserId" />
+          <span id="Tb4Idbn.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb4Idbn.insertUserId" data-destDef="Tb4Idbn.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb4Idbn.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb4Idbn.updateTs"></span><input type="hidden" id="Tb4Idbn.updateTs" name="Tb4Idbn.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb4Idbn.updateUserId}" class="meta">更新者</label><span id="Tb4Idbn.updateUserId"></span><input type="hidden" id="Tb4Idbn.updateUserId" name="Tb4Idbn.updateUserId" />
+          <span id="Tb4Idbn.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb4Idbn.updateUserId" data-destDef="Tb4Idbn.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb4Idbn" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb4IdbnGet.xlsx(baseMei=#{Tb4Idbn.h2})}" id="Tb4IdbnGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb4Idbn" type="submit" class="delete" data-action="Tb4IdbnDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb4Idbn" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

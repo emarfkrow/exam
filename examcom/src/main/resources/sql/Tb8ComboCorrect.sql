@@ -1,8 +1,8 @@
 SELECT
       a.`REFER_ID`
-    , (SELECT r0.`REFER_MEI` FROM MB8_REFER r0 WHERE r0.`REFER_ID` = a.`REFER_ID`) AS `REFER_MEI`
+    , (SELECT r0.`REFER_MEI` FROM TB8_REFER r0 WHERE r0.`REFER_ID` = a.`REFER_ID`) AS `REFER_MEI`
     , a.`STINT_ID`
-    , (SELECT r1.`STINT_MEI` FROM MB8_STINT r1 WHERE r1.`STINT_ID` = a.`STINT_ID`) AS `STINT_MEI`
+    , (SELECT r1.`STINT_MEI` FROM TB8_STINT r1 WHERE r1.`STINT_ID` = a.`STINT_ID`) AS `STINT_MEI`
     , a.`TEKIYO_BI` AS `TEKIYO_BI`
     , a.`COMBO_INFO`
     , a.`INSERT_TS` AS `INSERT_TS`
@@ -13,10 +13,10 @@ SELECT
     , (SELECT r3.`USER_SEI` FROM MHR_USER r3 WHERE r3.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`
 FROM
     TB8_COMBO a 
-    INNER JOIN MB8_REFER c1 
+    INNER JOIN TB8_REFER c1 
         ON 1 = 1 
         AND c1.REFER_ID = a.REFER_ID 
-    INNER JOIN MB8_STINT c2 
+    INNER JOIN TB8_STINT c2 
         ON 1 = 1 
         AND c2.STINT_ID = a.STINT_ID 
 WHERE
@@ -40,7 +40,7 @@ WHERE
         SELECT
               * 
         FROM
-            MB8_STINT p 
+            TB8_STINT p 
         WHERE
             1 = 1 
             AND p.STINT_ID = :stint_id 

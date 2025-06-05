@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
+<head>
+<meta charset="UTF-8">
+<title th:text="#{Tb4Cd.title}">CDマスタ</title>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+
+</script>
+<script th:src="@{/model/Tb4CdGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+</head>
+<body>
+  <div layout:fragment="article">
+    <h2 th:text="#{Tb4Cd.h2}">h2</h2>
+    <form name="Tb4CdRegistForm" action="Tb4CdRegist.ajax" class="regist">
+      <fieldset>
+        <legend th:text="#{Tb4Cd.legend}">legend</legend>
+        <div id="cdrefCd">
+          <label for="Tb4Cd.cdrefCd" th:text="#{Tb4Cd.cdrefCd}">参照CD</label><input type="text" id="Tb4Cd.cdrefCd" name="Tb4Cd.cdrefCd" maxlength="10" class=" primaryKey notblank" />
+        </div>
+        <div id="cdrefMei">
+          <label for="Tb4Cd.cdrefMei" th:text="#{Tb4Cd.cdrefMei}">参照CD名</label><input type="text" id="Tb4Cd.cdrefMei" name="Tb4Cd.cdrefMei" maxlength="60" class=" notblank" />
+        </div>
+        <div id="insertTs">
+          <label th:text="#{Tb4Cd.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb4Cd.insertTs"></span><input type="hidden" id="Tb4Cd.insertTs" name="Tb4Cd.insertTs" />
+        </div>
+        <div id="insertUserId">
+          <label th:text="#{Tb4Cd.insertUserId}" class="meta">作成者</label><span id="Tb4Cd.insertUserId"></span><input type="hidden" id="Tb4Cd.insertUserId" name="Tb4Cd.insertUserId" />
+          <span id="Tb4Cd.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb4Cd.insertUserId" data-destDef="Tb4Cd.insertUserSei:USER_SEI"></span>
+        </div>
+        <div id="updateTs">
+          <label th:text="#{Tb4Cd.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb4Cd.updateTs"></span><input type="hidden" id="Tb4Cd.updateTs" name="Tb4Cd.updateTs" />
+        </div>
+        <div id="updateUserId">
+          <label th:text="#{Tb4Cd.updateUserId}" class="meta">更新者</label><span id="Tb4Cd.updateUserId"></span><input type="hidden" id="Tb4Cd.updateUserId" name="Tb4Cd.updateUserId" />
+          <span id="Tb4Cd.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb4Cd.updateUserId" data-destDef="Tb4Cd.updateUserSei:USER_SEI"></span>
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="button" id="RefreshTb4Cd" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
+        <a th:href="@{Tb4CdGet.xlsx(baseMei=#{Tb4Cd.h2})}" id="Tb4CdGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+      </div>
+      <div class="submits">
+        <button id="DeleteTb4Cd" type="submit" class="delete" data-action="Tb4CdDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
+        <button id="RegistTb4Cd" type="submit" class="regist" th:text="#{common.regist}">登録</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

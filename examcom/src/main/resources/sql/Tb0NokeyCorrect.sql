@@ -32,3 +32,4 @@ WHERE
 ORDER BY
     a.`COL_A`
     , a.`COL_B`
+    , a.`COL_C`

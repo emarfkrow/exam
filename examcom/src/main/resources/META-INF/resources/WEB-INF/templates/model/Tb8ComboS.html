@@ -9,9 +9,9 @@
 
 </script>
 <script th:src="@{/model/Tb8ComboGridColumns.js}"></script>
-<script th:src="@{/model/Mb8ReferGridColumns.js}"></script>
+<script th:src="@{/model/Tb8ReferGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Mb8StintGridColumns.js}"></script>
+<script th:src="@{/model/Tb8StintGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -23,10 +23,10 @@
       <fieldset>
         <legend th:text="#{Tb8ComboS.legend}">legend</legend>
         <div id="referId">
-          <label for="Tb8Combo.referId" th:text="#{Tb8Combo.referId}">参照ID</label><input type="text" id="Tb8Combo.referId" name="Tb8Combo.referId" maxlength="10" data-json="Mb8ReferSearch.json" data-srcDef="REFER_ID:Tb8Combo.referId" data-destDef="Tb8Combo.referMei:REFER_MEI" /><a id="Tb8Combo.referId" th:href="@{/model/Mb8ReferS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Combo.referMei" data-json="Mb8ReferSearch.json" data-srcDef="REFER_ID:Tb8Combo.referId" data-destDef="Tb8Combo.referMei:REFER_MEI"></span>
+          <label for="Tb8Combo.referId" th:text="#{Tb8Combo.referId}">参照ID</label><input type="text" id="Tb8Combo.referId" name="Tb8Combo.referId" maxlength="10" data-json="Tb8ReferSearch.json" data-srcDef="REFER_ID:Tb8Combo.referId" data-destDef="Tb8Combo.referMei:REFER_MEI" /><a id="Tb8Combo.referId" th:href="@{/model/Tb8ReferS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Combo.referMei" data-json="Tb8ReferSearch.json" data-srcDef="REFER_ID:Tb8Combo.referId" data-destDef="Tb8Combo.referMei:REFER_MEI"></span>
         </div>
         <div id="stintId">
-          <label for="Tb8Combo.stintId" th:text="#{Tb8Combo.stintId}">制約ID</label><input type="text" id="Tb8Combo.stintId" name="Tb8Combo.stintId" maxlength="10" data-json="Mb8StintSearch.json" data-srcDef="STINT_ID:Tb8Combo.stintId" data-destDef="Tb8Combo.stintMei:STINT_MEI" /><a id="Tb8Combo.stintId" th:href="@{/model/Mb8StintS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Combo.stintMei" data-json="Mb8StintSearch.json" data-srcDef="STINT_ID:Tb8Combo.stintId" data-destDef="Tb8Combo.stintMei:STINT_MEI"></span>
+          <label for="Tb8Combo.stintId" th:text="#{Tb8Combo.stintId}">制約ID</label><input type="text" id="Tb8Combo.stintId" name="Tb8Combo.stintId" maxlength="10" data-json="Tb8StintSearch.json" data-srcDef="STINT_ID:Tb8Combo.stintId" data-destDef="Tb8Combo.stintMei:STINT_MEI" /><a id="Tb8Combo.stintId" th:href="@{/model/Tb8StintS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb8Combo.stintMei" data-json="Tb8StintSearch.json" data-srcDef="STINT_ID:Tb8Combo.stintId" data-destDef="Tb8Combo.stintMei:STINT_MEI"></span>
         </div>
         <div id="tekiyoBi">
           <label for="Tb8Combo.tekiyoBi_1" th:text="#{Tb8Combo.tekiyoBi}">適用日</label><input type="text" id="Tb8Combo.tekiyoBi_1" name="Tb8Combo.tekiyoBi_1" maxlength="10" class=" datepicker" />～<input type="text" id="Tb8Combo.tekiyoBi_2" name="Tb8Combo.tekiyoBi_2" maxlength="10" class=" datepicker" />
@@ -51,8 +51,8 @@
       <div class="buttons">
         <button type="button" class="reset" id="ResetTb8ComboS" th:text="#{common.reset}" onClick="Base.listReset('Tb8Combo');">reset</button>
         <a th:href="@{Tb8ComboSearch.xlsx(baseMei=#{Tb8ComboS.h2})}" id="Tb8ComboSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <a id="Tb8ComboGrid.referId" th:href="@{/model/Mb8ReferS.html}" target="dialog" class="refer" th:text="'参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
-        <a id="Tb8ComboGrid.stintId" th:href="@{/model/Mb8StintS.html}" target="dialog" class="refer" th:text="'制約マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb8ComboGrid.referId" th:href="@{/model/Tb8ReferS.html}" target="dialog" class="refer" th:text="'参照マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
+        <a id="Tb8ComboGrid.stintId" th:href="@{/model/Tb8StintS.html}" target="dialog" class="refer" th:text="'制約マスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button type="submit" id="DeleteTb8ComboS" data-action="Tb8ComboSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
