@@ -251,16 +251,14 @@ public class Tb0Nokey implements IEntity {
 
     /**
      * 主キーなし照会
-     * @param param1 列Ａ
-     * @param param2 列Ｂ
-     * @param param3 列Ｃ
+     * @param param1 列Ｄ
+     * @param param2 列Ｅ
      * @return 主キーなし
      */
-    public static Tb0Nokey get(final Object param1, final Object param2, final Object param3) {
+    public static Tb0Nokey get(final Object param1, final Object param2) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`COL_A` = :col_a");
-        whereList.add("`COL_B` = :col_b");
-        whereList.add("`COL_C` = :col_c");
+        whereList.add("`COL_D` = :col_d");
+        whereList.add("`COL_E` = :col_e");
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`COL_A` \n";
@@ -277,9 +275,8 @@ public class Tb0Nokey implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("col_a", param1);
-        map.put("col_b", param2);
-        map.put("col_c", param3);
+        map.put("col_d", param1);
+        map.put("col_e", param2);
         return Queries.get(sql, map, Tb0Nokey.class);
     }
 
@@ -366,9 +363,8 @@ public class Tb0Nokey implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`COL_A` = :col_a");
-        whereList.add("`COL_B` = :col_b");
-        whereList.add("`COL_C` = :col_c");
+        whereList.add("`COL_D` = :col_d");
+        whereList.add("`COL_E` = :col_e");
         return String.join(" AND ", whereList);
     }
 

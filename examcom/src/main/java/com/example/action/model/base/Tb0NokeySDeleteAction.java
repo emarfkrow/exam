@@ -36,13 +36,10 @@ public class Tb0NokeySDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_A"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_D"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_B"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_C"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("COL_E"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

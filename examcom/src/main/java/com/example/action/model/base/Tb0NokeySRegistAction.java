@@ -39,13 +39,10 @@ public class Tb0NokeySRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColA())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColD())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColB())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColC())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getColE())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT

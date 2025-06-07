@@ -25,27 +25,19 @@ public class Tb0NokeyGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object colA = postJson.get("colA");
-        if (colA == null) {
-            colA = postJson.get("Tb0Nokey.colA");
+        Object colD = postJson.get("colD");
+        if (colD == null) {
+            colD = postJson.get("Tb0Nokey.colD");
         }
-        if (colA == null) {
+        if (colD == null) {
             isAllKey = false;
         }
 
-        Object colB = postJson.get("colB");
-        if (colB == null) {
-            colB = postJson.get("Tb0Nokey.colB");
+        Object colE = postJson.get("colE");
+        if (colE == null) {
+            colE = postJson.get("Tb0Nokey.colE");
         }
-        if (colB == null) {
-            isAllKey = false;
-        }
-
-        Object colC = postJson.get("colC");
-        if (colC == null) {
-            colC = postJson.get("Tb0Nokey.colC");
-        }
-        if (colC == null) {
+        if (colE == null) {
             isAllKey = false;
         }
 
@@ -55,7 +47,7 @@ public class Tb0NokeyGetAction extends BaseAction {
         }
 
         try {
-            Tb0Nokey tb0Nokey = Tb0Nokey.get(colA, colB, colC);
+            Tb0Nokey tb0Nokey = Tb0Nokey.get(colD, colE);
             map.put("Tb0Nokey", tb0Nokey);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

@@ -30,6 +30,5 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
 ORDER BY
-    a.`COL_A`
-    , a.`COL_B`
-    , a.`COL_C`
+    a.`COL_D`
+    , a.`COL_E`

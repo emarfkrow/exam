@@ -23,25 +23,18 @@ public class Tb0NokeyDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object colA = postJson.get("colA");
-        if (colA == null) {
-            colA = postJson.get("Tb0Nokey.colA");
+        Object colD = postJson.get("colD");
+        if (colD == null) {
+            colD = postJson.get("Tb0Nokey.colD");
         }
-        if (colA == null) {
+        if (colD == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object colB = postJson.get("colB");
-        if (colB == null) {
-            colB = postJson.get("Tb0Nokey.colB");
+        Object colE = postJson.get("colE");
+        if (colE == null) {
+            colE = postJson.get("Tb0Nokey.colE");
         }
-        if (colB == null) {
-            throw new OptLockError("error.cant.delete");
-        }
-        Object colC = postJson.get("colC");
-        if (colC == null) {
-            colC = postJson.get("Tb0Nokey.colC");
-        }
-        if (colC == null) {
+        if (colE == null) {
             throw new OptLockError("error.cant.delete");
         }
 
