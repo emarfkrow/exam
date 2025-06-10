@@ -1,5 +1,5 @@
 /**
- * 長子グリッド定義
+ * 長兄グリッド定義
  */
 
 let Tb2EldestGridColumns = [];

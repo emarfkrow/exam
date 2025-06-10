@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb2Eldest.title}">長子</title>
+<title th:text="#{Tb2Eldest.title}">長兄</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
@@ -21,7 +21,7 @@
           <label for="Tb2Eldest.kyodaiId" th:text="#{Tb2Eldest.kyodaiId}">兄弟ID</label><input type="text" id="Tb2Eldest.kyodaiId" name="Tb2Eldest.kyodaiId" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
         <div id="eldestInfo">
-          <label for="Tb2Eldest.eldestInfo" th:text="#{Tb2Eldest.eldestInfo}">長子情報</label><input type="text" id="Tb2Eldest.eldestInfo" name="Tb2Eldest.eldestInfo" maxlength="300" />
+          <label for="Tb2Eldest.eldestInfo" th:text="#{Tb2Eldest.eldestInfo}">長兄情報</label><input type="text" id="Tb2Eldest.eldestInfo" name="Tb2Eldest.eldestInfo" maxlength="300" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb2Eldest.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb2Eldest.insertTs"></span><input type="hidden" id="Tb2Eldest.insertTs" name="Tb2Eldest.insertTs" />
@@ -48,7 +48,7 @@
       <fieldset>
         <legend th:text="#{Tb2Youngest.legend}">legend</legend>
         <div id="youngestInfo">
-          <label for="Tb2Youngest.youngestInfo" th:text="#{Tb2Youngest.youngestInfo}">末っ子情報</label><input type="text" id="Tb2Youngest.youngestInfo" name="Tb2Youngest.youngestInfo" maxlength="300" />
+          <label for="Tb2Youngest.youngestInfo" th:text="#{Tb2Youngest.youngestInfo}">末弟情報</label><input type="text" id="Tb2Youngest.youngestInfo" name="Tb2Youngest.youngestInfo" maxlength="300" />
         </div>
         <input type="hidden" name="Tb2Youngest.updateTs" />
       </fieldset>

@@ -54,7 +54,7 @@ public class Tb2YoungerRegistForm implements IForm {
         this.youngerInfo = p;
     }
 
-    /** 末っ子 */
+    /** 末弟 */
     @jakarta.validation.Valid
     private Tb2YoungestRegistForm tb2YoungestRegistForm;
 

@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 末っ子登録
+ * 末弟登録
  *
  * @author emarfkrow
  */
 public class Tb2YoungestRegistAction extends BaseAction {
 
-    /** 末っ子登録処理 */
+    /** 末弟登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

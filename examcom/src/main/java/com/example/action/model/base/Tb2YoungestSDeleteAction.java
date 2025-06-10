@@ -13,13 +13,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 末っ子一覧削除
+ * 末弟一覧削除
  *
  * @author emarfkrow
  */
 public class Tb2YoungestSDeleteAction extends BaseAction {
 
-    /** 末っ子一覧削除処理 */
+    /** 末弟一覧削除処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

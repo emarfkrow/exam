@@ -11,7 +11,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * 長子一覧登録フォーム
+ * 長兄一覧登録フォーム
  *
  * @author emarfkrow
  */
@@ -20,19 +20,19 @@ public class Tb2EldestSRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb2EldestRegistForm.class);
 
-    /** 長子登録フォームのリスト */
+    /** 長兄登録フォームのリスト */
     @Valid
     private List<Tb2EldestRegistForm> tb2EldestGrid;
 
     /**
-     * @return 長子登録フォームのリスト
+     * @return 長兄登録フォームのリスト
      */
     public List<Tb2EldestRegistForm> getTb2EldestGrid() {
         return tb2EldestGrid;
     }
 
     /**
-     * @param p 長子登録フォームのリスト
+     * @param p 長兄登録フォームのリスト
      */
     public void setTb2EldestGrid(final List<Tb2EldestRegistForm> p) {
         this.tb2EldestGrid = p;

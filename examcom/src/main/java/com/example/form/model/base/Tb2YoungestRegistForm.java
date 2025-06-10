@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * 末っ子登録フォーム
+ * 末弟登録フォーム
  *
  * @author emarfkrow
  */
@@ -36,19 +36,19 @@ public class Tb2YoungestRegistForm implements IForm {
         this.kyodaiId = p;
     }
 
-    /** 末っ子情報 */
+    /** 末弟情報 */
     @jakarta.validation.constraints.Size(max = 300)
     private String youngestInfo;
 
     /**
-     * @return 末っ子情報
+     * @return 末弟情報
      */
     public String getYoungestInfo() {
         return youngestInfo;
     }
 
     /**
-     * @param p 末っ子情報
+     * @param p 末弟情報
      */
     public void setYoungestInfo(final String p) {
         this.youngestInfo = p;

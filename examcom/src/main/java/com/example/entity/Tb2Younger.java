@@ -231,7 +231,7 @@ public class Tb2Younger implements IEntity {
         // 兄弟IDの採番処理
         numbering();
 
-        // 末っ子の登録
+        // 末弟の登録
         if (this.tb2Youngest != null) {
             this.tb2Youngest.setKyodaiId(this.getKyodaiId());
             this.tb2Youngest.insert(now, execId);
@@ -286,7 +286,7 @@ public class Tb2Younger implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 末っ子の登録
+        // 末弟の登録
         if (this.tb2Youngest != null) {
             tb2Youngest.setKyodaiId(this.getKyodaiId());
             try {
@@ -317,7 +317,7 @@ public class Tb2Younger implements IEntity {
      */
     public int delete() {
 
-        // 末っ子の削除
+        // 末弟の削除
         if (this.tb2Youngest != null) {
             this.tb2Youngest.delete();
         }
@@ -350,21 +350,21 @@ public class Tb2Younger implements IEntity {
         return map;
     }
 
-    /** 末っ子 */
+    /** 末弟 */
     private Tb2Youngest tb2Youngest;
 
-    /** @return 末っ子 */
+    /** @return 末弟 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb2Youngest", index = 10)
     public Tb2Youngest getTb2Youngest() {
         return this.tb2Youngest;
     }
 
-    /** @param p 末っ子 */
+    /** @param p 末弟 */
     public void setTb2Youngest(final Tb2Youngest p) {
         this.tb2Youngest = p;
     }
 
-    /** @return 末っ子 */
+    /** @return 末弟 */
     public Tb2Youngest referTb2Youngest() {
         if (this.tb2Youngest == null) {
             try {

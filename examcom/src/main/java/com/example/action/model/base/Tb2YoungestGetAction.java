@@ -10,13 +10,13 @@ import jp.co.golorp.emarf.action.BaseAction;
 import jp.co.golorp.emarf.exception.NoDataError;
 
 /**
- * 末っ子照会
+ * 末弟照会
  *
  * @author emarfkrow
  */
 public class Tb2YoungestGetAction extends BaseAction {
 
-    /** 末っ子照会処理 */
+    /** 末弟照会処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 

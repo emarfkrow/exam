@@ -1,5 +1,5 @@
 /**
- * 末っ子グリッド定義
+ * 末弟グリッド定義
  */
 
 let Tb2YoungestGridColumns = [];

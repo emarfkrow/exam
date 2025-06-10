@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb2YoungestS.title}">末っ子</title>
+<title th:text="#{Tb2YoungestS.title}">末弟</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
@@ -16,7 +16,7 @@
     <h2 th:text="#{Tb2YoungestS.h2}">h2</h2>
     <!-- 検索フォーム -->
     <form name="Tb2YoungestSearchForm" action="Tb2YoungestSearch.ajax" class="search">
-      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="rows" value="10" />
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb2YoungestS.legend}">legend</legend>
@@ -24,12 +24,12 @@
           <label for="Tb2Youngest.kyodaiId" th:text="#{Tb2Youngest.kyodaiId}">兄弟ID</label><input type="text" id="Tb2Youngest.kyodaiId" name="Tb2Youngest.kyodaiId" maxlength="10" />
         </div>
         <div id="youngestInfo">
-          <label for="Tb2Youngest.youngestInfo" th:text="#{Tb2Youngest.youngestInfo}">末っ子情報</label><input type="text" id="Tb2Youngest.youngestInfo" name="Tb2Youngest.youngestInfo" maxlength="300" />
+          <label for="Tb2Youngest.youngestInfo" th:text="#{Tb2Youngest.youngestInfo}">末弟情報</label><input type="text" id="Tb2Youngest.youngestInfo" name="Tb2Youngest.youngestInfo" maxlength="300" />
         </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb2Youngest" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb2Youngest.html}" target="dialog" id="Tb2Youngest" class="anew" th:text="#{Tb2Youngest.add}" tabindex="-1">末っ子</a>
+        <a th:href="@{/model/Tb2Youngest.html}" target="dialog" id="Tb2Youngest" class="anew" th:text="#{Tb2Youngest.add}" tabindex="-1">末弟</a>
       </div>
       <div class="submits">
         <button id="SearchTb2Youngest" type="submit" class="search" data-gridId="Tb2YoungestGrid" th:text="#{common.search}">submit</button>

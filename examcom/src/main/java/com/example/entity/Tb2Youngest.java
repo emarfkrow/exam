@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 末っ子
+ * 末弟
  * @author emarfkrow
  */
 public class Tb2Youngest implements IEntity {
@@ -51,16 +51,16 @@ public class Tb2Youngest implements IEntity {
         }
     }
 
-    /** 末っ子情報 */
+    /** 末弟情報 */
     private String youngestInfo;
 
-    /** @return 末っ子情報 */
+    /** @return 末弟情報 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "YOUNGEST_INFO", index = 3)
     public String getYoungestInfo() {
         return this.youngestInfo;
     }
 
-    /** @param o 末っ子情報 */
+    /** @param o 末弟情報 */
     public void setYoungestInfo(final Object o) {
         if (o != null) {
             this.youngestInfo = o.toString();
@@ -196,9 +196,9 @@ public class Tb2Youngest implements IEntity {
     }
 
     /**
-     * 末っ子照会
+     * 末弟照会
      * @param param1 兄弟ID
-     * @return 末っ子
+     * @return 末弟
      */
     public static Tb2Youngest get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
@@ -221,7 +221,7 @@ public class Tb2Youngest implements IEntity {
     }
 
     /**
-     * 末っ子追加
+     * 末弟追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
@@ -231,7 +231,7 @@ public class Tb2Youngest implements IEntity {
         // 兄弟IDの採番処理
         numbering();
 
-        // 末っ子の登録
+        // 末弟の登録
         String sql = "INSERT INTO TB2_YOUNGEST(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -273,14 +273,14 @@ public class Tb2Youngest implements IEntity {
     }
 
     /**
-     * 末っ子更新
+     * 末弟更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 末っ子の登録
+        // 末弟の登録
         String sql = "UPDATE TB2_YOUNGEST\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -296,12 +296,12 @@ public class Tb2Youngest implements IEntity {
     }
 
     /**
-     * 末っ子削除
+     * 末弟削除
      * @return 削除件数
      */
     public int delete() {
 
-        // 末っ子の削除
+        // 末弟の削除
         String sql = "DELETE FROM TB2_YOUNGEST WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }

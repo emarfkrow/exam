@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * 長子登録フォーム
+ * 長兄登録フォーム
  *
  * @author emarfkrow
  */
@@ -36,19 +36,19 @@ public class Tb2EldestRegistForm implements IForm {
         this.kyodaiId = p;
     }
 
-    /** 長子情報 */
+    /** 長兄情報 */
     @jakarta.validation.constraints.Size(max = 300)
     private String eldestInfo;
 
     /**
-     * @return 長子情報
+     * @return 長兄情報
      */
     public String getEldestInfo() {
         return eldestInfo;
     }
 
     /**
-     * @param p 長子情報
+     * @param p 長兄情報
      */
     public void setEldestInfo(final String p) {
         this.eldestInfo = p;
@@ -72,7 +72,7 @@ public class Tb2EldestRegistForm implements IForm {
         this.tb2YoungerRegistForm = p;
     }
 
-    /** 末っ子 */
+    /** 末弟 */
     @jakarta.validation.Valid
     private Tb2YoungestRegistForm tb2YoungestRegistForm;
 

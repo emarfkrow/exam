@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 長子
+ * 長兄
  * @author emarfkrow
  */
 public class Tb2Eldest implements IEntity {
@@ -51,16 +51,16 @@ public class Tb2Eldest implements IEntity {
         }
     }
 
-    /** 長子情報 */
+    /** 長兄情報 */
     private String eldestInfo;
 
-    /** @return 長子情報 */
+    /** @return 長兄情報 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "ELDEST_INFO", index = 3)
     public String getEldestInfo() {
         return this.eldestInfo;
     }
 
-    /** @param o 長子情報 */
+    /** @param o 長兄情報 */
     public void setEldestInfo(final Object o) {
         if (o != null) {
             this.eldestInfo = o.toString();
@@ -196,9 +196,9 @@ public class Tb2Eldest implements IEntity {
     }
 
     /**
-     * 長子照会
+     * 長兄照会
      * @param param1 兄弟ID
-     * @return 長子
+     * @return 長兄
      */
     public static Tb2Eldest get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
@@ -221,7 +221,7 @@ public class Tb2Eldest implements IEntity {
     }
 
     /**
-     * 長子追加
+     * 長兄追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
@@ -237,13 +237,13 @@ public class Tb2Eldest implements IEntity {
             this.tb2Younger.insert(now, execId);
         }
 
-        // 末っ子の登録
+        // 末弟の登録
         if (this.tb2Youngest != null) {
             this.tb2Youngest.setKyodaiId(this.getKyodaiId());
             this.tb2Youngest.insert(now, execId);
         }
 
-        // 長子の登録
+        // 長兄の登録
         String sql = "INSERT INTO TB2_ELDEST(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -285,7 +285,7 @@ public class Tb2Eldest implements IEntity {
     }
 
     /**
-     * 長子更新
+     * 長兄更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
@@ -302,7 +302,7 @@ public class Tb2Eldest implements IEntity {
             }
         }
 
-        // 末っ子の登録
+        // 末弟の登録
         if (this.tb2Youngest != null) {
             tb2Youngest.setKyodaiId(this.getKyodaiId());
             try {
@@ -312,7 +312,7 @@ public class Tb2Eldest implements IEntity {
             }
         }
 
-        // 長子の登録
+        // 長兄の登録
         String sql = "UPDATE TB2_ELDEST\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -328,7 +328,7 @@ public class Tb2Eldest implements IEntity {
     }
 
     /**
-     * 長子削除
+     * 長兄削除
      * @return 削除件数
      */
     public int delete() {
@@ -338,12 +338,12 @@ public class Tb2Eldest implements IEntity {
             this.tb2Younger.delete();
         }
 
-        // 末っ子の削除
+        // 末弟の削除
         if (this.tb2Youngest != null) {
             this.tb2Youngest.delete();
         }
 
-        // 長子の削除
+        // 長兄の削除
         String sql = "DELETE FROM TB2_ELDEST WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
@@ -396,21 +396,21 @@ public class Tb2Eldest implements IEntity {
         return this.tb2Younger;
     }
 
-    /** 末っ子 */
+    /** 末弟 */
     private Tb2Youngest tb2Youngest;
 
-    /** @return 末っ子 */
+    /** @return 末弟 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb2Youngest", index = 11)
     public Tb2Youngest getTb2Youngest() {
         return this.tb2Youngest;
     }
 
-    /** @param p 末っ子 */
+    /** @param p 末弟 */
     public void setTb2Youngest(final Tb2Youngest p) {
         this.tb2Youngest = p;
     }
 
-    /** @return 末っ子 */
+    /** @return 末弟 */
     public Tb2Youngest referTb2Youngest() {
         if (this.tb2Youngest == null) {
             try {

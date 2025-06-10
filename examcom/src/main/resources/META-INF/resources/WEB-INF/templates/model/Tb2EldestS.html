@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb2EldestS.title}">長子</title>
+<title th:text="#{Tb2EldestS.title}">長兄</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
@@ -16,7 +16,7 @@
     <h2 th:text="#{Tb2EldestS.h2}">h2</h2>
     <!-- 検索フォーム -->
     <form name="Tb2EldestSearchForm" action="Tb2EldestSearch.ajax" class="search">
-      <input type="hidden" name="rows" value="3" />
+      <input type="hidden" name="rows" value="10" />
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb2EldestS.legend}">legend</legend>
@@ -24,12 +24,12 @@
           <label for="Tb2Eldest.kyodaiId" th:text="#{Tb2Eldest.kyodaiId}">兄弟ID</label><input type="text" id="Tb2Eldest.kyodaiId" name="Tb2Eldest.kyodaiId" maxlength="10" />
         </div>
         <div id="eldestInfo">
-          <label for="Tb2Eldest.eldestInfo" th:text="#{Tb2Eldest.eldestInfo}">長子情報</label><input type="text" id="Tb2Eldest.eldestInfo" name="Tb2Eldest.eldestInfo" maxlength="300" />
+          <label for="Tb2Eldest.eldestInfo" th:text="#{Tb2Eldest.eldestInfo}">長兄情報</label><input type="text" id="Tb2Eldest.eldestInfo" name="Tb2Eldest.eldestInfo" maxlength="300" />
         </div>
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb2Eldest" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb2Eldest.html}" target="dialog" id="Tb2Eldest" class="anew" th:text="#{Tb2Eldest.add}" tabindex="-1">長子</a>
+        <a th:href="@{/model/Tb2Eldest.html}" target="dialog" id="Tb2Eldest" class="anew" th:text="#{Tb2Eldest.add}" tabindex="-1">長兄</a>
       </div>
       <div class="submits">
         <button id="SearchTb2Eldest" type="submit" class="search" data-gridId="Tb2EldestGrid" th:text="#{common.search}">submit</button>
