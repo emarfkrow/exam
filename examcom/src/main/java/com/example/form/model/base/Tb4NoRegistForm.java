@@ -20,8 +20,7 @@ public class Tb4NoRegistForm implements IForm {
 
     /** 参照NO */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
     private String norefNo;
 
     /**

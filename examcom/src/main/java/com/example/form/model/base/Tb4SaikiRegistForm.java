@@ -74,8 +74,7 @@ public class Tb4SaikiRegistForm implements IForm {
     }
 
     /** 参照CD */
-    @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]*)?")
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]{1,10})?")
     private String cdrefCd;
 
     /**
@@ -93,8 +92,7 @@ public class Tb4SaikiRegistForm implements IForm {
     }
 
     /** 参照NO */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
     private String norefNo;
 
     /**

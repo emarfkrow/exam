@@ -10,6 +10,7 @@
 </script>
 <script th:src="@{/model/Tb4IdGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb4IdbnGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -38,6 +39,10 @@
           <span id="Tb4Id.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb4Id.updateUserId" data-destDef="Tb4Id.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
+      <h3 th:text="#{Tb4Idbn.h3}">h3</h3>
+      <a th:href="@{/model/Tb4Idbn.html}" id="Tb4Idbn" target="dialog" th:text="#{Tb4Idbn.add}" class="addChild" tabindex="-1">ID-BNマスタ</a>
+      <div id="Tb4IdbnGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb4Idbn.html}"></div>
+        <a id="Tb4IdbnGrid.idrefId" th:href="@{/model/Tb4IdS.html}" target="dialog" class="refer" th:text="'IDマスタ' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
       <div class="buttons">
         <button type="button" id="RefreshTb4Id" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb4IdGet.xlsx(baseMei=#{Tb4Id.h2})}" id="Tb4IdGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

@@ -40,6 +40,7 @@ public class Tb4IdGetAction extends BaseAction {
 
         try {
             Tb4Id tb4Id = Tb4Id.get(idrefId);
+            tb4Id.referTb4Idbns();
             map.put("Tb4Id", tb4Id);
         } catch (NoDataError e) {
             if (!postJson.get("IsSilent").equals("true")) {

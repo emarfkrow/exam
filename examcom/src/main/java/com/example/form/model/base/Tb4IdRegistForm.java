@@ -1,5 +1,6 @@
 package com.example.form.model.base;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -53,6 +54,24 @@ public class Tb4IdRegistForm implements IForm {
      */
     public void setIdrefMei(final String p) {
         this.idrefMei = p;
+    }
+
+    /** ID-BNマスタ */
+    @jakarta.validation.Valid
+    private List<Tb4IdbnRegistForm> tb4IdbnGrid;
+
+    /**
+     * @return ID-BNマスタ
+     */
+    public List<Tb4IdbnRegistForm> getTb4IdbnGrid() {
+        return tb4IdbnGrid;
+    }
+
+    /**
+     * @param p
+     */
+    public void setTb4IdbnGrid(final List<Tb4IdbnRegistForm> p) {
+        this.tb4IdbnGrid = p;
     }
 
     /** 関連チェック */

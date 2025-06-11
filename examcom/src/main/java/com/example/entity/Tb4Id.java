@@ -231,6 +231,16 @@ public class Tb4Id implements IEntity {
         // 参照IDの採番処理
         numbering();
 
+        // ID-BNマスタの登録
+        if (this.tb4Idbns != null) {
+            for (Tb4Idbn tb4Idbn : this.tb4Idbns) {
+                if (tb4Idbn != null) {
+                    tb4Idbn.setIdrefId(this.getIdrefId());
+                }
+                tb4Idbn.insert(now, execId);
+            }
+        }
+
         // IDマスタの登録
         String sql = "INSERT INTO TB4_ID(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
@@ -280,6 +290,21 @@ public class Tb4Id implements IEntity {
      */
     public int update(final LocalDateTime now, final String execId) {
 
+        // ID-BNマスタの登録
+        if (this.tb4Idbns != null) {
+            for (Tb4Idbn tb4Idbn : this.tb4Idbns) {
+                if (tb4Idbn == null) {
+                    continue;
+                }
+                tb4Idbn.setIdrefId(this.idrefId);
+                try {
+                    tb4Idbn.insert(now, execId);
+                } catch (Exception e) {
+                    tb4Idbn.update(now, execId);
+                }
+            }
+        }
+
         // IDマスタの登録
         String sql = "UPDATE TB4_ID\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
@@ -300,6 +325,13 @@ public class Tb4Id implements IEntity {
      * @return 削除件数
      */
     public int delete() {
+
+        // ID-BNマスタの削除
+        if (this.tb4Idbns != null) {
+            for (Tb4Idbn tb4Idbn : this.tb4Idbns) {
+                tb4Idbn.delete();
+            }
+        }
 
         // IDマスタの削除
         String sql = "DELETE FROM TB4_ID WHERE " + getWhere();
@@ -327,5 +359,58 @@ public class Tb4Id implements IEntity {
         map.put("update_ts", now);
         map.put("update_user_id", execId);
         return map;
+    }
+
+    /** ID-BNマスタのリスト */
+    private List<Tb4Idbn> tb4Idbns;
+
+    /** @return ID-BNマスタのリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb4Idbns", index = 10)
+    public List<Tb4Idbn> getTb4Idbns() {
+        return this.tb4Idbns;
+    }
+
+    /** @param list ID-BNマスタのリスト */
+    public void setTb4Idbns(final List<Tb4Idbn> list) {
+        this.tb4Idbns = list;
+    }
+
+    /** @param tb4Idbn */
+    public void addTb4Idbns(final Tb4Idbn tb4Idbn) {
+        if (this.tb4Idbns == null) {
+            this.tb4Idbns = new ArrayList<Tb4Idbn>();
+        }
+        this.tb4Idbns.add(tb4Idbn);
+    }
+
+    /** @return ID-BNマスタのリスト */
+    public List<Tb4Idbn> referTb4Idbns() {
+        this.tb4Idbns = Tb4Id.referTb4Idbns(this.idrefId);
+        return this.tb4Idbns;
+    }
+
+    /**
+     * @param param1 idrefId
+     * @return List<Tb4Idbn>
+     */
+    public static List<Tb4Idbn> referTb4Idbns(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("IDREF_ID = :idref_id");
+        String sql = "SELECT ";
+        sql += "`IDREF_ID`";
+        sql += ", `IDBN_BN`";
+        sql += ", `IDBN_NO`";
+        sql += ", `INSERT_TS` AS INSERT_TS";
+        sql += ", `INSERT_USER_ID`";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", `UPDATE_TS` AS UPDATE_TS";
+        sql += ", `UPDATE_USER_ID`";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += " FROM TB4_IDBN a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "IDREF_ID, IDBN_BN";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("idref_id", param1);
+        return Queries.select(sql, map, Tb4Idbn.class, null, null);
     }
 }

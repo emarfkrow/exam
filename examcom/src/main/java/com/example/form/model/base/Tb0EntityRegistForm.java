@@ -210,7 +210,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 年 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4})?")
-    @jakarta.validation.constraints.Size(max = 4)
     private String nenY;
 
     /**
@@ -230,7 +229,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 月 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
-    @jakarta.validation.constraints.Size(max = 2)
     private String tsukiM;
 
     /**
@@ -250,7 +248,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
-    @jakarta.validation.constraints.Size(max = 2)
     private String hiD;
 
     /**
@@ -270,7 +267,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 年月 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2})?")
-    @jakarta.validation.constraints.Size(max = 6)
     private String nengetsuYm;
 
     /**
@@ -290,7 +286,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 年月日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{8})?")
-    @jakarta.validation.constraints.Size(max = 8)
     private String nengappiYmd;
 
     /**
@@ -385,7 +380,6 @@ public class Tb0EntityRegistForm implements IForm {
     /** 時間 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,}:[0-9]{1,2})?")
-    @jakarta.validation.constraints.Size(max = 9)
     private String jikanTm;
 
     /**

@@ -28,10 +28,10 @@ public class Tb4IdbnRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRefId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdrefId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getRefBn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getIdbnBn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

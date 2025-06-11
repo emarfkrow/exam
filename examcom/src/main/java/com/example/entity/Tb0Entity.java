@@ -773,7 +773,7 @@ public class Tb0Entity implements IEntity {
         valueList.add(":hi_d");
         valueList.add(":nengetsu_ym");
         valueList.add(":nengappi_ymd");
-        valueList.add(":timestamp_ts");
+        valueList.add("sysdate()");
         valueList.add(":nichiji_dt");
         valueList.add(":hiduke_bi");
         valueList.add(":jikoku_hm");

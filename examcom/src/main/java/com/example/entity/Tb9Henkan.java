@@ -33,16 +33,16 @@ public class Tb9Henkan implements IEntity {
         }
     }
 
-    /** table_name */
+    /** TABLE_NAME */
     private String tableName;
 
-    /** @return table_name */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "table_name", index = 2)
+    /** @return TABLE_NAME */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "TABLE_NAME", index = 2)
     public String getTableName() {
         return this.tableName;
     }
 
-    /** @param o table_name */
+    /** @param o TABLE_NAME */
     public void setTableName(final Object o) {
         if (o != null) {
             this.tableName = o.toString();
@@ -55,7 +55,7 @@ public class Tb9Henkan implements IEntity {
     private Integer srcId;
 
     /** @return 変換元ID */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "src_id", index = 3)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SRC_ID", index = 3)
     public Integer getSrcId() {
         return this.srcId;
     }
@@ -73,7 +73,7 @@ public class Tb9Henkan implements IEntity {
     private String destInfo;
 
     /** @return 変換元情報 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "dest_info", index = 4)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "DEST_INFO", index = 4)
     public String getDestInfo() {
         return this.destInfo;
     }
@@ -93,14 +93,14 @@ public class Tb9Henkan implements IEntity {
      */
     public static Tb9Henkan get() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`table_name` = :table_name");
-        whereList.add("`src_id` = :src_id");
-        whereList.add("`dest_info` = :dest_info");
+        whereList.add("`TABLE_NAME` = :table_name");
+        whereList.add("`SRC_ID` = :src_id");
+        whereList.add("`DEST_INFO` = :dest_info");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`table_name` \n";
-        sql += "    , a.`src_id` \n";
-        sql += "    , a.`dest_info` \n";
+        sql += "      a.`TABLE_NAME` \n";
+        sql += "    , a.`SRC_ID` \n";
+        sql += "    , a.`DEST_INFO` \n";
         sql += "FROM \n";
         sql += "    TB9_HENKAN a \n";
         sql += "WHERE \n";
@@ -125,9 +125,9 @@ public class Tb9Henkan implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`table_name` -- :table_name");
-        nameList.add("`src_id` -- :src_id");
-        nameList.add("`dest_info` -- :dest_info");
+        nameList.add("`TABLE_NAME` -- :table_name");
+        nameList.add("`SRC_ID` -- :src_id");
+        nameList.add("`DEST_INFO` -- :dest_info");
         return String.join("\r\n    , ", nameList);
     }
 
@@ -156,9 +156,9 @@ public class Tb9Henkan implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`table_name` = :table_name");
-        setList.add("`src_id` = :src_id");
-        setList.add("`dest_info` = :dest_info");
+        setList.add("`TABLE_NAME` = :table_name");
+        setList.add("`SRC_ID` = :src_id");
+        setList.add("`DEST_INFO` = :dest_info");
         return String.join("\r\n    , ", setList);
     }
 

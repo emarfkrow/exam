@@ -41,6 +41,17 @@ public class Tb4IdSDeleteAction extends BaseAction {
             }
 
             Tb4Id e = FormValidator.toBean(Tb4Id.class.getName(), gridRow);
+
+            java.util.List<com.example.entity.Tb4Idbn> tb4Idbns = e.referTb4Idbns();
+            if (tb4Idbns != null) {
+                for (com.example.entity.Tb4Idbn tb4Idbn : tb4Idbns) {
+
+                    if (tb4Idbn.delete() != 1) {
+                        throw new OptLockError("error.cant.delete");
+                    }
+                }
+            }
+
             if (e.delete() != 1) {
                 throw new OptLockError("error.cant.delete");
             }

@@ -23,18 +23,18 @@ public class Tb4IdbnDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object refId = postJson.get("refId");
-        if (refId == null) {
-            refId = postJson.get("Tb4Idbn.refId");
+        Object idrefId = postJson.get("idrefId");
+        if (idrefId == null) {
+            idrefId = postJson.get("Tb4Idbn.idrefId");
         }
-        if (refId == null) {
+        if (idrefId == null) {
             throw new OptLockError("error.cant.delete");
         }
-        Object refBn = postJson.get("refBn");
-        if (refBn == null) {
-            refBn = postJson.get("Tb4Idbn.refBn");
+        Object idbnBn = postJson.get("idbnBn");
+        if (idbnBn == null) {
+            idbnBn = postJson.get("Tb4Idbn.idbnBn");
         }
-        if (refBn == null) {
+        if (idbnBn == null) {
             throw new OptLockError("error.cant.delete");
         }
 

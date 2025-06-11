@@ -20,44 +20,43 @@ public class Tb4IdbnRegistForm implements IForm {
 
     /** 参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String refId;
+    private String idrefId;
 
     /**
      * @return 参照ID
      */
-    public String getRefId() {
-        return refId;
+    public String getIdrefId() {
+        return idrefId;
     }
 
     /**
      * @param p 参照ID
      */
-    public void setRefId(final String p) {
-        this.refId = p;
+    public void setIdrefId(final String p) {
+        this.idrefId = p;
     }
 
     /** ID連番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String refBn;
+    private String idbnBn;
 
     /**
      * @return ID連番
      */
-    public String getRefBn() {
-        return refBn;
+    public String getIdbnBn() {
+        return idbnBn;
     }
 
     /**
      * @param p ID連番
      */
-    public void setRefBn(final String p) {
-        this.refBn = p;
+    public void setIdbnBn(final String p) {
+        this.idbnBn = p;
     }
 
     /** IDBNNO */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]*)?")
-    @jakarta.validation.constraints.Size(max = 10)
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
     private String idbnNo;
 
     /**
@@ -78,6 +77,9 @@ public class Tb4IdbnRegistForm implements IForm {
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
+
+        // 参照ID のマスタチェック
+        baseProcess.masterCheck(errors, "Tb4IdSearch", "idrefId", this.getIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb4Idbn.idrefId"));
     }
 
 }

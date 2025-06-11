@@ -74,7 +74,6 @@ public class Tb0NokeyRegistForm implements IForm {
 
     /** 列Ｄ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
-    @jakarta.validation.constraints.Size(max = 60)
     private String colD;
 
     /**
