@@ -9,7 +9,7 @@ SELECT
     , (SELECT r2.`NOREF_MEI` FROM TB4_NO r2 WHERE r2.`NOREF_NO` = a.`NOREF_NO`) AS `NOREF_MEI`
     , a.`BETSU_IDREF_ID`
     , (SELECT r3.`IDREF_MEI` FROM TB4_ID r3 WHERE r3.`IDREF_ID` = a.`BETSU_IDREF_ID`) AS `BETSU_IDREF_MEI`
-    , a.`REF_BN`
+    , a.`IDBN_BN`
     , a.`OYA_SAIKI_ID`
     , (SELECT r4.`SAIKI_MEI` FROM TB4_SAIKI r4 WHERE r4.`SAIKI_ID` = a.`OYA_SAIKI_ID`) AS `OYA_SAIKI_MEI`
     , a.`INSERT_TS` AS `INSERT_TS`
@@ -28,7 +28,7 @@ WHERE
     AND UPPER (TRIM(TRAILING ' ' FROM a.`CDREF_CD`)) LIKE UPPER (CONCAT ('%', :cdref_cd, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_NO`)) LIKE UPPER (CONCAT ('%', :noref_no, '%')) 
     AND a.`BETSU_IDREF_ID` = :betsu_idref_id 
-    AND a.`REF_BN` = :ref_bn 
+    AND a.`IDBN_BN` = :idbn_bn 
     AND a.`OYA_SAIKI_ID` = :oya_saiki_id 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 

@@ -214,20 +214,20 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** ID連番 */
-    private Integer refBn;
+    private Integer idbnBn;
 
     /** @return ID連番 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "REF_BN", index = 12)
-    public Integer getRefBn() {
-        return this.refBn;
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "IDBN_BN", index = 12)
+    public Integer getIdbnBn() {
+        return this.idbnBn;
     }
 
     /** @param o ID連番 */
-    public void setRefBn(final Object o) {
+    public void setIdbnBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.refBn = Integer.valueOf(o.toString());
+            this.idbnBn = Integer.valueOf(o.toString());
         } else {
-            this.refBn = null;
+            this.idbnBn = null;
         }
     }
 
@@ -409,7 +409,7 @@ public class Tb4Saiki implements IEntity {
         sql += "    , TRIM(TRAILING ' ' FROM a.`CDREF_CD`) AS CDREF_CD \n";
         sql += "    , TRIM(TRAILING ' ' FROM a.`NOREF_NO`) AS NOREF_NO \n";
         sql += "    , a.`BETSU_IDREF_ID` \n";
-        sql += "    , a.`REF_BN` \n";
+        sql += "    , a.`IDBN_BN` \n";
         sql += "    , a.`OYA_SAIKI_ID` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
@@ -449,7 +449,7 @@ public class Tb4Saiki implements IEntity {
         nameList.add("`CDREF_CD` -- :cdref_cd");
         nameList.add("`NOREF_NO` -- :noref_no");
         nameList.add("`BETSU_IDREF_ID` -- :betsu_idref_id");
-        nameList.add("`REF_BN` -- :ref_bn");
+        nameList.add("`IDBN_BN` -- :idbn_bn");
         nameList.add("`OYA_SAIKI_ID` -- :oya_saiki_id");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
@@ -467,7 +467,7 @@ public class Tb4Saiki implements IEntity {
         valueList.add(":cdref_cd");
         valueList.add(":noref_no");
         valueList.add(":betsu_idref_id");
-        valueList.add(":ref_bn");
+        valueList.add(":idbn_bn");
         valueList.add(":oya_saiki_id");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
@@ -510,7 +510,7 @@ public class Tb4Saiki implements IEntity {
         setList.add("`CDREF_CD` = :cdref_cd");
         setList.add("`NOREF_NO` = :noref_no");
         setList.add("`BETSU_IDREF_ID` = :betsu_idref_id");
-        setList.add("`REF_BN` = :ref_bn");
+        setList.add("`IDBN_BN` = :idbn_bn");
         setList.add("`OYA_SAIKI_ID` = :oya_saiki_id");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
@@ -548,7 +548,7 @@ public class Tb4Saiki implements IEntity {
         map.put("cdref_cd", this.cdrefCd);
         map.put("noref_no", this.norefNo);
         map.put("betsu_idref_id", this.betsuIdrefId);
-        map.put("ref_bn", this.refBn);
+        map.put("idbn_bn", this.idbnBn);
         map.put("oya_saiki_id", this.oyaSaikiId);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);

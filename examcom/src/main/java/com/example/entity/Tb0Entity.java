@@ -396,7 +396,8 @@ public class Tb0Entity implements IEntity {
     /** @param o 時刻 */
     public void setJikokuHm(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
-            this.jikokuHm = java.time.LocalTime.parse(o.toString());
+            String text = o.toString().replaceFirst("^\\d+[\\/|\\-]\\d+[\\/|\\-]\\d+ ", "");
+            this.jikokuHm = java.time.LocalTime.parse(text);
         } else {
             this.jikokuHm = null;
         }
@@ -773,7 +774,7 @@ public class Tb0Entity implements IEntity {
         valueList.add(":hi_d");
         valueList.add(":nengetsu_ym");
         valueList.add(":nengappi_ymd");
-        valueList.add("sysdate()");
+        valueList.add("now(3)");
         valueList.add(":nichiji_dt");
         valueList.add(":hiduke_bi");
         valueList.add(":jikoku_hm");

@@ -129,20 +129,20 @@ public class Tb4SaikiRegistForm implements IForm {
 
     /** ID連番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String refBn;
+    private String idbnBn;
 
     /**
      * @return ID連番
      */
-    public String getRefBn() {
-        return refBn;
+    public String getIdbnBn() {
+        return idbnBn;
     }
 
     /**
      * @param p ID連番
      */
-    public void setRefBn(final String p) {
-        this.refBn = p;
+    public void setIdbnBn(final String p) {
+        this.idbnBn = p;
     }
 
     /** 親再帰ID */
