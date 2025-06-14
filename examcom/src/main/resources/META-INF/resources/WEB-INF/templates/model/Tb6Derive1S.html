@@ -11,6 +11,8 @@
 <script th:src="@{/model/Tb6Derive1GridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb6Derive1DetGridColumns.js}"></script>
+<script th:src="@{/model/Tb6OrgGridColumns.js}"></script>
+<script th:src="@{/model/Tb6OrgDetGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -33,6 +35,7 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb6Derive1" th:text="#{common.reset}" class="reset">reset</button>
+        <a th:href="@{/model/Tb6Derive1.html}" target="dialog" id="Tb6Derive1" class="anew" th:text="#{Tb6Derive1.add}" tabindex="-1">派生１</a>
       </div>
       <div class="submits">
         <button id="SearchTb6Derive1" type="submit" class="search" data-gridId="Tb6Derive1Grid" th:text="#{common.search}">submit</button>
