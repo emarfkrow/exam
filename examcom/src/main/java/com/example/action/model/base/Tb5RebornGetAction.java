@@ -31,7 +31,7 @@ public class Tb5RebornGetAction extends BaseAction {
         }
         if (rebornId == null) {
 
-            //転生先になる場合は転生元から情報をコピー
+            // 転生先になる場合は転生元から情報をコピー
             Object prevId = postJson.get("prevId");
             if (prevId == null) {
                 prevId = postJson.get("Tb5Reborn.prevId");

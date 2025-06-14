@@ -30,6 +30,31 @@ public class Tb6Derive2GetAction extends BaseAction {
             derive2Id = postJson.get("Tb6Derive2.derive2Id");
         }
         if (derive2Id == null) {
+
+            // 派生先になる場合は派生元から情報をコピー
+            Object orgId = postJson.get("orgId");
+            if (orgId == null) {
+                orgId = postJson.get("Tb6Derive2.orgId");
+            }
+            if (orgId == null) {
+                return map;
+            }
+
+            com.example.entity.Tb6Org tb6Org = com.example.entity.Tb6Org.get(orgId);
+            Tb6Derive2 tb6Derive2 = new Tb6Derive2();
+            tb6Derive2.setOrgId(tb6Org.getOrgId());
+            tb6Derive2.setOrgInfo(tb6Org.getOrgInfo());
+
+            tb6Org.referTb6OrgDets();
+            tb6Derive2.setTb6Derive2Dets(new java.util.ArrayList<com.example.entity.Tb6Derive2Det>());
+            for (com.example.entity.Tb6OrgDet tb6OrgDet : tb6Org.referTb6OrgDets()) {
+                com.example.entity.Tb6Derive2Det tb6Derive2Det = new com.example.entity.Tb6Derive2Det();
+                tb6Derive2Det.setId(tb6OrgDet.getId());
+                tb6Derive2Det.setOrgDetInfo(tb6OrgDet.getOrgDetInfo());
+                tb6Derive2.getTb6Derive2Dets().add(tb6Derive2Det);
+            }
+
+            map.put("Tb6Derive2", tb6Derive2);
             isAllKey = false;
         }
 
