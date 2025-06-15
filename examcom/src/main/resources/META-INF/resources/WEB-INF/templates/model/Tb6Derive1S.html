@@ -36,6 +36,7 @@
       <div class="buttons">
         <button type="reset" id="ResetTb6Derive1" th:text="#{common.reset}" class="reset">reset</button>
         <a th:href="@{/model/Tb6Derive1.html}" target="dialog" id="Tb6Derive1" class="anew" th:text="#{Tb6Derive1.add}" tabindex="-1">派生１</a>
+          <label for="Tb6Org.orgId" th:text="#{Tb6Org.orgId}">起源ID</label><input type="text" id="Tb6Org.orgId" name="Tb6Org.orgId" maxlength="10" />
       </div>
       <div class="submits">
         <button id="SearchTb6Derive1" type="submit" class="search" data-gridId="Tb6Derive1Grid" th:text="#{common.search}">submit</button>
