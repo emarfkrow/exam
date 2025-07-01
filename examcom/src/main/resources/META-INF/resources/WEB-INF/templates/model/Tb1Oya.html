@@ -44,10 +44,10 @@
       </fieldset>
       <h3 th:text="#{Tb1Ko.h3}">h3</h3>
       <a th:href="@{/model/Tb1Ko.html}" id="Tb1Ko" target="dialog" th:text="#{Tb1Ko.add}" class="addChild" tabindex="-1">子</a>
-      <div id="Tb1KoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}"></div>
+      <div id="Tb1KoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1Ko.html}" class="childs"></div>
       <h3 th:text="#{Tb1KoDinks.h3}">h3</h3>
       <a th:href="@{/model/Tb1KoDinks.html}" id="Tb1KoDinks" target="dialog" th:text="#{Tb1KoDinks.add}" class="addChild" tabindex="-1">子なし</a>
-      <div id="Tb1KoDinksGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1KoDinks.html}"></div>
+      <div id="Tb1KoDinksGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb1KoDinks.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb1Oya" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1OyaGet.xlsx(baseMei=#{Tb1Oya.h2})}" id="Tb1OyaGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

@@ -41,7 +41,7 @@
       </fieldset>
       <h3 th:text="#{Tb6OrgDet.h3}">h3</h3>
       <a th:href="@{/model/Tb6OrgDet.html}" id="Tb6OrgDet" target="dialog" th:text="#{Tb6OrgDet.add}" class="addChild" tabindex="-1">起源明細</a>
-      <div id="Tb6OrgDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb6OrgDet.html}"></div>
+      <div id="Tb6OrgDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb6OrgDet.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb6Org" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb6OrgGet.xlsx(baseMei=#{Tb6Org.h2})}" id="Tb6OrgGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

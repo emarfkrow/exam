@@ -44,7 +44,7 @@
       </fieldset>
       <h3 th:text="#{Tb5RebornDet.h3}">h3</h3>
       <a th:href="@{/model/Tb5RebornDet.html}" id="Tb5RebornDet" target="dialog" th:text="#{Tb5RebornDet.add}" class="addChild" tabindex="-1">転生明細</a>
-      <div id="Tb5RebornDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb5RebornDet.html}"></div>
+      <div id="Tb5RebornDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb5RebornDet.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb5Reborn" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb5RebornGet.xlsx(baseMei=#{Tb5Reborn.h2})}" id="Tb5RebornGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

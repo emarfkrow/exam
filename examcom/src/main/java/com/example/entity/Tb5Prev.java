@@ -413,4 +413,57 @@ public class Tb5Prev implements IEntity {
         map.put("prev_id", param1);
         return Queries.select(sql, map, Tb5PrevDet.class, null, null);
     }
+
+    /** 転生のリスト */
+    private List<Tb5Reborn> tb5Reborns;
+
+    /** @return 転生のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb5Reborns", index = 11)
+    public List<Tb5Reborn> getTb5Reborns() {
+        return this.tb5Reborns;
+    }
+
+    /** @param list 転生のリスト */
+    public void setTb5Reborns(final List<Tb5Reborn> list) {
+        this.tb5Reborns = list;
+    }
+
+    /** @param tb5Reborn */
+    public void addTb5Reborns(final Tb5Reborn tb5Reborn) {
+        if (this.tb5Reborns == null) {
+            this.tb5Reborns = new ArrayList<Tb5Reborn>();
+        }
+        this.tb5Reborns.add(tb5Reborn);
+    }
+
+    /** @return 転生のリスト */
+    public List<Tb5Reborn> referTb5Reborns() {
+        this.tb5Reborns = Tb5Prev.referTb5Reborns(this.prevId);
+        return this.tb5Reborns;
+    }
+
+    /**
+     * @param param1 prevId
+     * @return List<Tb5Reborn>
+     */
+    public static List<Tb5Reborn> referTb5Reborns(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("PREV_ID = :prev_id");
+        String sql = "SELECT ";
+        sql += "`REBORN_ID`";
+        sql += ", `PREV_ID`";
+        sql += ", `PREV_INFO`";
+        sql += ", `INSERT_TS` AS INSERT_TS";
+        sql += ", `INSERT_USER_ID`";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", `UPDATE_TS` AS UPDATE_TS";
+        sql += ", `UPDATE_USER_ID`";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += " FROM TB5_REBORN a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "REBORN_ID";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("prev_id", param1);
+        return Queries.select(sql, map, Tb5Reborn.class, null, null);
+    }
 }

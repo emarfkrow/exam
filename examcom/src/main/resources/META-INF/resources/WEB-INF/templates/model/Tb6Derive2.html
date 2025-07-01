@@ -46,7 +46,7 @@
       </fieldset>
       <h3 th:text="#{Tb6Derive2Det.h3}">h3</h3>
       <a th:href="@{/model/Tb6Derive2Det.html}" id="Tb6Derive2Det" target="dialog" th:text="#{Tb6Derive2Det.add}" class="addChild" tabindex="-1">派生２明細</a>
-      <div id="Tb6Derive2DetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb6Derive2Det.html}"></div>
+      <div id="Tb6Derive2DetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb6Derive2Det.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb6Derive2" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb6Derive2Get.xlsx(baseMei=#{Tb6Derive2.h2})}" id="Tb6Derive2Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

@@ -84,7 +84,7 @@
       </fieldset>
       <h3 th:text="#{Tb1Mago.h3}">h3</h3>
       <a th:href="@{/model/Tb1Mago.html}" id="Tb1Mago" target="dialog" th:text="#{Tb1Mago.add}" class="addChild" tabindex="-1">孫</a>
-      <div id="Tb1MagoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}"></div>
+      <div id="Tb1MagoGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="2" th:data-href="@{/model/Tb1Mago.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb1Ko" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb1KoGet.xlsx(baseMei=#{Tb1Ko.h2})}" id="Tb1KoGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>

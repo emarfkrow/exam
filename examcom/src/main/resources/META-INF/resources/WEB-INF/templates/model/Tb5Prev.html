@@ -11,6 +11,7 @@
 <script th:src="@{/model/Tb5PrevGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb5PrevDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb5RebornGridColumns.js}"></script>
 <script th:src="@{/model/Tb5RebornDetGridColumns.js}"></script>
 </head>
 <body>
@@ -42,7 +43,7 @@
       </fieldset>
       <h3 th:text="#{Tb5PrevDet.h3}">h3</h3>
       <a th:href="@{/model/Tb5PrevDet.html}" id="Tb5PrevDet" target="dialog" th:text="#{Tb5PrevDet.add}" class="addChild" tabindex="-1">前世明細</a>
-      <div id="Tb5PrevDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb5PrevDet.html}"></div>
+      <div id="Tb5PrevDetGrid" data-selectionMode="link" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb5PrevDet.html}" class="childs"></div>
       <div class="buttons">
         <button type="button" id="RefreshTb5Prev" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb5PrevGet.xlsx(baseMei=#{Tb5Prev.h2})}" id="Tb5PrevGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
@@ -52,6 +53,8 @@
         <button id="DeleteTb5Prev" type="submit" class="delete" data-action="Tb5PrevDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="RegistTb5Prev" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
+      <h3 th:text="#{Tb5Reborn.h3}">h3</h3>
+      <div id="Tb5RebornGrid" data-selectionMode="link" data-frozenColumn="1" th:data-href="@{/model/Tb5Reborn.html}" class="reborners"></div>
     </form>
   </div>
 </body>
