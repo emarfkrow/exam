@@ -490,6 +490,10 @@ public class Tb1Ko implements IEntity {
         return this.tb1KoOrphans;
     }
 
+    /*
+     * 子モデル：孫
+     */
+
     /** 孫のリスト */
     private List<Tb1Mago> tb1Magos;
 

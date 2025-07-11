@@ -346,6 +346,10 @@ public class MsyKbn implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：区分値マスタ
+     */
+
     /** 区分値マスタのリスト */
     private List<MsyKbnVal> msyKbnVals;
 

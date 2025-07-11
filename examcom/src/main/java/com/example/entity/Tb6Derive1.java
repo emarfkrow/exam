@@ -384,6 +384,10 @@ public class Tb6Derive1 implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：派生１明細
+     */
+
     /** 派生１明細のリスト */
     private List<Tb6Derive1Det> tb6Derive1Dets;
 

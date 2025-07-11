@@ -384,6 +384,10 @@ public class Tb5Reborn implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：転生明細
+     */
+
     /** 転生明細のリスト */
     private List<Tb5RebornDet> tb5RebornDets;
 

@@ -393,6 +393,10 @@ public class Tb1Oya implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：子
+     */
+
     /** 子のリスト */
     private List<Tb1Ko> tb1Kos;
 
@@ -445,6 +449,10 @@ public class Tb1Oya implements IEntity {
         map.put("oya_id", param1);
         return Queries.select(sql, map, Tb1Ko.class, null, null);
     }
+
+    /*
+     * 子モデル：子なし
+     */
 
     /** 子なしのリスト */
     private List<Tb1KoDinks> tb1KoDinkss;

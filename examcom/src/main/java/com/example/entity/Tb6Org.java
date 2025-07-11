@@ -361,6 +361,10 @@ public class Tb6Org implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：起源明細
+     */
+
     /** 起源明細のリスト */
     private List<Tb6OrgDet> tb6OrgDets;
 

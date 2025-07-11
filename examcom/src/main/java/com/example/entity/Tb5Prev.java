@@ -361,6 +361,10 @@ public class Tb5Prev implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：前世明細
+     */
+
     /** 前世明細のリスト */
     private List<Tb5PrevDet> tb5PrevDets;
 
@@ -413,6 +417,10 @@ public class Tb5Prev implements IEntity {
         map.put("prev_id", param1);
         return Queries.select(sql, map, Tb5PrevDet.class, null, null);
     }
+
+    /*
+     * 転生先：転生
+     */
 
     /** 転生のリスト */
     private List<Tb5Reborn> tb5Reborns;

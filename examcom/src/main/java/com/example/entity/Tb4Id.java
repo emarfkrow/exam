@@ -361,6 +361,10 @@ public class Tb4Id implements IEntity {
         return map;
     }
 
+    /*
+     * 子モデル：ID-BNマスタ
+     */
+
     /** ID-BNマスタのリスト */
     private List<Tb4Idbn> tb4Idbns;
 
