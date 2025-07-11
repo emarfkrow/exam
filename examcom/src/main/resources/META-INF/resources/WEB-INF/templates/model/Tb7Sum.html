@@ -42,7 +42,7 @@
       <div class="buttons">
         <button type="button" id="RefreshTb7Sum" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb7SumGet.xlsx(baseMei=#{Tb7Sum.h2})}" id="Tb7SumGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <div>
+        <div class="summary Tb7Units">
           <label>単位ID</label>
           <span id="Tb7Unit.unitId"></span>
           <input type="hidden" id="Tb7Unit.unitId" name="Tb7Unit.unitId"/>

@@ -328,4 +328,61 @@ public class Tb7Sum implements IEntity {
         map.put("update_user_id", execId);
         return map;
     }
+
+    /*
+     * 集約元：単位
+     */
+
+    /** 単位のリスト */
+    private List<Tb7Unit> tb7Units;
+
+    /** @return 単位のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb7Units", index = 10)
+    public List<Tb7Unit> getTb7Units() {
+        return this.tb7Units;
+    }
+
+    /** @param list 単位のリスト */
+    public void setTb7Units(final List<Tb7Unit> list) {
+        this.tb7Units = list;
+    }
+
+    /** @param tb7Unit */
+    public void addTb7Units(final Tb7Unit tb7Unit) {
+        if (this.tb7Units == null) {
+            this.tb7Units = new ArrayList<Tb7Unit>();
+        }
+        this.tb7Units.add(tb7Unit);
+    }
+
+    /** @return 単位のリスト */
+    public List<Tb7Unit> referTb7Units() {
+        this.tb7Units = Tb7Sum.referTb7Units(this.sumId);
+        return this.tb7Units;
+    }
+
+    /**
+     * @param param1 sumId
+     * @return List<Tb7Unit>
+     */
+    public static List<Tb7Unit> referTb7Units(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("SUM_ID = :sum_id");
+        String sql = "SELECT ";
+        sql += "`UNIT_ID`";
+        sql += ", `UNIT_INFO`";
+        sql += ", `SUM_ID`";
+        sql += ", `INSERT_TS` AS INSERT_TS";
+        sql += ", `INSERT_USER_ID`";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", `UPDATE_TS` AS UPDATE_TS";
+        sql += ", `UPDATE_USER_ID`";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += " FROM TB7_UNIT a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "UNIT_ID";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("sum_id", param1);
+        return Queries.select(sql, map, Tb7Unit.class, null, null);
+    }
 }
