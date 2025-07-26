@@ -26,6 +26,7 @@ public class Tb0EntityRegistForm implements IForm {
     /**
      * @return エンティティID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getEntityId() {
         return entityId;
     }
@@ -33,6 +34,7 @@ public class Tb0EntityRegistForm implements IForm {
     /**
      * @param p エンティティID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setEntityId(final String p) {
         this.entityId = p;
     }
@@ -507,6 +509,24 @@ public class Tb0EntityRegistForm implements IForm {
      */
     public void setStatusKb(final String p) {
         this.statusKb = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

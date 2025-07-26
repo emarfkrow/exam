@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class Tb7Unit implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class Tb7Unit implements IEntity {
     }
 
     /** 単位ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer unitId;
 
     /** @return 単位ID */
@@ -133,6 +135,7 @@ public class Tb7Unit implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -196,6 +199,7 @@ public class Tb7Unit implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

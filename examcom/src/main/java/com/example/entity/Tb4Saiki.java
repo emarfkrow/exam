@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class Tb4Saiki implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 再帰ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer saikiId;
 
     /** @return 再帰ID */
@@ -88,6 +90,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 参照ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String idrefMei;
 
     /** @return 参照ID参照 */
@@ -124,6 +127,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 参照CD参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String cdrefMei;
 
     /** @return 参照CD参照 */
@@ -160,6 +164,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 参照NO参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String norefMei;
 
     /** @return 参照NO参照 */
@@ -196,6 +201,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 別参照ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String betsuIdrefMei;
 
     /** @return 別参照ID参照 */
@@ -250,6 +256,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 親再帰ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String oyaSaikiMei;
 
     /** @return 親再帰ID参照 */
@@ -313,6 +320,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -376,6 +384,7 @@ public class Tb4Saiki implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

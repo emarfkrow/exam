@@ -27,6 +27,7 @@ public class MsyTsukaRegistForm implements IForm {
     /**
      * @return 通貨区分
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTsukaKb() {
         return tsukaKb;
     }
@@ -34,6 +35,7 @@ public class MsyTsukaRegistForm implements IForm {
     /**
      * @param p 通貨区分
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTsukaKb(final String p) {
         this.tsukaKb = p;
     }
@@ -47,6 +49,7 @@ public class MsyTsukaRegistForm implements IForm {
     /**
      * @return 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTekiyoBi() {
         return tekiyoBi;
     }
@@ -54,6 +57,7 @@ public class MsyTsukaRegistForm implements IForm {
     /**
      * @param p 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTekiyoBi(final String p) {
         this.tekiyoBi = p;
     }
@@ -94,6 +98,24 @@ public class MsyTsukaRegistForm implements IForm {
      */
     public void setTtb(final String p) {
         this.ttb = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

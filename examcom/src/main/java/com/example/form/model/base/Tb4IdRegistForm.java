@@ -27,6 +27,7 @@ public class Tb4IdRegistForm implements IForm {
     /**
      * @return 参照ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getIdrefId() {
         return idrefId;
     }
@@ -34,6 +35,7 @@ public class Tb4IdRegistForm implements IForm {
     /**
      * @param p 参照ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setIdrefId(final String p) {
         this.idrefId = p;
     }
@@ -55,6 +57,24 @@ public class Tb4IdRegistForm implements IForm {
      */
     public void setIdrefMei(final String p) {
         this.idrefMei = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** ID-BNマスタ */

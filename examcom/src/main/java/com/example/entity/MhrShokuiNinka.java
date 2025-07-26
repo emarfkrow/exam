@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MhrShokuiNinka implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 部署ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer bushoId;
 
     /** @return 部署ID */
@@ -52,6 +54,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 部署ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String bushoMei;
 
     /** @return 部署ID参照 */
@@ -70,6 +73,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 職位ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer shokuiId;
 
     /** @return 職位ID */
@@ -88,6 +92,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 職位ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String shokuiMei;
 
     /** @return 職位ID参照 */
@@ -106,6 +111,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 機能名称 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kinoNm;
 
     /** @return 機能名称 */
@@ -229,6 +235,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -292,6 +299,7 @@ public class MhrShokuiNinka implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

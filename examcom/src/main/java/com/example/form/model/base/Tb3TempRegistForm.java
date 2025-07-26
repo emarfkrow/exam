@@ -26,6 +26,7 @@ public class Tb3TempRegistForm implements IForm {
     /**
      * @return 当初ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTempId() {
         return tempId;
     }
@@ -33,6 +34,7 @@ public class Tb3TempRegistForm implements IForm {
     /**
      * @param p 当初ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTempId(final String p) {
         this.tempId = p;
     }
@@ -53,6 +55,24 @@ public class Tb3TempRegistForm implements IForm {
      */
     public void setTempInfo(final String p) {
         this.tempInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

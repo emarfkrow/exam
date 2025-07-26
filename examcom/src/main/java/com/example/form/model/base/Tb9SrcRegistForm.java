@@ -26,6 +26,7 @@ public class Tb9SrcRegistForm implements IForm {
     /**
      * @return 変換元ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getSrcId() {
         return srcId;
     }
@@ -33,6 +34,7 @@ public class Tb9SrcRegistForm implements IForm {
     /**
      * @param p 変換元ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setSrcId(final String p) {
         this.srcId = p;
     }
@@ -53,6 +55,24 @@ public class Tb9SrcRegistForm implements IForm {
      */
     public void setSrcInfo(final String p) {
         this.srcInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

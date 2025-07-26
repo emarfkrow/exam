@@ -26,6 +26,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @return 参照ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getReferId() {
         return referId;
     }
@@ -33,6 +34,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @param p 参照ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setReferId(final String p) {
         this.referId = p;
     }
@@ -46,6 +48,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @return 制約ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getStintId() {
         return stintId;
     }
@@ -53,6 +56,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @param p 制約ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setStintId(final String p) {
         this.stintId = p;
     }
@@ -66,6 +70,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @return 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTekiyoBi() {
         return tekiyoBi;
     }
@@ -73,6 +78,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @param p 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTekiyoBi(final String p) {
         this.tekiyoBi = p;
     }
@@ -93,6 +99,24 @@ public class Tb8ComboRegistForm implements IForm {
      */
     public void setComboInfo(final String p) {
         this.comboInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

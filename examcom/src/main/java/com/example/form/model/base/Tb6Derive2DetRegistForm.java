@@ -26,6 +26,7 @@ public class Tb6Derive2DetRegistForm implements IForm {
     /**
      * @return 派生２ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getDerive2Id() {
         return derive2Id;
     }
@@ -33,6 +34,7 @@ public class Tb6Derive2DetRegistForm implements IForm {
     /**
      * @param p 派生２ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setDerive2Id(final String p) {
         this.derive2Id = p;
     }
@@ -45,6 +47,7 @@ public class Tb6Derive2DetRegistForm implements IForm {
     /**
      * @return 派生２枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getDerive2Bn() {
         return derive2Bn;
     }
@@ -52,6 +55,7 @@ public class Tb6Derive2DetRegistForm implements IForm {
     /**
      * @param p 派生２枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setDerive2Bn(final String p) {
         this.derive2Bn = p;
     }
@@ -72,6 +76,24 @@ public class Tb6Derive2DetRegistForm implements IForm {
      */
     public void setOrgDetInfo(final String p) {
         this.orgDetInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

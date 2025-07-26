@@ -27,6 +27,7 @@ public class Tb5PrevRegistForm implements IForm {
     /**
      * @return 前世ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getPrevId() {
         return prevId;
     }
@@ -34,6 +35,7 @@ public class Tb5PrevRegistForm implements IForm {
     /**
      * @param p 前世ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setPrevId(final String p) {
         this.prevId = p;
     }
@@ -54,6 +56,24 @@ public class Tb5PrevRegistForm implements IForm {
      */
     public void setPrevInfo(final String p) {
         this.prevInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 前世明細 */

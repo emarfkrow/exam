@@ -26,6 +26,7 @@ public class Tb6OrgDetRegistForm implements IForm {
     /**
      * @return 起源ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getOrgId() {
         return orgId;
     }
@@ -33,6 +34,7 @@ public class Tb6OrgDetRegistForm implements IForm {
     /**
      * @param p 起源ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOrgId(final String p) {
         this.orgId = p;
     }
@@ -45,6 +47,7 @@ public class Tb6OrgDetRegistForm implements IForm {
     /**
      * @return 起源明細枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getOrgBn() {
         return orgBn;
     }
@@ -52,6 +55,7 @@ public class Tb6OrgDetRegistForm implements IForm {
     /**
      * @param p 起源明細枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOrgBn(final String p) {
         this.orgBn = p;
     }
@@ -72,6 +76,24 @@ public class Tb6OrgDetRegistForm implements IForm {
      */
     public void setOrgDetInfo(final String p) {
         this.orgDetInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

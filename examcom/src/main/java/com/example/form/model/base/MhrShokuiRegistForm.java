@@ -26,6 +26,7 @@ public class MhrShokuiRegistForm implements IForm {
     /**
      * @return 職位ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getShokuiId() {
         return shokuiId;
     }
@@ -33,6 +34,7 @@ public class MhrShokuiRegistForm implements IForm {
     /**
      * @param p 職位ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setShokuiId(final String p) {
         this.shokuiId = p;
     }
@@ -109,6 +111,24 @@ public class MhrShokuiRegistForm implements IForm {
      */
     public void setShuryoBi(final String p) {
         this.shuryoBi = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

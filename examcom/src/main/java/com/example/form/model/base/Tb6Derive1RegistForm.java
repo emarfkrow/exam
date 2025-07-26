@@ -27,6 +27,7 @@ public class Tb6Derive1RegistForm implements IForm {
     /**
      * @return 派生１ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getDerive1Id() {
         return derive1Id;
     }
@@ -34,6 +35,7 @@ public class Tb6Derive1RegistForm implements IForm {
     /**
      * @param p 派生１ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setDerive1Id(final String p) {
         this.derive1Id = p;
     }
@@ -73,6 +75,24 @@ public class Tb6Derive1RegistForm implements IForm {
      */
     public void setOrgInfo(final String p) {
         this.orgInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 派生１明細 */

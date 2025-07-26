@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MhrBusho implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class MhrBusho implements IEntity {
     }
 
     /** 部署ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer bushoId;
 
     /** @return 部署ID */
@@ -88,6 +90,7 @@ public class MhrBusho implements IEntity {
     }
 
     /** 親部署ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String oyaBushoMei;
 
     /** @return 親部署ID参照 */
@@ -193,6 +196,7 @@ public class MhrBusho implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -256,6 +260,7 @@ public class MhrBusho implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

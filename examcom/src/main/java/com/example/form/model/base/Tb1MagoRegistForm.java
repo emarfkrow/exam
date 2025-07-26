@@ -26,6 +26,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @return 親ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getOyaId() {
         return oyaId;
     }
@@ -33,6 +34,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @param p 親ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOyaId(final String p) {
         this.oyaId = p;
     }
@@ -45,6 +47,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @return 子枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKoBn() {
         return koBn;
     }
@@ -52,6 +55,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @param p 子枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKoBn(final String p) {
         this.koBn = p;
     }
@@ -64,6 +68,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @return 孫枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getMagoBn() {
         return magoBn;
     }
@@ -71,6 +76,7 @@ public class Tb1MagoRegistForm implements IForm {
     /**
      * @param p 孫枝番
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setMagoBn(final String p) {
         this.magoBn = p;
     }
@@ -91,6 +97,24 @@ public class Tb1MagoRegistForm implements IForm {
      */
     public void setMagoInfo(final String p) {
         this.magoInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

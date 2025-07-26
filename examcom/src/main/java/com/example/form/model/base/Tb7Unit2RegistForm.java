@@ -26,6 +26,7 @@ public class Tb7Unit2RegistForm implements IForm {
     /**
      * @return 単位２ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getUnit2Id() {
         return unit2Id;
     }
@@ -33,6 +34,7 @@ public class Tb7Unit2RegistForm implements IForm {
     /**
      * @param p 単位２ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setUnit2Id(final String p) {
         this.unit2Id = p;
     }
@@ -53,6 +55,24 @@ public class Tb7Unit2RegistForm implements IForm {
      */
     public void setSum2Id(final String p) {
         this.sum2Id = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

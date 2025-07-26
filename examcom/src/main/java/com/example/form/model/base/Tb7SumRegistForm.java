@@ -26,6 +26,7 @@ public class Tb7SumRegistForm implements IForm {
     /**
      * @return 集約ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getSumId() {
         return sumId;
     }
@@ -33,6 +34,7 @@ public class Tb7SumRegistForm implements IForm {
     /**
      * @param p 集約ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setSumId(final String p) {
         this.sumId = p;
     }
@@ -53,6 +55,24 @@ public class Tb7SumRegistForm implements IForm {
      */
     public void setSumInfo(final String p) {
         this.sumInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

@@ -27,6 +27,7 @@ public class MsyTaxRegistForm implements IForm {
     /**
      * @return 税区分
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTaxKb() {
         return taxKb;
     }
@@ -34,6 +35,7 @@ public class MsyTaxRegistForm implements IForm {
     /**
      * @param p 税区分
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTaxKb(final String p) {
         this.taxKb = p;
     }
@@ -47,6 +49,7 @@ public class MsyTaxRegistForm implements IForm {
     /**
      * @return 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTekiyoBi() {
         return tekiyoBi;
     }
@@ -54,6 +57,7 @@ public class MsyTaxRegistForm implements IForm {
     /**
      * @param p 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTekiyoBi(final String p) {
         this.tekiyoBi = p;
     }
@@ -93,6 +97,24 @@ public class MsyTaxRegistForm implements IForm {
      */
     public void setTaxRt(final String p) {
         this.taxRt = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

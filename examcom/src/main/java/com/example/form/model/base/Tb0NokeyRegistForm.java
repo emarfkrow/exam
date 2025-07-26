@@ -80,6 +80,7 @@ public class Tb0NokeyRegistForm implements IForm {
     /**
      * @return 列Ｄ
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getColD() {
         return colD;
     }
@@ -87,6 +88,7 @@ public class Tb0NokeyRegistForm implements IForm {
     /**
      * @param p 列Ｄ
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setColD(final String p) {
         this.colD = p;
     }
@@ -99,6 +101,7 @@ public class Tb0NokeyRegistForm implements IForm {
     /**
      * @return 列Ｅ
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getColE() {
         return colE;
     }
@@ -106,8 +109,27 @@ public class Tb0NokeyRegistForm implements IForm {
     /**
      * @param p 列Ｅ
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setColE(final String p) {
         this.colE = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

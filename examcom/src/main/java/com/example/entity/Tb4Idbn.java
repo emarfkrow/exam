@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class Tb4Idbn implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class Tb4Idbn implements IEntity {
     }
 
     /** 参照ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer idrefId;
 
     /** @return 参照ID */
@@ -52,6 +54,7 @@ public class Tb4Idbn implements IEntity {
     }
 
     /** 参照ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String idrefMei;
 
     /** @return 参照ID参照 */
@@ -70,6 +73,7 @@ public class Tb4Idbn implements IEntity {
     }
 
     /** ID連番 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer idbnBn;
 
     /** @return ID連番 */
@@ -151,6 +155,7 @@ public class Tb4Idbn implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -214,6 +219,7 @@ public class Tb4Idbn implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

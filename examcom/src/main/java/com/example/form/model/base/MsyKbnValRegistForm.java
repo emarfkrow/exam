@@ -26,6 +26,7 @@ public class MsyKbnValRegistForm implements IForm {
     /**
      * @return 区分名称
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKbnNm() {
         return kbnNm;
     }
@@ -33,6 +34,7 @@ public class MsyKbnValRegistForm implements IForm {
     /**
      * @param p 区分名称
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKbnNm(final String p) {
         this.kbnNm = p;
     }
@@ -46,6 +48,7 @@ public class MsyKbnValRegistForm implements IForm {
     /**
      * @return 区分値
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKbnVal() {
         return kbnVal;
     }
@@ -53,6 +56,7 @@ public class MsyKbnValRegistForm implements IForm {
     /**
      * @param p 区分値
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKbnVal(final String p) {
         this.kbnVal = p;
     }
@@ -110,6 +114,24 @@ public class MsyKbnValRegistForm implements IForm {
      */
     public void setCriteria(final String p) {
         this.criteria = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

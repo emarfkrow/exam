@@ -27,6 +27,7 @@ public class Tb1OyaRegistForm implements IForm {
     /**
      * @return 親ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getOyaId() {
         return oyaId;
     }
@@ -34,6 +35,7 @@ public class Tb1OyaRegistForm implements IForm {
     /**
      * @param p 親ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOyaId(final String p) {
         this.oyaId = p;
     }
@@ -54,6 +56,24 @@ public class Tb1OyaRegistForm implements IForm {
      */
     public void setOyaInfo(final String p) {
         this.oyaInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 子 */

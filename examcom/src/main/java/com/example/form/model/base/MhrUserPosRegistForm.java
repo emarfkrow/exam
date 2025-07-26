@@ -26,6 +26,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @return 部署ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getBushoId() {
         return bushoId;
     }
@@ -33,6 +34,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @param p 部署ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setBushoId(final String p) {
         this.bushoId = p;
     }
@@ -45,6 +47,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @return 職位ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getShokuiId() {
         return shokuiId;
     }
@@ -52,6 +55,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @param p 職位ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setShokuiId(final String p) {
         this.shokuiId = p;
     }
@@ -65,6 +69,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @return ユーザID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getUserId() {
         return userId;
     }
@@ -72,6 +77,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @param p ユーザID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setUserId(final String p) {
         this.userId = p;
     }
@@ -85,6 +91,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @return 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getTekiyoBi() {
         return tekiyoBi;
     }
@@ -92,6 +99,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @param p 適用日
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setTekiyoBi(final String p) {
         this.tekiyoBi = p;
     }
@@ -112,6 +120,24 @@ public class MhrUserPosRegistForm implements IForm {
      */
     public void setShuryoBi(final String p) {
         this.shuryoBi = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

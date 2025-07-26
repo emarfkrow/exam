@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class MsyKbnVal implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 区分名称 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnNm;
 
     /** @return 区分名称 */
@@ -52,6 +54,7 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 区分名称参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String kbnMei;
 
     /** @return 区分名称参照 */
@@ -70,6 +73,7 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 区分値 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnVal;
 
     /** @return 区分値 */
@@ -187,6 +191,7 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -250,6 +255,7 @@ public class MsyKbnVal implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

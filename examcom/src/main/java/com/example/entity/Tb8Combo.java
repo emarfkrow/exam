@@ -16,6 +16,7 @@ import jp.co.golorp.emarf.sql.Queries;
 public class Tb8Combo implements IEntity {
 
     /** SlickGridのDataView用ID */
+    @jp.co.golorp.emarf.validation.GridViewRowId
     private Integer id;
 
     /** @return id */
@@ -34,6 +35,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 参照ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer referId;
 
     /** @return 参照ID */
@@ -52,6 +54,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 参照ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String referMei;
 
     /** @return 参照ID参照 */
@@ -70,6 +73,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 制約ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer stintId;
 
     /** @return 制約ID */
@@ -88,6 +92,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 制約ID参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String stintMei;
 
     /** @return 制約ID参照 */
@@ -109,6 +114,7 @@ public class Tb8Combo implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private java.time.LocalDate tekiyoBi;
 
     /** @return 適用日 */
@@ -190,6 +196,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 作成者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String insertUserSei;
 
     /** @return 作成者参照 */
@@ -253,6 +260,7 @@ public class Tb8Combo implements IEntity {
     }
 
     /** 更新者参照 */
+    @jp.co.golorp.emarf.validation.ReferMei
     private String updateUserSei;
 
     /** @return 更新者参照 */

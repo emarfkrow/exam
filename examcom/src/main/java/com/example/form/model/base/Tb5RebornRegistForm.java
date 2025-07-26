@@ -27,6 +27,7 @@ public class Tb5RebornRegistForm implements IForm {
     /**
      * @return 転生ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getRebornId() {
         return rebornId;
     }
@@ -34,6 +35,7 @@ public class Tb5RebornRegistForm implements IForm {
     /**
      * @param p 転生ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setRebornId(final String p) {
         this.rebornId = p;
     }
@@ -73,6 +75,24 @@ public class Tb5RebornRegistForm implements IForm {
      */
     public void setPrevInfo(final String p) {
         this.prevInfo = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 転生明細 */

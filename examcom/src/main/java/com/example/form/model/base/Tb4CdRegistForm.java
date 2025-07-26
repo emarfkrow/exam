@@ -27,6 +27,7 @@ public class Tb4CdRegistForm implements IForm {
     /**
      * @return 参照CD
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getCdrefCd() {
         return cdrefCd;
     }
@@ -34,6 +35,7 @@ public class Tb4CdRegistForm implements IForm {
     /**
      * @param p 参照CD
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setCdrefCd(final String p) {
         this.cdrefCd = p;
     }
@@ -55,6 +57,24 @@ public class Tb4CdRegistForm implements IForm {
      */
     public void setCdrefMei(final String p) {
         this.cdrefMei = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */

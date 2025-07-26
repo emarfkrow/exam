@@ -26,6 +26,7 @@ public class MhrBushoRegistForm implements IForm {
     /**
      * @return 部署ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getBushoId() {
         return bushoId;
     }
@@ -33,6 +34,7 @@ public class MhrBushoRegistForm implements IForm {
     /**
      * @param p 部署ID
      */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setBushoId(final String p) {
         this.bushoId = p;
     }
@@ -108,6 +110,24 @@ public class MhrBushoRegistForm implements IForm {
      */
     public void setShuryoBi(final String p) {
         this.shuryoBi = p;
+    }
+
+    /** 更新タイムスタンプ */
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    private String updateTs;
+
+    /**
+     * @return 更新タイムスタンプ
+     */
+    public String getUpdateTs() {
+        return updateTs;
+    }
+
+    /**
+     * @param p 更新タイムスタンプ
+     */
+    public void setUpdateTs(final String p) {
+        this.updateTs = p;
     }
 
     /** 関連チェック */
