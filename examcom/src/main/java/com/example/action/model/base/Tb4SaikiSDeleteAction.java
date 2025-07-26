@@ -36,7 +36,7 @@ public class Tb4SaikiSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SAIKI_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("SAIKI_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

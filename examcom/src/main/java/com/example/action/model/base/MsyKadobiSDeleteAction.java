@@ -36,10 +36,10 @@ public class MsyKadobiSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KADO_BI"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KADO_BI"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("BUSHO_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("BUSHO_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

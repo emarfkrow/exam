@@ -36,7 +36,7 @@ public class Tb9DestSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("DEST_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("DEST_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

@@ -36,7 +36,7 @@ public class Tb7Unit1SDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("UNIT1_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("UNIT1_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

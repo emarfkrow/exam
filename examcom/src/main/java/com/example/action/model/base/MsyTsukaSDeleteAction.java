@@ -36,10 +36,10 @@ public class MsyTsukaSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TSUKA_KB"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("TSUKA_KB"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("TEKIYO_BI"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("TEKIYO_BI"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

@@ -36,7 +36,7 @@ public class Tb7SumSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("SUM_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("SUM_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

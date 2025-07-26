@@ -36,10 +36,10 @@ public class Tb6Derive2DetSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("DERIVE2_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("DERIVE2_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("DERIVE2_BN"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("DERIVE2_BN"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

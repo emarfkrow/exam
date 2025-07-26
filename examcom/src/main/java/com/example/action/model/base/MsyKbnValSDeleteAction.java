@@ -36,10 +36,10 @@ public class MsyKbnValSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KBN_NM"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KBN_NM"))) {
                 throw new OptLockError("error.cant.delete");
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KBN_VAL"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KBN_VAL"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

@@ -28,14 +28,14 @@ public class Tb6OrgDetRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOrgId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getOrgId())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getOrgBn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getOrgBn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
             isNew = true;
         }
 

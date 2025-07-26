@@ -28,11 +28,11 @@ public class MhrUserRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUserId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUserId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
             isNew = true;
         }
 

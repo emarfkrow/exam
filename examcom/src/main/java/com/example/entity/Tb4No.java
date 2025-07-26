@@ -26,7 +26,7 @@ public class Tb4No implements IEntity {
 
     /** @param o id */
     public final void setId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.id = Integer.valueOf(o.toString());
         } else {
             this.id = null;
@@ -89,7 +89,7 @@ public class Tb4No implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.insertTs = null;
@@ -107,7 +107,7 @@ public class Tb4No implements IEntity {
 
     /** @param o 作成者 */
     public void setInsertUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertUserId = Integer.valueOf(o.toString());
         } else {
             this.insertUserId = null;
@@ -152,7 +152,7 @@ public class Tb4No implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.updateTs = null;
@@ -170,7 +170,7 @@ public class Tb4No implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;

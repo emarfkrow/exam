@@ -39,14 +39,14 @@ public class Tb5PrevDetSRegistAction extends BaseAction {
 
             // 主キーが不足していたらINSERT
             boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getPrevId())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getPrevId())) {
                 isNew = true;
             }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getPrevBn())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getPrevBn())) {
                 isNew = true;
             }
             // 楽観ロック値がなくてもINSERT
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
                 isNew = true;
             }
 

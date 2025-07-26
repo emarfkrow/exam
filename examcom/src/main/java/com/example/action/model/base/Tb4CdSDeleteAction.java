@@ -36,7 +36,7 @@ public class Tb4CdSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("CDREF_CD"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("CDREF_CD"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

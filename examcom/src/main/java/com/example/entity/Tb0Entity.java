@@ -26,7 +26,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o id */
     public final void setId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.id = Integer.valueOf(o.toString());
         } else {
             this.id = null;
@@ -44,7 +44,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o エンティティID */
     public void setEntityId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.entityId = Integer.valueOf(o.toString());
         } else {
             this.entityId = null;
@@ -273,7 +273,7 @@ public class Tb0Entity implements IEntity {
     /** @return 年月 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "NENGETSU_YM", index = 15)
     public String getNengetsuYm() {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(this.nengetsuYm)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(this.nengetsuYm)) {
             return this.nengetsuYm.substring(0, 4) + "-" + this.nengetsuYm.substring(4);
         }
         return this.nengetsuYm;
@@ -281,7 +281,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 年月 */
     public void setNengetsuYm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.nengetsuYm = String.valueOf(o.toString().replace("-", ""));
         } else {
             this.nengetsuYm = null;
@@ -326,7 +326,7 @@ public class Tb0Entity implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.timestampTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.timestampTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.timestampTs = null;
@@ -353,7 +353,7 @@ public class Tb0Entity implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.nichijiDt = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.nichijiDt = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.nichijiDt = null;
@@ -374,7 +374,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 日付 */
     public void setHidukeBi(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.hidukeBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
             this.hidukeBi = null;
@@ -395,7 +395,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 時刻 */
     public void setJikokuHm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             String text = o.toString().replaceFirst("^\\d+[\\/|\\-]\\d+[\\/|\\-]\\d+ ", "");
             this.jikokuHm = java.time.LocalTime.parse(text);
         } else {
@@ -432,7 +432,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 数量 */
     public void setSuryoQt(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.suryoQt = new java.math.BigDecimal(o.toString());
         } else {
             this.suryoQt = null;
@@ -450,7 +450,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 単価 */
     public void setTankaPr(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.tankaPr = new java.math.BigDecimal(o.toString());
         } else {
             this.tankaPr = null;
@@ -486,7 +486,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 税抜金額 */
     public void setZeinukiAm(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.zeinukiAm = new java.math.BigDecimal(o.toString());
         } else {
             this.zeinukiAm = null;
@@ -549,7 +549,7 @@ public class Tb0Entity implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.insertTs = null;
@@ -567,7 +567,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 作成者 */
     public void setInsertUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertUserId = Integer.valueOf(o.toString());
         } else {
             this.insertUserId = null;
@@ -612,7 +612,7 @@ public class Tb0Entity implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.updateTs = null;
@@ -630,7 +630,7 @@ public class Tb0Entity implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;

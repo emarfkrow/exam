@@ -36,7 +36,7 @@ public class MsyKbnSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("KBN_NM"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KBN_NM"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

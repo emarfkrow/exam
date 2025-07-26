@@ -36,7 +36,7 @@ public class Tb5RebornSDeleteAction extends BaseAction {
             }
 
             // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(gridRow.get("REBORN_ID"))) {
+            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("REBORN_ID"))) {
                 throw new OptLockError("error.cant.delete");
             }
 

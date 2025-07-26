@@ -28,11 +28,11 @@ public class Tb7SumRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getSumId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getSumId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
             isNew = true;
         }
 
@@ -44,12 +44,12 @@ public class Tb7SumRegistAction extends BaseAction {
 
             //集約先に該当する場合は、集約元に主キーを反映
             String summaryKey = postJson.get("Tb7Unit.unitId").toString();
-            if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(summaryKey)) {
+            if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(summaryKey)) {
                 String[] summaryKeys = summaryKey.trim().split(",");
                 for (String pk : summaryKeys) {
                     com.example.entity.Tb7Unit tb7Unit = com.example.entity.Tb7Unit.get(pk);
                     //集約済みならエラー
-                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(tb7Unit.getSumId())) {
+                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb7Unit.getSumId())) {
                         throw new OptLockError("error.already.summary");
                     }
                     tb7Unit.setSumId(e.getSumId());

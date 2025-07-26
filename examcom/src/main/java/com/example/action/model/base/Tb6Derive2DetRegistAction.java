@@ -28,14 +28,14 @@ public class Tb6Derive2DetRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getDerive2Id())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getDerive2Id())) {
             isNew = true;
         }
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getDerive2Bn())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getDerive2Bn())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(e.getUpdateTs())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
             isNew = true;
         }
 

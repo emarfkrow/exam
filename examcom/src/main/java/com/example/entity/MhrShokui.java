@@ -26,7 +26,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o id */
     public final void setId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.id = Integer.valueOf(o.toString());
         } else {
             this.id = null;
@@ -44,7 +44,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 職位ID */
     public void setShokuiId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.shokuiId = Integer.valueOf(o.toString());
         } else {
             this.shokuiId = null;
@@ -80,7 +80,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 職位順 */
     public void setShokuiOn(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.shokuiOn = Integer.valueOf(o.toString());
         } else {
             this.shokuiOn = null;
@@ -101,7 +101,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 適用日 */
     public void setTekiyoBi(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.tekiyoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
             this.tekiyoBi = null;
@@ -122,7 +122,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 終了日 */
     public void setShuryoBi(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.shuryoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
             this.shuryoBi = null;
@@ -149,7 +149,7 @@ public class MhrShokui implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.insertTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.insertTs = null;
@@ -167,7 +167,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 作成者 */
     public void setInsertUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.insertUserId = Integer.valueOf(o.toString());
         } else {
             this.insertUserId = null;
@@ -212,7 +212,7 @@ public class MhrShokui implements IEntity {
         } else if (o != null && o.toString().matches("^[0-9]+")) {
             java.util.Date d = new java.util.Date(Long.valueOf(o.toString()));
             this.updateTs = java.time.LocalDateTime.ofInstant(d.toInstant(), java.time.ZoneId.systemDefault());
-        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        } else if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateTs = java.time.LocalDateTime.parse(o.toString().replace(" ", "T").replace("/", "-"));
         } else {
             this.updateTs = null;
@@ -230,7 +230,7 @@ public class MhrShokui implements IEntity {
 
     /** @param o 更新者 */
     public void setUpdateUserId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.updateUserId = Integer.valueOf(o.toString());
         } else {
             this.updateUserId = null;

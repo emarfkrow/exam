@@ -26,7 +26,7 @@ public class Tb9Henkan implements IEntity {
 
     /** @param o id */
     public final void setId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.id = Integer.valueOf(o.toString());
         } else {
             this.id = null;
@@ -62,7 +62,7 @@ public class Tb9Henkan implements IEntity {
 
     /** @param o 変換元ID */
     public void setSrcId(final Object o) {
-        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrBlank(o)) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.srcId = Integer.valueOf(o.toString());
         } else {
             this.srcId = null;
