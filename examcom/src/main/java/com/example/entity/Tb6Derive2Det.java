@@ -340,6 +340,7 @@ public class Tb6Derive2Det implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`DERIVE2_ID` = :derive_2_id");
         whereList.add("`DERIVE2_BN` = :derive_2_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

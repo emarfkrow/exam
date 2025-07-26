@@ -433,6 +433,7 @@ public class MhrUserPos implements IEntity {
         whereList.add("`SHOKUI_ID` = :shokui_id");
         whereList.add("`USER_ID` = :user_id");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

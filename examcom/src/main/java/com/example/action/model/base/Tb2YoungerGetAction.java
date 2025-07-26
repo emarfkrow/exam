@@ -43,7 +43,7 @@ public class Tb2YoungerGetAction extends BaseAction {
             tb2Younger.referTb2Youngest();
             map.put("Tb2Younger", tb2Younger);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

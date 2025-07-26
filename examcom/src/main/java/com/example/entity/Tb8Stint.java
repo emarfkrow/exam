@@ -310,6 +310,7 @@ public class Tb8Stint implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`STINT_ID` = :stint_id");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -433,6 +433,7 @@ public class MhrShokuiNinka implements IEntity {
         whereList.add("`BUSHO_ID` = :busho_id");
         whereList.add("`SHOKUI_ID` = :shokui_id");
         whereList.add("`KINO_NM` = :kino_nm");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -21,6 +21,7 @@ public class Tb5PrevRegistForm implements IForm {
 
     /** 前世ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String prevId;
 
     /**

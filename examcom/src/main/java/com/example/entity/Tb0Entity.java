@@ -855,6 +855,7 @@ public class Tb0Entity implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`ENTITY_ID` = :entity_id");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -386,6 +386,7 @@ public class Tb8Combo implements IEntity {
         whereList.add("`REFER_ID` = :refer_id");
         whereList.add("`STINT_ID` = :stint_id");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -54,7 +54,7 @@ public class Tb6Derive1DetGetAction extends BaseAction {
             Tb6Derive1Det tb6Derive1Det = Tb6Derive1Det.get(derive1Id, derive1Bn);
             map.put("Tb6Derive1Det", tb6Derive1Det);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

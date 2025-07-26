@@ -20,6 +20,7 @@ public class Tb9DestRegistForm implements IForm {
 
     /** 変換先ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String destId;
 
     /**

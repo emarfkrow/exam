@@ -21,45 +21,47 @@ public class Tb2YoungestSRegistAction extends BaseAction {
 
     /** 末弟一覧登録処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb2YoungestGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb2YoungestGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
-
-            Tb2Youngest e = FormValidator.toBean(Tb2Youngest.class.getName(), gridRow);
-
-            // 主キーが不足していたらINSERT
-            boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getKyodaiId())) {
-                isNew = true;
-            }
-            // 楽観ロック値がなくてもINSERT
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
-                isNew = true;
-            }
-
-            if (isNew) {
-
-                if (e.insert(now, execId) != 1) {
-                    throw new OptLockError("error.cant.insert");
+                if (row.isEmpty()) {
+                    continue;
                 }
-                ++count;
 
-            } else {
+                Tb2Youngest e = FormValidator.toBean(Tb2Youngest.class.getName(), row);
 
-                if (e.update(now, execId) != 1) {
-                    throw new OptLockError("error.cant.update");
+                // 主キーが不足していたらINSERT
+                boolean isNew = false;
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getKyodaiId())) {
+                    isNew = true;
                 }
-                ++count;
+                // 楽観ロック値がなくてもINSERT
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
+                    isNew = true;
+                }
+
+                if (isNew) {
+
+                    if (e.insert(now, execId) != 1) {
+                        throw new OptLockError("error.cant.insert");
+                    }
+                    ++count;
+
+                } else {
+
+                    if (e.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.update");
+                    }
+                    ++count;
+                }
             }
         }
 

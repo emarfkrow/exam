@@ -346,6 +346,7 @@ public class MsyTsuka implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`TSUKA_KB` = :tsuka_kb");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

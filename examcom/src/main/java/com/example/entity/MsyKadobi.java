@@ -364,6 +364,7 @@ public class MsyKadobi implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`KADO_BI` = :kado_bi");
         whereList.add("`BUSHO_ID` = :busho_id");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

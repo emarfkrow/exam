@@ -20,6 +20,7 @@ public class MsyKbnValRegistForm implements IForm {
 
     /** 区分名称 */
     @jakarta.validation.constraints.Size(max = 20)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnNm;
 
     /**
@@ -39,6 +40,7 @@ public class MsyKbnValRegistForm implements IForm {
     /** 区分値 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnVal;
 
     /**

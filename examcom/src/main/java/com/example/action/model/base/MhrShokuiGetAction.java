@@ -42,7 +42,7 @@ public class MhrShokuiGetAction extends BaseAction {
             MhrShokui mhrShokui = MhrShokui.get(shokuiId);
             map.put("MhrShokui", mhrShokui);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

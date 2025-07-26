@@ -54,7 +54,7 @@ public class Tb6OrgDetGetAction extends BaseAction {
             Tb6OrgDet tb6OrgDet = Tb6OrgDet.get(orgId, orgBn);
             map.put("Tb6OrgDet", tb6OrgDet);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

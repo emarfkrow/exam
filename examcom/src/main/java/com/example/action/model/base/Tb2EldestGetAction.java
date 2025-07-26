@@ -44,7 +44,7 @@ public class Tb2EldestGetAction extends BaseAction {
             tb2Eldest.referTb2Youngest();
             map.put("Tb2Eldest", tb2Eldest);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

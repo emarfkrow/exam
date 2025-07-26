@@ -368,6 +368,7 @@ public class Tb1Mago implements IEntity {
         whereList.add("`OYA_ID` = :oya_id");
         whereList.add("`KO_BN` = :ko_bn");
         whereList.add("`MAGO_BN` = :mago_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -20,6 +20,7 @@ public class Tb6Derive1DetRegistForm implements IForm {
 
     /** 派生１ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String derive1Id;
 
     /**
@@ -38,6 +39,7 @@ public class Tb6Derive1DetRegistForm implements IForm {
 
     /** 派生１枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String derive1Bn;
 
     /**

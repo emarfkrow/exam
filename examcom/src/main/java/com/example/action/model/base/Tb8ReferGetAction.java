@@ -42,7 +42,7 @@ public class Tb8ReferGetAction extends BaseAction {
             Tb8Refer tb8Refer = Tb8Refer.get(referId);
             map.put("Tb8Refer", tb8Refer);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

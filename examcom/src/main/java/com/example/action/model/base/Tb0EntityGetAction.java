@@ -42,7 +42,7 @@ public class Tb0EntityGetAction extends BaseAction {
             Tb0Entity tb0Entity = Tb0Entity.get(entityId);
             map.put("Tb0Entity", tb0Entity);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

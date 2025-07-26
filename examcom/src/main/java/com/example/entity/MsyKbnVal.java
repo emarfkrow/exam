@@ -383,6 +383,7 @@ public class MsyKbnVal implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`KBN_NM` = :kbn_nm");
         whereList.add("`KBN_VAL` = :kbn_val");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

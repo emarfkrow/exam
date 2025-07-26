@@ -349,6 +349,7 @@ public class MsyTax implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`TAX_KB` = :tax_kb");
         whereList.add("`TEKIYO_BI` = :tekiyo_bi");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

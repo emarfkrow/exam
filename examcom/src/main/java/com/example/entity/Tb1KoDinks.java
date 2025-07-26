@@ -386,6 +386,7 @@ public class Tb1KoDinks implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`OYA_ID` = :oya_id");
         whereList.add("`KO_BN` = :ko_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

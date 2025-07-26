@@ -68,7 +68,7 @@ public class Tb5RebornGetAction extends BaseAction {
             tb5Reborn.referTb5RebornDets();
             map.put("Tb5Reborn", tb5Reborn);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -21,41 +21,43 @@ public class Tb6OrgSDeleteAction extends BaseAction {
 
     /** 起源一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb6OrgGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb6OrgGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
+                if (row.isEmpty()) {
+                    continue;
+                }
 
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("ORG_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
+                // 主キーが不足していたらエラー
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("ORG_ID"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
 
-            Tb6Org e = FormValidator.toBean(Tb6Org.class.getName(), gridRow);
+                Tb6Org e = FormValidator.toBean(Tb6Org.class.getName(), row);
 
-            java.util.List<com.example.entity.Tb6OrgDet> tb6OrgDets = e.referTb6OrgDets();
-            if (tb6OrgDets != null) {
-                for (com.example.entity.Tb6OrgDet tb6OrgDet : tb6OrgDets) {
+                java.util.List<com.example.entity.Tb6OrgDet> tb6OrgDets = e.referTb6OrgDets();
+                if (tb6OrgDets != null) {
+                    for (com.example.entity.Tb6OrgDet tb6OrgDet : tb6OrgDets) {
 
-                    if (tb6OrgDet.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb6OrgDet.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
+                if (e.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                ++count;
             }
-            ++count;
         }
 
         if (count == 0) {

@@ -20,6 +20,7 @@ public class Tb1KoDinksRegistForm implements IForm {
 
     /** 親ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String oyaId;
 
     /**
@@ -38,6 +39,7 @@ public class Tb1KoDinksRegistForm implements IForm {
 
     /** 子枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String koBn;
 
     /**

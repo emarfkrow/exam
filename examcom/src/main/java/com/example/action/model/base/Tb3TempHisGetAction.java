@@ -50,7 +50,7 @@ public class Tb3TempHisGetAction extends BaseAction {
             Tb3TempHis tb3TempHis = Tb3TempHis.get(tempId, rirekiBn);
             map.put("Tb3TempHis", tb3TempHis);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

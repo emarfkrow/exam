@@ -340,6 +340,7 @@ public class Tb6OrgDet implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`ORG_ID` = :org_id");
         whereList.add("`ORG_BN` = :org_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -21,36 +21,38 @@ public class Tb1KoSDeleteAction extends BaseAction {
 
     /** 子一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb1KoGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb1KoGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
+                if (row.isEmpty()) {
+                    continue;
+                }
+
+                // 主キーが不足していたらエラー
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("OYA_ID"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KO_BN"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
+
+                Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), row);
+
+                // child:Tb1Mago, parents:2
+
+                if (e.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                ++count;
             }
-
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("OYA_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KO_BN"))) {
-                throw new OptLockError("error.cant.delete");
-            }
-
-            Tb1Ko e = FormValidator.toBean(Tb1Ko.class.getName(), gridRow);
-
-            // child:Tb1Mago, parents:2
-
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
-            }
-            ++count;
         }
 
         if (count == 0) {

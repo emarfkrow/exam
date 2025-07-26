@@ -42,7 +42,7 @@ public class MhrUserGetAction extends BaseAction {
             MhrUser mhrUser = MhrUser.get(userId);
             map.put("MhrUser", mhrUser);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

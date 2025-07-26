@@ -295,6 +295,7 @@ public class Tb4No implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("TRIM(TRAILING ' ' FROM `NOREF_NO`) = TRIM(TRAILING ' ' FROM :noref_no)");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

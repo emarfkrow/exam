@@ -50,7 +50,7 @@ public class Tb0NokeyGetAction extends BaseAction {
             Tb0Nokey tb0Nokey = Tb0Nokey.get(colD, colE);
             map.put("Tb0Nokey", tb0Nokey);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

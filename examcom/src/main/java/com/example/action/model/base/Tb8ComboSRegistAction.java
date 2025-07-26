@@ -21,51 +21,53 @@ public class Tb8ComboSRegistAction extends BaseAction {
 
     /** 複合一覧登録処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb8ComboGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb8ComboGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
-
-            Tb8Combo e = FormValidator.toBean(Tb8Combo.class.getName(), gridRow);
-
-            // 主キーが不足していたらINSERT
-            boolean isNew = false;
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getReferId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getStintId())) {
-                isNew = true;
-            }
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getTekiyoBi())) {
-                isNew = true;
-            }
-            // 楽観ロック値がなくてもINSERT
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
-                isNew = true;
-            }
-
-            if (isNew) {
-
-                if (e.insert(now, execId) != 1) {
-                    throw new OptLockError("error.cant.insert");
+                if (row.isEmpty()) {
+                    continue;
                 }
-                ++count;
 
-            } else {
+                Tb8Combo e = FormValidator.toBean(Tb8Combo.class.getName(), row);
 
-                if (e.update(now, execId) != 1) {
-                    throw new OptLockError("error.cant.update");
+                // 主キーが不足していたらINSERT
+                boolean isNew = false;
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getReferId())) {
+                    isNew = true;
                 }
-                ++count;
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getStintId())) {
+                    isNew = true;
+                }
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getTekiyoBi())) {
+                    isNew = true;
+                }
+                // 楽観ロック値がなくてもINSERT
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getUpdateTs())) {
+                    isNew = true;
+                }
+
+                if (isNew) {
+
+                    if (e.insert(now, execId) != 1) {
+                        throw new OptLockError("error.cant.insert");
+                    }
+                    ++count;
+
+                } else {
+
+                    if (e.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.update");
+                    }
+                    ++count;
+                }
             }
         }
 

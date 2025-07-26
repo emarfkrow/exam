@@ -310,6 +310,7 @@ public class Tb7Unit2 implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`UNIT2_ID` = :unit_2_id");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

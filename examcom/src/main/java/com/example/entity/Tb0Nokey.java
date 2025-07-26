@@ -365,6 +365,7 @@ public class Tb0Nokey implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`COL_D` = :col_d");
         whereList.add("`COL_E` = :col_e");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

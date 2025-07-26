@@ -42,7 +42,7 @@ public class Tb2FosterGetAction extends BaseAction {
             Tb2Foster tb2Foster = Tb2Foster.get(kyodaiId);
             map.put("Tb2Foster", tb2Foster);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

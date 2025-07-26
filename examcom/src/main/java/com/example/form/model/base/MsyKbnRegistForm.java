@@ -22,6 +22,7 @@ public class MsyKbnRegistForm implements IForm {
     /** 区分名称 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 20)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnNm;
 
     /**

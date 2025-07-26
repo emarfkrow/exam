@@ -21,6 +21,7 @@ public class MsyTsukaRegistForm implements IForm {
     /** 通貨区分 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String tsukaKb;
 
     /**
@@ -40,6 +41,7 @@ public class MsyTsukaRegistForm implements IForm {
     /** 適用日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String tekiyoBi;
 
     /**

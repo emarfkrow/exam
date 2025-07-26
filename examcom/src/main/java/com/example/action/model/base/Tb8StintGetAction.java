@@ -42,7 +42,7 @@ public class Tb8StintGetAction extends BaseAction {
             Tb8Stint tb8Stint = Tb8Stint.get(stintId);
             map.put("Tb8Stint", tb8Stint);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

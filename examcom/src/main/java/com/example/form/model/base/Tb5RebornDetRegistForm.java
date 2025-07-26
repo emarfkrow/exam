@@ -20,6 +20,7 @@ public class Tb5RebornDetRegistForm implements IForm {
 
     /** 転生ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String rebornId;
 
     /**
@@ -38,6 +39,7 @@ public class Tb5RebornDetRegistForm implements IForm {
 
     /** 転生明細枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String rebornBn;
 
     /**

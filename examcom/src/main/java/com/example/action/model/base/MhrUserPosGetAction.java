@@ -66,7 +66,7 @@ public class MhrUserPosGetAction extends BaseAction {
             MhrUserPos mhrUserPos = MhrUserPos.get(bushoId, shokuiId, userId, tekiyoBi);
             map.put("MhrUserPos", mhrUserPos);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

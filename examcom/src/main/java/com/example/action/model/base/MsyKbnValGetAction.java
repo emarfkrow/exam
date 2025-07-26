@@ -54,7 +54,7 @@ public class MsyKbnValGetAction extends BaseAction {
             MsyKbnVal msyKbnVal = MsyKbnVal.get(kbnNm, kbnVal);
             map.put("MsyKbnVal", msyKbnVal);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

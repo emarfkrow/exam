@@ -43,7 +43,7 @@ public class Tb6OrgGetAction extends BaseAction {
             tb6Org.referTb6OrgDets();
             map.put("Tb6Org", tb6Org);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

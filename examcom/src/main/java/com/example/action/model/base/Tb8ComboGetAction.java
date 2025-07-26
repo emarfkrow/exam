@@ -58,7 +58,7 @@ public class Tb8ComboGetAction extends BaseAction {
             Tb8Combo tb8Combo = Tb8Combo.get(referId, stintId, tekiyoBi);
             map.put("Tb8Combo", tb8Combo);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

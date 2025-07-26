@@ -42,7 +42,7 @@ public class Tb7Sum2GetAction extends BaseAction {
             Tb7Sum2 tb7Sum2 = Tb7Sum2.get(sum2Id);
             map.put("Tb7Sum2", tb7Sum2);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

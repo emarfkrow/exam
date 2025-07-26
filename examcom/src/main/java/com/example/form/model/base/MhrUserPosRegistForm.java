@@ -20,6 +20,7 @@ public class MhrUserPosRegistForm implements IForm {
 
     /** 部署ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String bushoId;
 
     /**
@@ -38,6 +39,7 @@ public class MhrUserPosRegistForm implements IForm {
 
     /** 職位ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String shokuiId;
 
     /**
@@ -57,6 +59,7 @@ public class MhrUserPosRegistForm implements IForm {
     /** ユーザID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String userId;
 
     /**
@@ -76,6 +79,7 @@ public class MhrUserPosRegistForm implements IForm {
     /** 適用日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String tekiyoBi;
 
     /**

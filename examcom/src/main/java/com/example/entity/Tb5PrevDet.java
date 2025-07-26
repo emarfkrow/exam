@@ -340,6 +340,7 @@ public class Tb5PrevDet implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`PREV_ID` = :prev_id");
         whereList.add("`PREV_BN` = :prev_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

@@ -43,7 +43,7 @@ public class Tb7SumGetAction extends BaseAction {
             tb7Sum.referTb7Units();
             map.put("Tb7Sum", tb7Sum);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

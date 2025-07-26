@@ -21,34 +21,36 @@ public class Tb0EntitySPermitAction extends BaseAction {
 
     /** エンティティ一覧承認処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb0EntityGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb0EntityGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
+                if (row.isEmpty()) {
+                    continue;
+                }
+
+                Tb0Entity e = FormValidator.toBean(Tb0Entity.class.getName(), row);
+
+                // 主キーが不足していたらエラー
+                Object entityId = e.getEntityId();
+                if (entityId == null) {
+                    throw new OptLockError("error.cant.permit");
+                }
+
+                Tb0Entity f = Tb0Entity.get(entityId);
+                f.setStatusKb(1);
+                if (f.update(now, execId) != 1) {
+                    throw new OptLockError("error.cant.permit");
+                }
+                ++count;
             }
-
-            Tb0Entity e = FormValidator.toBean(Tb0Entity.class.getName(), gridRow);
-
-            // 主キーが不足していたらエラー
-            Object entityId = e.getEntityId();
-            if (entityId == null) {
-                throw new OptLockError("error.cant.permit");
-            }
-
-            Tb0Entity f = Tb0Entity.get(entityId);
-            f.setStatusKb(1);
-            if (f.update(now, execId) != 1) {
-                throw new OptLockError("error.cant.permit");
-            }
-            ++count;
         }
 
         if (count == 0) {

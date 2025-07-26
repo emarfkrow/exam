@@ -74,6 +74,7 @@ public class Tb0NokeyRegistForm implements IForm {
 
     /** 列Ｄ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String colD;
 
     /**
@@ -92,6 +93,7 @@ public class Tb0NokeyRegistForm implements IForm {
 
     /** 列Ｅ */
     @jakarta.validation.constraints.Size(max = 60)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String colE;
 
     /**

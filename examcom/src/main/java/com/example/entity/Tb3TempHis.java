@@ -362,6 +362,7 @@ public class Tb3TempHis implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`TEMP_ID` = :temp_id");
         whereList.add("`RIREKI_BN` = :rireki_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

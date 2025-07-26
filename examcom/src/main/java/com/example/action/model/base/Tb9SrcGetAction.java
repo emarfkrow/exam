@@ -42,7 +42,7 @@ public class Tb9SrcGetAction extends BaseAction {
             Tb9Src tb9Src = Tb9Src.get(srcId);
             map.put("Tb9Src", tb9Src);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -21,6 +21,7 @@ public class MsyKadobiRegistForm implements IForm {
     /** 稼働日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kadoBi;
 
     /**
@@ -40,6 +41,7 @@ public class MsyKadobiRegistForm implements IForm {
     /** 部署ID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String bushoId;
 
     /**

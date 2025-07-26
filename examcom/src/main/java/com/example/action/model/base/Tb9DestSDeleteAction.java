@@ -21,30 +21,32 @@ public class Tb9DestSDeleteAction extends BaseAction {
 
     /** 変換先一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb9DestGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb9DestGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
+                if (row.isEmpty()) {
+                    continue;
+                }
 
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("DEST_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
+                // 主キーが不足していたらエラー
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("DEST_ID"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
 
-            Tb9Dest e = FormValidator.toBean(Tb9Dest.class.getName(), gridRow);
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
+                Tb9Dest e = FormValidator.toBean(Tb9Dest.class.getName(), row);
+                if (e.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                ++count;
             }
-            ++count;
         }
 
         if (count == 0) {

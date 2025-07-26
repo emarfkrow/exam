@@ -358,6 +358,7 @@ public class Tb4Idbn implements IEntity {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`IDREF_ID` = :idref_id");
         whereList.add("`IDBN_BN` = :idbn_bn");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

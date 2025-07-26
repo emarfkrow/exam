@@ -50,7 +50,7 @@ public class MsyTsukaGetAction extends BaseAction {
             MsyTsuka msyTsuka = MsyTsuka.get(tsukaKb, tekiyoBi);
             map.put("MsyTsuka", msyTsuka);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

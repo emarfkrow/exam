@@ -20,6 +20,7 @@ public class Tb4IdbnRegistForm implements IForm {
 
     /** 参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String idrefId;
 
     /**
@@ -38,6 +39,7 @@ public class Tb4IdbnRegistForm implements IForm {
 
     /** ID連番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String idbnBn;
 
     /**

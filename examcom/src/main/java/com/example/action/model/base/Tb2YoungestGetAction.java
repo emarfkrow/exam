@@ -42,7 +42,7 @@ public class Tb2YoungestGetAction extends BaseAction {
             Tb2Youngest tb2Youngest = Tb2Youngest.get(kyodaiId);
             map.put("Tb2Youngest", tb2Youngest);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -56,7 +56,7 @@ public class Tb1KoDinksGetAction extends BaseAction {
             tb1KoDinks.referTb1KoOrphans();
             map.put("Tb1KoDinks", tb1KoDinks);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

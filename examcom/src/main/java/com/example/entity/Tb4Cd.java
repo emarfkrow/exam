@@ -295,6 +295,7 @@ public class Tb4Cd implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("TRIM(TRAILING ' ' FROM `CDREF_CD`) = TRIM(TRAILING ' ' FROM :cdref_cd)");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

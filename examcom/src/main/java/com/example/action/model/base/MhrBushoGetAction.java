@@ -42,7 +42,7 @@ public class MhrBushoGetAction extends BaseAction {
             MhrBusho mhrBusho = MhrBusho.get(bushoId);
             map.put("MhrBusho", mhrBusho);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

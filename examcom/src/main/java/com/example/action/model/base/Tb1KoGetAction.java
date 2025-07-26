@@ -57,7 +57,7 @@ public class Tb1KoGetAction extends BaseAction {
             tb1Ko.referTb1Magos();
             map.put("Tb1Ko", tb1Ko);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -20,6 +20,7 @@ public class Tb7Sum2RegistForm implements IForm {
 
     /** 集約抑止ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String sum2Id;
 
     /**

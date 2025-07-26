@@ -44,7 +44,7 @@ public class Tb1OyaGetAction extends BaseAction {
             tb1Oya.referTb1KoDinkss();
             map.put("Tb1Oya", tb1Oya);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

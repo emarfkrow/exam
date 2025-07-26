@@ -58,7 +58,7 @@ public class MhrShokuiNinkaGetAction extends BaseAction {
             MhrShokuiNinka mhrShokuiNinka = MhrShokuiNinka.get(bushoId, shokuiId, kinoNm);
             map.put("MhrShokuiNinka", mhrShokuiNinka);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -33,7 +33,6 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb4Idbn" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb4Idbn.html}" target="dialog" id="Tb4Idbn" class="anew" th:text="#{Tb4Idbn.add}" tabindex="-1">ID-BNマスタ</a>
       </div>
       <div class="submits">
         <button id="SearchTb4Idbn" type="submit" class="search" data-gridId="Tb4IdbnGrid" th:text="#{common.search}">submit</button>
@@ -42,7 +41,7 @@
     <!-- 一覧フォーム -->
     <form name="Tb4IdbnSRegistForm" action="Tb4IdbnSRegist.ajax" class="regist">
       <h3 th:text="#{Tb4Idbn.h3}">h3</h3>
-      <div id="Tb4IdbnGrid" data-selectionMode="checkbox" data-addRow="true" data-frozenColumn="1" th:data-href="@{/model/Tb4Idbn.html}"></div>
+      <div id="Tb4IdbnGrid" data-selectionMode="checkbox" data-frozenColumn="1" th:data-href="@{/model/Tb4Idbn.html}"></div>
       <div id="Tb4IdbnPager"></div>
       <div class="buttons">
         <button type="button" class="reset" id="ResetTb4IdbnS" th:text="#{common.reset}" onClick="Base.listReset('Tb4Idbn');">reset</button>

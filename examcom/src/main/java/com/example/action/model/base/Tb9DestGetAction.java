@@ -42,7 +42,7 @@ public class Tb9DestGetAction extends BaseAction {
             Tb9Dest tb9Dest = Tb9Dest.get(destId);
             map.put("Tb9Dest", tb9Dest);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

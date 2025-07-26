@@ -21,6 +21,7 @@ public class Tb4NoRegistForm implements IForm {
     /** 参照NO */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String norefNo;
 
     /**

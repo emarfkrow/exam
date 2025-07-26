@@ -54,7 +54,7 @@ public class Tb4IdbnGetAction extends BaseAction {
             Tb4Idbn tb4Idbn = Tb4Idbn.get(idrefId, idbnBn);
             map.put("Tb4Idbn", tb4Idbn);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

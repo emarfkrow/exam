@@ -42,7 +42,7 @@ public class Tb4NoGetAction extends BaseAction {
             Tb4No tb4No = Tb4No.get(norefNo);
             map.put("Tb4No", tb4No);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

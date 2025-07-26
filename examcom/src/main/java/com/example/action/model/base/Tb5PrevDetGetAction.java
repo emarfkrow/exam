@@ -54,7 +54,7 @@ public class Tb5PrevDetGetAction extends BaseAction {
             Tb5PrevDet tb5PrevDet = Tb5PrevDet.get(prevId, prevBn);
             map.put("Tb5PrevDet", tb5PrevDet);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

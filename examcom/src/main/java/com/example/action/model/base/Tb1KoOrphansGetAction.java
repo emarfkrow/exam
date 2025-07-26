@@ -53,7 +53,7 @@ public class Tb1KoOrphansGetAction extends BaseAction {
             tb1KoOrphans.referTb1Magos();
             map.put("Tb1KoOrphans", tb1KoOrphans);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

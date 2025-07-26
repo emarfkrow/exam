@@ -20,6 +20,7 @@ public class Tb6OrgDetRegistForm implements IForm {
 
     /** 起源ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String orgId;
 
     /**
@@ -38,6 +39,7 @@ public class Tb6OrgDetRegistForm implements IForm {
 
     /** 起源明細枝番 */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String orgBn;
 
     /**

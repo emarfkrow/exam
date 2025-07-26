@@ -21,41 +21,43 @@ public class MsyKbnSDeleteAction extends BaseAction {
 
     /** 区分マスタ一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("MsyKbnGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("MsyKbnGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
+                if (row.isEmpty()) {
+                    continue;
+                }
 
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("KBN_NM"))) {
-                throw new OptLockError("error.cant.delete");
-            }
+                // 主キーが不足していたらエラー
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KBN_NM"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
 
-            MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), gridRow);
+                MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), row);
 
-            java.util.List<com.example.entity.MsyKbnVal> msyKbnVals = e.referMsyKbnVals();
-            if (msyKbnVals != null) {
-                for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
+                java.util.List<com.example.entity.MsyKbnVal> msyKbnVals = e.referMsyKbnVals();
+                if (msyKbnVals != null) {
+                    for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
 
-                    if (msyKbnVal.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (msyKbnVal.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
+                if (e.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                ++count;
             }
-            ++count;
         }
 
         if (count == 0) {

@@ -21,6 +21,7 @@ public class Tb4CdRegistForm implements IForm {
     /** 参照CD */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]{1,10})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String cdrefCd;
 
     /**

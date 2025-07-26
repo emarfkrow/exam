@@ -20,6 +20,7 @@ public class MhrShokuiNinkaRegistForm implements IForm {
 
     /** 部署ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String bushoId;
 
     /**
@@ -38,6 +39,7 @@ public class MhrShokuiNinkaRegistForm implements IForm {
 
     /** 職位ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String shokuiId;
 
     /**
@@ -57,6 +59,7 @@ public class MhrShokuiNinkaRegistForm implements IForm {
     /** 機能名称 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Size(max = 20)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kinoNm;
 
     /**

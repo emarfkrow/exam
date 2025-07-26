@@ -50,7 +50,7 @@ public class MsyTaxGetAction extends BaseAction {
             MsyTax msyTax = MsyTax.get(taxKb, tekiyoBi);
             map.put("MsyTax", msyTax);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

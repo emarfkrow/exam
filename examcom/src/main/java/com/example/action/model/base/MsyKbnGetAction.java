@@ -43,7 +43,7 @@ public class MsyKbnGetAction extends BaseAction {
             msyKbn.referMsyKbnVals();
             map.put("MsyKbn", msyKbn);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

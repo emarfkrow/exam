@@ -20,6 +20,7 @@ public class Tb8ComboRegistForm implements IForm {
 
     /** 参照ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String referId;
 
     /**
@@ -39,6 +40,7 @@ public class Tb8ComboRegistForm implements IForm {
     /** 制約ID */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String stintId;
 
     /**
@@ -58,6 +60,7 @@ public class Tb8ComboRegistForm implements IForm {
     /** 適用日 */
     @jakarta.validation.constraints.NotBlank
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String tekiyoBi;
 
     /**

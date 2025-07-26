@@ -42,7 +42,7 @@ public class Tb4CdGetAction extends BaseAction {
             Tb4Cd tb4Cd = Tb4Cd.get(cdrefCd);
             map.put("Tb4Cd", tb4Cd);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -64,7 +64,7 @@ public class Tb1MagoGetAction extends BaseAction {
             Tb1Mago tb1Mago = Tb1Mago.get(oyaId, koBn, magoBn);
             map.put("Tb1Mago", tb1Mago);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

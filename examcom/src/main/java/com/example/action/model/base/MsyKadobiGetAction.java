@@ -50,7 +50,7 @@ public class MsyKadobiGetAction extends BaseAction {
             MsyKadobi msyKadobi = MsyKadobi.get(kadoBi, bushoId);
             map.put("MsyKadobi", msyKadobi);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

@@ -21,55 +21,57 @@ public class Tb1OyaSDeleteAction extends BaseAction {
 
     /** 親一覧削除処理 */
     @Override
-    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
+    public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> form) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         int count = 0;
 
         @SuppressWarnings("unchecked")
-        List<Map<String, Object>> gridData = (List<Map<String, Object>>) postJson.get("Tb1OyaGrid");
-        for (Map<String, Object> gridRow : gridData) {
+        List<Map<String, Object>> data = (List<Map<String, Object>>) form.get("Tb1OyaGrid");
+        if (data != null) {
+            for (Map<String, Object> row : data) {
 
-            if (gridRow.isEmpty()) {
-                continue;
-            }
+                if (row.isEmpty()) {
+                    continue;
+                }
 
-            // 主キーが不足していたらエラー
-            if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(gridRow.get("OYA_ID"))) {
-                throw new OptLockError("error.cant.delete");
-            }
+                // 主キーが不足していたらエラー
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("OYA_ID"))) {
+                    throw new OptLockError("error.cant.delete");
+                }
 
-            Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), gridRow);
+                Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), row);
 
-            java.util.List<com.example.entity.Tb1Ko> tb1Kos = e.referTb1Kos();
-            if (tb1Kos != null) {
-                for (com.example.entity.Tb1Ko tb1Ko : tb1Kos) {
+                java.util.List<com.example.entity.Tb1Ko> tb1Kos = e.referTb1Kos();
+                if (tb1Kos != null) {
+                    for (com.example.entity.Tb1Ko tb1Ko : tb1Kos) {
 
-                    // child:Tb1Mago, parents:2
+                        // child:Tb1Mago, parents:2
 
 
-                    if (tb1Ko.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1Ko.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
 
-            java.util.List<com.example.entity.Tb1KoDinks> tb1KoDinkss = e.referTb1KoDinkss();
-            if (tb1KoDinkss != null) {
-                for (com.example.entity.Tb1KoDinks tb1KoDinks : tb1KoDinkss) {
+                java.util.List<com.example.entity.Tb1KoDinks> tb1KoDinkss = e.referTb1KoDinkss();
+                if (tb1KoDinkss != null) {
+                    for (com.example.entity.Tb1KoDinks tb1KoDinks : tb1KoDinkss) {
 
-                    if (tb1KoDinks.delete() != 1) {
-                        throw new OptLockError("error.cant.delete");
+                        if (tb1KoDinks.delete() != 1) {
+                            throw new OptLockError("error.cant.delete");
+                        }
                     }
                 }
-            }
 
-            if (e.delete() != 1) {
-                throw new OptLockError("error.cant.delete");
+                if (e.delete() != 1) {
+                    throw new OptLockError("error.cant.delete");
+                }
+                ++count;
             }
-            ++count;
         }
 
         if (count == 0) {

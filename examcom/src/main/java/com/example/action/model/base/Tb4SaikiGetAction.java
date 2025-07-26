@@ -42,7 +42,7 @@ public class Tb4SaikiGetAction extends BaseAction {
             Tb4Saiki tb4Saiki = Tb4Saiki.get(saikiId);
             map.put("Tb4Saiki", tb4Saiki);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

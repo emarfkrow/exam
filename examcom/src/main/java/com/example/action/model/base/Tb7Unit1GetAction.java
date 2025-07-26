@@ -42,7 +42,7 @@ public class Tb7Unit1GetAction extends BaseAction {
             Tb7Unit1 tb7Unit1 = Tb7Unit1.get(unit1Id);
             map.put("Tb7Unit1", tb7Unit1);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }

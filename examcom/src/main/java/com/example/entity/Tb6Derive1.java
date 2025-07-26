@@ -364,6 +364,7 @@ public class Tb6Derive1 implements IEntity {
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
         whereList.add("`DERIVE1_ID` = :derive_1_id");
+        whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
 

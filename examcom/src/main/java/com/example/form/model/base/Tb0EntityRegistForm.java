@@ -20,6 +20,7 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** エンティティID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     private String entityId;
 
     /**
@@ -266,7 +267,7 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** 年月 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2})?")
+    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)?[0-9]{1,2})?")
     private String nengetsuYm;
 
     /**

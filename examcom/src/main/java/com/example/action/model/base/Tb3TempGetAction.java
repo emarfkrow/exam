@@ -42,7 +42,7 @@ public class Tb3TempGetAction extends BaseAction {
             Tb3Temp tb3Temp = Tb3Temp.get(tempId);
             map.put("Tb3Temp", tb3Temp);
         } catch (NoDataError e) {
-            if (!postJson.get("IsSilent").equals("true")) {
+            if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {
                 throw e;
             }
         }
