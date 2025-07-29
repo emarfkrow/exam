@@ -38,7 +38,7 @@ public class Tb5PrevSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("PREV_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "前世");
                 }
 
                 Tb5Prev e = FormValidator.toBean(Tb5Prev.class.getName(), row);
@@ -48,13 +48,13 @@ public class Tb5PrevSDeleteAction extends BaseAction {
                     for (com.example.entity.Tb5PrevDet tb5PrevDet : tb5PrevDets) {
 
                         if (tb5PrevDet.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "前世明細");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "前世");
                 }
                 ++count;
             }

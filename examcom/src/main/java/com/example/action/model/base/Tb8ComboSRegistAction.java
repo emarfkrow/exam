@@ -57,14 +57,14 @@ public class Tb8ComboSRegistAction extends BaseAction {
                 if (isNew) {
 
                     if (e.insert(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "複合");
                     }
                     ++count;
 
                 } else {
 
                     if (e.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.update");
+                        throw new OptLockError("error.cant.update", "複合");
                     }
                     ++count;
                 }

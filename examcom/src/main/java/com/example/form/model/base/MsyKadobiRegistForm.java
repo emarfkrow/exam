@@ -63,7 +63,7 @@ public class MsyKadobiRegistForm implements IForm {
     }
 
     /** 稼働日フラグ */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 1)
     private String kadobiF;
 
@@ -101,11 +101,13 @@ public class MsyKadobiRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -113,6 +115,7 @@ public class MsyKadobiRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
@@ -123,6 +126,7 @@ public class MsyKadobiRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 部署ID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", this.getBushoId(), jp.co.golorp.emarf.util.Messages.get("MsyKadobi.bushoId"));
     }
 

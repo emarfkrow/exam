@@ -28,26 +28,26 @@ public class MhrShokuiNinkaDeleteAction extends BaseAction {
             bushoId = postJson.get("MhrShokuiNinka.bushoId");
         }
         if (bushoId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "認可マスタ");
         }
         Object shokuiId = postJson.get("shokuiId");
         if (shokuiId == null) {
             shokuiId = postJson.get("MhrShokuiNinka.shokuiId");
         }
         if (shokuiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "認可マスタ");
         }
         Object kinoNm = postJson.get("kinoNm");
         if (kinoNm == null) {
             kinoNm = postJson.get("MhrShokuiNinka.kinoNm");
         }
         if (kinoNm == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "認可マスタ");
         }
 
         MhrShokuiNinka e = FormValidator.toBean(MhrShokuiNinka.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "認可マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

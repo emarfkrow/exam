@@ -28,12 +28,12 @@ public class MhrShokuiDeleteAction extends BaseAction {
             shokuiId = postJson.get("MhrShokui.shokuiId");
         }
         if (shokuiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "職位マスタ");
         }
 
         MhrShokui e = FormValidator.toBean(MhrShokui.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "職位マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

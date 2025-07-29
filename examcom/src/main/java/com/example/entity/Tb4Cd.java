@@ -40,11 +40,13 @@ public class Tb4Cd implements IEntity {
 
     /** @return 参照CD */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "CDREF_CD", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getCdrefCd() {
         return this.cdrefCd;
     }
 
     /** @param o 参照CD */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setCdrefCd(final Object o) {
         if (o != null) {
             this.cdrefCd = o.toString();
@@ -139,15 +141,18 @@ public class Tb4Cd implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 7)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);

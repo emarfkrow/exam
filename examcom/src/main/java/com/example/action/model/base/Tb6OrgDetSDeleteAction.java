@@ -38,15 +38,15 @@ public class Tb6OrgDetSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("ORG_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "起源明細");
                 }
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("ORG_BN"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "起源明細");
                 }
 
                 Tb6OrgDet e = FormValidator.toBean(Tb6OrgDet.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "起源明細");
                 }
                 ++count;
             }

@@ -39,7 +39,7 @@ public class Tb7SumRegistAction extends BaseAction {
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {
-                throw new OptLockError("error.cant.insert");
+                throw new OptLockError("error.cant.insert", "集約");
             }
 
             //集約先に該当する場合は、集約元に主キーを反映
@@ -50,11 +50,11 @@ public class Tb7SumRegistAction extends BaseAction {
                     com.example.entity.Tb7Unit tb7Unit = com.example.entity.Tb7Unit.get(pk);
                     //集約済みならエラー
                     if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb7Unit.getSumId())) {
-                        throw new OptLockError("error.already.summary");
+                        throw new OptLockError("error.already.summary", "集約");
                     }
                     tb7Unit.setSumId(e.getSumId());
                     if (tb7Unit.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "集約");
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class Tb7SumRegistAction extends BaseAction {
             } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
-                throw new OptLockError("error.cant.update");
+                throw new OptLockError("error.cant.update", "集約");
             }
         }
 

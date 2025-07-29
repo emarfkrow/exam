@@ -80,11 +80,13 @@ public class Tb5PrevDetRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -92,6 +94,7 @@ public class Tb5PrevDetRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }

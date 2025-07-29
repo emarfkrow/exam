@@ -28,12 +28,12 @@ public class Tb3TempDeleteAction extends BaseAction {
             tempId = postJson.get("Tb3Temp.tempId");
         }
         if (tempId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "当初");
         }
 
         Tb3Temp e = FormValidator.toBean(Tb3Temp.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "当初");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

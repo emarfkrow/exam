@@ -28,19 +28,19 @@ public class MsyTsukaDeleteAction extends BaseAction {
             tsukaKb = postJson.get("MsyTsuka.tsukaKb");
         }
         if (tsukaKb == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "通貨マスタ");
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("MsyTsuka.tekiyoBi");
         }
         if (tekiyoBi == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "通貨マスタ");
         }
 
         MsyTsuka e = FormValidator.toBean(MsyTsuka.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "通貨マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

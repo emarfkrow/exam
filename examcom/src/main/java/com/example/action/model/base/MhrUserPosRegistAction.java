@@ -48,7 +48,7 @@ public class MhrUserPosRegistAction extends BaseAction {
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {
-                throw new OptLockError("error.cant.insert");
+                throw new OptLockError("error.cant.insert", "所属マスタ");
             }
 
             map.put("INFO", Messages.get("info.insert"));
@@ -60,7 +60,7 @@ public class MhrUserPosRegistAction extends BaseAction {
             } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
-                throw new OptLockError("error.cant.update");
+                throw new OptLockError("error.cant.update", "所属マスタ");
             }
         }
 

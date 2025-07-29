@@ -28,19 +28,19 @@ public class Tb0NokeyDeleteAction extends BaseAction {
             colD = postJson.get("Tb0Nokey.colD");
         }
         if (colD == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "主キーなし");
         }
         Object colE = postJson.get("colE");
         if (colE == null) {
             colE = postJson.get("Tb0Nokey.colE");
         }
         if (colE == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "主キーなし");
         }
 
         Tb0Nokey e = FormValidator.toBean(Tb0Nokey.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "主キーなし");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

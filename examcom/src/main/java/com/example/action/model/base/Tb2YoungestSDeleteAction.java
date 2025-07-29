@@ -38,12 +38,12 @@ public class Tb2YoungestSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KYODAI_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "末弟");
                 }
 
                 Tb2Youngest e = FormValidator.toBean(Tb2Youngest.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "末弟");
                 }
                 ++count;
             }

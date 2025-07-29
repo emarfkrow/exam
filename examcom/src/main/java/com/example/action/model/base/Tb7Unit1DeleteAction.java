@@ -28,12 +28,12 @@ public class Tb7Unit1DeleteAction extends BaseAction {
             unit1Id = postJson.get("Tb7Unit1.unit1Id");
         }
         if (unit1Id == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "単位１");
         }
 
         Tb7Unit1 e = FormValidator.toBean(Tb7Unit1.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "単位１");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

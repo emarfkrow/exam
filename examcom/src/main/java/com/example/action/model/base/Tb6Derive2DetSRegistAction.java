@@ -54,14 +54,14 @@ public class Tb6Derive2DetSRegistAction extends BaseAction {
                 if (isNew) {
 
                     if (e.insert(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "派生２明細");
                     }
                     ++count;
 
                 } else {
 
                     if (e.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.update");
+                        throw new OptLockError("error.cant.update", "派生２明細");
                     }
                     ++count;
                 }

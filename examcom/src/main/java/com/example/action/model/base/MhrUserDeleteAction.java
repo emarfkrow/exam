@@ -28,12 +28,12 @@ public class MhrUserDeleteAction extends BaseAction {
             userId = postJson.get("MhrUser.userId");
         }
         if (userId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "ユーザマスタ");
         }
 
         MhrUser e = FormValidator.toBean(MhrUser.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "ユーザマスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -38,15 +38,15 @@ public class MsyTaxSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("TAX_KB"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "税マスタ");
                 }
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("TEKIYO_BI"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "税マスタ");
                 }
 
                 MsyTax e = FormValidator.toBean(MsyTax.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "税マスタ");
                 }
                 ++count;
             }

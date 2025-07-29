@@ -43,11 +43,13 @@ public class MsyKadobi implements IEntity {
 
     /** @return 稼働日 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "KADO_BI", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public java.time.LocalDate getKadoBi() {
         return this.kadoBi;
     }
 
     /** @param o 稼働日 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKadoBi(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.kadoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
@@ -62,11 +64,13 @@ public class MsyKadobi implements IEntity {
 
     /** @return 部署ID */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "BUSHO_ID", index = 3)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getBushoId() {
         return this.bushoId;
     }
 
     /** @param o 部署ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setBushoId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.bushoId = Integer.valueOf(o.toString());
@@ -198,15 +202,18 @@ public class MsyKadobi implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 10)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);

@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -41,7 +40,7 @@ public class Tb6Derive1RegistForm implements IForm {
     }
 
     /** 起源ID */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String orgId;
 
@@ -79,11 +78,13 @@ public class Tb6Derive1RegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -91,25 +92,26 @@ public class Tb6Derive1RegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
 
     /** 派生１明細 */
     @jakarta.validation.Valid
-    private List<Tb6Derive1DetRegistForm> tb6Derive1DetGrid;
+    private java.util.List<Tb6Derive1DetRegistForm> tb6Derive1DetGrid;
 
     /**
      * @return 派生１明細
      */
-    public List<Tb6Derive1DetRegistForm> getTb6Derive1DetGrid() {
+    public java.util.List<Tb6Derive1DetRegistForm> getTb6Derive1DetGrid() {
         return tb6Derive1DetGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb6Derive1DetGrid(final List<Tb6Derive1DetRegistForm> p) {
+    public void setTb6Derive1DetGrid(final java.util.List<Tb6Derive1DetRegistForm> p) {
         this.tb6Derive1DetGrid = p;
     }
 

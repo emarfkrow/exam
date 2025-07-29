@@ -28,19 +28,19 @@ public class MsyKadobiDeleteAction extends BaseAction {
             kadoBi = postJson.get("MsyKadobi.kadoBi");
         }
         if (kadoBi == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "稼働日マスタ");
         }
         Object bushoId = postJson.get("bushoId");
         if (bushoId == null) {
             bushoId = postJson.get("MsyKadobi.bushoId");
         }
         if (bushoId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "稼働日マスタ");
         }
 
         MsyKadobi e = FormValidator.toBean(MsyKadobi.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "稼働日マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -53,14 +53,14 @@ public class Tb0EntitySRegistAction extends BaseAction {
                 if (isNew) {
 
                     if (e.insert(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "エンティティ");
                     }
                     ++count;
 
                 } else {
 
                     if (e.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.update");
+                        throw new OptLockError("error.cant.update", "エンティティ");
                     }
                     ++count;
                 }

@@ -28,33 +28,33 @@ public class MhrUserPosDeleteAction extends BaseAction {
             bushoId = postJson.get("MhrUserPos.bushoId");
         }
         if (bushoId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "所属マスタ");
         }
         Object shokuiId = postJson.get("shokuiId");
         if (shokuiId == null) {
             shokuiId = postJson.get("MhrUserPos.shokuiId");
         }
         if (shokuiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "所属マスタ");
         }
         Object userId = postJson.get("userId");
         if (userId == null) {
             userId = postJson.get("MhrUserPos.userId");
         }
         if (userId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "所属マスタ");
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("MhrUserPos.tekiyoBi");
         }
         if (tekiyoBi == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "所属マスタ");
         }
 
         MhrUserPos e = FormValidator.toBean(MhrUserPos.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "所属マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

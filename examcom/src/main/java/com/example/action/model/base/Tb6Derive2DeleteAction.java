@@ -28,7 +28,7 @@ public class Tb6Derive2DeleteAction extends BaseAction {
             derive2Id = postJson.get("Tb6Derive2.derive2Id");
         }
         if (derive2Id == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "派生２");
         }
 
         Tb6Derive2 e = FormValidator.toBean(Tb6Derive2.class.getName(), postJson);
@@ -38,13 +38,13 @@ public class Tb6Derive2DeleteAction extends BaseAction {
             for (com.example.entity.Tb6Derive2Det tb6Derive2Det : tb6Derive2Dets) {
 
                 if (tb6Derive2Det.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "派生２明細");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "派生２");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

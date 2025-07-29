@@ -28,12 +28,12 @@ public class Tb8ReferDeleteAction extends BaseAction {
             referId = postJson.get("Tb8Refer.referId");
         }
         if (referId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "参照マスタ");
         }
 
         Tb8Refer e = FormValidator.toBean(Tb8Refer.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "参照マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

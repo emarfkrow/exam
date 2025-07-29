@@ -28,19 +28,19 @@ public class Tb6OrgDetDeleteAction extends BaseAction {
             orgId = postJson.get("Tb6OrgDet.orgId");
         }
         if (orgId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "起源明細");
         }
         Object orgBn = postJson.get("orgBn");
         if (orgBn == null) {
             orgBn = postJson.get("Tb6OrgDet.orgBn");
         }
         if (orgBn == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "起源明細");
         }
 
         Tb6OrgDet e = FormValidator.toBean(Tb6OrgDet.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "起源明細");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

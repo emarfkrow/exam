@@ -28,7 +28,7 @@ public class Tb1OyaDeleteAction extends BaseAction {
             oyaId = postJson.get("Tb1Oya.oyaId");
         }
         if (oyaId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "親");
         }
 
         Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), postJson);
@@ -41,7 +41,7 @@ public class Tb1OyaDeleteAction extends BaseAction {
 
 
                 if (tb1Ko.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "子");
                 }
             }
         }
@@ -52,13 +52,13 @@ public class Tb1OyaDeleteAction extends BaseAction {
             for (com.example.entity.Tb1KoDinks tb1KoDinks : tb1KoDinkss) {
 
                 if (tb1KoDinks.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "子なし");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "親");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

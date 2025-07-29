@@ -11,6 +11,6 @@ $(function() {
         Column.refer('USER_ID', Messages['MhrUserPosGrid.userId'], 90, 'primaryKey', 'USER_SEI'),
         Column.date('TEKIYO_BI', Messages['MhrUserPosGrid.tekiyoBi'], 90, 'primaryKey', Slick.Formatters.Extends.Date),
         Column.date('SHURYO_BI', Messages['MhrUserPosGrid.shuryoBi'], 90, '', Slick.Formatters.Extends.Date),
-        Column.cell('UPDATE_TS', Messages['MhrUserPosGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MhrUserPosGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

@@ -40,11 +40,13 @@ public class MsyKbn implements IEntity {
 
     /** @return 区分名称 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "KBN_NM", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKbnNm() {
         return this.kbnNm;
     }
 
     /** @param o 区分名称 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKbnNm(final Object o) {
         if (o != null) {
             this.kbnNm = o.toString();
@@ -139,15 +141,18 @@ public class MsyKbn implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 7)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);
@@ -318,7 +323,9 @@ public class MsyKbn implements IEntity {
         // 区分値マスタの削除
         if (this.msyKbnVals != null) {
             for (MsyKbnVal msyKbnVal : this.msyKbnVals) {
-                msyKbnVal.delete();
+                if (msyKbnVal.delete() != 1) {
+                    throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "区分値マスタ");
+                }
             }
         }
 

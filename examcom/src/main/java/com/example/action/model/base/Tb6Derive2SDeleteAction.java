@@ -38,7 +38,7 @@ public class Tb6Derive2SDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("DERIVE2_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "派生２");
                 }
 
                 Tb6Derive2 e = FormValidator.toBean(Tb6Derive2.class.getName(), row);
@@ -48,13 +48,13 @@ public class Tb6Derive2SDeleteAction extends BaseAction {
                     for (com.example.entity.Tb6Derive2Det tb6Derive2Det : tb6Derive2Dets) {
 
                         if (tb6Derive2Det.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "派生２明細");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "派生２");
                 }
                 ++count;
             }

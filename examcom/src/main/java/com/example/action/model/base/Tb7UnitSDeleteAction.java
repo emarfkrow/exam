@@ -38,12 +38,12 @@ public class Tb7UnitSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("UNIT_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "単位");
                 }
 
                 Tb7Unit e = FormValidator.toBean(Tb7Unit.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "単位");
                 }
                 ++count;
             }

@@ -40,11 +40,13 @@ public class Tb6Org implements IEntity {
 
     /** @return 起源ID */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "ORG_ID", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getOrgId() {
         return this.orgId;
     }
 
     /** @param o 起源ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOrgId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.orgId = Integer.valueOf(o.toString());
@@ -139,15 +141,18 @@ public class Tb6Org implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 7)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);
@@ -333,7 +338,9 @@ public class Tb6Org implements IEntity {
         // 起源明細の削除
         if (this.tb6OrgDets != null) {
             for (Tb6OrgDet tb6OrgDet : this.tb6OrgDets) {
-                tb6OrgDet.delete();
+                if (tb6OrgDet.delete() != 1) {
+                    throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "起源明細");
+                }
             }
         }
 

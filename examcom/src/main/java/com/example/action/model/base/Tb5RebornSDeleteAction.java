@@ -38,7 +38,7 @@ public class Tb5RebornSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("REBORN_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "転生");
                 }
 
                 Tb5Reborn e = FormValidator.toBean(Tb5Reborn.class.getName(), row);
@@ -48,13 +48,13 @@ public class Tb5RebornSDeleteAction extends BaseAction {
                     for (com.example.entity.Tb5RebornDet tb5RebornDet : tb5RebornDets) {
 
                         if (tb5RebornDet.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "転生明細");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "転生");
                 }
                 ++count;
             }

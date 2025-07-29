@@ -28,26 +28,26 @@ public class Tb1MagoDeleteAction extends BaseAction {
             oyaId = postJson.get("Tb1Mago.oyaId");
         }
         if (oyaId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "孫");
         }
         Object koBn = postJson.get("koBn");
         if (koBn == null) {
             koBn = postJson.get("Tb1Mago.koBn");
         }
         if (koBn == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "孫");
         }
         Object magoBn = postJson.get("magoBn");
         if (magoBn == null) {
             magoBn = postJson.get("Tb1Mago.magoBn");
         }
         if (magoBn == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "孫");
         }
 
         Tb1Mago e = FormValidator.toBean(Tb1Mago.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "孫");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -9,6 +9,6 @@ $(function() {
         Column.text('DERIVE2_ID', Messages['Tb6Derive2Grid.derive2Id'], 90, 'primaryKey numbering', null),
         Column.text('ORG_ID', Messages['Tb6Derive2Grid.orgId'], 90, 'notblank', null),
         Column.text('ORG_INFO', Messages['Tb6Derive2Grid.orgInfo'], 300, '', null),
-        Column.cell('UPDATE_TS', Messages['Tb6Derive2Grid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['Tb6Derive2Grid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

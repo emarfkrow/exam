@@ -41,7 +41,7 @@ public class Tb4CdRegistForm implements IForm {
     }
 
     /** 参照CD名 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 60)
     private String cdrefMei;
 
@@ -61,11 +61,13 @@ public class Tb4CdRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -73,6 +75,7 @@ public class Tb4CdRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }

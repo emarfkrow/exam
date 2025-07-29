@@ -11,6 +11,6 @@ $(function() {
         Column.text('KBN_VAL_MEI', Messages['MsyKbnValGrid.kbnValMei'], 300, 'notblank', null),
         Column.text('HYOJI_ON', Messages['MsyKbnValGrid.hyojiOn'], 90, '', null),
         Column.text('CRITERIA', Messages['MsyKbnValGrid.criteria'], 300, '', null),
-        Column.cell('UPDATE_TS', Messages['MsyKbnValGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MsyKbnValGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

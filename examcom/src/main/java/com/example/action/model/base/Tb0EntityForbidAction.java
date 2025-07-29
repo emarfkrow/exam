@@ -28,7 +28,7 @@ public class Tb0EntityForbidAction extends BaseAction {
             entityId = postJson.get("Tb0Entity.entityId");
         }
         if (entityId == null) {
-            throw new OptLockError("error.cant.forbid");
+            throw new OptLockError("error.cant.forbid", "エンティティ");
         }
 
         Tb0Entity e = FormValidator.toBean(Tb0Entity.class.getName(), postJson);
@@ -36,7 +36,7 @@ public class Tb0EntityForbidAction extends BaseAction {
         Tb0Entity f = Tb0Entity.get(e.getEntityId());
         f.setStatusKb(-1);
         if (f.update(now, execId) != 1) {
-            throw new OptLockError("error.cant.forbid");
+            throw new OptLockError("error.cant.forbid", "エンティティ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

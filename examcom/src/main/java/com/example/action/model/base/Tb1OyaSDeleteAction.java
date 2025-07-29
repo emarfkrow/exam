@@ -38,7 +38,7 @@ public class Tb1OyaSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("OYA_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "親");
                 }
 
                 Tb1Oya e = FormValidator.toBean(Tb1Oya.class.getName(), row);
@@ -51,7 +51,7 @@ public class Tb1OyaSDeleteAction extends BaseAction {
 
 
                         if (tb1Ko.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "子");
                         }
                     }
                 }
@@ -62,13 +62,13 @@ public class Tb1OyaSDeleteAction extends BaseAction {
                     for (com.example.entity.Tb1KoDinks tb1KoDinks : tb1KoDinkss) {
 
                         if (tb1KoDinks.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "子なし");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "親");
                 }
                 ++count;
             }

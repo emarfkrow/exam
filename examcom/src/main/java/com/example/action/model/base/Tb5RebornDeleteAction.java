@@ -28,7 +28,7 @@ public class Tb5RebornDeleteAction extends BaseAction {
             rebornId = postJson.get("Tb5Reborn.rebornId");
         }
         if (rebornId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "転生");
         }
 
         Tb5Reborn e = FormValidator.toBean(Tb5Reborn.class.getName(), postJson);
@@ -38,13 +38,13 @@ public class Tb5RebornDeleteAction extends BaseAction {
             for (com.example.entity.Tb5RebornDet tb5RebornDet : tb5RebornDets) {
 
                 if (tb5RebornDet.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "転生明細");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "転生");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

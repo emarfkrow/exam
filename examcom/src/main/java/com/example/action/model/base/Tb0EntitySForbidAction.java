@@ -41,13 +41,13 @@ public class Tb0EntitySForbidAction extends BaseAction {
                 // 主キーが不足していたらエラー
                 Object entityId = e.getEntityId();
                 if (entityId == null) {
-                    throw new OptLockError("error.cant.forbid");
+                    throw new OptLockError("error.cant.forbid", "エンティティ");
                 }
 
                 Tb0Entity f = Tb0Entity.get(entityId);
                 f.setStatusKb(-1);
                 if (f.update(now, execId) != 1) {
-                    throw new OptLockError("error.cant.forbid");
+                    throw new OptLockError("error.cant.forbid", "エンティティ");
                 }
                 ++count;
             }

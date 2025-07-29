@@ -39,7 +39,7 @@ public class Tb6Derive1RegistAction extends BaseAction {
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {
-                throw new OptLockError("error.cant.insert");
+                throw new OptLockError("error.cant.insert", "派生１");
             }
 
             map.put("INFO", Messages.get("info.insert"));
@@ -51,7 +51,7 @@ public class Tb6Derive1RegistAction extends BaseAction {
             } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
-                throw new OptLockError("error.cant.update");
+                throw new OptLockError("error.cant.update", "派生１");
             }
         }
 

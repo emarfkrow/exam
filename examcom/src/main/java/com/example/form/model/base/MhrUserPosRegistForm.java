@@ -124,11 +124,13 @@ public class MhrUserPosRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -136,6 +138,7 @@ public class MhrUserPosRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
@@ -146,12 +149,15 @@ public class MhrUserPosRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 部署ID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", this.getBushoId(), jp.co.golorp.emarf.util.Messages.get("MhrUserPos.bushoId"));
 
         // 職位ID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "MhrShokuiSearch", "shokuiId", this.getShokuiId(), jp.co.golorp.emarf.util.Messages.get("MhrUserPos.shokuiId"));
 
         // ユーザID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "MhrUserSearch", "userId", this.getUserId(), jp.co.golorp.emarf.util.Messages.get("MhrUserPos.userId"));
     }
 

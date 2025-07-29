@@ -28,7 +28,7 @@ public class Tb5PrevDeleteAction extends BaseAction {
             prevId = postJson.get("Tb5Prev.prevId");
         }
         if (prevId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "前世");
         }
 
         Tb5Prev e = FormValidator.toBean(Tb5Prev.class.getName(), postJson);
@@ -38,13 +38,13 @@ public class Tb5PrevDeleteAction extends BaseAction {
             for (com.example.entity.Tb5PrevDet tb5PrevDet : tb5PrevDets) {
 
                 if (tb5PrevDet.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "前世明細");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "前世");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

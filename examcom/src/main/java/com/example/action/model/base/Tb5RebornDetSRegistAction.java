@@ -54,14 +54,14 @@ public class Tb5RebornDetSRegistAction extends BaseAction {
                 if (isNew) {
 
                     if (e.insert(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "転生明細");
                     }
                     ++count;
 
                 } else {
 
                     if (e.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.update");
+                        throw new OptLockError("error.cant.update", "転生明細");
                     }
                     ++count;
                 }

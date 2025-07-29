@@ -28,12 +28,12 @@ public class Tb4CdDeleteAction extends BaseAction {
             cdrefCd = postJson.get("Tb4Cd.cdrefCd");
         }
         if (cdrefCd == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "CDマスタ");
         }
 
         Tb4Cd e = FormValidator.toBean(Tb4Cd.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "CDマスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

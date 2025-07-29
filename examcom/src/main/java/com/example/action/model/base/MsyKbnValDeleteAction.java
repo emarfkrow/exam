@@ -28,19 +28,19 @@ public class MsyKbnValDeleteAction extends BaseAction {
             kbnNm = postJson.get("MsyKbnVal.kbnNm");
         }
         if (kbnNm == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "区分値マスタ");
         }
         Object kbnVal = postJson.get("kbnVal");
         if (kbnVal == null) {
             kbnVal = postJson.get("MsyKbnVal.kbnVal");
         }
         if (kbnVal == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "区分値マスタ");
         }
 
         MsyKbnVal e = FormValidator.toBean(MsyKbnVal.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "区分値マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

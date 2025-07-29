@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -41,7 +40,7 @@ public class Tb4IdRegistForm implements IForm {
     }
 
     /** 参照ID名 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 60)
     private String idrefMei;
 
@@ -61,11 +60,13 @@ public class Tb4IdRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -73,25 +74,26 @@ public class Tb4IdRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
 
     /** ID-BNマスタ */
     @jakarta.validation.Valid
-    private List<Tb4IdbnRegistForm> tb4IdbnGrid;
+    private java.util.List<Tb4IdbnRegistForm> tb4IdbnGrid;
 
     /**
      * @return ID-BNマスタ
      */
-    public List<Tb4IdbnRegistForm> getTb4IdbnGrid() {
+    public java.util.List<Tb4IdbnRegistForm> getTb4IdbnGrid() {
         return tb4IdbnGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb4IdbnGrid(final List<Tb4IdbnRegistForm> p) {
+    public void setTb4IdbnGrid(final java.util.List<Tb4IdbnRegistForm> p) {
         this.tb4IdbnGrid = p;
     }
 

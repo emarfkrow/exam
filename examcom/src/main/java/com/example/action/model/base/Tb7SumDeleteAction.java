@@ -28,12 +28,12 @@ public class Tb7SumDeleteAction extends BaseAction {
             sumId = postJson.get("Tb7Sum.sumId");
         }
         if (sumId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "集約");
         }
 
         Tb7Sum e = FormValidator.toBean(Tb7Sum.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "集約");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -28,19 +28,19 @@ public class MsyTaxDeleteAction extends BaseAction {
             taxKb = postJson.get("MsyTax.taxKb");
         }
         if (taxKb == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "税マスタ");
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("MsyTax.tekiyoBi");
         }
         if (tekiyoBi == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "税マスタ");
         }
 
         MsyTax e = FormValidator.toBean(MsyTax.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "税マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

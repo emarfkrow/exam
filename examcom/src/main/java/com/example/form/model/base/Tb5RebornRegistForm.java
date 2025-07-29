@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -41,7 +40,7 @@ public class Tb5RebornRegistForm implements IForm {
     }
 
     /** 前世ID */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String prevId;
 
@@ -79,11 +78,13 @@ public class Tb5RebornRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -91,25 +92,26 @@ public class Tb5RebornRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
 
     /** 転生明細 */
     @jakarta.validation.Valid
-    private List<Tb5RebornDetRegistForm> tb5RebornDetGrid;
+    private java.util.List<Tb5RebornDetRegistForm> tb5RebornDetGrid;
 
     /**
      * @return 転生明細
      */
-    public List<Tb5RebornDetRegistForm> getTb5RebornDetGrid() {
+    public java.util.List<Tb5RebornDetRegistForm> getTb5RebornDetGrid() {
         return tb5RebornDetGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb5RebornDetGrid(final List<Tb5RebornDetRegistForm> p) {
+    public void setTb5RebornDetGrid(final java.util.List<Tb5RebornDetRegistForm> p) {
         this.tb5RebornDetGrid = p;
     }
 

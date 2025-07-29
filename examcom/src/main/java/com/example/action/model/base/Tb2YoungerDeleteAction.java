@@ -28,12 +28,12 @@ public class Tb2YoungerDeleteAction extends BaseAction {
             kyodaiId = postJson.get("Tb2Younger.kyodaiId");
         }
         if (kyodaiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "弟");
         }
 
         Tb2Younger e = FormValidator.toBean(Tb2Younger.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "弟");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

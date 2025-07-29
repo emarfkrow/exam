@@ -10,6 +10,6 @@ $(function() {
         Column.date('TEKIYO_BI', Messages['MsyTsukaGrid.tekiyoBi'], 90, 'primaryKey', Slick.Formatters.Extends.Date),
         Column.dec2('TTS', Messages['MsyTsukaGrid.tts'], 45, 'notblank', null),
         Column.dec2('TTB', Messages['MsyTsukaGrid.ttb'], 45, 'notblank', null),
-        Column.cell('UPDATE_TS', Messages['MsyTsukaGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MsyTsukaGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

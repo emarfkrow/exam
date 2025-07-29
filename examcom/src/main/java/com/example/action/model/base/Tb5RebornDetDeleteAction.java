@@ -28,19 +28,19 @@ public class Tb5RebornDetDeleteAction extends BaseAction {
             rebornId = postJson.get("Tb5RebornDet.rebornId");
         }
         if (rebornId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "転生明細");
         }
         Object rebornBn = postJson.get("rebornBn");
         if (rebornBn == null) {
             rebornBn = postJson.get("Tb5RebornDet.rebornBn");
         }
         if (rebornBn == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "転生明細");
         }
 
         Tb5RebornDet e = FormValidator.toBean(Tb5RebornDet.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "転生明細");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

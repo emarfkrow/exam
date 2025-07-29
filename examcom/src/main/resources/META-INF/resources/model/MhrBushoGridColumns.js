@@ -11,6 +11,6 @@ $(function() {
         Column.refer('OYA_BUSHO_ID', Messages['MhrBushoGrid.oyaBushoId'], 90, '', 'OYA_BUSHO_MEI'),
         Column.date('TEKIYO_BI', Messages['MhrBushoGrid.tekiyoBi'], 90, '', Slick.Formatters.Extends.Date),
         Column.date('SHURYO_BI', Messages['MhrBushoGrid.shuryoBi'], 90, '', Slick.Formatters.Extends.Date),
-        Column.cell('UPDATE_TS', Messages['MhrBushoGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MhrBushoGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

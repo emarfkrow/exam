@@ -38,7 +38,7 @@ public class Tb4IdSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("IDREF_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "IDマスタ");
                 }
 
                 Tb4Id e = FormValidator.toBean(Tb4Id.class.getName(), row);
@@ -48,13 +48,13 @@ public class Tb4IdSDeleteAction extends BaseAction {
                     for (com.example.entity.Tb4Idbn tb4Idbn : tb4Idbns) {
 
                         if (tb4Idbn.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "ID-BNマスタ");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "IDマスタ");
                 }
                 ++count;
             }

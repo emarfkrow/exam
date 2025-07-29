@@ -28,19 +28,19 @@ public class Tb4IdbnDeleteAction extends BaseAction {
             idrefId = postJson.get("Tb4Idbn.idrefId");
         }
         if (idrefId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "ID-BNマスタ");
         }
         Object idbnBn = postJson.get("idbnBn");
         if (idbnBn == null) {
             idbnBn = postJson.get("Tb4Idbn.idbnBn");
         }
         if (idbnBn == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "ID-BNマスタ");
         }
 
         Tb4Idbn e = FormValidator.toBean(Tb4Idbn.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "ID-BNマスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

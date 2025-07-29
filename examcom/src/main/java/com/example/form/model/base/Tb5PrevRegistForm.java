@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -60,11 +59,13 @@ public class Tb5PrevRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -72,25 +73,26 @@ public class Tb5PrevRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
 
     /** 前世明細 */
     @jakarta.validation.Valid
-    private List<Tb5PrevDetRegistForm> tb5PrevDetGrid;
+    private java.util.List<Tb5PrevDetRegistForm> tb5PrevDetGrid;
 
     /**
      * @return 前世明細
      */
-    public List<Tb5PrevDetRegistForm> getTb5PrevDetGrid() {
+    public java.util.List<Tb5PrevDetRegistForm> getTb5PrevDetGrid() {
         return tb5PrevDetGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb5PrevDetGrid(final List<Tb5PrevDetRegistForm> p) {
+    public void setTb5PrevDetGrid(final java.util.List<Tb5PrevDetRegistForm> p) {
         this.tb5PrevDetGrid = p;
     }
 

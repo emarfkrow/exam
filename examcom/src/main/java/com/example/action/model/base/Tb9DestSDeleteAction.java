@@ -38,12 +38,12 @@ public class Tb9DestSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("DEST_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "変換先");
                 }
 
                 Tb9Dest e = FormValidator.toBean(Tb9Dest.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "変換先");
                 }
                 ++count;
             }

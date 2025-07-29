@@ -28,12 +28,12 @@ public class Tb2FosterDeleteAction extends BaseAction {
             kyodaiId = postJson.get("Tb2Foster.kyodaiId");
         }
         if (kyodaiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "里子");
         }
 
         Tb2Foster e = FormValidator.toBean(Tb2Foster.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "里子");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

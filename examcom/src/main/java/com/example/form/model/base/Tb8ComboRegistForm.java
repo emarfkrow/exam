@@ -103,11 +103,13 @@ public class Tb8ComboRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -115,6 +117,7 @@ public class Tb8ComboRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
@@ -125,9 +128,11 @@ public class Tb8ComboRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 参照ID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8ReferSearch", "referId", this.getReferId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.referId"));
 
         // 制約ID のマスタチェック
+        // TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8StintSearch", "stintId", this.getStintId(), jp.co.golorp.emarf.util.Messages.get("Tb8Combo.stintId"));
     }
 

@@ -38,12 +38,12 @@ public class MhrShokuiSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("SHOKUI_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "職位マスタ");
                 }
 
                 MhrShokui e = FormValidator.toBean(MhrShokui.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "職位マスタ");
                 }
                 ++count;
             }

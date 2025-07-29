@@ -14,6 +14,6 @@ $(function() {
         Column.refer('BETSU_IDREF_ID', Messages['Tb4SaikiGrid.betsuIdrefId'], 90, '', 'BETSU_IDREF_MEI'),
         Column.refer('IDBN_BN', Messages['Tb4SaikiGrid.idbnBn'], 90, '', 'IDBN_NO'),
         Column.refer('OYA_SAIKI_ID', Messages['Tb4SaikiGrid.oyaSaikiId'], 90, '', 'OYA_SAIKI_MEI'),
-        Column.cell('UPDATE_TS', Messages['Tb4SaikiGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['Tb4SaikiGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

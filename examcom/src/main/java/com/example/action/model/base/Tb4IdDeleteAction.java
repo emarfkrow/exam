@@ -28,7 +28,7 @@ public class Tb4IdDeleteAction extends BaseAction {
             idrefId = postJson.get("Tb4Id.idrefId");
         }
         if (idrefId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "IDマスタ");
         }
 
         Tb4Id e = FormValidator.toBean(Tb4Id.class.getName(), postJson);
@@ -38,13 +38,13 @@ public class Tb4IdDeleteAction extends BaseAction {
             for (com.example.entity.Tb4Idbn tb4Idbn : tb4Idbns) {
 
                 if (tb4Idbn.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "ID-BNマスタ");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "IDマスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

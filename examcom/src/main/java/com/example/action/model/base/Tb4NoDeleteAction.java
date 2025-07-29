@@ -28,12 +28,12 @@ public class Tb4NoDeleteAction extends BaseAction {
             norefNo = postJson.get("Tb4No.norefNo");
         }
         if (norefNo == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "NOマスタ");
         }
 
         Tb4No e = FormValidator.toBean(Tb4No.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "NOマスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

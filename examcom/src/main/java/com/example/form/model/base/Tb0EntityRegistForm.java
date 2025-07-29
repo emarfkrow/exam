@@ -40,7 +40,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** エンティティ名称 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 20)
     private String entityNm;
 
@@ -59,7 +59,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** エンティティ名 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 60)
     private String entityMei;
 
@@ -78,7 +78,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** チェックフラグ */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 1)
     private String checkF;
 
@@ -97,7 +97,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** ラジオ区分 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 2)
     private String radioKb;
 
@@ -116,7 +116,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** プルダウン区分 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 2)
     private String pulldownKb;
 
@@ -135,7 +135,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** プルダウン種別 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 2)
     private String pulldownSb;
 
@@ -154,7 +154,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** メモ */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 300)
     private String memoTx;
 
@@ -173,7 +173,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** １行メモ */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 300)
     private String memo;
 
@@ -192,7 +192,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 添付ファイル */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 300)
     private String tenpuFile;
 
@@ -211,7 +211,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 年 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4})?")
     private String nenY;
 
@@ -230,7 +230,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 月 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
     private String tsukiM;
 
@@ -249,7 +249,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 日 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{2})?")
     private String hiD;
 
@@ -268,7 +268,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 年月 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)?[0-9]{1,2})?")
     private String nengetsuYm;
 
@@ -287,7 +287,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 年月日 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{8})?")
     private String nengappiYmd;
 
@@ -324,7 +324,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 日時 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     private String nichijiDt;
 
@@ -343,7 +343,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 日付 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
     private String hidukeBi;
 
@@ -362,7 +362,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 時刻 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,2}:[0-9]{1,2})?")
     private String jikokuHm;
 
@@ -381,7 +381,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 時間 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,}:[0-9]{1,2})?")
     private String jikanTm;
 
@@ -400,7 +400,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 数量 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,8}\\.?[0-9]{0,3}?)?")
     private String suryoQt;
 
@@ -419,7 +419,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 単価 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,9}\\.?[0-9]{0,2}?)?")
     private String tankaPr;
 
@@ -438,7 +438,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 通貨区分 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Size(max = 2)
     private String tsukaKb;
 
@@ -457,7 +457,7 @@ public class Tb0EntityRegistForm implements IForm {
     }
 
     /** 税抜金額 */
-    @jakarta.validation.constraints.NotBlank
+    @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,9}\\.?[0-9]{0,2}?)?")
     private String zeinukiAm;
 
@@ -513,11 +513,13 @@ public class Tb0EntityRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -525,6 +527,7 @@ public class Tb0EntityRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }

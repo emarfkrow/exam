@@ -40,11 +40,13 @@ public class Tb1KoDinks implements IEntity {
 
     /** @return 親ID */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "OYA_ID", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getOyaId() {
         return this.oyaId;
     }
 
     /** @param o 親ID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOyaId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.oyaId = Integer.valueOf(o.toString());
@@ -59,11 +61,13 @@ public class Tb1KoDinks implements IEntity {
 
     /** @return 子枝番 */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "KO_BN", index = 3)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getKoBn() {
         return this.koBn;
     }
 
     /** @param o 子枝番 */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKoBn(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.koBn = Integer.valueOf(o.toString());
@@ -158,15 +162,18 @@ public class Tb1KoDinks implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 8)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);
@@ -373,12 +380,16 @@ public class Tb1KoDinks implements IEntity {
 
         // 子の削除
         if (this.tb1Ko != null) {
-            this.tb1Ko.delete();
+            if (this.tb1Ko.delete() != 1) {
+                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "子");
+            }
         }
 
         // 孤児の削除
         if (this.tb1KoOrphans != null) {
-            this.tb1KoOrphans.delete();
+            if (this.tb1KoOrphans.delete() != 1) {
+                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "孤児");
+            }
         }
 
         // 子なしの削除

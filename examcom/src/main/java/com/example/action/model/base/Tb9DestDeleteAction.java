@@ -28,12 +28,12 @@ public class Tb9DestDeleteAction extends BaseAction {
             destId = postJson.get("Tb9Dest.destId");
         }
         if (destId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "変換先");
         }
 
         Tb9Dest e = FormValidator.toBean(Tb9Dest.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "変換先");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

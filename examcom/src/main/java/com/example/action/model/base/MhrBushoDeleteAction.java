@@ -28,12 +28,12 @@ public class MhrBushoDeleteAction extends BaseAction {
             bushoId = postJson.get("MhrBusho.bushoId");
         }
         if (bushoId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "部署マスタ");
         }
 
         MhrBusho e = FormValidator.toBean(MhrBusho.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "部署マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

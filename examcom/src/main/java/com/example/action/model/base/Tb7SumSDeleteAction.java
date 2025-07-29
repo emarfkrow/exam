@@ -38,12 +38,12 @@ public class Tb7SumSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("SUM_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "集約");
                 }
 
                 Tb7Sum e = FormValidator.toBean(Tb7Sum.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "集約");
                 }
                 ++count;
             }

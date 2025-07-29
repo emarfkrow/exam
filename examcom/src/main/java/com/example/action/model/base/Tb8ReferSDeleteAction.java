@@ -38,12 +38,12 @@ public class Tb8ReferSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("REFER_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "参照マスタ");
                 }
 
                 Tb8Refer e = FormValidator.toBean(Tb8Refer.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "参照マスタ");
                 }
                 ++count;
             }

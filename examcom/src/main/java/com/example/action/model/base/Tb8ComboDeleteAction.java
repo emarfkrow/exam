@@ -28,26 +28,26 @@ public class Tb8ComboDeleteAction extends BaseAction {
             referId = postJson.get("Tb8Combo.referId");
         }
         if (referId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "複合");
         }
         Object stintId = postJson.get("stintId");
         if (stintId == null) {
             stintId = postJson.get("Tb8Combo.stintId");
         }
         if (stintId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "複合");
         }
         Object tekiyoBi = postJson.get("tekiyoBi");
         if (tekiyoBi == null) {
             tekiyoBi = postJson.get("Tb8Combo.tekiyoBi");
         }
         if (tekiyoBi == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "複合");
         }
 
         Tb8Combo e = FormValidator.toBean(Tb8Combo.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "複合");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

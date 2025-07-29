@@ -10,6 +10,6 @@ $(function() {
         Column.refer('BUSHO_ID', Messages['MsyKadobiGrid.bushoId'], 90, 'primaryKey', 'BUSHO_MEI'),
         Column.check('KADOBI_F', Messages['MsyKadobiGrid.kadobiF'], 30, 'notblank'),
         Column.text('MEMO', Messages['MsyKadobiGrid.memo'], 300, '', null),
-        Column.cell('UPDATE_TS', Messages['MsyKadobiGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MsyKadobiGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

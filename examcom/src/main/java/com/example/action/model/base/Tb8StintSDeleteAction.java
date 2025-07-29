@@ -38,12 +38,12 @@ public class Tb8StintSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("STINT_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "制約マスタ");
                 }
 
                 Tb8Stint e = FormValidator.toBean(Tb8Stint.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "制約マスタ");
                 }
                 ++count;
             }

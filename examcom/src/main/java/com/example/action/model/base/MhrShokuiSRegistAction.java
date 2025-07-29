@@ -51,14 +51,14 @@ public class MhrShokuiSRegistAction extends BaseAction {
                 if (isNew) {
 
                     if (e.insert(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert");
+                        throw new OptLockError("error.cant.insert", "職位マスタ");
                     }
                     ++count;
 
                 } else {
 
                     if (e.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.update");
+                        throw new OptLockError("error.cant.update", "職位マスタ");
                     }
                     ++count;
                 }

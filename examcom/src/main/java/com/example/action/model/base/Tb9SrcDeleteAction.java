@@ -28,12 +28,12 @@ public class Tb9SrcDeleteAction extends BaseAction {
             srcId = postJson.get("Tb9Src.srcId");
         }
         if (srcId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "変換元");
         }
 
         Tb9Src e = FormValidator.toBean(Tb9Src.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "変換元");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

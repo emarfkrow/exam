@@ -13,6 +13,6 @@ $(function() {
         Column.text('PASSWORD', Messages['MhrUserGrid.password'], 300, 'notblank', null),
         Column.date('TEKIYO_BI', Messages['MhrUserGrid.tekiyoBi'], 90, '', Slick.Formatters.Extends.Date),
         Column.date('SHURYO_BI', Messages['MhrUserGrid.shuryoBi'], 90, '', Slick.Formatters.Extends.Date),
-        Column.cell('UPDATE_TS', Messages['MhrUserGrid.updateTs'], 207, 'metaInfo', Slick.Formatters.Extends.Timestamp),
+        Column.cell('UPDATE_TS', Messages['MhrUserGrid.updateTs'], 207, 'metaInfo optLock', Slick.Formatters.Extends.Timestamp),
     ];
 });

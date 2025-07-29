@@ -38,12 +38,12 @@ public class Tb4CdSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("CDREF_CD"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "CDマスタ");
                 }
 
                 Tb4Cd e = FormValidator.toBean(Tb4Cd.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "CDマスタ");
                 }
                 ++count;
             }

@@ -28,12 +28,12 @@ public class Tb8StintDeleteAction extends BaseAction {
             stintId = postJson.get("Tb8Stint.stintId");
         }
         if (stintId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "制約マスタ");
         }
 
         Tb8Stint e = FormValidator.toBean(Tb8Stint.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "制約マスタ");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -28,7 +28,7 @@ public class Tb6OrgDeleteAction extends BaseAction {
             orgId = postJson.get("Tb6Org.orgId");
         }
         if (orgId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "起源");
         }
 
         Tb6Org e = FormValidator.toBean(Tb6Org.class.getName(), postJson);
@@ -38,13 +38,13 @@ public class Tb6OrgDeleteAction extends BaseAction {
             for (com.example.entity.Tb6OrgDet tb6OrgDet : tb6OrgDets) {
 
                 if (tb6OrgDet.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "起源明細");
                 }
             }
         }
 
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "起源");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

@@ -42,7 +42,7 @@ public class Tb5PrevDetRegistAction extends BaseAction {
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {
-                throw new OptLockError("error.cant.insert");
+                throw new OptLockError("error.cant.insert", "前世明細");
             }
 
             map.put("INFO", Messages.get("info.insert"));
@@ -54,7 +54,7 @@ public class Tb5PrevDetRegistAction extends BaseAction {
             } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
-                throw new OptLockError("error.cant.update");
+                throw new OptLockError("error.cant.update", "前世明細");
             }
         }
 

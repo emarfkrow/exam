@@ -38,12 +38,12 @@ public class Tb4NoSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("NOREF_NO"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "NOマスタ");
                 }
 
                 Tb4No e = FormValidator.toBean(Tb4No.class.getName(), row);
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "NOマスタ");
                 }
                 ++count;
             }

@@ -1,6 +1,5 @@
 package com.example.form.model.base;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -81,11 +80,13 @@ public class Tb1KoOrphansRegistForm implements IForm {
 
     /** 更新タイムスタンプ */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
     /**
      * @return 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
@@ -93,6 +94,7 @@ public class Tb1KoOrphansRegistForm implements IForm {
     /**
      * @param p 更新タイムスタンプ
      */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
     }
@@ -135,19 +137,19 @@ public class Tb1KoOrphansRegistForm implements IForm {
 
     /** 孫 */
     @jakarta.validation.Valid
-    private List<Tb1MagoRegistForm> tb1MagoGrid;
+    private java.util.List<Tb1MagoRegistForm> tb1MagoGrid;
 
     /**
      * @return 孫
      */
-    public List<Tb1MagoRegistForm> getTb1MagoGrid() {
+    public java.util.List<Tb1MagoRegistForm> getTb1MagoGrid() {
         return tb1MagoGrid;
     }
 
     /**
      * @param p
      */
-    public void setTb1MagoGrid(final List<Tb1MagoRegistForm> p) {
+    public void setTb1MagoGrid(final java.util.List<Tb1MagoRegistForm> p) {
         this.tb1MagoGrid = p;
     }
 

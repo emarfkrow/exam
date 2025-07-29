@@ -40,11 +40,13 @@ public class Tb0Entity implements IEntity {
 
     /** @return エンティティID */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "ENTITY_ID", index = 2)
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getEntityId() {
         return this.entityId;
     }
 
     /** @param o エンティティID */
+    @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setEntityId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.entityId = Integer.valueOf(o.toString());
@@ -599,15 +601,18 @@ public class Tb0Entity implements IEntity {
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer.class)
+    @jp.co.golorp.emarf.validation.OptLock
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 31)
+    @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
     }
 
     /** @param o 更新タイムスタンプ */
+    @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final Object o) {
         if (o != null && o instanceof Long) {
             java.util.Date d = new java.util.Date((Long) o);

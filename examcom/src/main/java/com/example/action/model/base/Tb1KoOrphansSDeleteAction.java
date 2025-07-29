@@ -38,10 +38,10 @@ public class Tb1KoOrphansSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("OYA_ID"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "孤児");
                 }
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KO_BN"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "孤児");
                 }
 
                 Tb1KoOrphans e = FormValidator.toBean(Tb1KoOrphans.class.getName(), row);
@@ -49,7 +49,7 @@ public class Tb1KoOrphansSDeleteAction extends BaseAction {
                 // child:Tb1Mago, parents:2
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "孤児");
                 }
                 ++count;
             }

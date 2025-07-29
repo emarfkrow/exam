@@ -28,12 +28,12 @@ public class Tb4SaikiDeleteAction extends BaseAction {
             saikiId = postJson.get("Tb4Saiki.saikiId");
         }
         if (saikiId == null) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "再帰");
         }
 
         Tb4Saiki e = FormValidator.toBean(Tb4Saiki.class.getName(), postJson);
         if (e.delete() != 1) {
-            throw new OptLockError("error.cant.delete");
+            throw new OptLockError("error.cant.delete", "再帰");
         }
 
         Map<String, Object> map = new HashMap<String, Object>();

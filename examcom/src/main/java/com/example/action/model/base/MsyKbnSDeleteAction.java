@@ -38,7 +38,7 @@ public class MsyKbnSDeleteAction extends BaseAction {
 
                 // 主キーが不足していたらエラー
                 if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KBN_NM"))) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "区分マスタ");
                 }
 
                 MsyKbn e = FormValidator.toBean(MsyKbn.class.getName(), row);
@@ -48,13 +48,13 @@ public class MsyKbnSDeleteAction extends BaseAction {
                     for (com.example.entity.MsyKbnVal msyKbnVal : msyKbnVals) {
 
                         if (msyKbnVal.delete() != 1) {
-                            throw new OptLockError("error.cant.delete");
+                            throw new OptLockError("error.cant.delete", "区分値マスタ");
                         }
                     }
                 }
 
                 if (e.delete() != 1) {
-                    throw new OptLockError("error.cant.delete");
+                    throw new OptLockError("error.cant.delete", "区分マスタ");
                 }
                 ++count;
             }
