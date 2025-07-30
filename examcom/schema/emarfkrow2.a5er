@@ -81,8 +81,6 @@ FooterRight=
 ShowPageoutRelation=1
 RDBMSType=6
 RDBMSTypeName=MySQL
-GenerateDropTableStatement=1
-DropTableIfExists=0
 BackupRestoreTempTable=0
 CommonField="作成タイムスタンプ","INSERT_TS","*TS","NOT NULL",,"CURRENT_TIMESTAMP","",$FFFFFFFF
 CommonField="作成者","INSERT_USER_ID","*ID","NOT NULL",,"","",$FFFFFFFF
@@ -148,8 +146,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2650
-Top=1050
+Left=2450
+Top=650
 Field="起源ID","ORG_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="起源明細枝番","ORG_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="起源明細情報","ORG_DET_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -157,7 +155,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601190826
-Position="MAIN",2650,1050
+Position="MAIN",2450,650
 ZOrder=113
 
 [Relation]
@@ -188,8 +186,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3350
-Top=1050
+Left=3050
+Top=650
 Field="派生１ID","DERIVE1_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="派生１枝番","DERIVE1_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="起源明細情報","ORG_DET_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -197,7 +195,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601192408
-Position="MAIN",3350,1050
+Position="MAIN",3050,650
 ZOrder=115
 
 [Entity]
@@ -207,8 +205,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3350
-Top=1350
+Left=3050
+Top=950
 Field="派生２ID","DERIVE2_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="派生２枝番","DERIVE2_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="起源明細情報","ORG_DET_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -216,7 +214,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601192510
-Position="MAIN",3350,1350
+Position="MAIN",3050,950
 ZOrder=116
 
 [Entity]
@@ -266,8 +264,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2650
-Top=650
+Left=750
+Top=2350
 Field="前世ID","PREV_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="前世明細枝番","PREV_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="前世明細情報","PREV_DET_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -275,7 +273,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250603202610
-Position="MAIN",2650,650
+Position="MAIN",750,2350
 ZOrder=36
 
 [Relation]
@@ -306,8 +304,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3350
-Top=650
+Left=1450
+Top=2350
 Field="転生ID","REBORN_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="転生明細枝番","REBORN_BN","*BN",,1,"","",$FFFFFFFF,""
 Field="前世明細情報","PREV_DET_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -315,7 +313,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250603202628
-Position="MAIN",3350,650
+Position="MAIN",1450,2350
 ZOrder=38
 
 [Relation]
@@ -474,15 +472,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
-Top=1900
+Left=700
+Top=1800
 Field="参照ID","IDREF_ID","*ID",,0,"","",$000028FF,""
 Field="参照ID名","IDREF_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250605075504
-Position="MAIN",800,1900
+Position="MAIN",700,1800
 ZOrder=-32
 
 [Entity]
@@ -492,7 +490,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1000
+Left=900
 Top=800
 Field="親ID","OYA_ID","*ID",,0,"","",$000028FF,""
 Field="子枝番","KO_BN","*BN",,1,"","",$006BA135,""
@@ -502,7 +500,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074420
-Position="MAIN",1000,800
+Position="MAIN",900,800
 ZOrder=-36
 
 [Entity]
@@ -512,7 +510,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=850
+Left=750
 Top=650
 Field="親ID","OYA_ID","*ID",,0,"","",$000028FF,""
 Field="子枝番","KO_BN","*BN",,1,"","",$006BA135,""
@@ -521,7 +519,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074402
-Position="MAIN",850,650
+Position="MAIN",750,650
 ZOrder=-38
 
 [Entity]
@@ -531,8 +529,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1250
-Top=1900
+Left=1150
+Top=1800
 Field="再帰ID","SAIKI_ID","*ID","NOT NULL",0,"","",$0079009A,""
 Field="再帰名","SAIKI_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 Field="参照ID","IDREF_ID","*ID",,,"","",$000028FF,""
@@ -545,7 +543,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250612073518
-Position="MAIN",1250,1900
+Position="MAIN",1150,1800
 ZOrder=-40
 
 [Entity]
@@ -555,7 +553,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
+Left=700
 Top=500
 Field="親ID","OYA_ID","*ID",,0,"","",$000028FF,""
 Field="親情報","OYA_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -563,7 +561,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074327
-Position="MAIN",800,500
+Position="MAIN",700,500
 ZOrder=-42
 
 [Entity]
@@ -573,15 +571,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=500
+Left=700
+Top=2200
 Field="前世ID","PREV_ID","*ID","NOT NULL",0,"","",$000028FF,""
 Field="前世情報","PREV_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250603202540
-Position="MAIN",2600,500
+Position="MAIN",700,2200
 ZOrder=-43
 
 [Entity]
@@ -591,15 +589,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1800
-Top=1900
+Left=1700
+Top=1800
 Field="参照CD","CDREF_CD","*CD",,0,"","",$000028FF,""
 Field="参照CD名","CDREF_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250605075511
-Position="MAIN",1800,1900
+Position="MAIN",1700,1800
 ZOrder=0
 
 [Relation]
@@ -847,15 +845,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1800
-Top=2050
+Left=1700
+Top=1950
 Field="参照NO","NOREF_NO","*NO",,0,"","",$000028FF,""
 Field="参照NO名","NOREF_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250605075516
-Position="MAIN",1800,2050
+Position="MAIN",1700,1950
 ZOrder=16
 
 [Relation]
@@ -928,8 +926,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=500
+Left=1400
+Top=2200
 Field="転生ID","REBORN_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="前世ID","PREV_ID","*ID","NOT NULL",,"","",$000028FF,""
 Field="前世情報","PREV_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -937,7 +935,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250603202552
-Position="MAIN",3300,500
+Position="MAIN",1400,2200
 ZOrder=32
 
 [Relation]
@@ -1031,7 +1029,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1300
+Left=1200
 Top=650
 Field="親ID","OYA_ID","*ID",,0,"","",$000028FF,""
 Field="子枝番","KO_BN","*BN",,1,"","",$006BA135,""
@@ -1040,7 +1038,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074408
-Position="MAIN",1300,650
+Position="MAIN",1200,650
 ZOrder=44
 
 [Entity]
@@ -1050,7 +1048,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1800
+Left=1700
 Top=650
 Field="親ID","OYA_ID","*ID",,0,"","",$000028FF,""
 Field="子枝番","KO_BN","*BN",,1,"","",$006BA135,""
@@ -1059,7 +1057,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074414
-Position="MAIN",1800,650
+Position="MAIN",1700,650
 ZOrder=45
 
 [Entity]
@@ -1069,8 +1067,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=2100
+Left=3000
+Top=1700
 Field="参照ID","REFER_ID","*ID",,0,"","",$000028FF,""
 Field="制約ID","STINT_ID","*ID",,1,"","",$006BA135,""
 Field="適用日","TEKIYO_BI","*BI",,2,"","",$FFFFFFFF,""
@@ -1079,7 +1077,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602072703
-Position="MAIN",3300,2100
+Position="MAIN",3000,1700
 ZOrder=50
 
 [Entity]
@@ -1089,15 +1087,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=2100
+Left=2400
+Top=1700
 Field="参照ID","REFER_ID","*ID",,0,"","",$000028FF,""
 Field="参照名","REFER_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250605075528
-Position="MAIN",2600,2100
+Position="MAIN",2400,1700
 ZOrder=51
 
 [Entity]
@@ -1107,15 +1105,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=2200
+Left=2400
+Top=1800
 Field="制約ID","STINT_ID","*ID",,0,"","",$006BA135,""
 Field="制約名","STINT_MEI","*MEI","NOT NULL",,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250605075534
-Position="MAIN",2600,2200
+Position="MAIN",2400,1800
 ZOrder=52
 
 [Relation]
@@ -1167,8 +1165,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=1600
+Left=2400
+Top=1200
 Field="単位ID","UNIT_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="単位情報","UNIT_INFO","*TX",,,"","",$FFFFFFFF,""
 Field="集約ID","SUM_ID","*ID",,,"","",$000028FF,""
@@ -1176,7 +1174,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601193200
-Position="MAIN",2600,1600
+Position="MAIN",2400,1200
 ZOrder=56
 
 [Entity]
@@ -1186,15 +1184,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=1600
+Left=3000
+Top=1200
 Field="集約ID","SUM_ID","*ID",,0,"","",$000028FF,""
 Field="集約情報","SUM_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601193206
-Position="MAIN",3300,1600
+Position="MAIN",3000,1200
 ZOrder=55
 
 [Relation]
@@ -1225,15 +1223,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=900
+Left=2400
+Top=500
 Field="起源ID","ORG_ID","*ID",,0,"","",$000028FF,""
 Field="起源情報","ORG_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601193121
-Position="MAIN",2600,900
+Position="MAIN",2400,500
 ZOrder=59
 
 [Entity]
@@ -1243,8 +1241,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=900
+Left=3000
+Top=500
 Field="派生１ID","DERIVE1_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="起源ID","ORG_ID","*ID","NOT NULL",,"","",$000028FF,""
 Field="起源情報","ORG_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1252,7 +1250,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601193128
-Position="MAIN",3300,900
+Position="MAIN",3000,500
 ZOrder=60
 
 [Entity]
@@ -1262,8 +1260,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=1200
+Left=3000
+Top=800
 Field="派生２ID","DERIVE2_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="起源ID","ORG_ID","*ID","NOT NULL",,"","",$000028FF,""
 Field="起源情報","ORG_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1271,7 +1269,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601193135
-Position="MAIN",3300,1200
+Position="MAIN",3000,800
 ZOrder=61
 
 [Relation]
@@ -1323,15 +1321,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=1750
+Left=2400
+Top=1400
 Field="単位１ID","UNIT1_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="集約抑止ID","SUM2_ID","*ID",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601202609
-Position="MAIN",2600,1750
+Position="MAIN",2400,1400
 ZOrder=64
 
 [Entity]
@@ -1341,15 +1339,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=1850
+Left=2400
+Top=1500
 Field="単位２ID","UNIT2_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="集約抑止ID","SUM2_ID","*ID",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601202624
-Position="MAIN",2600,1850
+Position="MAIN",2400,1500
 ZOrder=65
 
 [Entity]
@@ -1359,15 +1357,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=1750
+Left=3000
+Top=1400
 Field="集約抑止ID","SUM2_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="集約抑止情報","SUM2_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250601202530
-Position="MAIN",3300,1750
+Position="MAIN",3000,1400
 ZOrder=68
 
 [Relation]
@@ -1419,15 +1417,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=2600
-Top=2500
+Left=2400
+Top=2000
 Field="変換元ID","SRC_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="変換元情報","SRC_INFO","*TX",,,"","",$000028FF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074723
-Position="MAIN",2600,2500
+Position="MAIN",2400,2000
 ZOrder=72
 
 [Entity]
@@ -1437,15 +1435,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=3300
-Top=2650
+Left=3000
+Top=2150
 Field="変換先ID","DEST_ID","*ID",,0,"","",$FFFFFFFF,""
 Field="変換先情報","DEST_INFO","*TX",,,"","",$000028FF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074732
-Position="MAIN",3300,2650
+Position="MAIN",3000,2150
 ZOrder=73
 
 [View]
@@ -1456,11 +1454,11 @@ Query=SELECT\n    \qTB9_DEST\q AS table_name                    -- テーブル�
 LNameByComment=1
 Color=$000000
 BkColor=$FFFFFF
-Position="MAIN",3300,2500
+Position="MAIN",3000,2000
 ZOrder=74
 Page=MAIN
-Left=3300
-Top=2500
+Left=3000
+Top=2000
 
 [Relation]
 Entity1=TB1_OYA
@@ -1512,7 +1510,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
+Left=700
 Top=1300
 Field="兄弟ID","KYODAI_ID","*ID",,0,"","",$000028FF,""
 Field="里子情報","FOSTER_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1520,7 +1518,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074451
-Position="MAIN",800,1300
+Position="MAIN",700,1300
 ZOrder=81
 
 [Entity]
@@ -1530,7 +1528,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
+Left=700
 Top=1100
 Field="兄弟ID","KYODAI_ID","*ID",,0,"","",$000028FF,""
 Field="長兄情報","ELDEST_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1538,7 +1536,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250610070204
-Position="MAIN",800,1100
+Position="MAIN",700,1100
 ZOrder=91
 
 [Entity]
@@ -1548,7 +1546,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1250
+Left=1150
 Top=1200
 Field="兄弟ID","KYODAI_ID","*ID","NOT NULL",0,"","",$000028FF,""
 Field="弟情報","YOUNGER_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1556,7 +1554,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074439
-Position="MAIN",1250,1200
+Position="MAIN",1150,1200
 ZOrder=92
 
 [Entity]
@@ -1566,7 +1564,7 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1800
+Left=1700
 Top=1300
 Field="兄弟ID","KYODAI_ID","*ID","NOT NULL",0,"","",$000028FF,""
 Field="末弟情報","YOUNGEST_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1574,7 +1572,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250610070158
-Position="MAIN",1800,1300
+Position="MAIN",1700,1300
 ZOrder=93
 
 [Entity]
@@ -1584,15 +1582,15 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
-Top=1600
+Left=700
+Top=1500
 Field="当初ID","TEMP_ID","*ID",,0,"","",$000028FF,""
 Field="当初情報","TEMP_INFO","*TX",,,"","",$FFFFFFFF,""
 EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250602074502
-Position="MAIN",800,1600
+Position="MAIN",700,1500
 ZOrder=96
 
 [Entity]
@@ -1602,8 +1600,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=1250
-Top=1600
+Left=1150
+Top=1500
 Field="当初ID","TEMP_ID","*ID",,0,"","",$000028FF,""
 Field="履歴枝番","RIREKI_BN","*BN",,1,"","",$006BA135,""
 Field="当初情報","TEMP_INFO","*TX",,,"","",$FFFFFFFF,""
@@ -1612,7 +1610,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250603075342
-Position="MAIN",1250,1600
+Position="MAIN",1150,1500
 ZOrder=98
 
 [Relation]
@@ -1753,8 +1751,8 @@ Comment=
 TableInnerOption=
 TableOption=
 Page=MAIN
-Left=800
-Top=2100
+Left=700
+Top=2000
 Field="参照ID","IDREF_ID","*ID",,0,"","",$000028FF,""
 Field="ID連番","IDBN_BN","*BN",,1,"","",$006BA135,""
 Field="IDBNNO","IDBN_NO","*NO","NOT NULL",,"","",$FFFFFFFF,""
@@ -1762,7 +1760,7 @@ EffectMode=None
 Color=$000000
 BkColor=$FFFFFF
 ModifiedDateTime=20250611190211
-Position="MAIN",800,2100
+Position="MAIN",700,2000
 ZOrder=123
 
 [Relation]
@@ -1870,3 +1868,64 @@ Bar3=73
 TermPos1=R
 TermPos2=R
 ZOrder=128
+
+[Entity]
+PName=TB7_CHOICE
+LName=択一
+Comment=
+TableInnerOption=
+TableOption=
+Page=MAIN
+Left=3500
+Top=1200
+Field="択一ID","CHOICE_ID","*ID",,0,"","",$FFFFFFFF,""
+Field="集約ID","SUM_ID","*ID",,,"","",$000028FF,""
+Field="集約抑止ID","SUM2_ID","*ID",,,"","",$000028FF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20250730142202
+Position="MAIN",3500,1200
+ZOrder=129
+
+[Relation]
+Entity1=TB7_SUM
+Entity2=TB7_CHOICE
+RelationType1=1
+RelationType2=3
+Fields1=SUM_ID
+Fields2=SUM_ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2882,5010,5049,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=288
+Bar2=501
+Bar3=505
+TermPos1=R
+TermPos2=R
+ZOrder=130
+
+[Relation]
+Entity1=TB7_SUM2
+Entity2=TB7_CHOICE
+RelationType1=1
+RelationType2=3
+Fields1=SUM2_ID
+Fields2=SUM2_ID
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,3605,5010,8144,R,R,""
+Dependence=0
+Caption=
+PName=
+LineMode=0
+Bar1=360
+Bar2=501
+Bar3=814
+TermPos1=R
+TermPos2=R
+ZOrder=131
