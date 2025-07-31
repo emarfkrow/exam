@@ -427,6 +427,10 @@ public class Tb6Org implements IEntity {
         sql += "ORG_ID, ORG_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("org_id", param1);
-        return Queries.select(sql, map, Tb6OrgDet.class, null, null);
+        List<Tb6OrgDet> list = Queries.select(sql, map, Tb6OrgDet.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb6OrgDet>();
     }
 }

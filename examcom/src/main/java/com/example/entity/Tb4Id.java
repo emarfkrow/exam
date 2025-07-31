@@ -427,6 +427,10 @@ public class Tb4Id implements IEntity {
         sql += "IDREF_ID, IDBN_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("idref_id", param1);
-        return Queries.select(sql, map, Tb4Idbn.class, null, null);
+        List<Tb4Idbn> list = Queries.select(sql, map, Tb4Idbn.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb4Idbn>();
     }
 }

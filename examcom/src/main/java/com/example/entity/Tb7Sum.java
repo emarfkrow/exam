@@ -393,6 +393,10 @@ public class Tb7Sum implements IEntity {
         sql += "UNIT_ID";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("sum_id", param1);
-        return Queries.select(sql, map, Tb7Unit.class, null, null);
+        List<Tb7Unit> list = Queries.select(sql, map, Tb7Unit.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb7Unit>();
     }
 }

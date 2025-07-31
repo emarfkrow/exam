@@ -450,6 +450,10 @@ public class Tb5Reborn implements IEntity {
         sql += "REBORN_ID, REBORN_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("reborn_id", param1);
-        return Queries.select(sql, map, Tb5RebornDet.class, null, null);
+        List<Tb5RebornDet> list = Queries.select(sql, map, Tb5RebornDet.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb5RebornDet>();
     }
 }

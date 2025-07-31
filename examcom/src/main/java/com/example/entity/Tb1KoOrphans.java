@@ -567,6 +567,10 @@ public class Tb1KoOrphans implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("oya_id", param1);
         map.put("ko_bn", param2);
-        return Queries.select(sql, map, Tb1Mago.class, null, null);
+        List<Tb1Mago> list = Queries.select(sql, map, Tb1Mago.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb1Mago>();
     }
 }

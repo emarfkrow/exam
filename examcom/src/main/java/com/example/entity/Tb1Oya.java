@@ -461,7 +461,11 @@ public class Tb1Oya implements IEntity {
         sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb1Ko.class, null, null);
+        List<Tb1Ko> list = Queries.select(sql, map, Tb1Ko.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb1Ko>();
     }
 
     /*
@@ -518,6 +522,10 @@ public class Tb1Oya implements IEntity {
         sql += "OYA_ID, KO_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("oya_id", param1);
-        return Queries.select(sql, map, Tb1KoDinks.class, null, null);
+        List<Tb1KoDinks> list = Queries.select(sql, map, Tb1KoDinks.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb1KoDinks>();
     }
 }

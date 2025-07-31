@@ -450,6 +450,10 @@ public class Tb6Derive1 implements IEntity {
         sql += "DERIVE1_ID, DERIVE1_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("derive_1_id", param1);
-        return Queries.select(sql, map, Tb6Derive1Det.class, null, null);
+        List<Tb6Derive1Det> list = Queries.select(sql, map, Tb6Derive1Det.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb6Derive1Det>();
     }
 }

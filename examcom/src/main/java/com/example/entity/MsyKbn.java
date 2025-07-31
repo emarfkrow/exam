@@ -414,6 +414,10 @@ public class MsyKbn implements IEntity {
         sql += "KBN_NM, KBN_VAL";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("kbn_nm", param1);
-        return Queries.select(sql, map, MsyKbnVal.class, null, null);
+        List<MsyKbnVal> list = Queries.select(sql, map, MsyKbnVal.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<MsyKbnVal>();
     }
 }

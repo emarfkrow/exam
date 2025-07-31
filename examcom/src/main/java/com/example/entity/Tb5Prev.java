@@ -427,7 +427,11 @@ public class Tb5Prev implements IEntity {
         sql += "PREV_ID, PREV_BN";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("prev_id", param1);
-        return Queries.select(sql, map, Tb5PrevDet.class, null, null);
+        List<Tb5PrevDet> list = Queries.select(sql, map, Tb5PrevDet.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb5PrevDet>();
     }
 
     /*
@@ -484,6 +488,10 @@ public class Tb5Prev implements IEntity {
         sql += "REBORN_ID";
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("prev_id", param1);
-        return Queries.select(sql, map, Tb5Reborn.class, null, null);
+        List<Tb5Reborn> list = Queries.select(sql, map, Tb5Reborn.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb5Reborn>();
     }
 }
