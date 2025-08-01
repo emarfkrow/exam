@@ -42,6 +42,7 @@
       <div class="buttons">
         <button type="button" id="RefreshTb7Sum" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb7SumGet.xlsx(baseMei=#{Tb7Sum.h2})}" id="Tb7SumGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb7Choice.html}" id="Tb7Choice" target="dialog" th:text="#{Tb7Choice.add}" class="chooser" tabindex="-1">択一</a>
         <div class="summary Tb7Units">
           <label>単位ID</label>
           <span id="Tb7Unit.unitId"></span>
@@ -52,6 +53,8 @@
         <button id="DeleteTb7Sum" type="submit" class="delete" data-action="Tb7SumDelete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>
         <button id="RegistTb7Sum" type="submit" class="regist" th:text="#{common.regist}">登録</button>
       </div>
+      <h3 th:text="#{Tb7Choice.h3}">h3</h3>
+      <div id="Tb7ChoiceGrid" data-selectionMode="link" data-frozenColumn="1" th:data-href="@{/model/Tb7Choice.html}" class="choosers"></div>
     </form>
   </div>
 </body>
