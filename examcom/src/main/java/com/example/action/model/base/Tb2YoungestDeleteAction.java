@@ -23,11 +23,11 @@ public class Tb2YoungestDeleteAction extends BaseAction {
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
         // 主キーが不足していたらエラー
-        Object kyodaiId = postJson.get("kyodaiId");
-        if (kyodaiId == null) {
-            kyodaiId = postJson.get("Tb2Youngest.kyodaiId");
+        Object broId = postJson.get("broId");
+        if (broId == null) {
+            broId = postJson.get("Tb2Youngest.broId");
         }
-        if (kyodaiId == null) {
+        if (broId == null) {
             throw new OptLockError("error.cant.delete", "末弟");
         }
 

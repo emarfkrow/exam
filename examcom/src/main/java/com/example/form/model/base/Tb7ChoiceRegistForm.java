@@ -9,7 +9,7 @@ import jp.co.golorp.emarf.process.BaseProcess;
 import jp.co.golorp.emarf.validation.IForm;
 
 /**
- * 択一登録フォーム
+ * 選抜登録フォーム
  *
  * @author emarfkrow
  */
@@ -18,13 +18,13 @@ public class Tb7ChoiceRegistForm implements IForm {
     /** logger */
     private static final Logger LOG = LoggerFactory.getLogger(Tb7ChoiceRegistForm.class);
 
-    /** 択一ID */
+    /** 選抜ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String choiceId;
 
     /**
-     * @return 択一ID
+     * @return 選抜ID
      */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getChoiceId() {
@@ -32,7 +32,7 @@ public class Tb7ChoiceRegistForm implements IForm {
     }
 
     /**
-     * @param p 択一ID
+     * @param p 選抜ID
      */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setChoiceId(final String p) {
@@ -57,22 +57,94 @@ public class Tb7ChoiceRegistForm implements IForm {
         this.sumId = p;
     }
 
-    /** 集約抑止ID */
+    /** 集約情報 */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String sumInfo;
+
+    /**
+     * @return 集約情報
+     */
+    public String getSumInfo() {
+        return sumInfo;
+    }
+
+    /**
+     * @param p 集約情報
+     */
+    public void setSumInfo(final String p) {
+        this.sumInfo = p;
+    }
+
+    /** 集約２ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String sum2Id;
 
     /**
-     * @return 集約抑止ID
+     * @return 集約２ID
      */
     public String getSum2Id() {
         return sum2Id;
     }
 
     /**
-     * @param p 集約抑止ID
+     * @param p 集約２ID
      */
     public void setSum2Id(final String p) {
         this.sum2Id = p;
+    }
+
+    /** 集約２情報 */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String sum2Info;
+
+    /**
+     * @return 集約２情報
+     */
+    public String getSum2Info() {
+        return sum2Info;
+    }
+
+    /**
+     * @param p 集約２情報
+     */
+    public void setSum2Info(final String p) {
+        this.sum2Info = p;
+    }
+
+    /** 集約３ID */
+    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    private String sum3Id;
+
+    /**
+     * @return 集約３ID
+     */
+    public String getSum3Id() {
+        return sum3Id;
+    }
+
+    /**
+     * @param p 集約３ID
+     */
+    public void setSum3Id(final String p) {
+        this.sum3Id = p;
+    }
+
+    /** 集約３情報 */
+    @jakarta.validation.constraints.Size(max = 300)
+    private String sum3Info;
+
+    /**
+     * @return 集約３情報
+     */
+    public String getSum3Info() {
+        return sum3Info;
+    }
+
+    /**
+     * @param p 集約３情報
+     */
+    public void setSum3Info(final String p) {
+        this.sum3Info = p;
     }
 
     /** 更新タイムスタンプ */
@@ -100,6 +172,18 @@ public class Tb7ChoiceRegistForm implements IForm {
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
+
+        // 集約ID のマスタチェック
+        // TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb7SumSearch", "sumId", this.getSumId(), jp.co.golorp.emarf.util.Messages.get("Tb7Choice.sumId"));
+
+        // 集約２ID のマスタチェック
+        // TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb8Sum2Search", "sum2Id", this.getSum2Id(), jp.co.golorp.emarf.util.Messages.get("Tb7Choice.sum2Id"));
+
+        // 集約３ID のマスタチェック
+        // TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb8Sum3Search", "sum3Id", this.getSum3Id(), jp.co.golorp.emarf.util.Messages.get("Tb7Choice.sum3Id"));
     }
 
 }

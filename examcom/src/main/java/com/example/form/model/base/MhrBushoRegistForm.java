@@ -94,22 +94,22 @@ public class MhrBushoRegistForm implements IForm {
         this.tekiyoBi = p;
     }
 
-    /** 終了日 */
+    /** 廃止日 */
     @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
-    private String shuryoBi;
+    private String haishiBi;
 
     /**
-     * @return 終了日
+     * @return 廃止日
      */
-    public String getShuryoBi() {
-        return shuryoBi;
+    public String getHaishiBi() {
+        return haishiBi;
     }
 
     /**
-     * @param p 終了日
+     * @param p 廃止日
      */
-    public void setShuryoBi(final String p) {
-        this.shuryoBi = p;
+    public void setHaishiBi(final String p) {
+        this.haishiBi = p;
     }
 
     /** 更新タイムスタンプ */

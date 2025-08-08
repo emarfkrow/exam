@@ -11,6 +11,8 @@
 <script th:src="@{/model/Tb5RebornGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb5RebornDetGridColumns.js}"></script>
+<script th:src="@{/model/Tb5PrevGridColumns.js}"></script>
+<script th:src="@{/model/Tb5PrevDetGridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -23,6 +25,7 @@
         </div>
         <div id="prevId">
           <label th:text="#{Tb5Reborn.prevId}">前世ID</label><span id="Tb5Reborn.prevId" class="rebornee"></span><input type="hidden" id="Tb5Reborn.prevId" name="Tb5Reborn.prevId" class="rebornee" />
+          <a id="Tb5Reborn.prevId" th:href="@{/model/Tb5PrevS.html?action=Tb5PrevCorrect.ajax}" target="dialog" th:text="#{common.correct}" tabindex="-1">...</a>
         </div>
         <div id="prevInfo">
           <label for="Tb5Reborn.prevInfo" th:text="#{Tb5Reborn.prevInfo}">前世情報</label><input type="text" id="Tb5Reborn.prevInfo" name="Tb5Reborn.prevInfo" maxlength="300" />

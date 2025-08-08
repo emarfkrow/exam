@@ -148,24 +148,24 @@ public class MhrUser implements IEntity {
         }
     }
 
-    /** 終了日 */
+    /** 廃止日 */
     @com.fasterxml.jackson.annotation.JsonFormat(pattern = "yyyy-MM-dd")
     @com.fasterxml.jackson.databind.annotation.JsonDeserialize(using = com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer.class)
     @com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer.class)
-    private java.time.LocalDate shuryoBi;
+    private java.time.LocalDate haishiBi;
 
-    /** @return 終了日 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "SHURYO_BI", index = 8)
-    public java.time.LocalDate getShuryoBi() {
-        return this.shuryoBi;
+    /** @return 廃止日 */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "HAISHI_BI", index = 8)
+    public java.time.LocalDate getHaishiBi() {
+        return this.haishiBi;
     }
 
-    /** @param o 終了日 */
-    public void setShuryoBi(final Object o) {
+    /** @param o 廃止日 */
+    public void setHaishiBi(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
-            this.shuryoBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
+            this.haishiBi = java.time.LocalDate.parse(o.toString().substring(0, 10));
         } else {
-            this.shuryoBi = null;
+            this.haishiBi = null;
         }
     }
 
@@ -316,7 +316,7 @@ public class MhrUser implements IEntity {
         sql += "    , a.`E_MAIL` \n";
         sql += "    , a.`PASSWORD` \n";
         sql += "    , a.`TEKIYO_BI` AS TEKIYO_BI \n";
-        sql += "    , a.`SHURYO_BI` AS SHURYO_BI \n";
+        sql += "    , a.`HAISHI_BI` AS HAISHI_BI \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -355,7 +355,7 @@ public class MhrUser implements IEntity {
         nameList.add("`E_MAIL` -- :e_mail");
         nameList.add("`PASSWORD` -- :password");
         nameList.add("`TEKIYO_BI` -- :tekiyo_bi");
-        nameList.add("`SHURYO_BI` -- :shuryo_bi");
+        nameList.add("`HAISHI_BI` -- :haishi_bi");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -372,7 +372,7 @@ public class MhrUser implements IEntity {
         valueList.add(":e_mail");
         valueList.add(":password");
         valueList.add(":tekiyo_bi");
-        valueList.add(":shuryo_bi");
+        valueList.add(":haishi_bi");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -414,7 +414,7 @@ public class MhrUser implements IEntity {
         setList.add("`E_MAIL` = :e_mail");
         setList.add("`PASSWORD` = :password");
         setList.add("`TEKIYO_BI` = :tekiyo_bi");
-        setList.add("`SHURYO_BI` = :shuryo_bi");
+        setList.add("`HAISHI_BI` = :haishi_bi");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -452,7 +452,7 @@ public class MhrUser implements IEntity {
         map.put("e_mail", this.eMail);
         map.put("password", this.password);
         map.put("tekiyo_bi", this.tekiyoBi);
-        map.put("shuryo_bi", this.shuryoBi);
+        map.put("haishi_bi", this.haishiBi);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

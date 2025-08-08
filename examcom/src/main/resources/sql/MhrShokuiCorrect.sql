@@ -3,7 +3,7 @@ SELECT
     , a.`SHOKUI_MEI`
     , a.`SHOKUI_ON`
     , a.`TEKIYO_BI` AS `TEKIYO_BI`
-    , a.`SHURYO_BI` AS `SHURYO_BI`
+    , a.`HAISHI_BI` AS `HAISHI_BI`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -15,16 +15,15 @@ FROM
 WHERE
     1 = 1 
     AND IFNULL (a.TEKIYO_BI, sysdate()) <= sysdate() 
-    AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`SHOKUI_ID` = :shokui_id 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`SHOKUI_MEI`)) LIKE UPPER (CONCAT ('%', :shokui_mei, '%')) 
     AND a.`SHOKUI_ON` = :shokui_on 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
-    AND a.`SHURYO_BI` = :shuryo_bi 
-    AND a.`SHURYO_BI` >= :shuryo_bi_1 
-    AND a.`SHURYO_BI` <= :shuryo_bi_2 
+    AND a.`HAISHI_BI` = :haishi_bi 
+    AND a.`HAISHI_BI` >= :haishi_bi_1 
+    AND a.`HAISHI_BI` <= :haishi_bi_2 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

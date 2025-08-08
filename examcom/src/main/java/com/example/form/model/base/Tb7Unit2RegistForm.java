@@ -39,22 +39,22 @@ public class Tb7Unit2RegistForm implements IForm {
         this.unit2Id = p;
     }
 
-    /** 集約抑止ID */
+    /** 集約ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
-    private String sum2Id;
+    private String sumId;
 
     /**
-     * @return 集約抑止ID
+     * @return 集約ID
      */
-    public String getSum2Id() {
-        return sum2Id;
+    public String getSumId() {
+        return sumId;
     }
 
     /**
-     * @param p 集約抑止ID
+     * @param p 集約ID
      */
-    public void setSum2Id(final String p) {
-        this.sum2Id = p;
+    public void setSumId(final String p) {
+        this.sumId = p;
     }
 
     /** 更新タイムスタンプ */

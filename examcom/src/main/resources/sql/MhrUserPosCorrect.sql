@@ -6,7 +6,7 @@ SELECT
     , a.`USER_ID`
     , (SELECT r2.`USER_SEI` FROM MHR_USER r2 WHERE r2.`USER_ID` = a.`USER_ID`) AS `USER_SEI`
     , a.`TEKIYO_BI` AS `TEKIYO_BI`
-    , a.`SHURYO_BI` AS `SHURYO_BI`
+    , a.`HAISHI_BI` AS `HAISHI_BI`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r3.`USER_SEI` FROM MHR_USER r3 WHERE r3.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -18,31 +18,27 @@ FROM
     INNER JOIN MHR_BUSHO c1 
         ON 1 = 1 
         AND IFNULL (c1.TEKIYO_BI, sysdate()) <= sysdate() 
-        AND DATE_ADD(IFNULL (c1.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate()
         AND c1.BUSHO_ID = a.BUSHO_ID 
     INNER JOIN MHR_SHOKUI c2 
         ON 1 = 1 
         AND IFNULL (c2.TEKIYO_BI, sysdate()) <= sysdate() 
-        AND DATE_ADD(IFNULL (c2.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate()
         AND c2.SHOKUI_ID = a.SHOKUI_ID 
     INNER JOIN MHR_USER c3 
         ON 1 = 1 
         AND IFNULL (c3.TEKIYO_BI, sysdate()) <= sysdate() 
-        AND DATE_ADD(IFNULL (c3.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate()
         AND c3.USER_ID = a.USER_ID 
 WHERE
     1 = 1 
     AND IFNULL (a.TEKIYO_BI, sysdate()) <= sysdate() 
-    AND DATE_ADD(IFNULL (a.SHURYO_BI, sysdate()), INTERVAL 1 DAY) > sysdate() 
     AND a.`BUSHO_ID` = :busho_id 
     AND a.`SHOKUI_ID` = :shokui_id 
     AND a.`USER_ID` = :user_id 
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
-    AND a.`SHURYO_BI` = :shuryo_bi 
-    AND a.`SHURYO_BI` >= :shuryo_bi_1 
-    AND a.`SHURYO_BI` <= :shuryo_bi_2 
+    AND a.`HAISHI_BI` = :haishi_bi 
+    AND a.`HAISHI_BI` >= :haishi_bi_1 
+    AND a.`HAISHI_BI` <= :haishi_bi_2 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

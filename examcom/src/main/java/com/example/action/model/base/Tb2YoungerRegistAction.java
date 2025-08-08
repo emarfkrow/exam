@@ -28,7 +28,7 @@ public class Tb2YoungerRegistAction extends BaseAction {
 
         // 主キーが不足していたらINSERT
         boolean isNew = false;
-        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getKyodaiId())) {
+        if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(e.getBroId())) {
             isNew = true;
         }
         // 楽観ロック値がなくてもINSERT

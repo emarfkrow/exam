@@ -12,13 +12,13 @@ import jp.co.golorp.emarf.util.Messages;
 import jp.co.golorp.emarf.validation.FormValidator;
 
 /**
- * 択一登録
+ * 選抜登録
  *
  * @author emarfkrow
  */
 public class Tb7ChoiceRegistAction extends BaseAction {
 
-    /** 択一登録処理 */
+    /** 選抜登録処理 */
     @Override
     public Map<String, Object> running(final LocalDateTime now, final String execId, final Map<String, Object> postJson) {
 
@@ -39,7 +39,7 @@ public class Tb7ChoiceRegistAction extends BaseAction {
         if (isNew) {
 
             if (e.insert(now, execId) != 1) {
-                throw new OptLockError("error.cant.insert", "択一");
+                throw new OptLockError("error.cant.insert", "選抜");
             }
 
             map.put("INFO", Messages.get("info.insert"));
@@ -51,7 +51,7 @@ public class Tb7ChoiceRegistAction extends BaseAction {
             } else if (e.insert(now, execId) == 1) {
                 map.put("INFO", Messages.get("info.insert"));
             } else {
-                throw new OptLockError("error.cant.update", "択一");
+                throw new OptLockError("error.cant.update", "選抜");
             }
         }
 

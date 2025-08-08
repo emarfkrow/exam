@@ -55,21 +55,21 @@ public class Tb7Unit2 implements IEntity {
         }
     }
 
-    /** 集約抑止ID */
-    private Integer sum2Id;
+    /** 集約ID */
+    private Integer sumId;
 
-    /** @return 集約抑止ID */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM2_ID", index = 3)
-    public Integer getSum2Id() {
-        return this.sum2Id;
+    /** @return 集約ID */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM_ID", index = 3)
+    public Integer getSumId() {
+        return this.sumId;
     }
 
-    /** @param o 集約抑止ID */
-    public void setSum2Id(final Object o) {
+    /** @param o 集約ID */
+    public void setSumId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
-            this.sum2Id = Integer.valueOf(o.toString());
+            this.sumId = Integer.valueOf(o.toString());
         } else {
-            this.sum2Id = null;
+            this.sumId = null;
         }
     }
 
@@ -215,7 +215,7 @@ public class Tb7Unit2 implements IEntity {
         String sql = "";
         sql += "SELECT \n";
         sql += "      a.`UNIT2_ID` \n";
-        sql += "    , a.`SUM2_ID` \n";
+        sql += "    , a.`SUM_ID` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -249,7 +249,7 @@ public class Tb7Unit2 implements IEntity {
     private String names() {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`UNIT2_ID` -- :unit_2_id");
-        nameList.add("`SUM2_ID` -- :sum_2_id");
+        nameList.add("`SUM_ID` -- :sum_id");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -261,7 +261,7 @@ public class Tb7Unit2 implements IEntity {
     private String values() {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":unit_2_id");
-        valueList.add(":sum_2_id");
+        valueList.add(":sum_id");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -298,7 +298,7 @@ public class Tb7Unit2 implements IEntity {
     private String getSet() {
         List<String> setList = new ArrayList<String>();
         setList.add("`UNIT2_ID` = :unit_2_id");
-        setList.add("`SUM2_ID` = :sum_2_id");
+        setList.add("`SUM_ID` = :sum_id");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
@@ -331,7 +331,7 @@ public class Tb7Unit2 implements IEntity {
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("unit_2_id", this.unit2Id);
-        map.put("sum_2_id", this.sum2Id);
+        map.put("sum_id", this.sumId);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

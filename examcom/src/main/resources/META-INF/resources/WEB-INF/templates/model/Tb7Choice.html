@@ -2,14 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorate="~{common/base}">
 <head>
 <meta charset="UTF-8">
-<title th:text="#{Tb7Choice.title}">択一</title>
+<title th:text="#{Tb7Choice.title}">選抜</title>
 <style type="text/css">
 </style>
 <script type="text/javascript">
 
 </script>
 <script th:src="@{/model/Tb7ChoiceGridColumns.js}"></script>
+<script th:src="@{/model/Tb7SumGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -18,13 +24,25 @@
       <fieldset>
         <legend th:text="#{Tb7Choice.legend}">legend</legend>
         <div id="choiceId">
-          <label for="Tb7Choice.choiceId" th:text="#{Tb7Choice.choiceId}">択一ID</label><input type="text" id="Tb7Choice.choiceId" name="Tb7Choice.choiceId" maxlength="10" class=" primaryKey numbering notblank" />
+          <label for="Tb7Choice.choiceId" th:text="#{Tb7Choice.choiceId}">選抜ID</label><input type="text" id="Tb7Choice.choiceId" name="Tb7Choice.choiceId" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
         <div id="sumId">
-          <label for="Tb7Choice.sumId" th:text="#{Tb7Choice.sumId}">集約ID</label><input type="text" id="Tb7Choice.sumId" name="Tb7Choice.sumId" maxlength="10" />
+          <label for="Tb7Choice.sumId" th:text="#{Tb7Choice.sumId}">集約ID</label><input type="text" id="Tb7Choice.sumId" name="Tb7Choice.sumId" maxlength="10" class=" refer" /><a id="Tb7Choice.sumId" th:href="@{/model/Tb7SumS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+        </div>
+        <div id="sumInfo">
+          <label for="Tb7Choice.sumInfo" th:text="#{Tb7Choice.sumInfo}">集約情報</label><input type="text" id="Tb7Choice.sumInfo" name="Tb7Choice.sumInfo" maxlength="300" />
         </div>
         <div id="sum2Id">
-          <label for="Tb7Choice.sum2Id" th:text="#{Tb7Choice.sum2Id}">集約抑止ID</label><input type="text" id="Tb7Choice.sum2Id" name="Tb7Choice.sum2Id" maxlength="10" />
+          <label for="Tb7Choice.sum2Id" th:text="#{Tb7Choice.sum2Id}">集約２ID</label><input type="text" id="Tb7Choice.sum2Id" name="Tb7Choice.sum2Id" maxlength="10" class=" refer" /><a id="Tb7Choice.sum2Id" th:href="@{/model/Tb8Sum2S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+        </div>
+        <div id="sum2Info">
+          <label for="Tb7Choice.sum2Info" th:text="#{Tb7Choice.sum2Info}">集約２情報</label><input type="text" id="Tb7Choice.sum2Info" name="Tb7Choice.sum2Info" maxlength="300" />
+        </div>
+        <div id="sum3Id">
+          <label for="Tb7Choice.sum3Id" th:text="#{Tb7Choice.sum3Id}">集約３ID</label><input type="text" id="Tb7Choice.sum3Id" name="Tb7Choice.sum3Id" maxlength="10" class=" refer" /><a id="Tb7Choice.sum3Id" th:href="@{/model/Tb8Sum3S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+        </div>
+        <div id="sum3Info">
+          <label for="Tb7Choice.sum3Info" th:text="#{Tb7Choice.sum3Info}">集約３情報</label><input type="text" id="Tb7Choice.sum3Info" name="Tb7Choice.sum3Info" maxlength="300" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb7Choice.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb7Choice.insertTs"></span><input type="hidden" id="Tb7Choice.insertTs" name="Tb7Choice.insertTs" />

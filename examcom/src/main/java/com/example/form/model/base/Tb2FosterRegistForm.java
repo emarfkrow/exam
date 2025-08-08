@@ -21,22 +21,22 @@ public class Tb2FosterRegistForm implements IForm {
     /** 兄弟ID */
     @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    private String kyodaiId;
+    private String broId;
 
     /**
      * @return 兄弟ID
      */
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    public String getKyodaiId() {
-        return kyodaiId;
+    public String getBroId() {
+        return broId;
     }
 
     /**
      * @param p 兄弟ID
      */
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    public void setKyodaiId(final String p) {
-        this.kyodaiId = p;
+    public void setBroId(final String p) {
+        this.broId = p;
     }
 
     /** 里子情報 */

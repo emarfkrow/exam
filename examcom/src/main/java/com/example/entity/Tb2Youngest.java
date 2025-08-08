@@ -36,22 +36,22 @@ public class Tb2Youngest implements IEntity {
 
     /** 兄弟ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    private Integer kyodaiId;
+    private Integer broId;
 
     /** @return 兄弟ID */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "KYODAI_ID", index = 2)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "BRO_ID", index = 2)
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    public Integer getKyodaiId() {
-        return this.kyodaiId;
+    public Integer getBroId() {
+        return this.broId;
     }
 
     /** @param o 兄弟ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
-    public void setKyodaiId(final Object o) {
+    public void setBroId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
-            this.kyodaiId = Integer.valueOf(o.toString());
+            this.broId = Integer.valueOf(o.toString());
         } else {
-            this.kyodaiId = null;
+            this.broId = null;
         }
     }
 
@@ -211,10 +211,10 @@ public class Tb2Youngest implements IEntity {
      */
     public static Tb2Youngest get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KYODAI_ID` = :kyodai_id");
+        whereList.add("`BRO_ID` = :bro_id");
         String sql = "";
         sql += "SELECT \n";
-        sql += "      a.`KYODAI_ID` \n";
+        sql += "      a.`BRO_ID` \n";
         sql += "    , a.`YOUNGEST_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
@@ -225,7 +225,7 @@ public class Tb2Youngest implements IEntity {
         sql += "WHERE \n";
         sql += String.join(" AND \n", whereList);
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("kyodai_id", param1);
+        map.put("bro_id", param1);
         return Queries.get(sql, map, Tb2Youngest.class);
     }
 
@@ -248,7 +248,7 @@ public class Tb2Youngest implements IEntity {
     /** @return insert用のname句 */
     private String names() {
         List<String> nameList = new ArrayList<String>();
-        nameList.add("`KYODAI_ID` -- :kyodai_id");
+        nameList.add("`BRO_ID` -- :bro_id");
         nameList.add("`YOUNGEST_INFO` -- :youngest_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
@@ -260,7 +260,7 @@ public class Tb2Youngest implements IEntity {
     /** @return insert用のvalue句 */
     private String values() {
         List<String> valueList = new ArrayList<String>();
-        valueList.add(":kyodai_id");
+        valueList.add(":bro_id");
         valueList.add(":youngest_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
@@ -271,14 +271,14 @@ public class Tb2Youngest implements IEntity {
 
     /** 兄弟IDの採番処理 */
     private void numbering() {
-        if (this.kyodaiId != null) {
+        if (this.broId != null) {
             return;
         }
-        String sql = "SELECT CASE WHEN MAX(e.`KYODAI_ID`) IS NULL THEN 0 ELSE MAX(e.`KYODAI_ID`) * 1 END + 1 AS `KYODAI_ID` FROM TB2_YOUNGEST e";
+        String sql = "SELECT CASE WHEN MAX(e.`BRO_ID`) IS NULL THEN 0 ELSE MAX(e.`BRO_ID`) * 1 END + 1 AS `BRO_ID` FROM TB2_YOUNGEST e";
         Map<String, Object> map = new HashMap<String, Object>();
         jp.co.golorp.emarf.util.MapList mapList = Queries.select(sql, map, null, null);
-        Object o = mapList.get(0).get("KYODAI_ID");
-        this.setKyodaiId(o);
+        Object o = mapList.get(0).get("BRO_ID");
+        this.setBroId(o);
     }
 
     /**
@@ -297,7 +297,7 @@ public class Tb2Youngest implements IEntity {
     /** @return update用のset句 */
     private String getSet() {
         List<String> setList = new ArrayList<String>();
-        setList.add("`KYODAI_ID` = :kyodai_id");
+        setList.add("`BRO_ID` = :bro_id");
         setList.add("`YOUNGEST_INFO` = :youngest_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
@@ -318,7 +318,7 @@ public class Tb2Youngest implements IEntity {
     /** @return where句 */
     private String getWhere() {
         List<String> whereList = new ArrayList<String>();
-        whereList.add("`KYODAI_ID` = :kyodai_id");
+        whereList.add("`BRO_ID` = :bro_id");
         whereList.add("`update_ts` = '" + this.updateTs + "'");
         return String.join(" AND ", whereList);
     }
@@ -330,7 +330,7 @@ public class Tb2Youngest implements IEntity {
      */
     private Map<String, Object> toMap(final LocalDateTime now, final String execId) {
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("kyodai_id", this.kyodaiId);
+        map.put("bro_id", this.broId);
         map.put("youngest_info", this.youngestInfo);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);

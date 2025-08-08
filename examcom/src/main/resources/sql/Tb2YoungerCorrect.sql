@@ -1,5 +1,5 @@
 SELECT
-      a.`KYODAI_ID`
+      a.`BRO_ID`
     , a.`YOUNGER_INFO`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
@@ -11,7 +11,7 @@ FROM
     TB2_YOUNGER a 
 WHERE
     1 = 1 
-    AND a.`KYODAI_ID` = :kyodai_id 
+    AND a.`BRO_ID` = :bro_id 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`YOUNGER_INFO`)) LIKE UPPER (CONCAT ('%', :younger_info, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
@@ -22,4 +22,4 @@ WHERE
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
 ORDER BY
-    a.`KYODAI_ID`
+    a.`BRO_ID`

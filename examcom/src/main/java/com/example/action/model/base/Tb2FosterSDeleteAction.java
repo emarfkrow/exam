@@ -37,7 +37,7 @@ public class Tb2FosterSDeleteAction extends BaseAction {
                 }
 
                 // 主キーが不足していたらエラー
-                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("KYODAI_ID"))) {
+                if (jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(row.get("BRO_ID"))) {
                     throw new OptLockError("error.cant.delete", "里子");
                 }
 

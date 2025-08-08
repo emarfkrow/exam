@@ -25,11 +25,11 @@ public class Tb2FosterGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object kyodaiId = postJson.get("kyodaiId");
-        if (kyodaiId == null) {
-            kyodaiId = postJson.get("Tb2Foster.kyodaiId");
+        Object broId = postJson.get("broId");
+        if (broId == null) {
+            broId = postJson.get("Tb2Foster.broId");
         }
-        if (kyodaiId == null) {
+        if (broId == null) {
             isAllKey = false;
         }
 
@@ -39,7 +39,7 @@ public class Tb2FosterGetAction extends BaseAction {
         }
 
         try {
-            Tb2Foster tb2Foster = Tb2Foster.get(kyodaiId);
+            Tb2Foster tb2Foster = Tb2Foster.get(broId);
             map.put("Tb2Foster", tb2Foster);
         } catch (NoDataError e) {
             if (postJson.get("IsSilent") == null || !postJson.get("IsSilent").equals("true")) {

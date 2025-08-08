@@ -10,6 +10,8 @@
 </script>
 <script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb7SumGridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -20,8 +22,8 @@
         <div id="unit2Id">
           <label for="Tb7Unit2.unit2Id" th:text="#{Tb7Unit2.unit2Id}">単位２ID</label><input type="text" id="Tb7Unit2.unit2Id" name="Tb7Unit2.unit2Id" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
-        <div id="sum2Id">
-          <label for="Tb7Unit2.sum2Id" th:text="#{Tb7Unit2.sum2Id}">集約抑止ID</label><input type="text" id="Tb7Unit2.sum2Id" name="Tb7Unit2.sum2Id" maxlength="10" />
+        <div id="sumId">
+          <label th:text="#{Tb7Unit2.sumId}">集約ID</label><span id="Tb7Unit2.sumId" class="summary"></span><input type="hidden" id="Tb7Unit2.sumId" name="Tb7Unit2.sumId" class="summary" />
         </div>
         <div id="insertTs">
           <label th:text="#{Tb7Unit2.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb7Unit2.insertTs"></span><input type="hidden" id="Tb7Unit2.insertTs" name="Tb7Unit2.insertTs" />

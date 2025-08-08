@@ -1,6 +1,6 @@
 SELECT
       a.`UNIT1_ID`
-    , a.`SUM2_ID`
+    , a.`SUM_ID`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -12,7 +12,7 @@ FROM
 WHERE
     1 = 1 
     AND a.`UNIT1_ID` = :unit_1_id 
-    AND a.`SUM2_ID` = :sum_2_id 
+    AND a.`SUM_ID` = :sum_id 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

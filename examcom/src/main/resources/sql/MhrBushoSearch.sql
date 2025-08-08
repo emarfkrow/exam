@@ -4,7 +4,7 @@ SELECT
     , a.`OYA_BUSHO_ID`
     , (SELECT r0.`BUSHO_MEI` FROM MHR_BUSHO r0 WHERE r0.`BUSHO_ID` = a.`OYA_BUSHO_ID`) AS `OYA_BUSHO_MEI`
     , a.`TEKIYO_BI` AS `TEKIYO_BI`
-    , a.`SHURYO_BI` AS `SHURYO_BI`
+    , a.`HAISHI_BI` AS `HAISHI_BI`
     , a.`INSERT_TS` AS `INSERT_TS`
     , a.`INSERT_USER_ID`
     , (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`
@@ -21,9 +21,9 @@ WHERE
     AND a.`TEKIYO_BI` = :tekiyo_bi 
     AND a.`TEKIYO_BI` >= :tekiyo_bi_1 
     AND a.`TEKIYO_BI` <= :tekiyo_bi_2 
-    AND a.`SHURYO_BI` = :shuryo_bi 
-    AND a.`SHURYO_BI` >= :shuryo_bi_1 
-    AND a.`SHURYO_BI` <= :shuryo_bi_2 
+    AND a.`HAISHI_BI` = :haishi_bi 
+    AND a.`HAISHI_BI` >= :haishi_bi_1 
+    AND a.`HAISHI_BI` <= :haishi_bi_2 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 
     AND a.`INSERT_TS` <= :insert_ts_2 

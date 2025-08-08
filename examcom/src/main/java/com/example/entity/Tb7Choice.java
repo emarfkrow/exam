@@ -10,7 +10,7 @@ import jp.co.golorp.emarf.entity.IEntity;
 import jp.co.golorp.emarf.sql.Queries;
 
 /**
- * 択一
+ * 選抜
  * @author emarfkrow
  */
 public class Tb7Choice implements IEntity {
@@ -34,18 +34,18 @@ public class Tb7Choice implements IEntity {
         }
     }
 
-    /** 択一ID */
+    /** 選抜ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private Integer choiceId;
 
-    /** @return 択一ID */
+    /** @return 選抜ID */
     @com.fasterxml.jackson.annotation.JsonProperty(value = "CHOICE_ID", index = 2)
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public Integer getChoiceId() {
         return this.choiceId;
     }
 
-    /** @param o 択一ID */
+    /** @param o 選抜ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setChoiceId(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
@@ -73,21 +73,93 @@ public class Tb7Choice implements IEntity {
         }
     }
 
-    /** 集約抑止ID */
+    /** 集約情報 */
+    private String sumInfo;
+
+    /** @return 集約情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM_INFO", index = 4)
+    public String getSumInfo() {
+        return this.sumInfo;
+    }
+
+    /** @param o 集約情報 */
+    public void setSumInfo(final Object o) {
+        if (o != null) {
+            this.sumInfo = o.toString();
+        } else {
+            this.sumInfo = null;
+        }
+    }
+
+    /** 集約２ID */
     private Integer sum2Id;
 
-    /** @return 集約抑止ID */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM2_ID", index = 4)
+    /** @return 集約２ID */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM2_ID", index = 5)
     public Integer getSum2Id() {
         return this.sum2Id;
     }
 
-    /** @param o 集約抑止ID */
+    /** @param o 集約２ID */
     public void setSum2Id(final Object o) {
         if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
             this.sum2Id = Integer.valueOf(o.toString());
         } else {
             this.sum2Id = null;
+        }
+    }
+
+    /** 集約２情報 */
+    private String sum2Info;
+
+    /** @return 集約２情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM2_INFO", index = 6)
+    public String getSum2Info() {
+        return this.sum2Info;
+    }
+
+    /** @param o 集約２情報 */
+    public void setSum2Info(final Object o) {
+        if (o != null) {
+            this.sum2Info = o.toString();
+        } else {
+            this.sum2Info = null;
+        }
+    }
+
+    /** 集約３ID */
+    private Integer sum3Id;
+
+    /** @return 集約３ID */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM3_ID", index = 7)
+    public Integer getSum3Id() {
+        return this.sum3Id;
+    }
+
+    /** @param o 集約３ID */
+    public void setSum3Id(final Object o) {
+        if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(o)) {
+            this.sum3Id = Integer.valueOf(o.toString());
+        } else {
+            this.sum3Id = null;
+        }
+    }
+
+    /** 集約３情報 */
+    private String sum3Info;
+
+    /** @return 集約３情報 */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "SUM3_INFO", index = 8)
+    public String getSum3Info() {
+        return this.sum3Info;
+    }
+
+    /** @param o 集約３情報 */
+    public void setSum3Info(final Object o) {
+        if (o != null) {
+            this.sum3Info = o.toString();
+        } else {
+            this.sum3Info = null;
         }
     }
 
@@ -98,7 +170,7 @@ public class Tb7Choice implements IEntity {
     private java.time.LocalDateTime insertTs;
 
     /** @return 作成タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 5)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_TS", index = 9)
     public java.time.LocalDateTime getInsertTs() {
         return this.insertTs;
     }
@@ -122,7 +194,7 @@ public class Tb7Choice implements IEntity {
     private Integer insertUserId;
 
     /** @return 作成者 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 6)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_ID", index = 10)
     public Integer getInsertUserId() {
         return this.insertUserId;
     }
@@ -141,7 +213,7 @@ public class Tb7Choice implements IEntity {
     private String insertUserSei;
 
     /** @return 作成者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 7)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "INSERT_USER_SEI", index = 11)
     public String getInsertUserSei() {
         return this.insertUserSei;
     }
@@ -163,7 +235,7 @@ public class Tb7Choice implements IEntity {
     private java.time.LocalDateTime updateTs;
 
     /** @return 更新タイムスタンプ */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 8)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_TS", index = 12)
     @jp.co.golorp.emarf.validation.OptLock
     public java.time.LocalDateTime getUpdateTs() {
         return this.updateTs;
@@ -189,7 +261,7 @@ public class Tb7Choice implements IEntity {
     private Integer updateUserId;
 
     /** @return 更新者 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 9)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_ID", index = 13)
     public Integer getUpdateUserId() {
         return this.updateUserId;
     }
@@ -208,7 +280,7 @@ public class Tb7Choice implements IEntity {
     private String updateUserSei;
 
     /** @return 更新者参照 */
-    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 10)
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "UPDATE_USER_SEI", index = 14)
     public String getUpdateUserSei() {
         return this.updateUserSei;
     }
@@ -223,9 +295,9 @@ public class Tb7Choice implements IEntity {
     }
 
     /**
-     * 択一照会
-     * @param param1 択一ID
-     * @return 択一
+     * 選抜照会
+     * @param param1 選抜ID
+     * @return 選抜
      */
     public static Tb7Choice get(final Object param1) {
         List<String> whereList = new ArrayList<String>();
@@ -234,7 +306,11 @@ public class Tb7Choice implements IEntity {
         sql += "SELECT \n";
         sql += "      a.`CHOICE_ID` \n";
         sql += "    , a.`SUM_ID` \n";
+        sql += "    , a.`SUM_INFO` \n";
         sql += "    , a.`SUM2_ID` \n";
+        sql += "    , a.`SUM2_INFO` \n";
+        sql += "    , a.`SUM3_ID` \n";
+        sql += "    , a.`SUM3_INFO` \n";
         sql += "    , a.`INSERT_TS` AS INSERT_TS \n";
         sql += "    , a.`INSERT_USER_ID` \n";
         sql += "    , a.`UPDATE_TS` AS UPDATE_TS \n";
@@ -249,17 +325,17 @@ public class Tb7Choice implements IEntity {
     }
 
     /**
-     * 択一追加
+     * 選抜追加
      * @param now システム日時
      * @param execId 登録者
      * @return 追加件数
      */
     public int insert(final LocalDateTime now, final String execId) {
 
-        // 択一IDの採番処理
+        // 選抜IDの採番処理
         numbering();
 
-        // 択一の登録
+        // 選抜の登録
         String sql = "INSERT INTO TB7_CHOICE(\r\n      " + names() + "\r\n) VALUES (\r\n      " + values() + "\r\n)";
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -269,7 +345,11 @@ public class Tb7Choice implements IEntity {
         List<String> nameList = new ArrayList<String>();
         nameList.add("`CHOICE_ID` -- :choice_id");
         nameList.add("`SUM_ID` -- :sum_id");
+        nameList.add("`SUM_INFO` -- :sum_info");
         nameList.add("`SUM2_ID` -- :sum_2_id");
+        nameList.add("`SUM2_INFO` -- :sum_2_info");
+        nameList.add("`SUM3_ID` -- :sum_3_id");
+        nameList.add("`SUM3_INFO` -- :sum_3_info");
         nameList.add("`INSERT_TS` -- :insert_ts");
         nameList.add("`INSERT_USER_ID` -- :insert_user_id");
         nameList.add("`UPDATE_TS` -- :update_ts");
@@ -282,7 +362,11 @@ public class Tb7Choice implements IEntity {
         List<String> valueList = new ArrayList<String>();
         valueList.add(":choice_id");
         valueList.add(":sum_id");
+        valueList.add(":sum_info");
         valueList.add(":sum_2_id");
+        valueList.add(":sum_2_info");
+        valueList.add(":sum_3_id");
+        valueList.add(":sum_3_info");
         valueList.add(":insert_ts");
         valueList.add(":insert_user_id");
         valueList.add(":update_ts");
@@ -290,7 +374,7 @@ public class Tb7Choice implements IEntity {
         return String.join("\r\n    , ", valueList);
     }
 
-    /** 択一IDの採番処理 */
+    /** 選抜IDの採番処理 */
     private void numbering() {
         if (this.choiceId != null) {
             return;
@@ -303,14 +387,14 @@ public class Tb7Choice implements IEntity {
     }
 
     /**
-     * 択一更新
+     * 選抜更新
      * @param now システム日時
      * @param execId 更新者
      * @return 更新件数
      */
     public int update(final LocalDateTime now, final String execId) {
 
-        // 択一の登録
+        // 選抜の登録
         String sql = "UPDATE TB7_CHOICE\r\nSET\r\n      " + getSet() + "\r\nWHERE\r\n    " + getWhere();
         return Queries.regist(sql, toMap(now, execId));
     }
@@ -320,19 +404,23 @@ public class Tb7Choice implements IEntity {
         List<String> setList = new ArrayList<String>();
         setList.add("`CHOICE_ID` = :choice_id");
         setList.add("`SUM_ID` = :sum_id");
+        setList.add("`SUM_INFO` = :sum_info");
         setList.add("`SUM2_ID` = :sum_2_id");
+        setList.add("`SUM2_INFO` = :sum_2_info");
+        setList.add("`SUM3_ID` = :sum_3_id");
+        setList.add("`SUM3_INFO` = :sum_3_info");
         setList.add("`UPDATE_TS` = :update_ts");
         setList.add("`UPDATE_USER_ID` = :update_user_id");
         return String.join("\r\n    , ", setList);
     }
 
     /**
-     * 択一削除
+     * 選抜削除
      * @return 削除件数
      */
     public int delete() {
 
-        // 択一の削除
+        // 選抜の削除
         String sql = "DELETE FROM TB7_CHOICE WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));
     }
@@ -354,7 +442,11 @@ public class Tb7Choice implements IEntity {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("choice_id", this.choiceId);
         map.put("sum_id", this.sumId);
+        map.put("sum_info", this.sumInfo);
         map.put("sum_2_id", this.sum2Id);
+        map.put("sum_2_info", this.sum2Info);
+        map.put("sum_3_id", this.sum3Id);
+        map.put("sum_3_info", this.sum3Info);
         map.put("insert_ts", now);
         map.put("insert_user_id", execId);
         map.put("update_ts", now);

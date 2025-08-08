@@ -25,11 +25,11 @@ public class Tb2YoungerGetAction extends BaseAction {
         // 主キーのチェック
         boolean isAllKey = true;
 
-        Object kyodaiId = postJson.get("kyodaiId");
-        if (kyodaiId == null) {
-            kyodaiId = postJson.get("Tb2Younger.kyodaiId");
+        Object broId = postJson.get("broId");
+        if (broId == null) {
+            broId = postJson.get("Tb2Younger.broId");
         }
-        if (kyodaiId == null) {
+        if (broId == null) {
             isAllKey = false;
         }
 
@@ -39,7 +39,7 @@ public class Tb2YoungerGetAction extends BaseAction {
         }
 
         try {
-            Tb2Younger tb2Younger = Tb2Younger.get(kyodaiId);
+            Tb2Younger tb2Younger = Tb2Younger.get(broId);
             tb2Younger.referTb2Youngest();
             map.put("Tb2Younger", tb2Younger);
         } catch (NoDataError e) {

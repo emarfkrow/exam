@@ -10,6 +10,8 @@
 </script>
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb7SumGridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -23,8 +25,8 @@
         <div id="unit1Id">
           <label for="Tb7Unit1.unit1Id" th:text="#{Tb7Unit1.unit1Id}">単位１ID</label><input type="text" id="Tb7Unit1.unit1Id" name="Tb7Unit1.unit1Id" maxlength="10" />
         </div>
-        <div id="sum2Id">
-          <label for="Tb7Unit1.sum2Id" th:text="#{Tb7Unit1.sum2Id}">集約抑止ID</label><input type="text" id="Tb7Unit1.sum2Id" name="Tb7Unit1.sum2Id" maxlength="10" />
+        <div id="sumId">
+          <label for="Tb7Unit1.sumId" th:text="#{Tb7Unit1.sumId}">集約ID</label><input type="text" id="Tb7Unit1.sumId" name="Tb7Unit1.sumId" maxlength="10" />
         </div>
       </fieldset>
       <div class="buttons">
@@ -43,6 +45,7 @@
       <div class="buttons">
         <button type="button" class="reset" id="ResetTb7Unit1S" th:text="#{common.reset}" onClick="Base.listReset('Tb7Unit1');">reset</button>
         <a th:href="@{Tb7Unit1Search.xlsx(baseMei=#{Tb7Unit1S.h2})}" id="Tb7Unit1Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb7Sum.html}" id="Tb7Sum" target="dialog" th:text="#{Tb7Sum.sum}" class="summary" tabindex="-1">集約</a>
         <button type="submit" id="DeleteTb7Unit1S" data-action="Tb7Unit1SDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">
