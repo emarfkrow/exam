@@ -494,4 +494,65 @@ public class Tb5Prev implements IEntity {
         }
         return new ArrayList<Tb5Reborn>();
     }
+
+    /*
+     * 集約元：派生
+     */
+
+    /** 派生のリスト */
+    private List<Tb5Derive> tb5Derives;
+
+    /** @return 派生のリスト */
+    @com.fasterxml.jackson.annotation.JsonProperty(value = "Tb5Derives", index = 12)
+    public List<Tb5Derive> getTb5Derives() {
+        return this.tb5Derives;
+    }
+
+    /** @param list 派生のリスト */
+    public void setTb5Derives(final List<Tb5Derive> list) {
+        this.tb5Derives = list;
+    }
+
+    /** @param tb5Derive */
+    public void addTb5Derives(final Tb5Derive tb5Derive) {
+        if (this.tb5Derives == null) {
+            this.tb5Derives = new ArrayList<Tb5Derive>();
+        }
+        this.tb5Derives.add(tb5Derive);
+    }
+
+    /** @return 派生のリスト */
+    public List<Tb5Derive> referTb5Derives() {
+        this.tb5Derives = Tb5Prev.referTb5Derives(this.prevId);
+        return this.tb5Derives;
+    }
+
+    /**
+     * @param param1 prevId
+     * @return List<Tb5Derive>
+     */
+    public static List<Tb5Derive> referTb5Derives(final Integer param1) {
+        List<String> whereList = new ArrayList<String>();
+        whereList.add("PREV_ID = :prev_id");
+        String sql = "SELECT ";
+        sql += "`DERIVE_ID`";
+        sql += ", `PREV_ID`";
+        sql += ", `PREV_INFO`";
+        sql += ", `INSERT_TS` AS INSERT_TS";
+        sql += ", `INSERT_USER_ID`";
+        sql += ", (SELECT r0.`USER_SEI` FROM MHR_USER r0 WHERE r0.`USER_ID` = a.`INSERT_USER_ID`) AS `INSERT_USER_SEI`";
+        sql += ", `UPDATE_TS` AS UPDATE_TS";
+        sql += ", `UPDATE_USER_ID`";
+        sql += ", (SELECT r1.`USER_SEI` FROM MHR_USER r1 WHERE r1.`USER_ID` = a.`UPDATE_USER_ID`) AS `UPDATE_USER_SEI`";
+        sql += " FROM TB5_DERIVE a WHERE " + String.join(" AND ", whereList);
+        sql += " ORDER BY ";
+        sql += "DERIVE_ID";
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("prev_id", param1);
+        List<Tb5Derive> list = Queries.select(sql, map, Tb5Derive.class, null, null);
+        if (list != null) {
+            return list;
+        }
+        return new ArrayList<Tb5Derive>();
+    }
 }

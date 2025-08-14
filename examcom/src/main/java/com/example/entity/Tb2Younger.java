@@ -362,7 +362,7 @@ public class Tb2Younger implements IEntity {
         return map;
     }
 
-    /** 末弟 */
+    /** 兄弟：末弟 */
     private Tb2Youngest tb2Youngest;
 
     /** @return 末弟 */

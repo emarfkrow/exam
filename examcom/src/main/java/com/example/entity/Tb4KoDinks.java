@@ -423,7 +423,7 @@ public class Tb4KoDinks implements IEntity {
         return map;
     }
 
-    /** 子 */
+    /** 兄弟：子 */
     private Tb4Ko tb4Ko;
 
     /** @return 子 */
@@ -448,7 +448,7 @@ public class Tb4KoDinks implements IEntity {
         return this.tb4Ko;
     }
 
-    /** 孤児 */
+    /** 兄弟：孤児 */
     private Tb4KoOrphans tb4KoOrphans;
 
     /** @return 孤児 */

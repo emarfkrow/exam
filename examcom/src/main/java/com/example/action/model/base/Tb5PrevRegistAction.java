@@ -42,6 +42,23 @@ public class Tb5PrevRegistAction extends BaseAction {
                 throw new OptLockError("error.cant.insert", "前世");
             }
 
+            //集約先に該当する場合は、集約元に主キーを反映
+            String summaryKey1 = postJson.get("Tb5Derive.deriveId").toString();
+            if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(summaryKey1)) {
+                String[] summaryKeys = summaryKey1.trim().split(",");
+                for (String pk : summaryKeys) {
+                    com.example.entity.Tb5Derive tb5Derive = com.example.entity.Tb5Derive.get(pk);
+                    //集約済みならエラー
+                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb5Derive.getPrevId())) {
+                        throw new OptLockError("error.already.summary", "前世");
+                    }
+                    tb5Derive.setPrevId(e.getPrevId());
+                    if (tb5Derive.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.insert", "前世");
+                    }
+                }
+            }
+
             map.put("INFO", Messages.get("info.insert"));
 
         } else {

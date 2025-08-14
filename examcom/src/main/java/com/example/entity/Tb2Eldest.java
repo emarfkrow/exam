@@ -385,7 +385,7 @@ public class Tb2Eldest implements IEntity {
         return map;
     }
 
-    /** 弟 */
+    /** 兄弟：弟 */
     private Tb2Younger tb2Younger;
 
     /** @return 弟 */
@@ -410,7 +410,7 @@ public class Tb2Eldest implements IEntity {
         return this.tb2Younger;
     }
 
-    /** 末弟 */
+    /** 兄弟：末弟 */
     private Tb2Youngest tb2Youngest;
 
     /** @return 末弟 */

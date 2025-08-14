@@ -459,7 +459,7 @@ public class Tb4Ko implements IEntity {
         return map;
     }
 
-    /** 子なし */
+    /** 兄弟：子なし */
     private Tb4KoDinks tb4KoDinks;
 
     /** @return 子なし */
@@ -484,7 +484,7 @@ public class Tb4Ko implements IEntity {
         return this.tb4KoDinks;
     }
 
-    /** 孤児 */
+    /** 兄弟：孤児 */
     private Tb4KoOrphans tb4KoOrphans;
 
     /** @return 孤児 */

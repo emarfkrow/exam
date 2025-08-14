@@ -10,8 +10,8 @@
 </script>
 <script th:src="@{/model/Tb7SumGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -43,15 +43,15 @@
       <div class="buttons">
         <button type="button" id="RefreshTb7Sum" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb7SumGet.xlsx(baseMei=#{Tb7Sum.h2})}" id="Tb7SumGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
-        <div class="summary Tb7Unit1s">
-          <label>単位１ID: </label>
-          <span id="Tb7Unit1.unit1Id"></span>
-          <input type="hidden" id="Tb7Unit1.unit1Id" name="Tb7Unit1.unit1Id"/>
-        </div>
         <div class="summary Tb7Unit2s">
           <label>単位２ID: </label>
           <span id="Tb7Unit2.unit2Id"></span>
           <input type="hidden" id="Tb7Unit2.unit2Id" name="Tb7Unit2.unit2Id"/>
+        </div>
+        <div class="summary Tb7Unit1s">
+          <label>単位１ID: </label>
+          <span id="Tb7Unit1.unit1Id"></span>
+          <input type="hidden" id="Tb7Unit1.unit1Id" name="Tb7Unit1.unit1Id"/>
         </div>
       </div>
       <div class="submits">

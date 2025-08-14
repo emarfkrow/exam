@@ -43,26 +43,9 @@ public class Tb7SumRegistAction extends BaseAction {
             }
 
             //集約先に該当する場合は、集約元に主キーを反映
-            String summaryKey1 = postJson.get("Tb7Unit1.unit1Id").toString();
+            String summaryKey1 = postJson.get("Tb7Unit2.unit2Id").toString();
             if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(summaryKey1)) {
                 String[] summaryKeys = summaryKey1.trim().split(",");
-                for (String pk : summaryKeys) {
-                    com.example.entity.Tb7Unit1 tb7Unit1 = com.example.entity.Tb7Unit1.get(pk);
-                    //集約済みならエラー
-                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb7Unit1.getSumId())) {
-                        throw new OptLockError("error.already.summary", "集約");
-                    }
-                    tb7Unit1.setSumId(e.getSumId());
-                    if (tb7Unit1.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert", "集約");
-                    }
-                }
-            }
-
-            //集約先に該当する場合は、集約元に主キーを反映
-            String summaryKey2 = postJson.get("Tb7Unit2.unit2Id").toString();
-            if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(summaryKey2)) {
-                String[] summaryKeys = summaryKey2.trim().split(",");
                 for (String pk : summaryKeys) {
                     com.example.entity.Tb7Unit2 tb7Unit2 = com.example.entity.Tb7Unit2.get(pk);
                     //集約済みならエラー
@@ -71,6 +54,23 @@ public class Tb7SumRegistAction extends BaseAction {
                     }
                     tb7Unit2.setSumId(e.getSumId());
                     if (tb7Unit2.update(now, execId) != 1) {
+                        throw new OptLockError("error.cant.insert", "集約");
+                    }
+                }
+            }
+
+            //集約先に該当する場合は、集約元に主キーを反映
+            String summaryKey2 = postJson.get("Tb7Unit1.unit1Id").toString();
+            if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(summaryKey2)) {
+                String[] summaryKeys = summaryKey2.trim().split(",");
+                for (String pk : summaryKeys) {
+                    com.example.entity.Tb7Unit1 tb7Unit1 = com.example.entity.Tb7Unit1.get(pk);
+                    //集約済みならエラー
+                    if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb7Unit1.getSumId())) {
+                        throw new OptLockError("error.already.summary", "集約");
+                    }
+                    tb7Unit1.setSumId(e.getSumId());
+                    if (tb7Unit1.update(now, execId) != 1) {
                         throw new OptLockError("error.cant.insert", "集約");
                     }
                 }
