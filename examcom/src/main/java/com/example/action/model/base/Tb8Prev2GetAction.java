@@ -40,6 +40,7 @@ public class Tb8Prev2GetAction extends BaseAction {
 
         try {
             Tb8Prev2 tb8Prev2 = Tb8Prev2.get(prev2Id);
+            // 転生先
             tb8Prev2.referTb8Sum2s();
             map.put("Tb8Prev2", tb8Prev2);
         } catch (NoDataError e) {

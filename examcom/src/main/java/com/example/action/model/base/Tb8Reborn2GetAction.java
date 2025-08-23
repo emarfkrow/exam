@@ -32,15 +32,15 @@ public class Tb8Reborn2GetAction extends BaseAction {
         if (reborn2Id == null) {
 
             // 転生先になる場合は転生元から情報をコピー
-            Object unit4Id = postJson.get("unit4Id");
-            if (unit4Id == null) {
-                unit4Id = postJson.get("Tb8Reborn2.unit4Id");
+            Object unit4Id0 = postJson.get("unit4Id");
+            if (unit4Id0 == null) {
+                unit4Id0 = postJson.get("Tb8Reborn2.unit4Id");
             }
-            if (unit4Id == null) {
+            if (unit4Id0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb8Unit4 tb8Unit4 = com.example.entity.Tb8Unit4.get(unit4Id);
+            com.example.entity.Tb8Unit4 tb8Unit4 = com.example.entity.Tb8Unit4.get(unit4Id0);
             Tb8Reborn2 tb8Reborn2 = new Tb8Reborn2();
             tb8Reborn2.setUnit4Id(tb8Unit4.getUnit4Id());
 

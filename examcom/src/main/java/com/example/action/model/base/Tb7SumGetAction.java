@@ -40,6 +40,7 @@ public class Tb7SumGetAction extends BaseAction {
 
         try {
             Tb7Sum tb7Sum = Tb7Sum.get(sumId);
+            // 集約元
             tb7Sum.referTb7Unit2s();
             tb7Sum.referTb7Unit1s();
             map.put("Tb7Sum", tb7Sum);

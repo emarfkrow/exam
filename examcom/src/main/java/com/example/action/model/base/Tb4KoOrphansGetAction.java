@@ -48,8 +48,10 @@ public class Tb4KoOrphansGetAction extends BaseAction {
 
         try {
             Tb4KoOrphans tb4KoOrphans = Tb4KoOrphans.get(oyaId, koBn);
+            // 兄弟
             tb4KoOrphans.referTb4Ko();
             tb4KoOrphans.referTb4KoDinks();
+            // 子
             tb4KoOrphans.referTb4Magos();
             map.put("Tb4KoOrphans", tb4KoOrphans);
         } catch (NoDataError e) {

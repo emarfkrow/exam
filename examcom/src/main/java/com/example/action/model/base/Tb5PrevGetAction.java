@@ -40,8 +40,11 @@ public class Tb5PrevGetAction extends BaseAction {
 
         try {
             Tb5Prev tb5Prev = Tb5Prev.get(prevId);
+            // 子
             tb5Prev.referTb5PrevDets();
+            // 転生先
             tb5Prev.referTb5Reborns();
+            // 集約元
             tb5Prev.referTb5Derives();
             map.put("Tb5Prev", tb5Prev);
         } catch (NoDataError e) {

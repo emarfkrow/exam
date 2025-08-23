@@ -48,6 +48,7 @@ public class Tb1Combo1GetAction extends BaseAction {
 
         try {
             Tb1Combo1 tb1Combo1 = Tb1Combo1.get(refer1Id, refer2Id);
+            // 子
             tb1Combo1.referTb1Combo2s();
             map.put("Tb1Combo1", tb1Combo1);
         } catch (NoDataError e) {

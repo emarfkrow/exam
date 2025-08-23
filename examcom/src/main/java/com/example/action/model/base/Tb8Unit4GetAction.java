@@ -32,15 +32,15 @@ public class Tb8Unit4GetAction extends BaseAction {
         if (unit4Id == null) {
 
             // 派生先になる場合は派生元から情報をコピー
-            Object sum3Id = postJson.get("sum3Id");
-            if (sum3Id == null) {
-                sum3Id = postJson.get("Tb8Unit4.sum3Id");
+            Object sum3Id0 = postJson.get("sum3Id");
+            if (sum3Id0 == null) {
+                sum3Id0 = postJson.get("Tb8Unit4.sum3Id");
             }
-            if (sum3Id == null) {
+            if (sum3Id0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb8Sum3 tb8Sum3 = com.example.entity.Tb8Sum3.get(sum3Id);
+            com.example.entity.Tb8Sum3 tb8Sum3 = com.example.entity.Tb8Sum3.get(sum3Id0);
             Tb8Unit4 tb8Unit4 = new Tb8Unit4();
             tb8Unit4.setSum3Id(tb8Sum3.getSum3Id());
 
@@ -55,6 +55,7 @@ public class Tb8Unit4GetAction extends BaseAction {
 
         try {
             Tb8Unit4 tb8Unit4 = Tb8Unit4.get(unit4Id);
+            // 転生先
             tb8Unit4.referTb8Reborn2s();
             map.put("Tb8Unit4", tb8Unit4);
         } catch (NoDataError e) {

@@ -32,15 +32,15 @@ public class Tb8Sum2GetAction extends BaseAction {
         if (sum2Id == null) {
 
             // 転生先になる場合は転生元から情報をコピー
-            Object prev2Id = postJson.get("prev2Id");
-            if (prev2Id == null) {
-                prev2Id = postJson.get("Tb8Sum2.prev2Id");
+            Object prev2Id0 = postJson.get("prev2Id");
+            if (prev2Id0 == null) {
+                prev2Id0 = postJson.get("Tb8Sum2.prev2Id");
             }
-            if (prev2Id == null) {
+            if (prev2Id0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb8Prev2 tb8Prev2 = com.example.entity.Tb8Prev2.get(prev2Id);
+            com.example.entity.Tb8Prev2 tb8Prev2 = com.example.entity.Tb8Prev2.get(prev2Id0);
             Tb8Sum2 tb8Sum2 = new Tb8Sum2();
             tb8Sum2.setPrev2Id(tb8Prev2.getPrev2Id());
 

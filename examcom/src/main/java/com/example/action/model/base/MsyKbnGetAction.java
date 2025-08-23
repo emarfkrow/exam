@@ -40,6 +40,7 @@ public class MsyKbnGetAction extends BaseAction {
 
         try {
             MsyKbn msyKbn = MsyKbn.get(kbnNm);
+            // 子
             msyKbn.referMsyKbnVals();
             map.put("MsyKbn", msyKbn);
         } catch (NoDataError e) {

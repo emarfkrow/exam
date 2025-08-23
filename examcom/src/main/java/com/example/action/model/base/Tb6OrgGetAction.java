@@ -40,6 +40,7 @@ public class Tb6OrgGetAction extends BaseAction {
 
         try {
             Tb6Org tb6Org = Tb6Org.get(orgId);
+            // 子
             tb6Org.referTb6OrgDets();
             map.put("Tb6Org", tb6Org);
         } catch (NoDataError e) {

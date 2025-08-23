@@ -32,15 +32,15 @@ public class Tb5RebornGetAction extends BaseAction {
         if (rebornId == null) {
 
             // 転生先になる場合は転生元から情報をコピー
-            Object prevId = postJson.get("prevId");
-            if (prevId == null) {
-                prevId = postJson.get("Tb5Reborn.prevId");
+            Object prevId0 = postJson.get("prevId");
+            if (prevId0 == null) {
+                prevId0 = postJson.get("Tb5Reborn.prevId");
             }
-            if (prevId == null) {
+            if (prevId0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb5Prev tb5Prev = com.example.entity.Tb5Prev.get(prevId);
+            com.example.entity.Tb5Prev tb5Prev = com.example.entity.Tb5Prev.get(prevId0);
             Tb5Reborn tb5Reborn = new Tb5Reborn();
             tb5Reborn.setPrevId(tb5Prev.getPrevId());
             tb5Reborn.setPrevInfo(tb5Prev.getPrevInfo());
@@ -65,6 +65,7 @@ public class Tb5RebornGetAction extends BaseAction {
 
         try {
             Tb5Reborn tb5Reborn = Tb5Reborn.get(rebornId);
+            // 子
             tb5Reborn.referTb5RebornDets();
             map.put("Tb5Reborn", tb5Reborn);
         } catch (NoDataError e) {

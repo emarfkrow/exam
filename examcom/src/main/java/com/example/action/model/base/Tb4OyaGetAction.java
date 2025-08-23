@@ -40,6 +40,7 @@ public class Tb4OyaGetAction extends BaseAction {
 
         try {
             Tb4Oya tb4Oya = Tb4Oya.get(oyaId);
+            // 子
             tb4Oya.referTb4Kos();
             tb4Oya.referTb4KoDinkss();
             map.put("Tb4Oya", tb4Oya);

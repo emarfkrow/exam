@@ -40,6 +40,7 @@ public class Tb2YoungerGetAction extends BaseAction {
 
         try {
             Tb2Younger tb2Younger = Tb2Younger.get(broId);
+            // 兄弟
             tb2Younger.referTb2Youngest();
             map.put("Tb2Younger", tb2Younger);
         } catch (NoDataError e) {

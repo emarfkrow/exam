@@ -32,15 +32,15 @@ public class Tb6Derive2GetAction extends BaseAction {
         if (derive2Id == null) {
 
             // 派生先になる場合は派生元から情報をコピー
-            Object orgId = postJson.get("orgId");
-            if (orgId == null) {
-                orgId = postJson.get("Tb6Derive2.orgId");
+            Object orgId0 = postJson.get("orgId");
+            if (orgId0 == null) {
+                orgId0 = postJson.get("Tb6Derive2.orgId");
             }
-            if (orgId == null) {
+            if (orgId0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb6Org tb6Org = com.example.entity.Tb6Org.get(orgId);
+            com.example.entity.Tb6Org tb6Org = com.example.entity.Tb6Org.get(orgId0);
             Tb6Derive2 tb6Derive2 = new Tb6Derive2();
             tb6Derive2.setOrgId(tb6Org.getOrgId());
             tb6Derive2.setOrgInfo(tb6Org.getOrgInfo());
@@ -65,6 +65,7 @@ public class Tb6Derive2GetAction extends BaseAction {
 
         try {
             Tb6Derive2 tb6Derive2 = Tb6Derive2.get(derive2Id);
+            // 子
             tb6Derive2.referTb6Derive2Dets();
             map.put("Tb6Derive2", tb6Derive2);
         } catch (NoDataError e) {

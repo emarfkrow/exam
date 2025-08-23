@@ -32,15 +32,15 @@ public class Tb8Unit3GetAction extends BaseAction {
         if (unit3Id == null) {
 
             // 派生先になる場合は派生元から情報をコピー
-            Object sum2Id = postJson.get("sum2Id");
-            if (sum2Id == null) {
-                sum2Id = postJson.get("Tb8Unit3.sum2Id");
+            Object sum2Id0 = postJson.get("sum2Id");
+            if (sum2Id0 == null) {
+                sum2Id0 = postJson.get("Tb8Unit3.sum2Id");
             }
-            if (sum2Id == null) {
+            if (sum2Id0 == null) {
                 return map;
             }
 
-            com.example.entity.Tb8Sum2 tb8Sum2 = com.example.entity.Tb8Sum2.get(sum2Id);
+            com.example.entity.Tb8Sum2 tb8Sum2 = com.example.entity.Tb8Sum2.get(sum2Id0);
             Tb8Unit3 tb8Unit3 = new Tb8Unit3();
             tb8Unit3.setSum2Id(tb8Sum2.getSum2Id());
 
