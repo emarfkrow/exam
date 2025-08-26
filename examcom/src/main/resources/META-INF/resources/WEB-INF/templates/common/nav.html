@@ -3,23 +3,23 @@
 <body>
   <div class="nav" layout:fragment="nav" th:if="${#ctx.session != null && #ctx.session.get('AUTHN_KEY') != null}">
     <dl>
-      <dt id="MHR" style="clear: both;" th:text="#{nav.dt.MHR}">MHR</dt>
+      <dt id="HR" style="clear: both;" th:text="#{nav.dt.HR}">HR</dt>
       <dd>
         <ul>
-          <li style="clear: both; float: left;"><a id="MhrBusho" th:href="@{/model/MhrBushoS.html}" th:text="#{nav.MhrBushoS}" class="table">部署マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MhrShokui" th:href="@{/model/MhrShokuiS.html}" th:text="#{nav.MhrShokuiS}" class="table">職位マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MhrShokuiNinka" th:href="@{/model/MhrShokuiNinkaS.html}" th:text="#{nav.MhrShokuiNinkaS}" class="table">認可マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MhrUser" th:href="@{/model/MhrUserS.html}" th:text="#{nav.MhrUserS}" class="table">ユーザマスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MhrUserPos" th:href="@{/model/MhrUserPosS.html}" th:text="#{nav.MhrUserPosS}" class="table">所属マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MhrBusho" th:href="@{/model/MhrBushoS.html}" th:text="#{nav.MhrBushoS}" class="table M">部署マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MhrShokui" th:href="@{/model/MhrShokuiS.html}" th:text="#{nav.MhrShokuiS}" class="table M">職位マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MhrShokuiNinka" th:href="@{/model/MhrShokuiNinkaS.html}" th:text="#{nav.MhrShokuiNinkaS}" class="table M">認可マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MhrUser" th:href="@{/model/MhrUserS.html}" th:text="#{nav.MhrUserS}" class="table M">ユーザマスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MhrUserPos" th:href="@{/model/MhrUserPosS.html}" th:text="#{nav.MhrUserPosS}" class="table M">所属マスタ</a></li>
         </ul>
       </dd>
-      <dt id="MSY" style="clear: both;" th:text="#{nav.dt.MSY}">MSY</dt>
+      <dt id="SY" style="clear: both;" th:text="#{nav.dt.SY}">SY</dt>
       <dd>
         <ul>
-          <li style="clear: both; float: left;"><a id="MsyKadobi" th:href="@{/model/MsyKadobiS.html}" th:text="#{nav.MsyKadobiS}" class="table">稼働日マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MsyKbn" th:href="@{/model/MsyKbnS.html}" th:text="#{nav.MsyKbnS}" class="table">区分マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MsyTax" th:href="@{/model/MsyTaxS.html}" th:text="#{nav.MsyTaxS}" class="table">税マスタ</a></li>
-          <li style="clear: both; float: left;"><a id="MsyTsuka" th:href="@{/model/MsyTsukaS.html}" th:text="#{nav.MsyTsukaS}" class="table">通貨マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MsyKadobi" th:href="@{/model/MsyKadobiS.html}" th:text="#{nav.MsyKadobiS}" class="table M">稼働日マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MsyKbn" th:href="@{/model/MsyKbnS.html}" th:text="#{nav.MsyKbnS}" class="table M">区分マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MsyTax" th:href="@{/model/MsyTaxS.html}" th:text="#{nav.MsyTaxS}" class="table M">税マスタ</a></li>
+          <li style="clear: both; float: left;"><a id="MsyTsuka" th:href="@{/model/MsyTsukaS.html}" th:text="#{nav.MsyTsukaS}" class="table M">通貨マスタ</a></li>
         </ul>
       </dd>
       <dt id="TB0" style="clear: both;" th:text="#{nav.dt.TB0}">TB0</dt>

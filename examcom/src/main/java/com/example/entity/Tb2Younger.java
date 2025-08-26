@@ -326,13 +326,6 @@ public class Tb2Younger implements IEntity {
      */
     public int delete() {
 
-        // 末弟の削除
-        if (this.tb2Youngest != null) {
-            if (this.tb2Youngest.delete() != 1) {
-                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "末弟");
-            }
-        }
-
         // 弟の削除
         String sql = "DELETE FROM TB2_YOUNGER WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));

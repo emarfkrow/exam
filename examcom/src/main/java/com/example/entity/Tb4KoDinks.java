@@ -378,20 +378,6 @@ public class Tb4KoDinks implements IEntity {
      */
     public int delete() {
 
-        // 子の削除
-        if (this.tb4Ko != null) {
-            if (this.tb4Ko.delete() != 1) {
-                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "子");
-            }
-        }
-
-        // 孤児の削除
-        if (this.tb4KoOrphans != null) {
-            if (this.tb4KoOrphans.delete() != 1) {
-                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "孤児");
-            }
-        }
-
         // 子なしの削除
         String sql = "DELETE FROM TB4_KO_DINKS WHERE " + getWhere();
         return Queries.regist(sql, toMap(null, null));

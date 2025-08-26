@@ -414,13 +414,6 @@ public class Tb4KoOrphans implements IEntity {
             }
         }
 
-        // 子の削除
-        if (this.tb4Ko != null) {
-            if (this.tb4Ko.delete() != 1) {
-                throw new jp.co.golorp.emarf.exception.OptLockError("error.cant.delete", "子");
-            }
-        }
-
         // 子なしの削除
         if (this.tb4KoDinks != null) {
             if (this.tb4KoDinks.delete() != 1) {
