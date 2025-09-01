@@ -15,7 +15,10 @@
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit4GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Reborn2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -27,19 +30,22 @@
           <label for="Tb8Choice.choiceId" th:text="#{Tb8Choice.choiceId}">選抜ID</label><input type="text" id="Tb8Choice.choiceId" name="Tb8Choice.choiceId" maxlength="10" class=" primaryKey numbering notblank" />
         </div>
         <div id="sumId">
-          <label for="Tb8Choice.sumId" th:text="#{Tb8Choice.sumId}">集約ID</label><input type="text" id="Tb8Choice.sumId" name="Tb8Choice.sumId" maxlength="10" class=" refer" /><a id="Tb8Choice.sumId" th:href="@{/model/Tb7SumS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+          <label th:text="#{Tb8Choice.sumId}">集約ID</label><span id="Tb8Choice.sumId" class="derivee"></span><input type="hidden" id="Tb8Choice.sumId" name="Tb8Choice.sumId" class="derivee" />
+          <a id="Tb8Choice.sumId" th:href="@{/model/Tb7SumS.html?action=Tb7SumCorrect.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
         </div>
         <div id="sumInfo">
           <label for="Tb8Choice.sumInfo" th:text="#{Tb8Choice.sumInfo}">集約情報</label><input type="text" id="Tb8Choice.sumInfo" name="Tb8Choice.sumInfo" maxlength="300" />
         </div>
         <div id="sum2Id">
-          <label for="Tb8Choice.sum2Id" th:text="#{Tb8Choice.sum2Id}">集約２ID</label><input type="text" id="Tb8Choice.sum2Id" name="Tb8Choice.sum2Id" maxlength="10" class=" refer" /><a id="Tb8Choice.sum2Id" th:href="@{/model/Tb8Sum2S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+          <label th:text="#{Tb8Choice.sum2Id}">集約２ID</label><span id="Tb8Choice.sum2Id" class="derivee"></span><input type="hidden" id="Tb8Choice.sum2Id" name="Tb8Choice.sum2Id" class="derivee" />
+          <a id="Tb8Choice.sum2Id" th:href="@{/model/Tb8Sum2S.html?action=Tb8Sum2Correct.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
         </div>
         <div id="sum2Info">
           <label for="Tb8Choice.sum2Info" th:text="#{Tb8Choice.sum2Info}">集約２情報</label><input type="text" id="Tb8Choice.sum2Info" name="Tb8Choice.sum2Info" maxlength="300" />
         </div>
         <div id="sum3Id">
-          <label for="Tb8Choice.sum3Id" th:text="#{Tb8Choice.sum3Id}">集約３ID</label><input type="text" id="Tb8Choice.sum3Id" name="Tb8Choice.sum3Id" maxlength="10" class=" refer" /><a id="Tb8Choice.sum3Id" th:href="@{/model/Tb8Sum3S.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a>
+          <label th:text="#{Tb8Choice.sum3Id}">集約３ID</label><span id="Tb8Choice.sum3Id" class="derivee"></span><input type="hidden" id="Tb8Choice.sum3Id" name="Tb8Choice.sum3Id" class="derivee" />
+          <a id="Tb8Choice.sum3Id" th:href="@{/model/Tb8Sum3S.html?action=Tb8Sum3Correct.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
         </div>
         <div id="sum3Info">
           <label for="Tb8Choice.sum3Info" th:text="#{Tb8Choice.sum3Info}">集約３情報</label><input type="text" id="Tb8Choice.sum3Info" name="Tb8Choice.sum3Info" maxlength="300" />

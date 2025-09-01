@@ -9,8 +9,8 @@
 
 </script>
 <script th:src="@{/model/Tb5DeriveGridColumns.js}"></script>
-<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb5PrevGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb5PrevDetGridColumns.js}"></script>
 <script th:src="@{/model/Tb5RebornGridColumns.js}"></script>
 <script th:src="@{/model/Tb5RebornDetGridColumns.js}"></script>
@@ -28,7 +28,7 @@
           <label for="Tb5Derive.deriveId" th:text="#{Tb5Derive.deriveId}">派生ID</label><input type="text" id="Tb5Derive.deriveId" name="Tb5Derive.deriveId" maxlength="10" />
         </div>
         <div id="prevId">
-          <label for="Tb5Derive.prevId" th:text="#{Tb5Derive.prevId}">前世ID</label><input type="text" id="Tb5Derive.prevId" name="Tb5Derive.prevId" maxlength="10" />
+          <label for="Tb5Derive.prevId" th:text="#{Tb5Derive.prevId}">前世ID</label><input type="text" id="Tb5Derive.prevId" name="Tb5Derive.prevId" maxlength="10" /><a id="Tb5Derive.prevId" th:href="@{/model/Tb5PrevS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a>
         </div>
         <div id="prevInfo">
           <label for="Tb5Derive.prevInfo" th:text="#{Tb5Derive.prevInfo}">前世情報</label><input type="text" id="Tb5Derive.prevInfo" name="Tb5Derive.prevInfo" maxlength="300" />
@@ -51,6 +51,7 @@
         <button type="button" class="reset" id="ResetTb5DeriveS" th:text="#{common.reset}" onClick="Base.listReset('Tb5Derive');">reset</button>
         <a th:href="@{Tb5DeriveSearch.xlsx(baseMei=#{Tb5DeriveS.h2})}" id="Tb5DeriveSearch.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a th:href="@{/model/Tb5Prev.html}" id="Tb5Prev" target="dialog" th:text="#{Tb5Prev.sum}" class="summary" tabindex="-1">前世</a>
+        <a id="Tb5DeriveGrid.prevId" th:href="@{/model/Tb5PrevS.html}" target="dialog" class="refer" th:text="'前世' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button type="submit" id="DeleteTb5DeriveS" data-action="Tb5DeriveSDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

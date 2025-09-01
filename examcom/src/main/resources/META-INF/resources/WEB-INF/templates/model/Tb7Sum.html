@@ -10,6 +10,13 @@
 </script>
 <script th:src="@{/model/Tb7SumGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb8ChoiceGridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit4GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Reborn2GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 </head>
@@ -43,6 +50,7 @@
       <div class="buttons">
         <button type="button" id="RefreshTb7Sum" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb7SumGet.xlsx(baseMei=#{Tb7Sum.h2})}" id="Tb7SumGet.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb8Choice.html}" id="Tb8Choice" target="dialog" th:text="#{Tb8Choice.add}" class="reborner" tabindex="-1">選抜</a>
         <div class="summary Tb7Unit2s">
           <label>単位２ID: </label>
           <span id="Tb7Unit2.unit2Id"></span>

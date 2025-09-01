@@ -10,6 +10,15 @@
 </script>
 <script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb8ChoiceGridColumns.js}"></script>
+<script th:src="@{/model/Tb7SumGridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit4GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Reborn2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -41,6 +50,8 @@
       <div class="buttons">
         <button type="button" id="RefreshTb8Sum3" th:text="#{common.reset}" class="reset" onClick="Dialogate.refresh(event);">reset</button>
         <a th:href="@{Tb8Sum3Get.xlsx(baseMei=#{Tb8Sum3.h2})}" id="Tb8Sum3Get.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
+        <a th:href="@{/model/Tb8Choice.html}" id="Tb8Choice" target="dialog" th:text="#{Tb8Choice.add}" class="reborner" tabindex="-1">選抜</a>
+        <a th:href="@{/model/Tb8Unit4.html}" id="Tb8Unit4" target="dialog" th:text="#{Tb8Unit4.add}" class="reborner" tabindex="-1">単位４</a>
       </div>
       <div class="submits">
         <button id="DeleteTb8Sum3" type="submit" class="delete" data-action="Tb8Sum3Delete.ajax" th:text="#{common.delete}" tabindex="-1">削除</button>

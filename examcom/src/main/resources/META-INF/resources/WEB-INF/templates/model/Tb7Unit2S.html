@@ -9,8 +9,15 @@
 
 </script>
 <script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
-<script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb7SumGridColumns.js}"></script>
+<script th:src="@{/model/MhrUserGridColumns.js}"></script>
+<script th:src="@{/model/Tb8ChoiceGridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit4GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Reborn2GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 </head>
 <body>
@@ -26,7 +33,7 @@
           <label for="Tb7Unit2.unit2Id" th:text="#{Tb7Unit2.unit2Id}">単位２ID</label><input type="text" id="Tb7Unit2.unit2Id" name="Tb7Unit2.unit2Id" maxlength="10" />
         </div>
         <div id="sumId">
-          <label for="Tb7Unit2.sumId" th:text="#{Tb7Unit2.sumId}">集約ID</label><input type="text" id="Tb7Unit2.sumId" name="Tb7Unit2.sumId" maxlength="10" />
+          <label for="Tb7Unit2.sumId" th:text="#{Tb7Unit2.sumId}">集約ID</label><input type="text" id="Tb7Unit2.sumId" name="Tb7Unit2.sumId" maxlength="10" /><a id="Tb7Unit2.sumId" th:href="@{/model/Tb7SumS.html}" target="dialog" th:text="#{common.refer}" tabindex="-1">...</a>
         </div>
       </fieldset>
       <div class="buttons">
@@ -46,6 +53,7 @@
         <button type="button" class="reset" id="ResetTb7Unit2S" th:text="#{common.reset}" onClick="Base.listReset('Tb7Unit2');">reset</button>
         <a th:href="@{Tb7Unit2Search.xlsx(baseMei=#{Tb7Unit2S.h2})}" id="Tb7Unit2Search.xlsx" th:text="#{common.xlsx}" class="output" tabindex="-1">xlsx</a>
         <a th:href="@{/model/Tb7Sum.html}" id="Tb7Sum" target="dialog" th:text="#{Tb7Sum.sum}" class="summary" tabindex="-1">集約</a>
+        <a id="Tb7Unit2Grid.sumId" th:href="@{/model/Tb7SumS.html}" target="dialog" class="refer" th:text="'集約' + #{common.refer}" tabindex="-1" style="display: none;">...</a>
         <button type="submit" id="DeleteTb7Unit2S" data-action="Tb7Unit2SDelete.ajax" class="delete selectRows" th:text="#{common.delete}" tabindex="-1">削除</button>
       </div>
       <div class="submits">

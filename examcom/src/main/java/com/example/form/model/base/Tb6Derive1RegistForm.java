@@ -119,6 +119,10 @@ public class Tb6Derive1RegistForm implements IForm {
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
+
+        // 起源ID のマスタチェック
+        // TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb6OrgSearch", "orgId", this.getOrgId(), jp.co.golorp.emarf.util.Messages.get("Tb6Derive1.orgId"));
     }
 
 }

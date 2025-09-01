@@ -82,6 +82,10 @@ public class Tb8Unit4RegistForm implements IForm {
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
+
+        // 集約３ID のマスタチェック
+        // TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb8Sum3Search", "sum3Id", this.getSum3Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Unit4.sum3Id"));
     }
 
 }

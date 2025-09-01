@@ -31,27 +31,26 @@ public class Tb5RebornGetAction extends BaseAction {
         }
         if (rebornId == null) {
 
-            // 転生先になる場合は転生元から情報をコピー
-            Object prevId0 = postJson.get("prevId");
-            if (prevId0 == null) {
-                prevId0 = postJson.get("Tb5Reborn.prevId");
-            }
-            if (prevId0 == null) {
-                return map;
-            }
-
-            com.example.entity.Tb5Prev tb5Prev = com.example.entity.Tb5Prev.get(prevId0);
             Tb5Reborn tb5Reborn = new Tb5Reborn();
-            tb5Reborn.setPrevId(tb5Prev.getPrevId());
-            tb5Reborn.setPrevInfo(tb5Prev.getPrevInfo());
 
-            tb5Prev.referTb5PrevDets();
-            tb5Reborn.setTb5RebornDets(new java.util.ArrayList<com.example.entity.Tb5RebornDet>());
-            for (com.example.entity.Tb5PrevDet tb5PrevDet : tb5Prev.referTb5PrevDets()) {
-                com.example.entity.Tb5RebornDet tb5RebornDet = new com.example.entity.Tb5RebornDet();
-                tb5RebornDet.setId(tb5PrevDet.getId());
-                tb5RebornDet.setPrevDetInfo(tb5PrevDet.getPrevDetInfo());
-                tb5Reborn.getTb5RebornDets().add(tb5RebornDet);
+            // 転生先になる場合は転生元から情報をコピー
+            Object prevId1 = postJson.get("prevId");
+            if (prevId1 == null) {
+                prevId1 = postJson.get("Tb5Reborn.prevId");
+            }
+            if (prevId1 != null) {
+                com.example.entity.Tb5Prev tb5Prev = com.example.entity.Tb5Prev.get(prevId1);
+                tb5Reborn.setPrevId(tb5Prev.getPrevId());
+                tb5Reborn.setPrevInfo(tb5Prev.getPrevInfo());
+                tb5Prev.referTb5PrevDets();
+                tb5Reborn.setTb5RebornDets(new java.util.ArrayList<com.example.entity.Tb5RebornDet>());
+                for (com.example.entity.Tb5PrevDet tb5PrevDet : tb5Prev.referTb5PrevDets()) {
+                    com.example.entity.Tb5RebornDet tb5RebornDet = new com.example.entity.Tb5RebornDet();
+                    tb5RebornDet.setId(tb5PrevDet.getId());
+                    tb5RebornDet.setPrevDetInfo(tb5PrevDet.getPrevDetInfo());
+                    tb5Reborn.getTb5RebornDets().add(tb5RebornDet);
+                }
+
             }
 
             map.put("Tb5Reborn", tb5Reborn);

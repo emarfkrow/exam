@@ -15,7 +15,10 @@
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum3GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Unit4GridColumns.js}"></script>
+<script th:src="@{/model/Tb8Reborn2GridColumns.js}"></script>
 </head>
 <body>
   <div layout:fragment="article">
@@ -50,7 +53,13 @@
       </fieldset>
       <div class="buttons">
         <button type="reset" id="ResetTb8Choice" th:text="#{common.reset}" class="reset">reset</button>
-        <a th:href="@{/model/Tb8Choice.html}" target="dialog" id="Tb8Choice" class="anew" th:text="#{Tb8Choice.add}" tabindex="-1">選抜</a>
+        <a th:href="@{/model/Tb8Choice.html}" target="dialog" id="Tb8Choice" class="anew derive" th:text="#{Tb8Choice.add}" tabindex="-1">選抜</a>
+          <label for="Tb8Choice.deriveeSumId" th:text="#{Tb8Choice.deriveeSumId}">集約ID</label><input type="text" id="Tb8Choice.deriveeSumId" name="Tb8Choice.deriveeSumId" maxlength="10" />
+          <a id="Tb8Choice.deriveeSumId" th:href="@{/model/Tb7SumS.html?action=Tb7SumCorrect.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
+          <label for="Tb8Choice.deriveeSum2Id" th:text="#{Tb8Choice.deriveeSum2Id}">集約２ID</label><input type="text" id="Tb8Choice.deriveeSum2Id" name="Tb8Choice.deriveeSum2Id" maxlength="10" />
+          <a id="Tb8Choice.deriveeSum2Id" th:href="@{/model/Tb8Sum2S.html?action=Tb8Sum2Correct.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
+          <label for="Tb8Choice.deriveeSum3Id" th:text="#{Tb8Choice.deriveeSum3Id}">集約３ID</label><input type="text" id="Tb8Choice.deriveeSum3Id" name="Tb8Choice.deriveeSum3Id" maxlength="10" />
+          <a id="Tb8Choice.deriveeSum3Id" th:href="@{/model/Tb8Sum3S.html?action=Tb8Sum3Correct.ajax}" target="dialog" class="derivee" th:text="#{common.correct}" tabindex="-1">...</a>
       </div>
       <div class="submits">
         <button id="SearchTb8Choice" type="submit" class="search" data-gridId="Tb8ChoiceGrid" th:text="#{common.search}">submit</button>
