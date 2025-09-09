@@ -102,8 +102,7 @@ public class Tb8Sum2RegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 前世２ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 前世２ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8Prev2Search", "prev2Id", this.getPrev2Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Sum2.prev2Id"));
     }
 

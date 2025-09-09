@@ -101,8 +101,7 @@ public class Tb5DeriveRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 前世ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 前世ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb5PrevSearch", "prevId", this.getPrevId(), jp.co.golorp.emarf.util.Messages.get("Tb5Derive.prevId"));
     }
 

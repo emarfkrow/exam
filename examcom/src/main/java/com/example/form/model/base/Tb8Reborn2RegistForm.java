@@ -84,8 +84,7 @@ public class Tb8Reborn2RegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 単位４ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 単位４ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8Unit4Search", "unit4Id", this.getUnit4Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Reborn2.unit4Id"));
     }
 

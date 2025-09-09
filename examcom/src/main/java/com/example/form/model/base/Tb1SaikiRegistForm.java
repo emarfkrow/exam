@@ -192,25 +192,26 @@ public class Tb1SaikiRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 参照ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", this.getIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.idrefId"));
 
-        // 参照CD のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照CD のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1CdrefSearch", "cdrefCd", this.getCdrefCd(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.cdrefCd"));
 
-        // 参照NO のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照NO のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1NorefSearch", "norefNo", this.getNorefNo(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.norefNo"));
 
-        // 別参照ID のマスタチェック
-        // TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", this.getExIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.exIdrefId"));
+        // 別参照ID のマスタチェック TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "exIdrefId", this.getExIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.exIdrefId"));
 
-        // 親再帰ID のマスタチェック
-        // TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1SaikiSearch", "saikiId", this.getOyaSaikiId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.oyaSaikiId"));
+        // ID連番 のマスタチェック TODO できればAssertTrueにしたい
+        Map<String, Object> tb1IdbnParams = new java.util.HashMap<String, Object>();
+        tb1IdbnParams.put("idrefId", this.getIdrefId());
+        tb1IdbnParams.put("idbnBn", this.getIdbnBn());
+        baseProcess.masterCheck(errors, "Tb1IdbnSearch", "idbnBn", tb1IdbnParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.idbnBn"));
+
+        // 親再帰ID のマスタチェック TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "Tb1SaikiSearch", "oyaSaikiId", this.getOyaSaikiId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.oyaSaikiId"));
     }
 
 }

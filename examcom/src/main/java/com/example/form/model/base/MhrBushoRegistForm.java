@@ -138,9 +138,8 @@ public class MhrBushoRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 親部署ID のマスタチェック
-        // TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", this.getOyaBushoId(), jp.co.golorp.emarf.util.Messages.get("MhrBusho.oyaBushoId"));
+        // 親部署ID のマスタチェック TODO できればAssertTrueにしたい
+        baseProcess.masterCheck(errors, "MhrBushoSearch", "oyaBushoId", this.getOyaBushoId(), jp.co.golorp.emarf.util.Messages.get("MhrBusho.oyaBushoId"));
     }
 
 }

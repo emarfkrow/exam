@@ -105,8 +105,7 @@ public class Tb1IdbnRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 参照ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", this.getIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Idbn.idrefId"));
     }
 

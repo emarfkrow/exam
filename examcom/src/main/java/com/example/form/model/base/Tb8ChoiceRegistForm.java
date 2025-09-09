@@ -173,16 +173,13 @@ public class Tb8ChoiceRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 集約ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 集約ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb7SumSearch", "sumId", this.getSumId(), jp.co.golorp.emarf.util.Messages.get("Tb8Choice.sumId"));
 
-        // 集約２ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 集約２ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8Sum2Search", "sum2Id", this.getSum2Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Choice.sum2Id"));
 
-        // 集約３ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 集約３ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb8Sum3Search", "sum3Id", this.getSum3Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Choice.sum3Id"));
     }
 

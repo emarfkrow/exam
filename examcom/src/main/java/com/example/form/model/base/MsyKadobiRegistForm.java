@@ -125,8 +125,7 @@ public class MsyKadobiRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 部署ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 部署ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", this.getBushoId(), jp.co.golorp.emarf.util.Messages.get("MsyKadobi.bushoId"));
     }
 

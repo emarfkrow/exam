@@ -33,5 +33,15 @@ WHERE
     AND a.`UPDATE_TS` >= :update_ts_1 
     AND a.`UPDATE_TS` <= :update_ts_2 
     AND a.`UPDATE_USER_ID` = :update_user_id 
+    AND EXISTS ( 
+        SELECT
+              * 
+        FROM
+            TB1_COMBO1 p 
+        WHERE
+            1 = 1 
+            AND p.REFER1_ID = :refer_1_id 
+            AND p.REFER2_ID = a.REFER2_ID 
+    ) 
 ORDER BY
     a.`REFER2_ID`

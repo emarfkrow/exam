@@ -123,12 +123,10 @@ public class Tb1Combo1RegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
 
-        // 参照１ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照１ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1Refer1Search", "refer1Id", this.getRefer1Id(), jp.co.golorp.emarf.util.Messages.get("Tb1Combo1.refer1Id"));
 
-        // 参照２ID のマスタチェック
-        // TODO できればAssertTrueにしたい
+        // 参照２ID のマスタチェック TODO できればAssertTrueにしたい
         baseProcess.masterCheck(errors, "Tb1Refer2Search", "refer2Id", this.getRefer2Id(), jp.co.golorp.emarf.util.Messages.get("Tb1Combo1.refer2Id"));
     }
 

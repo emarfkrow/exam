@@ -20,6 +20,10 @@
       <input type="hidden" name="page" value="0" />
       <fieldset>
         <legend th:text="#{Tb1Refer2S.legend}">legend</legend>
+        <div id="refer1Id" class="stint" style="display: none;">
+          <label th:text="#{Tb1Refer1.refer1Id}">参照１ID</label><span id="Tb1Refer1.refer1Id" class="stint"></span><input type="hidden" id="Tb1Refer1.refer1Id" name="Tb1Refer1.refer1Id" class="stint" />
+          <span id="Tb1Refer2.refer1Mei" class="refer" data-json="Tb1Refer1Search.json" data-srcDef="REFER1_ID:Tb1Refer2.refer1Id" data-destDef="Tb1Refer2.refer1Mei:REFER1_MEI"></span>
+        </div>
         <div id="refer2Id">
           <label for="Tb1Refer2.refer2Id" th:text="#{Tb1Refer2.refer2Id}">参照２ID</label><input type="text" id="Tb1Refer2.refer2Id" name="Tb1Refer2.refer2Id" maxlength="10" />
         </div>
