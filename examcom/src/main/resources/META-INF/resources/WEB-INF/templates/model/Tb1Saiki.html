@@ -46,18 +46,18 @@
           <label for="Tb1Saiki.oyaSaikiId" th:text="#{Tb1Saiki.oyaSaikiId}">親再帰ID</label><input type="text" id="Tb1Saiki.oyaSaikiId" name="Tb1Saiki.oyaSaikiId" maxlength="10" class=" refer" data-json="Tb1SaikiSearch.json" data-srcDef="SAIKI_ID:Tb1Saiki.oyaSaikiId" data-destDef="Tb1Saiki.oyaSaikiMei:SAIKI_MEI" /><a id="Tb1Saiki.oyaSaikiId" th:href="@{/model/Tb1SaikiS.html}" target="dialog" class=" refer" th:text="#{common.refer}" tabindex="-1">...</a><span id="Tb1Saiki.oyaSaikiMei" class=" refer" data-json="Tb1SaikiSearch.json" data-srcDef="SAIKI_ID:Tb1Saiki.oyaSaikiId" data-destDef="Tb1Saiki.oyaSaikiMei:SAIKI_MEI"></span>
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb1Saiki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Saiki.insertTs"></span><input type="hidden" id="Tb1Saiki.insertTs" name="Tb1Saiki.insertTs" />
+          <label th:text="#{Tb1Saiki.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Saiki.insertTs" class="meta"></span><input type="hidden" id="Tb1Saiki.insertTs" name="Tb1Saiki.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb1Saiki.insertUserId}" class="meta">作成者</label><span id="Tb1Saiki.insertUserId"></span><input type="hidden" id="Tb1Saiki.insertUserId" name="Tb1Saiki.insertUserId" />
-          <span id="Tb1Saiki.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Saiki.insertUserId" data-destDef="Tb1Saiki.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb1Saiki.insertUserId}" class="meta">作成者</label><span id="Tb1Saiki.insertUserId" class="meta"></span><input type="hidden" id="Tb1Saiki.insertUserId" name="Tb1Saiki.insertUserId" class="meta"/>
+          <span id="Tb1Saiki.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Saiki.insertUserId" data-destDef="Tb1Saiki.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb1Saiki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Saiki.updateTs"></span><input type="hidden" id="Tb1Saiki.updateTs" name="Tb1Saiki.updateTs" />
+          <label th:text="#{Tb1Saiki.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Saiki.updateTs" class="meta"></span><input type="hidden" id="Tb1Saiki.updateTs" name="Tb1Saiki.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb1Saiki.updateUserId}" class="meta">更新者</label><span id="Tb1Saiki.updateUserId"></span><input type="hidden" id="Tb1Saiki.updateUserId" name="Tb1Saiki.updateUserId" />
-          <span id="Tb1Saiki.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Saiki.updateUserId" data-destDef="Tb1Saiki.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb1Saiki.updateUserId}" class="meta">更新者</label><span id="Tb1Saiki.updateUserId" class="meta"></span><input type="hidden" id="Tb1Saiki.updateUserId" name="Tb1Saiki.updateUserId" class="meta"/>
+          <span id="Tb1Saiki.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Saiki.updateUserId" data-destDef="Tb1Saiki.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

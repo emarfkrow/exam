@@ -50,11 +50,11 @@ public class Tb5PrevRegistAction extends BaseAction {
                     com.example.entity.Tb5Derive tb5Derive = com.example.entity.Tb5Derive.get(pk);
                     //集約済みならエラー
                     if (!jp.co.golorp.emarf.lang.StringUtil.isNullOrWhiteSpace(tb5Derive.getPrevId())) {
-                        throw new OptLockError("error.already.summary", "前世");
+                        throw new OptLockError("error.already.summary", "派生");
                     }
                     tb5Derive.setPrevId(e.getPrevId());
                     if (tb5Derive.update(now, execId) != 1) {
-                        throw new OptLockError("error.cant.insert", "前世");
+                        throw new OptLockError("error.cant.insert", "派生");
                     }
                 }
             }

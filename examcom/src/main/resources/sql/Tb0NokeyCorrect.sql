@@ -17,9 +17,11 @@ WHERE
     AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_A`)) LIKE UPPER (CONCAT ('%', :col_a, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_B`)) LIKE UPPER (CONCAT ('%', :col_b, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_C`)) LIKE UPPER (CONCAT ('%', :col_c, '%')) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_D`)) = UPPER (:col_d_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_D`)) LIKE UPPER (CONCAT ('%', :col_d, '%')) 
     AND a.`COL_D` >= :col_d_1 
     AND a.`COL_D` <= :col_d_2 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_E`)) = UPPER (:col_e_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`COL_E`)) LIKE UPPER (CONCAT ('%', :col_e, '%')) 
     AND a.`INSERT_TS` = :insert_ts 
     AND a.`INSERT_TS` >= :insert_ts_1 

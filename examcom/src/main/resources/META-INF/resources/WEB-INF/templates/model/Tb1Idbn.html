@@ -28,18 +28,18 @@
           <label for="Tb1Idbn.idbnNo" th:text="#{Tb1Idbn.idbnNo}">ID連番NO</label><input type="text" id="Tb1Idbn.idbnNo" name="Tb1Idbn.idbnNo" maxlength="10" class=" notblank" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb1Idbn.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Idbn.insertTs"></span><input type="hidden" id="Tb1Idbn.insertTs" name="Tb1Idbn.insertTs" />
+          <label th:text="#{Tb1Idbn.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb1Idbn.insertTs" class="meta"></span><input type="hidden" id="Tb1Idbn.insertTs" name="Tb1Idbn.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb1Idbn.insertUserId}" class="meta">作成者</label><span id="Tb1Idbn.insertUserId"></span><input type="hidden" id="Tb1Idbn.insertUserId" name="Tb1Idbn.insertUserId" />
-          <span id="Tb1Idbn.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Idbn.insertUserId" data-destDef="Tb1Idbn.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb1Idbn.insertUserId}" class="meta">作成者</label><span id="Tb1Idbn.insertUserId" class="meta"></span><input type="hidden" id="Tb1Idbn.insertUserId" name="Tb1Idbn.insertUserId" class="meta"/>
+          <span id="Tb1Idbn.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Idbn.insertUserId" data-destDef="Tb1Idbn.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb1Idbn.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Idbn.updateTs"></span><input type="hidden" id="Tb1Idbn.updateTs" name="Tb1Idbn.updateTs" />
+          <label th:text="#{Tb1Idbn.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb1Idbn.updateTs" class="meta"></span><input type="hidden" id="Tb1Idbn.updateTs" name="Tb1Idbn.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb1Idbn.updateUserId}" class="meta">更新者</label><span id="Tb1Idbn.updateUserId"></span><input type="hidden" id="Tb1Idbn.updateUserId" name="Tb1Idbn.updateUserId" />
-          <span id="Tb1Idbn.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Idbn.updateUserId" data-destDef="Tb1Idbn.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb1Idbn.updateUserId}" class="meta">更新者</label><span id="Tb1Idbn.updateUserId" class="meta"></span><input type="hidden" id="Tb1Idbn.updateUserId" name="Tb1Idbn.updateUserId" class="meta"/>
+          <span id="Tb1Idbn.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb1Idbn.updateUserId" data-destDef="Tb1Idbn.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

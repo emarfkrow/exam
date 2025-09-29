@@ -19,6 +19,7 @@ WHERE
     1 = 1 
     AND a.`BUSHO_ID` = :busho_id 
     AND a.`SHOKUI_ID` = :shokui_id 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KINO_NM`)) = UPPER (:kino_nm_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`KINO_NM`)) LIKE UPPER (CONCAT ('%', :kino_nm, '%')) 
     AND TRIM(TRAILING ' ' FROM a.`KENGEN_KB`) IN (:kengen_kb) 
     AND a.`TEKIYO_BI` = :tekiyo_bi 

@@ -11,6 +11,7 @@ FROM
     TB1_CDREF a 
 WHERE
     1 = 1 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`CDREF_CD`)) = UPPER (:cdref_cd_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`CDREF_CD`)) LIKE UPPER (CONCAT ('%', :cdref_cd, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`CDREF_MEI`)) LIKE UPPER (CONCAT ('%', :cdref_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 

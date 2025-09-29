@@ -19,60 +19,48 @@ public class Tb4OyaRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb4OyaRegistForm.class);
 
     /** 親ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String oyaId;
 
-    /**
-     * @return 親ID
-     */
+    /** @return 親ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getOyaId() {
         return oyaId;
     }
 
-    /**
-     * @param p 親ID
-     */
+    /** @param p 親ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setOyaId(final String p) {
         this.oyaId = p;
     }
 
     /** 親情報 */
-    @jakarta.validation.constraints.Size(max = 300)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 300)
     private String oyaInfo;
 
-    /**
-     * @return 親情報
-     */
+    /** @return 親情報 */
     public String getOyaInfo() {
         return oyaInfo;
     }
 
-    /**
-     * @param p 親情報
-     */
+    /** @param p 親情報 */
     public void setOyaInfo(final String p) {
         this.oyaInfo = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -119,5 +107,4 @@ public class Tb4OyaRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
     }
-
 }

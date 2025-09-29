@@ -19,21 +19,17 @@ public class Tb1SaikiRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb1SaikiRegistForm.class);
 
     /** 再帰ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String saikiId;
 
-    /**
-     * @return 再帰ID
-     */
+    /** @return 再帰ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getSaikiId() {
         return saikiId;
     }
 
-    /**
-     * @param p 再帰ID
-     */
+    /** @param p 再帰ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setSaikiId(final String p) {
         this.saikiId = p;
@@ -41,147 +37,115 @@ public class Tb1SaikiRegistForm implements IForm {
 
     /** 再帰名 */
     @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
-    @jakarta.validation.constraints.Size(max = 60)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 60)
     private String saikiMei;
 
-    /**
-     * @return 再帰名
-     */
+    /** @return 再帰名 */
     public String getSaikiMei() {
         return saikiMei;
     }
 
-    /**
-     * @param p 再帰名
-     */
+    /** @param p 再帰名 */
     public void setSaikiMei(final String p) {
         this.saikiMei = p;
     }
 
     /** 参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String idrefId;
 
-    /**
-     * @return 参照ID
-     */
+    /** @return 参照ID */
     public String getIdrefId() {
         return idrefId;
     }
 
-    /**
-     * @param p 参照ID
-     */
+    /** @param p 参照ID */
     public void setIdrefId(final String p) {
         this.idrefId = p;
     }
 
     /** 参照CD */
-    @jakarta.validation.constraints.Pattern(regexp = "([\\-0-9A-Za-z]{1,10})?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([\\-0-9A-Za-z]{1,10})?")
     private String cdrefCd;
 
-    /**
-     * @return 参照CD
-     */
+    /** @return 参照CD */
     public String getCdrefCd() {
         return cdrefCd;
     }
 
-    /**
-     * @param p 参照CD
-     */
+    /** @param p 参照CD */
     public void setCdrefCd(final String p) {
         this.cdrefCd = p;
     }
 
     /** 参照NO */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{1,10})?")
     private String norefNo;
 
-    /**
-     * @return 参照NO
-     */
+    /** @return 参照NO */
     public String getNorefNo() {
         return norefNo;
     }
 
-    /**
-     * @param p 参照NO
-     */
+    /** @param p 参照NO */
     public void setNorefNo(final String p) {
         this.norefNo = p;
     }
 
     /** 別参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String exIdrefId;
 
-    /**
-     * @return 別参照ID
-     */
+    /** @return 別参照ID */
     public String getExIdrefId() {
         return exIdrefId;
     }
 
-    /**
-     * @param p 別参照ID
-     */
+    /** @param p 別参照ID */
     public void setExIdrefId(final String p) {
         this.exIdrefId = p;
     }
 
     /** ID連番 */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String idbnBn;
 
-    /**
-     * @return ID連番
-     */
+    /** @return ID連番 */
     public String getIdbnBn() {
         return idbnBn;
     }
 
-    /**
-     * @param p ID連番
-     */
+    /** @param p ID連番 */
     public void setIdbnBn(final String p) {
         this.idbnBn = p;
     }
 
     /** 親再帰ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String oyaSaikiId;
 
-    /**
-     * @return 親再帰ID
-     */
+    /** @return 親再帰ID */
     public String getOyaSaikiId() {
         return oyaSaikiId;
     }
 
-    /**
-     * @param p 親再帰ID
-     */
+    /** @param p 親再帰ID */
     public void setOyaSaikiId(final String p) {
         this.oyaSaikiId = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -193,16 +157,24 @@ public class Tb1SaikiRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 参照ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", this.getIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.idrefId"));
+        Map<String, Object> idrefIdParams = new java.util.HashMap<String, Object>();
+        idrefIdParams.put("idrefId", this.getIdrefId());
+        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", idrefIdParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.idrefId"));
 
         // 参照CD のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1CdrefSearch", "cdrefCd", this.getCdrefCd(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.cdrefCd"));
+        Map<String, Object> cdrefCdParams = new java.util.HashMap<String, Object>();
+        cdrefCdParams.put("cdrefCdFull", this.getCdrefCd());
+        baseProcess.masterCheck(errors, "Tb1CdrefSearch", "cdrefCd", cdrefCdParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.cdrefCd"));
 
         // 参照NO のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1NorefSearch", "norefNo", this.getNorefNo(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.norefNo"));
+        Map<String, Object> norefNoParams = new java.util.HashMap<String, Object>();
+        norefNoParams.put("norefNoFull", this.getNorefNo());
+        baseProcess.masterCheck(errors, "Tb1NorefSearch", "norefNo", norefNoParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.norefNo"));
 
         // 別参照ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "exIdrefId", this.getExIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.exIdrefId"));
+        Map<String, Object> exIdrefIdParams = new java.util.HashMap<String, Object>();
+        exIdrefIdParams.put("exIdrefId", this.getExIdrefId());
+        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "exIdrefId", exIdrefIdParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.exIdrefId"));
 
         // ID連番 のマスタチェック TODO できればAssertTrueにしたい
         Map<String, Object> tb1IdbnParams = new java.util.HashMap<String, Object>();
@@ -211,7 +183,8 @@ public class Tb1SaikiRegistForm implements IForm {
         baseProcess.masterCheck(errors, "Tb1IdbnSearch", "idbnBn", tb1IdbnParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.idbnBn"));
 
         // 親再帰ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1SaikiSearch", "oyaSaikiId", this.getOyaSaikiId(), jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.oyaSaikiId"));
+        Map<String, Object> oyaSaikiIdParams = new java.util.HashMap<String, Object>();
+        oyaSaikiIdParams.put("oyaSaikiId", this.getOyaSaikiId());
+        baseProcess.masterCheck(errors, "Tb1SaikiSearch", "oyaSaikiId", oyaSaikiIdParams, jp.co.golorp.emarf.util.Messages.get("Tb1Saiki.oyaSaikiId"));
     }
-
 }

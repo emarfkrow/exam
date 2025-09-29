@@ -14,8 +14,8 @@
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
 <script th:src="@{/model/Tb8ChoiceGridColumns.js}"></script>
 <script th:src="@{/model/Tb7SumGridColumns.js}"></script>
-<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
@@ -33,18 +33,18 @@
           <label th:text="#{Tb8Reborn2.unit4Id}">単位４ID</label><span id="Tb8Reborn2.unit4Id" class="rebornee"></span><input type="hidden" id="Tb8Reborn2.unit4Id" name="Tb8Reborn2.unit4Id" class="rebornee" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb8Reborn2.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8Reborn2.insertTs"></span><input type="hidden" id="Tb8Reborn2.insertTs" name="Tb8Reborn2.insertTs" />
+          <label th:text="#{Tb8Reborn2.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8Reborn2.insertTs" class="meta"></span><input type="hidden" id="Tb8Reborn2.insertTs" name="Tb8Reborn2.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb8Reborn2.insertUserId}" class="meta">作成者</label><span id="Tb8Reborn2.insertUserId"></span><input type="hidden" id="Tb8Reborn2.insertUserId" name="Tb8Reborn2.insertUserId" />
-          <span id="Tb8Reborn2.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Reborn2.insertUserId" data-destDef="Tb8Reborn2.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb8Reborn2.insertUserId}" class="meta">作成者</label><span id="Tb8Reborn2.insertUserId" class="meta"></span><input type="hidden" id="Tb8Reborn2.insertUserId" name="Tb8Reborn2.insertUserId" class="meta"/>
+          <span id="Tb8Reborn2.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Reborn2.insertUserId" data-destDef="Tb8Reborn2.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb8Reborn2.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8Reborn2.updateTs"></span><input type="hidden" id="Tb8Reborn2.updateTs" name="Tb8Reborn2.updateTs" />
+          <label th:text="#{Tb8Reborn2.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8Reborn2.updateTs" class="meta"></span><input type="hidden" id="Tb8Reborn2.updateTs" name="Tb8Reborn2.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb8Reborn2.updateUserId}" class="meta">更新者</label><span id="Tb8Reborn2.updateUserId"></span><input type="hidden" id="Tb8Reborn2.updateUserId" name="Tb8Reborn2.updateUserId" />
-          <span id="Tb8Reborn2.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Reborn2.updateUserId" data-destDef="Tb8Reborn2.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb8Reborn2.updateUserId}" class="meta">更新者</label><span id="Tb8Reborn2.updateUserId" class="meta"></span><input type="hidden" id="Tb8Reborn2.updateUserId" name="Tb8Reborn2.updateUserId" class="meta"/>
+          <span id="Tb8Reborn2.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Reborn2.updateUserId" data-destDef="Tb8Reborn2.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

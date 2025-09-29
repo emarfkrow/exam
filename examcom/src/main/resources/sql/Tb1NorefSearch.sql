@@ -11,6 +11,7 @@ FROM
     TB1_NOREF a 
 WHERE
     1 = 1 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_NO`)) = UPPER (:noref_no_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_NO`)) LIKE UPPER (CONCAT ('%', :noref_no, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`NOREF_MEI`)) LIKE UPPER (CONCAT ('%', :noref_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 

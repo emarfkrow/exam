@@ -20,21 +20,17 @@ public class MsyKadobiRegistForm implements IForm {
 
     /** 稼働日 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2})?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kadoBi;
 
-    /**
-     * @return 稼働日
-     */
+    /** @return 稼働日 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKadoBi() {
         return kadoBi;
     }
 
-    /**
-     * @param p 稼働日
-     */
+    /** @param p 稼働日 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKadoBi(final String p) {
         this.kadoBi = p;
@@ -42,21 +38,17 @@ public class MsyKadobiRegistForm implements IForm {
 
     /** 部署ID */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String bushoId;
 
-    /**
-     * @return 部署ID
-     */
+    /** @return 部署ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getBushoId() {
         return bushoId;
     }
 
-    /**
-     * @param p 部署ID
-     */
+    /** @param p 部署ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setBushoId(final String p) {
         this.bushoId = p;
@@ -64,57 +56,45 @@ public class MsyKadobiRegistForm implements IForm {
 
     /** 稼働日フラグ */
     @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
-    @jakarta.validation.constraints.Size(max = 1)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 1)
     private String kadobiF;
 
-    /**
-     * @return 稼働日フラグ
-     */
+    /** @return 稼働日フラグ */
     public String getKadobiF() {
         return kadobiF;
     }
 
-    /**
-     * @param p 稼働日フラグ
-     */
+    /** @param p 稼働日フラグ */
     public void setKadobiF(final String p) {
         this.kadobiF = p;
     }
 
     /** メモ */
-    @jakarta.validation.constraints.Size(max = 300)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 300)
     private String memo;
 
-    /**
-     * @return メモ
-     */
+    /** @return メモ */
     public String getMemo() {
         return memo;
     }
 
-    /**
-     * @param p メモ
-     */
+    /** @param p メモ */
     public void setMemo(final String p) {
         this.memo = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -126,7 +106,8 @@ public class MsyKadobiRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 部署ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", this.getBushoId(), jp.co.golorp.emarf.util.Messages.get("MsyKadobi.bushoId"));
+        Map<String, Object> bushoIdParams = new java.util.HashMap<String, Object>();
+        bushoIdParams.put("bushoId", this.getBushoId());
+        baseProcess.masterCheck(errors, "MhrBushoSearch", "bushoId", bushoIdParams, jp.co.golorp.emarf.util.Messages.get("MsyKadobi.bushoId"));
     }
-
 }

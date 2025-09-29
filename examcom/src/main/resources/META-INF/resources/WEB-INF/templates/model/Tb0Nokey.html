@@ -27,24 +27,24 @@
           <label for="Tb0Nokey.colC" th:text="#{Tb0Nokey.colC}">列Ｃ</label><input type="text" id="Tb0Nokey.colC" name="Tb0Nokey.colC" maxlength="60" class=" uniqueKey" />
         </div>
         <div id="colD">
-          <label for="Tb0Nokey.colD" th:text="#{Tb0Nokey.colD}">列Ｄ</label><input type="text" id="Tb0Nokey.colD" name="Tb0Nokey.colD" maxlength="60" class=" primaryKey" />
+          <label for="Tb0Nokey.colD" th:text="#{Tb0Nokey.colD}">列Ｄ</label><input type="number" id="Tb0Nokey.colD" name="Tb0Nokey.colD" maxlength="60" class=" primaryKey" />
         </div>
         <div id="colE">
           <label for="Tb0Nokey.colE" th:text="#{Tb0Nokey.colE}">列Ｅ</label><input type="text" id="Tb0Nokey.colE" name="Tb0Nokey.colE" maxlength="60" class=" primaryKey" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb0Nokey.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb0Nokey.insertTs"></span><input type="hidden" id="Tb0Nokey.insertTs" name="Tb0Nokey.insertTs" />
+          <label th:text="#{Tb0Nokey.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb0Nokey.insertTs" class="meta"></span><input type="hidden" id="Tb0Nokey.insertTs" name="Tb0Nokey.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb0Nokey.insertUserId}" class="meta">作成者</label><span id="Tb0Nokey.insertUserId"></span><input type="hidden" id="Tb0Nokey.insertUserId" name="Tb0Nokey.insertUserId" />
-          <span id="Tb0Nokey.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Nokey.insertUserId" data-destDef="Tb0Nokey.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb0Nokey.insertUserId}" class="meta">作成者</label><span id="Tb0Nokey.insertUserId" class="meta"></span><input type="hidden" id="Tb0Nokey.insertUserId" name="Tb0Nokey.insertUserId" class="meta"/>
+          <span id="Tb0Nokey.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Nokey.insertUserId" data-destDef="Tb0Nokey.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb0Nokey.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb0Nokey.updateTs"></span><input type="hidden" id="Tb0Nokey.updateTs" name="Tb0Nokey.updateTs" />
+          <label th:text="#{Tb0Nokey.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb0Nokey.updateTs" class="meta"></span><input type="hidden" id="Tb0Nokey.updateTs" name="Tb0Nokey.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb0Nokey.updateUserId}" class="meta">更新者</label><span id="Tb0Nokey.updateUserId"></span><input type="hidden" id="Tb0Nokey.updateUserId" name="Tb0Nokey.updateUserId" />
-          <span id="Tb0Nokey.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Nokey.updateUserId" data-destDef="Tb0Nokey.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb0Nokey.updateUserId}" class="meta">更新者</label><span id="Tb0Nokey.updateUserId" class="meta"></span><input type="hidden" id="Tb0Nokey.updateUserId" name="Tb0Nokey.updateUserId" class="meta"/>
+          <span id="Tb0Nokey.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Nokey.updateUserId" data-destDef="Tb0Nokey.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

@@ -11,6 +11,7 @@ FROM
     MSY_KBN a 
 WHERE
     1 = 1 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_NM`)) = UPPER (:kbn_nm_full) 
     AND UPPER (:kbn_nm) LIKE UPPER (CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`))) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_MEI`)) LIKE UPPER (CONCAT ('%', :kbn_mei, '%')) 
     AND a.`INSERT_TS` = :insert_ts 

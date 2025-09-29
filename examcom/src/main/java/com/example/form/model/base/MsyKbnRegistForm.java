@@ -20,21 +20,17 @@ public class MsyKbnRegistForm implements IForm {
 
     /** 区分名称 */
     @jakarta.validation.constraints.NotBlank
-    @jakarta.validation.constraints.Size(max = 20)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 20)
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String kbnNm;
 
-    /**
-     * @return 区分名称
-     */
+    /** @return 区分名称 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getKbnNm() {
         return kbnNm;
     }
 
-    /**
-     * @param p 区分名称
-     */
+    /** @param p 区分名称 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setKbnNm(final String p) {
         this.kbnNm = p;
@@ -42,39 +38,31 @@ public class MsyKbnRegistForm implements IForm {
 
     /** 区分名 */
     @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
-    @jakarta.validation.constraints.Size(max = 60)
+    @jakarta.validation.constraints.Size(groups = jp.co.golorp.emarf.validation.Regist.class, max = 60)
     private String kbnMei;
 
-    /**
-     * @return 区分名
-     */
+    /** @return 区分名 */
     public String getKbnMei() {
         return kbnMei;
     }
 
-    /**
-     * @param p 区分名
-     */
+    /** @param p 区分名 */
     public void setKbnMei(final String p) {
         this.kbnMei = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -103,5 +91,4 @@ public class MsyKbnRegistForm implements IForm {
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
         LOG.trace("validate() not overridden in subclasses.");
     }
-
 }

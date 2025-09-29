@@ -29,18 +29,18 @@
           <label for="Tb6Org.orgInfo" th:text="#{Tb6Org.orgInfo}">起源情報</label><input type="text" id="Tb6Org.orgInfo" name="Tb6Org.orgInfo" maxlength="300" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb6Org.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6Org.insertTs"></span><input type="hidden" id="Tb6Org.insertTs" name="Tb6Org.insertTs" />
+          <label th:text="#{Tb6Org.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb6Org.insertTs" class="meta"></span><input type="hidden" id="Tb6Org.insertTs" name="Tb6Org.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb6Org.insertUserId}" class="meta">作成者</label><span id="Tb6Org.insertUserId"></span><input type="hidden" id="Tb6Org.insertUserId" name="Tb6Org.insertUserId" />
-          <span id="Tb6Org.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Org.insertUserId" data-destDef="Tb6Org.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb6Org.insertUserId}" class="meta">作成者</label><span id="Tb6Org.insertUserId" class="meta"></span><input type="hidden" id="Tb6Org.insertUserId" name="Tb6Org.insertUserId" class="meta"/>
+          <span id="Tb6Org.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Org.insertUserId" data-destDef="Tb6Org.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb6Org.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6Org.updateTs"></span><input type="hidden" id="Tb6Org.updateTs" name="Tb6Org.updateTs" />
+          <label th:text="#{Tb6Org.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb6Org.updateTs" class="meta"></span><input type="hidden" id="Tb6Org.updateTs" name="Tb6Org.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb6Org.updateUserId}" class="meta">更新者</label><span id="Tb6Org.updateUserId"></span><input type="hidden" id="Tb6Org.updateUserId" name="Tb6Org.updateUserId" />
-          <span id="Tb6Org.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Org.updateUserId" data-destDef="Tb6Org.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb6Org.updateUserId}" class="meta">更新者</label><span id="Tb6Org.updateUserId" class="meta"></span><input type="hidden" id="Tb6Org.updateUserId" name="Tb6Org.updateUserId" class="meta"/>
+          <span id="Tb6Org.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb6Org.updateUserId" data-destDef="Tb6Org.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <h3 th:text="#{Tb6OrgDet.h3}">h3</h3>

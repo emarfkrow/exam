@@ -3,8 +3,8 @@ package com.example.form.model.base;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import jakarta.validation.Valid;
 import jp.co.golorp.emarf.process.BaseProcess;
@@ -17,8 +17,8 @@ import jp.co.golorp.emarf.validation.IForm;
  */
 public class Tb5PrevDetSRegistForm implements IForm {
 
-    /** logger */
-    private static final Logger LOG = LoggerFactory.getLogger(Tb5PrevDetRegistForm.class);
+    // /** logger */
+    // private static final Logger LOG = LoggerFactory.getLogger(Tb5PrevDetRegistForm.class);
 
     /** 前世明細登録フォームのリスト */
     @Valid
@@ -41,7 +41,11 @@ public class Tb5PrevDetSRegistForm implements IForm {
     /** 関連チェック */
     @Override
     public void validate(final Map<String, String> errors, final BaseProcess baseProcess) {
-        LOG.debug("validate() not overridden in subclasses.");
+        for (Tb5PrevDetRegistForm form : tb5PrevDetGrid) {
+            if (form != null) {
+                form.validate(errors, baseProcess);
+            }
+        }
     }
 
 }

@@ -15,7 +15,9 @@ FROM
     MSY_KBN_VAL a 
 WHERE
     1 = 1 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_NM`)) = UPPER (:kbn_nm_full) 
     AND UPPER (:kbn_nm) LIKE UPPER (CONCAT ('%', TRIM(TRAILING ' ' FROM a.`KBN_NM`))) 
+    AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_VAL`)) = UPPER (:kbn_val_full) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_VAL`)) LIKE UPPER (CONCAT ('%', :kbn_val, '%')) 
     AND UPPER (TRIM(TRAILING ' ' FROM a.`KBN_VAL_MEI`)) LIKE UPPER (CONCAT ('%', :kbn_val_mei, '%')) 
     AND a.`HYOJI_ON` = :hyoji_on 

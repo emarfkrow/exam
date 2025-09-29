@@ -19,42 +19,34 @@ public class Tb1IdbnRegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb1IdbnRegistForm.class);
 
     /** 参照ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String idrefId;
 
-    /**
-     * @return 参照ID
-     */
+    /** @return 参照ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getIdrefId() {
         return idrefId;
     }
 
-    /**
-     * @param p 参照ID
-     */
+    /** @param p 参照ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setIdrefId(final String p) {
         this.idrefId = p;
     }
 
     /** 参照ID連番 */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String idbnBn;
 
-    /**
-     * @return 参照ID連番
-     */
+    /** @return 参照ID連番 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getIdbnBn() {
         return idbnBn;
     }
 
-    /**
-     * @param p 参照ID連番
-     */
+    /** @param p 参照ID連番 */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setIdbnBn(final String p) {
         this.idbnBn = p;
@@ -62,39 +54,31 @@ public class Tb1IdbnRegistForm implements IForm {
 
     /** ID連番NO */
     @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{1,10})?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{1,10})?")
     private String idbnNo;
 
-    /**
-     * @return ID連番NO
-     */
+    /** @return ID連番NO */
     public String getIdbnNo() {
         return idbnNo;
     }
 
-    /**
-     * @param p ID連番NO
-     */
+    /** @param p ID連番NO */
     public void setIdbnNo(final String p) {
         this.idbnNo = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -106,7 +90,8 @@ public class Tb1IdbnRegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 参照ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", this.getIdrefId(), jp.co.golorp.emarf.util.Messages.get("Tb1Idbn.idrefId"));
+        Map<String, Object> idrefIdParams = new java.util.HashMap<String, Object>();
+        idrefIdParams.put("idrefId", this.getIdrefId());
+        baseProcess.masterCheck(errors, "Tb1IdrefSearch", "idrefId", idrefIdParams, jp.co.golorp.emarf.util.Messages.get("Tb1Idbn.idrefId"));
     }
-
 }

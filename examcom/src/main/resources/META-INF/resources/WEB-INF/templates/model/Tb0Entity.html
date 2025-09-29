@@ -57,13 +57,13 @@
           <label for="Tb0Entity.tenpuFile" th:text="#{Tb0Entity.tenpuFile}">添付ファイル</label><input type="file" id="Tb0Entity.tenpuFile" name="Tb0Entity.tenpuFile" maxlength="300" class=" notblank" /><a id="Tb0Entity.tenpuFile" target="blank" style="display: none;"></a><input type="hidden" id="Tb0Entity.tenpuFile" name="Tb0Entity.tenpuFile" disabled />
         </div>
         <div id="nenY">
-          <label for="Tb0Entity.nenY" th:text="#{Tb0Entity.nenY}">年</label><input type="text" id="Tb0Entity.nenY" name="Tb0Entity.nenY" maxlength="4" class=" notblank" />
+          <label for="Tb0Entity.nenY" th:text="#{Tb0Entity.nenY}">年</label><input type="number" id="Tb0Entity.nenY" name="Tb0Entity.nenY" maxlength="4" class=" notblank" />
         </div>
         <div id="tsukiM">
-          <label for="Tb0Entity.tsukiM" th:text="#{Tb0Entity.tsukiM}">月</label><input type="text" id="Tb0Entity.tsukiM" name="Tb0Entity.tsukiM" maxlength="2" class=" notblank" />
+          <label for="Tb0Entity.tsukiM" th:text="#{Tb0Entity.tsukiM}">月</label><input type="number" id="Tb0Entity.tsukiM" name="Tb0Entity.tsukiM" maxlength="2" class=" notblank" />
         </div>
         <div id="hiD">
-          <label for="Tb0Entity.hiD" th:text="#{Tb0Entity.hiD}">日</label><input type="text" id="Tb0Entity.hiD" name="Tb0Entity.hiD" maxlength="2" class=" notblank" />
+          <label for="Tb0Entity.hiD" th:text="#{Tb0Entity.hiD}">日</label><input type="number" id="Tb0Entity.hiD" name="Tb0Entity.hiD" maxlength="2" class=" notblank" />
         </div>
         <div id="nengetsuYm">
           <label for="Tb0Entity.nengetsuYm" th:text="#{Tb0Entity.nengetsuYm}">年月</label><input type="month" id="Tb0Entity.nengetsuYm" name="Tb0Entity.nengetsuYm" maxlength="6" class=" notblank" />
@@ -87,10 +87,10 @@
           <label for="Tb0Entity.jikanTm" th:text="#{Tb0Entity.jikanTm}">時間</label><input type="text" id="Tb0Entity.jikanTm" name="Tb0Entity.jikanTm" maxlength="9" class=" notblank time" />
         </div>
         <div id="suryoQt">
-          <label for="Tb0Entity.suryoQt" th:text="#{Tb0Entity.suryoQt}">数量</label><input type="text" id="Tb0Entity.suryoQt" name="Tb0Entity.suryoQt" maxlength="11" class=" notblank" />
+          <label for="Tb0Entity.suryoQt" th:text="#{Tb0Entity.suryoQt}">数量</label><input type="number" id="Tb0Entity.suryoQt" name="Tb0Entity.suryoQt" maxlength="11" class=" notblank" />
         </div>
         <div id="tankaPr">
-          <label for="Tb0Entity.tankaPr" th:text="#{Tb0Entity.tankaPr}">単価</label><input type="text" id="Tb0Entity.tankaPr" name="Tb0Entity.tankaPr" maxlength="11" class=" notblank" />
+          <label for="Tb0Entity.tankaPr" th:text="#{Tb0Entity.tankaPr}">単価</label><input type="number" id="Tb0Entity.tankaPr" name="Tb0Entity.tankaPr" maxlength="11" class=" notblank" />
         </div>
         <div id="tsukaKb">
           <fieldset id="Tb0Entity.tsukaKbList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:TSUKA_KB" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI" class=" notblank">
@@ -98,7 +98,7 @@
           </fieldset>
         </div>
         <div id="zeinukiAm">
-          <label for="Tb0Entity.zeinukiAm" th:text="#{Tb0Entity.zeinukiAm}">税抜金額</label><input type="text" id="Tb0Entity.zeinukiAm" name="Tb0Entity.zeinukiAm" maxlength="11" class=" notblank" />
+          <label th:text="#{Tb0Entity.zeinukiAm}">税抜金額</label><span id="Tb0Entity.zeinukiAm"></span><input type="hidden" id="Tb0Entity.zeinukiAm" name="Tb0Entity.zeinukiAm" />
         </div>
         <div id="deleteF">
           <fieldset id="Tb0Entity.deleteFList" data-options="MsyKbnValSearch.json" data-optionParams="KBN_NM:DELETE_F" data-optionValue="KBN_VAL" data-optionLabel="KBN_VAL_MEI">
@@ -111,18 +111,18 @@
           </fieldset>
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb0Entity.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb0Entity.insertTs"></span><input type="hidden" id="Tb0Entity.insertTs" name="Tb0Entity.insertTs" />
+          <label th:text="#{Tb0Entity.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb0Entity.insertTs" class="meta"></span><input type="hidden" id="Tb0Entity.insertTs" name="Tb0Entity.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb0Entity.insertUserId}" class="meta">作成者</label><span id="Tb0Entity.insertUserId"></span><input type="hidden" id="Tb0Entity.insertUserId" name="Tb0Entity.insertUserId" />
-          <span id="Tb0Entity.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Entity.insertUserId" data-destDef="Tb0Entity.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb0Entity.insertUserId}" class="meta">作成者</label><span id="Tb0Entity.insertUserId" class="meta"></span><input type="hidden" id="Tb0Entity.insertUserId" name="Tb0Entity.insertUserId" class="meta"/>
+          <span id="Tb0Entity.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Entity.insertUserId" data-destDef="Tb0Entity.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb0Entity.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb0Entity.updateTs"></span><input type="hidden" id="Tb0Entity.updateTs" name="Tb0Entity.updateTs" />
+          <label th:text="#{Tb0Entity.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb0Entity.updateTs" class="meta"></span><input type="hidden" id="Tb0Entity.updateTs" name="Tb0Entity.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb0Entity.updateUserId}" class="meta">更新者</label><span id="Tb0Entity.updateUserId"></span><input type="hidden" id="Tb0Entity.updateUserId" name="Tb0Entity.updateUserId" />
-          <span id="Tb0Entity.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Entity.updateUserId" data-destDef="Tb0Entity.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb0Entity.updateUserId}" class="meta">更新者</label><span id="Tb0Entity.updateUserId" class="meta"></span><input type="hidden" id="Tb0Entity.updateUserId" name="Tb0Entity.updateUserId" class="meta"/>
+          <span id="Tb0Entity.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb0Entity.updateUserId" data-destDef="Tb0Entity.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

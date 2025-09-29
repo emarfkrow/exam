@@ -11,8 +11,8 @@
 <script th:src="@{/model/Tb8ChoiceGridColumns.js}"></script>
 <script th:src="@{/model/Tb7SumGridColumns.js}"></script>
 <script th:src="@{/model/MhrUserGridColumns.js}"></script>
-<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/Tb7Unit1GridColumns.js}"></script>
+<script th:src="@{/model/Tb7Unit2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Sum2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Prev2GridColumns.js}"></script>
 <script th:src="@{/model/Tb8Unit3GridColumns.js}"></script>
@@ -51,18 +51,18 @@
           <label for="Tb8Choice.sum3Info" th:text="#{Tb8Choice.sum3Info}">集約３情報</label><input type="text" id="Tb8Choice.sum3Info" name="Tb8Choice.sum3Info" maxlength="300" />
         </div>
         <div id="insertTs">
-          <label th:text="#{Tb8Choice.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8Choice.insertTs"></span><input type="hidden" id="Tb8Choice.insertTs" name="Tb8Choice.insertTs" />
+          <label th:text="#{Tb8Choice.insertTs}" class="meta">作成タイムスタンプ</label><span id="Tb8Choice.insertTs" class="meta"></span><input type="hidden" id="Tb8Choice.insertTs" name="Tb8Choice.insertTs" class="meta"/>
         </div>
         <div id="insertUserId">
-          <label th:text="#{Tb8Choice.insertUserId}" class="meta">作成者</label><span id="Tb8Choice.insertUserId"></span><input type="hidden" id="Tb8Choice.insertUserId" name="Tb8Choice.insertUserId" />
-          <span id="Tb8Choice.insertUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Choice.insertUserId" data-destDef="Tb8Choice.insertUserSei:USER_SEI"></span>
+          <label th:text="#{Tb8Choice.insertUserId}" class="meta">作成者</label><span id="Tb8Choice.insertUserId" class="meta"></span><input type="hidden" id="Tb8Choice.insertUserId" name="Tb8Choice.insertUserId" class="meta"/>
+          <span id="Tb8Choice.insertUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Choice.insertUserId" data-destDef="Tb8Choice.insertUserSei:USER_SEI"></span>
         </div>
         <div id="updateTs">
-          <label th:text="#{Tb8Choice.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8Choice.updateTs"></span><input type="hidden" id="Tb8Choice.updateTs" name="Tb8Choice.updateTs" />
+          <label th:text="#{Tb8Choice.updateTs}" class="meta">更新タイムスタンプ</label><span id="Tb8Choice.updateTs" class="meta"></span><input type="hidden" id="Tb8Choice.updateTs" name="Tb8Choice.updateTs" class="meta"/>
         </div>
         <div id="updateUserId">
-          <label th:text="#{Tb8Choice.updateUserId}" class="meta">更新者</label><span id="Tb8Choice.updateUserId"></span><input type="hidden" id="Tb8Choice.updateUserId" name="Tb8Choice.updateUserId" />
-          <span id="Tb8Choice.updateUserSei" class="refer" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Choice.updateUserId" data-destDef="Tb8Choice.updateUserSei:USER_SEI"></span>
+          <label th:text="#{Tb8Choice.updateUserId}" class="meta">更新者</label><span id="Tb8Choice.updateUserId" class="meta"></span><input type="hidden" id="Tb8Choice.updateUserId" name="Tb8Choice.updateUserId" class="meta"/>
+          <span id="Tb8Choice.updateUserSei" class="refer meta" data-json="MhrUserSearch.json" data-srcDef="USER_ID:Tb8Choice.updateUserId" data-destDef="Tb8Choice.updateUserSei:USER_SEI"></span>
         </div>
       </fieldset>
       <div class="buttons">

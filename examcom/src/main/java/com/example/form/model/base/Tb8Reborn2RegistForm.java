@@ -19,21 +19,17 @@ public class Tb8Reborn2RegistForm implements IForm {
     private static final Logger LOG = LoggerFactory.getLogger(Tb8Reborn2RegistForm.class);
 
     /** 転生２ID */
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     @jp.co.golorp.emarf.validation.PrimaryKeys
     private String reborn2Id;
 
-    /**
-     * @return 転生２ID
-     */
+    /** @return 転生２ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public String getReborn2Id() {
         return reborn2Id;
     }
 
-    /**
-     * @param p 転生２ID
-     */
+    /** @param p 転生２ID */
     @jp.co.golorp.emarf.validation.PrimaryKeys
     public void setReborn2Id(final String p) {
         this.reborn2Id = p;
@@ -41,39 +37,31 @@ public class Tb8Reborn2RegistForm implements IForm {
 
     /** 単位４ID */
     @jakarta.validation.constraints.NotBlank(groups = jp.co.golorp.emarf.validation.Regist.class)
-    @jakarta.validation.constraints.Pattern(regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "-?([0-9]{0,10}\\.?[0-9]{0,0}?)?")
     private String unit4Id;
 
-    /**
-     * @return 単位４ID
-     */
+    /** @return 単位４ID */
     public String getUnit4Id() {
         return unit4Id;
     }
 
-    /**
-     * @param p 単位４ID
-     */
+    /** @param p 単位４ID */
     public void setUnit4Id(final String p) {
         this.unit4Id = p;
     }
 
     /** 更新タイムスタンプ */
-    @jakarta.validation.constraints.Pattern(regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
+    @jakarta.validation.constraints.Pattern(groups = jp.co.golorp.emarf.validation.Regist.class, regexp = "([0-9]{13}|[0-9]{4}(\\/|\\-)[0-9]{1,2}(\\/|\\-)[0-9]{1,2}(T| )[0-9]{1,2}:[0-9]{1,2}(:[0-9]{1,2}(\\.[0-9]{3})?)?)?")
     @jp.co.golorp.emarf.validation.OptLock
     private String updateTs;
 
-    /**
-     * @return 更新タイムスタンプ
-     */
+    /** @return 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public String getUpdateTs() {
         return updateTs;
     }
 
-    /**
-     * @param p 更新タイムスタンプ
-     */
+    /** @param p 更新タイムスタンプ */
     @jp.co.golorp.emarf.validation.OptLock
     public void setUpdateTs(final String p) {
         this.updateTs = p;
@@ -85,7 +73,8 @@ public class Tb8Reborn2RegistForm implements IForm {
         LOG.trace("validate() not overridden in subclasses.");
 
         // 単位４ID のマスタチェック TODO できればAssertTrueにしたい
-        baseProcess.masterCheck(errors, "Tb8Unit4Search", "unit4Id", this.getUnit4Id(), jp.co.golorp.emarf.util.Messages.get("Tb8Reborn2.unit4Id"));
+        Map<String, Object> unit4IdParams = new java.util.HashMap<String, Object>();
+        unit4IdParams.put("unit4Id", this.getUnit4Id());
+        baseProcess.masterCheck(errors, "Tb8Unit4Search", "unit4Id", unit4IdParams, jp.co.golorp.emarf.util.Messages.get("Tb8Reborn2.unit4Id"));
     }
-
 }
